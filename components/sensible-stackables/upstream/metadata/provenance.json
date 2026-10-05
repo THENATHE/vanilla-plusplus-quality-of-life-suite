@@ -1,0 +1,22 @@
+{
+  "source_release": "3.0.3+26.2",
+  "declared_mod_version": "3.0.3",
+  "modrinth_version_id": "idGrQ43h",
+  "published_source_matches_github_java_revision": "5152fe99424922d9bbdf209fc974ba5bebd7e11b",
+  "github_branch": "multicutter-v3",
+  "developer_mc": "26.2",
+  "ported_mc": "26.3",
+  "no_published_26_3_release_at_inspection": true,
+  "artifacts": [
+    {
+      "file": "sensible_stackables-fabric-3.0.3+26.2-sources.jar",
+      "sha256": "8b657cc7f9ba14f0705ad4b5be1f2327be10000e16cbd1a0f27c2d26ddf055e0",
+      "sha512": "1de56c553e322d9808da6615e377e94794b365bd07d24445d792451e49bebb182421462e4ebaacff74868673754afea7b9a7b3690553437c34917469cd23b6d9"
+    },
+    {
+      "file": "sensible_stackables-fabric-3.0.3+26.2.jar",
+      "sha256": "3adefd8ae5fb59502e52cd830e9fe28cded4f8c71009122d3c06bfbd8107633b",
+      "sha512": "ccce60f91614fbf2234dda5862478f8b591215b9d604811d954813fe10de06b1866107cf5391df718edc5b073b48f037b056d011264623d47f1c8fdd6a093cb9"
+    }
+  ]
+}

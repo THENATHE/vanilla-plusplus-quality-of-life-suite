@@ -40,7 +40,8 @@ public final class SettingsClientQa implements ClientModInitializer {
                     c.gui.setScreen(SuiteSettings.create(null));
                     configs=SuiteSettings.collectConfigs();
                     ids=new ArrayList<>(configs.keySet());
-                    var expected=Set.of("simple_smithing_overhaul.config-v2","mapstitch.config","mapstitch.client_config","toolpouch.config","toolpouch.client_config","tiered_backpacks.config","misctweaks.config","misctweaks.client_config","simple_death_improvements.config","thenathe_mod_suite.overview","thenathe_mod_suite.chalk");
+                    var expected=new java.util.HashSet<>(Set.of("simple_smithing_overhaul.config-v2","mapstitch.config","mapstitch.client_config","toolpouch.config","toolpouch.client_config","tiered_backpacks.config","misctweaks.config","misctweaks.client_config","simple_death_improvements.config","thenathe_mod_suite.overview","thenathe_mod_suite.chalk"));
+                    if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("sensible_stackables")){expected.add("sensible_stackables.config");expected.add("sensible_stackables.client_config");}
                     if(!configs.keySet().equals(expected)) throw new AssertionError("unexpected config keys="+configs.keySet());
                     for(var entry:configs.entrySet()) {
                         if(!entry.getValue().getActive().getId().toLanguageKey().equals(entry.getKey())) throw new AssertionError("identity changed "+entry.getKey());

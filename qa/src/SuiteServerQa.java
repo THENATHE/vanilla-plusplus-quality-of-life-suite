@@ -59,6 +59,13 @@ public final class SuiteServerQa implements ModInitializer {
             var anvilStack = new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.parse("simple_smithing_overhaul:broken_anvil")));
             anvilStack.set(DataComponents.CUSTOM_NAME, Component.literal("Suite QA Broken Anvil"));
             handler.player.getInventory().setItem(1, anvilStack);
+            if(FabricLoader.getInstance().isModLoaded("sensible_stackables")) {
+                var stone=new ItemStack(net.minecraft.world.item.Items.STONE);
+                stone.setCount(stone.getMaxStackSize());
+                var potion=new ItemStack(net.minecraft.world.item.Items.POTION,3);
+                handler.player.getInventory().setItem(2,stone);
+                handler.player.getInventory().setItem(3,potion);
+            }
             handler.player.inventoryMenu.broadcastFullState();
             JsonObject marker = new JsonObject();
             marker.addProperty("x",position.getX());marker.addProperty("y",position.getY());marker.addProperty("z",position.getZ());
@@ -68,6 +75,12 @@ public final class SuiteServerQa implements ModInitializer {
             marker.addProperty("anvil_x", anvilPosition.getX());marker.addProperty("anvil_y", anvilPosition.getY());marker.addProperty("anvil_z", anvilPosition.getZ());
             marker.addProperty("server_anvil", BuiltInRegistries.BLOCK.getKey(level.getBlockState(anvilPosition).getBlock()).toString());
             marker.addProperty("anvil_facing", "east");
+            if(FabricLoader.getInstance().isModLoaded("sensible_stackables")) {
+                marker.addProperty("stone_count",handler.player.getInventory().getItem(2).getCount());
+                marker.addProperty("stone_max",handler.player.getInventory().getItem(2).getMaxStackSize());
+                marker.addProperty("potion_count",3);
+                marker.addProperty("potion_max",handler.player.getInventory().getItem(3).getMaxStackSize());
+            }
             result.add("marker",marker);
             passed &= level.getBlockState(anvilPosition).equals(anvil);
             passed &= level.getBlockState(position).equals(mark);

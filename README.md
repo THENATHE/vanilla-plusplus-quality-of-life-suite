@@ -2,6 +2,8 @@
 
 [What it is](#what-it-is) · [Features](#features) · [Vanilla compatibility](#the-shim-vanilla-and-modded-players-together) · [Installation](#installation) · [Technical info](#technical-info) · [Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Dependencies and compatible mods](docs/DEPENDENCIES.md)
 
+This is the independent `feat/sensible-stackables` branch, version `1.0.2-stackables.1+26.3`. It adds the [Sensible Stackables port and compatibility module](components/sensible-stackables/README.md); stable release links still identify the published mainline.
+
 ## What it is
 
 A collection of Minecraft quality-of-life mods brought together into one feature-packed **Fabric mod for Minecraft 26.3**, maintained by **THENATHE**. It combines better equipment repair and enchanting, useful storage, maps that work together, less punishing deaths, colorful cave markings, and everyday gameplay improvements.
@@ -11,6 +13,22 @@ The suite includes the original mods listed below, plus my own additions to help
 This is an unofficial community project. Credit for the original mods belongs to their creators, thanked below. Many features are configurable, so your server's settings may differ from the defaults described here.
 
 ## Features
+
+### Sensible Stackables
+
+[Original mod on Modrinth](https://modrinth.com/mod/sensible-stackables)
+
+Thanks for your hard work, **pajic**!
+
+- Stack potions up to 3, saddles up to 16, and enchanted books up to 64 under the default rules.
+- Configure common stack sizes and per-item or tag overrides.
+- Optionally uncap stack sizes beyond the normal limit.
+- Retain the original stacked-item menu fixes and throwable-potion cooldown.
+- Native clients retain count abbreviation and display scaling.
+
+#### My tweaks and changes
+
+This branch uses an unofficial 26.3 port and a separate Polymer module. It keeps the original settings and server quantities. Clients without the suite receive safe stack defaults; above 99, only their prediction metadata is capped at 99, and completed inventory moves are corrected by the server. See [provenance, behavior, and verification](components/sensible-stackables/README.md).
 
 ### Simple Smithing Overhaul
 
@@ -292,7 +310,7 @@ The compatibility layer includes:
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Download `vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/latest) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
+2. Download `vanilla-plusplus-quality-of-life-suite-1.0.2-stackables.1+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.0.2-stackables.1%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
 3. Install the required libraries below. The suite includes the feature mods, but these shared libraries remain separate.
 4. Remove separate copies of the included feature mods, their addons, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
@@ -307,7 +325,7 @@ The compatibility layer includes:
 | [Defaulted](https://modrinth.com/mod/defaulted) — use the suite's library ZIP | **1.3.8+26.3.dropfix.1** |
 | [CodecUI](https://github.com/MehVahdJukaar/codecui) — use the suite's library ZIP; no Modrinth listing | **26.3-1.4.3** |
 
-The release's `vanilla-plusplus-local-libraries-1.0.1+26.3.zip` supplies the exact **Defaulted dropfix and CodecUI** builds. Extract its two JARs from `mods/` into your instance's `mods/` folder. Replace other external copies of those two libraries. Download the remaining libraries separately; the [dependency directory](docs/DEPENDENCIES.md) includes exact publisher download links. The ordinary Defaulted download does not replace the required dropfix build.
+The release's `vanilla-plusplus-local-libraries-1.0.2-stackables.1+26.3.zip` supplies the exact **Defaulted dropfix and CodecUI** builds. Extract its two JARs from `mods/` into your instance's `mods/` folder. Replace other external copies of those two libraries. Download the remaining libraries separately; the [dependency directory](docs/DEPENDENCIES.md) includes exact publisher download links. The ordinary Defaulted download does not replace the required dropfix build.
 
 ### Allow vanilla players to join
 
@@ -348,7 +366,7 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar`.
+The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Branch output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-stackables.1+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 

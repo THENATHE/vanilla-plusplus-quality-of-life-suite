@@ -18,7 +18,7 @@ Install these separately on the server and on clients using the suite. Vanilla c
 
 **Platform:** Minecraft 26.3, Java 25+, and [Fabric Loader 0.19.5](https://fabricmc.net/use/installer/). Fabric Loader is installed through the launcher/installer; it is not a dependency mod downloaded from a Modrinth project. Java and Minecraft are platform prerequisites.
 
-The optional `vanilla-plusplus-local-libraries-1.0.1+26.3.zip` includes only the exact Defaulted and CodecUI JARs and their notices. Copy the two JARs from its `mods/` folder into the instance’s `mods/`.
+The optional `vanilla-plusplus-local-libraries-1.0.2-stackables.1+26.3.zip` includes only the exact Defaulted and CodecUI JARs and their notices. Copy the two JARs from its `mods/` folder into the instance’s `mods/`.
 
 ## Optional libraries and tools
 
@@ -83,3 +83,7 @@ These modules are already inside the suite JAR. Keep their separate original JAR
 | Chalk: Colorful Addon | [Modrinth](https://modrinth.com/mod/chalk-colorful-addon) | Suite uses the local metadata port for Chalk 26.3. |
 
 Shared Region Maps, Amethyst Curse Cleanser, the atlas/Elytra addon, and suite compatibility components are locally maintained here; no separate Modrinth listing is claimed. Their source locations are in [UPDATING.md](UPDATING.md). The bundled [MixinConstraints library](https://github.com/Moulberry/MixinConstraints) stays inside the original feature JARs; no additional download is required and no Modrinth listing was found.
+
+## Sensible Stackables experimental module
+
+[Pajic’s Sensible Stackables](https://modrinth.com/mod/sensible-stackables) is nested in this branch as the unofficial **3.0.3-port.1+26.3** port, alongside a separate **1.0.0+26.3** compatibility module. No external copy is needed. Its Fzzy Config, Defaulted and Mixson dependencies use the same exact suite versions listed above. The published developer baseline is **3.0.3+26.2**; it is not a 26.3 developer release. [Per-track provenance, dependency locks and verification](../components/sensible-stackables/README.md).

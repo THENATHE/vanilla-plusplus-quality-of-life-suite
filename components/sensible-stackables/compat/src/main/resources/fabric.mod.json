@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "sensible_stackables_polymer_compat",
+  "version": "${version}",
+  "name": "Sensible Stackables Suite Compatibility",
+  "description": "Shared suite negotiation and functional Polymer transport for Sensible Stackables.",
+  "authors": [
+    "THENATHE"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.thenathe.stackablescompat.StackablesCompat"
+    ]
+  },
+  "mixins": [
+    "sensible_stackables_polymer_compat.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "26.3",
+    "java": ">=25",
+    "fabricloader": ">=0.19.5",
+    "fabric-api": ">=0.161.0+26.3",
+    "thenathe_mod_suite": "*",
+    "sensible_stackables": "=3.0.3-port.1+26.3"
+  },
+  "suggests": {
+    "polymer-core": "0.18.2+26.3"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "thenathe_mod_suite",
-  "version": "1.0.1+26.3",
-  "sha256": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a",
+  "version": "1.0.2-stackables.1+26.3",
+  "sha256": "40c7ad4b454e8caa2a4518fcd246aa8fb54feeb65cc98ecc87dfd2a4af334acb",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -60,9 +60,9 @@
     },
     {
       "id": "sso_backpack_toolpouch_mapstitch_shim",
-      "version": "1.0.6-suite.1+26.3",
-      "sha256": "a8718aa1a8248f8cbb4870a6da9afe766f7bc6323b7cbd43ab6473465a9289cc",
-      "file": "META-INF/jars/thenathe-suite-combined-compat-1.0.6-suite.1+26.3.jar"
+      "version": "1.0.7-stackables.1+26.3",
+      "sha256": "c01237cb612d7a892b6a710874a0d8df7252de4a2786eafa7581011211aa883f",
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.0.7-stackables.1+26.3.jar"
     },
     {
       "id": "chalk_polymer_compat",
@@ -81,23 +81,23 @@
       "version": "1.0.5-suite.1+26.3",
       "sha256": "662859ed9e7d5792ab06514a3f0984ca2fcb0885417c6f556511d347d8f534ea",
       "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.5-suite.1+26.3.jar"
+    },
+    {
+      "id": "sensible_stackables",
+      "version": "3.0.3-port.1+26.3",
+      "sha256": "d3c20a42a4d288a0a7a1e7d4e5d6e8ef48fcfd4cc24b7a126ddd4840ca92543e",
+      "file": "META-INF/jars/sensible_stackables-fabric-3.0.3-port.1+26.3.jar"
+    },
+    {
+      "id": "sensible_stackables_polymer_compat",
+      "version": "1.0.0+26.3",
+      "sha256": "c03d08c09e8f2789001c5c3083fe2450f71621f096d2a8cca84e22ad29307f2c",
+      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.0+26.3.jar"
     }
   ],
   "original_inputs_unchanged": true,
   "defaulted_exact_dropfix_requirement": true,
   "licenses_retained": true,
   "runtime_tested": true,
-  "date": "2026-10-04",
-  "runtime_evidence": [
-    "qa/evidence/1.0.1/connections.json",
-    "qa/evidence/1.0.1/extended-connections.json",
-    "qa/evidence/1.0.1/client-polymer.json",
-    "qa/evidence/1.0.1/integrated.json",
-    "qa-settings/evidence/lifecycle-1.0.1.json",
-    "qa-settings/evidence/lifecycle-1.0.1-class-equivalence.json"
-  ],
-  "build_evidence": [
-    "docs/clean-build-verification.json"
-  ],
-  "scope": "12 exact-final network/integrated cases and focused settings lifecycle smoke; full settings permissions/reconnect matrix on a candidate with all 658 Java classes identical. Older broad mechanics/HUD results are historical; see docs/VALIDATION.md."
+  "evidence": "qa-stackables/evidence"
 }

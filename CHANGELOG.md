@@ -1,5 +1,14 @@
 # Changes
 
+## 1.0.2-stackables.1+26.3 — 2026-10-04 (experimental branch)
+
+- Integrate Sensible Stackables as an independently compiled unofficial 26.3 port and separate Polymer module. Preserve original 26.2 source/binary/dependencies and verification.
+- Keep default stack rules, configurable uncapping, menu fixes, throw cooldown, original configuration and native count presentation.
+- Synchronize stack defaults through Polymer. Preserve full counts above 99 while advertising safe fallback maximum metadata; correct completed inventory actions.
+- Add independently negotiated Stackables capability and its original settings to the grouped hub.
+
+These features are not merged into main. Exact branch validation is in [VALIDATION.md](docs/VALIDATION.md).
+
 ## 1.0.1+26.3 — 2026-10-04
 
 - Matching suite clients now receive SSO’s actual broken-anvil block and facing. Clients without native SSO support continue to receive a safe damaged-anvil representation through Polymer. Native block registry synchronization, confirmed state IDs and palette width now cover SSO and Chalk together, including independent module fallback.

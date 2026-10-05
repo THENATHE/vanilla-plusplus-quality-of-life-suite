@@ -1,6 +1,6 @@
 # Source map and updating upstream modules
 
-The workspace source remains at `Minecraft/thenathe-mod-suite/`. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
+The experimental source is at `Minecraft/suite-sensible-stackables/`; stable main remains at `Minecraft/thenathe-mod-suite/`. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
 
 ## Where things live
 
@@ -29,6 +29,10 @@ The workspace source remains at `Minecraft/thenathe-mod-suite/`. The public repo
 | qa/ | Connection/capability smoke, final native/fallback packet checks and disposable runs |
 | qa-settings/, qa-hud/, qa-mechanics/ | Unified settings/permissions screenshots, actual HUD observations, recipe/menu/drop/map persistence regressions |
 | tools/package-release.py | Package a committed, verified version into the required release hierarchy |
+| components/sensible-stackables/upstream/ | Untouched 26.2 publisher source/binary records and independently tested baseline |
+| components/sensible-stackables/ported/ | Independent 26.3 port retaining upstream mixins, settings and dependencies |
+| components/sensible-stackables/compat/ | Separate Polymer stack defaults, safe metadata and authoritative menu correction |
+| qa-stackables/ | Actual menu/count conservation, drop, codec and restart evidence for both targets |
 | build/libs/ | Development output, separate from released artifacts |
 
 The historical projects outside this suite remain preserved. Consolidated local source/build locations and QA helper resolution are documented in [local archive maintenance](LOCAL_ARCHIVE.md). Suite releases use `Builds/Minecraft/Vanilla++ Quality of Life Suite/<Component>/<Release Version>/`, with the installable JAR, checksums, source archive and release notes together.
@@ -62,6 +66,6 @@ The atlas/Elytra component uses the same staged root inputs as the other suite p
 
 ## Rebuilding a public checkout from release inputs
 
-Download this version’s feature JAR and optional local-library ZIP from the public release. Extract the ZIP into an input directory, and put the exact remaining publisher library JARs listed in README/locks there too. Run `python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar --inputs /path/to/inputs --download-public`. The script verifies the outer release hash and stages only nested originals that match the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It also recursively finds the local-library archive’s `mods/` directory and rejects unavailable/mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs.
+Download this version’s feature JAR and optional local-library ZIP from the public release. Extract the ZIP into an input directory, and put the exact remaining publisher library JARs listed in README/locks there too. Run `python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.0.2-stackables.1+26.3.jar --inputs /path/to/inputs --download-public`. The script verifies the outer release hash and stages only nested originals that match the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It also recursively finds the local-library archive’s `mods/` directory and rejects unavailable/mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs.
 
 After changing source, build and run the applicable checks. Update the build and validation records with the exact tested hash, commit source/docs/evidence, then run `python3 tools/package-release.py` from a clean checkout. The packager creates the installable JAR, optional MIT-only library archive, tracked-source archive, release notes and checksums. It excludes QA fixtures and external public libraries. A new version requires updated metadata/locks/verification and a new tag; preserve older releases.

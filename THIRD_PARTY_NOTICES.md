@@ -6,7 +6,7 @@ New suite, negotiation, compatibility and addon code uses the MIT license in LIC
 
 | Included component | Original author / project | License |
 | --- | --- | --- |
-| Simple Smithing Overhaul, MapStitch, Tool Pouch, Tiered Backpacks, MiscTweaks, Simple Death Improvements | Pajic, https://github.com/pajicadvance | MIT; each original copyright notice retained |
+| Simple Smithing Overhaul, MapStitch, Tool Pouch, Tiered Backpacks, MiscTweaks, Simple Death Improvements, Sensible Stackables | Pajic, https://github.com/pajicadvance | MIT; each original copyright notice retained |
 | Chalk | mortuusars; Fabric port by DaFuqs and contributors | MIT; original and Fabric-port notices retained |
 | Chalk Colorful Addon | Original uploaded addon authors listed in its preserved metadata | MIT; its original license and icon are unchanged |
 | Shared Region Maps | THENATHE | All rights reserved, retained; redistributed here by its owner |

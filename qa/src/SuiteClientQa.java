@@ -15,7 +15,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.Display;
 
 public final class SuiteClientQa implements ClientModInitializer {
-    private int ticks, joins;
+    private int ticks, joins, stackStage, stackTicks;
     private boolean done, mutated;
     public void onInitializeClient() {
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> { joins++; ticks = 0; done = false; });
@@ -69,9 +69,40 @@ public final class SuiteClientQa implements ClientModInitializer {
                     if (ticks < 200) return;
                     throw new IllegalStateException("Broken anvil packet mismatch: block=" + actualAnvil + " item=" + actualAnvilItem);
                 }
+                if(marker.has("stone_count")&&stackStage==0) {
+                    for(var pair:new String[]{"stone","potion"}) {
+                        var received=client.player.getInventory().getItem(pair.equals("stone")?2:3);
+                        int count=marker.get(pair+"_count").getAsInt(), max=marker.get(pair+"_max").getAsInt();
+                        if(!nativeChalk)max=Math.min(99,max);
+                        if(received.getCount()!=count||received.getMaxStackSize()!=max) {
+                            if(ticks<200)return;
+                            throw new IllegalStateException(pair+" packet count="+received.getCount()+" max="+received.getMaxStackSize()+" expected "+count+"/"+max);
+                        }
+                    }
+                }
+                if(Boolean.getBoolean("suite.qa.stackables-actions")&&marker.has("stone_count")) {
+                    int expected=marker.get("stone_count").getAsInt();
+                    var menu=client.player.inventoryMenu;
+                    if(stackStage==0) {
+                        client.gameMode.handleContainerInput(menu.containerId,38,0,net.minecraft.world.inventory.ContainerInput.PICKUP,client.player);
+                        stackStage=1;stackTicks=ticks;return;
+                    }
+                    if(stackStage==1) {
+                        if(ticks-stackTicks<20)return;
+                        if(menu.getCarried().getCount()!=expected||!client.player.getInventory().getItem(2).isEmpty())throw new IllegalStateException("pickup lost stack: carried="+menu.getCarried().getCount());
+                        client.gameMode.handleContainerInput(menu.containerId,40,0,net.minecraft.world.inventory.ContainerInput.PICKUP,client.player);
+                        stackStage=2;stackTicks=ticks;return;
+                    }
+                    if(stackStage==2) {
+                        if(ticks-stackTicks<20)return;
+                        if(client.player.getInventory().getItem(4).getCount()!=expected||!menu.getCarried().isEmpty())throw new IllegalStateException("place lost stack: slot="+client.player.getInventory().getItem(4).getCount()+" carried="+menu.getCarried().getCount());
+                        stackStage=3;
+                    }
+                }
                 done = true;
                 Files.writeString(directory.resolve("client-joined.txt"), "PASS in-world client ticks\n");
-                JsonObject result = new JsonObject();result.addProperty("join_count", joins);result.addProperty("passed", true);
+                JsonObject result = new JsonObject();if(marker.has("stone_count")) {result.addProperty("stone_count",client.player.getInventory().getItem(stackStage==3?4:2).getCount());result.addProperty("inventory_packet_moves",stackStage==3);result.addProperty("stone_max",client.player.getInventory().getItem(stackStage==3?4:2).getMaxStackSize());result.addProperty("potion_count",client.player.getInventory().getItem(3).getCount());result.addProperty("potion_max",client.player.getInventory().getItem(3).getMaxStackSize());}
+                result.addProperty("join_count", joins);result.addProperty("passed", true);
                 result.addProperty("native_chalk",nativeChalk);result.addProperty("actual_block",actualBlock);result.addProperty("actual_item",actualItem);
                 result.addProperty("damage",stack.getDamageValue());result.addProperty("custom_name",stack.get(DataComponents.CUSTOM_NAME).getString());result.addProperty("virtual_mark_displays",displays);
                 result.addProperty("native_sso", nativeSso);result.addProperty("actual_anvil", actualAnvil);
