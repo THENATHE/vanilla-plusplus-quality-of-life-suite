@@ -59,6 +59,20 @@ public final class SuiteServerQa implements ModInitializer {
             var anvilStack = new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.parse("simple_smithing_overhaul:broken_anvil")));
             anvilStack.set(DataComponents.CUSTOM_NAME, Component.literal("Suite QA Broken Anvil"));
             handler.player.getInventory().setItem(1, anvilStack);
+            if(FabricLoader.getInstance().isModLoaded("mapstitch_mixed_scales")&&expected) {
+                var atlas=new ItemStack(me.pajic.mapstitch.item.ModItems.ATLAS);
+                var maps=new java.util.ArrayList<net.minecraft.world.item.ItemStackTemplate>();
+                for(byte scale=0;scale<5;scale++)maps.add(net.minecraft.world.item.ItemStackTemplate.fromNonEmptyStack(net.minecraft.world.item.MapItem.create(level,handler.player.getBlockX(),handler.player.getBlockZ(),scale,true,false)));
+                atlas.set(DataComponents.BUNDLE_CONTENTS,new net.minecraft.world.item.component.BundleContents(maps));
+                atlas.set(me.pajic.mapstitch.component.ModDataComponents.ATLAS_SCALE,0);
+                handler.player.getInventory().setItem(2,atlas);
+                var other=atlas.copy();other.set(me.pajic.mapstitch.component.ModDataComponents.ATLAS_SCALE,2);
+                handler.player.getInventory().setItem(3,other);
+                me.pajic.toolpouch.ToolPouch.CONFIG.allowUseFromInventory.accept(true);
+                var pouch=new ItemStack(me.pajic.toolpouch.item.ModItems.TOOL_POUCH);
+                pouch.set(DataComponents.CONTAINER,net.minecraft.world.item.component.ItemContainerContents.fromItems(java.util.List.of(atlas.copy())));
+                handler.player.getInventory().setItem(4,pouch);
+            }
             handler.player.inventoryMenu.broadcastFullState();
             JsonObject marker = new JsonObject();
             marker.addProperty("x",position.getX());marker.addProperty("y",position.getY());marker.addProperty("z",position.getZ());

@@ -18,7 +18,7 @@ Install these separately on the server and on clients using the suite. Vanilla c
 
 **Platform:** Minecraft 26.3, Java 25+, and [Fabric Loader 0.19.5](https://fabricmc.net/use/installer/). Fabric Loader is installed through the launcher/installer; it is not a dependency mod downloaded from a Modrinth project. Java and Minecraft are platform prerequisites.
 
-The optional `vanilla-plusplus-local-libraries-1.0.1+26.3.zip` includes only the exact Defaulted and CodecUI JARs and their notices. Copy the two JARs from its `mods/` folder into the instance’s `mods/`.
+The optional `vanilla-plusplus-local-libraries-1.0.2-multiscale.1+26.3.zip` includes only the exact Defaulted and CodecUI JARs and their notices. Copy the two JARs from its `mods/` folder into the instance’s `mods/`.
 
 ## Optional libraries and tools
 

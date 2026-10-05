@@ -1,5 +1,14 @@
 # Changes
 
+## 1.0.2-multiscale.1+26.3 — 2026-10-04 (experimental branch)
+
+- Add a separately built mixed-scale MapStitch addon; original MapStitch JAR stays byte-identical.
+- Store maps at all five scales in one atlas; persist active exploration/minimap scale using original world-map controls.
+- Preserve map IDs and exactly-once blank consumption, shared scale-specific regions, pouch saveback and restart state.
+- Bind scale selection to the owned physical atlas location, including identical inventory/pouch copies. Require addon-aware MapStitch negotiation.
+
+These features are not merged into main. Exact branch validation is in [VALIDATION.md](docs/VALIDATION.md).
+
 ## 1.0.1+26.3 — 2026-10-04
 
 - Matching suite clients now receive SSO’s actual broken-anvil block and facing. Clients without native SSO support continue to receive a safe damaged-anvil representation through Polymer. Native block registry synchronization, confirmed state IDs and palette width now cover SSO and Chalk together, including independent module fallback.

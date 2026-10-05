@@ -69,9 +69,10 @@ public final class SuiteClientQa implements ClientModInitializer {
                     if (ticks < 200) return;
                     throw new IllegalStateException("Broken anvil packet mismatch: block=" + actualAnvil + " item=" + actualAnvilItem);
                 }
+                if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("mapstitch_mixed_scales")&&nativeChalk&&!MixedUi.progress(client,ticks))return;
                 done = true;
                 Files.writeString(directory.resolve("client-joined.txt"), "PASS in-world client ticks\n");
-                JsonObject result = new JsonObject();result.addProperty("join_count", joins);result.addProperty("passed", true);
+                JsonObject result = new JsonObject();result.addProperty("mixed_scale_ui_roundtrip",nativeChalk&&MixedUi.mixedStage==7);result.addProperty("join_count", joins);result.addProperty("passed", true);
                 result.addProperty("native_chalk",nativeChalk);result.addProperty("actual_block",actualBlock);result.addProperty("actual_item",actualItem);
                 result.addProperty("damage",stack.getDamageValue());result.addProperty("custom_name",stack.get(DataComponents.CUSTOM_NAME).getString());result.addProperty("virtual_mark_displays",displays);
                 result.addProperty("native_sso", nativeSso);result.addProperty("actual_anvil", actualAnvil);
@@ -79,6 +80,51 @@ public final class SuiteClientQa implements ClientModInitializer {
                 Files.writeString(directory.resolve("client-joined.json"), result.toString());
             } catch (Exception error) { throw new RuntimeException(error); }
         });
+    }
+
+    private static final class MixedUi {
+        static int mixedStage,mixedTicks;
+        static boolean progress(net.minecraft.client.Minecraft client,int ticks) {
+                    var atlas=client.player.getInventory().getItem(2);
+                    if(mixedStage==0) {
+                        com.thenathe.multiscale.client.MixedScalesClient.rememberUse(atlas);
+                        var screen=new me.pajic.mapstitch.worldmap.WorldMapScreen(0);
+                        client.gui.setScreen(screen);
+                        // Exercise the original scale button; render injection sends the packet.
+                        ((net.minecraft.client.gui.components.Button)screen.children().get(3)).onPress(new net.minecraft.client.input.KeyEvent(com.mojang.blaze3d.platform.InputConstants.KEY_S,0,0));
+                        mixedStage=1;mixedTicks=ticks;return false;
+                    }
+                    if(ticks-mixedTicks<15)return false;
+                    if(mixedStage==6) {
+                        var pouch=com.thenathe.toolpouchcompat.AtlasBridge.atlases(client.player);
+                        boolean correct=pouch.size()==1&&pouch.getFirst().getOrDefault(me.pajic.mapstitch.component.ModDataComponents.ATLAS_SCALE,-1)==1;
+                        if(!correct) {
+                            if(ticks-mixedTicks<100)return false;
+                            throw new IllegalStateException("Keybind selected wrong duplicate atlas: pouch="+pouch);
+                        }
+                        if(atlas.get(me.pajic.mapstitch.component.ModDataComponents.ATLAS_SCALE)!=0||client.player.getInventory().getItem(3).get(me.pajic.mapstitch.component.ModDataComponents.ATLAS_SCALE)!=2)throw new IllegalStateException("Pouch scale changed an inventory book");
+                        mixedStage=7;client.gui.setScreen(null);return true;
+                    }
+                    var stored=com.thenathe.toolpouchcompat.AtlasBridge.atlases(client.player);
+                    if(stored.size()!=1||stored.getFirst().get(me.pajic.mapstitch.component.ModDataComponents.ATLAS_SCALE)!=0)throw new IllegalStateException("Explicit inventory selection changed pouch");
+                    int wanted=mixedStage%5;
+                    if(atlas.getOrDefault(me.pajic.mapstitch.component.ModDataComponents.ATLAS_SCALE,-1)!=wanted) {
+                        if(ticks-mixedTicks<100)return false;
+                        throw new IllegalStateException("Mixed-scale UI selection not synchronized: stage="+mixedStage+" atlas="+atlas);
+                    }
+                    if(client.player.getInventory().getItem(3).get(me.pajic.mapstitch.component.ModDataComponents.ATLAS_SCALE)!=2)throw new IllegalStateException("Scale selection changed second atlas");
+                    if(mixedStage<5) {
+                        ((me.pajic.mapstitch.worldmap.WorldMapScreen)client.gui.screen()).keyPressed(new net.minecraft.client.input.KeyEvent(com.mojang.blaze3d.platform.InputConstants.KEY_S,0,0));
+                        mixedStage++;mixedTicks=ticks;return false;
+                    }
+                    client.gui.setScreen(null);
+                    if(!net.minecraft.world.item.ItemStack.isSameItemSameComponents(atlas,stored.getFirst()))throw new IllegalStateException("Duplicate-source fixture is not component-identical");
+                    // The default minimap source is the identical pouch copy.
+                    var screen=new me.pajic.mapstitch.worldmap.WorldMapScreen(-1);
+                    client.gui.setScreen(screen);
+                    ((net.minecraft.client.gui.components.Button)screen.children().get(3)).onPress(new net.minecraft.client.input.KeyEvent(com.mojang.blaze3d.platform.InputConstants.KEY_S,0,0));
+                    mixedStage=6;mixedTicks=ticks;return false;
+        }
     }
     /** Only loaded for a deliberate mismatch fixture running the full suite. */
     private static final class Mutation {

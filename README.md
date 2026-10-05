@@ -1,5 +1,7 @@
 # Vanilla++ Quality of Life Suite
 
+This is the independent `feat/mapstitch-mixed-scales` branch, suite `1.0.2-multiscale.1+26.3`. Its [separate MapStitch addon](docs/MIXED_SCALES.md) lets one atlas store all five map scales while retaining original MapStitch binaries and saved map IDs. Baseline release validation remains historical; branch-specific evidence lives under `qa-multiscale/`.
+
 [What it is](#what-it-is) · [Features](#features) · [Vanilla compatibility](#the-shim-vanilla-and-modded-players-together) · [Installation](#installation) · [Technical info](#technical-info) · [Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Dependencies and compatible mods](docs/DEPENDENCIES.md)
 
 ## What it is
@@ -292,7 +294,7 @@ The compatibility layer includes:
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Download `vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/latest) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
+2. Download `vanilla-plusplus-quality-of-life-suite-1.0.2-multiscale.1+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.0.2-multiscale.1%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
 3. Install the required libraries below. The suite includes the feature mods, but these shared libraries remain separate.
 4. Remove separate copies of the included feature mods, their addons, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
@@ -307,7 +309,7 @@ The compatibility layer includes:
 | [Defaulted](https://modrinth.com/mod/defaulted) — use the suite's library ZIP | **1.3.8+26.3.dropfix.1** |
 | [CodecUI](https://github.com/MehVahdJukaar/codecui) — use the suite's library ZIP; no Modrinth listing | **26.3-1.4.3** |
 
-The release's `vanilla-plusplus-local-libraries-1.0.1+26.3.zip` supplies the exact **Defaulted dropfix and CodecUI** builds. Extract its two JARs from `mods/` into your instance's `mods/` folder. Replace other external copies of those two libraries. Download the remaining libraries separately; the [dependency directory](docs/DEPENDENCIES.md) includes exact publisher download links. The ordinary Defaulted download does not replace the required dropfix build.
+The release's `vanilla-plusplus-local-libraries-1.0.2-multiscale.1+26.3.zip` supplies the exact **Defaulted dropfix and CodecUI** builds. Extract its two JARs from `mods/` into your instance's `mods/` folder. Replace other external copies of those two libraries. Download the remaining libraries separately; the [dependency directory](docs/DEPENDENCIES.md) includes exact publisher download links. The ordinary Defaulted download does not replace the required dropfix build.
 
 ### Allow vanilla players to join
 
@@ -348,7 +350,7 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar`.
+The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-multiscale.1+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 

@@ -17,3 +17,7 @@ New suite, negotiation, compatibility and addon code uses the MIT license in LIC
 Original nested dependency JARs, including MixinConstraints, are kept intact with their own metadata and licenses. This is not a claim that every library used by the suite is MIT. Shared runtime libraries are installed separately and retain their own terms: Fabric API and Fabric Language Kotlin, Fzzy Config, Cloth Config, Defaulted, CodecUI, Mixson, and optional Polymer/Mod Menu. Library versions and hashes are pinned separately in locks/; no library API has been replaced with local code.
 
 [ClientSort](https://modrinth.com/mod/clientsort) is an optional runtime integration and pinned compile-only dependency; its binary is excluded from the suite and library archive. Full dependency and integration download links are in [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md).
+
+## Mixed-scale atlas branch addon
+
+MapStitch Mixed Scales 1.0.0+26.3 is a separately authored THENATHE suite addon under the root MIT license. It targets the unchanged developer MapStitch 1.1.6+26.3 input and retains the upstream notices above. Its implementation and update boundaries are recorded in docs/MIXED_SCALES.md.

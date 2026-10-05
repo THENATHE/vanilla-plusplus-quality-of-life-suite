@@ -74,7 +74,7 @@
       "file": "META-INF/jars/toolpouch-fabric-1.1.10+26.3.jar"
     },
     {
-      "file": "META-INF/jars/thenathe-suite-combined-compat-1.0.6-suite.1+26.3.jar"
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.0.7-multiscale.1+26.3.jar"
     },
     {
       "file": "META-INF/jars/thenathe-suite-chalk-compat-1.1.1-suite.1+26.3.jar"
@@ -84,6 +84,9 @@
     },
     {
       "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.5-suite.1+26.3.jar"
+    },
+    {
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.0.0+26.3.jar"
     }
   ]
 }
