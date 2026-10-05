@@ -1,3 +1,12 @@
+# Current merged.3 focused verification
+
+Evidence is under `evidence/merged3`: one final native/client-Polymer atlas control and tooltip run, final 12-category Configure... labels/navigation run, and previous-build module comparison. Broad gameplay matrices were not rerun for this small presentation change.
+
+```sh
+python3 qa/light.py --label <unique-label> --client-polymer-only
+python3 qa-settings/run.py --suite build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.3+26.3.jar --label <unique-label> --settings-only
+```
+
 # Combined branch QA
 
 Current testing target: **1.0.2-merged.2+26.3** on `merged`. The final hash and published verification scope are in [build verification](../docs/build-verification.json) and [validation](../docs/VALIDATION.md). Historical evidence at the original `evidence/` paths below still belongs to merged.1; never attribute its hash or assertion totals to merged.2.

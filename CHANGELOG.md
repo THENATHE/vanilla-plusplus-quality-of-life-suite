@@ -1,5 +1,11 @@
 # Changes
 
+## 1.0.2-merged.3+26.3 — 2026-10-05 (testing branch)
+
+- Move minimap and generation controls into an aligned, right-aligned group immediately beneath the top coordinate numbers; restore every original right-side button position and gap.
+- Reorder atlas tooltips: storage introduction, enabled generation scales, minimap scale, then unchanged original counts/ejection information.
+- Use Configure... for settings navigation buttons while retaining original category names, settings, and behavior.
+
 ## 1.0.2-merged.2+26.3 — 2026-10-05 (testing branch)
 
 - Separate world-map viewing, minimap scale, and per-scale map generation. Add compact controls below S, per-atlas persistence, and generation tooltips.

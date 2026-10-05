@@ -7,12 +7,13 @@ import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
-/** Mod Menu remains optional, including on dedicated servers. */
+/** Mod Menu remains optional; native settings presentation depends only on Fzzy Config. */
 public final class ModMenuMixinPlugin implements IMixinConfigPlugin {
     @Override public void onLoad(String mixinPackage) {}
     @Override public String getRefMapperConfig() { return null; }
     @Override public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         var loader = FabricLoader.getInstance();
+        if (mixinClassName.endsWith("SettingsNavigationButtonMixin")) return loader.isModLoaded("fzzy_config");
         return loader.isModLoaded("modmenu")
                 && (!mixinClassName.endsWith("ChalkModMenuMixin") || loader.isModLoaded("chalk"));
     }

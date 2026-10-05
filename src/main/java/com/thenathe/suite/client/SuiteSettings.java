@@ -63,6 +63,14 @@ public final class SuiteSettings {
         return provide(parent, SCOPE + ".chalk");
     }
 
+    /** Limit navigation presentation changes to configurations owned by this hub. */
+    public static boolean isGroupedConfigScope(String scope) {
+        int separator = scope.indexOf('.');
+        if (separator < 0) return false;
+        String namespace = scope.substring(0, separator);
+        return MODULE_SET.contains(namespace) && (!namespace.equals(SCOPE) || scope.equals(SCOPE + ".chalk"));
+    }
+
     private static Screen provide(Screen parent, String scope) {
         initialize();
         chalk.refreshFromChalk();

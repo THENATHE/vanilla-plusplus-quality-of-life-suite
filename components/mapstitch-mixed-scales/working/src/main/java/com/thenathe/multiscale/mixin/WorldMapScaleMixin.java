@@ -9,7 +9,6 @@ import me.pajic.mapstitch.worldmap.WorldMapScreen;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
@@ -57,9 +56,9 @@ public abstract class WorldMapScaleMixin extends Screen {
         mixedScales$minimapScale = MixedScaleMaps.activeScale(handle.atlas());
         mixedScales$mask = AtlasOptions.generationMask(handle.atlas());
         mixedScales$pendingUntil = 0;
-        // Insert two compact rows below S and move the remaining original controls down.
-        for (var child : children()) if (child instanceof AbstractWidget widget && widget.getY() >= height / 2)
-            widget.setY(widget.getY() + 36);
+        // One aligned strip below the coordinate readout; native sidebar positions stay untouched.
+        int controlsX = width - 152;
+        int controlsY = 16;
         mixedScales$minimap = addRenderableWidget(Button.builder(Component.empty(), b -> {
             int next = (mixedScales$minimapScale + 1) % 5;
             if (MixedScalesClient.select(mixedScales$target, next)) {
@@ -67,7 +66,7 @@ public abstract class WorldMapScaleMixin extends Screen {
                 mixedScales$pendingUntil = System.nanoTime() + 2_000_000_000L;
                 mixedScales$labels();
             }
-        }).pos(width - 36, height / 2).size(32, 16).build());
+        }).pos(controlsX, controlsY).size(32, 16).build());
         mixedScales$generation = new Button[5];
         for (int layer = 0; layer < 5; layer++) {
             final int selected = layer;
@@ -78,7 +77,7 @@ public abstract class WorldMapScaleMixin extends Screen {
                     mixedScales$pendingUntil = System.nanoTime() + 2_000_000_000L;
                     mixedScales$labels();
                 }
-            }).pos(width - 114 + layer * 22, height / 2 + 18).size(20, 16).build());
+            }).pos(controlsX + 40 + layer * 22, controlsY).size(20, 16).build());
         }
         mixedScales$labels();
     }
@@ -115,6 +114,14 @@ public abstract class WorldMapScaleMixin extends Screen {
             mixedScales$minimapScale = currentScale; mixedScales$mask = currentMask;
             mixedScales$pendingUntil = 0; mixedScales$labels();
         }
+    }
+
+    @Inject(method = "extractRenderState", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/Screen;extractRenderState(Lnet/minecraft/client/gui/GuiGraphicsExtractor;IIF)V"))
+    private void mixedScales$controlsArea(GuiGraphicsExtractor graphics, int x, int y, float delta, CallbackInfo ci) {
+        if (mixedScales$minimap == null) return;
+        int left = mixedScales$minimap.getX(), top = mixedScales$minimap.getY();
+        graphics.fill(left - 4, top - 4, left + 152, top + 20, 0xb0000000);
+        graphics.fill(left + 35, top, left + 36, top + 16, 0x80ffffff);
     }
 
     @Unique private void mixedScales$changed() {

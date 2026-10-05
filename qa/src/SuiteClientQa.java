@@ -129,6 +129,26 @@ public final class SuiteClientQa implements ClientModInitializer {
                 com.thenathe.multiscale.client.MixedScalesClient.rememberUse(atlas);
                 var screen=new me.pajic.mapstitch.worldmap.WorldMapScreen(0);
                 client.gui.setScreen(screen);
+                // Observe actual widgets: original sidebar geometry must stay native.
+                for (int i = 0; i < 8; i++) {
+                    var button = (net.minecraft.client.gui.components.Button) screen.children().get(i);
+                    if (button.getX() != screen.width - 20 || button.getY() != screen.height / 2 - 72 + 18 * i
+                            || button.getWidth() != 16 || button.getHeight() != 16)
+                        throw new IllegalStateException("Original atlas sidebar spacing changed at " + i);
+                }
+                int rowX = screen.width - 152;
+                for (int i = 8; i < 14; i++) {
+                    var button = (net.minecraft.client.gui.components.Button) screen.children().get(i);
+                    int wantedX = i == 8 ? rowX : rowX + 40 + 22 * (i - 9);
+                    if (button.getX() != wantedX || button.getY() != 16 || button.getHeight() != 16
+                            || button.getX() < 0 || button.getX() + button.getWidth() > screen.width)
+                        throw new IllegalStateException("Top atlas controls are misaligned at " + i);
+                }
+                var tooltip = me.pajic.mapstitch.item.AtlasItem.getTooltip(atlas);
+                if (!tooltip.get(0).getString().equals("Stores maps")
+                        || !tooltip.get(1).getString().startsWith("Generating:")
+                        || !tooltip.get(2).getString().startsWith("Minimap scale"))
+                    throw new IllegalStateException("Atlas tooltip ordering changed: " + tooltip);
                 var key=new net.minecraft.client.input.KeyEvent(com.mojang.blaze3d.platform.InputConstants.KEY_S,0,0);
                 ((net.minecraft.client.gui.components.Button)screen.children().get(3)).onPress(key);
                 if(atlas.get(me.pajic.mapstitch.component.ModDataComponents.ATLAS_SCALE)!=0)throw new IllegalStateException("World-map S changed minimap");

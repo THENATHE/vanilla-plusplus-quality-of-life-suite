@@ -113,6 +113,7 @@ public final class SettingsClientQa implements ClientModInitializer {
                         if(!net.minecraft.locale.Language.getInstance().has(key))throw new AssertionError("original language entry shadowed by suite title overrides: "+key);
                         row("original translation retained "+key);
                     }
+                    verifyConfigureButtons(c);
                     if(Boolean.getBoolean("settings.qa.lifecycleOnly"))phase=ids.size()*2+10;
                     return;
                 }
@@ -296,6 +297,25 @@ public final class SettingsClientQa implements ClientModInitializer {
         row("actual Chalk Mod Menu factory opens the functional thenathe_mod_suite.chalk settings screen");
     }
     void row(String text){JsonObject row=new JsonObject();row.addProperty("case",text);row.addProperty("passed",true);observations.add(row);}
+    void verifyConfigureButtons(Minecraft client)throws Exception {
+        var found=new HashSet<String>();
+        CustomButtonWidget chalkButton=null;
+        for(var entry:list((ConfigScreen)client.gui.screen()).selectableEntries()) {
+            String key=entry.getScope().getScope();
+            if(!configs.containsKey(key))continue;
+            for(var child:entry.children())if(child instanceof CustomButtonWidget button) {
+                if(!button.getMessage().getString().equals("Configure..."))throw new AssertionError("root navigation button label "+key+"="+button.getMessage().getString());
+                found.add(key);
+                if(key.equals("thenathe_mod_suite.chalk"))chalkButton=button;
+            }
+        }
+        if(!found.equals(configs.keySet()))throw new AssertionError("root config buttons missing: "+found);
+        if(chalkButton==null || !chalkButton.active)throw new AssertionError("Chalk Configure button unavailable");
+        chalkButton.onPress();
+        if(!(client.gui.screen() instanceof ConfigScreen screen) || !screen.getScope().equals("thenathe_mod_suite.chalk"))throw new AssertionError("Configure button changed its original navigation target");
+        row("all "+found.size()+" root buttons say Configure... while native titles remain named; original Chalk button opens its correct category");
+        client.gui.setScreen(SuiteSettings.create(null));
+    }
     void forward(String summary){ClientConfigRegistry.INSTANCE.handleForwardedUpdate$fzzy_config("entry = false",UUID.fromString("00000000-0000-0000-0000-000000000001"),"toolpouch.config.canOpenWithRightClick",summary);}
     int forwards()throws Exception{return manager().provideUpdateManager$fzzy_config("toolpouch.config").forwardsCount();}
     @SuppressWarnings("unchecked") static Map<String,ConfigScreenManager> registered()throws Exception{Field field=ClientConfigRegistry.class.getDeclaredField("configScreenManagers");field.setAccessible(true);return(Map<String,ConfigScreenManager>)field.get(null);}

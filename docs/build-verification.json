@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "thenathe_mod_suite",
-  "version": "1.0.2-merged.2+26.3",
-  "sha256": "9ca677eee6d1c82c117b523e866e244e9bbba1e45cacaafd93ddce0dac76a08f",
+  "version": "1.0.2-merged.3+26.3",
+  "sha256": "f8f4b9af150f1383084c8682fd50462155b056f0ac94eff74be4f0dbdc45fdf3",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -96,9 +96,9 @@
     },
     {
       "id": "mapstitch_mixed_scales",
-      "version": "1.0.2-merged.2+26.3",
-      "sha256": "f1a6ea994a26959ad648a1d9d3ab8b3f7f2b7a3a2c9504712c8037a5f327a13e",
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.0.2-merged.2+26.3.jar"
+      "version": "1.0.2-merged.3+26.3",
+      "sha256": "71a0ee763f55179f12826b21edce17985303ecbc47298acbb33c1737aacbace2",
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.0.2-merged.3+26.3.jar"
     }
   ],
   "original_inputs_unchanged": true,
@@ -107,12 +107,9 @@
   "runtime_tested": true,
   "test_date": "2026-10-05",
   "runtime_evidence": {
-    "connections": "qa-merged/evidence/merged2/connections/result.json",
-    "maps": "qa-merged/evidence/merged2/maps/result.json",
-    "settings": "qa-merged/evidence/merged2/settings/observations.json",
-    "hud": "qa-merged/evidence/merged2/hud/observations.json",
-    "death_once": "qa-death-once/evidence/result.json",
-    "candidate_equivalence": "qa-merged/evidence/merged2/candidate-to-final-equivalence.json"
+    "atlas_layout_tooltip_controls": "qa-merged/evidence/merged3/atlas/result.json",
+    "settings_labels_navigation": "qa-merged/evidence/merged3/settings/observations.json",
+    "prior_build_comparison": "qa-merged/evidence/merged3/previous-build-comparison.json"
   },
-  "scope": "Final build: 12 actual settings screens, Mod Menu/Chalk factory/hotkey registration, 696 upstream translations and required title pack, 8 rendered HUD scenes. Earlier functional candidate: 2 real-client native/Fabric profiles with actual independent atlas controls/hotkey/2048 moves, 158 dedicated map/restart assertions, 254 one-off death assertions. All 16 nested modules byte-identical between candidates; only root client presentation changed. Historical vanilla/client-Polymer/full Stackables scenarios not rerun."
+  "scope": "Small presentation update: one matching native client with client/server Polymer validates actual top-right widget geometry, restored native sidebar spacing, tooltip ordering, all M scales/S/generation choices, duplicate source and hotkey. Final standalone settings checks all 12 Configure... button labels, Chalk click destination, category titles/fields and prior native settings lifecycle. Earlier broad gameplay/death/HUD/fallback profiles were not rerun; 15 nested modules unchanged, changed map-addon classes only layout and tooltip mixins."
 }

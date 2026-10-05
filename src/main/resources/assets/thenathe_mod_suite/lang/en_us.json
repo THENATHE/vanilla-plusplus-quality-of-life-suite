@@ -16,5 +16,6 @@
   "sensible_stackables.config": "Sensible Stackables Gameplay Settings",
   "sensible_stackables.client_config": "Sensible Stackables Client Settings",
   "key.thenathe_mod_suite.open_settings": "Open Suite Settings",
-  "key.category.thenathe_mod_suite.settings": "Vanilla++ Quality of Life Suite"
+  "key.category.thenathe_mod_suite.settings": "Vanilla++ Quality of Life Suite",
+  "thenathe_mod_suite.configure": "Configure..."
 }

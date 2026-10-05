@@ -1,8 +1,8 @@
 # Atlas controls on merged
 
-Suite **1.0.2-merged.2+26.3** keeps its MapStitch changes in the separate `components/mapstitch-mixed-scales/working/` addon. The original MapStitch JAR is unchanged.
+Suite **1.0.2-merged.3+26.3** keeps its MapStitch changes in the separate `components/mapstitch-mixed-scales/working/` addon. The original MapStitch JAR is unchanged.
 
-Open the world-map screen. Beneath the existing **S** button are two compact rows:
+Open the world-map screen. A separate group just beneath the top coordinate numbers contains one aligned row of minimap and generation controls. Its right edge lines up with the original sidebar, with four pixels of margin; the buttons begin 16 GUI pixels from the top. The original right-side buttons retain their original positions and spacing:
 
 | Control | Behavior |
 | --- | --- |
@@ -10,7 +10,7 @@ Open the world-map screen. Beneath the existing **S** button are two compact row
 | M1, M2, M4, M8, M16 | Click to cycle the minimap scale. Each atlas remembers its own choice. |
 | 1, 2, 4, 8, 16 | Toggle generation at each scale independently. Green means enabled; gray means disabled. Multiple scales may be enabled, or all disabled. |
 
-The minimap and generation buttons' hover text lists what is generating. The atlas tooltip also lists its minimap scale and enabled generation scales. If an enabled scale has no map covering your current position/dimension, one stored blank is consumed for that scale. Existing shared region/scale records may be reused, preserving regional map sharing. Insufficient blanks produce only the layers affordable in ascending scale order. Disabling generation leaves stored maps intact; a missing minimap layer remains empty rather than switching to a different scale. Enabled layers keep updating as you explore even when the minimap uses another scale.
+The minimap and generation buttons' hover text lists what is generating. The atlas tooltip starts with **Stores maps**, then enabled generation scales, then minimap scale; filled-map count, empty-map count, ejection preference and other original lines follow in their existing order. If an enabled scale has no map covering your current position/dimension, one stored blank is consumed for that scale. Existing shared region/scale records may be reused, preserving regional map sharing. Insufficient blanks produce only the layers affordable in ascending scale order. Disabling generation leaves stored maps intact; a missing minimap layer remains empty rather than switching to a different scale. Enabled layers keep updating as you explore even when the minimap uses another scale.
 
 Existing atlases start with generation enabled at their prior active scale. Changing M preserves those generation choices. New per-atlas choices use the namespaced integer `mapstitch_mixed_scales:generation_mask` in vanilla `minecraft:custom_data`. Normal server atlas ticking also assigns a UUID string at `mapstitch_mixed_scales:book_id` if the book has no identity yet. Both tags persist through normal saves and inventory/codec synchronization while retaining unrelated custom tags. Minimap selection continues to use the original `mapstitch:atlas_scale` component; map IDs/contents are preserved. There is no new custom component registry to synchronize to vanilla clients.
 

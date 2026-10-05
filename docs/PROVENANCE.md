@@ -30,10 +30,10 @@ This suite targets Minecraft 26.3, Fabric Loader 0.19.5 and Java 25. It combines
 | Chalk compatibility | 1.1.1-suite.1+26.3 | Original standalone Chalk shim 1.1.0+26.3; components/chalk-compat/ORIGIN.json |
 | Shared Region Maps | 1.0.4-combo.1+mc26.3 | Original local 1.0.3, commit 338270a70c14be19ba79b535b40fac980e414470; components/shared-region-maps/upstream-manifest.json |
 | Tool Pouch atlas/Elytra addon | 1.0.6-suite.2+26.3 | Original local 1.0.4; components/toolpouch-atlas-elytra/upstream-manifest.json |
-| Mixed-scale MapStitch addon | 1.0.2-merged.2+26.3 | Separate module components/mapstitch-mixed-scales/working; coordinator dependency updated for merged branch |
+| Mixed-scale MapStitch addon | 1.0.2-merged.3+26.3 | Separate module components/mapstitch-mixed-scales/working; coordinator dependency updated for merged branch |
 | Sensible Stackables port | 3.0.3-port.1+26.3 | Published 3.0.3+26.2 baseline and per-track source/dependency records in components/sensible-stackables/ |
 | Sensible Stackables Polymer compatibility | 1.0.0+26.3 | Separate components/sensible-stackables/compat module |
-| Suite root / settings | 1.0.2-merged.2+26.3 | Newly authored source in src/ |
+| Suite root / settings | 1.0.2-merged.3+26.3 | Newly authored source in src/ |
 
 The production archive retains these original module IDs and embeds each module separately. Original standalone repositories and versioned releases remain available; the suite variants do not overwrite them.
 

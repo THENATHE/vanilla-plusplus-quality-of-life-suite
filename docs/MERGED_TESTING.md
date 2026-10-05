@@ -1,3 +1,13 @@
+# Current merged testing build
+
+Version **1.0.2-merged.3+26.3**, branch `merged`. Minimap and generation controls now occupy one right-aligned top row immediately below the coordinate numbers, with a separate background; native sidebar positions/gaps are restored. Atlas tooltips show storage, generation scales and minimap scale before the unchanged count/ejection lines. Settings navigation buttons say **Configure...** while row names, sidebar titles and behavior stay the same.
+
+[Fresh atlas runtime](../qa-merged/evidence/merged3/atlas/result.json) and [settings runtime](../qa-merged/evidence/merged3/settings/observations.json) passed against the final JAR. Only the requested presentation was retested; broader previous results below remain historical. [Changed-module comparison](../qa-merged/evidence/merged3/previous-build-comparison.json) and [build verification](build-verification.json) record exact scope and hash.
+
+For your check, replace the previous suite JAR on both sides. Open the atlas: M and 1/2/4/8/16 should line up along the top right, beneath the grid numbers. The +/−/D/S/C/G/F/H sidebar should have its original two-pixel gaps. Hover the atlas to check the requested line order. Open suite settings and use Configure... to enter a named category; its original fields should behave as before. Inspect resizing/GUI scale with your usual resolution and resource packs.
+
+# Historical merged.2 testing build
+
 # Merged testing branch
 
 Current version **1.0.2-merged.2+26.3**, branch `merged`. This testing build combines mixed-scale MapStitch and Sensible Stackables while keeping their implementations in separate modules. The final artifact hash and exact fresh verification scope are recorded in [build verification](build-verification.json) and [validation](VALIDATION.md). The merged.1 results retained below belong to that older artifact.

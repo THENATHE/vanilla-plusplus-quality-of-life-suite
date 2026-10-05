@@ -26,13 +26,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class AtlasMixedScalesMixin {
     @Inject(method = "getTooltip", at = @At("RETURN"), cancellable = true)
     private static void mixedScales$describeLayers(ItemStack atlas, CallbackInfoReturnable<List<Component>> cir) {
-        var lines = new ArrayList<>(cir.getReturnValue());
-        if (atlas.getOrDefault(ModDataComponents.ATLAS_SCALE, -1) != -1 && !lines.isEmpty())
-            lines.set(0, Component.translatable("mapstitch_mixed_scales.tooltip.active_scale", 1 << MixedScaleMaps.activeScale(atlas)).withStyle(ChatFormatting.GRAY));
+        var original = new ArrayList<>(cir.getReturnValue());
+        if (atlas.getOrDefault(ModDataComponents.ATLAS_SCALE, -1) != -1 && !original.isEmpty())
+            original.removeFirst();
+        var lines = new ArrayList<Component>();
         lines.add(Component.translatable("mapstitch_mixed_scales.tooltip.layers").withStyle(ChatFormatting.GRAY));
         int mask = AtlasOptions.generationMask(atlas);
         lines.add((mask == 0 ? Component.translatable("mapstitch_mixed_scales.tooltip.generation_off")
                 : Component.translatable("mapstitch_mixed_scales.tooltip.generating", AtlasOptions.generationLabel(mask))).withStyle(ChatFormatting.GRAY));
+        lines.add(Component.translatable("mapstitch_mixed_scales.tooltip.active_scale", 1 << MixedScaleMaps.activeScale(atlas)).withStyle(ChatFormatting.GRAY));
+        lines.addAll(original);
         cir.setReturnValue(lines);
     }
 

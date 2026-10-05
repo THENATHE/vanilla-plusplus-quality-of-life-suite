@@ -1,10 +1,19 @@
 # Validation
 
-## Merged testing branch 1.0.2-merged.2+26.3
+## Merged presentation update 1.0.2-merged.3+26.3
+
+Final SHA-256: `f8f4b9af150f1383084c8682fd50462155b056f0ac94eff74be4f0dbdc45fdf3`.
+
+The [fresh native client](../qa-merged/evidence/merged3/atlas/result.json) passed top-right widget alignment, exact original right-sidebar geometry, reordered atlas tooltip, all five minimap scales, independent world-map/generation controls, duplicate atlas targeting and settings hotkey. The [fresh settings run](../qa-merged/evidence/merged3/settings/observations.json) checked all 12 Configure... labels, original named category titles/fields and the original Chalk navigation destination.
+
+This is a small presentation update. [Comparison with merged.2](../qa-merged/evidence/merged3/previous-build-comparison.json) confirms 15 unchanged nested modules; only layout/tooltip mixin classes change in the map addon. Broad mechanics, death/HUD matrices and vanilla/Fabric fallback scenarios below were not repeated for this build. Previous results remain evidence for their exact artifacts, not newly executed tests.
+
+
+## Historical merged testing branch 1.0.2-merged.2+26.3
 
 Combined build and runtime evidence is recorded in [MERGED_TESTING.md](MERGED_TESTING.md). Prior branch and mainline evidence below is historical and does not stand in for fresh combined tests.
 
-The current merged update has focused evidence under [merged2](../qa-merged/evidence/merged2/). The final JAR hash and exact evidence paths are recorded in [build verification](build-verification.json).
+The previous merged update has focused evidence under [merged2](../qa-merged/evidence/merged2/). The final JAR hash and exact evidence paths are recorded in [build verification](build-verification.json).
 
 - Matching native and Fabric API-only clients connected to the Polymer server. Native clients exercised all five M scales, independent S/generation controls, all-off/re-enable, duplicate inventory/pouch targeting and the in-world settings hotkey. Both clients moved all 2,048 stone through actual inventory packets with no loss; fallback maximum metadata remained 99.
 - Dedicated map mechanics/restarts passed **158 assertions**, with and without Polymer: all five layers, independent generation, blank conservation, one cartography packet per creation batch, stored options/unrelated data, and stale/replaced book rejection.

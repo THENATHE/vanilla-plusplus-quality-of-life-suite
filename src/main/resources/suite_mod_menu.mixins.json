@@ -3,6 +3,12 @@
   "package": "com.thenathe.suite.client.mixin",
   "plugin": "com.thenathe.suite.client.mixin.ModMenuMixinPlugin",
   "compatibilityLevel": "JAVA_25",
-  "client": ["ModMenuPresentationMixin", "ChalkModMenuMixin"],
-  "injectors": {"defaultRequire": 1}
+  "client": [
+    "ModMenuPresentationMixin",
+    "ChalkModMenuMixin",
+    "SettingsNavigationButtonMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

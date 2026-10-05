@@ -5,7 +5,7 @@ import argparse,hashlib,json,os,shutil,subprocess,sys,zipfile
 ROOT=Path(__file__).resolve().parents[1];WORKSPACE=ROOT.parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
 from workspace_paths import load_helper, project_path
-parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--label',required=True);parser.add_argument('--jar',type=Path,default=ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.2+26.3.jar');parser.add_argument('--upstream-baseline',action='store_true');args=parser.parse_args()
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--label',required=True);parser.add_argument('--jar',type=Path,default=ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.3+26.3.jar');parser.add_argument('--upstream-baseline',action='store_true');args=parser.parse_args()
 RUN=ROOT/'qa-stackables/runs'/args.label;RUN.mkdir(parents=True,exist_ok=False)
 helper=load_helper(project_path(WORKSPACE,'chalk-polymer-shim')/'qa/run.py','cached_cp')
 target_mc='26.2' if args.upstream_baseline else '26.3'
