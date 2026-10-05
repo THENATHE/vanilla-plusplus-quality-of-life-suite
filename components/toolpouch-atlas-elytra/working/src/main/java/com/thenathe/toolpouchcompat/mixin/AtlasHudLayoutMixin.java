@@ -23,8 +23,10 @@ public abstract class AtlasHudLayoutMixin {
 
     @WrapOperation(method = "render", at = @At(value = "INVOKE", target = "Lme/pajic/mapstitch/platform/MultiVersionUtil;translatePose(Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFF)V"))
     private static void suite$origin(MultiVersionUtil util, GuiGraphicsExtractor graphics, float x, float y, float z, Operation<Void> original) {
-        HudLayout.translated(y);
-        original.call(util, graphics, x, y, z);
+        float originX = HudLayout.atlasOriginX(x);
+        float originY = HudLayout.atlasOriginY(y);
+        HudLayout.translated(originX, originY);
+        original.call(util, graphics, originX, originY, z);
     }
 
     @WrapOperation(method = "render", at = @At(value = "INVOKE", target = "Lme/pajic/mapstitch/platform/MultiVersionUtil;scalePose(Lnet/minecraft/client/gui/GuiGraphicsExtractor;FFF)V"))

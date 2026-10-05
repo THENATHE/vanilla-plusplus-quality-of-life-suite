@@ -1,5 +1,7 @@
 # MapStitch / Tool Pouch HUD layout fix
 
+This is the historical independent-position implementation. The merged branch now uses [shared placement and actual bounds for both map types](HUD.md); that newer behavior supersedes the independent-position section below.
+
 ## Component and baseline
 
 This change belongs to `components/toolpouch-atlas-elytra/working/`, declared addon version **1.0.5-suite.1+26.3**. The untouched local `Minecraft/toolpouch-atlas-elytra-compat-26.3` source at revision `25dfaf8bff9f51d8cfa29be9ca34c71a29cac2c0` is preserved as `components/toolpouch-atlas-elytra/upstream/`. It originally declared **1.0.4+26.3** and MIT. Its full license, notices, existing integrations, and separate compiler-input hashes remain available. The addon retains the existing ID `toolpouch_atlas_elytra_compat`.

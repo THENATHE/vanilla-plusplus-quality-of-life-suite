@@ -11,7 +11,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.BundleContents;
 
 /** Player-owned physical location; a map anchor rejects stale replacement books. */
-public record AtlasTarget(int location, int index, int anchor) {
+public record AtlasTarget(int location, int index, int anchor, String identity) {
+    public AtlasTarget(int location, int index, int anchor) { this(location, index, anchor, ""); }
+    private static AtlasTarget target(ItemStack atlas, int location, int index) {
+        return new AtlasTarget(location, index, anchor(atlas), AtlasOptions.identity(atlas));
+    }
     public static final int INVENTORY = 0, ACCESSORY = 1, POUCH = 2;
 
     public record Handle(ItemStack atlas, Runnable save) {}
@@ -42,7 +46,7 @@ public record AtlasTarget(int location, int index, int anchor) {
             atlas = atlases.get(index);
             save = () -> AtlasBridge.save(player, atlas, index);
         } else return null;
-        if (!atlas.is(ModItems.ATLAS)) return null;
+        if (!atlas.is(ModItems.ATLAS) || (!identity.isEmpty() && !identity.equals(AtlasOptions.identity(atlas)))) return null;
         if (anchor < 0 ? anchor(atlas) != -1 : atlas.getOrDefault(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY)
                 .items().stream().noneMatch(map -> map.get(DataComponents.MAP_ID) != null && map.get(DataComponents.MAP_ID).id() == anchor)) return null;
         return new Handle(atlas, save);
@@ -61,7 +65,7 @@ public record AtlasTarget(int location, int index, int anchor) {
     }
 
     private static void add(List<AtlasTarget> targets, ItemStack stack, int location, int index) {
-        if (stack.is(ModItems.ATLAS)) targets.add(new AtlasTarget(location, index, anchor(stack)));
+        if (stack.is(ModItems.ATLAS)) targets.add(target(stack, location, index));
     }
 
     /** Match the existing minimap lookup's source priority without comparing copies across locations. */
@@ -72,27 +76,27 @@ public record AtlasTarget(int location, int index, int anchor) {
                 if (first.is(ModItems.ATLAS)) {
                     var accessories = AccessoryUtil.INSTANCE.getAtlases(player);
                     for (int i = 0; i < accessories.size(); i++)
-                        if (accessories.get(i) == first) return new AtlasTarget(ACCESSORY, i, anchor(first));
+                        if (accessories.get(i) == first) return target(first, ACCESSORY, i);
                     for (int i = 0; i < accessories.size(); i++)
                         if (ItemStack.isSameItemSameComponents(accessories.get(i), first))
-                            return new AtlasTarget(ACCESSORY, i, anchor(first));
+                            return target(first, ACCESSORY, i);
                     return null;
                 }
             }
             var pouch = AtlasBridge.atlases(player);
-            if (!pouch.isEmpty()) return new AtlasTarget(POUCH, 0, anchor(pouch.getFirst()));
+            if (!pouch.isEmpty()) return target(pouch.getFirst(), POUCH, 0);
         }
         if (locations.contains("mainHand") && player.getMainHandItem().is(ModItems.ATLAS)) {
             for (int i = 0; i < player.getInventory().getContainerSize(); i++)
                 if (player.getInventory().getItem(i) == player.getMainHandItem())
-                    return new AtlasTarget(INVENTORY, i, anchor(player.getMainHandItem()));
+                    return target(player.getMainHandItem(), INVENTORY, i);
         }
         for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
             var stack = player.getInventory().getItem(i);
             if (stack.is(ModItems.ATLAS) && ((i == 40 && locations.contains("offhand"))
                     || (i < 9 && locations.contains("hotbar"))
                     || (i >= 9 && i < 36 && locations.contains("inventory"))))
-                return new AtlasTarget(INVENTORY, i, anchor(stack));
+                return target(stack, INVENTORY, i);
         }
         return null;
     }

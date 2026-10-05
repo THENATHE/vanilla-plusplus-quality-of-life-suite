@@ -1,6 +1,7 @@
 package com.thenathe.multiscale.mixin;
 
 import com.thenathe.multiscale.MixedScaleMaps;
+import com.thenathe.multiscale.AtlasOptions;
 import java.util.ArrayList;
 import java.util.List;
 import me.pajic.mapstitch.component.ModDataComponents;
@@ -29,6 +30,9 @@ public abstract class AtlasMixedScalesMixin {
         if (atlas.getOrDefault(ModDataComponents.ATLAS_SCALE, -1) != -1 && !lines.isEmpty())
             lines.set(0, Component.translatable("mapstitch_mixed_scales.tooltip.active_scale", 1 << MixedScaleMaps.activeScale(atlas)).withStyle(ChatFormatting.GRAY));
         lines.add(Component.translatable("mapstitch_mixed_scales.tooltip.layers").withStyle(ChatFormatting.GRAY));
+        int mask = AtlasOptions.generationMask(atlas);
+        lines.add((mask == 0 ? Component.translatable("mapstitch_mixed_scales.tooltip.generation_off")
+                : Component.translatable("mapstitch_mixed_scales.tooltip.generating", AtlasOptions.generationLabel(mask))).withStyle(ChatFormatting.GRAY));
         cir.setReturnValue(lines);
     }
 
@@ -52,7 +56,7 @@ public abstract class AtlasMixedScalesMixin {
 
     @Inject(method = "updateActiveMap", at = @At("HEAD"), cancellable = true)
     private void mixedScales$scaleAwareSelection(ItemStack atlas, BundleContents ignoredSnapshot, int x, int z, Level level, Entity owner, CallbackInfo ci) {
-        if (level instanceof ServerLevel server) MixedScaleMaps.selectActive(atlas, server, owner, true);
+        if (level instanceof ServerLevel server) MixedScaleMaps.selectActive(atlas, server, owner, false);
         ci.cancel();
     }
 }

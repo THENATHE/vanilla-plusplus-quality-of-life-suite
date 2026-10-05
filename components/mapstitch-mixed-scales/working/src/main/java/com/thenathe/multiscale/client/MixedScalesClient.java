@@ -30,7 +30,31 @@ public final class MixedScalesClient {
                 : AtlasTarget.firstForScan(mc.player, MapStitch.CONFIG.itemRequirements.worldMapAtlasScan);
     }
 
-    public static void select(AtlasTarget target, int scale) {
+    public static boolean canEdit() {
+        var mc = Minecraft.getInstance();
+        return mc.getConnection() != null
+                && SuiteCapabilities.isNative(mc.getConnection().getPacketContext(), "mapstitch")
+                && ClientPlayNetworking.canSend(MixedScales.SelectScale.TYPE)
+                && ClientPlayNetworking.canSend(MixedScales.SelectGeneration.TYPE);
+    }
+
+    private static AtlasTarget currentTarget(AtlasTarget target) {
+        var mc = Minecraft.getInstance();
+        if (target == null || mc.player == null || mc.getConnection() == null
+                || !SuiteCapabilities.isNative(mc.getConnection().getPacketContext(), "mapstitch")) return null;
+        for (var current : AtlasTarget.all(mc.player))
+            if (current.location() == target.location() && current.index() == target.index() && !target.identity().isEmpty() && current.identity().equals(target.identity())) return current;
+        return null;
+    }
+
+    public static boolean selectGeneration(AtlasTarget target, int mask) {
+        var current = currentTarget(target);
+        if (current == null || !ClientPlayNetworking.canSend(MixedScales.SelectGeneration.TYPE)) return false;
+        ClientPlayNetworking.send(new MixedScales.SelectGeneration(current, mask));
+        return true;
+    }
+
+    public static boolean select(AtlasTarget target, int scale) {
         var mc = Minecraft.getInstance();
         if (target != null && mc.player != null && mc.getConnection() != null
                 && SuiteCapabilities.isNative(mc.getConnection().getPacketContext(), "mapstitch")
@@ -38,11 +62,12 @@ public final class MixedScalesClient {
             // Ejection or first-map generation can change the anchor while this screen stays open.
             // Keep the screen bound to its original location, but validate its current contents.
             for (var current : AtlasTarget.all(mc.player)) {
-                if (current.location() == target.location() && current.index() == target.index()) {
+                if (current.location() == target.location() && current.index() == target.index() && !target.identity().isEmpty() && current.identity().equals(target.identity())) {
                     ClientPlayNetworking.send(new MixedScales.SelectScale(current, scale));
-                    return;
+                    return true;
                 }
             }
         }
+        return false;
     }
 }

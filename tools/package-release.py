@@ -54,7 +54,7 @@ def copy_document(relative):
  content=original.read_text()
  content=re.sub(r'\]\((?!https?://|#)([^)]+)\)',lambda m:']('+REPO+'/blob/'+revision+'/'+posixpath.normpath(str(Path(relative).parent/m.group(1)))+')',content)
  (release/original.name).write_text(content)
-for document in ['docs/VALIDATION.md','THIRD_PARTY_NOTICES.md','docs/DEPENDENCIES.md','docs/MERGED_TESTING.md','CHANGELOG.md']:
+for document in ['docs/VALIDATION.md','THIRD_PARTY_NOTICES.md','docs/DEPENDENCIES.md','docs/MERGED_TESTING.md','docs/ATLAS_CONTROLS.md','docs/HUD.md','docs/ATLAS_DEATH_RETENTION.md','docs/MOD_MENU_PRESENTATION.md','docs/settings.md','CHANGELOG.md']:
  copy_document(document)
 shutil.copy2(ROOT/'docs/modrinth-links.json',release/'modrinth-links.json')
 checksums=''.join(sha(p)+'  '+p.name+'\n' for p in [release/artifact.name,kit,source])

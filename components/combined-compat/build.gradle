@@ -22,7 +22,7 @@ dependencies {
  implementation 'eu.pb4:polymer-virtual-entity:0.18.2+26.3'
 }
 
-version = '1.0.7-merged.1+26.3'
+version = '1.0.8-merged.2+26.3'
 base { archivesName = 'thenathe-suite-combined-compat' }
 sourceSets.main.java.srcDir('../../src/main/java')
 sourceSets.main.java.include('com/thenathe/combinedshim/**', 'com/thenathe/suite/network/**', 'com/thenathe/ssopolymer/**', 'com/thenathe/backpackcompat/**', 'com/thenathe/toolpouchcompat/**', 'com/thenathe/mapstitchcompat/**')

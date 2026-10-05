@@ -1,0 +1,20 @@
+{
+  "bundle_sha256": "40c8e7bac2732310a1903b870925e520565c76098ea0f1f8e95e8f4e6c5463e8",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "death-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 127 assertions, 25 death cases: loose inventory; loose offhand; pouch inventory; open pouch final contents; open backpack final contents; pouch leggings attached; backpack tiered_backpacks:leather_backpack; backpack tiered_backpacks:copper_backpack; backpack tiered_backpacks:iron_backpack; backpack tiered_backpacks:golden_backpack; backpack tiered_backpacks:diamond_backpack; backpack tiered_backpacks:netherite_backpack; backpack chestplate attached; shulker inventory; bundle selected atlas; nested bundle in shulker in backpack; two atlases with empty middle slot; disabled retention loose; disabled retention nested; keep inventory gamerule; loose vanishing atlas; vanishing ancestor container; full inventory cursor atlas; full inventory cursor container; overflow save/load and room recovery",
+      "passed": true
+    },
+    {
+      "profile": "death-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 127 assertions, 25 death cases: loose inventory; loose offhand; pouch inventory; open pouch final contents; open backpack final contents; pouch leggings attached; backpack tiered_backpacks:leather_backpack; backpack tiered_backpacks:copper_backpack; backpack tiered_backpacks:iron_backpack; backpack tiered_backpacks:golden_backpack; backpack tiered_backpacks:diamond_backpack; backpack tiered_backpacks:netherite_backpack; backpack chestplate attached; shulker inventory; bundle selected atlas; nested bundle in shulker in backpack; two atlases with empty middle slot; disabled retention loose; disabled retention nested; keep inventory gamerule; loose vanishing atlas; vanishing ancestor container; full inventory cursor atlas; full inventory cursor container; overflow save/load and room recovery",
+      "passed": true
+    }
+  ]
+}

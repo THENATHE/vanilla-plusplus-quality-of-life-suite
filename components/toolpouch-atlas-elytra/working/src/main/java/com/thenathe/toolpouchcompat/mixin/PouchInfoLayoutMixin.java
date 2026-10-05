@@ -2,6 +2,7 @@ package com.thenathe.toolpouchcompat.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.thenathe.toolpouchcompat.HudLayout;
 import it.unimi.dsi.fastutil.objects.ObjectIntImmutablePair;
 import me.pajic.toolpouch.hud.InfoOverlays;
@@ -20,6 +21,12 @@ import java.util.List;
 @Mixin(value = InfoOverlays.class, remap = false)
 public abstract class PouchInfoLayoutMixin {
     @Shadow @Final private static List<ObjectIntImmutablePair<Component>> renderList;
+
+    @ModifyExpressionValue(method = "renderLines", at = @At(value = "FIELD", target = "Lme/pajic/toolpouch/hud/MinimapOverlay;minimapActive:Z"))
+    private static boolean suite$useActualMapBounds(boolean active) {
+        // Both map renderers now use the same measured reservation below.
+        return false;
+    }
 
     @Inject(method = "renderLines", at = @At("HEAD"))
     private static void suite$beginDetails(GuiGraphicsExtractor graphics, CallbackInfo ci) {

@@ -1,7 +1,10 @@
 # Mixed-scale atlas branch
 
-On the current `merged` branch, both experiments are included in suite **1.0.2-merged.1+26.3**. Coordinator is **1.0.7-merged.1+26.3**; the map addon is **1.0.1-merged.1+26.3** with its matching dependency pin. See `docs/MERGED_TESTING.md` for combined acceptance. Individual-branch versions and evidence below are retained history.
+The current `merged` branch includes both experiments in suite **1.0.2-merged.2+26.3**. Coordinator is **1.0.8-merged.2+26.3**; map addon is **1.0.2-merged.2+26.3**. [Current independent controls](ATLAS_CONTROLS.md) replace the first experiment's coupled scale selection. [Merged validation](MERGED_TESTING.md) records current acceptance.
 
+## Historical first experiment
+
+Individual-branch versions and behavior below describe the original experiment, before independent minimap/generation controls.
 
 Suite version: `1.0.2-multiscale.1+26.3`. Branch: `feat/mapstitch-mixed-scales`. Separate addon: `mapstitch_mixed_scales`, version `1.0.0+26.3`. Coordinator variant: `1.0.7-multiscale.1+26.3`.
 

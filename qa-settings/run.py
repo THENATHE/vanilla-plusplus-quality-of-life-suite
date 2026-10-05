@@ -11,7 +11,7 @@ launch=mapstitch_launch(ROOT)
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--visual-only',action='store_true');p.add_argument('--lifecycle-only',action='store_true');p.add_argument('--guest',action='store_true');p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.1+26.3.jar')
+    p.add_argument('--visual-only',action='store_true');p.add_argument('--lifecycle-only',action='store_true');p.add_argument('--guest',action='store_true');p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.2+26.3.jar')
     p.add_argument('--label',required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--settings-only',action='store_true');p.add_argument('--port',type=int,default=25976);p.add_argument('--reconnect',action='store_true',help='Reconnect to a second isolated server with opposite operator permissions')
     args=p.parse_args();suite=args.suite.resolve();assert suite.is_file();suiteHash=sha(suite)
     run=HERE/'runs'/args.label;run.mkdir(parents=True,exist_ok=False);control=run/'control';control.mkdir();fixtures=run/'fixtures';fixtures.mkdir();classes=fixtures/'classes';classes.mkdir()
@@ -29,10 +29,23 @@ def main():
                     if not dest.exists():dest.write_bytes(blob);paths.append(str(dest));extract(dest)
     for jar in selected:extract(jar)
     subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(dict.fromkeys(paths)),'-d',str(classes),*map(str,(HERE/'src').glob('*.java'))],check=True)
+    original_language_keys=[]
+    for namespace,filename in {
+        'mapstitch':'mapstitch-fabric-1.1.6+26.3.jar',
+        'misctweaks':'misctweaks-fabric-1.4.4+26.3.jar',
+        'simple_death_improvements':'simple_death_improvements-fabric-1.6.0+26.3.jar',
+        'simple_smithing_overhaul':'simple_smithing_overhaul-fabric-2.9.14+26.3.jar',
+        'tiered_backpacks':'tiered_backpacks-fabric-1.0.20+26.3.jar',
+        'toolpouch':'toolpouch-fabric-1.1.10+26.3.jar',
+    }.items():
+        with zipfile.ZipFile(SUITE/'libs'/filename) as z:
+            original_language_keys.extend(json.loads(z.read(f'assets/{namespace}/lang/en_us.json')))
+    original_language_keys.extend(json.loads((SUITE/'components/sensible-stackables/ported/src/main/resources/assets/sensible_stackables/lang/en_us.json').read_text()))
     for side in ['client','server']:
         with zipfile.ZipFile(fixtures/f'{side}.jar','w') as z:
             meta={'schemaVersion':1,'id':'suite_settings_qa_'+side,'version':'1','environment':side,'entrypoints':{'client' if side=='client' else 'main':['suitesettingsqa.Settings'+side.title()+'Qa']},'depends':{'fabric-api':'*','thenathe_mod_suite':'*'}}
             z.writestr('fabric.mod.json',json.dumps(meta))
+            z.writestr('settings-original-language-keys.json',json.dumps(original_language_keys))
             for file in classes.rglob('*.class'):z.write(file,file.relative_to(classes))
     if args.prepare_only:
         (run/'prepare.json').write_text(json.dumps({'suite':str(suite),'suite_sha256':suiteHash,'fixtures_compiled':True,'runtime_launched':False},indent=2)+'\n')

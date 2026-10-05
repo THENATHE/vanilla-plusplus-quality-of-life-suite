@@ -14,7 +14,7 @@ The experimental source is at `Minecraft/suite-merged/`; stable main remains at 
 | components/shared-region-maps/upstream | Original 1.0.3 source baseline |
 | components/shared-region-maps/working | Vanilla/MapStitch-only modified module |
 | components/toolpouch-atlas-elytra/upstream | Original local addon 1.0.4 source baseline |
-| components/toolpouch-atlas-elytra/working | Preserved addon features plus HUD spacing fix |
+| components/toolpouch-atlas-elytra/working | Preserved addon features plus synchronized HUD; HudLayout and four client mixins capture map bounds, move details, order rendering and observe native config Apply. |
 | components/chalk/upstream | Exact local Chalk Fabric 26.3 port source snapshot |
 | components/chalk-colorful/upstream | Original colorful addon and its metadata-only 26.3 port source |
 | components/amethyst-curse-cleanser/upstream | Existing 26.3 curse-removal source snapshot |
@@ -29,7 +29,7 @@ The experimental source is at `Minecraft/suite-merged/`; stable main remains at 
 | qa/ | Connection/capability smoke, final native/fallback packet checks and disposable runs |
 | qa-settings/, qa-hud/, qa-mechanics/ | Unified settings/permissions screenshots, actual HUD observations, recipe/menu/drop/map persistence regressions |
 | tools/package-release.py | Package a committed, verified version into the required release hierarchy |
-| components/mapstitch-mixed-scales/working/ | Separate mixed-scale atlas addon, location selection and guarded scale packet |
+| components/mapstitch-mixed-scales/working/ | Separate mixed-scale atlas addon: world-map UI, independent minimap/generation, location selection and guarded packets. AtlasDeathRetention and death/respawn mixins add container-safe retention. |
 | components/sensible-stackables/upstream/ | Untouched 26.2 publisher source/binary records and independently tested baseline |
 | components/sensible-stackables/ported/ | Independent 26.3 port retaining upstream mixins, settings and dependencies |
 | components/sensible-stackables/compat/ | Separate Polymer stack defaults, safe metadata and authoritative menu correction |
@@ -44,7 +44,7 @@ The historical projects outside this suite remain preserved. Consolidated local 
 
 1. Identify the exact developer release for the target Minecraft version. Record its Modrinth version ID, original binary hash, published-source hash and repository commit. `tools/fetch-upstream.py` fetches the locked components; a GitHub HEAD snapshot is context, not proof that a published binary contains that exact source.
 2. Put new snapshots in a new versioned baseline rather than overwriting the recorded old inputs. Compare published source trees and original metadata/dependencies. Modules that are bundled unchanged should remain unchanged.
-3. For Shared Region Maps, apply upstream vanilla/MapStitch changes to working while preserving its documented adapter removals. For the atlas/Elytra addon, inspect Tool Pouch and MapStitch HUD method signatures, corner enums, graphics transforms and info-overlay registration. See docs/hud-layout-fix.md.
+3. For Shared Region Maps, apply upstream vanilla/MapStitch changes to working while preserving its documented adapter removals. For the atlas/Elytra addon, inspect Tool Pouch and MapStitch HUD method signatures, corner enums, graphics transforms and info-overlay registration. See docs/HUD.md for shared layout, ordered render layers, original Apply callbacks and captured bounds.
 4. Review all affected mixins and networking payloads in both compatibility components. Check new items, components, recipe serializers, menus and block states; new registry entries may need Polymer mappings. A version fingerprint change selects fallback until both clients and server match, but does not implement compatibility for newly added content.
 5. Preserve external libraries and optional integrations. Update versions within the same library, pin hashes and document the change. Do not bypass Defaulted, Fzzy, Cloth, Mixson or another dependency to make compilation pass. Reapply or retire the Defaulted drop fix only after confirming the upstream implementation handles the same regression.
 6. Update unified settings registration and translations only where upstream configuration IDs/layouts change. Keep original paths, validation and Fzzy permissions/synchronization. The settings adapter uses pinned Fzzy internals; check it against a changed Fzzy release.
@@ -69,6 +69,6 @@ The atlas/Elytra component uses the same staged root inputs as the other suite p
 
 ## Rebuilding a public checkout from release inputs
 
-Download this version’s feature JAR and optional local-library ZIP from the public release. Extract the ZIP into an input directory, and put the exact remaining publisher library JARs listed in README/locks there too. Run `python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.1+26.3.jar --inputs /path/to/inputs --download-public`. The script verifies the outer release hash and stages only nested originals that match the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It also recursively finds the local-library archive’s `mods/` directory and rejects unavailable/mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs.
+Download this version’s feature JAR and optional local-library ZIP from the public release. Extract the ZIP into an input directory, and put the exact remaining publisher library JARs listed in README/locks there too. Run `python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.2+26.3.jar --inputs /path/to/inputs --download-public`. The script verifies the outer release hash and stages only nested originals that match the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It also recursively finds the local-library archive’s `mods/` directory and rejects unavailable/mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs.
 
 After changing source, build and run the applicable checks. Update the build and validation records with the exact tested hash, commit source/docs/evidence, then run `python3 tools/package-release.py` from a clean checkout. The packager creates the installable JAR, optional MIT-only library archive, tracked-source archive, release notes and checksums. It excludes QA fixtures and external public libraries. A new version requires updated metadata/locks/verification and a new tag; preserve older releases.

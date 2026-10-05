@@ -28,7 +28,9 @@
     "ClientSortPolicyMixin",
     "ClientSortOperatorMixin",
     "AtlasHudLayoutMixin",
-    "PouchInfoLayoutMixin"
+    "PouchInfoLayoutMixin",
+    "PouchHudLayoutMixin",
+    "HudLayoutConfigMixin"
   ],
   "injectors": {
     "defaultRequire": 1

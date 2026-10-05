@@ -1,11 +1,20 @@
 {
-  "thenathe_mod_suite.overview": "Vanilla++ Quality of Life Suite",
-  "thenathe_mod_suite.overview.desc": "All original mod settings are available in the sidebar. Server settings retain their original permissions and synchronization.",
-  "thenathe_mod_suite.chalk": "Chalk",
+  "thenathe_mod_suite.chalk": "Chalk Settings",
   "thenathe_mod_suite.chalk.desc": "Chalk particles are saved to the original Chalk configuration.",
   "thenathe_mod_suite.chalk.emitParticles": "Emit Chalk Particles",
   "thenathe_mod_suite.chalk.emitParticles.desc": "Show Chalk particles. This changes the original Chalk EmitParticles setting and preserves its existing file.",
   "toolpouch.config": "Tool Pouch Gameplay Settings",
   "toolpouch.client_config": "Tool Pouch Client Settings",
-  "tiered_backpacks.config.desc": "Tiered Backpacks gameplay settings. This section keeps the original Mod Configuration title."
+  "thenathe_mod_suite": "Vanilla++ Quality of Life Suite",
+  "simple_smithing_overhaul.config-v2": "Simple Smithing Overhaul Settings",
+  "mapstitch.config": "MapStitch Gameplay Settings",
+  "mapstitch.client_config": "MapStitch Client Settings",
+  "tiered_backpacks.config": "Tiered Backpacks Settings",
+  "misctweaks.config": "MiscTweaks Gameplay Settings",
+  "misctweaks.client_config": "MiscTweaks Client Settings",
+  "simple_death_improvements.config": "Simple Death Improvements Settings",
+  "sensible_stackables.config": "Sensible Stackables Gameplay Settings",
+  "sensible_stackables.client_config": "Sensible Stackables Client Settings",
+  "key.thenathe_mod_suite.open_settings": "Open Suite Settings",
+  "key.category.thenathe_mod_suite.settings": "Vanilla++ Quality of Life Suite"
 }

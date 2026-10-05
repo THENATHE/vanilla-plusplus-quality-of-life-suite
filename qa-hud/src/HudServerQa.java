@@ -17,6 +17,7 @@ import net.minecraft.world.level.GameType;
 public final class HudServerQa implements ModInitializer {
     final Path control = Path.of(System.getProperty("hud.qa.control"));
     ItemStack atlas;
+    ItemStack map;
     String command = "";
     public void onInitialize() {
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.SERVER_STARTED.register(server -> {
@@ -34,7 +35,7 @@ public final class HudServerQa implements ModInitializer {
                     ToolPouch.CONFIG.allowUseFromInventory.accept(true);
                     ToolPouch.CONFIG.infoOverlaySettings.obfuscateClockIfNotOverworld.accept(false);
                     ToolPouch.CONFIG.infoOverlaySettings.obfuscateCompassIfNotOverworld.accept(false);
-                    var map = MapItem.create(p.level(), p.getBlockX(), p.getBlockZ(), (byte)0, true, false);
+                    map = MapItem.create(p.level(), p.getBlockX(), p.getBlockZ(), (byte)0, true, false);
                     var data = MapItem.getSavedData(map, p.level());
                     map.set(ModDataComponents.MAP_CENTER, new org.joml.Vector2i(data.centerX, data.centerZ));
                     var recipe = new AtlasRecipe();
@@ -50,7 +51,7 @@ public final class HudServerQa implements ModInitializer {
                 if (Files.exists(file)) {
                     String next = Files.readString(file).trim();
                     if (!next.equals(command)) {
-                        command = next;seed(p, next.equals("restore"));
+                        command = next;seed(p, next.equals("atlas"));
                         Files.writeString(control.resolve("server-ack"), next);
                     }
                 }
@@ -62,7 +63,7 @@ public final class HudServerQa implements ModInitializer {
     }
     void seed(net.minecraft.server.level.ServerPlayer p, boolean withAtlas) {
         var items = withAtlas ? List.of(atlas.copy(), new ItemStack(Items.COMPASS), new ItemStack(Items.CLOCK))
-                : List.of(new ItemStack(Items.COMPASS), new ItemStack(Items.CLOCK));
+                : List.of(map.copy(), new ItemStack(Items.COMPASS), new ItemStack(Items.CLOCK));
         var pouch = new ItemStack(me.pajic.toolpouch.item.ModItems.TOOL_POUCH);
         pouch.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(items));
         p.getInventory().setItem(12, pouch);p.inventoryMenu.broadcastFullState();

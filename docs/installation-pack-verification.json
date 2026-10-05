@@ -1,11 +1,11 @@
 {
-  "pack_version": "1.0.2-merged.1+26.3",
+  "pack_version": "1.0.2-merged.2+26.3",
   "date": "2026-10-05",
   "passed": true,
-  "suite_sha256": "b04ca184a6b8e82700a2b0df96f1fcdbd06e485cc778a6a0fad5666d571bbe9b",
+  "suite_sha256": "9ca677eee6d1c82c117b523e866e244e9bbba1e45cacaafd93ddce0dac76a08f",
   "archives": {
-    "vanilla-plusplus-installation-pack-1.0.2-merged.1+26.3.mrpack": "1d6659eb7ef4a615d2df0d254c83134fd625592ddbdd442f47be98f53b30a461",
-    "vanilla-plusplus-installation-pack-1.0.2-merged.1+26.3-manual.zip": "2377d52212cebac87098f92e2c2552019054387262aeda11ae792f5a22680dfa"
+    "vanilla-plusplus-installation-pack-1.0.2-merged.2+26.3.mrpack": "a67cca868b4426431925345b9d29e317dbbcd9b228951bd01e8ebdbf685b74e0",
+    "vanilla-plusplus-installation-pack-1.0.2-merged.2+26.3-manual.zip": "7a4d2dcdc1efd7237e421d02709373506c51bf75cf0f8bb25f87df94cb7ac831"
   },
   "cases": [
     "Both ZIP archives pass integrity/path/duplicate validation",
@@ -30,7 +30,7 @@
       "mods/cloth-config-fabric-26.3.159.jar": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b",
       "mods/mixson-2.2.1-multiloader.jar": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0",
       "mods/modmenu-21.0.0.jar": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f",
-      "mods/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.1+26.3.jar": "b04ca184a6b8e82700a2b0df96f1fcdbd06e485cc778a6a0fad5666d571bbe9b",
+      "mods/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.2+26.3.jar": "9ca677eee6d1c82c117b523e866e244e9bbba1e45cacaafd93ddce0dac76a08f",
       "mods/defaulted-1.3.8+26.3.dropfix.1-fabric.jar": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
       "mods/codecui-26.3-1.4.3-fabric.jar": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
     },
@@ -41,7 +41,7 @@
       "mods/cloth-config-fabric-26.3.159.jar": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b",
       "mods/mixson-2.2.1-multiloader.jar": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0",
       "mods/polymer-bundled-0.18.2+26.3.jar": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f",
-      "mods/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.1+26.3.jar": "b04ca184a6b8e82700a2b0df96f1fcdbd06e485cc778a6a0fad5666d571bbe9b",
+      "mods/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.2+26.3.jar": "9ca677eee6d1c82c117b523e866e244e9bbba1e45cacaafd93ddce0dac76a08f",
       "mods/defaulted-1.3.8+26.3.dropfix.1-fabric.jar": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
       "mods/codecui-26.3-1.4.3-fabric.jar": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
     }

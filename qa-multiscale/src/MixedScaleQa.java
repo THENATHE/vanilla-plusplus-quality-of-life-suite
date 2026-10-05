@@ -46,8 +46,11 @@ public final class MixedScaleQa implements ModInitializer {
    ServerLevel level=server.overworld();
    var profile=new GameProfile(UUID.randomUUID(),"MixedScaleQA");
    var player=new ServerPlayer(server,level,profile,ClientInformation.createDefault());
+   var creationSounds=new java.util.concurrent.atomic.AtomicInteger();
    player.connection=new ServerGamePacketListenerImpl(server,new Connection(PacketFlow.SERVERBOUND),player,CommonListenerCookie.createInitial(profile,false)) {
-    @Override public void send(Packet<?> packet) {}
+    @Override public void send(Packet<?> packet) {
+     if(packet instanceof net.minecraft.network.protocol.game.ClientboundSoundPacket sound && sound.getSound().value()==net.minecraft.sounds.SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT)creationSounds.incrementAndGet();
+    }
    };
    var key=com.thenathe.suite.network.SuiteCapabilities.class.getDeclaredField("MODULES_KEY");key.setAccessible(true);
    player.connection.getPacketContext().set((net.fabricmc.fabric.api.networking.v1.context.PacketContext.Key<java.util.Set<String>>)key.get(null),java.util.Set.of("toolpouch","mapstitch"));
@@ -60,6 +63,8 @@ public final class MixedScaleQa implements ModInitializer {
     for(var item:loaded.get(DataComponents.BUNDLE_CONTENTS).items())scales.add((int)MapItem.getSavedData(item.get(DataComponents.MAP_ID),level).scale);
     check(scales.equals(Set.of(0,1,2,3,4)),"restart retains all five scales and saved map data");
     check(loaded.get(ModDataComponents.ATLAS_SCALE)==3,"restart retains selected scale");
+    check(com.thenathe.multiscale.AtlasOptions.generationMask(loaded)==21,"restart retains independent generation choices");
+    check(loaded.get(DataComponents.CUSTOM_DATA).copyTag().getStringOr("qa-marker", "").equals("keep"),"restart preserves unrelated custom data");
    } else {
     ItemStack atlas=new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath("mapstitch","atlas")));
     check(atlas.getItem() instanceof AtlasItem,"real atlas registry item");
@@ -81,10 +86,14 @@ public final class MixedScaleQa implements ModInitializer {
     check(item.overrideOtherStackedOnMe(atlas,carried[0],slot,ClickAction.PRIMARY,player,access),"reinsert cursor map");
     check(carried[0].isEmpty()&&ids(atlas).equals(expected),"cursor insertion conserves all map IDs");
     atlas.set(ModDataComponents.ATLAS_SCALE,3);
+    check(com.thenathe.multiscale.AtlasOptions.generationMask(atlas)==8,"old atlas defaults generation to its selected scale");
+    net.minecraft.world.item.component.CustomData.update(DataComponents.CUSTOM_DATA,atlas,tag->tag.putString("qa-marker","keep"));
+    com.thenathe.multiscale.AtlasOptions.setGenerationMask(atlas,21);
     var encoded=ItemStack.CODEC.encodeStart(ops,atlas).getOrThrow();
     ItemStack loaded=ItemStack.CODEC.parse(ops,encoded).getOrThrow();
     check(ids(loaded).equals(expected),"codec retains mixed-scale contents");
     check(loaded.get(ModDataComponents.ATLAS_SCALE)==3,"codec retains selected scale");
+    check(com.thenathe.multiscale.AtlasOptions.generationMask(loaded)==21,"codec retains independent generation choices");
     NbtIo.writeCompressed((CompoundTag)encoded,saved);
     for(int scale=0;scale<5;scale++) {
      atlas.set(ModDataComponents.ATLAS_SCALE,scale);
@@ -100,6 +109,7 @@ public final class MixedScaleQa implements ModInitializer {
     Set<Integer> generated=new HashSet<>();
     for(int scale=0;scale<5;scale++) {
      atlas.set(ModDataComponents.ATLAS_SCALE,scale);
+     com.thenathe.multiscale.AtlasOptions.setGenerationMask(atlas,1<<scale);
      com.thenathe.multiscale.MixedScaleMaps.selectActive(atlas,level,player,true);
      int id=atlas.get(ModDataComponents.ATLAS_ACTIVE_MAP_ID);generated.add(id);
      var active=MapItem.getSavedData(new MapId(id),level);
@@ -110,6 +120,43 @@ public final class MixedScaleQa implements ModInitializer {
     }
     check(generated.size()==5,"overlapping layers retain five distinct map IDs");
     check(atlas.get(DataComponents.BUNDLE_CONTENTS).items().stream().mapToInt(net.minecraft.world.item.ItemStackTemplate::count).sum()==10,"all ten maps conserved");
+    check(creationSounds.get()==5,"each one-map generation batch sends its explorer one vanilla sound");
+    var multi=new ItemStack(item);
+    multi.set(ModDataComponents.ATLAS_SCALE,4);
+    multi.set(DataComponents.BUNDLE_CONTENTS,new BundleContents(java.util.List.of(ItemStackTemplate.fromNonEmptyStack(new ItemStack(Items.MAP,5)))));
+    com.thenathe.multiscale.AtlasOptions.setGenerationMask(multi,5);
+    com.thenathe.multiscale.MixedScaleMaps.selectActive(multi,level,player,true);
+    var layerSet=new HashSet<Integer>();
+    for(var entry:multi.get(DataComponents.BUNDLE_CONTENTS).items())if(entry.get(DataComponents.MAP_ID)!=null)layerSet.add((int)MapItem.getSavedData(entry.get(DataComponents.MAP_ID),level).scale);
+    check(layerSet.equals(Set.of(0,2)),"only enabled layers generate even when minimap differs");
+    check(multi.get(ModDataComponents.ATLAS_ACTIVE_MAP_ID)==-1,"unavailable minimap layer does not choose another scale");
+    check(multi.get(DataComponents.BUNDLE_CONTENTS).items().stream().mapToInt(ItemStackTemplate::count).sum()==5,"multi-layer generation preserves total item count");
+    check(multi.get(DataComponents.BUNDLE_CONTENTS).items().stream().filter(e->e.is(Items.MAP)).mapToInt(ItemStackTemplate::count).sum()==3,"two enabled layers consume exactly two blanks");
+    check(creationSounds.get()==6,"multi-map generation batch plays one chime");
+    com.thenathe.multiscale.MixedScaleMaps.selectActive(multi,level,player,true);
+    check(ids(multi).size()==2&&creationSounds.get()==6,"existing layer coverage consumes no blanks and plays no sound");
+    player.getInventory().setItem(5,multi);
+    var target=new com.thenathe.multiscale.AtlasTarget(com.thenathe.multiscale.AtlasTarget.INVENTORY,5,com.thenathe.multiscale.AtlasTarget.anchor(multi),com.thenathe.multiscale.AtlasOptions.identity(multi));
+    check(com.thenathe.multiscale.MixedScales.select(player,new com.thenathe.multiscale.MixedScales.SelectScale(target,2)),"server accepts independent minimap selection");
+    check(com.thenathe.multiscale.AtlasOptions.generationMask(multi)==5,"minimap selection preserves generation toggles");
+    check(com.thenathe.multiscale.MixedScales.selectGeneration(player,new com.thenathe.multiscale.MixedScales.SelectGeneration(target,0)),"all generation can be disabled");
+    check(multi.get(ModDataComponents.ATLAS_SCALE)==2,"generation changes preserve minimap scale");
+    check(!com.thenathe.multiscale.MixedScales.selectGeneration(player,new com.thenathe.multiscale.MixedScales.SelectGeneration(target,32)),"invalid generation mask rejected");
+    check(!com.thenathe.multiscale.MixedScales.selectGeneration(player,new com.thenathe.multiscale.MixedScales.SelectGeneration(new com.thenathe.multiscale.AtlasTarget(0,5,999999),1)),"stale atlas anchor rejected");
+    var modules=player.connection.getPacketContext();
+    modules.set((net.fabricmc.fabric.api.networking.v1.context.PacketContext.Key<java.util.Set<String>>)key.get(null),java.util.Set.of());
+    check(!com.thenathe.multiscale.MixedScales.selectGeneration(player,new com.thenathe.multiscale.MixedScales.SelectGeneration(target,1)),"non-native generation request rejected");
+    modules.set((net.fabricmc.fabric.api.networking.v1.context.PacketContext.Key<java.util.Set<String>>)key.get(null),java.util.Set.of("toolpouch","mapstitch"));
+    var replacement=multi.copy();
+    net.minecraft.world.item.component.CustomData.update(DataComponents.CUSTOM_DATA,replacement,tag->tag.remove(com.thenathe.multiscale.AtlasOptions.IDENTITY));
+    com.thenathe.multiscale.AtlasOptions.ensureIdentity(replacement);
+    player.getInventory().setItem(5,replacement);
+    check(!com.thenathe.multiscale.MixedScales.selectGeneration(player,new com.thenathe.multiscale.MixedScales.SelectGeneration(target,1)),"replacing the same slot with a different atlas rejects the bound target");
+    player.getInventory().setItem(5,multi);
+    player.setPos(32768,100,32768);
+    com.thenathe.multiscale.MixedScaleMaps.selectActive(multi,level,player,true);
+    check(ids(multi).size()==2&&creationSounds.get()==6,"all-off generation does not create maps in a new region");
+    player.setPos(16384,100,16384);
     me.pajic.toolpouch.ToolPouch.CONFIG.allowUseFromInventory.accept(true);
     var pouch=new ItemStack(me.pajic.toolpouch.item.ModItems.TOOL_POUCH);
     pouch.set(DataComponents.CONTAINER,net.minecraft.world.item.component.ItemContainerContents.fromItems(java.util.List.of(atlas)));

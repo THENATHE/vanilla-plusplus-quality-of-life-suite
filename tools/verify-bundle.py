@@ -3,7 +3,7 @@
 import hashlib,io,json,re,sys,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-path=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.1+26.3.jar'
+path=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.2+26.3.jar'
 locks=json.loads((ROOT/'locks/artifacts.json').read_text())
 def declared_version(build):
     versions=re.findall(r"^version\s*=\s*['\"]([^'\"]+)['\"]", build.read_text(), re.MULTILINE)

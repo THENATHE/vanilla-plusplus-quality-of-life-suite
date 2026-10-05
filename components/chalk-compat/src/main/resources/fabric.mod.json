@@ -32,5 +32,10 @@
     "polymer-core": "${polymer}",
     "polymer-resource-pack": "${polymer}",
     "polymer-virtual-entity": "${polymer}"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "thenathe_mod_suite"
+    }
   }
 }

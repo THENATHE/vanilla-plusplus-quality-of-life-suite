@@ -1,8 +1,18 @@
 # Validation
 
-## Merged testing branch 1.0.2-merged.1+26.3
+## Merged testing branch 1.0.2-merged.2+26.3
 
 Combined build and runtime evidence is recorded in [MERGED_TESTING.md](MERGED_TESTING.md). Prior branch and mainline evidence below is historical and does not stand in for fresh combined tests.
+
+The current merged update has focused evidence under [merged2](../qa-merged/evidence/merged2/). The final JAR hash and exact evidence paths are recorded in [build verification](build-verification.json).
+
+- Matching native and Fabric API-only clients connected to the Polymer server. Native clients exercised all five M scales, independent S/generation controls, all-off/re-enable, duplicate inventory/pouch targeting and the in-world settings hotkey. Both clients moved all 2,048 stone through actual inventory packets with no loss; fallback maximum metadata remained 99.
+- Dedicated map mechanics/restarts passed **158 assertions**, with and without Polymer: all five layers, independent generation, blank conservation, one cartography packet per creation batch, stored options/unrelated data, and stale/replaced book rejection.
+- The requested one-off death checks passed **25 cases per profile, 254 assertions total**, with and without Polymer. Every ordinary supported container, nested combination, open menu, equipment attachment, cursor and overflow case preserved only atlases while conserving ordinary drops. Real bundle insertion accepted atlases. Optional external Trinkets/Ohmega accessory slots were not installed in this baseline.
+- Final graphical HUD checks cover eight scenes: atlas/ordinary maps share anchors and details never overlap the observed map bounds; original settings synchronize and save; signed atlas offsets persist.
+- The settings fixture checks actual Mod Menu grouping/hidden Colorful entry/Chalk factory, 12 functional configurations with correct titles and original translations, hotkey registration and the no-world guard.
+
+The earlier mechanics/network/death candidate is identified in its result files. The final presentation fixes change only root client Mod Menu/title-resource code; [byte comparison](../qa-merged/evidence/merged2/candidate-to-final-equivalence.json) verifies all 16 nested modules are byte-for-byte identical. The final settings and rendered HUD checks run against the packaged JAR itself. Historical vanilla, client-Polymer, full Stackables menu and permission tests below were not rerun for this update; no new pass is claimed for those unchanged scenarios. Tests cover the requested changes rather than every possible mod arrangement or arbitrary nesting/count.
 
 # Suite validation and test limits
 

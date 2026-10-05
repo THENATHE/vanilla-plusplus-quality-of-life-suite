@@ -1,5 +1,15 @@
 # Changes
 
+## 1.0.2-merged.2+26.3 — 2026-10-05 (testing branch)
+
+- Separate world-map viewing, minimap scale, and per-scale map generation. Add compact controls below S, per-atlas persistence, and generation tooltips.
+- Restore a vanilla cartography sound sent to the explorer once per generation batch.
+- Extend keep-atlas-on-death to extract only atlases from nested pouch/backpack/shulker/bundle contents, including cursor containers; preserve other ordinary drops and handle retained-atlas overflow.
+- Synchronize Tool Pouch and MapStitch HUD corner settings and use shared minimap/detail spacing for atlas and ordinary map sources.
+- Keep original mods individually visible in Mod Menu, hide the Colorful addon entry, and group authored components under the suite. Rename the coordinator to Vanilla / Polymer Shim. Original mod JARs remain unchanged.
+- Remove placeholder settings entries, give real configuration screens consistent titles, and add a rebindable Open Suite Settings hotkey (initially unbound).
+
+
 ## 1.0.2-merged.1+26.3 — 2026-10-05 (testing branch)
 
 - Merge mixed-scale MapStitch and Sensible Stackables as separate modules on `merged`.

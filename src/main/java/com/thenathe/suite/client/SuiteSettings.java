@@ -36,16 +36,13 @@ public final class SuiteSettings {
 
     public static void initialize() {
         if (initialized) return;
-        SuiteOverview overview = new SuiteOverview();
         ChalkSettings chalkConfig = new ChalkSettings();
         try {
             // Fzzy registers directory watchers before any transient GUI config is saved.
-            Files.createDirectories(overview.getDir().toPath());
             Files.createDirectories(chalkConfig.getDir().toPath());
         } catch (IOException failure) {
             throw new IllegalStateException("Could not create the suite client configuration directory", failure);
         }
-        ConfigApiJava.registerConfig(overview, SuiteOverview::new, RegisterType.CLIENT);
         chalk = ConfigApiJava.registerConfig(chalkConfig, ChalkSettings::new, RegisterType.CLIENT);
         initialized = true;
         ConfigApiJava.registerScreenProvider(SCOPE, (namespace, scope) -> create(Minecraft.getInstance().gui.screen()));
@@ -59,6 +56,11 @@ public final class SuiteSettings {
 
     public static Screen create(Screen parent) {
         return provide(parent, SCOPE);
+    }
+
+    /** Open Chalk's real setting directly while retaining the shared sidebar. */
+    public static Screen createChalk(Screen parent) {
+        return provide(parent, SCOPE + ".chalk");
     }
 
     private static Screen provide(Screen parent, String scope) {
