@@ -31,7 +31,7 @@ The workspace source remains at `Minecraft/thenathe-mod-suite/`. The public repo
 | tools/package-release.py | Package a committed, verified version into the required release hierarchy |
 | build/libs/ | Development output, separate from released artifacts |
 
-The sibling historical projects outside this suite remain unchanged. Releases use `Builds/Minecraft/Vanilla++ Quality of Life Suite/<Component>/<Release Version>/`, with the installable JAR, checksums, source archive and release notes together.
+The historical projects outside this suite remain preserved. Consolidated local source/build locations and QA helper resolution are documented in [local archive maintenance](LOCAL_ARCHIVE.md). Suite releases use `Builds/Minecraft/Vanilla++ Quality of Life Suite/<Component>/<Release Version>/`, with the installable JAR, checksums, source archive and release notes together.
 
 ## Updating Pajic's mods
 

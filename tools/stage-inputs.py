@@ -2,6 +2,7 @@
 """Stage only hash-matching existing inputs; never substitute a similarly named release."""
 import argparse, hashlib, json, shutil, sys, urllib.request, zipfile
 from pathlib import Path
+from workspace_paths import project_path
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--workspace', type=Path, help='Existing Minecraft development workspace')
@@ -28,10 +29,12 @@ search += [ROOT / 'components' / name / 'upstream/artifacts' for name in ['sso',
 if args.inputs: search.append(args.inputs)
 if args.workspace:
     workspace = args.workspace.resolve()
-    search += [workspace / 'Minecraft/SSO-backpack-toolpouch-mapstitch-shim/libs',
+    search += [project_path(workspace, 'SSO-backpack-toolpouch-mapstitch-shim') / 'libs',
+               project_path(workspace, 'toolpouch-atlas-elytra-compat-26.3') / 'libs',
                workspace / 'Minecraft/defaulted-drop-fix/build',
-               workspace / 'Minecraft/polymer-shim-test-bundle/staging-2026-10-01/mods']
-    search += [p for p in (workspace / 'Builds/Minecraft').glob('*/*/*') if p.is_dir()]
+               project_path(workspace, 'polymer-shim-test-bundle') / 'staging-2026-10-01/mods']
+    for releases in [workspace / 'Builds/Minecraft', workspace / 'Backups/old builds/Minecraft']:
+        search += [p for p in releases.glob('*/*/*') if p.is_dir()]
 candidates = list(dict.fromkeys(p.resolve() for directory in search if directory.is_dir() for p in directory.rglob('*.jar')))
 hashes = {hashlib.sha256(p.read_bytes()).hexdigest(): p for p in candidates}
 missing = []

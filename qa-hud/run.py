@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Focused suite HUD/settings graphical smoke using cached official runtime files."""
-import argparse,hashlib,importlib.util,json,os,shutil,subprocess,time,zipfile
+import argparse,hashlib,json,os,shutil,subprocess,sys,time,zipfile
 from pathlib import Path
 HERE=Path(__file__).resolve().parent
 SUITE=HERE.parent
 ROOT=SUITE.parents[1]
-spec=importlib.util.spec_from_file_location('launch',ROOT/'Minecraft/mapstitch-polymer-compat-26.3/qa/launch.py')
-launch=importlib.util.module_from_spec(spec);spec.loader.exec_module(launch)
+sys.path.insert(0,str(SUITE/'tools'))
+from workspace_paths import mapstitch_launch
+launch=mapstitch_launch(ROOT)
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def main():
     p=argparse.ArgumentParser(description=__doc__)

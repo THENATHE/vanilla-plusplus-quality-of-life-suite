@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Bounded suite connection smoke, cached libraries, disposable worlds, no downloads."""
 from pathlib import Path
-import argparse, hashlib, importlib.util, json, os, shutil, socket, subprocess, time, uuid, zipfile
+import argparse, hashlib, json, os, shutil, socket, subprocess, sys, time, uuid, zipfile
 ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE = ROOT.parents[1]
-STAGE = WORKSPACE / 'Minecraft/polymer-shim-test-bundle/staging-2026-10-01/mods'
+sys.path.insert(0, str(ROOT / 'tools'))
+from workspace_paths import load_helper, project_path
+STAGE = project_path(WORKSPACE, 'polymer-shim-test-bundle') / 'staging-2026-10-01/mods'
 JAVA = '/usr/lib/jvm/java-25-openjdk/bin/java'
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar')
@@ -16,8 +18,7 @@ parser.add_argument('--extended-only', action='store_true', help='Native reconfi
 args = parser.parse_args()
 RUN = ROOT / 'qa/runs' / args.label
 RUN.mkdir(parents=True, exist_ok=False)
-spec=importlib.util.spec_from_file_location('cached_cp', WORKSPACE/'Minecraft/chalk-polymer-shim/qa/run.py')
-helper=importlib.util.module_from_spec(spec);spec.loader.exec_module(helper)
+helper=load_helper(project_path(WORKSPACE, 'chalk-polymer-shim')/'qa/run.py', 'cached_cp')
 servercp,clientcp,info=helper.prepare_classpaths('26.3',RUN/'cached-libraries')
 sha=lambda path:hashlib.sha256(path.read_bytes()).hexdigest()
 bundle=RUN/args.jar.name;shutil.copy2(args.jar,bundle)
@@ -43,7 +44,7 @@ def nested(path):
                 dest.write_bytes(data);paths.append(dest);nested(dest)
 for mod in [bundle,*external,polymer]:nested(mod)
 # Fabric adds PacketContext/ConfigurationTask methods through Loom interface injection.
-patched=next((WORKSPACE/'Minecraft/SSO-backpack-toolpouch-mapstitch-shim/.gradle/loom-cache').rglob('minecraft-merged-*-26.3.jar'))
+patched=next((project_path(WORKSPACE, 'SSO-backpack-toolpouch-mapstitch-shim')/'.gradle/loom-cache').rglob('minecraft-merged-*-26.3.jar'))
 paths.insert(0,patched)
 subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-implicit:none','-cp',os.pathsep.join(map(str,dict.fromkeys(paths))),'-d',str(classes),*map(str,(ROOT/'qa/src').glob('*.java'))],check=True)
 fixtures={}
