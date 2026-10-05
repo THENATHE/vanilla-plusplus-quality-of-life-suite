@@ -3,7 +3,7 @@
 import hashlib,io,json,re,sys,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-path=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-multiscale.1+26.3.jar'
+path=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.1+26.3.jar'
 locks=json.loads((ROOT/'locks/artifacts.json').read_text())
 def declared_version(build):
     versions=re.findall(r"^version\s*=\s*['\"]([^'\"]+)['\"]", build.read_text(), re.MULTILINE)
@@ -11,13 +11,15 @@ def declared_version(build):
     return versions[0]
 component_versions={
     json.loads((ROOT/component/'src/main/resources/fabric.mod.json').read_text())['id']: declared_version(ROOT/component/'build.gradle')
-    for component in ['components/combined-compat','components/chalk-compat','components/shared-region-maps/working','components/toolpouch-atlas-elytra/working','components/mapstitch-mixed-scales/working']
+    for component in ['components/combined-compat','components/chalk-compat','components/shared-region-maps/working','components/toolpouch-atlas-elytra/working','components/mapstitch-mixed-scales/working','components/sensible-stackables/ported','components/sensible-stackables/compat']
 }
 with zipfile.ZipFile(path) as archive:
     assert archive.testzip() is None
     meta=json.loads(archive.read('fabric.mod.json'))
     assert meta['id']=='thenathe_mod_suite' and meta['version']==declared_version(ROOT/'build.gradle')
     assert meta['depends']['defaulted']=='=1.3.8+26.3.dropfix.1'
+    for required in ['mapstitch_mixed_scales','sensible_stackables','sensible_stackables_polymer_compat']:
+        assert meta['depends'][required]=='='+component_versions[required], 'Required merged module must not be optional: '+required
     assert not any(name.endswith('.class') and '/suite/network/' in name for name in archive.namelist()),'Duplicated coordinator in root'
     modules=[]
     for nested in meta['jars']:
@@ -31,8 +33,8 @@ with zipfile.ZipFile(path) as archive:
             modules.append({'id':info['id'],'version':info['version'],'sha256':hashlib.sha256(data).hexdigest(),'file':nested['file']})
         pinned=next((x for x in locks if Path(x['file']).name==Path(nested['file']).name),None)
         if pinned:assert hashlib.sha256(data).hexdigest()==pinned['sha256'],'Changed original input '+pinned['id']
-    assert len({x['id'] for x in modules})==len(modules)==14
-    expected={'simple_smithing_overhaul','mapstitch','toolpouch','tiered_backpacks','misctweaks','simple_death_improvements','shared_region_maps','chalk','chalk-colorful-addon','toolpouch_atlas_elytra_compat','amethyst_curse_cleanser','chalk_polymer_compat','sso_backpack_toolpouch_mapstitch_shim','mapstitch_mixed_scales'}
+    assert len({x['id'] for x in modules})==len(modules)==16
+    expected={'simple_smithing_overhaul','mapstitch','toolpouch','tiered_backpacks','misctweaks','simple_death_improvements','shared_region_maps','chalk','chalk-colorful-addon','toolpouch_atlas_elytra_compat','amethyst_curse_cleanser','chalk_polymer_compat','sso_backpack_toolpouch_mapstitch_shim','mapstitch_mixed_scales','sensible_stackables','sensible_stackables_polymer_compat'}
     assert {x['id'] for x in modules}==expected
     for licensefile in (ROOT/'licenses').glob('*.txt'):
         assert archive.read('META-INF/licenses/'+licensefile.name)==licensefile.read_bytes()

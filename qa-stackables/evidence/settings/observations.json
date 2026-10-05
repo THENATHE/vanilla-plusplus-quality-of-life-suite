@@ -1,0 +1,109 @@
+[
+  {
+    "config_id": "simple_smithing_overhaul.config-v2",
+    "rows": 12,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "mapstitch.config",
+    "rows": 8,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "mapstitch.client_config",
+    "rows": 4,
+    "client_only": true,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "toolpouch.config",
+    "rows": 13,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "toolpouch.client_config",
+    "rows": 6,
+    "client_only": true,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "tiered_backpacks.config",
+    "rows": 12,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "misctweaks.config",
+    "rows": 18,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "misctweaks.client_config",
+    "rows": 4,
+    "client_only": true,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "simple_death_improvements.config",
+    "rows": 17,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "sensible_stackables.config",
+    "rows": 4,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "sensible_stackables.client_config",
+    "rows": 3,
+    "client_only": true,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "thenathe_mod_suite.overview",
+    "rows": 17,
+    "client_only": true,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "thenathe_mod_suite.chalk",
+    "rows": 1,
+    "client_only": true,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "case": "Chalk original AutoConfig saved/reloaded/reopened\u003dfalse",
+    "passed": true
+  },
+  {
+    "case": "Chalk original AutoConfig saved/reloaded/reopened\u003dtrue",
+    "passed": true
+  },
+  {
+    "case": "Tool Pouch native checkbox original file\u003dfalse",
+    "passed": true
+  },
+  {
+    "case": "Tool Pouch native checkbox original file\u003dtrue",
+    "passed": true
+  }
+]

@@ -1,5 +1,8 @@
 # Mixed-scale atlas branch
 
+On the current `merged` branch, both experiments are included in suite **1.0.2-merged.1+26.3**. Coordinator is **1.0.7-merged.1+26.3**; the map addon is **1.0.1-merged.1+26.3** with its matching dependency pin. See `docs/MERGED_TESTING.md` for combined acceptance. Individual-branch versions and evidence below are retained history.
+
+
 Suite version: `1.0.2-multiscale.1+26.3`. Branch: `feat/mapstitch-mixed-scales`. Separate addon: `mapstitch_mixed_scales`, version `1.0.0+26.3`. Coordinator variant: `1.0.7-multiscale.1+26.3`.
 
 This branch adds one nested addon under `components/mapstitch-mixed-scales/working/`. It uses the original developer MapStitch Fabric `1.1.6+26.3` artifact, SHA-256 `e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81`, without rewriting that JAR or its preserved sources. There is no separate ported MapStitch counterpart for this feature. The paused SSO-port track is not built or tested. Other exact library inputs, including Defaulted dropfix, stay pinned by `locks/artifacts.json`.

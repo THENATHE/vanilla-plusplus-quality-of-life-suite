@@ -69,7 +69,7 @@ public final class MixedScaleQa implements ModInitializer {
     for(int scale=0;scale<5;scale++) {
      ItemStack map=MapItem.create(level,0,0,(byte)scale,true,false);expected.add(map.get(DataComponents.MAP_ID).id());
      container.setItem(0,map);
-     check(item.overrideStackedOnOther(atlas,slot,ClickAction.PRIMARY,player),"slot insertion accepts scale "+scale);
+     check(item.overrideStackedOnOther(atlas,slot,ClickAction.PRIMARY,player),"slot insertion accepts scale "+scale+"; atlas="+atlas.getComponents()+"; map="+map.getComponents()+"; data="+MapItem.getSavedData(map,level)+"; contents="+atlas.get(DataComponents.BUNDLE_CONTENTS));
      check(container.getItem(0).isEmpty(),"slot insertion consumes map once "+scale);
      check(ids(atlas).equals(expected),"slot insertion preserves every identity "+scale);
     }

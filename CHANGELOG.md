@@ -1,11 +1,19 @@
 # Changes
 
-## 1.0.2-multiscale.1+26.3 — 2026-10-04 (experimental branch)
+## 1.0.2-merged.1+26.3 — 2026-10-05 (testing branch)
 
-- Add a separately built mixed-scale MapStitch addon; original MapStitch JAR stays byte-identical.
-- Store maps at all five scales in one atlas; persist active exploration/minimap scale using original world-map controls.
-- Preserve map IDs and exactly-once blank consumption, shared scale-specific regions, pouch saveback and restart state.
-- Bind scale selection to the owned physical atlas location, including identical inventory/pouch copies. Require addon-aware MapStitch negotiation.
+- Merge mixed-scale MapStitch and Sensible Stackables as separate modules on `merged`.
+- Retain both addon-aware MapStitch negotiation and Stackables protocol v2, including safe fallback metadata and full server counts.
+- Bundle all 16 feature/compatibility modules, keep exact Defaulted dropfix, and provide fresh combined validation.
+- Update the map addon’s coordinator dependency to the merged version and require all three new modules in root metadata, preventing Fabric from silently omitting an experiment.
+
+
+## 1.0.2-stackables.1+26.3 — 2026-10-04 (experimental branch)
+
+- Integrate Sensible Stackables as an independently compiled unofficial 26.3 port and separate Polymer module. Preserve original 26.2 source/binary/dependencies and verification.
+- Keep default stack rules, configurable uncapping, menu fixes, throw cooldown, original configuration and native count presentation.
+- Synchronize stack defaults through Polymer. Preserve full counts above 99 while advertising safe fallback maximum metadata; correct completed inventory actions.
+- Add independently negotiated Stackables capability and its original settings to the grouped hub.
 
 These features are not merged into main. Exact branch validation is in [VALIDATION.md](docs/VALIDATION.md).
 

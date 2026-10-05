@@ -1,13 +1,30 @@
+# Validation
+
+## Merged testing branch 1.0.2-merged.1+26.3
+
+Combined build and runtime evidence is recorded in [MERGED_TESTING.md](MERGED_TESTING.md). Prior branch and mainline evidence below is historical and does not stand in for fresh combined tests.
+
 # Suite validation and test limits
 
-## Mixed-scale MapStitch experiment 1.0.2-multiscale.1+26.3
+## Sensible Stackables branch 1.0.2-stackables.1
 
-The exact branch JAR SHA-256 is `0c590629dd4ba3f3a4cd21f0705430775799e8e096211419db7921910b185ddd`. [Focused evidence and reproduction steps](../qa-multiscale/README.md) record 118 dedicated-server assertions across initial/restart Polymer and no-Polymer profiles, all four connection profiles, and client-side Polymer. Actual original scale controls, all five active scales, unchanged other books and identical inventory/pouch copies passed. Original MapStitch bytes and exact Defaulted dropfix are preserved. Other upstream systems retain their prior validation; they were not all retested by this feature experiment.
+This independent branch adds a separately built Sensible Stackables `3.0.3-port.1+26.3` module and `1.0.0+26.3` compatibility module. The [component record](../components/sensible-stackables/README.md) identifies the untouched developer 26.2 baseline, published-source comparison, exact per-track dependencies, and agreed fallback maximum-metadata limit. Native features and actual stack counts remain intact; vanilla clients advertise a maximum of 99 for hashing/prediction when the server's limit is higher.
 
-## Historical mainline validation
+Dedicated-server mechanics and restart records are maintained in [qa-stackables](../qa-stackables/README.md). They use actual server menu implementations with a fixture player, not a connected client. Original developer-source compilation and untouched 26.2 baseline results are separate from ported-suite results. The root network harness records real-client receipt and click behavior separately. Historical 1.0.1 and 1.0.0 results below are not claims that those profiles ran against this branch.
 
+## Historical Sensible Stackables branch network and settings acceptance
 
-## Current 1.0.1 network evidence
+Final JAR SHA-256: `40c7ad4b454e8caa2a4518fcd246aa8fb54feeb65cc98ecc87dfd2a4af334acb`.
+
+- [Four connection profiles](../qa-stackables/evidence/network/connections.json) passed: matching suite, Fabric API-only client, actual vanilla client, and matching suite without server Polymer. Server used uncapping at 2048; observed native and Fabric client counts remain exactly 2048, potions 3. The unmodified vanilla client joined and remained connected; this profile does not inspect its screen or automate its clicks.
+- [Actual client inventory packets](../qa-stackables/evidence/network/inventory-packets.json) passed for matching native and Fabric API-only clients. Each picked up all 2048 stone and placed it in another slot, with zero remainder/loss. Native maximum stayed 2048; fallback maximum was 99. The ordinary-item forced-transform correction prevents the confirmed persistent-codec hash crash.
+- [Client-side Polymer](../qa-stackables/evidence/network/client-polymer.json) also passed native 2048 receipt, potion metadata and real inventory moves.
+- [Unified settings](../qa-stackables/evidence/settings/observations.json) opened all 13 original suite/client configurations, including `sensible_stackables.config` and `sensible_stackables.client_config`, with nonempty native widgets and unchanged IDs. This was a standalone settings-screen test, not a new multiplayer permissions regression.
+- [Dedicated mechanics](../qa-stackables/evidence/final-context-02/result.json) passed 131 assertions across six default/uncapped Polymer/native initial/restart cases. [Untouched developer 26.2](../qa-stackables/evidence/upstream-26.2-01/result.json) independently passed 82 assertions across four cases; no 26.2 vanilla shim or connected vanilla-client result is claimed.
+
+Remaining manual checks: test your chosen item/tag overrides, throw cooldown, shift/drag behavior on actual vanilla clients, stacked-item workflows in other installed mod menus, native count formatting, and larger counts than 2048. The VarInt boundary was checked separately, but that is not exhaustive gameplay evidence for arbitrarily large counts. Back up existing worlds/configurations before installing an experimental branch.
+
+## Historical 1.0.1 network evidence
 
 The release `vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar`, SHA-256 `8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a`, passed 12 bounded connection cases after the nested compatibility versions were corrected. Every result below comes from that exact artifact; earlier candidate runs remain local development records.
 
@@ -18,7 +35,7 @@ The release `vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar`, SHA-256 `8e
 
 These checks verify negotiation, registry/state translation, reconnect behavior, and the native broken-anvil regression. They do not replace exhaustive gameplay, persistence, or LAN-client acceptance. The separate ChatGPT SSO-port track remained paused and was not built or tested.
 
-## Current 1.0.1 settings and build evidence
+## Historical 1.0.1 settings and build evidence
 
 [Settings lifecycle results](../qa-settings/evidence/lifecycle-1.0.1.json) passed all 11 native configuration screens, representative Chalk/Tool Pouch persistence, operator and guest permissions, pending proposal preservation across reopening, and routing recovery after an actual Fzzy client update invalidated its cache. Real different-server reconnects passed in both permission directions and cleared previous proposals. Forwarded proposals were injected through the original Fzzy receiver; this was not a two-player forwarding network test.
 

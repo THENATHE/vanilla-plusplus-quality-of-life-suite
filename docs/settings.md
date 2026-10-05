@@ -9,6 +9,7 @@ Open **Vanilla++ Quality of Life Suite** from Mod Menu, or run the client comman
 | Simple Smithing Overhaul | `simple_smithing_overhaul:config-v2` and any other registered GUI configs in its namespace | Original Fzzy Config objects and files |
 | MapStitch | `mapstitch:config`, `mapstitch:client_config` | Original Fzzy Config objects and files |
 | Tool Pouch | `toolpouch:config`, `toolpouch:client_config` | Original Fzzy Config objects and files |
+| Sensible Stackables | `sensible_stackables:config`, `sensible_stackables:client_config` | Original Fzzy Config objects and files; uncapping requires restart |
 | Tiered Backpacks | `tiered_backpacks:config` | Original Fzzy Config objects and files |
 | MiscTweaks | `misctweaks:config`, `misctweaks:client_config` | Original Fzzy Config objects and files; Sodium/Raised compatibility retained |
 | Simple Death Improvements | `simple_death_improvements:config` | Original Fzzy Config objects and files; optional accessory compatibility retained |
@@ -26,7 +27,7 @@ The root overview contains explanatory entries for automatic modules. It does no
 
 ## How the combined Fzzy screen preserves behavior
 
-`src/main/java/com/thenathe/suite/client/SuiteSettings.java` collects registered GUI configurations from the six included Pajic namespaces. It uses each existing active config and the original default/base object. It constructs a single Fzzy `ConfigScreenManager` containing the original keys and `ConfigSet`s, rather than serializing fields into another configuration type. Server/client classification uses the original `SyncedConfigRegistry.hasConfig` result, exactly as Fzzy's own screen factory does.
+`src/main/java/com/thenathe/suite/client/SuiteSettings.java` collects registered GUI configurations from the seven included Pajic namespaces. It uses each existing active config and the original default/base object. It constructs a single Fzzy `ConfigScreenManager` containing the original keys and `ConfigSet`s, rather than serializing fields into another configuration type. Server/client classification uses the original `SyncedConfigRegistry.hasConfig` result, exactly as Fzzy's own screen factory does.
 
 Fzzy's `ConfigSingleUpdateManager` derives save behavior and network update keys from `ConfigSet.active.getId().toLanguageKey()`. Consequently, grouping configurations under the suite sidebar changes their presentation while preserving their original synchronization destinations, file paths and permissions. Original namespace screen providers and manager cache entries route forwarded changes into this same manager, preserving the original review/approval workflow.
 

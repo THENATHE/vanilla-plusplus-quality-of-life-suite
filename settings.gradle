@@ -1,8 +1,15 @@
 pluginManagement { repositories { maven { url = 'https://maven.fabricmc.net/' }; mavenCentral(); gradlePluginPortal() } }
 rootProject.name = 'vanilla-plusplus-quality-of-life-suite'
-include 'combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra', 'mapstitch-mixed-scales'
+include 'combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra'
 project(':combined-compat').projectDir = file('components/combined-compat')
 project(':chalk-compat').projectDir = file('components/chalk-compat')
 project(':shared-region-maps').projectDir = file('components/shared-region-maps/working')
 project(':toolpouch-atlas-elytra').projectDir = file('components/toolpouch-atlas-elytra/working')
+
+include 'sensible-stackables-port'
+project(':sensible-stackables-port').projectDir = file('components/sensible-stackables/ported')
+include 'sensible-stackables-compat'
+project(':sensible-stackables-compat').projectDir = file('components/sensible-stackables/compat')
+
+include 'mapstitch-mixed-scales'
 project(':mapstitch-mixed-scales').projectDir = file('components/mapstitch-mixed-scales/working')

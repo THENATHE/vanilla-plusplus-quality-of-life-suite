@@ -1,0 +1,36 @@
+{
+  "bundle_sha256": "3adefd8ae5fb59502e52cd830e9fe28cded4f8c71009122d3c06bfbd8107633b",
+  "minecraft": "26.2",
+  "track": "developer-release",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "stackables-native-defaults",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"passed\":true,\"uncapped\":false,\"common_stack_size\":64,\"restart\":false,\"assertions\":20}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-defaults",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"passed\":true,\"uncapped\":false,\"common_stack_size\":64,\"restart\":true,\"assertions\":21}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":false,\"assertions\":20}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":true,\"assertions\":21}",
+      "passed": true
+    }
+  ]
+}

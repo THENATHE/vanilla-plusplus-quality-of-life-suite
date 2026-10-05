@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "thenathe_mod_suite",
-  "version": "1.0.2-multiscale.1+26.3",
-  "sha256": "0c590629dd4ba3f3a4cd21f0705430775799e8e096211419db7921910b185ddd",
+  "version": "1.0.2-merged.1+26.3",
+  "sha256": "b04ca184a6b8e82700a2b0df96f1fcdbd06e485cc778a6a0fad5666d571bbe9b",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -60,9 +60,9 @@
     },
     {
       "id": "sso_backpack_toolpouch_mapstitch_shim",
-      "version": "1.0.7-multiscale.1+26.3",
-      "sha256": "324798c5aba5c1246af922cea4d944efe6365d55bfdb36ed6fb2aa3f19cf75ec",
-      "file": "META-INF/jars/thenathe-suite-combined-compat-1.0.7-multiscale.1+26.3.jar"
+      "version": "1.0.7-merged.1+26.3",
+      "sha256": "2845c54e18e00e4bbe05303e68bb895f989751cfa8d1ab7134118ba7d5b7201d",
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.0.7-merged.1+26.3.jar"
     },
     {
       "id": "chalk_polymer_compat",
@@ -83,15 +83,35 @@
       "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.5-suite.1+26.3.jar"
     },
     {
-      "id": "mapstitch_mixed_scales",
+      "id": "sensible_stackables",
+      "version": "3.0.3-port.1+26.3",
+      "sha256": "d3c20a42a4d288a0a7a1e7d4e5d6e8ef48fcfd4cc24b7a126ddd4840ca92543e",
+      "file": "META-INF/jars/sensible_stackables-fabric-3.0.3-port.1+26.3.jar"
+    },
+    {
+      "id": "sensible_stackables_polymer_compat",
       "version": "1.0.0+26.3",
-      "sha256": "9f0e7dbedab3d3628ab48b723130d7f8f4b296aa986c067ebd48546cc15b0555",
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.0.0+26.3.jar"
+      "sha256": "c03d08c09e8f2789001c5c3083fe2450f71621f096d2a8cca84e22ad29307f2c",
+      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.0+26.3.jar"
+    },
+    {
+      "id": "mapstitch_mixed_scales",
+      "version": "1.0.1-merged.1+26.3",
+      "sha256": "e7f122ce6a25a104292eefcf4b570b50f64e95bef2973f032a883390dd270be5",
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.0.1-merged.1+26.3.jar"
     }
   ],
   "original_inputs_unchanged": true,
   "defaulted_exact_dropfix_requirement": true,
   "licenses_retained": true,
   "runtime_tested": true,
-  "evidence": "qa-multiscale/evidence/final"
+  "test_date": "2026-10-05",
+  "runtime_evidence": {
+    "connections": "qa-merged/evidence/connections/result.json",
+    "client_polymer": "qa-merged/evidence/client-polymer/result.json",
+    "maps": "qa-merged/evidence/maps/result.json",
+    "stackables": "qa-merged/evidence/stackables/result.json",
+    "settings": "qa-merged/evidence/settings/observations.json"
+  },
+  "scope": "Fresh merged candidate: five real-client connection profiles, native atlas controls and 2048-item clicks, Fabric-only 2048-item clicks, 249 dedicated mechanics/restart assertions, 13 settings screens. Actual vanilla profile validates connection and resource-pack load only."
 }

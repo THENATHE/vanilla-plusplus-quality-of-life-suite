@@ -9,7 +9,10 @@ from workspace_paths import load_helper, project_path
 STAGE = project_path(WORKSPACE, 'polymer-shim-test-bundle') / 'staging-2026-10-01/mods'
 JAVA = '/usr/lib/jvm/java-25-openjdk/bin/java'
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-multiscale.1+26.3.jar')
+parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.1+26.3.jar')
+parser.add_argument('--all-profiles',action='store_true',help='Keep all four connection profiles when testing inventory actions')
+parser.add_argument('--stackables-actions',action='store_true',help='Run native and Fabric-only real inventory packet moves')
+parser.add_argument('--stackables-uncapped',action='store_true',help='Configure common stacks at 2048 and verify native/fallback packets')
 parser.add_argument('--label', default='light-'+time.strftime('%Y%m%d-%H%M%S'))
 parser.add_argument('--integrated-only', action='store_true', help='Singleplayer suite worlds with and without Polymer on the physical client')
 parser.add_argument('--world-template', type=Path, default=ROOT/'qa/runs/official-private-02/server-polymer/world')
@@ -79,6 +82,10 @@ def stop(proc,server=False):
         else:proc.terminate()
     try:proc.wait(timeout=30)
     except subprocess.TimeoutExpired:proc.kill();proc.wait()
+def stackables_config(directory):
+    if args.stackables_uncapped:
+        config=directory/'config/sensible_stackables/config.toml';config.parent.mkdir(parents=True,exist_ok=True);config.write_text('uncapStackSize = true\ncommonStackSize = 2048\n')
+
 def server(label,with_polymer):
     directory=RUN/label;(directory/'mods').mkdir(parents=True)
     mods=[bundle,*external,fixtures['server']]+([polymer] if with_polymer else [])
@@ -86,6 +93,7 @@ def server(label,with_polymer):
     (directory/'eula.txt').write_text('eula=true\n')
     with socket.socket() as s:s.bind(('127.0.0.1',0));port=s.getsockname()[1]
     (directory/'server.properties').write_text(f'server-ip=127.0.0.1\nserver-port={port}\nonline-mode=false\nenforce-secure-profile=false\nwhite-list=false\nspawn-protection=0\nview-distance=2\nsimulation-distance=5\npause-when-empty-seconds=0\nlevel-type=minecraft:flat\ngenerator-settings={{"layers":[{{"block":"minecraft:bedrock","height":1}}],"biome":"minecraft:plains"}}\ngenerate-structures=false\n')
+    stackables_config(directory)
     cmd=[JAVA,'-Xms256M','-Xmx2G','-XX:ActiveProcessorCount=2','-Dsuite.qa.control='+str(directory),'-cp',os.pathsep.join(map(str,servercp)),'net.fabricmc.loader.impl.launch.knot.KnotServer','nogui']
     proc=start(directory,cmd,mods)
     wait(lambda:'Done (' in (directory/'console.log').read_text(),proc,'server startup '+label,180)
@@ -100,6 +108,7 @@ def server(label,with_polymer):
 
 def client(name,kind,sp,serverdir,port,pack,extended=False,mismatch=None):
     directory=RUN/name;(directory/'mods').mkdir(parents=True)
+    if kind.startswith('suite'):stackables_config(directory)
     mods=[] if kind=='vanilla' else [fixtures['client'],STAGE/'fabric-api-0.161.0+26.3.jar']
     if kind.startswith('suite'):mods=[bundle,*external,fixtures['client']]
     if kind=='suite-polymer':mods.append(polymer)
@@ -112,6 +121,7 @@ def client(name,kind,sp,serverdir,port,pack,extended=False,mismatch=None):
     cp=[p for p in clientcp if kind!='vanilla' or not any(t in str(p) for t in ['/net.fabricmc/','/org.ow2.asm/'])]
     cmd=[JAVA,'-Xmx2G','-XX:ActiveProcessorCount=2','--enable-native-access=ALL-UNNAMED','-XX:StackShadowPages=32','--add-exports','java.base/jdk.internal.misc=ALL-UNNAMED','-Dsuite.qa.control='+str(directory),'-Dsuite.qa.server.address=127.0.0.1:'+str(port),'-Dsuite.qa.native-chalk='+str(kind.startswith('suite') and mismatch!='chalk').lower(),'-Dsuite.qa.native-sso='+str(kind.startswith('suite') and mismatch!='simple_smithing_overhaul').lower()]
     if mismatch:cmd+=['-Dsuite.qa.reply-mismatch='+mismatch]
+    if args.stackables_actions:cmd+=['-Dsuite.qa.stackables-actions=true']
     for prop,folder in [('java.library.path','java'),('jna.tmpdir','jna'),('org.lwjgl.system.SharedLibraryExtractPath','lwjgl'),('io.netty.native.workdir','netty')]:cmd+=['-D'+prop+'='+str(directory/'natives'/folder)]
     cmd+=['-cp',os.pathsep.join(map(str,cp)),'net.minecraft.client.main.Main' if kind=='vanilla' else 'net.fabricmc.loader.impl.launch.knot.KnotClient','--username',name,'--version','26.3','--gameDir',str(directory),'--assetsDir',str(Path.home()/'.local/share/ModrinthApp/meta/assets'),'--assetIndex',info['assetIndex']['id'],'--uuid',str(uuid.uuid3(uuid.NAMESPACE_DNS,name)),'--accessToken','0','--versionType','release','--width','900','--height','600','--quickPlayMultiplayer',f'127.0.0.1:{port}']
     proc=start(directory,cmd,mods)
@@ -170,6 +180,10 @@ try:
         sp,directory,port,pack=server('server-polymer',True)
         if args.client_polymer_only:
             client('SuiteNativePoly','suite-polymer',sp,directory,port,pack)
+            stop(sp,server=True);assert sp.returncode==0
+        elif args.stackables_actions and not args.all_profiles:
+            client('SuiteNative','suite',sp,directory,port,pack)
+            client('FabricOnly','fabric-api',sp,directory,port,pack)
             stop(sp,server=True);assert sp.returncode==0
         elif args.extended_only:
             client('SuiteNative','suite',sp,directory,port,pack,extended=True)

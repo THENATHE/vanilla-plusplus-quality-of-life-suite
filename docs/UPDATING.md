@@ -1,6 +1,6 @@
 # Source map and updating upstream modules
 
-The experimental source is at `Minecraft/suite-mapstitch-mixed-scales/`; stable main remains at `Minecraft/thenathe-mod-suite/`. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
+The experimental source is at `Minecraft/suite-merged/`; stable main remains at `Minecraft/thenathe-mod-suite/`. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
 
 ## Where things live
 
@@ -15,7 +15,6 @@ The experimental source is at `Minecraft/suite-mapstitch-mixed-scales/`; stable 
 | components/shared-region-maps/working | Vanilla/MapStitch-only modified module |
 | components/toolpouch-atlas-elytra/upstream | Original local addon 1.0.4 source baseline |
 | components/toolpouch-atlas-elytra/working | Preserved addon features plus HUD spacing fix |
-| components/mapstitch-mixed-scales/working | Separate mixed-scale atlas feature addon; original MapStitch artifact remains unchanged |
 | components/chalk/upstream | Exact local Chalk Fabric 26.3 port source snapshot |
 | components/chalk-colorful/upstream | Original colorful addon and its metadata-only 26.3 port source |
 | components/amethyst-curse-cleanser/upstream | Existing 26.3 curse-removal source snapshot |
@@ -30,6 +29,13 @@ The experimental source is at `Minecraft/suite-mapstitch-mixed-scales/`; stable 
 | qa/ | Connection/capability smoke, final native/fallback packet checks and disposable runs |
 | qa-settings/, qa-hud/, qa-mechanics/ | Unified settings/permissions screenshots, actual HUD observations, recipe/menu/drop/map persistence regressions |
 | tools/package-release.py | Package a committed, verified version into the required release hierarchy |
+| components/mapstitch-mixed-scales/working/ | Separate mixed-scale atlas addon, location selection and guarded scale packet |
+| components/sensible-stackables/upstream/ | Untouched 26.2 publisher source/binary records and independently tested baseline |
+| components/sensible-stackables/ported/ | Independent 26.3 port retaining upstream mixins, settings and dependencies |
+| components/sensible-stackables/compat/ | Separate Polymer stack defaults, safe metadata and authoritative menu correction |
+| qa-merged/ | Fresh combined-build network, maps, stackables and settings evidence |
+| qa-multiscale/ | Mixed-scale mechanics/restart fixture and original experiment evidence |
+| qa-stackables/ | Actual menu/count conservation, drop, codec and restart evidence for both targets |
 | build/libs/ | Development output, separate from released artifacts |
 
 The historical projects outside this suite remain preserved. Consolidated local source/build locations and QA helper resolution are documented in [local archive maintenance](LOCAL_ARCHIVE.md). Suite releases use `Builds/Minecraft/Vanilla++ Quality of Life Suite/<Component>/<Release Version>/`, with the installable JAR, checksums, source archive and release notes together.
@@ -63,6 +69,6 @@ The atlas/Elytra component uses the same staged root inputs as the other suite p
 
 ## Rebuilding a public checkout from release inputs
 
-Download this version’s feature JAR and optional local-library ZIP from the public release. Extract the ZIP into an input directory, and put the exact remaining publisher library JARs listed in README/locks there too. Run `python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.0.2-multiscale.1+26.3.jar --inputs /path/to/inputs --download-public`. The script verifies the outer release hash and stages only nested originals that match the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It also recursively finds the local-library archive’s `mods/` directory and rejects unavailable/mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs.
+Download this version’s feature JAR and optional local-library ZIP from the public release. Extract the ZIP into an input directory, and put the exact remaining publisher library JARs listed in README/locks there too. Run `python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.1+26.3.jar --inputs /path/to/inputs --download-public`. The script verifies the outer release hash and stages only nested originals that match the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It also recursively finds the local-library archive’s `mods/` directory and rejects unavailable/mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs.
 
 After changing source, build and run the applicable checks. Update the build and validation records with the exact tested hash, commit source/docs/evidence, then run `python3 tools/package-release.py` from a clean checkout. The packager creates the installable JAR, optional MIT-only library archive, tracked-source archive, release notes and checksums. It excludes QA fixtures and external public libraries. A new version requires updated metadata/locks/verification and a new tag; preserve older releases.

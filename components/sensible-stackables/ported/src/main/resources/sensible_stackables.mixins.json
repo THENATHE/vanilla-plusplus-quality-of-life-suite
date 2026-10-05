@@ -1,0 +1,31 @@
+{
+    "required": true,
+    "package": "me.pajic.sensible_stackables.mixin",
+    "minVersion": "0.8",
+    "mixinextras": {
+        "minVersion": "0.5.3"
+    },
+    "compatibilityLevel": "JAVA_25",
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "overwrites": {
+        "requireAnnotations": true
+    },
+    "mixins": [
+        "menu_fixes.AnvilMenuMixin",
+        "menu_fixes.FurnaceFuelSlotMixin",
+        "stack_uncapper.ContainerMixin",
+        "stack_uncapper.ContainersMixin",
+        "stack_uncapper.DataComponentsMixin",
+        "stack_uncapper.ItemEntityMixin",
+        "stack_uncapper.ItemMixin",
+        "stack_uncapper.ItemStackMixin",
+        "stack_uncapper.ItemStackTemplateMixin",
+        "throw_cooldown.ThrowablePotionItemMixin"
+    ],
+    "client": [
+        "client.GuiGraphicsExtractorMixin",
+        "client.ItemStackMixin"
+    ]
+}
