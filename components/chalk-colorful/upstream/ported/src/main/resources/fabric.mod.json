@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "chalk-colorful-addon",
+  "version": "2.1.1-port.1+26.3",
+  "name": "Chalk: Colorful-Addon",
+  "description": "Colorful Chalk for the Chalk mod. Unofficial metadata-only 26.3 port by THENATHE; original addon by DaFuqs and mortuusars.",
+  "authors": [
+    "DaFuqs",
+    "mortuusars"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/chalk-colorful-addon-fabric",
+    "sources": "https://github.com/DaFuqs/ChalkColorful",
+    "issues": "https://github.com/DaFuqs/ChalkColorful/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/chalk-colorful-addon/icon.png",
+  "environment": "*",
+  "entrypoints": {},
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "26.3",
+    "java": ">=25",
+    "chalk": "=3.2.1+26.3"
+  },
+  "contributors": [
+    "THENATHE (unofficial 26.3 port)"
+  ]
+}

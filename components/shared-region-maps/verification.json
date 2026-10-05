@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-04",
+  "minecraft": "26.3",
+  "fabric_loader": "0.19.5",
+  "fabric_api_qa": "0.161.0+26.3",
+  "java_runtime": 25,
+  "compiler": 27,
+  "class_release": 25,
+  "artifact": "working/build/libs/shared-region-maps-1.0.4-combo.1+mc26.3.jar",
+  "sha256": "8f3dd201a7a3fd58e4ba5d1f6d421eb93af95bd8053d7adf678c72e343498924",
+  "build": "PASS",
+  "archive_and_metadata": "PASS",
+  "map_index_and_mapstitch_source_unchanged": "PASS",
+  "removed_integration_source_scan": "PASS",
+  "dedicated_server_first": "PASS 605 checks; phase=first; mapstitch=false",
+  "dedicated_server_restart": "PASS 615 checks; phase=restart; mapstitch=false",
+  "limits": [
+    "No fresh integrated-server or graphical-client test",
+    "No fresh MapStitch runtime test in isolated component fixture; suite integration verification is separate",
+    "No Map Atlases, Improved Maps, or custom marker compatibility claimed"
+  ],
+  "working_loom": "1.17.20",
+  "build_after_loom_normalization": "PASS",
+  "dedicated_runtime_test_build_loom": "1.17.21",
+  "dedicated_runtime_test_artifact_sha256": "e6241bbff1eabc293c6c5bd9016f4828e8337a570680846444b45a1dfce79a8a",
+  "normalization_notes": "Loom manifest changed to 1.17.20; compileJava remained UP-TO-DATE. No runtime source or compiled classes changed. Suite validation of final combined artifact remains separate."
+}

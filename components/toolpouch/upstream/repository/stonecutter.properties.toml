@@ -1,0 +1,139 @@
+# general
+mod.id = "toolpouch"
+mod.name = "Tool Pouch"
+mod.group = "me.pajic"
+mod.version = "1.1.10"
+mod.description = "Store tools, equipment and storage items in the Tool Pouch to make them more useful"
+mod.authors = "pajic"
+mod.contributors = ""
+mod.license = "MIT"
+
+# links
+mod.sources_url = "https://github.com/pajicadvance/toolpouch"
+mod.homepage_url = "https://modrinth.com/mod/tool-pouch"
+mod.issues_url = "https://github.com/pajicadvance/toolpouch/issues"
+mod.discord_url = "https://discord.gg/5RkzS66zWb"
+
+# publishing
+publish.modrinth = "ZY6C1rJ4"
+publish.curseforge = "1459801"
+publish.env.mr = "CLIENT_AND_SERVER" #https://modmuss50.github.io/mod-publish-plugin/platforms/modrinth/#all-options
+publish.env.cf.client = true
+publish.env.cf.server = true
+publish.dry_run = false
+
+# loom
+loomx.loom_version = "1.17-SNAPSHOT"
+
+# dependencies
+loader.fabric = "0.19.5"
+dep.mixinconstraints.coords = "com.moulberry:$id:$version"
+dep.fzzy_config.coords = "me.fzzyhmstrs:$id:$version"
+dep.fzzy_config.slug = "fzzy-config"
+dep.sodium.coords = "net.caffeinemc:$id-$loader:$version"
+dep.lambdynamiclights.coords = "dev.lambdaurora.$id:$id-api:$version"
+dep.aileron.coords = "com.github.pajicadvance:$id:$version"
+dep.raised.coords = "maven.modrinth:$id:$version"
+dep.shulkerboxtooltip.coords = "maven.modrinth:$id:$version-$loader"
+dep.locator_lodestones.coords = "maven.modrinth:$id:$version"
+dep.spyglass_astronomy.coords = "maven.modrinth:spyglass-astronomy:$version"
+dep.sereneseasons.coords = "maven.modrinth:serene-seasons:$version-$loader"
+dep.ok_zoomer.coords = "maven.modrinth:ok-zoomer:$version"
+dep.zoomify.coords = "maven.modrinth:zoomify:$version"
+dep.trinkets.coords = "eu.pb4:$id:$version"
+dep.ohmega.coords = "maven.modrinth:$id:$version-$loader,$mc"
+dep.curios.coords = "top.theillusivec4.$id:$id-$loader:$version"
+include.mixinconstraints = "1.1.0"
+
+[fabric]
+dep.fabric-api.coords = "net.fabricmc.fabric-api:$id:$version"
+dep.modmenu.coords = "com.terraformersmc:$id:$version"
+dep.ohmega.range = ">=1.5.21 <1.6"
+optional.aileron = "1.2.1"
+dev.runtime_optionals = ["trinkets", "ok_zoomer", "lambdynamiclights", "shulkerboxtooltip"]
+
+[neoforge]
+dep.ohmega.range = "[1.5.21, 1.6)"
+dev.runtime_optionals = ["curios", "ok_zoomer", "lambdynamiclights", "shulkerboxtooltip"]
+
+
+["26.1"]
+mod.mc_releases = ["26.1", "26.1.1", "26.1.2"]
+loader.neo = "26.1.2.107"
+runtime.sodium = "0.9.2+mc26.1.2"
+optional.lambdynamiclights = "4.11.2+26.1.2"
+optional.shulkerboxtooltip = "5.4.0+26.1.1"
+optional.sereneseasons = "26.1.2.0.7"
+optional.trinkets = "4.0.0+26.1"
+optional.ohmega = "1.5.21"
+optional.ok_zoomer = "17.0.0-beta.5"
+
+[fabric."26.1"]
+mod.mc_compat = "~26.1"
+required.fabric-api = "0.155.3+26.1.2"
+required.fzzy_config = "0.7.6+26.1-pre-3"
+runtime.modmenu = "18.0.0"
+optional.raised = "Fabric-26.1.1-5.1.2"
+optional.locator_lodestones = "1.5.3+26.1+A"
+optional.spyglass_astronomy = "1.0.25-mc26.1.2"
+optional.zoomify = "2.16.1+26.1"
+
+[neoforge."26.1"]
+mod.mc_compat = "[26.1, 26.2)"
+required.fzzy_config = "0.7.6+26.1-pre-3+neoforge"
+optional.raised = "NeoForge-26.1.1-5.1.2"
+optional.curios = "15.0.0+26.1.2"
+
+
+["26.2"]
+mod.mc_releases = ["26.2"]
+loader.neo = "26.2.0.82"
+runtime.sodium = "0.9.2+mc26.2"
+optional.lambdynamiclights = "4.12.4+26.2"
+optional.shulkerboxtooltip = "5.4.0+26.2"
+optional.sereneseasons = "26.1.2.0.5"
+optional.trinkets = "4.1.0+26.2"
+optional.ohmega = "1.5.21"
+optional.ok_zoomer = "18.0.0-beta.2"
+
+[fabric."26.2"]
+mod.mc_compat = "~26.2"
+required.fabric-api = "0.160.0+26.2"
+required.fzzy_config = "0.7.6+26.2-pre-3"
+runtime.modmenu = "20.0.1"
+optional.raised = "Fabric-26.2-5.1.2"
+optional.locator_lodestones = "1.5.3+26.2+A"
+optional.spyglass_astronomy = "1.0.26-mc26.2"
+optional.zoomify = "2.16.1+26.2"
+
+[neoforge."26.2"]
+mod.mc_compat = "[26.2, 26.3)"
+required.fzzy_config = "0.7.6+26.2+neoforge"
+optional.raised = "NeoForge-26.2-5.1.2"
+optional.curios = "16.0.0+26.2"
+
+
+["26.3"]
+mod.mc_releases = ["26.3"]
+#loader.neo = "26.2.0.36-beta"
+runtime.sodium = "0.9.2+mc26.3"
+optional.lambdynamiclights = "4.13.0+26.3"
+optional.shulkerboxtooltip = "5.4.2+26.3"
+optional.sereneseasons = "26.1.2.0.5"
+optional.trinkets = "4.2.0+26.3"
+optional.ohmega = "1.5.21"
+optional.ok_zoomer = "19.0.0-beta.2"
+
+[fabric."26.3"]
+mod.mc_compat = "~26.3"
+required.fabric-api = "0.160.5+26.3"
+required.fzzy_config = "0.7.7+26.3"
+runtime.modmenu = "21.0.0-beta.1"
+optional.raised = "Fabric-26.2-5.1.2"
+optional.locator_lodestones = "1.5.3+26.2+A"
+optional.spyglass_astronomy = "1.0.26-mc26.2"
+optional.zoomify = "2.16.1+26.2"
+
+#[neoforge."26.2"]
+#mod.mc_compat = "[26.3, 26.4)"
+#required.fzzy_config = "0.7.6+26.2+neoforge"

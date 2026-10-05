@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "toolpouch:item/tool_pouch",
+    "layer1": "toolpouch:item/tool_pouch_overlay"
+  }
+}

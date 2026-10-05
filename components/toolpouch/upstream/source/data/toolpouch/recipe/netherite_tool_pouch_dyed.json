@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_dye",
+  "category": "misc",
+  "dye": "#minecraft:dyes",
+  "result": {
+    "id": "toolpouch:netherite_tool_pouch"
+  },
+  "target": "toolpouch:netherite_tool_pouch"
+}

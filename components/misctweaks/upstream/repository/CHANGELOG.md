@@ -1,0 +1,1 @@
+- Lodestone changes and craftable saddle backports now exist in 1.21.1 versions again (I definitely didn't remove them by accident).

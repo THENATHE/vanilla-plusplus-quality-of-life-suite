@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "shared_region_maps",
+  "version": "${version}",
+  "name": "Shared Region Maps",
+  "description": "Server-only regional map IDs for ordinary vanilla maps and optional Map Atlases or MapStitch.",
+  "license": "All-Rights-Reserved",
+  "environment": "server",
+  "mixins": ["shared-region-maps.mixins.json"],
+  "depends": {"fabricloader": ">=0.19.5", "minecraft": "26.3", "java": ">=25"},
+  "breaks": {"improved-maps": "*"}
+}

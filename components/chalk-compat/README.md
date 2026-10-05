@@ -1,0 +1,5 @@
+# chalk-compat suite variant
+
+This suite variant preserves the Chalk item/block, virtual mark, recipe, resource-pack, and registry mapping code from the local 26.3 Chalk shim. Its separate capability offer/reply/decision and early scheduling mixin are replaced by `SuiteCapabilities`. The final post-Fabric block-state ID/bit-width confirmation remains a separate configuration task because those values exist only after registry remapping. All 65 conversion recipe resources remain intact and load without Polymer. Rendering/Polymer mixins are optional and use the shared native decision. Shared item/component/serializer mapping still delegates to the existing combined compatibility component class/ID; block/state mapping remains owned here.
+
+`ORIGIN.json` records the source baseline and its per-file checksums. The original local projects are preserved unchanged. Root build configuration sets component dependencies and versions. Main/client entrypoints initialize codecs idempotently; the suite client entrypoint calls `SuiteCapabilities.initializeClient()`.

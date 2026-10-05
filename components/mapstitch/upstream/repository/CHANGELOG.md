@@ -1,0 +1,1 @@
+- Fixed a dedicated server crash introduced in 1.1.5.

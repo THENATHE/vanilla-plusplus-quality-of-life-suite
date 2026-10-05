@@ -1,0 +1,68 @@
+{
+  "game_versions": [
+    "26.3"
+  ],
+  "loaders": [
+    "fabric"
+  ],
+  "environment": "client_or_server_prefers_both",
+  "id": "c2JwxbVC",
+  "project_id": "9sMkzzYU",
+  "author_id": "Kg6RZEfM",
+  "featured": false,
+  "name": "1.4.4 for Fabric 26.3",
+  "version_number": "1.4.4+26.3",
+  "changelog": "- Added Fabric 26.3 version.\n",
+  "changelog_url": null,
+  "date_published": "2026-09-16T00:34:29.141564Z",
+  "downloads": 385,
+  "version_type": "release",
+  "status": "listed",
+  "requested_status": null,
+  "files": [
+    {
+      "id": "DUQUDI7w",
+      "hashes": {
+        "sha512": "a648b40b484add4e63ec9119805d21871f3b2c9b0ab7745e225a81ed1191cb397f0a47faa67fa0f726e7cf348802ba583edf4c76945d799fa44820dc79886945",
+        "sha1": "b1b78b453c80852ec0149e1c6e760f18d322b767"
+      },
+      "url": "https://cdn.modrinth.com/data/9sMkzzYU/versions/c2JwxbVC/misctweaks-fabric-1.4.4%2B26.3.jar",
+      "filename": "misctweaks-fabric-1.4.4+26.3.jar",
+      "primary": true,
+      "size": 198410,
+      "file_type": null
+    },
+    {
+      "id": "WnOGXojI",
+      "hashes": {
+        "sha1": "3b23706441a3a8084e11f30d1a3fa646a2f1cbb3",
+        "sha512": "99f5bae92eb848eb36e65a0df95e48144bec3da9a806962d8aca3ccc8a5e24fda4337a2f6fe1d406d64f83831de072c79878ad02dc3dc5c268ed2a7bc0bcaebf"
+      },
+      "url": "https://cdn.modrinth.com/data/9sMkzzYU/versions/c2JwxbVC/misctweaks-fabric-1.4.4%2B26.3-sources.jar",
+      "filename": "misctweaks-fabric-1.4.4+26.3-sources.jar",
+      "primary": false,
+      "size": 151498,
+      "file_type": null
+    }
+  ],
+  "dependencies": [
+    {
+      "version_id": null,
+      "project_id": "hYykXjDp",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "P7dR8mSH",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "EgugIDm8",
+      "file_name": null,
+      "dependency_type": "required"
+    }
+  ]
+}

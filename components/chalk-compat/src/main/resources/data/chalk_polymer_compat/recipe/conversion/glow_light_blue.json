@@ -1,0 +1,20 @@
+{
+  "type": "chalk_polymer_compat:chalk_conversion",
+  "group": "chalk:conversion",
+  "ingredients": [
+    "chalk:light_blue_chalk",
+    "minecraft:glow_ink_sac"
+  ],
+  "result": {
+    "id": "chalk:light_blue_glow_chalk"
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "chalk",
+        "chalk-colorful-addon"
+      ]
+    }
+  ]
+}

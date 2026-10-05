@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-04",
+  "component_version": "1.0.5-suite.1+26.3",
+  "artifact": "working/build/libs/toolpouch-atlas-elytra-compat-1.0.5-suite.1+26.3.jar",
+  "sha256": "662859ed9e7d5792ab06514a3f0984ca2fcb0885417c6f556511d347d8f534ea",
+  "upstream_revision": "25dfaf8bff9f51d8cfa29be9ca34c71a29cac2c0",
+  "minecraft": "26.3",
+  "fabric_loader": "0.19.5",
+  "fabric_api": "0.161.0+26.3",
+  "loom": "1.17.20",
+  "runtime_jdk": 25,
+  "compiler_jdk": 27,
+  "release_target": 25,
+  "compile_only_libraries": {
+    "clientsort-fabric-3.104.1+26.3.jar": "37f812d25307bc011be64a4853e26d848b858599c5068244dd857c521d4078ce",
+    "fzzy_config-0.7.7+fix2+26.3.jar": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f",
+    "kotlin-stdlib-2.4.20.jar": "078594f80e214438a35454e3f16f890a68dba6a607aa2c83014065344d13308a",
+    "mapstitch-fabric-1.1.6+26.3.jar": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81",
+    "toolpouch-fabric-1.1.10+26.3.jar": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903"
+  },
+  "checks": {
+    "build": "PASS",
+    "jar_integrity": "PASS",
+    "mixin_class_inventory": "PASS",
+    "original_mapstitch_bytecode_targets": "PASS",
+    "original_toolpouch_bytecode_targets": "PASS"
+  },
+  "runtime_hud_validation": "pending suite graphical smoke; build checks do not demonstrate visual correctness"
+}

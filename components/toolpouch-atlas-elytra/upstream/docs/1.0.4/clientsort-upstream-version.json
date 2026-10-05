@@ -1,0 +1,50 @@
+{
+  "game_versions": [
+    "26.3"
+  ],
+  "loaders": [
+    "fabric"
+  ],
+  "environment": "client_only_server_optional",
+  "id": "UWMryUad",
+  "project_id": "K0AkAin6",
+  "author_id": "iHL12BdH",
+  "featured": false,
+  "name": "v3.104.1+26.3-Fabric",
+  "version_number": "3.104.1+26.3",
+  "changelog": "- Fixed an issue preventing config from being saved.",
+  "changelog_url": null,
+  "date_published": "2026-09-26T07:47:55.092334Z",
+  "downloads": 16413,
+  "version_type": "release",
+  "status": "listed",
+  "requested_status": null,
+  "files": [
+    {
+      "id": "qh4SLHGI",
+      "hashes": {
+        "sha512": "99554db1c60c149f0fa0e6238d397d6cff2408bcfbdf111f9f2e5c701fa4db3d5e516cd5a5248319f64dda6a6676f350e2d29932f35cb2ad5340c13d682f04ec",
+        "sha1": "96cbf8e292a1c5325f0050af1091ea778b967578"
+      },
+      "url": "https://cdn.modrinth.com/data/K0AkAin6/versions/UWMryUad/clientsort-fabric-3.104.1%2B26.3.jar",
+      "filename": "clientsort-fabric-3.104.1+26.3.jar",
+      "primary": true,
+      "size": 356994,
+      "file_type": null
+    }
+  ],
+  "dependencies": [
+    {
+      "version_id": null,
+      "project_id": "mOgUt4GM",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "9s6osm5g",
+      "file_name": null,
+      "dependency_type": "required"
+    }
+  ]
+}

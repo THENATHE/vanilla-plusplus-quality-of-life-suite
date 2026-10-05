@@ -1,0 +1,8 @@
+{
+  "type": "listModification",
+  "target": "itemswapper:v2/misc/devices",
+  "addItems": [
+    "toolpouch:tool_pouch",
+    "toolpouch:netherite_tool_pouch"
+  ]
+}

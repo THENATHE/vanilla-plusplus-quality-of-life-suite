@@ -1,0 +1,11 @@
+**/.gradle/
+**/build/
+libs/
+**/libs/*.jar
+**/upstream/artifacts/*.jar
+**/upstream/artifacts/*.zip
+**/inputs/*.jar
+**/qa/runs/
+**/.idea/
+*.log
+**/__pycache__/

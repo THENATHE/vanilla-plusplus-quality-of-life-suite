@@ -1,0 +1,3 @@
+Shared Region Maps
+Copyright THENATHE. All rights reserved.
+The original and modified Shared Region Maps sources retain their original ownership and license. Public source availability does not grant a separate MIT license to this component. This bundle is distributed by its owner.

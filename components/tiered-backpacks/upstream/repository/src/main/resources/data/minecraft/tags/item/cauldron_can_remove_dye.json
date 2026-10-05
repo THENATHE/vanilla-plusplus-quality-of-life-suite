@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "tiered_backpacks:leather_backpack",
+    "tiered_backpacks:copper_backpack",
+    "tiered_backpacks:iron_backpack",
+    "tiered_backpacks:golden_backpack",
+    "tiered_backpacks:diamond_backpack"
+  ]
+}

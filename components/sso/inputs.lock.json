@@ -1,0 +1,67 @@
+{
+  "component": "sso",
+  "track": "developer-release",
+  "mod_id": "simple_smithing_overhaul",
+  "artifact_version": "2.9.14",
+  "release_version": "2.9.14+26.2",
+  "minecraft": "26.2",
+  "upstream_minecraft": "26.2",
+  "advertised_game_versions": [
+    "26.2"
+  ],
+  "loader": "fabric",
+  "modrinth_version_id": "yzzzEFXt",
+  "modrinth_version_url": "https://modrinth.com/mod/simple-smithing-overhaul/version/yzzzEFXt",
+  "github": {
+    "repository": "https://github.com/pajicadvance/simple-smithing-overhaul",
+    "branch": "multicutter-v3",
+    "commit": "979a4d39763c63c7d0956f8c39b6ca56600962e5"
+  },
+  "binary": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2.jar",
+  "binary_sha256": "f393e8b48d6bdf06e69290843c0d041d5f70449f2af7355eaf4c7249bc97fc56",
+  "published_sources": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2-sources.jar",
+  "repository_snapshot": "components/sso/upstream/repository",
+  "published_source_tree": "components/sso/upstream/source",
+  "dependencies": {
+    "minecraft": "~26.2",
+    "fabricloader": ">=0.19.5",
+    "java": ">=25",
+    "defaulted": ">=1.3.8",
+    "fabric-api": ">=0.160.0",
+    "fzzy_config": ">=0.7.6",
+    "mixson": ">=2.2.0"
+  },
+  "suggests": {},
+  "nested_jars": [
+    {
+      "file": "META-INF/jars/mixinconstraints-1.1.0.jar"
+    }
+  ],
+  "config_ids": [
+    "simple_smithing_overhaul:config-v2"
+  ],
+  "license": "MIT",
+  "copyright_file": "components/sso/upstream/repository/LICENSE",
+  "artifacts": [
+    {
+      "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2-sources.jar",
+      "sha256": "3b3ddb9206c86ed224fe89b6ed40d664b3598b919d70b6b49415d1cda3c2fa4b",
+      "size": 218865
+    },
+    {
+      "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2.jar",
+      "sha256": "f393e8b48d6bdf06e69290843c0d041d5f70449f2af7355eaf4c7249bc97fc56",
+      "size": 313992
+    },
+    {
+      "path": "components/sso/upstream/artifacts/sso-979a4d39763c63c7d0956f8c39b6ca56600962e5-source.zip",
+      "sha256": "b3eff6ab518a59c63771df0a6ed0d28fa962a6a01d258ca1a3da0e056eb870bd",
+      "size": 316914
+    }
+  ],
+  "modifications": [],
+  "port_counterpart": null,
+  "port_counterpart_reason": "Official developer release requires~26.2. Existing local26.3 artifact is materially modified and lacks confirmed developer-release provenance; paused SSO-port is untouched.",
+  "suite_minecraft": "26.3",
+  "suite_compatibility": "blocked pending local26.3 input provenance"
+}

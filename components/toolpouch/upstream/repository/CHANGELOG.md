@@ -1,0 +1,1 @@
+- Fixed LambDynamicLights and Shulker Box Tooltip compatibility.

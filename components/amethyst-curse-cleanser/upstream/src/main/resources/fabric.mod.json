@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "THENATHE"
+  ],
+  "contact": {
+    "sources": "https://github.com/THENATHE/amethyst-curse-cleanser",
+    "issues": "https://github.com/THENATHE/amethyst-curse-cleanser/issues"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.thenathe.amethystcursecleanser.AmethystCurseCleanser"
+    ]
+  },
+  "mixins": [
+    "amethyst_curse_cleanser.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~26.3",
+    "java": ">=25"
+  }
+}

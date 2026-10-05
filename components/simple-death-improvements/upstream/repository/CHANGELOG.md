@@ -1,0 +1,1 @@
+- Fixed crash on launch on NeoForge.

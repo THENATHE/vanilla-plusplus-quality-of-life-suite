@@ -1,0 +1,1 @@
+- Backpack GUI now uses parts of the vanilla container sprite, making it compatible with GUI resource packs.

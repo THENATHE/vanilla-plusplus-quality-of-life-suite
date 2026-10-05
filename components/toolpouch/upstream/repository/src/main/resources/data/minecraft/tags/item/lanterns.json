@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "auroraslanterns:amethyst_lantern",
+      "required": false
+    },
+    {
+      "id": "auroraslanterns:redstone_lantern",
+      "required": false
+    }
+  ]
+}

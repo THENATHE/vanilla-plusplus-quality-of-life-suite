@@ -1,0 +1,21 @@
+﻿{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chalk:glow_chalk",
+  "ingredients": [
+    "minecraft:calcite",
+    "minecraft:calcite",
+    "minecraft:glow_ink_sac",
+    "minecraft:yellow_dye"
+  ],
+  "result": {
+    "id": "chalk:yellow_glow_chalk"
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "chalk-colorful-addon"
+      ]
+    }
+  ]
+}

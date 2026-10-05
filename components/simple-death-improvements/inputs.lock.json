@@ -1,0 +1,62 @@
+{
+  "component": "simple-death-improvements",
+  "track": "developer-release",
+  "mod_id": "simple_death_improvements",
+  "artifact_version": "1.6.0",
+  "release_version": "1.6.0+26.3",
+  "minecraft": "26.3",
+  "loader": "fabric",
+  "modrinth_version_id": "AYTsBnki",
+  "modrinth_version_url": "https://modrinth.com/mod/simple-death-improvements/version/AYTsBnki",
+  "github": {
+    "repository": "https://github.com/pajicadvance/simple-death-improvements",
+    "branch": "multicutter-v3",
+    "commit": "51ed1dc83bde530d1b70dbcb56dfd11aa04d59f2"
+  },
+  "binary": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.6.0+26.3.jar",
+  "binary_sha256": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2",
+  "published_sources": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.6.0+26.3-sources.jar",
+  "repository_snapshot": "components/simple-death-improvements/upstream/repository",
+  "published_source_tree": "components/simple-death-improvements/upstream/source",
+  "dependencies": {
+    "minecraft": "~26.3",
+    "fabricloader": ">=0.19.5",
+    "java": ">=25",
+    "fabric-api": ">=0.160.5",
+    "fzzy_config": ">=0.7.7"
+  },
+  "suggests": {
+    "ohmega": ">=1.5.21 <1.6",
+    "trinkets": ">=4.2.0"
+  },
+  "nested_jars": [
+    {
+      "file": "META-INF/jars/mixinconstraints-1.1.0.jar"
+    }
+  ],
+  "config_ids": [
+    "simple_death_improvements:config"
+  ],
+  "license": "MIT",
+  "copyright_file": "components/simple-death-improvements/upstream/repository/LICENSE",
+  "artifacts": [
+    {
+      "path": "components/simple-death-improvements/upstream/artifacts/simple-death-improvements-51ed1dc83bde530d1b70dbcb56dfd11aa04d59f2-source.zip",
+      "sha256": "b35471deb362abbb0d1c195583e34aa32b07194c302d9b3843daf747957e5174",
+      "size": 105066
+    },
+    {
+      "path": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.6.0+26.3-sources.jar",
+      "sha256": "925f3df2bee4ce789dcf9a03698f1b6c805b847d0e80be1a4271dca9f707ee5a",
+      "size": 32446
+    },
+    {
+      "path": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.6.0+26.3.jar",
+      "sha256": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2",
+      "size": 64906
+    }
+  ],
+  "modifications": [],
+  "port_counterpart": null,
+  "port_counterpart_reason": "Official developer release supports the requested Minecraft version; no unsolicited port created."
+}

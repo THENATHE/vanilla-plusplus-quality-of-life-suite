@@ -1,0 +1,28 @@
+{
+  "required": true,
+  "package": "com.thenathe.chalkcompat.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "ChalkInitializationMixin",
+    "ChalkParticlesMixin",
+    "ChalkTargetingMixin",
+    "ChalkPickMixin",
+    "ChalkDestroyParticlesMixin",
+    "ChalkUseMixin",
+    "NativeRegistrySyncMixin",
+    "NativeTagsMixin",
+    "PolymerNativeRegistryMixin",
+    "RegistryPacketDecoderMixin",
+    "RegistryPacketEncoderMixin",
+    "RegistryWireIdsMixin",
+    "RegistryStateIdsMixin",
+    "RegistryChunkSerializationMixin",
+    "NativeBlockBitsMixin",
+    "TagsPayloadAccessor",
+    "NativeStateSyncSchedulingMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "plugin": "com.thenathe.chalkcompat.ChalkMixinPlugin"
+}

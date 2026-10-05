@@ -1,0 +1,63 @@
+{
+  "component": "misctweaks",
+  "track": "developer-release",
+  "mod_id": "misctweaks",
+  "artifact_version": "1.4.4",
+  "release_version": "1.4.4+26.3",
+  "minecraft": "26.3",
+  "loader": "fabric",
+  "modrinth_version_id": "c2JwxbVC",
+  "modrinth_version_url": "https://modrinth.com/mod/misctweaks/version/c2JwxbVC",
+  "github": {
+    "repository": "https://github.com/pajicadvance/misctweaks",
+    "branch": "multicutter-v3",
+    "commit": "265a64d4565fbe4aef324eeaa6d9a82606171a46"
+  },
+  "binary": "components/misctweaks/upstream/artifacts/misctweaks-fabric-1.4.4+26.3.jar",
+  "binary_sha256": "97fe263764cb6b93822e13fe9423cf91c3a6a0169aeeb8734b65136cc9ea9647",
+  "published_sources": "components/misctweaks/upstream/artifacts/misctweaks-fabric-1.4.4+26.3-sources.jar",
+  "repository_snapshot": "components/misctweaks/upstream/repository",
+  "published_source_tree": "components/misctweaks/upstream/source",
+  "dependencies": {
+    "minecraft": "~26.3",
+    "fabricloader": ">=0.19.3",
+    "java": ">=25",
+    "fabric-api": ">=0.160.5",
+    "fzzy_config": ">=0.7.7",
+    "mixson": ">=2.2.0"
+  },
+  "suggests": {
+    "sodium": ">=0.9.2"
+  },
+  "nested_jars": [
+    {
+      "file": "META-INF/jars/mixinconstraints-1.1.0.jar"
+    }
+  ],
+  "config_ids": [
+    "misctweaks:config",
+    "misctweaks:client_config"
+  ],
+  "license": "MIT",
+  "copyright_file": "components/misctweaks/upstream/repository/LICENSE",
+  "artifacts": [
+    {
+      "path": "components/misctweaks/upstream/artifacts/misctweaks-265a64d4565fbe4aef324eeaa6d9a82606171a46-source.zip",
+      "sha256": "83080923f87fc95f0916f6404047c6f032afcc939d533a133f6edc189f9215b8",
+      "size": 286485
+    },
+    {
+      "path": "components/misctweaks/upstream/artifacts/misctweaks-fabric-1.4.4+26.3-sources.jar",
+      "sha256": "41151c79f632c94a30d9c2345498aa9b8b6afd4d1c30f8960c1c06145a2a4708",
+      "size": 151498
+    },
+    {
+      "path": "components/misctweaks/upstream/artifacts/misctweaks-fabric-1.4.4+26.3.jar",
+      "sha256": "97fe263764cb6b93822e13fe9423cf91c3a6a0169aeeb8734b65136cc9ea9647",
+      "size": 198410
+    }
+  ],
+  "modifications": [],
+  "port_counterpart": null,
+  "port_counterpart_reason": "Official developer release supports the requested Minecraft version; no unsolicited port created."
+}

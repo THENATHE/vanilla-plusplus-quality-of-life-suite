@@ -1,0 +1,65 @@
+package me.pajic.mapstitch.keybind;
+
+import com.mojang.blaze3d.platform.InputConstants;
+import me.pajic.mapstitch.MapStitch;
+import me.pajic.mapstitch.minimap.MinimapOverlay;
+import me.pajic.mapstitch.networking.payload.C2SPlaySound;
+import me.pajic.mapstitch.platform.MultiLoaderUtil;
+import me.pajic.mapstitch.worldmap.WorldMapScreen;
+import net.minecraft.client.KeyMapping;
+import net.minecraft.client.Minecraft;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.sounds.SoundEvents;
+
+//? >=26.1
+import java.util.Map;
+
+public class ModKeybinds {
+
+    public static final Identifier KEYS_ID = MapStitch.id("keys");
+    public static final Identifier KEYS_WORLD_MAP_ID = MapStitch.id("keys_world_map");
+
+    //? >=26.1 {
+    private static final Map<Identifier, KeyMapping.Category> CATEGORIES = Map.of(
+            KEYS_ID, new KeyMapping.Category(KEYS_ID),
+            KEYS_WORLD_MAP_ID, new KeyMapping.Category(KEYS_WORLD_MAP_ID)
+    );
+    //?}
+
+	public static final KeyMapping OPEN_WORLD_MAP = create(InputConstants.KEY_M, "open_world_map", KEYS_ID);
+    public static final KeyMapping TOGGLE_MINIMAP = create(InputConstants.UNKNOWN.getValue(), "toggle_minimap", KEYS_ID);
+	public static final KeyMapping SCALE_UP = create(InputConstants.KEY_S, "scale_up", KEYS_WORLD_MAP_ID);
+	public static final KeyMapping SCALE_DOWN = create(InputConstants.UNKNOWN.getValue(), "scale_down", KEYS_WORLD_MAP_ID);
+	public static final KeyMapping DIMENSION_UP = create(InputConstants.KEY_D, "dimension_up", KEYS_WORLD_MAP_ID);
+	public static final KeyMapping DIMENSION_DOWN = create(InputConstants.UNKNOWN.getValue(), "dimension_down", KEYS_WORLD_MAP_ID);
+	public static final KeyMapping FOLLOW_PLAYER = create(InputConstants.KEY_F, "follow_player", KEYS_WORLD_MAP_ID);
+	public static final KeyMapping TOGGLE_GRID = create(InputConstants.KEY_G, "toggle_grid", KEYS_WORLD_MAP_ID);
+	public static final KeyMapping EJECT_MAP = create(InputConstants.KEY_Q, "eject_map", KEYS_WORLD_MAP_ID);
+	public static final KeyMapping TOGGLE_HELP = create(InputConstants.KEY_H, "toggle_help", KEYS_WORLD_MAP_ID);
+
+	public static void onClientTick(Minecraft client) {
+		if (client.player != null && client.level != null) {
+            if (OPEN_WORLD_MAP.consumeClick()) {
+                client.player.playSound(SoundEvents.BOOK_PAGE_TURN);
+                MultiLoaderUtil.INSTANCE.c2s(new C2SPlaySound(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.BOOK_PAGE_TURN)));
+                client.setScreenAndShow(new WorldMapScreen(-1));
+            }
+            if (TOGGLE_MINIMAP.consumeClick()) MinimapOverlay.toggle();
+		}
+	}
+
+    private static KeyMapping create(int key, String name, Identifier category) {
+        return new KeyMapping(
+                "mapstitch.key." + name,
+                //~ if >26.2 'KEYSYM' -> 'KEYBOARD'
+                InputConstants.Type.KEYBOARD,
+                key,
+                //? <26.1 {
+                /*"key.category." + category.toLanguageKey()
+                *///?} else {
+                CATEGORIES.get(category)
+                //?}
+        );
+    }
+}

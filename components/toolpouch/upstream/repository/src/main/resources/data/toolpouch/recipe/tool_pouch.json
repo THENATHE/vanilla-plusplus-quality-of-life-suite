@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:leather",
+    "c": "#c:chests/wooden",
+    "I": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "###",
+    "IcI",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "toolpouch:tool_pouch"
+  }
+}

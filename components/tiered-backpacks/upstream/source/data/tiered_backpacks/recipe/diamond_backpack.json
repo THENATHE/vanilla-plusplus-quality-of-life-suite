@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:diamond",
+    "c": "tiered_backpacks:golden_backpack"
+  },
+  "pattern": [
+    "###",
+    "#c#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tiered_backpacks:diamond_backpack"
+  }
+}

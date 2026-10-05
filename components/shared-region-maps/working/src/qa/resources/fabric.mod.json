@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "id": "shared_region_maps_qa",
+  "version": "1.0.0",
+  "name": "Shared Region Maps Runtime QA",
+  "environment": "server",
+  "entrypoints": { "main": ["org.sharedregionmaps.qa.Qa"] },
+  "depends": { "fabricloader": "*", "fabric-api": "*", "shared_region_maps": "*" }
+}

@@ -1,0 +1,8 @@
+{
+  "thenathe_mod_suite.overview": "Thenathe Mod Suite",
+  "thenathe_mod_suite.overview.desc": "All original mod settings are available in the sidebar. Server settings retain their original permissions and synchronization.",
+  "thenathe_mod_suite.chalk": "Chalk",
+  "thenathe_mod_suite.chalk.desc": "Chalk particles are saved to the original Chalk configuration.",
+  "thenathe_mod_suite.chalk.emitParticles": "Emit Chalk Particles",
+  "thenathe_mod_suite.chalk.emitParticles.desc": "Show Chalk particles. This changes the original Chalk EmitParticles setting and preserves its existing file."
+}

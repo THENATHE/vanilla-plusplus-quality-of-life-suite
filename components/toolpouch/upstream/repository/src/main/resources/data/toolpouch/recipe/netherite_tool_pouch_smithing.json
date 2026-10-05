@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#minecraft:netherite_tool_materials",
+  "base": "toolpouch:tool_pouch",
+  "result": {
+    "id": "toolpouch:netherite_tool_pouch"
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
+}

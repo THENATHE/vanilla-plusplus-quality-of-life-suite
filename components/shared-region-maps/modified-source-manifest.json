@@ -1,0 +1,22 @@
+{
+  "version": "1.0.4-combo.1+mc26.3",
+  "baseline_revision": "338270a70c14be19ba79b535b40fac980e414470",
+  "source_files": {
+    "src/main/java/org/sharedregionmaps/MapstitchMaps.java": "4a324705621581ed83c1470b4fcd7bf1b8ca73583568736b62babe495da614f4",
+    "src/main/java/org/sharedregionmaps/Region.java": "9143359132063469ff001e897fa9e27338e05c9323ffa8dba7a0b8be2db2451c",
+    "src/main/java/org/sharedregionmaps/RegionIndex.java": "d328608aeed04d6a29eacca45da866170fec88eb7b26dfc985e2e61467173964",
+    "src/main/java/org/sharedregionmaps/SharedMaps.java": "fe6e61ad6e9cd50924cfb64621fa080035c41c7be5d8641fa108a68a3e06ccde",
+    "src/main/java/org/sharedregionmaps/mixin/BundleContentsAccessor.java": "693253f09bfcd68d071f0efa0c358109b2378e89e8916c712944203714e29c64",
+    "src/main/java/org/sharedregionmaps/mixin/EmptyMapMixin.java": "0333d9ac04897ee6bb0f5eab8af5d84a7b9aacdf6cec256ee6390dcde68f8a57",
+    "src/main/java/org/sharedregionmaps/mixin/MapDataAccessor.java": "b59b4b80062c068050ffad0dcdd47c2f259918bcc62e6a7e496deac90ee7c047",
+    "src/main/java/org/sharedregionmaps/mixin/MapItemMixin.java": "4c780c6a105839a1f97166d6a3c3517782743438769eb4016163f09380449438",
+    "src/main/java/org/sharedregionmaps/mixin/MapstitchAtlasMixin.java": "e36ca3c62770fd4d44eaed8b869fae69e4bbecfe98fdb22684519fb00714682e",
+    "src/main/java/org/sharedregionmaps/mixin/SavedDataStorageAccessor.java": "ee5586f6cd70536fe4382bf8185ac4bdee9fccb2066652b54038fe09d964c3b1",
+    "src/main/java/org/sharedregionmaps/mixin/SharedMapsMixinPlugin.java": "a9efbe0f3c01eaf89b90503051cdbc18cf84d37f8896cc5237c3e08501f6d951",
+    "src/main/resources/fabric.mod.json": "42f9b2d65d2eb3161684efd748cda4183a94b7318e95e46211e11ea3c8fbc884",
+    "src/main/resources/shared-region-maps.mixins.json": "98ce6764dfbc32c81257c58c6b844dcafaf88273757f88590266791bb4ca2566",
+    "src/qa/java/org/sharedregionmaps/qa/Qa.java": "c5259e40a93da2289d39a5eae144a4a58795ffae8ccc4dd945c0242970e6c889",
+    "src/qa/resources/fabric.mod.json": "b074ecf5014053ca196ed5f37e5993561ce341db37b14dc7be44b3845f651c89"
+  },
+  "jar_sha256": "8f3dd201a7a3fd58e4ba5d1f6d421eb93af95bd8053d7adf678c72e343498924"
+}

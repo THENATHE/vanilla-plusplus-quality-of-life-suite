@@ -1,0 +1,90 @@
+{
+  "archive_integrity": true,
+  "root_id": "thenathe_mod_suite",
+  "version": "1.0.0+26.3",
+  "sha256": "b2345736cdae8818aadfd2d98f63be19b8d0f2d9aefc315ee1a6767cadb74555",
+  "modules": [
+    {
+      "id": "amethyst_curse_cleanser",
+      "version": "1.0.1+26.3",
+      "sha256": "5ec26e2a0010dfdee82aa5cb27664314150a4daa36deadc10f0c659f399507b6",
+      "file": "META-INF/jars/amethyst-curse-cleanser-1.0.1+26.3.jar"
+    },
+    {
+      "id": "chalk",
+      "version": "3.2.1+26.3",
+      "sha256": "886b0b10cc12df65d47f446c2bd54c0c670f9a54fa09a1fe95c9ec46df565f49",
+      "file": "META-INF/jars/chalk-3.2.1+26.3.jar"
+    },
+    {
+      "id": "chalk-colorful-addon",
+      "version": "2.1.1-port.1+26.3",
+      "sha256": "69a2443250abd95100636194a145b5479d240151cd19bf4186766117d0710b34",
+      "file": "META-INF/jars/chalk-colorful-addon-2.1.1-port.1+26.3.jar"
+    },
+    {
+      "id": "mapstitch",
+      "version": "1.1.6",
+      "sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81",
+      "file": "META-INF/jars/mapstitch-fabric-1.1.6+26.3.jar"
+    },
+    {
+      "id": "misctweaks",
+      "version": "1.4.4",
+      "sha256": "97fe263764cb6b93822e13fe9423cf91c3a6a0169aeeb8734b65136cc9ea9647",
+      "file": "META-INF/jars/misctweaks-fabric-1.4.4+26.3.jar"
+    },
+    {
+      "id": "simple_death_improvements",
+      "version": "1.6.0",
+      "sha256": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2",
+      "file": "META-INF/jars/simple_death_improvements-fabric-1.6.0+26.3.jar"
+    },
+    {
+      "id": "simple_smithing_overhaul",
+      "version": "2.9.14",
+      "sha256": "fb6cbf8c13938d68fb19171dac386b5567d71625bce727b22d3380f6b7880126",
+      "file": "META-INF/jars/simple_smithing_overhaul-fabric-2.9.14+26.3.jar"
+    },
+    {
+      "id": "tiered_backpacks",
+      "version": "1.0.20",
+      "sha256": "b129b9b61ec1da62842dc2dfa5b166a6df8e91c796666dcee70f7b8acf1ecc33",
+      "file": "META-INF/jars/tiered_backpacks-fabric-1.0.20+26.3.jar"
+    },
+    {
+      "id": "toolpouch",
+      "version": "1.1.10",
+      "sha256": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903",
+      "file": "META-INF/jars/toolpouch-fabric-1.1.10+26.3.jar"
+    },
+    {
+      "id": "sso_backpack_toolpouch_mapstitch_shim",
+      "version": "1.0.5-suite.1+26.3",
+      "sha256": "cd87d698fc8d2a9052dfb1784258408ff366e2101940e3ed658c756dd3ee57fb",
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.0.5-suite.1+26.3.jar"
+    },
+    {
+      "id": "chalk_polymer_compat",
+      "version": "1.1.0-suite.1+26.3",
+      "sha256": "d23755941db39238aa446d788b2ef558111b7b9257169429547ed2ed5583479c",
+      "file": "META-INF/jars/thenathe-suite-chalk-compat-1.1.0-suite.1+26.3.jar"
+    },
+    {
+      "id": "shared_region_maps",
+      "version": "1.0.4-combo.1+mc26.3",
+      "sha256": "8f3dd201a7a3fd58e4ba5d1f6d421eb93af95bd8053d7adf678c72e343498924",
+      "file": "META-INF/jars/shared-region-maps-1.0.4-combo.1+mc26.3.jar"
+    },
+    {
+      "id": "toolpouch_atlas_elytra_compat",
+      "version": "1.0.5-suite.1+26.3",
+      "sha256": "662859ed9e7d5792ab06514a3f0984ca2fcb0885417c6f556511d347d8f534ea",
+      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.5-suite.1+26.3.jar"
+    }
+  ],
+  "original_inputs_unchanged": true,
+  "defaulted_exact_dropfix_requirement": true,
+  "licenses_retained": true,
+  "runtime_tested": false
+}

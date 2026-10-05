@@ -1,0 +1,84 @@
+{
+  "item.chalk.white_chalk": "Tiza",
+  "block.chalk.white_chalk_mark": "Marca de Tiza",
+  "item.chalk.white_glow_chalk": "Tiza Brillante",
+  "block.chalk.white_glow_chalk_mark": "Marca de Tiza Brillante",
+
+  "item.chalk.red_chalk": "Tiza Roja",
+  "block.chalk.red_chalk_mark": "Marca de Tiza Roja",
+  "item.chalk.red_glow_chalk": "Tiza Roja Brillante",
+  "block.chalk.red_glow_chalk_mark": "Marca de Tiza Roja Brillante",
+
+  "item.chalk.blue_chalk": "Tiza Azul",
+  "block.chalk.blue_chalk_mark": "Marca de Tiza Azul",
+  "item.chalk.blue_glow_chalk": "Tiza Azul Brillante",
+  "block.chalk.blue_glow_chalk_mark": "Marca de Tiza Azul Brillante",
+
+  "item.chalk.green_chalk": "Tiza Verde",
+  "block.chalk.green_chalk_mark": "Marca de Tiza Verde",
+  "item.chalk.green_glow_chalk": "Tiza Verde Brillante",
+  "block.chalk.green_glow_chalk_mark": "Marca de Tiza Verde Brillante",
+
+  "item.chalk.purple_chalk": "Tiza Morada",
+  "block.chalk.purple_chalk_mark": "Marca de Tiza Morada",
+  "item.chalk.purple_glow_chalk": "Tiza Morada Brillante",
+  "block.chalk.purple_glow_chalk_mark": "Marca de Tiza Morada Brillante",
+
+  "item.chalk.orange_chalk": "Tiza Naranja",
+  "block.chalk.orange_chalk_mark": "Marca de Tiza Naranja",
+  "item.chalk.orange_glow_chalk": "Tiza Naranja Brillante",
+  "block.chalk.orange_glow_chalk_mark": "Marca de Tiza Naranja Brillante",
+
+  "item.chalk.magenta_chalk": "Tiza Magenta",
+  "block.chalk.magenta_chalk_mark": "Marca de Tiza Magenta",
+  "item.chalk.magenta_glow_chalk": "Tiza Magenta Brillante",
+  "block.chalk.magenta_glow_chalk_mark": "Marca de Tiza Magenta Brillante",
+
+  "item.chalk.light_blue_chalk": "Tiza Azul Claro",
+  "block.chalk.light_blue_chalk_mark": "Marca de Tiza Azul Claro",
+  "item.chalk.light_blue_glow_chalk": "Tiza Azul Claro Brillante",
+  "block.chalk.light_blue_glow_chalk_mark": "Marca de Tiza Azul Claro Brillante",
+
+  "item.chalk.yellow_chalk": "Tiza Amarilla",
+  "block.chalk.yellow_chalk_mark": "Marca de Tiza Amarilla",
+  "item.chalk.yellow_glow_chalk": "Tiza Amarilla Brillante",
+  "block.chalk.yellow_glow_chalk_mark": "Marca de Tiza Amarilla Brillante",
+
+  "item.chalk.lime_chalk": "Tiza Lima",
+  "block.chalk.lime_chalk_mark": "Marca de Tiza Lima",
+  "item.chalk.lime_glow_chalk": "Tiza Lima Brillante",
+  "block.chalk.lime_glow_chalk_mark": "Marca de Tiza Lima Brillante",
+
+  "item.chalk.pink_chalk": "Tiza Rosa",
+  "block.chalk.pink_chalk_mark": "Marca de Tiza Rosa",
+  "item.chalk.pink_glow_chalk": "Tiza Rosa Brillante",
+  "block.chalk.pink_glow_chalk_mark": "Marca de Tiza Rosa Brillante",
+
+  "item.chalk.gray_chalk": "Tiza Gris",
+  "block.chalk.gray_chalk_mark": "Marca de Tiza Gris",
+  "item.chalk.gray_glow_chalk": "Tiza Gris Brillante",
+  "block.chalk.gray_glow_chalk_mark": "Marca de Tiza Gris Brillante",
+
+  "item.chalk.light_gray_chalk": "Tiza Gris Claro",
+  "block.chalk.light_gray_chalk_mark": "Marca de Tiza Gris Claro",
+  "item.chalk.light_gray_glow_chalk": "Tiza Gris Claro Brillante",
+  "block.chalk.light_gray_glow_chalk_mark": "Marca de Tiza Gris Claro Brillante",
+
+  "item.chalk.cyan_chalk": "Tiza Cian",
+  "block.chalk.cyan_chalk_mark": "Marca de Tiza Cian",
+  "item.chalk.cyan_glow_chalk": "Tiza Cian Brillante",
+  "block.chalk.cyan_glow_chalk_mark": "Marca de Tiza Cian Brillante",
+
+  "item.chalk.brown_chalk": "Tiza Marrón",
+  "block.chalk.brown_chalk_mark": "Marca de Tiza Marrón",
+  "item.chalk.brown_glow_chalk": "Tiza Marrón Brillante",
+  "block.chalk.brown_glow_chalk_mark": "Marca de Tiza Marrón Brillante",
+
+  "item.chalk.black_chalk": "Tiza Negra",
+  "block.chalk.black_chalk_mark": "Marca de Tiza Negra",
+  "item.chalk.black_glow_chalk": "Tiza Negra Brillante",
+  "block.chalk.black_glow_chalk_mark": "Marca de Tiza Negra Brillante",
+
+  "text.autoconfig.Chalk.title": "Configuración de Tiza",
+  "text.autoconfig.Chalk.option.EmitParticles": "Activa o desactiva la emisión de partículas al colocar tiza"
+}

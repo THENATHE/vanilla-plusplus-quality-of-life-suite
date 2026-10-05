@@ -1,0 +1,62 @@
+{
+  "game_versions": [
+    "26.3"
+  ],
+  "loaders": [
+    "fabric"
+  ],
+  "environment": "server_only",
+  "id": "AYTsBnki",
+  "project_id": "2JFsuD70",
+  "author_id": "Kg6RZEfM",
+  "featured": false,
+  "name": "1.6.0 for Fabric 26.3",
+  "version_number": "1.6.0+26.3",
+  "changelog": "- Added Fabric 26.3 version.\n- Added NeoForge 26.2 version.\n- Re-added option to keep items in accessory slots, with support for slots from Trinkets Updated, Trinkets, Curios, and Ohmega.\n- Added option to edit the item despawn timer when item despawning isn't disabled.\n",
+  "changelog_url": null,
+  "date_published": "2026-09-18T09:42:05.106116Z",
+  "downloads": 485,
+  "version_type": "release",
+  "status": "listed",
+  "requested_status": null,
+  "files": [
+    {
+      "id": "a2wOJTOu",
+      "hashes": {
+        "sha512": "2713cb0596d29d9e54300ed0b9e263d71b92927b0256d4689740e1b8ddb5803959c6763c5408c1f85a9fa469bdc783c96b15445ca33b2fcce059393b3513c7c6",
+        "sha1": "e652ca360728853832cc8c65520c72e97a22d0c8"
+      },
+      "url": "https://cdn.modrinth.com/data/2JFsuD70/versions/AYTsBnki/simple_death_improvements-fabric-1.6.0%2B26.3.jar",
+      "filename": "simple_death_improvements-fabric-1.6.0+26.3.jar",
+      "primary": true,
+      "size": 64906,
+      "file_type": null
+    },
+    {
+      "id": "zYr7IXOW",
+      "hashes": {
+        "sha1": "99ac21d78d216d9cf2e0bfd5b807963d2c67dd27",
+        "sha512": "116a73a074150862d0987e9b682f393e2fe654f90efd5cd40f89da25381b27cfdc5a992c361b8fe074dd54b655d254eebcb868ab88b3130844bb7e7c9c44f327"
+      },
+      "url": "https://cdn.modrinth.com/data/2JFsuD70/versions/AYTsBnki/simple_death_improvements-fabric-1.6.0%2B26.3-sources.jar",
+      "filename": "simple_death_improvements-fabric-1.6.0+26.3-sources.jar",
+      "primary": false,
+      "size": 32446,
+      "file_type": null
+    }
+  ],
+  "dependencies": [
+    {
+      "version_id": null,
+      "project_id": "P7dR8mSH",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "hYykXjDp",
+      "file_name": null,
+      "dependency_type": "required"
+    }
+  ]
+}

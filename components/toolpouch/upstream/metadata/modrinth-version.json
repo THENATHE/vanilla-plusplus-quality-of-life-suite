@@ -1,0 +1,62 @@
+{
+  "game_versions": [
+    "26.3"
+  ],
+  "loaders": [
+    "fabric"
+  ],
+  "environment": "client_and_server",
+  "id": "6Z3zMyN8",
+  "project_id": "ZY6C1rJ4",
+  "author_id": "Kg6RZEfM",
+  "featured": false,
+  "name": "1.1.10 for Fabric 26.3",
+  "version_number": "1.1.10+26.3",
+  "changelog": "- Fixed LambDynamicLights and Shulker Box Tooltip compatibility.\n",
+  "changelog_url": null,
+  "date_published": "2026-09-26T10:27:09.544169Z",
+  "downloads": 36,
+  "version_type": "release",
+  "status": "listed",
+  "requested_status": null,
+  "files": [
+    {
+      "id": "8lWqHwDC",
+      "hashes": {
+        "sha1": "aee59ade66ce878179b11af75256f9149298e6d2",
+        "sha512": "b4284c31c649b548a636bcc1298ed2b8c695c2cf0b8efd5a7fbf1ea84fd180cc9883b074cdc87ca8d04440e5d2b69b2ba7b609b7ace5f876febc36f6b27bb7e4"
+      },
+      "url": "https://cdn.modrinth.com/data/ZY6C1rJ4/versions/6Z3zMyN8/toolpouch-fabric-1.1.10%2B26.3.jar",
+      "filename": "toolpouch-fabric-1.1.10+26.3.jar",
+      "primary": true,
+      "size": 326095,
+      "file_type": null
+    },
+    {
+      "id": "ouhoiv3J",
+      "hashes": {
+        "sha1": "37db5ec39fde26240f6257de8a7f436a5a2511a6",
+        "sha512": "4b8fbf911aa123e01f30afd70521f4f8e0333c38da33b432c826ca8496d30e768a26c342c9cbc14274dd6331e6481025119e655f47c44b28149f0c5a5b019587"
+      },
+      "url": "https://cdn.modrinth.com/data/ZY6C1rJ4/versions/6Z3zMyN8/toolpouch-fabric-1.1.10%2B26.3-sources.jar",
+      "filename": "toolpouch-fabric-1.1.10+26.3-sources.jar",
+      "primary": false,
+      "size": 211348,
+      "file_type": null
+    }
+  ],
+  "dependencies": [
+    {
+      "version_id": null,
+      "project_id": "hYykXjDp",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "P7dR8mSH",
+      "file_name": null,
+      "dependency_type": "required"
+    }
+  ]
+}

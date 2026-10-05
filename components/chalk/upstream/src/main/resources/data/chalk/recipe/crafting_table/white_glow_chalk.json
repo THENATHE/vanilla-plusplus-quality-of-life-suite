@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chalk:glow_chalk",
+  "ingredients": [
+    "minecraft:calcite",
+    "minecraft:calcite",
+    "minecraft:glow_ink_sac"
+  ],
+  "result": {
+    "id": "chalk:white_glow_chalk"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "game_versions": [
+    "26.3"
+  ],
+  "loaders": [
+    "fabric"
+  ],
+  "environment": "client_and_server",
+  "id": "kRE6nsB7",
+  "project_id": "etdHQJ0B",
+  "author_id": "Kg6RZEfM",
+  "featured": false,
+  "name": "1.1.6 for Fabric 26.3",
+  "version_number": "1.1.6+26.3",
+  "changelog": "- Fixed a dedicated server crash introduced in 1.1.5.\n",
+  "changelog_url": null,
+  "date_published": "2026-09-22T12:17:03.471937Z",
+  "downloads": 110,
+  "version_type": "release",
+  "status": "listed",
+  "requested_status": null,
+  "files": [
+    {
+      "id": "f4ziBuxZ",
+      "hashes": {
+        "sha512": "988e85d2f24a1a72cc6b65cbb043c708edf5109f156be2e6c2b8772aca286ed0990efbc48454cdbb60040b31c6eda2acfb89ea6072f34f7974c1a190a50140f3",
+        "sha1": "c9af70a41425298cb60278cdc766bc86cf622d92"
+      },
+      "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/kRE6nsB7/mapstitch-fabric-1.1.6%2B26.3.jar",
+      "filename": "mapstitch-fabric-1.1.6+26.3.jar",
+      "primary": true,
+      "size": 896682,
+      "file_type": null
+    },
+    {
+      "id": "9WSKIZDF",
+      "hashes": {
+        "sha1": "faebf3cef026090b9a46775c8524b88e430877d5",
+        "sha512": "ee6eefae79837327def39af4ce1d3961fdf3670550417c67cab6d3a511defdb5dbeeb19e46b26b51f9080af629bcba14362cb95f0e9d1aa86f68faa4456009e2"
+      },
+      "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/kRE6nsB7/mapstitch-fabric-1.1.6%2B26.3-sources.jar",
+      "filename": "mapstitch-fabric-1.1.6+26.3-sources.jar",
+      "primary": false,
+      "size": 793018,
+      "file_type": null
+    }
+  ],
+  "dependencies": [
+    {
+      "version_id": null,
+      "project_id": "P7dR8mSH",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "hYykXjDp",
+      "file_name": null,
+      "dependency_type": "required"
+    }
+  ]
+}

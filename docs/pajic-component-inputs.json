@@ -1,0 +1,407 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-04",
+  "components": [
+    {
+      "component": "sso",
+      "track": "developer-release",
+      "mod_id": "simple_smithing_overhaul",
+      "artifact_version": "2.9.14",
+      "release_version": "2.9.14+26.2",
+      "minecraft": "26.2",
+      "upstream_minecraft": "26.2",
+      "advertised_game_versions": [
+        "26.2"
+      ],
+      "loader": "fabric",
+      "modrinth_version_id": "yzzzEFXt",
+      "modrinth_version_url": "https://modrinth.com/mod/simple-smithing-overhaul/version/yzzzEFXt",
+      "github": {
+        "repository": "https://github.com/pajicadvance/simple-smithing-overhaul",
+        "branch": "multicutter-v3",
+        "commit": "979a4d39763c63c7d0956f8c39b6ca56600962e5"
+      },
+      "binary": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2.jar",
+      "binary_sha256": "f393e8b48d6bdf06e69290843c0d041d5f70449f2af7355eaf4c7249bc97fc56",
+      "published_sources": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2-sources.jar",
+      "repository_snapshot": "components/sso/upstream/repository",
+      "published_source_tree": "components/sso/upstream/source",
+      "dependencies": {
+        "minecraft": "~26.2",
+        "fabricloader": ">=0.19.5",
+        "java": ">=25",
+        "defaulted": ">=1.3.8",
+        "fabric-api": ">=0.160.0",
+        "fzzy_config": ">=0.7.6",
+        "mixson": ">=2.2.0"
+      },
+      "suggests": {},
+      "nested_jars": [
+        {
+          "file": "META-INF/jars/mixinconstraints-1.1.0.jar"
+        }
+      ],
+      "config_ids": [
+        "simple_smithing_overhaul:config-v2"
+      ],
+      "license": "MIT",
+      "copyright_file": "components/sso/upstream/repository/LICENSE",
+      "artifacts": [
+        {
+          "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2-sources.jar",
+          "sha256": "3b3ddb9206c86ed224fe89b6ed40d664b3598b919d70b6b49415d1cda3c2fa4b",
+          "size": 218865
+        },
+        {
+          "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2.jar",
+          "sha256": "f393e8b48d6bdf06e69290843c0d041d5f70449f2af7355eaf4c7249bc97fc56",
+          "size": 313992
+        },
+        {
+          "path": "components/sso/upstream/artifacts/sso-979a4d39763c63c7d0956f8c39b6ca56600962e5-source.zip",
+          "sha256": "b3eff6ab518a59c63771df0a6ed0d28fa962a6a01d258ca1a3da0e056eb870bd",
+          "size": 316914
+        }
+      ],
+      "modifications": [],
+      "port_counterpart": null,
+      "port_counterpart_reason": "Official developer release requires~26.2. Existing local26.3 artifact is materially modified and lacks confirmed developer-release provenance; paused SSO-port is untouched.",
+      "suite_minecraft": "26.3",
+      "suite_compatibility": "blocked pending local26.3 input provenance"
+    },
+    {
+      "component": "mapstitch",
+      "track": "developer-release",
+      "mod_id": "mapstitch",
+      "artifact_version": "1.1.6",
+      "release_version": "1.1.6+26.3",
+      "minecraft": "26.3",
+      "upstream_minecraft": "26.3",
+      "advertised_game_versions": [
+        "26.3"
+      ],
+      "loader": "fabric",
+      "modrinth_version_id": "kRE6nsB7",
+      "modrinth_version_url": "https://modrinth.com/mod/mapstitch/version/kRE6nsB7",
+      "github": {
+        "repository": "https://github.com/pajicadvance/mapstitch",
+        "branch": "multicutter-v3",
+        "commit": "6a10ed9ca26ffce49ab8cee03871a6e56d1eceb0"
+      },
+      "binary": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.6+26.3.jar",
+      "binary_sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81",
+      "published_sources": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.6+26.3-sources.jar",
+      "repository_snapshot": "components/mapstitch/upstream/repository",
+      "published_source_tree": "components/mapstitch/upstream/source",
+      "dependencies": {
+        "minecraft": "~26.3",
+        "fabricloader": ">=0.19.5",
+        "java": ">=25",
+        "fabric-api": ">=0.160.5",
+        "fzzy_config": ">=0.7.7"
+      },
+      "suggests": {
+        "modmenu": ">=21.0.0",
+        "ohmega": ">=1.5.21 <1.6",
+        "remapped": ">=2.0.2",
+        "sodium": ">=0.9.2",
+        "trinkets": ">=4.2.0"
+      },
+      "nested_jars": [
+        {
+          "file": "META-INF/jars/mixinconstraints-1.1.0.jar"
+        }
+      ],
+      "config_ids": [
+        "mapstitch:client_config",
+        "mapstitch:config"
+      ],
+      "license": "MIT",
+      "copyright_file": "components/mapstitch/upstream/repository/LICENSE",
+      "artifacts": [
+        {
+          "path": "components/mapstitch/upstream/artifacts/mapstitch-6a10ed9ca26ffce49ab8cee03871a6e56d1eceb0-source.zip",
+          "sha256": "69c3178a8ffc6cc08c174270e7a4f17b1e1541b640f407161ef0659a15f73363",
+          "size": 1103608
+        },
+        {
+          "path": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.6+26.3-sources.jar",
+          "sha256": "dfc21f03f2b07ba659604088abf12ef64e3a48c6803d4abe1146a45b9675b4a9",
+          "size": 793018
+        },
+        {
+          "path": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.6+26.3.jar",
+          "sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81",
+          "size": 896682
+        }
+      ],
+      "modifications": [],
+      "port_counterpart": null,
+      "port_counterpart_reason": "Official developer release supports26.3; no additional port created."
+    },
+    {
+      "component": "toolpouch",
+      "track": "developer-release",
+      "mod_id": "toolpouch",
+      "artifact_version": "1.1.10",
+      "release_version": "1.1.10+26.3",
+      "minecraft": "26.3",
+      "upstream_minecraft": "26.3",
+      "advertised_game_versions": [
+        "26.3"
+      ],
+      "loader": "fabric",
+      "modrinth_version_id": "6Z3zMyN8",
+      "modrinth_version_url": "https://modrinth.com/mod/tool-pouch/version/6Z3zMyN8",
+      "github": {
+        "repository": "https://github.com/pajicadvance/toolpouch",
+        "branch": "multicutter-v3",
+        "commit": "9a7e55837e92fd4eb2ea6ec61e395d31b052dc37"
+      },
+      "binary": "components/toolpouch/upstream/artifacts/toolpouch-fabric-1.1.10+26.3.jar",
+      "binary_sha256": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903",
+      "published_sources": "components/toolpouch/upstream/artifacts/toolpouch-fabric-1.1.10+26.3-sources.jar",
+      "repository_snapshot": "components/toolpouch/upstream/repository",
+      "published_source_tree": "components/toolpouch/upstream/source",
+      "dependencies": {
+        "minecraft": "~26.3",
+        "fabricloader": ">=0.19.5",
+        "java": ">=25",
+        "fabric-api": ">=0.160.5",
+        "fzzy_config": ">=0.7.7"
+      },
+      "suggests": {
+        "aileron": ">=1.2.1",
+        "lambdynamiclights": ">=4.13.0",
+        "locator_lodestones": ">=1.5.3",
+        "ohmega": ">=1.5.21 <1.6",
+        "ok_zoomer": ">=19.0.0",
+        "raised": ">=Fabric-26.2-5.1.2",
+        "sereneseasons": ">=26.1.2.0.5",
+        "shulkerboxtooltip": ">=5.4.2",
+        "spyglass_astronomy": ">=1.0.26-mc26.2",
+        "trinkets": ">=4.2.0",
+        "zoomify": ">=2.16.1"
+      },
+      "nested_jars": [
+        {
+          "file": "META-INF/jars/mixinconstraints-1.1.0.jar"
+        }
+      ],
+      "config_ids": [
+        "toolpouch:client_config",
+        "toolpouch:config"
+      ],
+      "license": "MIT",
+      "copyright_file": "components/toolpouch/upstream/repository/LICENSE",
+      "artifacts": [
+        {
+          "path": "components/toolpouch/upstream/artifacts/toolpouch-9a7e55837e92fd4eb2ea6ec61e395d31b052dc37-source.zip",
+          "sha256": "0ac16cc3edfe0cd9d91e10e2b9ea146a0dca77861fe29daf5a99aef6d99759bd",
+          "size": 312993
+        },
+        {
+          "path": "components/toolpouch/upstream/artifacts/toolpouch-fabric-1.1.10+26.3-sources.jar",
+          "sha256": "2b9e72195818231194eaf58d54a28173118d413136b5e0c02c0bfbc1a34a82c3",
+          "size": 211348
+        },
+        {
+          "path": "components/toolpouch/upstream/artifacts/toolpouch-fabric-1.1.10+26.3.jar",
+          "sha256": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903",
+          "size": 326095
+        }
+      ],
+      "modifications": [],
+      "port_counterpart": null,
+      "port_counterpart_reason": "Official developer release supports26.3; no additional port created."
+    },
+    {
+      "component": "tiered-backpacks",
+      "track": "developer-release",
+      "mod_id": "tiered_backpacks",
+      "artifact_version": "1.0.20",
+      "release_version": "1.0.20+26.3",
+      "minecraft": "26.3",
+      "upstream_minecraft": "26.3",
+      "advertised_game_versions": [
+        "26.3"
+      ],
+      "loader": "fabric",
+      "modrinth_version_id": "GHnqX59p",
+      "modrinth_version_url": "https://modrinth.com/mod/tiered-backpacks/version/GHnqX59p",
+      "github": {
+        "repository": "https://github.com/pajicadvance/tiered_backpacks",
+        "branch": "multicutter-v3",
+        "commit": "f282104e9201c6d5200ca9469761cbc58ed0cf3e"
+      },
+      "binary": "components/tiered-backpacks/upstream/artifacts/tiered_backpacks-fabric-1.0.20+26.3.jar",
+      "binary_sha256": "b129b9b61ec1da62842dc2dfa5b166a6df8e91c796666dcee70f7b8acf1ecc33",
+      "published_sources": "components/tiered-backpacks/upstream/artifacts/tiered_backpacks-fabric-1.0.20+26.3-sources.jar",
+      "repository_snapshot": "components/tiered-backpacks/upstream/repository",
+      "published_source_tree": "components/tiered-backpacks/upstream/source",
+      "dependencies": {
+        "minecraft": "~26.3",
+        "fabricloader": ">=0.19.5",
+        "java": ">=25",
+        "fabric-api": ">=0.160.5",
+        "fzzy_config": ">=0.7.7"
+      },
+      "suggests": {
+        "ohmega": ">=1.5.21 <1.6",
+        "shulkerboxtooltip": ">=5.4.2",
+        "trinkets": ">=4.2.0"
+      },
+      "nested_jars": [],
+      "config_ids": [
+        "tiered_backpacks:config"
+      ],
+      "license": "MIT",
+      "copyright_file": "components/tiered-backpacks/upstream/repository/LICENSE",
+      "artifacts": [
+        {
+          "path": "components/tiered-backpacks/upstream/artifacts/tiered-backpacks-f282104e9201c6d5200ca9469761cbc58ed0cf3e-source.zip",
+          "sha256": "1f5fa5614a7a99b79c5f30f6cc0f841b1252931d9417f133192731fc04e29c90",
+          "size": 294567
+        },
+        {
+          "path": "components/tiered-backpacks/upstream/artifacts/tiered_backpacks-fabric-1.0.20+26.3-sources.jar",
+          "sha256": "6eca3d8836506f1f32ea79a1956c367d23ff23b0320bc06424aa0c29d687fcba",
+          "size": 183816
+        },
+        {
+          "path": "components/tiered-backpacks/upstream/artifacts/tiered_backpacks-fabric-1.0.20+26.3.jar",
+          "sha256": "b129b9b61ec1da62842dc2dfa5b166a6df8e91c796666dcee70f7b8acf1ecc33",
+          "size": 210613
+        }
+      ],
+      "modifications": [],
+      "port_counterpart": null,
+      "port_counterpart_reason": "Official developer release supports26.3; no additional port created."
+    },
+    {
+      "component": "misctweaks",
+      "track": "developer-release",
+      "mod_id": "misctweaks",
+      "artifact_version": "1.4.4",
+      "release_version": "1.4.4+26.3",
+      "minecraft": "26.3",
+      "loader": "fabric",
+      "modrinth_version_id": "c2JwxbVC",
+      "modrinth_version_url": "https://modrinth.com/mod/misctweaks/version/c2JwxbVC",
+      "github": {
+        "repository": "https://github.com/pajicadvance/misctweaks",
+        "branch": "multicutter-v3",
+        "commit": "265a64d4565fbe4aef324eeaa6d9a82606171a46"
+      },
+      "binary": "components/misctweaks/upstream/artifacts/misctweaks-fabric-1.4.4+26.3.jar",
+      "binary_sha256": "97fe263764cb6b93822e13fe9423cf91c3a6a0169aeeb8734b65136cc9ea9647",
+      "published_sources": "components/misctweaks/upstream/artifacts/misctweaks-fabric-1.4.4+26.3-sources.jar",
+      "repository_snapshot": "components/misctweaks/upstream/repository",
+      "published_source_tree": "components/misctweaks/upstream/source",
+      "dependencies": {
+        "minecraft": "~26.3",
+        "fabricloader": ">=0.19.3",
+        "java": ">=25",
+        "fabric-api": ">=0.160.5",
+        "fzzy_config": ">=0.7.7",
+        "mixson": ">=2.2.0"
+      },
+      "suggests": {
+        "sodium": ">=0.9.2"
+      },
+      "nested_jars": [
+        {
+          "file": "META-INF/jars/mixinconstraints-1.1.0.jar"
+        }
+      ],
+      "config_ids": [
+        "misctweaks:config",
+        "misctweaks:client_config"
+      ],
+      "license": "MIT",
+      "copyright_file": "components/misctweaks/upstream/repository/LICENSE",
+      "artifacts": [
+        {
+          "path": "components/misctweaks/upstream/artifacts/misctweaks-265a64d4565fbe4aef324eeaa6d9a82606171a46-source.zip",
+          "sha256": "83080923f87fc95f0916f6404047c6f032afcc939d533a133f6edc189f9215b8",
+          "size": 286485
+        },
+        {
+          "path": "components/misctweaks/upstream/artifacts/misctweaks-fabric-1.4.4+26.3-sources.jar",
+          "sha256": "41151c79f632c94a30d9c2345498aa9b8b6afd4d1c30f8960c1c06145a2a4708",
+          "size": 151498
+        },
+        {
+          "path": "components/misctweaks/upstream/artifacts/misctweaks-fabric-1.4.4+26.3.jar",
+          "sha256": "97fe263764cb6b93822e13fe9423cf91c3a6a0169aeeb8734b65136cc9ea9647",
+          "size": 198410
+        }
+      ],
+      "modifications": [],
+      "port_counterpart": null,
+      "port_counterpart_reason": "Official developer release supports the requested Minecraft version; no unsolicited port created."
+    },
+    {
+      "component": "simple-death-improvements",
+      "track": "developer-release",
+      "mod_id": "simple_death_improvements",
+      "artifact_version": "1.6.0",
+      "release_version": "1.6.0+26.3",
+      "minecraft": "26.3",
+      "loader": "fabric",
+      "modrinth_version_id": "AYTsBnki",
+      "modrinth_version_url": "https://modrinth.com/mod/simple-death-improvements/version/AYTsBnki",
+      "github": {
+        "repository": "https://github.com/pajicadvance/simple-death-improvements",
+        "branch": "multicutter-v3",
+        "commit": "51ed1dc83bde530d1b70dbcb56dfd11aa04d59f2"
+      },
+      "binary": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.6.0+26.3.jar",
+      "binary_sha256": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2",
+      "published_sources": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.6.0+26.3-sources.jar",
+      "repository_snapshot": "components/simple-death-improvements/upstream/repository",
+      "published_source_tree": "components/simple-death-improvements/upstream/source",
+      "dependencies": {
+        "minecraft": "~26.3",
+        "fabricloader": ">=0.19.5",
+        "java": ">=25",
+        "fabric-api": ">=0.160.5",
+        "fzzy_config": ">=0.7.7"
+      },
+      "suggests": {
+        "ohmega": ">=1.5.21 <1.6",
+        "trinkets": ">=4.2.0"
+      },
+      "nested_jars": [
+        {
+          "file": "META-INF/jars/mixinconstraints-1.1.0.jar"
+        }
+      ],
+      "config_ids": [
+        "simple_death_improvements:config"
+      ],
+      "license": "MIT",
+      "copyright_file": "components/simple-death-improvements/upstream/repository/LICENSE",
+      "artifacts": [
+        {
+          "path": "components/simple-death-improvements/upstream/artifacts/simple-death-improvements-51ed1dc83bde530d1b70dbcb56dfd11aa04d59f2-source.zip",
+          "sha256": "b35471deb362abbb0d1c195583e34aa32b07194c302d9b3843daf747957e5174",
+          "size": 105066
+        },
+        {
+          "path": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.6.0+26.3-sources.jar",
+          "sha256": "925f3df2bee4ce789dcf9a03698f1b6c805b847d0e80be1a4271dca9f707ee5a",
+          "size": 32446
+        },
+        {
+          "path": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.6.0+26.3.jar",
+          "sha256": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2",
+          "size": 64906
+        }
+      ],
+      "modifications": [],
+      "port_counterpart": null,
+      "port_counterpart_reason": "Official developer release supports the requested Minecraft version; no unsolicited port created."
+    }
+  ]
+}

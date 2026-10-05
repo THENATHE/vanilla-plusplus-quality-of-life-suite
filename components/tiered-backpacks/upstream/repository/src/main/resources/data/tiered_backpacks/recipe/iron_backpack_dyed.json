@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_dye",
+  "category": "misc",
+  "dye": "#minecraft:dyes",
+  "result": {
+    "id": "tiered_backpacks:iron_backpack"
+  },
+  "target": "tiered_backpacks:iron_backpack"
+}

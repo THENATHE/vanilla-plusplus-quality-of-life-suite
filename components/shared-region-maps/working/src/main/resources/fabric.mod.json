@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "shared_region_maps",
+  "version": "${version}",
+  "name": "Shared Region Maps",
+  "description": "Shared regional map records for vanilla maps and MapStitch, included in Thenathe Mod Suite.",
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "mixins": [
+    "shared-region-maps.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "26.3",
+    "java": ">=25"
+  }
+}

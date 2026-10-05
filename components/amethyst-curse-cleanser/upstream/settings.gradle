@@ -1,0 +1,17 @@
+pluginManagement {
+	repositories {
+		maven { url = "https://maven.fabricmc.net/" }
+		mavenCentral()
+		gradlePluginPortal()
+	}
+}
+
+rootProject.name = "amethyst-curse-cleanser"
+
+dependencyResolutionManagement {
+	versionCatalogs {
+		create("libs") {
+			from(files("libs.versions.toml"))
+		}
+	}
+}

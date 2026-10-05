@@ -1,0 +1,107 @@
+# general
+mod.id = "tiered_backpacks"
+mod.name = "Tiered Backpacks"
+mod.group = "me.pajic"
+mod.version = "1.0.20"
+mod.description = "Simple tiered backpacks"
+mod.authors = "pajic"
+mod.contributors = "Moonkey"
+mod.license = "MIT"
+
+# links
+mod.sources_url = "https://github.com/pajicadvance/tiered_backpacks"
+mod.homepage_url = "https://modrinth.com/mod/tiered-backpacks"
+mod.issues_url = "https://github.com/pajicadvance/tiered_backpacks/issues"
+mod.discord_url = "https://discord.gg/5RkzS66zWb"
+
+# publishing
+publish.modrinth = "IhNtYNEF"
+publish.curseforge = "1379730"
+publish.env.mr = "CLIENT_AND_SERVER" #https://modmuss50.github.io/mod-publish-plugin/platforms/modrinth/#all-options
+publish.env.cf.client = true
+publish.env.cf.server = true
+publish.dry_run = false
+
+# loom
+loomx.loom_version = "1.17-SNAPSHOT"
+
+# dependencies
+loader.fabric = "0.19.5"
+dep.fzzy_config.coords = "me.fzzyhmstrs:$id:$version"
+dep.fzzy_config.slug = "fzzy-config"
+dep.shulkerboxtooltip.coords = "maven.modrinth:$id:$version-$loader"
+dep.trinkets.coords = "eu.pb4:$id:$version"
+dep.ohmega.coords = "maven.modrinth:$id:$version-$loader,$mc"
+dep.curios.coords = "top.theillusivec4.$id:$id-$loader:$version"
+dep.sodium.coords = "net.caffeinemc:$id-$loader:$version"
+dev.runtime_optionals = []
+
+[fabric]
+dep.fabric-api.coords = "net.fabricmc.fabric-api:$id:$version"
+dep.modmenu.coords = "com.terraformersmc:$id:$version"
+dep.ohmega.range = ">=1.5.21 <1.6"
+dev.runtime_optionals = ["modmenu", "trinkets"]
+
+[neoforge]
+dep.ohmega.range = "[1.5.21, 1.6)"
+dev.runtime_optionals = ["curios", "emi"]
+
+
+["26.1"]
+mod.mc_releases = ["26.1", "26.1.1", "26.1.2"]
+loader.neo = "26.1.2.107"
+optional.shulkerboxtooltip = "5.4.0+26.1.1"
+optional.trinkets = "4.0.0+26.1"
+optional.ohmega = "1.5.21"
+runtime.sodium = "0.9.2+mc26.1.2"
+
+[fabric."26.1"]
+mod.mc_compat = "~26.1"
+required.fabric-api = "0.155.3+26.1.2"
+required.fzzy_config = "0.7.6+26.1-pre-3"
+runtime.modmenu = "18.0.0"
+
+[neoforge."26.1"]
+mod.mc_compat = "[26.1, 26.2)"
+required.fzzy_config = "0.7.6+26.1-pre-3+neoforge"
+optional.curios = "15.0.0+26.1.2"
+
+
+["26.2"]
+mod.mc_releases = ["26.2"]
+loader.neo = "26.2.0.82"
+optional.shulkerboxtooltip = "5.4.0+26.2"
+optional.trinkets = "4.1.0+26.2"
+optional.ohmega = "1.5.21"
+runtime.sodium = "0.9.2+mc26.2"
+
+[fabric."26.2"]
+mod.mc_compat = "~26.2"
+required.fabric-api = "0.160.0+26.2"
+required.fzzy_config = "0.7.6+26.2-pre-3"
+runtime.modmenu = "20.0.1"
+
+[neoforge."26.2"]
+mod.mc_compat = "[26.2, 26.3)"
+required.fzzy_config = "0.7.6+26.2+neoforge"
+optional.curios = "16.0.0+26.2"
+
+
+["26.3"]
+mod.mc_releases = ["26.3"]
+dep.ohmega.coords = "maven.modrinth:$id:$version-$loader,26.2"
+#loader.neo = "26.2.0.36-beta"
+optional.shulkerboxtooltip = "5.4.2+26.3"
+optional.trinkets = "4.2.0+26.3"
+optional.ohmega = "1.5.21"
+runtime.sodium = "0.9.2+mc26.3"
+
+[fabric."26.3"]
+mod.mc_compat = "~26.3"
+required.fabric-api = "0.160.5+26.3"
+required.fzzy_config = "0.7.7+26.3"
+runtime.modmenu = "21.0.0-beta.1"
+
+#[neoforge."26.2"]
+#mod.mc_compat = "[26.3, 26.4)"
+#required.fzzy_config = "0.7.6+26.2+neoforge"

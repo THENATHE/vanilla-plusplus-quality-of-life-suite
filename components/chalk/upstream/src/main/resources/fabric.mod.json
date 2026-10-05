@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "chalk",
+  "version": "${version}",
+  "name": "Chalk",
+  "description": "Fabric port of the forge mod chalk by mortuusars with some additions",
+  "authors": [
+    "DaFuqs",
+    "mortuusars"
+  ],
+  "contributors": [
+    "MCLegoMan",
+    "Pintér Gábor <pinter.gabor@gmx.at>"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/chalk-fabric",
+    "sources": "https://github.com/DaFuqs/Chalk",
+    "issues": "https://github.com/DaFuqs/Chalk/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "de.dafuqs.chalk.client.ChalkClient"
+    ],
+    "main": [
+      "de.dafuqs.chalk.common.Chalk"
+    ],
+    "modmenu": [
+      "de.dafuqs.chalk.client.ModMenuConfig"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "minecraft": "~${minecraft_version}",
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "cloth-config": ">=26.3.159",
+    "java": ">=25"
+  },
+  "suggests": {
+    "chalk-colorful-addon": "*"
+  }
+}

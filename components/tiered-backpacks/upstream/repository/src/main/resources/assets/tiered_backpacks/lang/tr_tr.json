@@ -1,0 +1,42 @@
+{
+  "tiered_backpacks.config": "Mod Yapılandırması",
+  "tiered_backpacks.config.leatherSize": "Deri boyutu",
+  "tiered_backpacks.config.copperSize": "Bakır boyutu",
+  "tiered_backpacks.config.ironSize": "Demir boyutu",
+  "tiered_backpacks.config.goldenSize": "Altın boyutu",
+  "tiered_backpacks.config.diamondSize": "Elmas boyutu",
+  "tiered_backpacks.config.netheriteSize": "Netherit boyutu",
+  "tiered_backpacks.config.canOpenFromInventory": "Envanterden açmaya izin ver",
+  "tiered_backpacks.config.canOpenFromInventory.desc": "Envanterde ilk bulunan sırt çantasını \"Sırt çantasını aç\" tuşuyla açmaya izin ver.",
+  "tiered_backpacks.config.canOpenWithRightClick": "Sağ tıkla açmaya izin ver",
+  "tiered_backpacks.config.canAttachToChestplate": "Göğüslüğe iliştirmeye izin ver",
+  "tiered_backpacks.config.canAttachToChestplate.desc": "Herhangi bir sırt çantasını, üretim menüsünde herhangi bir göğüslükle birleştirerek sırt çantası iliştirilmiş göğüslük üretmeye izin verir. Sonrasında göğüslük normal bir biçimde kuşanılabilir ve ilişik sırt çantası \"Sırt Çantasını Aç\" tuşu ile açılabilir. Sırt çantası, göğüslükten üretim menüsünde sökülebilir.",
+  "tiered_backpacks.config.canEquipInChestSlot": "Göğüs slotuna kuşanmaya izin ver",
+  "tiered_backpacks.config.canEquipInChestSlot.desc": "Bir sırt çantasını göğüs slotuna kuşanmaya ve \"Sırt çantasını aç\" tuşuna basarak açmaya izin verir.Allows equipping a backpack in the chest slot and opening it with the Open Backpack key.",
+  "tiered_backpacks.config.canStoreShulkers": "Shulker depolamaya izin ver",
+  "tiered_backpacks.config.preventUnequipWhenNotEmpty": "Boş değilken çıkarmayı önle",
+  "tiered_backpacks.config.rows": "Satırlar",
+  "tiered_backpacks.config.columns": "Sütunlar",
+  "tiered_backpacks.backpackTier.LEATHER": "Deri",
+  "tiered_backpacks.backpackTier.COPPER": "Bakır",
+  "tiered_backpacks.backpackTier.IRON": "Demir",
+  "tiered_backpacks.backpackTier.GOLDEN": "Altın",
+  "tiered_backpacks.backpackTier.DIAMOND": "Elmas",
+  "tiered_backpacks.backpackTier.NETHERITE": "Netheri",
+
+  "item.tiered_backpacks.leather_backpack": "Deri Sırt Çantası",
+  "item.tiered_backpacks.copper_backpack": "Bakır Sırt Çantası",
+  "item.tiered_backpacks.iron_backpack": "Demir Sırt Çantası",
+  "item.tiered_backpacks.golden_backpack": "Altın Sırt Çantası",
+  "item.tiered_backpacks.diamond_backpack": "Elmas Sırt Çantası",
+  "item.tiered_backpacks.netherite_backpack": "Netherit Sırt Çantası",
+  "accessories.slot.backpack": "Sırt Çantası",
+
+  "text.tiered_backpacks.attachment": "İlişik sırt çantası: %s",
+
+  "tag.tiered_backpacks.backpacks.description": "İçinde blok ve öge barındırabilen bir eşya. Boyanabilir.",
+  "lore.tiered_backpacks.netherite_backpack": "İçinde blok ve öge barındırabilen bir eşya.",
+
+  "key.category.tiered_backpacks.keys": "Kademeli Sırt Çantaları",
+  "key.tiered_backpacks.open_backpack": "Sırt çantasını aç"
+}

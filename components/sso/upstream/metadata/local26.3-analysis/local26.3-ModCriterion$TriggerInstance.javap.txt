@@ -1,0 +1,339 @@
+Classfile jar:file:///home/thenathe/SSDC/Plugins/WP%20Plugin%20Dev/Minecraft/simple_smithing_overhaul-fabric-2.9.14+26.3.jar!/me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.class
+  Last modified Feb 1, 1980; size 4509 bytes
+  SHA-256 checksum 0be778a40a434ecbfe4ac1558138924797d41859785bd602e51207fb4a116e64
+  Compiled from "ModCriterion.java"
+public final class me.pajic.simple_smithing_overhaul.criterion.ModCriterion$TriggerInstance extends java.lang.Record implements net.minecraft.advancements.triggers.SimpleCriterionTrigger$SimpleInstance
+  minor version: 0
+  major version: 69
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #8                          // me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance
+  super_class: #2                         // java/lang/Record
+  interfaces: 1, fields: 2, methods: 8, attributes: 5
+Constant pool:
+    #1 = Methodref          #2.#3         // java/lang/Record."<init>":()V
+    #2 = Class              #4            // java/lang/Record
+    #3 = NameAndType        #5:#6         // "<init>":()V
+    #4 = Utf8               java/lang/Record
+    #5 = Utf8               <init>
+    #6 = Utf8               ()V
+    #7 = Fieldref           #8.#9         // me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.player:Ljava/util/Optional;
+    #8 = Class              #10           // me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance
+    #9 = NameAndType        #11:#12       // player:Ljava/util/Optional;
+   #10 = Utf8               me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance
+   #11 = Utf8               player
+   #12 = Utf8               Ljava/util/Optional;
+   #13 = InvokeDynamic      #0:#14        // #0:toString:(Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;)Ljava/lang/String;
+   #14 = NameAndType        #15:#16       // toString:(Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;)Ljava/lang/String;
+   #15 = Utf8               toString
+   #16 = Utf8               (Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;)Ljava/lang/String;
+   #17 = InvokeDynamic      #0:#18        // #0:hashCode:(Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;)I
+   #18 = NameAndType        #19:#20       // hashCode:(Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;)I
+   #19 = Utf8               hashCode
+   #20 = Utf8               (Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;)I
+   #21 = InvokeDynamic      #0:#22        // #0:equals:(Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;Ljava/lang/Object;)Z
+   #22 = NameAndType        #23:#24       // equals:(Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;Ljava/lang/Object;)Z
+   #23 = Utf8               equals
+   #24 = Utf8               (Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;Ljava/lang/Object;)Z
+   #25 = Fieldref           #26.#27       // net/minecraft/world/level/storage/loot/predicates/LootItemCondition.CODEC:Lcom/mojang/serialization/Codec;
+   #26 = Class              #28           // net/minecraft/world/level/storage/loot/predicates/LootItemCondition
+   #27 = NameAndType        #29:#30       // CODEC:Lcom/mojang/serialization/Codec;
+   #28 = Utf8               net/minecraft/world/level/storage/loot/predicates/LootItemCondition
+   #29 = Utf8               CODEC
+   #30 = Utf8               Lcom/mojang/serialization/Codec;
+   #31 = String             #11           // player
+   #32 = InterfaceMethodref #33.#34       // com/mojang/serialization/Codec.optionalFieldOf:(Ljava/lang/String;)Lcom/mojang/serialization/MapCodec;
+   #33 = Class              #35           // com/mojang/serialization/Codec
+   #34 = NameAndType        #36:#37       // optionalFieldOf:(Ljava/lang/String;)Lcom/mojang/serialization/MapCodec;
+   #35 = Utf8               com/mojang/serialization/Codec
+   #36 = Utf8               optionalFieldOf
+   #37 = Utf8               (Ljava/lang/String;)Lcom/mojang/serialization/MapCodec;
+   #38 = InvokeDynamic      #1:#39        // #1:apply:()Ljava/util/function/Function;
+   #39 = NameAndType        #40:#41       // apply:()Ljava/util/function/Function;
+   #40 = Utf8               apply
+   #41 = Utf8               ()Ljava/util/function/Function;
+   #42 = Methodref          #43.#44       // com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+   #43 = Class              #45           // com/mojang/serialization/MapCodec
+   #44 = NameAndType        #46:#47       // forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+   #45 = Utf8               com/mojang/serialization/MapCodec
+   #46 = Utf8               forGetter
+   #47 = Utf8               (Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+   #48 = Methodref          #49.#50       // com/mojang/serialization/codecs/RecordCodecBuilder$Instance.group:(Lcom/mojang/datafixers/kinds/App;)Lcom/mojang/datafixers/Products$P1;
+   #49 = Class              #51           // com/mojang/serialization/codecs/RecordCodecBuilder$Instance
+   #50 = NameAndType        #52:#53       // group:(Lcom/mojang/datafixers/kinds/App;)Lcom/mojang/datafixers/Products$P1;
+   #51 = Utf8               com/mojang/serialization/codecs/RecordCodecBuilder$Instance
+   #52 = Utf8               group
+   #53 = Utf8               (Lcom/mojang/datafixers/kinds/App;)Lcom/mojang/datafixers/Products$P1;
+   #54 = InvokeDynamic      #2:#39        // #2:apply:()Ljava/util/function/Function;
+   #55 = Methodref          #56.#57       // com/mojang/datafixers/Products$P1.apply:(Lcom/mojang/datafixers/kinds/Applicative;Ljava/util/function/Function;)Lcom/mojang/datafixers/kinds/App;
+   #56 = Class              #58           // com/mojang/datafixers/Products$P1
+   #57 = NameAndType        #40:#59       // apply:(Lcom/mojang/datafixers/kinds/Applicative;Ljava/util/function/Function;)Lcom/mojang/datafixers/kinds/App;
+   #58 = Utf8               com/mojang/datafixers/Products$P1
+   #59 = Utf8               (Lcom/mojang/datafixers/kinds/Applicative;Ljava/util/function/Function;)Lcom/mojang/datafixers/kinds/App;
+   #60 = InvokeDynamic      #3:#39        // #3:apply:()Ljava/util/function/Function;
+   #61 = Methodref          #62.#63       // com/mojang/serialization/codecs/RecordCodecBuilder.create:(Ljava/util/function/Function;)Lcom/mojang/serialization/Codec;
+   #62 = Class              #64           // com/mojang/serialization/codecs/RecordCodecBuilder
+   #63 = NameAndType        #65:#66       // create:(Ljava/util/function/Function;)Lcom/mojang/serialization/Codec;
+   #64 = Utf8               com/mojang/serialization/codecs/RecordCodecBuilder
+   #65 = Utf8               create
+   #66 = Utf8               (Ljava/util/function/Function;)Lcom/mojang/serialization/Codec;
+   #67 = Fieldref           #8.#27        // me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.CODEC:Lcom/mojang/serialization/Codec;
+   #68 = Class              #69           // net/minecraft/advancements/triggers/SimpleCriterionTrigger$SimpleInstance
+   #69 = Utf8               net/minecraft/advancements/triggers/SimpleCriterionTrigger$SimpleInstance
+   #70 = Utf8               Signature
+   #71 = Utf8               Ljava/util/Optional<Lnet/minecraft/core/Holder<Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition;>;>;
+   #72 = Utf8               Lcom/mojang/serialization/Codec<Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;>;
+   #73 = Utf8               (Ljava/util/Optional;)V
+   #74 = Utf8               Code
+   #75 = Utf8               LineNumberTable
+   #76 = Utf8               LocalVariableTable
+   #77 = Utf8               this
+   #78 = Utf8               Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;
+   #79 = Utf8               LocalVariableTypeTable
+   #80 = Utf8               MethodParameters
+   #81 = Utf8               (Ljava/util/Optional<Lnet/minecraft/core/Holder<Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition;>;>;)V
+   #82 = Utf8               matches
+   #83 = Utf8               ()Z
+   #84 = Utf8               ()Ljava/lang/String;
+   #85 = Utf8               ()I
+   #86 = Utf8               (Ljava/lang/Object;)Z
+   #87 = Utf8               o
+   #88 = Utf8               Ljava/lang/Object;
+   #89 = Utf8               ()Ljava/util/Optional;
+   #90 = Utf8               ()Ljava/util/Optional<Lnet/minecraft/core/Holder<Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition;>;>;
+   #91 = Utf8               lambda$static$0
+   #92 = Utf8               (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+   #93 = Utf8               instance
+   #94 = Utf8               Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;
+   #95 = Utf8               <clinit>
+   #96 = Utf8               SourceFile
+   #97 = Utf8               ModCriterion.java
+   #98 = Utf8               NestHost
+   #99 = Class              #100          // me/pajic/simple_smithing_overhaul/criterion/ModCriterion
+  #100 = Utf8               me/pajic/simple_smithing_overhaul/criterion/ModCriterion
+  #101 = Utf8               Record
+  #102 = Utf8               BootstrapMethods
+  #103 = MethodHandle       1:#7          // REF_getField me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.player:Ljava/util/Optional;
+  #104 = MethodType         #105          //  (Ljava/lang/Object;)Ljava/lang/Object;
+  #105 = Utf8               (Ljava/lang/Object;)Ljava/lang/Object;
+  #106 = MethodHandle       5:#107        // REF_invokeVirtual me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.player:()Ljava/util/Optional;
+  #107 = Methodref          #8.#108       // me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.player:()Ljava/util/Optional;
+  #108 = NameAndType        #11:#89       // player:()Ljava/util/Optional;
+  #109 = MethodType         #110          //  (Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;)Ljava/util/Optional;
+  #110 = Utf8               (Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;)Ljava/util/Optional;
+  #111 = MethodHandle       8:#112        // REF_newInvokeSpecial me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance."<init>":(Ljava/util/Optional;)V
+  #112 = Methodref          #8.#113       // me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance."<init>":(Ljava/util/Optional;)V
+  #113 = NameAndType        #5:#73        // "<init>":(Ljava/util/Optional;)V
+  #114 = MethodType         #115          //  (Ljava/util/Optional;)Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;
+  #115 = Utf8               (Ljava/util/Optional;)Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;
+  #116 = MethodHandle       6:#117        // REF_invokeStatic me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.lambda$static$0:(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+  #117 = Methodref          #8.#118       // me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.lambda$static$0:(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+  #118 = NameAndType        #91:#92       // lambda$static$0:(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+  #119 = MethodType         #92           //  (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+  #120 = MethodHandle       6:#121        // REF_invokeStatic java/lang/runtime/ObjectMethods.bootstrap:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/TypeDescriptor;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/invoke/MethodHandle;)Ljava/lang/Object;
+  #121 = Methodref          #122.#123     // java/lang/runtime/ObjectMethods.bootstrap:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/TypeDescriptor;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/invoke/MethodHandle;)Ljava/lang/Object;
+  #122 = Class              #124          // java/lang/runtime/ObjectMethods
+  #123 = NameAndType        #125:#126     // bootstrap:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/TypeDescriptor;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/invoke/MethodHandle;)Ljava/lang/Object;
+  #124 = Utf8               java/lang/runtime/ObjectMethods
+  #125 = Utf8               bootstrap
+  #126 = Utf8               (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/TypeDescriptor;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/invoke/MethodHandle;)Ljava/lang/Object;
+  #127 = MethodHandle       6:#128        // REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #128 = Methodref          #129.#130     // java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #129 = Class              #131          // java/lang/invoke/LambdaMetafactory
+  #130 = NameAndType        #132:#133     // metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #131 = Utf8               java/lang/invoke/LambdaMetafactory
+  #132 = Utf8               metafactory
+  #133 = Utf8               (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #134 = Utf8               InnerClasses
+  #135 = Utf8               TriggerInstance
+  #136 = Utf8               Instance
+  #137 = Class              #138          // com/mojang/datafixers/Products
+  #138 = Utf8               com/mojang/datafixers/Products
+  #139 = Utf8               P1
+  #140 = Class              #141          // net/minecraft/advancements/triggers/SimpleCriterionTrigger
+  #141 = Utf8               net/minecraft/advancements/triggers/SimpleCriterionTrigger
+  #142 = Utf8               SimpleInstance
+  #143 = Class              #144          // java/lang/invoke/MethodHandles$Lookup
+  #144 = Utf8               java/lang/invoke/MethodHandles$Lookup
+  #145 = Class              #146          // java/lang/invoke/MethodHandles
+  #146 = Utf8               java/lang/invoke/MethodHandles
+  #147 = Utf8               Lookup
+{
+  private final java.util.Optional<net.minecraft.core.Holder<net.minecraft.world.level.storage.loot.predicates.LootItemCondition>> player;
+    descriptor: Ljava/util/Optional;
+    flags: (0x0012) ACC_PRIVATE, ACC_FINAL
+    Signature: #71                          // Ljava/util/Optional<Lnet/minecraft/core/Holder<Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition;>;>;
+
+  public static final com.mojang.serialization.Codec<me.pajic.simple_smithing_overhaul.criterion.ModCriterion$TriggerInstance> CODEC;
+    descriptor: Lcom/mojang/serialization/Codec;
+    flags: (0x0019) ACC_PUBLIC, ACC_STATIC, ACC_FINAL
+    Signature: #72                          // Lcom/mojang/serialization/Codec<Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;>;
+
+  public me.pajic.simple_smithing_overhaul.criterion.ModCriterion$TriggerInstance(java.util.Optional<net.minecraft.core.Holder<net.minecraft.world.level.storage.loot.predicates.LootItemCondition>>);
+    descriptor: (Ljava/util/Optional;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Record."<init>":()V
+         4: aload_0
+         5: aload_1
+         6: putfield      #7                  // Field player:Ljava/util/Optional;
+         9: return
+      LineNumberTable:
+        line 38: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      10     0  this   Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;
+            0      10     1 player   Ljava/util/Optional;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0      10     1 player   Ljava/util/Optional<Lnet/minecraft/core/Holder<Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition;>;>;
+    MethodParameters:
+      Name                           Flags
+      player
+    Signature: #81                          // (Ljava/util/Optional<Lnet/minecraft/core/Holder<Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition;>;>;)V
+
+  public boolean matches();
+    descriptor: ()Z
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: iconst_1
+         1: ireturn
+      LineNumberTable:
+        line 47: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       2     0  this   Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;
+
+  public final java.lang.String toString();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokedynamic #13,  0             // InvokeDynamic #0:toString:(Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;)Ljava/lang/String;
+         6: areturn
+      LineNumberTable:
+        line 38: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       7     0  this   Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;
+
+  public final int hashCode();
+    descriptor: ()I
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokedynamic #17,  0             // InvokeDynamic #0:hashCode:(Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;)I
+         6: ireturn
+      LineNumberTable:
+        line 38: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       7     0  this   Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;
+
+  public final boolean equals(java.lang.Object);
+    descriptor: (Ljava/lang/Object;)Z
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: invokedynamic #21,  0             // InvokeDynamic #0:equals:(Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;Ljava/lang/Object;)Z
+         7: ireturn
+      LineNumberTable:
+        line 38: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       8     0  this   Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;
+            0       8     1     o   Ljava/lang/Object;
+
+  public java.util.Optional<net.minecraft.core.Holder<net.minecraft.world.level.storage.loot.predicates.LootItemCondition>> player();
+    descriptor: ()Ljava/util/Optional;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #7                  // Field player:Ljava/util/Optional;
+         4: areturn
+      LineNumberTable:
+        line 38: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;
+    Signature: #90                          // ()Ljava/util/Optional<Lnet/minecraft/core/Holder<Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition;>;>;
+
+  private static com.mojang.datafixers.kinds.App lambda$static$0(com.mojang.serialization.codecs.RecordCodecBuilder$Instance);
+    descriptor: (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+    flags: (0x100a) ACC_PRIVATE, ACC_STATIC, ACC_SYNTHETIC
+    Code:
+      stack=3, locals=1, args_size=1
+         0: aload_0
+         1: getstatic     #25                 // Field net/minecraft/world/level/storage/loot/predicates/LootItemCondition.CODEC:Lcom/mojang/serialization/Codec;
+         4: ldc           #31                 // String player
+         6: invokeinterface #32,  2           // InterfaceMethod com/mojang/serialization/Codec.optionalFieldOf:(Ljava/lang/String;)Lcom/mojang/serialization/MapCodec;
+        11: invokedynamic #38,  0             // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+        16: invokevirtual #42                 // Method com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+        19: invokevirtual #48                 // Method com/mojang/serialization/codecs/RecordCodecBuilder$Instance.group:(Lcom/mojang/datafixers/kinds/App;)Lcom/mojang/datafixers/Products$P1;
+        22: aload_0
+        23: invokedynamic #54,  0             // InvokeDynamic #2:apply:()Ljava/util/function/Function;
+        28: invokevirtual #55                 // Method com/mojang/datafixers/Products$P1.apply:(Lcom/mojang/datafixers/kinds/Applicative;Ljava/util/function/Function;)Lcom/mojang/datafixers/kinds/App;
+        31: areturn
+      LineNumberTable:
+        line 40: 0
+        line 42: 6
+        line 40: 19
+        line 43: 28
+        line 40: 31
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      32     0 instance   Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;
+
+  static {};
+    descriptor: ()V
+    flags: (0x0008) ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: invokedynamic #60,  0             // InvokeDynamic #3:apply:()Ljava/util/function/Function;
+         5: invokestatic  #61                 // Method com/mojang/serialization/codecs/RecordCodecBuilder.create:(Ljava/util/function/Function;)Lcom/mojang/serialization/Codec;
+         8: putstatic     #67                 // Field CODEC:Lcom/mojang/serialization/Codec;
+        11: return
+      LineNumberTable:
+        line 39: 0
+}
+SourceFile: "ModCriterion.java"
+NestHost: class me/pajic/simple_smithing_overhaul/criterion/ModCriterion
+Record:
+  java.util.Optional<net.minecraft.core.Holder<net.minecraft.world.level.storage.loot.predicates.LootItemCondition>> player;
+    descriptor: Ljava/util/Optional;
+    Signature: #71                          // Ljava/util/Optional<Lnet/minecraft/core/Holder<Lnet/minecraft/world/level/storage/loot/predicates/LootItemCondition;>;>;
+
+BootstrapMethods:
+  0: #120 REF_invokeStatic java/lang/runtime/ObjectMethods.bootstrap:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/TypeDescriptor;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/invoke/MethodHandle;)Ljava/lang/Object;
+    Method arguments:
+      #8 me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance
+      #31 player
+      #103 REF_getField me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.player:Ljava/util/Optional;
+  1: #127 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #104 (Ljava/lang/Object;)Ljava/lang/Object;
+      #106 REF_invokeVirtual me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.player:()Ljava/util/Optional;
+      #109 (Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;)Ljava/util/Optional;
+  2: #127 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #104 (Ljava/lang/Object;)Ljava/lang/Object;
+      #111 REF_newInvokeSpecial me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance."<init>":(Ljava/util/Optional;)V
+      #114 (Ljava/util/Optional;)Lme/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance;
+  3: #127 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #104 (Ljava/lang/Object;)Ljava/lang/Object;
+      #116 REF_invokeStatic me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.lambda$static$0:(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+      #119 (Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;
+InnerClasses:
+  public static final #135= #8 of #99;    // TriggerInstance=class me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance of class me/pajic/simple_smithing_overhaul/criterion/ModCriterion
+  public static final #136= #49 of #62;   // Instance=class com/mojang/serialization/codecs/RecordCodecBuilder$Instance of class com/mojang/serialization/codecs/RecordCodecBuilder
+  public static final #139= #56 of #137;  // P1=class com/mojang/datafixers/Products$P1 of class com/mojang/datafixers/Products
+  public static #142= #68 of #140;        // SimpleInstance=class net/minecraft/advancements/triggers/SimpleCriterionTrigger$SimpleInstance of class net/minecraft/advancements/triggers/SimpleCriterionTrigger
+  public static final #147= #143 of #145; // Lookup=class java/lang/invoke/MethodHandles$Lookup of class java/lang/invoke/MethodHandles

@@ -1,0 +1,17 @@
+.gradle/
+build/
+run/
+runs/
+libs/
+# Local integration worlds, raw logs, screenshots and workspace-specific reports.
+/qa/
+/QA.md
+crash-reports/
+*.log
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+.DS_Store
+.env
+.env.*

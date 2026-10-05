@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": "#minecraft:netherite_tool_materials",
+  "base": "tiered_backpacks:diamond_backpack",
+  "result": {
+    "id": "tiered_backpacks:netherite_backpack"
+  },
+  "template": "minecraft:netherite_upgrade_smithing_template"
+}

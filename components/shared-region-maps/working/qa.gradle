@@ -1,0 +1,44 @@
+// QA is a separate mod, never included in the installable artifact.
+sourceSets {
+    qa {
+        compileClasspath += sourceSets.main.output + sourceSets.main.compileClasspath
+        runtimeClasspath += output + compileClasspath + sourceSets.main.runtimeClasspath
+    }
+}
+tasks.register('qaJar', Jar) {
+    dependsOn tasks.named('qaClasses')
+    archiveBaseName = 'shared-region-maps-qa'
+    archiveVersion = '1'
+    destinationDirectory = layout.buildDirectory.dir('qa')
+    from sourceSets.qa.output
+}
+if (project.hasProperty('liveQa')) {
+    def qaRun = file(project.findProperty('qaRunDir') ?: 'build/qa-standalone')
+    loom.runs.server {
+        runDir = qaRun.absolutePath
+        vmArg '-Dsharedmaps.qa=true'
+    }
+    tasks.register('prepareQaServer') {
+        dependsOn tasks.named('qaJar')
+        doLast {
+            def accepted = file(project.findProperty('qaEulaFile') ?: '../map-atlases-26.3/port26/build/qa-server/eula.txt')
+            if (!accepted.exists() || !accepted.text.readLines().any { it.trim() == 'eula=true' })
+                throw new GradleException('Existing accepted QA EULA is required: ' + accepted)
+            qaRun.mkdirs()
+            copy { from accepted; into qaRun }
+            copy { from tasks.named('qaJar').get().archiveFile; into new File(qaRun, 'mods') }
+            def props = new File(qaRun, 'server.properties')
+            if (!props.exists()) props.text = 'online-mode=false\nserver-ip=127.0.0.1\nserver-port=0\nspawn-protection=0\nview-distance=2\nsimulation-distance=2\nlevel-type=minecraft:flat\ngenerator-settings={"biome":"minecraft:plains","layers":[{"block":"minecraft:bedrock","height":1},{"block":"minecraft:dirt","height":2},{"block":"minecraft:grass_block","height":1}]}\ngenerate-structures=false\nmax-tick-time=-1\npause-when-empty-seconds=0\n'
+            new File(qaRun, 'sharedmaps-qa-result.txt').delete()
+        }
+    }
+    tasks.named('runServer') {
+        dependsOn tasks.named('prepareQaServer')
+        jvmArgs '-Xms256M', '-Xmx1G', '-XX:ActiveProcessorCount=4'
+        doLast {
+            def result = new File(qaRun, 'sharedmaps-qa-result.txt')
+            if (!result.exists() || !result.text.startsWith('PASS '))
+                throw new GradleException('QA did not pass; inspect ' + result)
+        }
+    }
+}

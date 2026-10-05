@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "chalk-colorful-addon",
+  "version": "2.1.1+1.19.3",
+  "name": "Chalk: Colorful-Addon",
+  "description": "Colorful Chalk for the Chalk mod",
+  "authors": [
+    "DaFuqs",
+    "mortuusars"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/chalk-colorful-addon-fabric",
+    "sources": "https://github.com/DaFuqs/ChalkColorful",
+    "issues": "https://github.com/DaFuqs/ChalkColorful/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/chalk-colorful-addon/icon.png",
+  "environment": "*",
+  "entrypoints": {
+
+  },
+  "mixins": [],
+  "depends": {
+    "chalk": "*"
+  }
+}

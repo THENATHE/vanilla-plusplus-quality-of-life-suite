@@ -1,0 +1,103 @@
+{
+  "source": {
+    "supplied_path": "/home/thenathe/Downloads/chalk-colorful-addon-2.1.1.jar",
+    "upstream_project": "https://github.com/DaFuqs/ChalkColorful",
+    "source_revision": null,
+    "baseline": "Exact user-supplied binary and complete extracted contents in upstream/; no Java classes or entrypoints.",
+    "sha256": "bf184e44ceb222e0831912acc2e26a17b7358e93162b60776dd646cf3780bbef"
+  },
+  "tracks": {
+    "26.2": {
+      "origin": "developer-release",
+      "minecraft": "26.2",
+      "fabric_loader": "0.19.5",
+      "java": "25",
+      "chalk_source_revision": null,
+      "shim_source_revision": "26d53d3 plus 1.1.0 release source snapshot; see matching shim release SOURCE-REVISION.txt",
+      "mods": [
+        {
+          "id": "polymer-bundled",
+          "version": "0.17.5+26.2",
+          "path": "Minecraft/chalk-polymer-shim/libs/26.2/polymer-bundled-0.17.5+26.2.jar",
+          "sha256": "43ca315111099824cf367cb7f045ce3d610d615d6d882164295a0a5179616510"
+        },
+        {
+          "id": "chalk",
+          "version": "3.2.0+26.2",
+          "path": "Minecraft/chalk-polymer-shim/libs/26.2/chalk-3.2.0+26.2.jar",
+          "sha256": "6bd2d7d341cfc66c4ce5b880e7f346c73386ce977a4d087038b9d62de53a301a"
+        },
+        {
+          "id": "cloth-config",
+          "version": "26.2.155",
+          "path": "Minecraft/chalk-polymer-shim/libs/26.2/cloth-config-26.2.155.jar",
+          "sha256": "def4be7639cd66704f7e304d658ea0f6bf490fb4a6eaa2dbf18ec2c3999d6349"
+        },
+        {
+          "id": "fabric-api",
+          "version": "0.161.0+26.2",
+          "path": "Minecraft/chalk-polymer-shim/libs/26.2/fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "id": "chalk_polymer_compat",
+          "version": "1.1.0+26.2",
+          "path": "Builds/Minecraft/Chalk/Polymer Compatibility Shim - Developer Release/1.1.0+26.2/chalk-polymer-compat-1.1.0+26.2.jar",
+          "sha256": "3f20d69f1394b72e9c507315b3d66ed5f41a20b9fb120bc6236af4640aab72ef"
+        },
+        {
+          "id": "chalk-colorful-addon",
+          "version": "2.1.1+1.19.3",
+          "path": "Builds/Minecraft/Chalk/Feature Addon - Colorful - Developer Release/2.1.1+1.19.3/chalk-colorful-addon-2.1.1.jar",
+          "sha256": "bf184e44ceb222e0831912acc2e26a17b7358e93162b60776dd646cf3780bbef"
+        }
+      ]
+    },
+    "26.3": {
+      "origin": "ChatGPT-port",
+      "minecraft": "26.3",
+      "fabric_loader": "0.19.5",
+      "java": "25",
+      "chalk_source_revision": "dfb461ef9eb6f7bf5188570594c3bd21171c2391",
+      "shim_source_revision": "26d53d3 plus 1.1.0 release source snapshot; see matching shim release SOURCE-REVISION.txt",
+      "mods": [
+        {
+          "id": "polymer-bundled",
+          "version": "0.18.2+26.3",
+          "path": "Minecraft/chalk-polymer-shim/libs/26.3/polymer-bundled-0.18.2+26.3.jar",
+          "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+        },
+        {
+          "id": "fabric-api",
+          "version": "0.161.0+26.3",
+          "path": "Minecraft/chalk-polymer-shim/libs/26.3/fabric-api-0.161.0+26.3.jar",
+          "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+        },
+        {
+          "id": "cloth-config",
+          "version": "26.3.159",
+          "path": "Minecraft/chalk-polymer-shim/libs/26.3/cloth-config-fabric-26.3.159.jar",
+          "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+        },
+        {
+          "id": "chalk",
+          "version": "3.2.1+26.3",
+          "path": "Minecraft/chalk-polymer-shim/libs/chalk-3.2.1+26.3.jar",
+          "sha256": "886b0b10cc12df65d47f446c2bd54c0c670f9a54fa09a1fe95c9ec46df565f49"
+        },
+        {
+          "id": "chalk_polymer_compat",
+          "version": "1.1.0+26.3",
+          "path": "Builds/Minecraft/Chalk/Polymer Compatibility Shim - Version Port/1.1.0+26.3/chalk-polymer-compat-1.1.0+26.3.jar",
+          "sha256": "1070d8c47bbe3e8eeef6bcf6a6df00980ba62ec6ede4b904eb6eed9c70f849aa"
+        },
+        {
+          "id": "chalk-colorful-addon",
+          "version": "2.1.1-port.1+26.3",
+          "path": "Builds/Minecraft/Chalk/Feature Addon - Colorful - Version Port/2.1.1-port.1+26.3/chalk-colorful-addon-2.1.1-port.1+26.3.jar",
+          "sha256": "69a2443250abd95100636194a145b5479d240151cd19bf4186766117d0710b34"
+        }
+      ]
+    }
+  }
+}

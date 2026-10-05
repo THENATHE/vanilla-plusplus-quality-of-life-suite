@@ -1,0 +1,7 @@
+{
+  "file": "libs/simple_smithing_overhaul-fabric-2.9.14+26.3.jar",
+  "id": "simple_smithing_overhaul",
+  "version": "2.9.14",
+  "sha256": "fb6cbf8c13938d68fb19171dac386b5567d71625bce727b22d3380f6b7880126",
+  "origin": "Existing local 26.3 build, builder/source revision unverified; two changed classes match published upstream 26.3 branches; NOT verified official developer release; official 26.2 baseline preserved components/sso/upstream"
+}

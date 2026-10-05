@@ -1,0 +1,36 @@
+{
+  "type": "chalk_polymer_compat:chalk_conversion",
+  "group": "chalk:conversion",
+  "ingredients": [
+    [
+      "chalk:orange_chalk",
+      "chalk:magenta_chalk",
+      "chalk:light_blue_chalk",
+      "chalk:yellow_chalk",
+      "chalk:lime_chalk",
+      "chalk:pink_chalk",
+      "chalk:gray_chalk",
+      "chalk:light_gray_chalk",
+      "chalk:cyan_chalk",
+      "chalk:purple_chalk",
+      "chalk:blue_chalk",
+      "chalk:brown_chalk",
+      "chalk:green_chalk",
+      "chalk:red_chalk",
+      "chalk:black_chalk"
+    ],
+    "minecraft:white_dye"
+  ],
+  "result": {
+    "id": "chalk:white_chalk"
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "chalk",
+        "chalk-colorful-addon"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,462 @@
+Classfile jar:file:///home/thenathe/SSDC/Plugins/WP%20Plugin%20Dev/Minecraft/simple_smithing_overhaul-fabric-2.9.14+26.3.jar!/me/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin.class
+  Last modified Feb 1, 1980; size 6163 bytes
+  SHA-256 checksum 1e93c31e6b83aa77fd363f05fa52c239ab8e31ecbff2b27381fa3e6ddf5e210f
+  Compiled from "VillagerTradeMixin.java"
+public class me.pajic.simple_smithing_overhaul.mixin.VillagerTradeMixin
+  minor version: 0
+  major version: 69
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #8                          // me/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 1, methods: 4, attributes: 4
+Constant pool:
+    #1 = Methodref          #2.#3         // java/lang/Object."<init>":()V
+    #2 = Class              #4            // java/lang/Object
+    #3 = NameAndType        #5:#6         // "<init>":()V
+    #4 = Utf8               java/lang/Object
+    #5 = Utf8               <init>
+    #6 = Utf8               ()V
+    #7 = Fieldref           #8.#9         // me/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin.gives:Lnet/minecraft/world/item/ItemStackTemplate;
+    #8 = Class              #10           // me/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin
+    #9 = NameAndType        #11:#12       // gives:Lnet/minecraft/world/item/ItemStackTemplate;
+   #10 = Utf8               me/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin
+   #11 = Utf8               gives
+   #12 = Utf8               Lnet/minecraft/world/item/ItemStackTemplate;
+   #13 = Fieldref           #14.#15       // net/minecraft/world/item/Items.ENCHANTED_BOOK:Lnet/minecraft/world/item/Item;
+   #14 = Class              #16           // net/minecraft/world/item/Items
+   #15 = NameAndType        #17:#18       // ENCHANTED_BOOK:Lnet/minecraft/world/item/Item;
+   #16 = Utf8               net/minecraft/world/item/Items
+   #17 = Utf8               ENCHANTED_BOOK
+   #18 = Utf8               Lnet/minecraft/world/item/Item;
+   #19 = Methodref          #20.#21       // net/minecraft/world/item/ItemStackTemplate.is:(Ljava/lang/Object;)Z
+   #20 = Class              #22           // net/minecraft/world/item/ItemStackTemplate
+   #21 = NameAndType        #23:#24       // is:(Ljava/lang/Object;)Z
+   #22 = Utf8               net/minecraft/world/item/ItemStackTemplate
+   #23 = Utf8               is
+   #24 = Utf8               (Ljava/lang/Object;)Z
+   #25 = Fieldref           #26.#27       // me/pajic/simple_smithing_overhaul/SSO.CONFIG:Lme/pajic/simple_smithing_overhaul/config/ModConfig;
+   #26 = Class              #28           // me/pajic/simple_smithing_overhaul/SSO
+   #27 = NameAndType        #29:#30       // CONFIG:Lme/pajic/simple_smithing_overhaul/config/ModConfig;
+   #28 = Utf8               me/pajic/simple_smithing_overhaul/SSO
+   #29 = Utf8               CONFIG
+   #30 = Utf8               Lme/pajic/simple_smithing_overhaul/config/ModConfig;
+   #31 = Fieldref           #32.#33       // me/pajic/simple_smithing_overhaul/config/ModConfig.enchantmentLimits:Lme/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits;
+   #32 = Class              #34           // me/pajic/simple_smithing_overhaul/config/ModConfig
+   #33 = NameAndType        #35:#36       // enchantmentLimits:Lme/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits;
+   #34 = Utf8               me/pajic/simple_smithing_overhaul/config/ModConfig
+   #35 = Utf8               enchantmentLimits
+   #36 = Utf8               Lme/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits;
+   #37 = Fieldref           #38.#39       // me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits.limitBookTradeUses:Lme/fzzyhmstrs/fzzy_config/validation/misc/ValidatedBoolean;
+   #38 = Class              #40           // me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits
+   #39 = NameAndType        #41:#42       // limitBookTradeUses:Lme/fzzyhmstrs/fzzy_config/validation/misc/ValidatedBoolean;
+   #40 = Utf8               me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits
+   #41 = Utf8               limitBookTradeUses
+   #42 = Utf8               Lme/fzzyhmstrs/fzzy_config/validation/misc/ValidatedBoolean;
+   #43 = Methodref          #44.#45       // me/fzzyhmstrs/fzzy_config/validation/misc/ValidatedBoolean.get:()Ljava/lang/Object;
+   #44 = Class              #46           // me/fzzyhmstrs/fzzy_config/validation/misc/ValidatedBoolean
+   #45 = NameAndType        #47:#48       // get:()Ljava/lang/Object;
+   #46 = Utf8               me/fzzyhmstrs/fzzy_config/validation/misc/ValidatedBoolean
+   #47 = Utf8               get
+   #48 = Utf8               ()Ljava/lang/Object;
+   #49 = Class              #50           // java/lang/Boolean
+   #50 = Utf8               java/lang/Boolean
+   #51 = Methodref          #49.#52       // java/lang/Boolean.booleanValue:()Z
+   #52 = NameAndType        #53:#54       // booleanValue:()Z
+   #53 = Utf8               booleanValue
+   #54 = Utf8               ()Z
+   #55 = Fieldref           #38.#56       // me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits.bookTradeUsesLimit:Lme/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt;
+   #56 = NameAndType        #57:#58       // bookTradeUsesLimit:Lme/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt;
+   #57 = Utf8               bookTradeUsesLimit
+   #58 = Utf8               Lme/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt;
+   #59 = Methodref          #60.#45       // me/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt.get:()Ljava/lang/Object;
+   #60 = Class              #61           // me/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt
+   #61 = Utf8               me/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt
+   #62 = Class              #63           // java/lang/Integer
+   #63 = Utf8               java/lang/Integer
+   #64 = Methodref          #62.#65       // java/lang/Integer.intValue:()I
+   #65 = NameAndType        #66:#67       // intValue:()I
+   #66 = Utf8               intValue
+   #67 = Utf8               ()I
+   #68 = Methodref          #69.#21       // net/minecraft/world/item/ItemStack.is:(Ljava/lang/Object;)Z
+   #69 = Class              #70           // net/minecraft/world/item/ItemStack
+   #70 = Utf8               net/minecraft/world/item/ItemStack
+   #71 = Fieldref           #72.#73       // net/minecraft/core/component/DataComponents.STORED_ENCHANTMENTS:Lnet/minecraft/core/component/DataComponentType;
+   #72 = Class              #74           // net/minecraft/core/component/DataComponents
+   #73 = NameAndType        #75:#76       // STORED_ENCHANTMENTS:Lnet/minecraft/core/component/DataComponentType;
+   #74 = Utf8               net/minecraft/core/component/DataComponents
+   #75 = Utf8               STORED_ENCHANTMENTS
+   #76 = Utf8               Lnet/minecraft/core/component/DataComponentType;
+   #77 = Methodref          #69.#78       // net/minecraft/world/item/ItemStack.get:(Lnet/minecraft/core/component/DataComponentType;)Ljava/lang/Object;
+   #78 = NameAndType        #47:#79       // get:(Lnet/minecraft/core/component/DataComponentType;)Ljava/lang/Object;
+   #79 = Utf8               (Lnet/minecraft/core/component/DataComponentType;)Ljava/lang/Object;
+   #80 = Class              #81           // net/minecraft/world/item/enchantment/ItemEnchantments
+   #81 = Utf8               net/minecraft/world/item/enchantment/ItemEnchantments
+   #82 = Class              #83           // net/minecraft/world/item/enchantment/ItemEnchantments$Mutable
+   #83 = Utf8               net/minecraft/world/item/enchantment/ItemEnchantments$Mutable
+   #84 = Methodref          #82.#85       // net/minecraft/world/item/enchantment/ItemEnchantments$Mutable."<init>":(Lnet/minecraft/world/item/enchantment/ItemEnchantments;)V
+   #85 = NameAndType        #5:#86        // "<init>":(Lnet/minecraft/world/item/enchantment/ItemEnchantments;)V
+   #86 = Utf8               (Lnet/minecraft/world/item/enchantment/ItemEnchantments;)V
+   #87 = Methodref          #82.#88       // net/minecraft/world/item/enchantment/ItemEnchantments$Mutable.keySet:()Ljava/util/Set;
+   #88 = NameAndType        #89:#90       // keySet:()Ljava/util/Set;
+   #89 = Utf8               keySet
+   #90 = Utf8               ()Ljava/util/Set;
+   #91 = InvokeDynamic      #0:#92        // #0:accept:(Lnet/minecraft/world/level/storage/loot/LootContext;Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;)Ljava/util/function/Consumer;
+   #92 = NameAndType        #93:#94       // accept:(Lnet/minecraft/world/level/storage/loot/LootContext;Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;)Ljava/util/function/Consumer;
+   #93 = Utf8               accept
+   #94 = Utf8               (Lnet/minecraft/world/level/storage/loot/LootContext;Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;)Ljava/util/function/Consumer;
+   #95 = InterfaceMethodref #96.#97       // java/util/Set.forEach:(Ljava/util/function/Consumer;)V
+   #96 = Class              #98           // java/util/Set
+   #97 = NameAndType        #99:#100      // forEach:(Ljava/util/function/Consumer;)V
+   #98 = Utf8               java/util/Set
+   #99 = Utf8               forEach
+  #100 = Utf8               (Ljava/util/function/Consumer;)V
+  #101 = Methodref          #82.#102      // net/minecraft/world/item/enchantment/ItemEnchantments$Mutable.toImmutable:()Lnet/minecraft/world/item/enchantment/ItemEnchantments;
+  #102 = NameAndType        #103:#104     // toImmutable:()Lnet/minecraft/world/item/enchantment/ItemEnchantments;
+  #103 = Utf8               toImmutable
+  #104 = Utf8               ()Lnet/minecraft/world/item/enchantment/ItemEnchantments;
+  #105 = Methodref          #69.#106      // net/minecraft/world/item/ItemStack.set:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Ljava/lang/Object;
+  #106 = NameAndType        #107:#108     // set:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Ljava/lang/Object;
+  #107 = Utf8               set
+  #108 = Utf8               (Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Ljava/lang/Object;
+  #109 = InterfaceMethodref #110.#111     // net/minecraft/core/Holder.value:()Ljava/lang/Object;
+  #110 = Class              #112          // net/minecraft/core/Holder
+  #111 = NameAndType        #113:#48      // value:()Ljava/lang/Object;
+  #112 = Utf8               net/minecraft/core/Holder
+  #113 = Utf8               value
+  #114 = Class              #115          // net/minecraft/world/item/enchantment/Enchantment
+  #115 = Utf8               net/minecraft/world/item/enchantment/Enchantment
+  #116 = Methodref          #114.#117     // net/minecraft/world/item/enchantment/Enchantment.getMaxLevel:()I
+  #117 = NameAndType        #118:#67      // getMaxLevel:()I
+  #118 = Utf8               getMaxLevel
+  #119 = Methodref          #120.#121     // net/minecraft/world/level/storage/loot/LootContext.getRandom:()Lnet/minecraft/util/RandomSource;
+  #120 = Class              #122          // net/minecraft/world/level/storage/loot/LootContext
+  #121 = NameAndType        #123:#124     // getRandom:()Lnet/minecraft/util/RandomSource;
+  #122 = Utf8               net/minecraft/world/level/storage/loot/LootContext
+  #123 = Utf8               getRandom
+  #124 = Utf8               ()Lnet/minecraft/util/RandomSource;
+  #125 = Methodref          #82.#126      // net/minecraft/world/item/enchantment/ItemEnchantments$Mutable.getLevel:(Lnet/minecraft/core/Holder;)I
+  #126 = NameAndType        #127:#128     // getLevel:(Lnet/minecraft/core/Holder;)I
+  #127 = Utf8               getLevel
+  #128 = Utf8               (Lnet/minecraft/core/Holder;)I
+  #129 = Methodref          #130.#131     // me/pajic/simple_smithing_overhaul/util/ModUtil.calculateNewEnchantmentLevel:(ILnet/minecraft/util/RandomSource;I)I
+  #130 = Class              #132          // me/pajic/simple_smithing_overhaul/util/ModUtil
+  #131 = NameAndType        #133:#134     // calculateNewEnchantmentLevel:(ILnet/minecraft/util/RandomSource;I)I
+  #132 = Utf8               me/pajic/simple_smithing_overhaul/util/ModUtil
+  #133 = Utf8               calculateNewEnchantmentLevel
+  #134 = Utf8               (ILnet/minecraft/util/RandomSource;I)I
+  #135 = Fieldref           #38.#136      // me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits.limitBookTradeLevel:Lme/fzzyhmstrs/fzzy_config/validation/misc/ValidatedBoolean;
+  #136 = NameAndType        #137:#42      // limitBookTradeLevel:Lme/fzzyhmstrs/fzzy_config/validation/misc/ValidatedBoolean;
+  #137 = Utf8               limitBookTradeLevel
+  #138 = Fieldref           #38.#139      // me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits.bookTradeLevelLimit:Lme/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt;
+  #139 = NameAndType        #140:#58      // bookTradeLevelLimit:Lme/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt;
+  #140 = Utf8               bookTradeLevelLimit
+  #141 = Methodref          #82.#142      // net/minecraft/world/item/enchantment/ItemEnchantments$Mutable.set:(Lnet/minecraft/core/Holder;I)V
+  #142 = NameAndType        #107:#143     // set:(Lnet/minecraft/core/Holder;I)V
+  #143 = Utf8               (Lnet/minecraft/core/Holder;I)V
+  #144 = Utf8               RuntimeVisibleAnnotations
+  #145 = Utf8               Lorg/spongepowered/asm/mixin/Shadow;
+  #146 = Utf8               Lorg/spongepowered/asm/mixin/Final;
+  #147 = Utf8               Code
+  #148 = Utf8               LineNumberTable
+  #149 = Utf8               LocalVariableTable
+  #150 = Utf8               this
+  #151 = Utf8               Lme/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin;
+  #152 = Utf8               modifyMaxUses
+  #153 = Utf8               (I)I
+  #154 = Utf8               original
+  #155 = Utf8               I
+  #156 = Utf8               StackMapTable
+  #157 = Utf8               Lcom/llamalad7/mixinextras/injector/ModifyExpressionValue;
+  #158 = Utf8               method
+  #159 = Utf8               getOffer
+  #160 = Utf8               at
+  #161 = Utf8               Lorg/spongepowered/asm/mixin/injection/At;
+  #162 = Utf8               INVOKE
+  #163 = Utf8               target
+  #164 = Utf8               Lnet/minecraft/world/level/storage/loot/providers/number/ints/ContextIntProvider;getInt(Lnet/minecraft/world/level/storage/loot/LootContext;)I
+  #165 = Utf8               ordinal
+  #166 = Integer            0
+  #167 = Utf8               limitBookEnchantmentLevel
+  #168 = Utf8               (Lnet/minecraft/world/level/storage/loot/LootContext;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;Lnet/minecraft/world/item/ItemStack;)V
+  #169 = Utf8               enchantments
+  #170 = Utf8               Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;
+  #171 = Utf8               ie
+  #172 = Utf8               Lnet/minecraft/world/item/enchantment/ItemEnchantments;
+  #173 = Utf8               lootContext
+  #174 = Utf8               Lnet/minecraft/world/level/storage/loot/LootContext;
+  #175 = Utf8               cir
+  #176 = Utf8               Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;
+  #177 = Utf8               result
+  #178 = Utf8               Lnet/minecraft/world/item/ItemStack;
+  #179 = Utf8               LocalVariableTypeTable
+  #180 = Utf8               Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable<Lnet/minecraft/world/item/trading/MerchantOffer;>;
+  #181 = Utf8               Signature
+  #182 = Utf8               (Lnet/minecraft/world/level/storage/loot/LootContext;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable<Lnet/minecraft/world/item/trading/MerchantOffer;>;Lnet/minecraft/world/item/ItemStack;)V
+  #183 = Utf8               Lorg/spongepowered/asm/mixin/injection/Inject;
+  #184 = Utf8               Lnet/minecraft/world/item/ItemStack;remove(Lnet/minecraft/core/component/DataComponentType;)Ljava/lang/Object;
+  #185 = Utf8               RuntimeInvisibleParameterAnnotations
+  #186 = Utf8               Lcom/llamalad7/mixinextras/sugar/Local;
+  #187 = Utf8               name
+  #188 = Utf8               lambda$limitBookEnchantmentLevel$0
+  #189 = Utf8               (Lnet/minecraft/world/level/storage/loot/LootContext;Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;Lnet/minecraft/core/Holder;)V
+  #190 = Utf8               e
+  #191 = Utf8               Lnet/minecraft/core/Holder;
+  #192 = Utf8               SourceFile
+  #193 = Utf8               VillagerTradeMixin.java
+  #194 = Utf8               RuntimeInvisibleAnnotations
+  #195 = Utf8               Lorg/spongepowered/asm/mixin/Mixin;
+  #196 = Utf8               Lnet/minecraft/world/item/trading/VillagerTrade;
+  #197 = Utf8               BootstrapMethods
+  #198 = MethodType         #199          //  (Ljava/lang/Object;)V
+  #199 = Utf8               (Ljava/lang/Object;)V
+  #200 = MethodHandle       6:#201        // REF_invokeStatic me/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin.lambda$limitBookEnchantmentLevel$0:(Lnet/minecraft/world/level/storage/loot/LootContext;Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;Lnet/minecraft/core/Holder;)V
+  #201 = Methodref          #8.#202       // me/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin.lambda$limitBookEnchantmentLevel$0:(Lnet/minecraft/world/level/storage/loot/LootContext;Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;Lnet/minecraft/core/Holder;)V
+  #202 = NameAndType        #188:#189     // lambda$limitBookEnchantmentLevel$0:(Lnet/minecraft/world/level/storage/loot/LootContext;Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;Lnet/minecraft/core/Holder;)V
+  #203 = MethodType         #204          //  (Lnet/minecraft/core/Holder;)V
+  #204 = Utf8               (Lnet/minecraft/core/Holder;)V
+  #205 = MethodHandle       6:#206        // REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #206 = Methodref          #207.#208     // java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #207 = Class              #209          // java/lang/invoke/LambdaMetafactory
+  #208 = NameAndType        #210:#211     // metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #209 = Utf8               java/lang/invoke/LambdaMetafactory
+  #210 = Utf8               metafactory
+  #211 = Utf8               (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #212 = Utf8               InnerClasses
+  #213 = Utf8               EnchantmentLimits
+  #214 = Utf8               Mutable
+  #215 = Class              #216          // java/lang/invoke/MethodHandles$Lookup
+  #216 = Utf8               java/lang/invoke/MethodHandles$Lookup
+  #217 = Class              #218          // java/lang/invoke/MethodHandles
+  #218 = Utf8               java/lang/invoke/MethodHandles
+  #219 = Utf8               Lookup
+{
+  private net.minecraft.world.item.ItemStackTemplate gives;
+    descriptor: Lnet/minecraft/world/item/ItemStackTemplate;
+    flags: (0x0002) ACC_PRIVATE
+    RuntimeVisibleAnnotations:
+      0: #145()
+        org.spongepowered.asm.mixin.Shadow
+      1: #146()
+        org.spongepowered.asm.mixin.Final
+
+  public me.pajic.simple_smithing_overhaul.mixin.VillagerTradeMixin();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 25: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0       5     0  this   Lme/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin;
+
+  private int modifyMaxUses(int);
+    descriptor: (I)I
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: getfield      #7                  // Field gives:Lnet/minecraft/world/item/ItemStackTemplate;
+         4: getstatic     #13                 // Field net/minecraft/world/item/Items.ENCHANTED_BOOK:Lnet/minecraft/world/item/Item;
+         7: invokevirtual #19                 // Method net/minecraft/world/item/ItemStackTemplate.is:(Ljava/lang/Object;)Z
+        10: ifeq          75
+        13: getstatic     #25                 // Field me/pajic/simple_smithing_overhaul/SSO.CONFIG:Lme/pajic/simple_smithing_overhaul/config/ModConfig;
+        16: getfield      #31                 // Field me/pajic/simple_smithing_overhaul/config/ModConfig.enchantmentLimits:Lme/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits;
+        19: getfield      #37                 // Field me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits.limitBookTradeUses:Lme/fzzyhmstrs/fzzy_config/validation/misc/ValidatedBoolean;
+        22: invokevirtual #43                 // Method me/fzzyhmstrs/fzzy_config/validation/misc/ValidatedBoolean.get:()Ljava/lang/Object;
+        25: checkcast     #49                 // class java/lang/Boolean
+        28: invokevirtual #51                 // Method java/lang/Boolean.booleanValue:()Z
+        31: ifeq          75
+        34: iload_1
+        35: getstatic     #25                 // Field me/pajic/simple_smithing_overhaul/SSO.CONFIG:Lme/pajic/simple_smithing_overhaul/config/ModConfig;
+        38: getfield      #31                 // Field me/pajic/simple_smithing_overhaul/config/ModConfig.enchantmentLimits:Lme/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits;
+        41: getfield      #55                 // Field me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits.bookTradeUsesLimit:Lme/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt;
+        44: invokevirtual #59                 // Method me/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt.get:()Ljava/lang/Object;
+        47: checkcast     #62                 // class java/lang/Integer
+        50: invokevirtual #64                 // Method java/lang/Integer.intValue:()I
+        53: if_icmple     75
+        56: getstatic     #25                 // Field me/pajic/simple_smithing_overhaul/SSO.CONFIG:Lme/pajic/simple_smithing_overhaul/config/ModConfig;
+        59: getfield      #31                 // Field me/pajic/simple_smithing_overhaul/config/ModConfig.enchantmentLimits:Lme/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits;
+        62: getfield      #55                 // Field me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits.bookTradeUsesLimit:Lme/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt;
+        65: invokevirtual #59                 // Method me/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt.get:()Ljava/lang/Object;
+        68: checkcast     #62                 // class java/lang/Integer
+        71: invokevirtual #64                 // Method java/lang/Integer.intValue:()I
+        74: ireturn
+        75: iload_1
+        76: ireturn
+      LineNumberTable:
+        line 39: 0
+        line 40: 56
+        line 42: 75
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      77     0  this   Lme/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin;
+            0      77     1 original   I
+      StackMapTable: number_of_entries = 1
+        frame_type = 251 /* same_frame_extended */
+          offset_delta = 75
+    RuntimeVisibleAnnotations:
+      0: #157(#158=[s#159],#160=[@#161(#113=s#162,#163=s#164,#165=I#166)])
+        com.llamalad7.mixinextras.injector.ModifyExpressionValue(
+          method=["getOffer"]
+          at=[@org.spongepowered.asm.mixin.injection.At(
+            value="INVOKE"
+            target="Lnet/minecraft/world/level/storage/loot/providers/number/ints/ContextIntProvider;getInt(Lnet/minecraft/world/level/storage/loot/LootContext;)I"
+            ordinal=0
+          )]
+        )
+
+  private void limitBookEnchantmentLevel(net.minecraft.world.level.storage.loot.LootContext, org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable<net.minecraft.world.item.trading.MerchantOffer>, net.minecraft.world.item.ItemStack);
+    descriptor: (Lnet/minecraft/world/level/storage/loot/LootContext;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;Lnet/minecraft/world/item/ItemStack;)V
+    flags: (0x0002) ACC_PRIVATE
+    Code:
+      stack=3, locals=6, args_size=4
+         0: aload_3
+         1: getstatic     #13                 // Field net/minecraft/world/item/Items.ENCHANTED_BOOK:Lnet/minecraft/world/item/Item;
+         4: invokevirtual #68                 // Method net/minecraft/world/item/ItemStack.is:(Ljava/lang/Object;)Z
+         7: ifeq          69
+        10: aload_3
+        11: getstatic     #71                 // Field net/minecraft/core/component/DataComponents.STORED_ENCHANTMENTS:Lnet/minecraft/core/component/DataComponentType;
+        14: invokevirtual #77                 // Method net/minecraft/world/item/ItemStack.get:(Lnet/minecraft/core/component/DataComponentType;)Ljava/lang/Object;
+        17: checkcast     #80                 // class net/minecraft/world/item/enchantment/ItemEnchantments
+        20: astore        4
+        22: aload         4
+        24: ifnull        69
+        27: new           #82                 // class net/minecraft/world/item/enchantment/ItemEnchantments$Mutable
+        30: dup
+        31: aload         4
+        33: invokespecial #84                 // Method net/minecraft/world/item/enchantment/ItemEnchantments$Mutable."<init>":(Lnet/minecraft/world/item/enchantment/ItemEnchantments;)V
+        36: astore        5
+        38: aload         5
+        40: invokevirtual #87                 // Method net/minecraft/world/item/enchantment/ItemEnchantments$Mutable.keySet:()Ljava/util/Set;
+        43: aload_1
+        44: aload         5
+        46: invokedynamic #91,  0             // InvokeDynamic #0:accept:(Lnet/minecraft/world/level/storage/loot/LootContext;Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;)Ljava/util/function/Consumer;
+        51: invokeinterface #95,  2           // InterfaceMethod java/util/Set.forEach:(Ljava/util/function/Consumer;)V
+        56: aload_3
+        57: getstatic     #71                 // Field net/minecraft/core/component/DataComponents.STORED_ENCHANTMENTS:Lnet/minecraft/core/component/DataComponentType;
+        60: aload         5
+        62: invokevirtual #101                // Method net/minecraft/world/item/enchantment/ItemEnchantments$Mutable.toImmutable:()Lnet/minecraft/world/item/enchantment/ItemEnchantments;
+        65: invokevirtual #105                // Method net/minecraft/world/item/ItemStack.set:(Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)Ljava/lang/Object;
+        68: pop
+        69: return
+      LineNumberTable:
+        line 57: 0
+        line 58: 10
+        line 59: 22
+        line 60: 27
+        line 61: 38
+        line 68: 56
+        line 71: 69
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+           38      31     5 enchantments   Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;
+           22      47     4    ie   Lnet/minecraft/world/item/enchantment/ItemEnchantments;
+            0      70     0  this   Lme/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin;
+            0      70     1 lootContext   Lnet/minecraft/world/level/storage/loot/LootContext;
+            0      70     2   cir   Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;
+            0      70     3 result   Lnet/minecraft/world/item/ItemStack;
+      LocalVariableTypeTable:
+        Start  Length  Slot  Name   Signature
+            0      70     2   cir   Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable<Lnet/minecraft/world/item/trading/MerchantOffer;>;
+      StackMapTable: number_of_entries = 1
+        frame_type = 251 /* same_frame_extended */
+          offset_delta = 69
+    Signature: #182                         // (Lnet/minecraft/world/level/storage/loot/LootContext;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable<Lnet/minecraft/world/item/trading/MerchantOffer;>;Lnet/minecraft/world/item/ItemStack;)V
+    RuntimeVisibleAnnotations:
+      0: #183(#158=[s#159],#160=[@#161(#113=s#162,#163=s#184)])
+        org.spongepowered.asm.mixin.injection.Inject(
+          method=["getOffer"]
+          at=[@org.spongepowered.asm.mixin.injection.At(
+            value="INVOKE"
+            target="Lnet/minecraft/world/item/ItemStack;remove(Lnet/minecraft/core/component/DataComponentType;)Ljava/lang/Object;"
+          )]
+        )
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+      parameter 1:
+      parameter 2:
+        0: #186(#187=[s#177])
+          com.llamalad7.mixinextras.sugar.Local(
+            name=["result"]
+          )
+
+  private static void lambda$limitBookEnchantmentLevel$0(net.minecraft.world.level.storage.loot.LootContext, net.minecraft.world.item.enchantment.ItemEnchantments$Mutable, net.minecraft.core.Holder);
+    descriptor: (Lnet/minecraft/world/level/storage/loot/LootContext;Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;Lnet/minecraft/core/Holder;)V
+    flags: (0x100a) ACC_PRIVATE, ACC_STATIC, ACC_SYNTHETIC
+    Code:
+      stack=4, locals=4, args_size=3
+         0: aload_2
+         1: invokeinterface #109,  1          // InterfaceMethod net/minecraft/core/Holder.value:()Ljava/lang/Object;
+         6: checkcast     #114                // class net/minecraft/world/item/enchantment/Enchantment
+         9: invokevirtual #116                // Method net/minecraft/world/item/enchantment/Enchantment.getMaxLevel:()I
+        12: aload_0
+        13: invokevirtual #119                // Method net/minecraft/world/level/storage/loot/LootContext.getRandom:()Lnet/minecraft/util/RandomSource;
+        16: aload_1
+        17: aload_2
+        18: invokevirtual #125                // Method net/minecraft/world/item/enchantment/ItemEnchantments$Mutable.getLevel:(Lnet/minecraft/core/Holder;)I
+        21: invokestatic  #129                // Method me/pajic/simple_smithing_overhaul/util/ModUtil.calculateNewEnchantmentLevel:(ILnet/minecraft/util/RandomSource;I)I
+        24: istore_3
+        25: getstatic     #25                 // Field me/pajic/simple_smithing_overhaul/SSO.CONFIG:Lme/pajic/simple_smithing_overhaul/config/ModConfig;
+        28: getfield      #31                 // Field me/pajic/simple_smithing_overhaul/config/ModConfig.enchantmentLimits:Lme/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits;
+        31: getfield      #135                // Field me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits.limitBookTradeLevel:Lme/fzzyhmstrs/fzzy_config/validation/misc/ValidatedBoolean;
+        34: invokevirtual #43                 // Method me/fzzyhmstrs/fzzy_config/validation/misc/ValidatedBoolean.get:()Ljava/lang/Object;
+        37: checkcast     #49                 // class java/lang/Boolean
+        40: invokevirtual #51                 // Method java/lang/Boolean.booleanValue:()Z
+        43: ifeq          87
+        46: iload_3
+        47: getstatic     #25                 // Field me/pajic/simple_smithing_overhaul/SSO.CONFIG:Lme/pajic/simple_smithing_overhaul/config/ModConfig;
+        50: getfield      #31                 // Field me/pajic/simple_smithing_overhaul/config/ModConfig.enchantmentLimits:Lme/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits;
+        53: getfield      #138                // Field me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits.bookTradeLevelLimit:Lme/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt;
+        56: invokevirtual #59                 // Method me/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt.get:()Ljava/lang/Object;
+        59: checkcast     #62                 // class java/lang/Integer
+        62: invokevirtual #64                 // Method java/lang/Integer.intValue:()I
+        65: if_icmple     87
+        68: getstatic     #25                 // Field me/pajic/simple_smithing_overhaul/SSO.CONFIG:Lme/pajic/simple_smithing_overhaul/config/ModConfig;
+        71: getfield      #31                 // Field me/pajic/simple_smithing_overhaul/config/ModConfig.enchantmentLimits:Lme/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits;
+        74: getfield      #138                // Field me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits.bookTradeLevelLimit:Lme/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt;
+        77: invokevirtual #59                 // Method me/fzzyhmstrs/fzzy_config/validation/number/ValidatedInt.get:()Ljava/lang/Object;
+        80: checkcast     #62                 // class java/lang/Integer
+        83: invokevirtual #64                 // Method java/lang/Integer.intValue:()I
+        86: istore_3
+        87: aload_1
+        88: aload_2
+        89: iload_3
+        90: invokevirtual #141                // Method net/minecraft/world/item/enchantment/ItemEnchantments$Mutable.set:(Lnet/minecraft/core/Holder;I)V
+        93: return
+      LineNumberTable:
+        line 62: 0
+        line 63: 25
+        line 64: 68
+        line 66: 87
+        line 67: 93
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      94     0 lootContext   Lnet/minecraft/world/level/storage/loot/LootContext;
+            0      94     1 enchantments   Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;
+            0      94     2     e   Lnet/minecraft/core/Holder;
+           25      69     3 value   I
+      StackMapTable: number_of_entries = 1
+        frame_type = 252 /* append */
+          offset_delta = 87
+          locals = [ int ]
+}
+SourceFile: "VillagerTradeMixin.java"
+RuntimeInvisibleAnnotations:
+  0: #195(#113=[c#196])
+    org.spongepowered.asm.mixin.Mixin(
+      value=[class Lnet/minecraft/world/item/trading/VillagerTrade;]
+    )
+BootstrapMethods:
+  0: #205 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #198 (Ljava/lang/Object;)V
+      #200 REF_invokeStatic me/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin.lambda$limitBookEnchantmentLevel$0:(Lnet/minecraft/world/level/storage/loot/LootContext;Lnet/minecraft/world/item/enchantment/ItemEnchantments$Mutable;Lnet/minecraft/core/Holder;)V
+      #203 (Lnet/minecraft/core/Holder;)V
+InnerClasses:
+  public static #213= #38 of #32;         // EnchantmentLimits=class me/pajic/simple_smithing_overhaul/config/ModConfig$EnchantmentLimits of class me/pajic/simple_smithing_overhaul/config/ModConfig
+  public static #214= #82 of #80;         // Mutable=class net/minecraft/world/item/enchantment/ItemEnchantments$Mutable of class net/minecraft/world/item/enchantment/ItemEnchantments
+  public static final #219= #215 of #217; // Lookup=class java/lang/invoke/MethodHandles$Lookup of class java/lang/invoke/MethodHandles

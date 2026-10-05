@@ -1,0 +1,33 @@
+{
+  "parent": "toolpouch:recipes/tool_pouch",
+  "criteria": {
+    "has_materials": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:netherite_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "toolpouch:netherite_tool_pouch_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_materials"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "toolpouch:netherite_tool_pouch_smithing",
+      "toolpouch:netherite_tool_pouch_dyed"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:iron_ingot",
+    "c": "tiered_backpacks:copper_backpack"
+  },
+  "pattern": [
+    "###",
+    "#c#",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tiered_backpacks:iron_backpack"
+  }
+}

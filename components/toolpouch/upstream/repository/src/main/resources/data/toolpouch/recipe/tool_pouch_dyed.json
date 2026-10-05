@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_dye",
+  "category": "misc",
+  "dye": "#minecraft:dyes",
+  "result": {
+    "id": "toolpouch:tool_pouch"
+  },
+  "target": "toolpouch:tool_pouch"
+}

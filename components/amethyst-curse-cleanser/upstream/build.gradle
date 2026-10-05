@@ -1,0 +1,57 @@
+plugins {
+	id "maven-publish"
+	alias libs.plugins.loom
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+dependencies {
+	minecraft libs.minecraft
+	implementation libs.fabric.loader
+}
+
+processResources {
+	inputs.property "version", project.version
+	inputs.property "mod_id", project.mod_id
+	inputs.property "mod_name", project.mod_name
+	inputs.property "mod_description", project.mod_description
+
+	filesMatching("fabric.mod.json") {
+		expand(
+			version: project.version,
+			mod_id: project.mod_id,
+			mod_name: project.mod_name,
+			mod_description: project.mod_description
+		)
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = "UTF-8"
+	options.release = 25
+}
+
+java {
+	withSourcesJar()
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+	from("LICENSE") {
+		rename { "${it}_${project.archives_base_name}" }
+	}
+}
+
+publishing {
+	publications {
+		create("mavenJava", MavenPublication) {
+			from components.java
+		}
+	}
+}

@@ -1,0 +1,20 @@
+﻿{
+  "type": "minecraft:crafting_shapeless",
+  "group": "chalk:chalk",
+  "ingredients": [
+    "minecraft:calcite",
+    "minecraft:calcite",
+    "minecraft:cyan_dye"
+  ],
+  "result": {
+    "id": "chalk:cyan_chalk"
+  },
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "chalk-colorful-addon"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "track": "sso-port",
+  "regular_mending": true,
+  "candidate_expectations": true,
+  "artifacts": {
+    "server": {
+      "mods": [
+        {
+          "filename": "chalk-polymer-compat-1.0.0+26.3.jar",
+          "sha256": "48e437bf54419a1016469abd422df1c278318e157668efc7f6304f421f53eade"
+        },
+        {
+          "filename": "toolpouch-fabric-1.1.10+26.3.jar",
+          "sha256": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903"
+        },
+        {
+          "filename": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+          "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+        },
+        {
+          "filename": "polymer-bundled-0.18.2+26.3.jar",
+          "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+        },
+        {
+          "filename": "fabric-api-0.161.0+26.3.jar",
+          "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+        },
+        {
+          "filename": "cloth-config-fabric-26.3.159.jar",
+          "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+        },
+        {
+          "filename": "fzzy_config-0.7.7+fix2+26.3.jar",
+          "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+        },
+        {
+          "filename": "chalk-3.2.1+26.3.jar",
+          "sha256": "886b0b10cc12df65d47f446c2bd54c0c670f9a54fa09a1fe95c9ec46df565f49"
+        },
+        {
+          "filename": "mapstitch-fabric-1.1.6+26.3.jar",
+          "sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81"
+        },
+        {
+          "filename": "mixson-2.2.1-multiloader.jar",
+          "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+        },
+        {
+          "filename": "SSO-backpack-toolpouch-mapstitch-shim-1.0.3+26.3.jar",
+          "sha256": "d5d08c6a5164206c9c2d47a58a89fec5f56ae03c7fcb12cbe04c98ed7d259722"
+        },
+        {
+          "filename": "toolpouch-atlas-elytra-compat-1.0.3+26.3.jar",
+          "sha256": "17b19dbaaaa5a82c659600fa8dbe3fef1e4bcd878df90c81d291e6f0b19b8513"
+        },
+        {
+          "filename": "simple_smithing_overhaul-fabric-2.9.14-port.1+26.3.jar",
+          "sha256": "fde7de61945f008e716f71711f8eeed27d4b123e069893f381ee0bda2490587f"
+        },
+        {
+          "filename": "tiered_backpacks-fabric-1.0.20+26.3.jar",
+          "sha256": "b129b9b61ec1da62842dc2dfa5b166a6df8e91c796666dcee70f7b8acf1ecc33"
+        },
+        {
+          "filename": "server.jar",
+          "sha256": "9a991459ad9cb49cd0eba5eb1f5483fc485b98b6c10247ff8a41a42d544d15c2"
+        }
+      ],
+      "qa_fixture": true
+    },
+    "client": {
+      "mods": [
+        {
+          "filename": "toolpouch-fabric-1.1.10+26.3.jar",
+          "sha256": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903"
+        },
+        {
+          "filename": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+          "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+        },
+        {
+          "filename": "fabric-api-0.161.0+26.3.jar",
+          "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+        },
+        {
+          "filename": "cloth-config-fabric-26.3.159.jar",
+          "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+        },
+        {
+          "filename": "fzzy_config-0.7.7+fix2+26.3.jar",
+          "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+        },
+        {
+          "filename": "chalk-3.2.1+26.3.jar",
+          "sha256": "886b0b10cc12df65d47f446c2bd54c0c670f9a54fa09a1fe95c9ec46df565f49"
+        },
+        {
+          "filename": "mapstitch-fabric-1.1.6+26.3.jar",
+          "sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81"
+        },
+        {
+          "filename": "mixson-2.2.1-multiloader.jar",
+          "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+        },
+        {
+          "filename": "toolpouch-atlas-elytra-compat-1.0.3+26.3.jar",
+          "sha256": "17b19dbaaaa5a82c659600fa8dbe3fef1e4bcd878df90c81d291e6f0b19b8513"
+        },
+        {
+          "filename": "simple_smithing_overhaul-fabric-2.9.14-port.1+26.3.jar",
+          "sha256": "fde7de61945f008e716f71711f8eeed27d4b123e069893f381ee0bda2490587f"
+        },
+        {
+          "filename": "tiered_backpacks-fabric-1.0.20+26.3.jar",
+          "sha256": "b129b9b61ec1da62842dc2dfa5b166a6df8e91c796666dcee70f7b8acf1ecc33"
+        },
+        {
+          "filename": "client.jar",
+          "sha256": "6d66d75aa12028666d1ca466ee21fd3dfaa42cbfe18facbd3b71c35369e8c036"
+        }
+      ],
+      "qa_fixture": true
+    }
+  },
+  "original_jars_unchanged": true,
+  "result.txt": "COMPLETE restart server/client state preserved\n",
+  "observations.txt": "FIXTURE CONFIG enableRegularMendingBehavior=true (memory only)\ninventory BEFORE {QA-clock=0, QA-elytra-A=40, QA-holder=0}|xp=0\ninventory SPAWN orb=2 value=7 xpBefore=0\ninventory PICKED orb=2 state={QA-clock=0, QA-elytra-A=26, QA-holder=0}|xp=0\ninventory AFTER {QA-clock=0, QA-elytra-A=26, QA-holder=0}|xp=0\ninventory EXPECTED_BEHAVIOR_PASS\ninventory CLIENT_MATCH\nleggings BEFORE {QA-clock=0, QA-elytra-A=40, QA-holder=0}|xp=0\nleggings SPAWN orb=3 value=7 xpBefore=0\nleggings PICKED orb=3 state={QA-clock=0, QA-elytra-A=26, QA-holder=0}|xp=0\nleggings AFTER {QA-clock=0, QA-elytra-A=26, QA-holder=0}|xp=0\nleggings EXPECTED_BEHAVIOR_PASS\nleggings CLIENT_MATCH\ntoggle-off BEFORE {QA-clock=0, QA-elytra-A=40, QA-holder=0}|xp=0\ntoggle-off SPAWN orb=4 value=7 xpBefore=0\ntoggle-off PICKED orb=4 state={QA-clock=0, QA-elytra-A=26, QA-holder=0}|xp=0\ntoggle-off AFTER {QA-clock=0, QA-elytra-A=26, QA-holder=0}|xp=0\ntoggle-off EXPECTED_BEHAVIOR_PASS\ntoggle-off CLIENT_MATCH\nno-mending BEFORE {QA-clock=0, QA-elytra-A=40, QA-holder=0}|xp=0\nno-mending SPAWN orb=5 value=7 xpBefore=0\nno-mending PICKED orb=5 state={QA-clock=0, QA-elytra-A=40, QA-holder=0}|xp=7\nno-mending AFTER {QA-clock=0, QA-elytra-A=40, QA-holder=0}|xp=7\nno-mending EXPECTED_BEHAVIOR_PASS\nno-mending CLIENT_MATCH\nfull BEFORE {QA-clock=0, QA-elytra-A=0, QA-holder=0}|xp=0\nfull SPAWN orb=17 value=7 xpBefore=0\nfull PICKED orb=17 state={QA-clock=0, QA-elytra-A=0, QA-holder=0}|xp=7\nfull AFTER {QA-clock=0, QA-elytra-A=0, QA-holder=0}|xp=7\nfull EXPECTED_BEHAVIOR_PASS\nfull CLIENT_MATCH\nloose-elytra BEFORE {QA-elytra-A=40}|xp=0\nloose-elytra SPAWN orb=18 value=7 xpBefore=0\nloose-elytra PICKED orb=18 state={QA-elytra-A=40}|xp=7\nloose-elytra AFTER {QA-elytra-A=40}|xp=7\nloose-elytra EXPECTED_BEHAVIOR_PASS\nloose-elytra CLIENT_MATCH\nremainder BEFORE {QA-clock=0, QA-elytra-A=5, QA-holder=0}|xp=0\nremainder SPAWN orb=19 value=7 xpBefore=0\nremainder PICKED orb=19 state={QA-clock=0, QA-elytra-A=0, QA-holder=0}|xp=5\nremainder AFTER {QA-clock=0, QA-elytra-A=0, QA-holder=0}|xp=5\nremainder EXPECTED_BEHAVIOR_PASS\nremainder CLIENT_MATCH\nbroken BEFORE {QA-clock=0, QA-elytra-A=431, QA-holder=0}|xp=0\nbroken SPAWN orb=20 value=7 xpBefore=0\nbroken PICKED orb=20 state={QA-clock=0, QA-elytra-A=417, QA-holder=0}|xp=0\nbroken AFTER {QA-clock=0, QA-elytra-A=417, QA-holder=0}|xp=0\nbroken EXPECTED_BEHAVIOR_PASS\nbroken CLIENT_MATCH\ncompetition BEFORE {QA-clock=0, QA-elytra-A=40, QA-holder=0, QA-worn=40}|xp=0\ncompetition SPAWN orb=21 value=7 xpBefore=0\ncompetition PICKED orb=21 state={QA-clock=0, QA-elytra-A=40, QA-holder=0, QA-worn=26}|xp=0\ncompetition SPAWN orb=22 value=7 xpBefore=0\ncompetition PICKED orb=22 state={QA-clock=0, QA-elytra-A=40, QA-holder=0, QA-worn=12}|xp=0\ncompetition SPAWN orb=23 value=7 xpBefore=0\ncompetition PICKED orb=23 state={QA-clock=0, QA-elytra-A=38, QA-holder=0, QA-worn=0}|xp=0\ncompetition SPAWN orb=24 value=7 xpBefore=0\ncompetition PICKED orb=24 state={QA-clock=0, QA-elytra-A=24, QA-holder=0, QA-worn=0}|xp=0\ncompetition SPAWN orb=25 value=7 xpBefore=0\ncompetition PICKED orb=25 state={QA-clock=0, QA-elytra-A=10, QA-holder=0, QA-worn=0}|xp=0\ncompetition SPAWN orb=26 value=7 xpBefore=0\ncompetition PICKED orb=26 state={QA-clock=0, QA-elytra-A=0, QA-holder=0, QA-worn=0}|xp=2\ncompetition AFTER {QA-clock=0, QA-elytra-A=0, QA-holder=0, QA-worn=0}|xp=2\ncompetition EXPECTED_BEHAVIOR_PASS\ncompetition CLIENT_MATCH\nmultiple BEFORE {QA-clock=0, QA-elytra-A=40, QA-elytra-B=40, QA-holder=0}|xp=0\nmultiple SPAWN orb=27 value=7 xpBefore=0\nmultiple PICKED orb=27 state={QA-clock=0, QA-elytra-A=26, QA-elytra-B=40, QA-holder=0}|xp=0\nmultiple SPAWN orb=28 value=7 xpBefore=0\nmultiple PICKED orb=28 state={QA-clock=0, QA-elytra-A=26, QA-elytra-B=26, QA-holder=0}|xp=0\nmultiple SPAWN orb=29 value=7 xpBefore=0\nmultiple PICKED orb=29 state={QA-clock=0, QA-elytra-A=26, QA-elytra-B=12, QA-holder=0}|xp=0\nmultiple SPAWN orb=30 value=7 xpBefore=0\nmultiple PICKED orb=30 state={QA-clock=0, QA-elytra-A=12, QA-elytra-B=12, QA-holder=0}|xp=0\nmultiple SPAWN orb=31 value=7 xpBefore=0\nmultiple PICKED orb=31 state={QA-clock=0, QA-elytra-A=10, QA-elytra-B=0, QA-holder=0}|xp=0\nmultiple SPAWN orb=32 value=7 xpBefore=0\nmultiple PICKED orb=32 state={QA-clock=0, QA-elytra-A=0, QA-elytra-B=0, QA-holder=0}|xp=2\nmultiple AFTER {QA-clock=0, QA-elytra-A=0, QA-elytra-B=0, QA-holder=0}|xp=2\nmultiple EXPECTED_BEHAVIOR_PASS\nmultiple CLIENT_MATCH\nopen-menu BEFORE {QA-clock=0, QA-elytra-A=40, QA-holder=0}|xp=0\nopen-menu SPAWN orb=33 value=7 xpBefore=0\nopen-menu PICKED orb=33 state={QA-clock=0, QA-elytra-A=40, QA-holder=0}|xp=0\nopen-menu AFTER {QA-clock=0, QA-elytra-A=26, QA-holder=0}|xp=0\nopen-menu EXPECTED_BEHAVIOR_PASS\nopen-menu CLIENT_MATCH\nleggings-restart BEFORE {QA-clock=0, QA-elytra-A=40, QA-holder=0}|xp=0\nleggings-restart SPAWN orb=34 value=7 xpBefore=0\nleggings-restart PICKED orb=34 state={QA-clock=0, QA-elytra-A=26, QA-holder=0}|xp=0\nleggings-restart AFTER {QA-clock=0, QA-elytra-A=26, QA-holder=0}|xp=0\nleggings-restart EXPECTED_BEHAVIOR_PASS\nleggings-restart CLIENT_MATCH\nFIXTURE CONFIG enableRegularMendingBehavior=true (memory only)\nRESTART {QA-clock=0, QA-elytra-A=26, QA-holder=0}|xp=0\n",
+  "pickup-trace.txt": "NATURAL_TOUCH orb=2 value=7 xpBefore=0\nNATURAL_TOUCH orb=3 value=7 xpBefore=0\nNATURAL_TOUCH orb=4 value=7 xpBefore=0\nNATURAL_TOUCH orb=5 value=7 xpBefore=0\nNATURAL_TOUCH orb=17 value=7 xpBefore=0\nNATURAL_TOUCH orb=18 value=7 xpBefore=0\nNATURAL_TOUCH orb=19 value=7 xpBefore=0\nNATURAL_TOUCH orb=20 value=7 xpBefore=0\nNATURAL_TOUCH orb=21 value=7 xpBefore=0\nNATURAL_TOUCH orb=22 value=7 xpBefore=0\nNATURAL_TOUCH orb=23 value=7 xpBefore=0\nNATURAL_TOUCH orb=24 value=7 xpBefore=0\nNATURAL_TOUCH orb=25 value=7 xpBefore=0\nNATURAL_TOUCH orb=26 value=7 xpBefore=0\nNATURAL_TOUCH orb=27 value=7 xpBefore=0\nNATURAL_TOUCH orb=28 value=7 xpBefore=0\nNATURAL_TOUCH orb=29 value=7 xpBefore=0\nNATURAL_TOUCH orb=30 value=7 xpBefore=0\nNATURAL_TOUCH orb=31 value=7 xpBefore=0\nNATURAL_TOUCH orb=32 value=7 xpBefore=0\nNATURAL_TOUCH orb=33 value=7 xpBefore=0\nNATURAL_TOUCH orb=34 value=7 xpBefore=0\n",
+  "persisted-state.txt": "{QA-clock=0, QA-elytra-A=26, QA-holder=0}|xp=0"
+}

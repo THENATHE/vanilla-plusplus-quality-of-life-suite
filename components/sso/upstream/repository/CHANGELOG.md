@@ -1,0 +1,1 @@
+- Fixed dedicated server crash on 1.21.1.

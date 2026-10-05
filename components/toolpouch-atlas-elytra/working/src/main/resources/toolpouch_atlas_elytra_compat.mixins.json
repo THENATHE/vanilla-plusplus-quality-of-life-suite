@@ -1,0 +1,36 @@
+{
+  "required": true,
+  "package": "com.thenathe.toolpouchcompat.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "plugin": "com.thenathe.toolpouchcompat.CompatMixinPlugin",
+  "mixins": [
+    "PouchCapacityMixin",
+    "PouchAttachmentTierMixin",
+    "PouchDetachmentTierMixin",
+    "PlayerPreferenceMixin",
+    "ServerPlayerPreferenceMixin",
+    "PouchFlightMixin",
+    "AtlasPlayerMixin",
+    "AtlasMapDataMixin",
+    "AtlasEjectionMixin",
+    "PouchMendingAccess",
+    "PouchMendingMenuAccess",
+    "PouchMendingExperienceMixin",
+    "PouchSlotQuotaMixin",
+    "ClientSortServerSchemaMixin",
+    "ClientSortServerSortMixin",
+    "ClientSortServerTransferMixin"
+  ],
+  "client": [
+    "AtlasClientLookupMixin",
+    "AtlasWorldMapMixin",
+    "AtlasMinimapCacheMixin",
+    "ClientSortPolicyMixin",
+    "ClientSortOperatorMixin",
+    "AtlasHudLayoutMixin",
+    "PouchInfoLayoutMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

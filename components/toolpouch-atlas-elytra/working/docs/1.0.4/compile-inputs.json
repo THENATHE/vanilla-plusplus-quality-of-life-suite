@@ -1,0 +1,22 @@
+[
+  {
+    "file": "clientsort-fabric-3.104.1+26.3.jar",
+    "sha256": "37f812d25307bc011be64a4853e26d848b858599c5068244dd857c521d4078ce"
+  },
+  {
+    "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+    "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+  },
+  {
+    "file": "kotlin-stdlib-2.4.20.jar",
+    "sha256": "078594f80e214438a35454e3f16f890a68dba6a607aa2c83014065344d13308a"
+  },
+  {
+    "file": "mapstitch-fabric-1.1.6+26.3.jar",
+    "sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81"
+  },
+  {
+    "file": "toolpouch-fabric-1.1.10+26.3.jar",
+    "sha256": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903"
+  }
+]
