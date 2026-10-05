@@ -30,7 +30,7 @@ This suite targets Minecraft 26.3, Fabric Loader 0.19.5 and Java 25. It combines
 | Chalk compatibility | 1.1.1-suite.1+26.3 | Original standalone Chalk shim 1.1.0+26.3; components/chalk-compat/ORIGIN.json |
 | Shared Region Maps | 1.0.4-combo.1+mc26.3 | Original local 1.0.3, commit 338270a70c14be19ba79b535b40fac980e414470; components/shared-region-maps/upstream-manifest.json |
 | Tool Pouch atlas/Elytra addon | 1.0.5-suite.1+26.3 | Original local 1.0.4; components/toolpouch-atlas-elytra/upstream-manifest.json |
-| Suite root / settings | 1.0.1+26.3 | Newly authored source in src/ |
+| Suite root / settings | 1.0.2-multiscale.1+26.3 | Newly authored source in src/ |
 
 The production archive retains these original module IDs and embeds each module separately. Original standalone repositories and versioned releases remain available; the suite variants do not overwrite them.
 
@@ -59,3 +59,7 @@ The CodecUI input is `26.3-1.4.3`, SHA-256 `4d07c219…be898`. Its HolderSetCode
 Defaulted's retained original 26.3 input and exact dropfix modification are separate records. The pinned Pajic fork source is future-update context; the patcher applies only to the exact original binary. The released dropfix output remains SHA-256 `e339d6f0…32c61` and no library versions or APIs are substituted. See components/defaulted-reference/README.md and components/defaulted-dropfix/README.md.
 
 Fzzy Config 0.7.7+fix2+26.3 is byte-identical to official public release thw1Z19c. It stays external, with a public download URL in the artifact lock. No Fzzy source or binary is bundled in the suite or the optional local-library archive.
+
+## Experimental branch additions
+
+Current branch artifact/component versions and exact hashes are in [build verification](build-verification.json); [validation](VALIDATION.md) distinguishes newly executed branch checks from historical mainline evidence.

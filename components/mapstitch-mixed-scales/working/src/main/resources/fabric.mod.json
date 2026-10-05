@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "mapstitch_mixed_scales",
+  "version": "${version}",
+  "name": "MapStitch Mixed Scales",
+  "description": "Separate suite addon for storing all five map scales in one MapStitch atlas, with a persistent active exploration scale.",
+  "authors": [
+    "THENATHE"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.thenathe.multiscale.MixedScales"
+    ]
+  },
+  "mixins": [
+    "mapstitch_mixed_scales.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "26.3",
+    "java": ">=25",
+    "fabricloader": ">=0.19.5",
+    "fabric-api": ">=0.161.0+26.3",
+    "mapstitch": "=1.1.6",
+    "sso_backpack_toolpouch_mapstitch_shim": "=1.0.7-multiscale.1+26.3",
+    "shared_region_maps": ">=1.0.4-combo.1+mc26.3",
+    "toolpouch_atlas_elytra_compat": ">=1.0.5-suite.1+26.3"
+  }
+}

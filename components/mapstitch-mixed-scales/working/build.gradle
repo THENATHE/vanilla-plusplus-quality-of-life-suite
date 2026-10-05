@@ -1,0 +1,24 @@
+plugins { id 'net.fabricmc.fabric-loom' version '1.17.20' }
+version = '1.0.0+26.3'
+group = 'com.thenathe'
+base { archivesName = 'mapstitch-mixed-scales' }
+repositories { maven { url = 'https://maven.nucleoid.xyz/' } }
+dependencies {
+ minecraft 'com.mojang:minecraft:26.3'
+ implementation 'net.fabricmc:fabric-loader:0.19.5'
+ implementation 'net.fabricmc.fabric-api:fabric-api:0.161.0+26.3'
+ compileOnly rootProject.fileTree('libs') { include '*.jar' }
+ implementation project(':combined-compat')
+ implementation project(':shared-region-maps')
+ implementation project(':toolpouch-atlas-elytra')
+}
+processResources {
+ inputs.property 'version', providers.provider { project.version.toString() }
+ filesMatching('fabric.mod.json') { expand(version: project.version) }
+}
+tasks.withType(JavaCompile).configureEach {
+ options.encoding = 'UTF-8'; options.release = 25
+ if (project.hasProperty('compilerVersion')) javaCompiler = javaToolchains.compilerFor { languageVersion = JavaLanguageVersion.of(project.property('compilerVersion').toString().toInteger()) }
+}
+java { withSourcesJar(); sourceCompatibility = JavaVersion.VERSION_25; targetCompatibility = JavaVersion.VERSION_25 }
+jar { from(rootProject.file('LICENSE')) }

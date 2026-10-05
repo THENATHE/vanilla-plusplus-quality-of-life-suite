@@ -1,5 +1,12 @@
 # Suite validation and test limits
 
+## Mixed-scale MapStitch experiment 1.0.2-multiscale.1+26.3
+
+The exact branch JAR SHA-256 is `0c590629dd4ba3f3a4cd21f0705430775799e8e096211419db7921910b185ddd`. [Focused evidence and reproduction steps](../qa-multiscale/README.md) record 118 dedicated-server assertions across initial/restart Polymer and no-Polymer profiles, all four connection profiles, and client-side Polymer. Actual original scale controls, all five active scales, unchanged other books and identical inventory/pouch copies passed. Original MapStitch bytes and exact Defaulted dropfix are preserved. Other upstream systems retain their prior validation; they were not all retested by this feature experiment.
+
+## Historical mainline validation
+
+
 ## Current 1.0.1 network evidence
 
 The release `vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar`, SHA-256 `8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a`, passed 12 bounded connection cases after the nested compatibility versions were corrected. Every result below comes from that exact artifact; earlier candidate runs remain local development records.

@@ -6,6 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 WORKSPACE=ROOT.parents[1]
 SLUG='vanilla-plusplus-quality-of-life-suite'
 PRODUCT='Vanilla++ Quality of Life Suite'
+COMPONENT='Main Plugin - Mixed-scale MapStitch Experiment'
 REPO='https://github.com/THENATHE/'+SLUG
 report=json.loads((ROOT/'docs/build-verification.json').read_text())
 version=report['version'];tag='v'+version
@@ -15,7 +16,7 @@ assert report['runtime_tested'], 'Release runtime verification must be recorded 
 assert sha(artifact)==report['sha256'], 'Artifact changed after verification'
 revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
 assert not subprocess.check_output(['git','status','--porcelain'],cwd=ROOT,text=True).strip(),'Commit final source/evidence before packaging'
-release=WORKSPACE/'Builds/Minecraft'/PRODUCT/'Main Plugin'/version
+release=WORKSPACE/'Builds/Minecraft'/PRODUCT/COMPONENT/version
 release.mkdir(parents=True,exist_ok=True)
 shutil.copy2(artifact,release/artifact.name)
 locks=json.loads((ROOT/'locks/artifacts.json').read_text())
@@ -44,7 +45,7 @@ with zipfile.ZipFile(source) as z:
  assert not any(n.endswith('.jar') and '/gradle/wrapper/' not in n for n in z.namelist())
 readme=(ROOT/'README.md').read_text()
 readme=re.sub(r'\]\((?!https?://|#)([^)]+)\)',lambda m:']('+REPO+'/blob/'+revision+'/'+m.group(1)+')',readme)
-readme+=f'\n## Release record\n\nVersion: {version}. Release target: Minecraft 26.3 / Fabric, unofficial combined distribution using the documented developer/local-port inputs. Source revision: `{revision}`. Source checkout: `Minecraft/thenathe-mod-suite/`; public source: {REPO}/tree/{revision}. Historical developer/ported tracks remain separate, including the paused SSO port.\n\nInstallable feature JAR, optional local-library archive and complete tracked-source ZIP are beside this README with `SHA256SUMS.sha256`. QA fixtures are excluded from installable artifacts.\n\nValidation results for this release, historical checks of unchanged components, and remaining manual checks: [validation]('+REPO+'/blob/'+revision+'/docs/VALIDATION.md).\n'
+readme+=f'\n## Release record\n\nVersion: {version}. Release target: Minecraft 26.3 / Fabric, unofficial combined distribution using the documented developer/local-port inputs. Source revision: `{revision}`. Source checkout: `Minecraft/suite-mapstitch-mixed-scales/`; public source: {REPO}/tree/{revision}. Historical developer/ported tracks remain separate, including the paused SSO port.\n\nInstallable feature JAR, optional local-library archive and complete tracked-source ZIP are beside this README with `SHA256SUMS.sha256`. QA fixtures are excluded from installable artifacts.\n\nValidation results for this release, historical checks of unchanged components, and remaining manual checks: [validation]('+REPO+'/blob/'+revision+'/docs/VALIDATION.md).\n'
 readme+='\nLocal reference files: [dependency and compatible-mod downloads](DEPENDENCIES.md), [changes](CHANGELOG.md), and [validation](VALIDATION.md).\n'
 (release/'README.md').write_text(readme)
 shutil.copy2(ROOT/'docs/build-verification.json',release/'VERIFICATION.json')

@@ -9,7 +9,7 @@ from workspace_paths import load_helper, project_path
 STAGE = project_path(WORKSPACE, 'polymer-shim-test-bundle') / 'staging-2026-10-01/mods'
 JAVA = '/usr/lib/jvm/java-25-openjdk/bin/java'
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar')
+parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-multiscale.1+26.3.jar')
 parser.add_argument('--label', default='light-'+time.strftime('%Y%m%d-%H%M%S'))
 parser.add_argument('--integrated-only', action='store_true', help='Singleplayer suite worlds with and without Polymer on the physical client')
 parser.add_argument('--world-template', type=Path, default=ROOT/'qa/runs/official-private-02/server-polymer/world')

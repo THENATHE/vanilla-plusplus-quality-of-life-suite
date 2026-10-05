@@ -17,7 +17,7 @@ tasks.withType(JavaCompile).configureEach {
 java { withSourcesJar(); sourceCompatibility = JavaVersion.VERSION_25; targetCompatibility = JavaVersion.VERSION_25 }
 jar { from('LICENSE') }
 
-version = '1.0.1+26.3'
+version = '1.0.2-multiscale.1+26.3'
 base { archivesName = 'vanilla-plusplus-quality-of-life-suite' }
 sourceSets.main.java.exclude('com/thenathe/suite/network/**')
 dependencies {
@@ -38,11 +38,11 @@ tasks.register('verifyInputs') {
  }
 }
 tasks.named('compileJava') { dependsOn 'verifyInputs' }
-['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra'].each { evaluationDependsOn(":${it}") }
+['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra', 'mapstitch-mixed-scales'].each { evaluationDependsOn(":${it}") }
 subprojects { tasks.withType(JavaCompile).configureEach { dependsOn rootProject.tasks.named('verifyInputs') } }
-def componentJars = ['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra'].collect { rootProject.project(":${it}").tasks.named('jar').flatMap { it.archiveFile } }
+def componentJars = ['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra', 'mapstitch-mixed-scales'].collect { rootProject.project(":${it}").tasks.named('jar').flatMap { it.archiveFile } }
 jar {
- dependsOn ':combined-compat:jar', ':chalk-compat:jar', ':shared-region-maps:jar', ':toolpouch-atlas-elytra:jar'
+ dependsOn ':combined-compat:jar', ':chalk-compat:jar', ':shared-region-maps:jar', ':toolpouch-atlas-elytra:jar', ':mapstitch-mixed-scales:jar'
  from(bundled) { into 'META-INF/jars' }
  from(componentJars) { into 'META-INF/jars' }
  from('licenses') { into 'META-INF/licenses' }
