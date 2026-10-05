@@ -1,9 +1,41 @@
 {
- "schemaVersion":1,"id":"toolpouch_atlas_elytra_compat","version":"${version}",
- "name":"Tool Pouch Atlas and Elytra Compatibility","description":"Standalone MapStitch pouch integration and persistent Elytra toggle for original Tool Pouch releases.",
- "authors":["THENATHE"],"license":"MIT","environment":"*",
- "entrypoints":{"main":["com.thenathe.toolpouchcompat.Compat"],"client":["com.thenathe.toolpouchcompat.CompatClient"]},
- "mixins":["toolpouch_atlas_elytra_compat.mixins.json"],
- "depends":{"minecraft":"26.3","java":">=25","fabricloader":">=0.19.5","fabric-api":">=0.161.0+26.3","toolpouch":"1.1.10","fzzy_config":">=0.7.7"},
- "suggests":{"mapstitch":"1.1.6","clientsort":"3.104.1","tiered_backpacks":"1.0.20"}
+  "schemaVersion": 1,
+  "id": "toolpouch_atlas_elytra_compat",
+  "version": "${version}",
+  "name": "Tool Pouch Atlas and Elytra Compatibility",
+  "description": "Standalone MapStitch pouch integration and persistent Elytra toggle for original Tool Pouch releases.",
+  "authors": [
+    "THENATHE"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.thenathe.toolpouchcompat.Compat"
+    ],
+    "client": [
+      "com.thenathe.toolpouchcompat.CompatClient"
+    ]
+  },
+  "mixins": [
+    "toolpouch_atlas_elytra_compat.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "26.3",
+    "java": ">=25",
+    "fabricloader": ">=0.19.5",
+    "fabric-api": ">=0.161.0+26.3",
+    "toolpouch": "1.1.10",
+    "fzzy_config": ">=0.7.7"
+  },
+  "suggests": {
+    "mapstitch": "1.1.6",
+    "clientsort": "3.104.1",
+    "tiered_backpacks": "1.0.20"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "thenathe_mod_suite"
+    }
+  }
 }

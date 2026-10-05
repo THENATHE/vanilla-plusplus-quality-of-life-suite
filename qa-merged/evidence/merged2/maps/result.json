@@ -1,0 +1,34 @@
+{
+  "bundle_sha256": "40c8e7bac2732310a1903b870925e520565c76098ea0f1f8e95e8f4e6c5463e8",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "maps-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 74 mixed-scale insertion, extraction, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-polymer",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "PASS 5 mixed-scale insertion, extraction, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 74 mixed-scale insertion, extraction, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-native",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "PASS 5 mixed-scale insertion, extraction, codec and restart checks",
+      "passed": true
+    }
+  ]
+}

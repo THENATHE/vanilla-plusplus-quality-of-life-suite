@@ -1,0 +1,12 @@
+{
+  "mapstitch_mixed_scales.tooltip.active_scale": "Minimap scale 1:%s",
+  "mapstitch_mixed_scales.tooltip.layers": "Stores maps",
+  "mapstitch_mixed_scales.screen.scale_help": "World-map display scale; minimap and generation use their own controls",
+  "mapstitch_mixed_scales.tooltip.generating": "Generating: %s",
+  "mapstitch_mixed_scales.tooltip.generation_off": "Generating: none",
+  "mapstitch_mixed_scales.screen.minimap_help": "Minimap scale 1:%s; click to cycle. Generating: %s",
+  "mapstitch_mixed_scales.screen.generation_help": "Generation 1:%s: %s. Click to toggle. Currently generating: %s",
+  "mapstitch_mixed_scales.screen.none": "none",
+  "mapstitch_mixed_scales.screen.enabled": "enabled",
+  "mapstitch_mixed_scales.screen.disabled": "disabled"
+}

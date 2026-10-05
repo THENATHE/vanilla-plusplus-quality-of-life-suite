@@ -1,3 +1,9 @@
+# Shared atlas / ordinary-map HUD verification
+
+The current fixture uses eight bounded graphical cases to check synchronized native position controls, saved native files, atlas/ordinary-map identical corner anchors, signed offsets, actual map-versus-detail bounds, and the combined settings screen. It captures final renderer text coordinates and screenshots rather than guessing visibility from config values. See [shared HUD documentation](../docs/HUD.md).
+
+Existing evidence below describes the previous independent-position implementation and is retained as history.
+
 # Focused graphical HUD and settings smoke
 
 This separate development fixture uses cached official Minecraft/Fabric runtime files. It never belongs inside the installable suite. It launches isolated localhost worlds and a real graphical client, records actual final Tool Pouch renderer text arguments, checks layout against current-frame minimap bounds, and saves screenshots. No original mod source or runtime class is replaced. QA mixins observe the rendering calls only.

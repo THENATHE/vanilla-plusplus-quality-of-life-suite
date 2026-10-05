@@ -1,0 +1,50 @@
+{
+  "bundle_sha256": "b04ca184a6b8e82700a2b0df96f1fcdbd06e485cc778a6a0fad5666d571bbe9b",
+  "minecraft": "26.3",
+  "track": "ported-suite",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"passed\":true,\"uncapped\":false,\"common_stack_size\":64,\"restart\":false,\"assertions\":22}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"passed\":true,\"uncapped\":false,\"common_stack_size\":64,\"restart\":true,\"assertions\":23}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":false,\"assertions\":22}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":true,\"assertions\":23}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":false,\"assertions\":20}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":true,\"assertions\":21}",
+      "passed": true
+    }
+  ]
+}

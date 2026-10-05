@@ -1,5 +1,38 @@
 # Changes
 
+## 1.0.2-merged.3+26.3 — 2026-10-05 (testing branch)
+
+- Move minimap and generation controls into an aligned, right-aligned group immediately beneath the top coordinate numbers; restore every original right-side button position and gap.
+- Reorder atlas tooltips: storage introduction, enabled generation scales, minimap scale, then unchanged original counts/ejection information.
+- Use Configure... for settings navigation buttons while retaining original category names, settings, and behavior.
+
+## 1.0.2-merged.2+26.3 — 2026-10-05 (testing branch)
+
+- Separate world-map viewing, minimap scale, and per-scale map generation. Add compact controls below S, per-atlas persistence, and generation tooltips.
+- Restore a vanilla cartography sound sent to the explorer once per generation batch.
+- Extend keep-atlas-on-death to extract only atlases from nested pouch/backpack/shulker/bundle contents, including cursor containers; preserve other ordinary drops and handle retained-atlas overflow.
+- Synchronize Tool Pouch and MapStitch HUD corner settings and use shared minimap/detail spacing for atlas and ordinary map sources.
+- Keep original mods individually visible in Mod Menu, hide the Colorful addon entry, and group authored components under the suite. Rename the coordinator to Vanilla / Polymer Shim. Original mod JARs remain unchanged.
+- Remove placeholder settings entries, give real configuration screens consistent titles, and add a rebindable Open Suite Settings hotkey (initially unbound).
+
+
+## 1.0.2-merged.1+26.3 — 2026-10-05 (testing branch)
+
+- Merge mixed-scale MapStitch and Sensible Stackables as separate modules on `merged`.
+- Retain both addon-aware MapStitch negotiation and Stackables protocol v2, including safe fallback metadata and full server counts.
+- Bundle all 16 feature/compatibility modules, keep exact Defaulted dropfix, and provide fresh combined validation.
+- Update the map addon’s coordinator dependency to the merged version and require all three new modules in root metadata, preventing Fabric from silently omitting an experiment.
+
+
+## 1.0.2-stackables.1+26.3 — 2026-10-04 (experimental branch)
+
+- Integrate Sensible Stackables as an independently compiled unofficial 26.3 port and separate Polymer module. Preserve original 26.2 source/binary/dependencies and verification.
+- Keep default stack rules, configurable uncapping, menu fixes, throw cooldown, original configuration and native count presentation.
+- Synchronize stack defaults through Polymer. Preserve full counts above 99 while advertising safe fallback maximum metadata; correct completed inventory actions.
+- Add independently negotiated Stackables capability and its original settings to the grouped hub.
+
+These features are not merged into main. Exact branch validation is in [VALIDATION.md](docs/VALIDATION.md).
+
 ## 1.0.1+26.3 — 2026-10-04
 
 - Matching suite clients now receive SSO’s actual broken-anvil block and facing. Clients without native SSO support continue to receive a safe damaged-anvil representation through Polymer. Native block registry synchronization, confirmed state IDs and palette width now cover SSO and Chalk together, including independent module fallback.

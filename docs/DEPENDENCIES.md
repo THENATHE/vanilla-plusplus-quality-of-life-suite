@@ -1,6 +1,6 @@
 # Dependencies and optional integrations
 
-Applies to **Vanilla++ Quality of Life Suite 1.0.1+26.3**. Publisher Modrinth project links and Fabric 26.3 version listings were checked on **2026-10-04**. The [recorded link inventory](modrinth-links.json) preserves the result. A listed optional integration means the included module contains support for it; it is not a claim that every combination has passed the suite tests. See [validation](VALIDATION.md) for the combinations actually exercised.
+Applies to **Vanilla++ Quality of Life Suite 1.0.2-merged.3+26.3**. Publisher Modrinth project links and Fabric 26.3 version listings were checked on **2026-10-04**. The [recorded link inventory](modrinth-links.json) preserves the result. A listed optional integration means the included module contains support for it; it is not a claim that every combination has passed the suite tests. See [validation](VALIDATION.md) for the combinations actually exercised.
 
 ## Required external libraries
 
@@ -13,12 +13,12 @@ Install these separately on the server and on clients using the suite. Vanilla c
 | [Fzzy Config](https://modrinth.com/mod/fzzy-config) | [0.7.7+fix2+26.3](https://modrinth.com/mod/fzzy-config/version/thw1Z19c) | Exact suite pin. Public publisher download; not redistributed in the library ZIP. |
 | [Cloth Config API](https://modrinth.com/mod/cloth-config) | [26.3.159+fabric](https://modrinth.com/mod/cloth-config/version/fg2uyxOW) | Preserves the original Chalk configuration backend. |
 | [mixson](https://modrinth.com/mod/mixson) | [2.2.1](https://modrinth.com/mod/mixson/version/yWpBBcpq) | Required by SSO and MiscTweaks. |
-| [Defaulted](https://modrinth.com/mod/defaulted) | **1.3.8+26.3.dropfix.1** — [suite release library ZIP](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.0.1%2B26.3) | Required exact local fix. The public Defaulted page is attribution/upstream information, not a replacement download for this binary. |
+| [Defaulted](https://modrinth.com/mod/defaulted) | **1.3.8+26.3.dropfix.1** — [suite release library ZIP](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.0.2-merged.3%2B26.3) | Required exact local fix. The public Defaulted page is attribution/upstream information, not a replacement download for this binary. |
 | [CodecUI — publisher source](https://github.com/MehVahdJukaar/codecui) | **26.3-1.4.3** — same suite release library ZIP | No publisher Modrinth project was found. This is the retained fork-family input; see [provenance](PROVENANCE.md). Keep it external so it supersedes Defaulted’s older nested CodecUI. |
 
 **Platform:** Minecraft 26.3, Java 25+, and [Fabric Loader 0.19.5](https://fabricmc.net/use/installer/). Fabric Loader is installed through the launcher/installer; it is not a dependency mod downloaded from a Modrinth project. Java and Minecraft are platform prerequisites.
 
-The optional `vanilla-plusplus-local-libraries-1.0.1+26.3.zip` includes only the exact Defaulted and CodecUI JARs and their notices. Copy the two JARs from its `mods/` folder into the instance’s `mods/`.
+The optional `vanilla-plusplus-local-libraries-1.0.2-merged.3+26.3.zip` includes only the exact Defaulted and CodecUI JARs and their notices. Copy the two JARs from its `mods/` folder into the instance’s `mods/`.
 
 ## Optional libraries and tools
 
@@ -83,3 +83,7 @@ These modules are already inside the suite JAR. Keep their separate original JAR
 | Chalk: Colorful Addon | [Modrinth](https://modrinth.com/mod/chalk-colorful-addon) | Suite uses the local metadata port for Chalk 26.3. |
 
 Shared Region Maps, Amethyst Curse Cleanser, the atlas/Elytra addon, and suite compatibility components are locally maintained here; no separate Modrinth listing is claimed. Their source locations are in [UPDATING.md](UPDATING.md). The bundled [MixinConstraints library](https://github.com/Moulberry/MixinConstraints) stays inside the original feature JARs; no additional download is required and no Modrinth listing was found.
+
+## Sensible Stackables experimental module
+
+[Pajic’s Sensible Stackables](https://modrinth.com/mod/sensible-stackables) is nested in this branch as the unofficial **3.0.3-port.1+26.3** port, alongside a separate **1.0.0+26.3** compatibility module. No external copy is needed. Its Fzzy Config, Defaulted and Mixson dependencies use the same exact suite versions listed above. The published developer baseline is **3.0.3+26.2**; it is not a 26.3 developer release. [Per-track provenance, dependency locks and verification](../components/sensible-stackables/README.md).

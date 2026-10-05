@@ -1,13 +1,13 @@
-# Installation pack — Vanilla++ Quality of Life Suite 1.0.1+26.3
+# Installation pack — Vanilla++ Quality of Life Suite 1.0.2-merged.3+26.3
 
 The installation pack supplies the existing suite and its exact local libraries, then downloads public dependencies from their publishers on Modrinth. It supports a native Fabric client and a dedicated server that also accepts vanilla players. Internet access is required during installation. Minecraft, Java, the Fabric loader installation, and the server's resource-pack hosting still need to be set up.
 
-Download from the [main 1.0.1 release](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.0.1%2B26.3):
+Download from the [merged testing release](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.0.2-merged.3%2B26.3):
 
-- `vanilla-plusplus-installation-pack-1.0.1+26.3.mrpack` — import with a launcher supporting Modrinth packs.
-- `vanilla-plusplus-installation-pack-1.0.1+26.3-manual.zip` — the same mod selection plus a Python installer for dedicated servers or manual client setup.
+- `vanilla-plusplus-installation-pack-1.0.2-merged.3+26.3.mrpack` — import with a launcher supporting Modrinth packs.
+- `vanilla-plusplus-installation-pack-1.0.2-merged.3+26.3-manual.zip` — the same mod selection plus a Python installer for dedicated servers or manual client setup.
 
-These are installation assets for the existing **1.0.1+26.3** release, not a new mod version. The suite JAR remains SHA-256 `8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a`.
+These are installation assets for the experimental **1.0.2-merged.3+26.3** release, combining both experimental modules. The suite JAR remains SHA-256 `f8f4b9af150f1383084c8682fd50462155b056f0ac94eff74be4f0dbdc45fdf3`.
 
 ## Client launcher installation
 
@@ -39,7 +39,7 @@ Use a new server directory, or stop and back up an existing instance before deli
 
 A server-aware `.mrpack` importer can use the same manifest directly. The helper also accepts `--pack /path/to/pack.mrpack` instead of an extracted kit. For a manual native-client installation, use `--side client --with-optional` against a separately prepared Minecraft/Fabric client instance; `--with-optional` includes Mod Menu. The helper installs mod files only, not a game launcher or server executable.
 
-Vanilla clients still do not get custom backpack/pouch screens, MapStitch's world map/minimap, or client HUD features. See the [suite's compatibility overview](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite#the-shim-vanilla-and-modded-players-together).
+Vanilla clients still do not get custom backpack/pouch screens, MapStitch's world map/minimap, or client HUD features. See the [suite's compatibility overview](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/merged#the-shim-vanilla-and-modded-players-together).
 
 ## Exact contents and permissions
 
@@ -47,9 +47,9 @@ Both archives embed only these three mod JARs:
 
 | Included file | SHA-256 | License/source context |
 | --- | --- | --- |
-| Suite 1.0.1+26.3 | `8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a` | Existing authorized suite distribution; all original notices preserved in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
-| Defaulted 1.3.8+26.3.dropfix.1 | `e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61` | MIT; exact local repair. [Patch source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/defaulted-dropfix). |
-| CodecUI 26.3-1.4.3 | `4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898` | MIT declaration and retained notices; precise private build revision is unrecorded. [Source-family record](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference). |
+| Suite 1.0.2-merged.3+26.3 | `f8f4b9af150f1383084c8682fd50462155b056f0ac94eff74be4f0dbdc45fdf3` | Existing authorized suite distribution; all original notices preserved in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
+| Defaulted 1.3.8+26.3.dropfix.1 | `e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61` | MIT; exact local repair. [Patch source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/merged/components/defaulted-dropfix). |
+| CodecUI 26.3-1.4.3 | `4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898` | MIT declaration and retained notices; precise private build revision is unrecorded. [Source-family record](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/merged/components/codecui-reference). |
 
 Public binaries remain publisher downloads:
 
@@ -71,6 +71,6 @@ Fzzy Config is **not inside either archive**, including nested suite JARs. Its [
 
 The pack follows the [official Modrinth format](https://support.modrinth.com/en/articles/8802351-modrinth-modpack-format-mrpack): a ZIP-based `.mrpack`, root `modrinth.index.json`, format version 1, required SHA-1/SHA-512 fields, and per-file client/server environments. `overrides/` supplies only the authorized local JARs and notices. “Unsupported” in an environment entry means that this pack does not install that file on that side; Polymer itself can be installed on compatible clients separately if wanted.
 
-The [installation lock](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/blob/main/docs/installation-pack.lock.json) records the official API version/project URLs, publisher licenses, all three hashes, download sizes, environment choices and embedded files. Metadata and downloads were checked against the [official version API](https://docs.modrinth.com/api/operations/getversion/) on **2026-10-04**. The lock is separate from the production JAR's build lock; creating these installation assets does not rebuild that JAR.
+The [installation lock](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/blob/merged/docs/installation-pack.lock.json) records the official API version/project URLs, publisher licenses, all three hashes, download sizes, environment choices and embedded files. Metadata and downloads were checked against the [official version API](https://docs.modrinth.com/api/operations/getversion/) on **2026-10-04**. The lock is separate from the production JAR's build lock; creating these installation assets does not rebuild that JAR.
 
-`tools/package-installation.py` reproduces both archives from the existing verified artifacts and lock. `tools/install-pack.py` is the helper included as `install.py`. **`INSTALLATION_PACK_SHA256SUMS.sha256`** covers both installation archives, `INSTALLATION_PACK.md`, and `INSTALLATION_PACK_VERIFICATION.json`. The original release's `SHA256SUMS.sha256` remains unchanged. Verification results are also retained in the repository's installation-pack evidence. Existing [gameplay/runtime validation](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/blob/main/docs/VALIDATION.md) applies to the unchanged JARs; pack validation separately checks download bytes, archive/import structure, environment filtering and helper installation. A launcher GUI import is only claimed if separately recorded.
+`tools/package-installation.py` reproduces both archives from the existing verified artifacts and lock. `tools/install-pack.py` is the helper included as `install.py`. **`INSTALLATION_PACK_SHA256SUMS.sha256`** covers both installation archives, `INSTALLATION_PACK.md`, and `INSTALLATION_PACK_VERIFICATION.json`. The main `SHA256SUMS.sha256` covers the suite JAR and library/source archives; installation packaging does not change those files. Verification results are also retained in the repository's installation-pack evidence. Existing [gameplay/runtime validation](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/blob/merged/docs/VALIDATION.md) applies to the unchanged JARs; pack validation separately checks download bytes, archive/import structure, environment filtering and helper installation. A launcher GUI import is only claimed if separately recorded.

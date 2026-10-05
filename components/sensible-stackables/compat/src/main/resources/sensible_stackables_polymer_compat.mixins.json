@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.thenathe.stackablescompat.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "ContainerResyncMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -51,10 +51,10 @@ def main():
     args = parser.parse_args()
     lock = json.loads(LOCK.read_text())
     version = lock['pack_version']
-    release = args.output or ROOT.parents[1] / 'Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin' / version
+    release = args.output or ROOT.parents[1] / 'Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin - Merged Experiments' / version
     release.mkdir(parents=True, exist_ok=True)
     manifest = {'formatVersion': 1, 'game': 'minecraft', 'versionId': version,
-                'name': lock['name'], 'summary': 'Native Fabric client and Polymer-enabled dedicated server installation; exact suite 1.0.1 files.',
+                'name': lock['name'], 'summary': 'Native Fabric client and Polymer-enabled dedicated server installation; exact merged testing suite files.',
                 'files': [{key: entry[key] for key in ('path', 'hashes', 'env', 'downloads', 'fileSize')} for entry in lock['downloads']],
                 'dependencies': lock['dependencies']}
     assert len({entry['path'] for entry in manifest['files']}) == len(manifest['files'])

@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.thenathe.multiscale.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "AtlasMixedScalesMixin",
+    "AtlasDeathPlayerMixin",
+    "AtlasDeathRespawnMixin"
+  ],
+  "client": [
+    "AtlasUseClientMixin",
+    "WorldMapScaleMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "tested_candidate_sha256": "40c8e7bac2732310a1903b870925e520565c76098ea0f1f8e95e8f4e6c5463e8",
+  "final_sha256": "9ca677eee6d1c82c117b523e866e244e9bbba1e45cacaafd93ddce0dac76a08f",
+  "all_16_nested_modules_byte_identical": true,
+  "root_differences": [
+    "assets/mapstitch/lang/en_us.json",
+    "assets/misctweaks/lang/en_us.json",
+    "assets/sensible_stackables/lang/en_us.json",
+    "assets/simple_death_improvements/lang/en_us.json",
+    "assets/simple_smithing_overhaul/lang/en_us.json",
+    "assets/tiered_backpacks/lang/en_us.json",
+    "assets/toolpouch/lang/en_us.json",
+    "com/thenathe/suite/client/SuiteClient.class",
+    "com/thenathe/suite/client/SuiteModMenu.class",
+    "com/thenathe/suite/client/SuiteResources.class",
+    "com/thenathe/suite/client/mixin/ChalkModMenuMixin.class",
+    "com/thenathe/suite/client/mixin/ModMenuMixinPlugin.class",
+    "resourcepacks/settings_titles/assets/mapstitch/lang/en_us.json",
+    "resourcepacks/settings_titles/assets/misctweaks/lang/en_us.json",
+    "resourcepacks/settings_titles/assets/sensible_stackables/lang/en_us.json",
+    "resourcepacks/settings_titles/assets/simple_death_improvements/lang/en_us.json",
+    "resourcepacks/settings_titles/assets/simple_smithing_overhaul/lang/en_us.json",
+    "resourcepacks/settings_titles/assets/tiered_backpacks/lang/en_us.json",
+    "resourcepacks/settings_titles/assets/toolpouch/lang/en_us.json",
+    "resourcepacks/settings_titles/pack.mcmeta",
+    "suite_mod_menu.mixins.json"
+  ],
+  "scope": "Only client Mod Menu Chalk factory routing and original-language-preserving settings resources/registration changed after maps/network/death runs. Final settings and HUD runtime results are recorded separately."
+}

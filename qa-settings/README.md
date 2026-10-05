@@ -1,6 +1,6 @@
 # Native settings validation
 
-This development fixture opens the suite's actual Fzzy Config GUI in a disposable graphical client. It validates the eleven original/grouped configuration identities, constructs every native configuration screen, renders screenshots after the initial loading overlay has closed, and presses native checkbox widgets rather than substituting a settings serializer.
+This development fixture opens the suite's actual Fzzy Config GUI in a disposable graphical client. It validates the twelve functional original/grouped configuration identities in the merged suite (ten without Sensible Stackables), their effective Settings titles, absence of the former fake overview, and the rebindable suite hotkey, constructs every native configuration screen, renders screenshots after the initial loading overlay has closed, and presses native checkbox widgets rather than substituting a settings serializer.
 
 ```sh
 python3 qa-settings/run.py --label standalone --settings-only

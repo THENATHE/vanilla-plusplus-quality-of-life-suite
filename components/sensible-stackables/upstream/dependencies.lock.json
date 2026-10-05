@@ -1,0 +1,32 @@
+{
+  "mods": [
+    {
+      "file": "sensible_stackables-fabric-3.0.3+26.2.jar",
+      "sha256": "3adefd8ae5fb59502e52cd830e9fe28cded4f8c71009122d3c06bfbd8107633b"
+    },
+    {
+      "file": "fabric-api-0.161.0+26.2.jar",
+      "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+    },
+    {
+      "file": "fzzy_config-0.7.6+26.2-pre-3.jar",
+      "sha256": "2069322cf41e7b10ae8b17ad7c9ca5f5ecd7696dd768ac0de7bf42f12b18517c"
+    },
+    {
+      "file": "defaulted-1.3.8-26.1.2-Fabric.jar",
+      "sha256": "badc8c9b1d2e21e5e9e16e540621daa5487ed1e1601d84729e8cb99cb6a17ece"
+    },
+    {
+      "file": "mixson-2.2.0.jar",
+      "sha256": "46eb532f9e0e696d39fb76f49ed936853c5a3c9967d01d3c2725904fdbd01af0"
+    },
+    {
+      "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+      "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+    }
+  ],
+  "minecraft": "26.2",
+  "java": "25",
+  "fabric_loader": "0.19.5",
+  "track": "developer-release"
+}

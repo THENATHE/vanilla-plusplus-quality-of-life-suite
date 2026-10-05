@@ -27,7 +27,7 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 /** Groups existing native config objects without changing their identity or save/sync code. */
 public final class SuiteSettings {
     public static final String SCOPE = "thenathe_mod_suite";
-    private static final List<String> MODULES = List.of("simple_smithing_overhaul", "mapstitch", "toolpouch", "tiered_backpacks", "misctweaks", "simple_death_improvements", SCOPE);
+    private static final List<String> MODULES = List.of("simple_smithing_overhaul", "mapstitch", "toolpouch", "tiered_backpacks", "misctweaks", "simple_death_improvements", "sensible_stackables", SCOPE);
     private static final Set<String> MODULE_SET = Set.copyOf(MODULES);
     private static boolean initialized;
     private static ConfigScreenManager currentManager;
@@ -36,16 +36,13 @@ public final class SuiteSettings {
 
     public static void initialize() {
         if (initialized) return;
-        SuiteOverview overview = new SuiteOverview();
         ChalkSettings chalkConfig = new ChalkSettings();
         try {
             // Fzzy registers directory watchers before any transient GUI config is saved.
-            Files.createDirectories(overview.getDir().toPath());
             Files.createDirectories(chalkConfig.getDir().toPath());
         } catch (IOException failure) {
             throw new IllegalStateException("Could not create the suite client configuration directory", failure);
         }
-        ConfigApiJava.registerConfig(overview, SuiteOverview::new, RegisterType.CLIENT);
         chalk = ConfigApiJava.registerConfig(chalkConfig, ChalkSettings::new, RegisterType.CLIENT);
         initialized = true;
         ConfigApiJava.registerScreenProvider(SCOPE, (namespace, scope) -> create(Minecraft.getInstance().gui.screen()));
@@ -59,6 +56,19 @@ public final class SuiteSettings {
 
     public static Screen create(Screen parent) {
         return provide(parent, SCOPE);
+    }
+
+    /** Open Chalk's real setting directly while retaining the shared sidebar. */
+    public static Screen createChalk(Screen parent) {
+        return provide(parent, SCOPE + ".chalk");
+    }
+
+    /** Limit navigation presentation changes to configurations owned by this hub. */
+    public static boolean isGroupedConfigScope(String scope) {
+        int separator = scope.indexOf('.');
+        if (separator < 0) return false;
+        String namespace = scope.substring(0, separator);
+        return MODULE_SET.contains(namespace) && (!namespace.equals(SCOPE) || scope.equals(SCOPE + ".chalk"));
     }
 
     private static Screen provide(Screen parent, String scope) {

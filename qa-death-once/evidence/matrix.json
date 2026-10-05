@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-05",
+  "bundle_sha256": "40c8e7bac2732310a1903b870925e520565c76098ea0f1f8e95e8f4e6c5463e8",
+  "assertions_per_profile": 127,
+  "unique_cases": 25,
+  "profiles": [
+    "death-polymer",
+    "death-native"
+  ],
+  "all_passed": true,
+  "scope": "Real packaged death-drop and respawn methods in disposable dedicated servers; no interactive death animation or external accessory-mod slots claimed.",
+  "cases": [
+    {
+      "case": "loose inventory",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "loose offhand",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "pouch inventory",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "open pouch final contents",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "open backpack final contents",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "pouch leggings attached",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "backpack tiered_backpacks:leather_backpack",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "backpack tiered_backpacks:copper_backpack",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "backpack tiered_backpacks:iron_backpack",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "backpack tiered_backpacks:golden_backpack",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "backpack tiered_backpacks:diamond_backpack",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "backpack tiered_backpacks:netherite_backpack",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "backpack chestplate attached",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "shulker inventory",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "bundle selected atlas",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "nested bundle in shulker in backpack",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "two atlases with empty middle slot",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "disabled retention loose",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "disabled retention nested",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "keep inventory gamerule",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "loose vanishing atlas",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "vanishing ancestor container",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "full inventory cursor atlas",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "full inventory cursor container",
+      "death-polymer": true,
+      "death-native": true
+    },
+    {
+      "case": "overflow save/load and room recovery",
+      "death-polymer": true,
+      "death-native": true
+    }
+  ],
+  "fixture_source_sha256": "127df56df383c346c0423cfc20641ef059ea6b25bfe5555c7c5abb359226debc"
+}

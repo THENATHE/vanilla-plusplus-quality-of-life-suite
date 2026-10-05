@@ -31,7 +31,7 @@ import java.util.function.Consumer;
 
 /** One connection-local capability decision, independent of optional original mod classes. */
 public final class SuiteCapabilities {
-    public static final List<String> MODULES = List.of("mapstitch", "simple_smithing_overhaul", "tiered_backpacks", "toolpouch", "chalk", "misctweaks", "simple_death_improvements", "shared_region_maps", "amethyst_curse_cleanser", "toolpouch_atlas_elytra_compat");
+    public static final List<String> MODULES = List.of("mapstitch", "simple_smithing_overhaul", "tiered_backpacks", "toolpouch", "chalk", "misctweaks", "simple_death_improvements", "shared_region_maps", "amethyst_curse_cleanser", "toolpouch_atlas_elytra_compat", "sensible_stackables");
     private static final List<java.util.function.Consumer<PacketContext>> RESETS = new java.util.ArrayList<>();
     private static boolean initialized, clientInitialized;
     public static void onConnectionReset(java.util.function.Consumer<PacketContext> reset) { RESETS.add(reset); }
@@ -122,14 +122,14 @@ public final class SuiteCapabilities {
     }
 
     public record Offer(String nonce) implements CustomPacketPayload {
-        public static final Type<Offer> TYPE = new Type<>(Identifier.parse("thenathe_mod_suite:offer_v1"));
+        public static final Type<Offer> TYPE = new Type<>(Identifier.parse("thenathe_mod_suite:offer_v2"));
         public static final StreamCodec<FriendlyByteBuf, Offer> CODEC = StreamCodec.of(
                 (buf, value) -> buf.writeUtf(value.nonce(), 36), buf -> new Offer(buf.readUtf(36)));
         public Type<Offer> type() { return TYPE; }
     }
 
     public record Reply(String nonce, List<String> fingerprints) implements CustomPacketPayload {
-        public static final Type<Reply> TYPE = new Type<>(Identifier.parse("thenathe_mod_suite:reply_v1"));
+        public static final Type<Reply> TYPE = new Type<>(Identifier.parse("thenathe_mod_suite:reply_v2"));
         public static final StreamCodec<FriendlyByteBuf, Reply> CODEC = StreamCodec.of((buf, value) -> {
             buf.writeUtf(value.nonce(), 36);
             for (String fingerprint : value.fingerprints()) buf.writeUtf(fingerprint, 64);
@@ -167,7 +167,7 @@ public final class SuiteCapabilities {
                 if (connection instanceof ChannelInfoHolder holder) {
                     var channels = holder.fabric_getPendingChannelsNames(ConnectionProtocol.PLAY);
                     if (loaded("toolpouch") && channels.containsAll(TOOLPOUCH_CHANNELS)) selected.add("toolpouch");
-                    if (loaded("mapstitch") && channels.containsAll(MAPSTITCH_CHANNELS)) selected.add("mapstitch");
+                    if (loaded("mapstitch") && !loaded("mapstitch_mixed_scales") && channels.containsAll(MAPSTITCH_CHANNELS)) selected.add("mapstitch");
                 }
             }
         }
@@ -177,6 +177,8 @@ public final class SuiteCapabilities {
     }
 
     private static List<String> dependencies(String mod) {
+        if (mod.equals("mapstitch")) return List.of(mod, "mapstitch_mixed_scales", "toolpouch_atlas_elytra_compat", "shared_region_maps", "sso_backpack_toolpouch_mapstitch_shim", "thenathe_mod_suite");
+        if (mod.equals("sensible_stackables")) return List.of(mod, "sensible_stackables_polymer_compat", "defaulted", "fzzy_config", "thenathe_mod_suite");
         if (mod.equals("chalk")) return List.of(mod, "chalk-colorful-addon", "chalk_polymer_compat", "thenathe_mod_suite");
         if (mod.equals("toolpouch")) return List.of(mod, "toolpouch_atlas_elytra_compat", "sso_backpack_toolpouch_mapstitch_shim", "thenathe_mod_suite");
         return List.of(mod, "sso_backpack_toolpouch_mapstitch_shim", "thenathe_mod_suite");
@@ -185,7 +187,7 @@ public final class SuiteCapabilities {
         return id.getNamespace().equals(mod) || (mod.equals("chalk") && id.getNamespace().equals("chalk_polymer_compat"));
     }
     public record Decision(List<String> modules) implements CustomPacketPayload {
-        public static final Type<Decision> TYPE = new Type<>(Identifier.parse("thenathe_mod_suite:decision_v1"));
+        public static final Type<Decision> TYPE = new Type<>(Identifier.parse("thenathe_mod_suite:decision_v2"));
         public static final StreamCodec<FriendlyByteBuf, Decision> CODEC = StreamCodec.of((buf, value) -> {
             for (String mod : MODULES) buf.writeBoolean(value.modules().contains(mod));
         }, buf -> {

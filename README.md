@@ -2,6 +2,8 @@
 
 [What it is](#what-it-is) · [Features](#features) · [Vanilla compatibility](#the-shim-vanilla-and-modded-players-together) · [Installation](#installation) · [Technical info](#technical-info) · [Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Dependencies and compatible mods](docs/DEPENDENCIES.md)
 
+This is the `merged` testing branch, version **1.0.2-merged.3+26.3**. It combines the [mixed-scale MapStitch addon](docs/MIXED_SCALES.md) and [Sensible Stackables port with Polymer compatibility](components/sensible-stackables/README.md). Both features remain separate modules. Main stays at its stable feature set.
+
 ## What it is
 
 A collection of Minecraft quality-of-life mods brought together into one feature-packed **Fabric mod for Minecraft 26.3**, maintained by **THENATHE**. It combines better equipment repair and enchanting, useful storage, maps that work together, less punishing deaths, colorful cave markings, and everyday gameplay improvements.
@@ -11,6 +13,26 @@ The suite includes the original mods listed below, plus my own additions to help
 This is an unofficial community project. Credit for the original mods belongs to their creators, thanked below. Many features are configurable, so your server's settings may differ from the defaults described here.
 
 ## Features
+
+### Sensible Stackables
+
+[Original mod on Modrinth](https://modrinth.com/mod/sensible-stackables)
+
+Thanks for your hard work, **pajic**!
+
+- Stack potions up to 3, saddles up to 16, and enchanted books up to 64 under the default rules.
+- Configure common stack sizes and per-item or tag overrides.
+- Optionally uncap stack sizes beyond the normal limit.
+- Retain the original stacked-item menu fixes and throwable-potion cooldown.
+- Native clients retain count abbreviation and display scaling.
+
+#### My tweaks and changes
+
+This branch uses an unofficial 26.3 port and a separate Polymer module. It keeps the original settings and server quantities. Clients without the suite receive safe stack defaults; above 99, only their prediction metadata is capped at 99, and completed inventory moves are corrected by the server. See [provenance, behavior, and verification](components/sensible-stackables/README.md).
+
+The world-map screen now has independent controls: **S** selects the world-map view, **M1–M16** selects the minimap, and **1, 2, 4, 8, 16** toggle generation at each scale. Enabled generation buttons are green. Tooltips show the selected generation scales. Each enabled missing layer consumes one blank; existing maps keep their data. These options are saved per atlas. See [atlas controls](docs/ATLAS_CONTROLS.md).
+
+Mod Menu shows original feature mods individually and groups additions beneath **Vanilla++ Quality of Life Suite**. The combined settings screen lists actual settings with consistent gameplay/client titles. Bind **Open Suite Settings** under the suite category in Minecraft Controls to open it from gameplay.
 
 ### Simple Smithing Overhaul
 
@@ -63,9 +85,11 @@ Thanks for your hard work, **pajic**!
 - Made atlases work from inside the active Tool Pouch, including pouches attached to leggings. The world map, minimap, and exploration updates continue to work there.
 - Let MapStitch find a compass or clock inside the pouch for its item requirements.
 - Added shared regional map exploration through Shared Region Maps, described below.
+- Store every vanilla map scale in one atlas. Use **S** for the world-map view, **M1–M16** for the minimap, and the **1/2/4/8/16** switches for which maps to generate.
+- Keep only the atlas on death when the original retention setting is enabled, even from nested pouches, backpacks, shulkers or bundles; the containing item and its other contents drop normally.
 - Included fixes for missing map centers, stale map selection, and atlas crafting previews/ingredient consumption in the compatibility component.
 - Cleared stale minimap position information when changing worlds or atlas map centers.
-- Kept minimap controls separate from the pouch information controls, with spacing to prevent the two overlays covering each other.
+- Share map/detail corner placement between MapStitch and Tool Pouch, with one layout for atlas and ordinary-map minimaps.
 
 ### Tool Pouch
 
@@ -101,8 +125,8 @@ These include my **Tool Pouch Atlas & Elytra addon**, already built into the sui
 - Preserve the larger netherite pouch capacity when attached to leggings, and correct stale pouch-tier information when detaching or replacing it.
 - Add optional [ClientSort](https://modrinth.com/mod/clientsort/version/UWMryUad) sort, refill, and transfer controls while respecting pouch storage restrictions.
 - Include safeguards against duplication and item loss when using a shulker box inside a pouch and changing or moving the owning pouch.
-- Place pouch information beneath a pouch-held atlas minimap when they share a side. If a bottom-corner map leaves no room below, the information moves above it.
-- Keep positioning independent: put the minimap on the right and the details on the left if you prefer. This spacing applies to Tool Pouch's own information overlay; an external replacement such as Immersive Overlays controls its own layout.
+- Use the same spacing for ordinary maps and atlases, keeping pouch details clear of the minimap.
+- Synchronize map and detail corner settings so changes in either mod apply to both minimap sources. This layout applies to Tool Pouch's own information overlay; an external replacement such as Immersive Overlays controls its own layout.
 
 ### Tiered Backpacks
 
@@ -257,7 +281,7 @@ The same rules apply to the other dye colors. Converting existing chalk does not
 - Open **Vanilla++ Quality of Life Suite** through [Mod Menu](https://modrinth.com/mod/modmenu), or use `/suite-settings` on the client.
 - Browse the original mod settings together in one screen, grouped by module.
 - Keep the original setting descriptions, validation, and server permissions.
-- Configure MapStitch's minimap and Tool Pouch's details separately.
+- Change minimap/detail placement from either original client settings screen; atlas and ordinary pouch maps share the same layout. Keep appearance and displayed information controls in their original sections.
 - Keep pending setting-change proposals when reopening the screen, and refresh correctly when the server sends updated settings.
 - Leave each server's pending proposals and permissions behind when you disconnect.
 
@@ -289,12 +313,12 @@ The compatibility layer includes:
 
 ## Installation
 
-For a ready-to-import setup, download the **[1.0.1 installation pack](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.0.1%2B26.3)**: import the `.mrpack` in a compatible launcher, or use the manual ZIP's Python installer for a dedicated server. It supplies the suite and exact local libraries and downloads the public dependencies from their publishers; the server selection includes Polymer. See [installation-pack instructions](docs/INSTALLATION_PACK.md). Internet access, Minecraft/Fabric and Java setup, and server resource-pack hosting are still required. The individual-file installation below remains available.
+The [merged testing checklist](docs/MERGED_TESTING.md) covers both new features. For a fresh test instance, use the release’s `.mrpack` or manual installation ZIP; [installation pack instructions](docs/INSTALLATION_PACK.md) explain their client/server dependency selection.
 
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Download `vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/latest) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
+2. Download `vanilla-plusplus-quality-of-life-suite-1.0.2-merged.3+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.0.2-merged.3%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
 3. Install the required libraries below. The suite includes the feature mods, but these shared libraries remain separate.
 4. Remove separate copies of the included feature mods, their addons, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
@@ -309,7 +333,7 @@ For a ready-to-import setup, download the **[1.0.1 installation pack](https://gi
 | [Defaulted](https://modrinth.com/mod/defaulted) — use the suite's library ZIP | **1.3.8+26.3.dropfix.1** |
 | [CodecUI](https://github.com/MehVahdJukaar/codecui) — use the suite's library ZIP; no Modrinth listing | **26.3-1.4.3** |
 
-The release's `vanilla-plusplus-local-libraries-1.0.1+26.3.zip` supplies the exact **Defaulted dropfix and CodecUI** builds. Extract its two JARs from `mods/` into your instance's `mods/` folder. Replace other external copies of those two libraries. Download the remaining libraries separately; the [dependency directory](docs/DEPENDENCIES.md) includes exact publisher download links. The ordinary Defaulted download does not replace the required dropfix build.
+The release's `vanilla-plusplus-local-libraries-1.0.2-merged.3+26.3.zip` supplies the exact **Defaulted dropfix and CodecUI** builds. Extract its two JARs from `mods/` into your instance's `mods/` folder. Replace other external copies of those two libraries. Download the remaining libraries separately; the [dependency directory](docs/DEPENDENCIES.md) includes exact publisher download links. The ordinary Defaulted download does not replace the required dropfix build.
 
 ### Allow vanilla players to join
 
@@ -340,7 +364,7 @@ The connection-scoped capability protocol checks module/addon versions and regis
 
 The settings screen uses the original Fzzy configuration IDs, validation, permissions, and saving. Chalk's particle control saves to its original configuration. Settings managers preserve proposals within a connection, restore routing after invalidation, and clear connection-specific state on disconnect.
 
-Implementation details: [negotiation](components/combined-compat/NEGOTIATION.md), [settings](docs/settings.md), [HUD spacing](docs/hud-layout-fix.md), and [shared-map changes](docs/shared-region-maps-changes.md).
+Implementation details: [negotiation](components/combined-compat/NEGOTIATION.md), [settings](docs/settings.md), [shared HUD layout](docs/HUD.md), and [shared-map changes](docs/shared-region-maps-changes.md).
 
 ### Building and updating
 
@@ -350,7 +374,7 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar`.
+The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Branch output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.3+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 

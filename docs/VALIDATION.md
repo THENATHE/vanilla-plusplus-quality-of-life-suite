@@ -1,6 +1,49 @@
+# Validation
+
+## Merged presentation update 1.0.2-merged.3+26.3
+
+Final SHA-256: `f8f4b9af150f1383084c8682fd50462155b056f0ac94eff74be4f0dbdc45fdf3`.
+
+The [fresh native client](../qa-merged/evidence/merged3/atlas/result.json) passed top-right widget alignment, exact original right-sidebar geometry, reordered atlas tooltip, all five minimap scales, independent world-map/generation controls, duplicate atlas targeting and settings hotkey. The [fresh settings run](../qa-merged/evidence/merged3/settings/observations.json) checked all 12 Configure... labels, original named category titles/fields and the original Chalk navigation destination.
+
+This is a small presentation update. [Comparison with merged.2](../qa-merged/evidence/merged3/previous-build-comparison.json) confirms 15 unchanged nested modules; only layout/tooltip mixin classes change in the map addon. Broad mechanics, death/HUD matrices and vanilla/Fabric fallback scenarios below were not repeated for this build. Previous results remain evidence for their exact artifacts, not newly executed tests.
+
+
+## Historical merged testing branch 1.0.2-merged.2+26.3
+
+Combined build and runtime evidence is recorded in [MERGED_TESTING.md](MERGED_TESTING.md). Prior branch and mainline evidence below is historical and does not stand in for fresh combined tests.
+
+The previous merged update has focused evidence under [merged2](../qa-merged/evidence/merged2/). The final JAR hash and exact evidence paths are recorded in [build verification](build-verification.json).
+
+- Matching native and Fabric API-only clients connected to the Polymer server. Native clients exercised all five M scales, independent S/generation controls, all-off/re-enable, duplicate inventory/pouch targeting and the in-world settings hotkey. Both clients moved all 2,048 stone through actual inventory packets with no loss; fallback maximum metadata remained 99.
+- Dedicated map mechanics/restarts passed **158 assertions**, with and without Polymer: all five layers, independent generation, blank conservation, one cartography packet per creation batch, stored options/unrelated data, and stale/replaced book rejection.
+- The requested one-off death checks passed **25 cases per profile, 254 assertions total**, with and without Polymer. Every ordinary supported container, nested combination, open menu, equipment attachment, cursor and overflow case preserved only atlases while conserving ordinary drops. Real bundle insertion accepted atlases. Optional external Trinkets/Ohmega accessory slots were not installed in this baseline.
+- Final graphical HUD checks cover eight scenes: atlas/ordinary maps share anchors and details never overlap the observed map bounds; original settings synchronize and save; signed atlas offsets persist.
+- The settings fixture checks actual Mod Menu grouping/hidden Colorful entry/Chalk factory, 12 functional configurations with correct titles and original translations, hotkey registration and the no-world guard.
+
+The earlier mechanics/network/death candidate is identified in its result files. The final presentation fixes change only root client Mod Menu/title-resource code; [byte comparison](../qa-merged/evidence/merged2/candidate-to-final-equivalence.json) verifies all 16 nested modules are byte-for-byte identical. The final settings and rendered HUD checks run against the packaged JAR itself. Historical vanilla, client-Polymer, full Stackables menu and permission tests below were not rerun for this update; no new pass is claimed for those unchanged scenarios. Tests cover the requested changes rather than every possible mod arrangement or arbitrary nesting/count.
+
 # Suite validation and test limits
 
-## Current 1.0.1 network evidence
+## Sensible Stackables branch 1.0.2-stackables.1
+
+This independent branch adds a separately built Sensible Stackables `3.0.3-port.1+26.3` module and `1.0.0+26.3` compatibility module. The [component record](../components/sensible-stackables/README.md) identifies the untouched developer 26.2 baseline, published-source comparison, exact per-track dependencies, and agreed fallback maximum-metadata limit. Native features and actual stack counts remain intact; vanilla clients advertise a maximum of 99 for hashing/prediction when the server's limit is higher.
+
+Dedicated-server mechanics and restart records are maintained in [qa-stackables](../qa-stackables/README.md). They use actual server menu implementations with a fixture player, not a connected client. Original developer-source compilation and untouched 26.2 baseline results are separate from ported-suite results. The root network harness records real-client receipt and click behavior separately. Historical 1.0.1 and 1.0.0 results below are not claims that those profiles ran against this branch.
+
+## Historical Sensible Stackables branch network and settings acceptance
+
+Final JAR SHA-256: `40c7ad4b454e8caa2a4518fcd246aa8fb54feeb65cc98ecc87dfd2a4af334acb`.
+
+- [Four connection profiles](../qa-stackables/evidence/network/connections.json) passed: matching suite, Fabric API-only client, actual vanilla client, and matching suite without server Polymer. Server used uncapping at 2048; observed native and Fabric client counts remain exactly 2048, potions 3. The unmodified vanilla client joined and remained connected; this profile does not inspect its screen or automate its clicks.
+- [Actual client inventory packets](../qa-stackables/evidence/network/inventory-packets.json) passed for matching native and Fabric API-only clients. Each picked up all 2048 stone and placed it in another slot, with zero remainder/loss. Native maximum stayed 2048; fallback maximum was 99. The ordinary-item forced-transform correction prevents the confirmed persistent-codec hash crash.
+- [Client-side Polymer](../qa-stackables/evidence/network/client-polymer.json) also passed native 2048 receipt, potion metadata and real inventory moves.
+- [Unified settings](../qa-stackables/evidence/settings/observations.json) opened all 13 original suite/client configurations, including `sensible_stackables.config` and `sensible_stackables.client_config`, with nonempty native widgets and unchanged IDs. This was a standalone settings-screen test, not a new multiplayer permissions regression.
+- [Dedicated mechanics](../qa-stackables/evidence/final-context-02/result.json) passed 131 assertions across six default/uncapped Polymer/native initial/restart cases. [Untouched developer 26.2](../qa-stackables/evidence/upstream-26.2-01/result.json) independently passed 82 assertions across four cases; no 26.2 vanilla shim or connected vanilla-client result is claimed.
+
+Remaining manual checks: test your chosen item/tag overrides, throw cooldown, shift/drag behavior on actual vanilla clients, stacked-item workflows in other installed mod menus, native count formatting, and larger counts than 2048. The VarInt boundary was checked separately, but that is not exhaustive gameplay evidence for arbitrarily large counts. Back up existing worlds/configurations before installing an experimental branch.
+
+## Historical 1.0.1 network evidence
 
 The release `vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar`, SHA-256 `8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a`, passed 12 bounded connection cases after the nested compatibility versions were corrected. Every result below comes from that exact artifact; earlier candidate runs remain local development records.
 
@@ -11,7 +54,7 @@ The release `vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar`, SHA-256 `8e
 
 These checks verify negotiation, registry/state translation, reconnect behavior, and the native broken-anvil regression. They do not replace exhaustive gameplay, persistence, or LAN-client acceptance. The separate ChatGPT SSO-port track remained paused and was not built or tested.
 
-## Current 1.0.1 settings and build evidence
+## Historical 1.0.1 settings and build evidence
 
 [Settings lifecycle results](../qa-settings/evidence/lifecycle-1.0.1.json) passed all 11 native configuration screens, representative Chalk/Tool Pouch persistence, operator and guest permissions, pending proposal preservation across reopening, and routing recovery after an actual Fzzy client update invalidated its cache. Real different-server reconnects passed in both permission directions and cleared previous proposals. Forwarded proposals were injected through the original Fzzy receiver; this was not a two-player forwarding network test.
 

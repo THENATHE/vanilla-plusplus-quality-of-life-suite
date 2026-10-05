@@ -8,8 +8,10 @@ import net.minecraft.client.Minecraft;
 
 public final class SuiteClient implements ClientModInitializer {
     @Override public void onInitializeClient() {
+        SuiteResources.initialize();
         SuiteCapabilities.initializeClient();
         SuiteSettings.initialize();
+        SuiteKeybindings.initialize();
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, context) -> dispatcher.register(
             ClientCommands.literal("suite-settings").executes(command -> {
                 Minecraft client = Minecraft.getInstance();

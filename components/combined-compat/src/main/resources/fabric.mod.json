@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "sso_backpack_toolpouch_mapstitch_shim",
   "version": "${version}",
-  "name": "SSO-backpack-toolpouch-mapstitch-shim",
+  "name": "Vanilla / Polymer Shim",
   "description": "Internal Vanilla++ Quality of Life Suite compatibility component; shared capability negotiation.",
   "authors": [
     "THENATHE"
@@ -42,5 +42,10 @@
     "tiered_backpacks_polymer_compat": "*",
     "toolpouch_polymer_compat": "*",
     "mapstitch_polymer_compat": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "thenathe_mod_suite"
+    }
   }
 }

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "sensible_stackables",
+  "version": "${version}",
+  "name": "Sensible Stackables (Unofficial 26.3 Port)",
+  "description": "Change and uncap stack sizes for any item, with sensible defaults",
+  "authors": [
+    "pajic"
+  ],
+  "contributors": [
+    "THENATHE (26.3 port)"
+  ],
+  "contact": {
+    "sources": "https://github.com/pajicadvance/sensible-stackables",
+    "issues": "https://github.com/pajicadvance/sensible-stackables/issues",
+    "homepage": "https://modrinth.com/mod/sensible-stackables"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/5RkzS66zWb"
+      }
+    }
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "me.pajic.sensible_stackables.platform.fabric.FabricClientEntrypoint"
+    ],
+    "main": [
+      "me.pajic.sensible_stackables.platform.fabric.FabricEntrypoint"
+    ]
+  },
+  "mixins": [
+    "sensible_stackables.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "26.3",
+    "fabricloader": ">=0.19.5",
+    "java": ">=25",
+    "defaulted": "=1.3.8+26.3.dropfix.1",
+    "fabric-api": ">=0.161.0+26.3",
+    "fzzy_config": "=0.7.7+fix2+26.3",
+    "mixson": ">=2.2.1"
+  },
+  "suggests": {}
+}
