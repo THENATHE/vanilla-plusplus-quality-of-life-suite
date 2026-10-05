@@ -1,0 +1,22 @@
+--- official fix2 ConfigScreen ABI
++++ official fix3 ConfigScreen ABI
+@@ -34,6 +34,8 @@
+     descriptor: J
+   private long screenNarrationStartTime;
+     descriptor: J
++  private net.minecraft.client.gui.narration.NarrationTrigger nextNarrationType;
++    descriptor: Lnet/minecraft/client/gui/narration/NarrationTrigger;
+   private final net.minecraft.resources.Identifier menuListBackground;
+     descriptor: Lnet/minecraft/resources/Identifier;
+   private final net.minecraft.resources.Identifier inWorldMenuListBackground;
+@@ -136,8 +138,8 @@
+   public void triggerImmediateNarration(boolean);
+     descriptor: (Z)V
+ 
+-  private final void narrateScreen(boolean);
+-    descriptor: (Z)V
++  private final void narrateScreen(boolean, net.minecraft.client.gui.narration.NarrationTrigger);
++    descriptor: (ZLnet/minecraft/client/gui/narration/NarrationTrigger;)V
+ 
+   protected net.minecraft.network.chat.Component getUsageNarration();
+     descriptor: ()Lnet/minecraft/network/chat/Component;

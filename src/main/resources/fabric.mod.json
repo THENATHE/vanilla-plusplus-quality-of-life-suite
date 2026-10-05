@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "thenathe_mod_suite",
   "version": "${version}",
-  "name": "Thenathe Mod Suite",
+  "name": "Vanilla++ Quality of Life Suite",
   "description": "Modular gameplay suite with shared native-client negotiation and optional Polymer compatibility.",
   "authors": [
     "THENATHE"
@@ -13,8 +13,8 @@
   ],
   "environment": "*",
   "contact": {
-    "sources": "https://github.com/THENATHE/thenathe-mod-suite",
-    "issues": "https://github.com/THENATHE/thenathe-mod-suite/issues"
+    "sources": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite",
+    "issues": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/issues"
   },
   "entrypoints": {
     "main": [

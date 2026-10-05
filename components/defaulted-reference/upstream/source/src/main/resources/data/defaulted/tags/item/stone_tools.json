@@ -1,0 +1,14 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:stone_axe",
+        "minecraft:stone_hoe",
+        "minecraft:stone_pickaxe",
+        "minecraft:stone_shovel",
+        {
+            "id": "minecraft:stone_spear",
+            "required": false
+        },
+        "minecraft:stone_sword"
+    ]
+}

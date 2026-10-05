@@ -1,0 +1,180 @@
+{
+  "suite_sha256": "0312a5d7ce8cf1e597e21a9d111f8efaa47fa7c01c6b18effb48977cd9bbc957",
+  "passed": true,
+  "scope": "Actual loaded Chalk recipes, curse-removal menus, Defaulted entity drops/component lifecycle, shared-map creation/zoom/lock and restart persistence",
+  "cases": [
+    {
+      "profile": "mechanics-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS all Chalk conversion transitions, 32 calcite recipes, real curse-removal menus, 19 Defaulted drop regressions",
+      "passed": true
+    },
+    {
+      "profile": "mechanics-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS all Chalk conversion transitions, 32 calcite recipes, real curse-removal menus, 19 Defaulted drop regressions",
+      "passed": true
+    },
+    {
+      "profile": "maps-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 606 checks; phase=first; mapstitch=true",
+      "passed": true
+    },
+    {
+      "profile": "maps-polymer",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "PASS 616 checks; phase=restart; mapstitch=true",
+      "passed": true
+    }
+  ],
+  "chalk_positive_transitions_per_profile": 752,
+  "calcite_recipes_per_profile": 32,
+  "defaulted_regressions_per_profile": 19,
+  "notes": [
+    "Original standalone map fixture allowed only MAP_ID; combined MapStitch legitimately adds MAP_CENTER. Fixture now verifies only those two additions and exact center correspondence. No production map changes were required.",
+    "These tests use disposable server worlds and actual menus/entities; player packet interaction and graphical Chalk appearance remain distinct checks."
+  ],
+  "initial_candidate_sha256": "ee06bdf23509e0a2f0c619b72126b8d875c42f2d77dba84fc6d89bb799791936",
+  "date": "2026-10-04",
+  "inputs": {
+    "mechanics-polymer": [
+      {
+        "file": "vanilla-plusplus-quality-of-life-suite-1.0.0+26.3.jar",
+        "sha256": "0312a5d7ce8cf1e597e21a9d111f8efaa47fa7c01c6b18effb48977cd9bbc957"
+      },
+      {
+        "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+        "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+      },
+      {
+        "file": "kotlin-stdlib-2.4.20.jar",
+        "sha256": "078594f80e214438a35454e3f16f890a68dba6a607aa2c83014065344d13308a"
+      },
+      {
+        "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+        "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+      },
+      {
+        "file": "codecui-26.3-1.4.3-fabric.jar",
+        "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+      },
+      {
+        "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+        "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+      },
+      {
+        "file": "mixson-2.2.1-multiloader.jar",
+        "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+      },
+      {
+        "file": "fabric-api-0.161.0+26.3.jar",
+        "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+      },
+      {
+        "file": "cloth-config-fabric-26.3.159.jar",
+        "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+      },
+      {
+        "file": "mechanics.jar",
+        "sha256": "7a3c00f1dbd2399a3c2851b99c35cc01cd85243c11961f4f948574e49d12d1ee"
+      },
+      {
+        "file": "polymer-bundled-0.18.2+26.3.jar",
+        "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+      }
+    ],
+    "mechanics-native": [
+      {
+        "file": "vanilla-plusplus-quality-of-life-suite-1.0.0+26.3.jar",
+        "sha256": "0312a5d7ce8cf1e597e21a9d111f8efaa47fa7c01c6b18effb48977cd9bbc957"
+      },
+      {
+        "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+        "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+      },
+      {
+        "file": "kotlin-stdlib-2.4.20.jar",
+        "sha256": "078594f80e214438a35454e3f16f890a68dba6a607aa2c83014065344d13308a"
+      },
+      {
+        "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+        "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+      },
+      {
+        "file": "codecui-26.3-1.4.3-fabric.jar",
+        "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+      },
+      {
+        "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+        "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+      },
+      {
+        "file": "mixson-2.2.1-multiloader.jar",
+        "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+      },
+      {
+        "file": "fabric-api-0.161.0+26.3.jar",
+        "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+      },
+      {
+        "file": "cloth-config-fabric-26.3.159.jar",
+        "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+      },
+      {
+        "file": "mechanics.jar",
+        "sha256": "7a3c00f1dbd2399a3c2851b99c35cc01cd85243c11961f4f948574e49d12d1ee"
+      }
+    ],
+    "maps-polymer": [
+      {
+        "file": "vanilla-plusplus-quality-of-life-suite-1.0.0+26.3.jar",
+        "sha256": "0312a5d7ce8cf1e597e21a9d111f8efaa47fa7c01c6b18effb48977cd9bbc957"
+      },
+      {
+        "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+        "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+      },
+      {
+        "file": "kotlin-stdlib-2.4.20.jar",
+        "sha256": "078594f80e214438a35454e3f16f890a68dba6a607aa2c83014065344d13308a"
+      },
+      {
+        "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+        "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+      },
+      {
+        "file": "codecui-26.3-1.4.3-fabric.jar",
+        "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+      },
+      {
+        "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+        "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+      },
+      {
+        "file": "mixson-2.2.1-multiloader.jar",
+        "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+      },
+      {
+        "file": "fabric-api-0.161.0+26.3.jar",
+        "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+      },
+      {
+        "file": "cloth-config-fabric-26.3.159.jar",
+        "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+      },
+      {
+        "file": "maps.jar",
+        "sha256": "a811baf6c52088eb96ab11faef0f2bd12039ca7391193e5d151e6d56807fb398"
+      },
+      {
+        "file": "polymer-bundled-0.18.2+26.3.jar",
+        "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+      }
+    ]
+  }
+}

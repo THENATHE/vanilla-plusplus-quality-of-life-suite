@@ -1,0 +1,20 @@
+{
+  "minVersion": "0.8",
+  "required": true,
+  "compatibilityLevel": "${java}",
+  "package": "net.mehvahdjukaar.codecui.mixins",
+  "mixins": [
+    "HolderSetCodecMixin",
+    "RecordCodecBuilderInstanceMixin",
+    "RecordCodecBuilderMixin",
+    "RegistryByNameCodecMixin",
+    "StringRepresentableCodecMixin",
+    "TagKeyCodecMixin"
+  ],
+  "client": [
+    "SpriteSourcesAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

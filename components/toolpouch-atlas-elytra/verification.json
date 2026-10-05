@@ -25,5 +25,22 @@
     "original_mapstitch_bytecode_targets": "PASS",
     "original_toolpouch_bytecode_targets": "PASS"
   },
-  "runtime_hud_validation": "pending suite graphical smoke; build checks do not demonstrate visual correctness"
+  "runtime_hud_validation": {
+    "result": "PASS cases=10",
+    "suite_sha256": "ee06bdf23509e0a2f0c619b72126b8d875c42f2d77dba84fc6d89bb799791936",
+    "nested_addon_sha256": "662859ed9e7d5792ab06514a3f0984ca2fcb0885417c6f556511d347d8f534ea",
+    "evidence": "qa-hud/evidence/2026-10-04/suite-hud.json",
+    "actual_final_text_arguments_recorded": true,
+    "reviewed_screenshots": [
+      "same-left.png",
+      "same-right.png",
+      "opposite-sides.png",
+      "larger-map-with-info.png",
+      "map-hidden.png",
+      "atlas-restored.png",
+      "bottom-left.png",
+      "settings.png"
+    ],
+    "config_edit_and_sync_testing": "not performed by HUD harness"
+  }
 }

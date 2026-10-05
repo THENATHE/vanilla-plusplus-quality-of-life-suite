@@ -1,0 +1,15 @@
+{
+  "elements": [
+    "#defaulted:diamond_tools"
+  ],
+  "patch_generators": [
+    {
+      "generator": "defaulted:tool_material",
+      "weapon_level": 3,
+      "speed_level": 4,
+      "base_tier": "diamond"
+    }
+  ],
+  "patch": {},
+  "priority": 800
+}

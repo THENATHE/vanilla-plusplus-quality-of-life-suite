@@ -1,0 +1,48 @@
+Compiled from "DataComponentUpdateConsumer.java"
+public interface net.atlas.defaulted.extension.DataComponentUpdateConsumer {
+  public abstract <T> void set(net.minecraft.core.component.DataComponentType<T>, T);
+    descriptor: (Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)V
+
+  public abstract <T> void remove(net.minecraft.core.component.DataComponentType<T>);
+    descriptor: (Lnet/minecraft/core/component/DataComponentType;)V
+
+  public abstract void applyPatch(net.minecraft.core.component.DataComponentPatch);
+    descriptor: (Lnet/minecraft/core/component/DataComponentPatch;)V
+
+  public abstract void applyPatch(net.minecraft.core.component.DataComponentType<?>, java.lang.Object);
+    descriptor: (Lnet/minecraft/core/component/DataComponentType;Ljava/lang/Object;)V
+
+  public abstract void restorePatch(net.minecraft.core.component.DataComponentPatch);
+    descriptor: (Lnet/minecraft/core/component/DataComponentPatch;)V
+
+  public abstract void clearPatch();
+    descriptor: ()V
+
+  public abstract void setAll(net.minecraft.core.component.DataComponentMap);
+    descriptor: (Lnet/minecraft/core/component/DataComponentMap;)V
+}
+Compiled from "DataComponentPatchUtils.java"
+public class net.atlas.defaulted.utils.DataComponentPatchUtils {
+  public net.atlas.defaulted.utils.DataComponentPatchUtils();
+    descriptor: ()V
+
+  public static com.mojang.serialization.Codec<net.minecraft.core.component.DataComponentPatch> codec(net.minecraft.core.Registry<net.minecraft.core.component.DataComponentType<?>>);
+    descriptor: (Lnet/minecraft/core/Registry;)Lcom/mojang/serialization/Codec;
+
+  public static it.unimi.dsi.fastutil.objects.Reference2ObjectMap<net.minecraft.core.component.DataComponentType<?>, java.lang.Object> getMap(net.minecraft.core.component.DataComponentPatch);
+    descriptor: (Lnet/minecraft/core/component/DataComponentPatch;)Lit/unimi/dsi/fastutil/objects/Reference2ObjectMap;
+
+  private static java.util.Map lambda$codec$1(net.minecraft.core.component.DataComponentPatch);
+    descriptor: (Lnet/minecraft/core/component/DataComponentPatch;)Ljava/util/Map;
+
+  private static net.minecraft.core.component.DataComponentPatch lambda$codec$0(java.util.Map);
+    descriptor: (Ljava/util/Map;)Lnet/minecraft/core/component/DataComponentPatch;
+}
+Compiled from "DataComponentPatchAccessor.java"
+public interface net.atlas.defaulted.mixin.DataComponentPatchAccessor {
+  public static net.minecraft.core.component.DataComponentPatch create(it.unimi.dsi.fastutil.objects.Reference2ObjectMap<net.minecraft.core.component.DataComponentType<?>, java.lang.Object>);
+    descriptor: (Lit/unimi/dsi/fastutil/objects/Reference2ObjectMap;)Lnet/minecraft/core/component/DataComponentPatch;
+
+  public abstract it.unimi.dsi.fastutil.objects.Reference2ObjectMap<net.minecraft.core.component.DataComponentType<?>, java.lang.Object> getMap();
+    descriptor: ()Lit/unimi/dsi/fastutil/objects/Reference2ObjectMap;
+}

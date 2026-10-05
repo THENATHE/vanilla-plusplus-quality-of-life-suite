@@ -3,5 +3,7 @@
   "id": "simple_smithing_overhaul",
   "version": "2.9.14",
   "sha256": "fb6cbf8c13938d68fb19171dac386b5567d71625bce727b22d3380f6b7880126",
-  "origin": "Existing local 26.3 build, builder/source revision unverified; two changed classes match published upstream 26.3 branches; NOT verified official developer release; official 26.2 baseline preserved components/sso/upstream"
+  "origin": "Private official developer Fabric 26.3 release, confirmed by user on 2026-10-04; exact binary retained unchanged. Official public 26.2 baseline separately preserved; private build source revision not independently recorded.",
+  "track": "developer-release-private",
+  "user_provenance_confirmation": "2026-10-04: user confirms official private release; public Modrinth listing is a different 26.2 binary."
 }

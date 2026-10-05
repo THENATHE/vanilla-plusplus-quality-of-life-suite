@@ -1,0 +1,46 @@
+import org.gradle.api.publish.PublishingExtension
+import org.gradle.api.publish.maven.MavenPublication
+
+plugins {
+    id("dev.kikugie.stonecutter")
+    id("co.uzzu.dotenv.gradle") version "4.0.0"
+    id("net.fabricmc.fabric-loom") version "1.17-SNAPSHOT" apply false
+    id("net.neoforged.moddev") version "2.0.147" apply false
+    id("dev.kikugie.postprocess.jsonlang") version "2.1-beta.4" apply false
+    id("me.modmuss50.mod-publish-plugin") version "0.8.+" apply false
+    id("dev.mixinmcp.decompile") version "1.3.0" apply false
+}
+
+subprojects {
+    apply(plugin = "maven-publish")
+    apply(plugin = "dev.mixinmcp.decompile")
+}
+
+stonecutter active "26.1-fabric"
+
+tasks.register("runActiveClient") {
+    group = "stonecutter"
+    description = "Run client of the active Stonecutter version"
+    dependsOn(stonecutter.current!!.project + ":runClient")
+}
+
+tasks.register("runActiveServer") {
+    group = "stonecutter"
+    description = "Run server of the active Stonecutter version"
+    dependsOn(stonecutter.current!!.project + ":runServer")
+}
+
+stonecutter parameters {
+    constants.match(node.metadata.project.substringAfterLast('-'), "fabric", "neoforge")
+    filters.include("**/*.fsh", "**/*.vsh")
+}
+
+stonecutter tasks {
+    order("publishModrinth")
+    order("publishCurseforge")
+}
+
+for (version in stonecutter.versions.map { it.version }.distinct()) tasks.register("publish$version") {
+    group = "publishing"
+    dependsOn(stonecutter.tasks.named("publishMods") { metadata.version == version })
+}

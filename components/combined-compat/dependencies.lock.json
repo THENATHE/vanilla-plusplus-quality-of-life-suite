@@ -1,56 +1,128 @@
 [
   {
-    "file": "codecui-26.3-1.4.3-fabric.jar",
+    "file": "../../libs/amethyst-curse-cleanser-1.0.1+26.3.jar",
+    "id": "amethyst_curse_cleanser",
+    "version": "1.0.1+26.3",
+    "sha256": "5ec26e2a0010dfdee82aa5cb27664314150a4daa36deadc10f0c659f399507b6",
+    "origin": "Existing local authored 26.3 mod; source snapshot components/amethyst-curse-cleanser/upstream",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
+  },
+  {
+    "file": "../../libs/chalk-3.2.1+26.3.jar",
+    "id": "chalk",
+    "version": "3.2.1+26.3",
+    "sha256": "886b0b10cc12df65d47f446c2bd54c0c670f9a54fa09a1fe95c9ec46df565f49",
+    "origin": "Existing ChatGPT Fabric 26.3 port of DaFuqs Chalk; source snapshot components/chalk/upstream; historical git dfb461ef9eb6f7bf5188570594c3bd21171c2391",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
+  },
+  {
+    "file": "../../libs/chalk-colorful-addon-2.1.1-port.1+26.3.jar",
+    "id": "chalk-colorful-addon",
+    "version": "2.1.1-port.1+26.3",
+    "sha256": "69a2443250abd95100636194a145b5479d240151cd19bf4186766117d0710b34",
+    "origin": "Existing metadata-only ChatGPT 26.3 port; original uploaded addon retained; source components/chalk-colorful/upstream",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
+  },
+  {
+    "file": "../../libs/codecui-26.3-1.4.3-fabric.jar",
+    "id": "codecui",
+    "version": "26.3-1.4.3",
     "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898",
-    "origin": "Minecraft/polymer-shim-test-bundle/staging/mods/codecui-26.3-1.4.3-fabric.jar",
-    "bundled": false
+    "origin": "Retained 26.3 CodecUI fork-family input, exact private build commit unrecorded; Extension API matches Pajic fork reference components/codecui-reference. Separate ChatGPT Access-based 26.3-port.1 artifact is not used.",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json",
+    "source_reference": "components/codecui-reference/README.md"
   },
   {
-    "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+    "file": "../../libs/defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+    "id": "defaulted",
+    "version": "1.3.8+26.3.dropfix.1",
     "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
-    "origin": "Minecraft/defaulted-drop-fix/build/defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
-    "bundled": false
+    "origin": "Existing local dropfix modification, exact original hash 0f6efc6423902b83da78ce85a119c69536517b1a9af52ed7046858859ff582a0; source components/defaulted-dropfix",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json",
+    "source_reference": "components/defaulted-reference/README.md; exact local fix source components/defaulted-dropfix"
   },
   {
-    "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+    "file": "../../libs/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+    "id": "fabric-language-kotlin",
+    "version": "1.14.1+kotlin.2.4.20",
     "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5",
-    "origin": "Minecraft/polymer-shim-test-bundle/staging/mods/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
-    "bundled": false
+    "origin": "Pinned existing runtime library, unchanged archive",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
   },
   {
-    "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+    "file": "../../libs/fzzy_config-0.7.7+fix2+26.3.jar",
+    "id": "fzzy_config",
+    "version": "0.7.7+fix2+26.3",
     "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f",
-    "origin": "Minecraft/polymer-shim-test-bundle/staging/mods/fzzy_config-0.7.7+fix2+26.3.jar",
-    "bundled": false
+    "origin": "Official public Fzzy Config Modrinth Fabric 26.3 release thw1Z19c (2026-09-24); downloaded reference byte-identical to pinned local input, verified 2026-10-04; external dependency only, never bundled",
+    "version_url": "https://modrinth.com/mod/fzzy-config/version/thw1Z19c",
+    "download_url": "https://cdn.modrinth.com/data/hYykXjDp/versions/thw1Z19c/fzzy_config-0.7.7%2Bfix2%2B26.3.jar",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
   },
   {
-    "file": "mapstitch-fabric-1.1.6+26.3.jar",
+    "file": "../../libs/mapstitch-fabric-1.1.6+26.3.jar",
+    "id": "mapstitch",
+    "version": "1.1.6",
     "sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81",
-    "origin": "Minecraft/polymer-shim-test-bundle/staging/mods/mapstitch-fabric-1.1.6+26.3.jar",
-    "bundled": false
+    "origin": "Official developer Fabric 26.3 release; components/mapstitch/inputs.lock.json",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
   },
   {
-    "file": "mixson-2.2.1-multiloader.jar",
+    "file": "../../libs/misctweaks-fabric-1.4.4+26.3.jar",
+    "id": "misctweaks",
+    "version": "1.4.4",
+    "sha256": "97fe263764cb6b93822e13fe9423cf91c3a6a0169aeeb8734b65136cc9ea9647",
+    "origin": "Official developer Fabric 26.3 release; components/misctweaks/inputs.lock.json",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
+  },
+  {
+    "file": "../../libs/mixson-2.2.1-multiloader.jar",
+    "id": "mixson",
+    "version": "2.2.1",
     "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0",
-    "origin": "Minecraft/polymer-shim-test-bundle/staging/mods/mixson-2.2.1-multiloader.jar",
-    "bundled": false
+    "origin": "Pinned existing runtime library, unchanged archive",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
   },
   {
-    "file": "simple_smithing_overhaul-fabric-2.9.14+26.3.jar",
+    "file": "../../libs/simple_death_improvements-fabric-1.6.0+26.3.jar",
+    "id": "simple_death_improvements",
+    "version": "1.6.0",
+    "sha256": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2",
+    "origin": "Official developer Fabric 26.3 release; components/simple-death-improvements/inputs.lock.json",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
+  },
+  {
+    "file": "../../libs/simple_smithing_overhaul-fabric-2.9.14+26.3.jar",
+    "id": "simple_smithing_overhaul",
+    "version": "2.9.14",
     "sha256": "fb6cbf8c13938d68fb19171dac386b5567d71625bce727b22d3380f6b7880126",
-    "origin": "Minecraft/polymer-shim-test-bundle/staging/mods/simple_smithing_overhaul-fabric-2.9.14+26.3.jar",
-    "bundled": false
+    "origin": "Private official developer Fabric 26.3 release, confirmed by user on 2026-10-04; exact binary retained unchanged. Official public 26.2 baseline separately preserved; private build source revision not independently recorded.",
+    "track": "developer-release-private",
+    "user_provenance_confirmation": "2026-10-04: user confirms official private release; public Modrinth listing is a different 26.2 binary.",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
   },
   {
-    "file": "tiered_backpacks-fabric-1.0.19+26.3-upstream.jar",
-    "sha256": "03cd9aaf16666024362a47b9659033ef0baeceefb4d50ee581d0b60fc00d2c55",
-    "origin": "Minecraft/polymer-shim-test-bundle/staging/mods/tiered_backpacks-fabric-1.0.19+26.3-upstream.jar",
-    "bundled": false
+    "file": "../../libs/tiered_backpacks-fabric-1.0.20+26.3.jar",
+    "id": "tiered_backpacks",
+    "version": "1.0.20",
+    "sha256": "b129b9b61ec1da62842dc2dfa5b166a6df8e91c796666dcee70f7b8acf1ecc33",
+    "origin": "Official developer Fabric 26.3 release 1.0.20; components/tiered-backpacks/inputs.lock.json",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
   },
   {
-    "file": "toolpouch-fabric-1.1.10+26.3.jar",
+    "file": "../../libs/toolpouch-fabric-1.1.10+26.3.jar",
+    "id": "toolpouch",
+    "version": "1.1.10",
     "sha256": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903",
-    "origin": "Minecraft/polymer-shim-test-bundle/staging/mods/toolpouch-fabric-1.1.10+26.3.jar",
-    "bundled": false
+    "origin": "Official developer Fabric 26.3 release; components/toolpouch/inputs.lock.json",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
+  },
+  {
+    "file": "../../libs/kotlin-stdlib-2.4.20.jar",
+    "id": null,
+    "version": "2.4.20",
+    "sha256": "078594f80e214438a35454e3f16f890a68dba6a607aa2c83014065344d13308a",
+    "origin": "Compile-only unchanged META-INF/jars/kotlin-stdlib-2.4.20.jar extracted from pinned Fabric Language Kotlin archive",
+    "scope": "suite-root pinned input; original baseline is ORIGIN.json/upstream-dependencies.lock.json"
   }
 ]

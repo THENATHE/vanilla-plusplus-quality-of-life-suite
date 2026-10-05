@@ -44,3 +44,11 @@ In a disposable world, put an atlas, compass, and clock in the selected pouch. S
 ## Updating upstream
 
 Keep the pristine source separate, bring new upstream changes into the working addon, and retain these two client mixins and the startup registration. Recheck `MinimapOverlay.render`, `InfoOverlays.renderLines/renderLine`, both HUD layer identifiers, and pose/text method signatures before building. A changed upstream renderer can invalidate captured bounds even when compilation passes; repeat the corner/size/toggle smoke after updates.
+
+## Completed graphical smoke — 2026-10-04
+
+The exact suite candidate `ee06bdf23509e0a2f0c619b72126b8d875c42f2d77dba84fc6d89bb799791936` passed ten cases in one disposable localhost world and a real native graphical suite client, without client Polymer. Its nested addon hash matches `verification.json`. Final renderer text arguments and screenshots confirm both top corners put text below the minimap; opposite sides retain the original top offset; a larger map with three enabled map information lines increases the reservation; toggling or removing the atlas immediately restores the ordinary position; restoring it reserves space again; bottom-corner text sits above the map when needed. The combined Fzzy settings screen opened and its six original module config keys were present.
+
+Example GUI-coordinate measurements: minimap bottom 110.6 → details top 115; larger map/information bottom 209.8 → details top 214; hidden/opposite-side details top 4; bottom map top 339.8 → details bottom 335. All six original pouch information lines remained present. Reviewed images confirm text/background appear together and do not overlap the map.
+
+Evidence: `qa-hud/evidence/2026-10-04/`, with exact launch/dependency hashes, observations, ten screenshots and visual-review provenance. This smoke used a 1280×900 window at GUI scale 2. It does not claim configuration edit/sync, full gameplay, or an exhaustive resolution matrix. Fixture construction and whitelist issues were corrected before this successful run; the first-launch suite settings directory failure was fixed separately by the settings component owner.

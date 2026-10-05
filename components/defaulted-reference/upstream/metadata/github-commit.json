@@ -1,0 +1,197 @@
+{
+  "sha": "9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+  "node_id": "C_kwDOUgDSS9oAKDlmOGRhZmQzYThjNTI5MzdhZTdhNDhhYWNmYWM2ODAzZTE5ZGZjMGU",
+  "commit": {
+    "author": {
+      "name": "pajic",
+      "email": "32738446+pajicadvance@users.noreply.github.com",
+      "date": "2026-09-18T21:23:00Z"
+    },
+    "committer": {
+      "name": "pajic",
+      "email": "32738446+pajicadvance@users.noreply.github.com",
+      "date": "2026-09-18T21:23:00Z"
+    },
+    "message": "use Object instead of Optional<?> for component patches",
+    "tree": {
+      "sha": "e22edaa62e2a527451c2582d0243c7aab12f0ee7",
+      "url": "https://api.github.com/repos/pajicadvance/Defaulted/git/trees/e22edaa62e2a527451c2582d0243c7aab12f0ee7"
+    },
+    "url": "https://api.github.com/repos/pajicadvance/Defaulted/git/commits/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/pajicadvance/Defaulted/commits/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+  "html_url": "https://github.com/pajicadvance/Defaulted/commit/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+  "comments_url": "https://api.github.com/repos/pajicadvance/Defaulted/commits/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/comments",
+  "author": {
+    "login": "pajicadvance",
+    "id": 32738446,
+    "node_id": "MDQ6VXNlcjMyNzM4NDQ2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/32738446?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/pajicadvance",
+    "html_url": "https://github.com/pajicadvance",
+    "followers_url": "https://api.github.com/users/pajicadvance/followers",
+    "following_url": "https://api.github.com/users/pajicadvance/following{/other_user}",
+    "gists_url": "https://api.github.com/users/pajicadvance/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/pajicadvance/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/pajicadvance/subscriptions",
+    "organizations_url": "https://api.github.com/users/pajicadvance/orgs",
+    "repos_url": "https://api.github.com/users/pajicadvance/repos",
+    "events_url": "https://api.github.com/users/pajicadvance/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/pajicadvance/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "pajicadvance",
+    "id": 32738446,
+    "node_id": "MDQ6VXNlcjMyNzM4NDQ2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/32738446?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/pajicadvance",
+    "html_url": "https://github.com/pajicadvance",
+    "followers_url": "https://api.github.com/users/pajicadvance/followers",
+    "following_url": "https://api.github.com/users/pajicadvance/following{/other_user}",
+    "gists_url": "https://api.github.com/users/pajicadvance/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/pajicadvance/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/pajicadvance/subscriptions",
+    "organizations_url": "https://api.github.com/users/pajicadvance/orgs",
+    "repos_url": "https://api.github.com/users/pajicadvance/repos",
+    "events_url": "https://api.github.com/users/pajicadvance/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/pajicadvance/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "6bd3685aa6cb71e4b0fad1c553b6893b85835c5d",
+      "url": "https://api.github.com/repos/pajicadvance/Defaulted/commits/6bd3685aa6cb71e4b0fad1c553b6893b85835c5d",
+      "html_url": "https://github.com/pajicadvance/Defaulted/commit/6bd3685aa6cb71e4b0fad1c553b6893b85835c5d"
+    }
+  ],
+  "stats": {
+    "total": 81,
+    "additions": 59,
+    "deletions": 22
+  },
+  "files": [
+    {
+      "sha": "833d8adee8b391e5cd416f0df72d5f23d80ad4a0",
+      "filename": "build.fabric.gradle.kts",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "blob_url": "https://github.com/pajicadvance/Defaulted/blob/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/build.fabric.gradle.kts",
+      "raw_url": "https://github.com/pajicadvance/Defaulted/raw/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/build.fabric.gradle.kts",
+      "contents_url": "https://api.github.com/repos/pajicadvance/Defaulted/contents/build.fabric.gradle.kts?ref=9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+      "patch": "@@ -222,6 +222,10 @@ java {\n     targetCompatibility = javaCompat\n }\n \n+loom {\n+    if (sc.current.parsed >= \"26.3\") accessWidenerPath = file(\"src/main/resources/defaulted.classtweaker\")\n+}\n+\n stonecutter {\n     val (version, loader) = current.project.split('-', limit = 2)\n     properties.tags(version, loader)"
+    },
+    {
+      "sha": "5e9f2fd71e5f1d7e778a9663e1d96ac19b15e274",
+      "filename": "src/main/java/net/atlas/defaulted/extension/DataComponentUpdateConsumer.java",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "blob_url": "https://github.com/pajicadvance/Defaulted/blob/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Fextension%2FDataComponentUpdateConsumer.java",
+      "raw_url": "https://github.com/pajicadvance/Defaulted/raw/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Fextension%2FDataComponentUpdateConsumer.java",
+      "contents_url": "https://api.github.com/repos/pajicadvance/Defaulted/contents/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Fextension%2FDataComponentUpdateConsumer.java?ref=9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+      "patch": "@@ -4,13 +4,15 @@\n import net.minecraft.core.component.DataComponentPatch;\n import net.minecraft.core.component.DataComponentType;\n \n-import java.util.Optional;\n+//? <26.3\n+//import java.util.Optional;\n \n public interface DataComponentUpdateConsumer {\n     <T> void set(DataComponentType<T> type, T value);\n     <T> void remove(DataComponentType<T> type);\n     void applyPatch(DataComponentPatch patch);\n-    void applyPatch(DataComponentType<?> type, Optional<?> value);\n+    //~ if >26.2 'Optional<?> value' -> 'Object value'\n+    void applyPatch(DataComponentType<?> type, Object value);\n     void restorePatch(DataComponentPatch patch);\n     void clearPatch();\n     void setAll(DataComponentMap components);"
+    },
+    {
+      "sha": "6a7ed554f9c2889ec1d193b2acf273701a4f3653",
+      "filename": "src/main/java/net/atlas/defaulted/mixin/DataComponentPatchAccessor.java",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 3,
+      "changes": 9,
+      "blob_url": "https://github.com/pajicadvance/Defaulted/blob/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Fmixin%2FDataComponentPatchAccessor.java",
+      "raw_url": "https://github.com/pajicadvance/Defaulted/raw/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Fmixin%2FDataComponentPatchAccessor.java",
+      "contents_url": "https://api.github.com/repos/pajicadvance/Defaulted/contents/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Fmixin%2FDataComponentPatchAccessor.java?ref=9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+      "patch": "@@ -7,14 +7,17 @@\n import org.spongepowered.asm.mixin.gen.Accessor;\n import org.spongepowered.asm.mixin.gen.Invoker;\n \n-import java.util.Optional;\n+//? <26.3\n+//import java.util.Optional;\n \n @Mixin(DataComponentPatch.class)\n public interface DataComponentPatchAccessor {\n     @Invoker(\"<init>\")\n-    static DataComponentPatch create(final Reference2ObjectMap<DataComponentType<?>, Optional<?>> map) {\n+    //~ if >26.2 'Optional<?>> map' -> 'Object> map'\n+    static DataComponentPatch create(final Reference2ObjectMap<DataComponentType<?>, Object> map) {\n         throw new AssertionError();\n     }\n     @Accessor\n-    Reference2ObjectMap<DataComponentType<?>, Optional<?>> getMap();\n+    //~ if >26.2 'Optional<?>>' -> 'Object>'\n+    Reference2ObjectMap<DataComponentType<?>, Object> getMap();\n }"
+    },
+    {
+      "sha": "9844d2c2bb10b9cadda5f91ada84f617e5cfc57e",
+      "filename": "src/main/java/net/atlas/defaulted/mixin/PatchedDataComponentMapMixin.java",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "blob_url": "https://github.com/pajicadvance/Defaulted/blob/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Fmixin%2FPatchedDataComponentMapMixin.java",
+      "raw_url": "https://github.com/pajicadvance/Defaulted/raw/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Fmixin%2FPatchedDataComponentMapMixin.java",
+      "contents_url": "https://api.github.com/repos/pajicadvance/Defaulted/contents/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Fmixin%2FPatchedDataComponentMapMixin.java?ref=9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+      "patch": "@@ -14,7 +14,8 @@\n import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;\n import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;\n \n-import java.util.Optional;\n+//? <26.3\n+//import java.util.Optional;\n \n @Mixin(PatchedDataComponentMap.class)\n public class PatchedDataComponentMapMixin implements PatchedDataComponentMapExtensions {\n@@ -49,7 +50,7 @@ public void applyPatchCallback(DataComponentPatch patch, CallbackInfo ci) {\n     //~ if >26.2 'Optional<?> value' -> 'Object value'\n     public void applyPatchCallback(DataComponentType<?> type, Object value, CallbackInfo ci) {\n         if (this.defaulted$callback == null) return;\n-        this.defaulted$callback.applyPatch(type, Optional.of(value));\n+        this.defaulted$callback.applyPatch(type, value);\n     }\n \n     @Inject(method = \"restorePatch\", at = @At(\"HEAD\"))"
+    },
+    {
+      "sha": "0aef0ab6955c41b1823fa15fbda28dfe1e6473f0",
+      "filename": "src/main/java/net/atlas/defaulted/utils/DataComponentPatchUtils.java",
+      "status": "modified",
+      "additions": 23,
+      "deletions": 9,
+      "changes": 32,
+      "blob_url": "https://github.com/pajicadvance/Defaulted/blob/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Futils%2FDataComponentPatchUtils.java",
+      "raw_url": "https://github.com/pajicadvance/Defaulted/raw/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Futils%2FDataComponentPatchUtils.java",
+      "contents_url": "https://api.github.com/repos/pajicadvance/Defaulted/contents/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Futils%2FDataComponentPatchUtils.java?ref=9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+      "patch": "@@ -13,7 +13,12 @@\n import net.minecraft.util.Unit;\n \n import java.util.Map;\n-import java.util.Optional;\n+\n+//? >26.2 {\n+import net.minecraft.core.component.Removed;\n+//?} else {\n+/*import java.util.Optional;\n+*///?}\n \n import static net.minecraft.core.component.DataComponentPatch.EMPTY;\n \n@@ -23,14 +28,17 @@ public static Codec<DataComponentPatch> codec(Registry<DataComponentType<?>> reg\n             if (data.isEmpty()) {\n                 return EMPTY;\n             } else {\n-                Reference2ObjectMap<DataComponentType<?>, Optional<?>> map = new Reference2ObjectArrayMap<>(data.size());\n+                //~ if >26.2 'Optional<?>> map' -> 'Object> map'\n+                Reference2ObjectMap<DataComponentType<?>, Object> map = new Reference2ObjectArrayMap<>(data.size());\n \n                 for(Map.Entry<PatchKey, ?> entry : data.entrySet()) {\n                     PatchKey key = entry.getKey();\n                     if (key.removed()) {\n-                        map.put(key.type(), Optional.empty());\n+                        //~ if >26.2 'Optional.empty()' -> 'Removed.INSTANCE'\n+                        map.put(key.type(), Removed.INSTANCE);\n                     } else {\n-                        map.put(key.type(), Optional.of(entry.getValue()));\n+                        //~ if >26.2 'Optional.of(entry.getValue())' -> 'entry.getValue()'\n+                        map.put(key.type(), entry.getValue());\n                     }\n                 }\n \n@@ -39,12 +47,17 @@ public static Codec<DataComponentPatch> codec(Registry<DataComponentType<?>> reg\n         }, (patch) -> {\n             Reference2ObjectMap<PatchKey, Object> map = new Reference2ObjectArrayMap<>(getMap(patch).size());\n \n-            for (Reference2ObjectMap.Entry<DataComponentType<?>, Optional<?>> entry : Reference2ObjectMaps.fastIterable(getMap(patch))) {\n+            //~ if >26.2 'Optional<?>> entry' -> 'Object> entry'\n+            for (Reference2ObjectMap.Entry<DataComponentType<?>, Object> entry : Reference2ObjectMaps.fastIterable(getMap(patch))) {\n                 DataComponentType<?> type = entry.getKey();\n                 if (!type.isTransient()) {\n-                    Optional<?> value = entry.getValue();\n-                    if (value.isPresent()) {\n-                        map.put(new PatchKey(type, false), value.get());\n+                    //~ if >26.2 'Optional<?> value' -> 'Object value'\n+                    //~ if >26.2 'entry.getValue()' -> 'Removed.removedToNull(entry.getValue())'\n+                    Object value = Removed.removedToNull(entry.getValue());\n+                    //~ if >26.2 'value.isPresent()' -> 'value != null'\n+                    if (value != null) {\n+                        //~ if >26.2 'value.get()' -> 'value'\n+                        map.put(new PatchKey(type, false), value);\n                     } else {\n                         map.put(new PatchKey(type, true), Unit.INSTANCE);\n                     }\n@@ -55,7 +68,8 @@ public static Codec<DataComponentPatch> codec(Registry<DataComponentType<?>> reg\n             return (Map) map;\n         });\n     }\n-    public static Reference2ObjectMap<DataComponentType<?>, Optional<?>> getMap(DataComponentPatch patch) {\n+    //~ if >26.2 'Optional<?>> getMap' -> 'Object> getMap'\n+    public static Reference2ObjectMap<DataComponentType<?>, Object> getMap(DataComponentPatch patch) {\n         return ((DataComponentPatchAccessor) (Object) patch).getMap();\n     }\n     private record PatchKey(DataComponentType<?> type, boolean removed) {"
+    },
+    {
+      "sha": "0d6b94eaed9c29b4f1aab978117fd422172f09ec",
+      "filename": "src/main/java/net/atlas/defaulted/utils/ReferentialDataComponentMap.java",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 6,
+      "changes": 19,
+      "blob_url": "https://github.com/pajicadvance/Defaulted/blob/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Futils%2FReferentialDataComponentMap.java",
+      "raw_url": "https://github.com/pajicadvance/Defaulted/raw/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Futils%2FReferentialDataComponentMap.java",
+      "contents_url": "https://api.github.com/repos/pajicadvance/Defaulted/contents/src%2Fmain%2Fjava%2Fnet%2Fatlas%2Fdefaulted%2Futils%2FReferentialDataComponentMap.java?ref=9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+      "patch": "@@ -9,13 +9,16 @@\n import org.jspecify.annotations.Nullable;\n \n import java.util.Objects;\n-import java.util.Optional;\n import java.util.Set;\n import java.util.function.Supplier;\n \n+//? <26.3\n+//import java.util.Optional;\n+\n public class ReferentialDataComponentMap implements DataComponentMap, DataComponentUpdateConsumer {\n     private final Supplier<DataComponentMap> parentGetter;\n-    private Reference2ObjectMap<DataComponentType<?>, Optional<?>> patch = new Reference2ObjectOpenHashMap<>();\n+    //~ if >26.2 'Optional<?>> patch' -> 'Object> patch'\n+    private Reference2ObjectMap<DataComponentType<?>, Object> patch = new Reference2ObjectOpenHashMap<>();\n     private DataComponentMap cached = null;\n     private PatchedDataComponentMap original = null;\n     private boolean copyOnWrite;\n@@ -60,7 +63,8 @@ public void setOriginal(PatchedDataComponentMap original) {\n     @Override\n     public <T> void set(DataComponentType<T> type, T value) {\n         ensureMapOwnership();\n-        this.patch.put(type, Optional.ofNullable(value));\n+        //~ if >26.2 'Optional.ofNullable(value)' -> 'Removed.nullToRemoved(value)'\n+        this.patch.put(type, Removed.nullToRemoved(value));\n     }\n \n     public <T> void set(TypedDataComponent<T> value) {\n@@ -70,19 +74,22 @@ public <T> void set(TypedDataComponent<T> value) {\n     @Override\n     public <T> void remove(DataComponentType<T> type) {\n         ensureMapOwnership();\n-        this.patch.put(type, Optional.empty());\n+        //~ if >26.2 'Optional.empty()' -> 'Removed.INSTANCE'\n+        this.patch.put(type, Removed.INSTANCE);\n     }\n \n     @Override\n     public void applyPatch(DataComponentPatch patch) {\n         ensureMapOwnership();\n-        for (Reference2ObjectMap.Entry<DataComponentType<?>, Optional<?>> entry : Reference2ObjectMaps.fastIterable(((DataComponentPatchAccessor)(Object)patch).getMap())) {\n+        //~ if >26.2 'Optional<?>> entry' -> 'Object> entry'\n+        for (Reference2ObjectMap.Entry<DataComponentType<?>, Object> entry : Reference2ObjectMaps.fastIterable(((DataComponentPatchAccessor)(Object)patch).getMap())) {\n             this.applyPatch(entry.getKey(), entry.getValue());\n         }\n     }\n \n     @Override\n-    public void applyPatch(DataComponentType<?> type, Optional<?> value) {\n+    //~ if >26.2 'Optional<?> value' -> 'Object value'\n+    public void applyPatch(DataComponentType<?> type, Object value) {\n         ensureMapOwnership();\n         this.patch.put(type, value);\n     }"
+    },
+    {
+      "sha": "19b74f1e35898d99a4ecb15edaa85f557b57c18a",
+      "filename": "versions/26.3-fabric/src/main/resources/defaulted.classtweaker",
+      "status": "added",
+      "additions": 3,
+      "deletions": 0,
+      "changes": 3,
+      "blob_url": "https://github.com/pajicadvance/Defaulted/blob/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/versions%2F26.3-fabric%2Fsrc%2Fmain%2Fresources%2Fdefaulted.classtweaker",
+      "raw_url": "https://github.com/pajicadvance/Defaulted/raw/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/versions%2F26.3-fabric%2Fsrc%2Fmain%2Fresources%2Fdefaulted.classtweaker",
+      "contents_url": "https://api.github.com/repos/pajicadvance/Defaulted/contents/versions%2F26.3-fabric%2Fsrc%2Fmain%2Fresources%2Fdefaulted.classtweaker?ref=9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+      "patch": "@@ -0,0 +1,3 @@\n+classTweaker v2 official\n+\n+accessible class net/minecraft/core/component/Removed\n\\ No newline at end of file"
+    },
+    {
+      "sha": "a8048ea4837e28a94a9611be7ba516d10aa27050",
+      "filename": "versions/26.3-fabric/src/main/resources/fabric.mod.json",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "blob_url": "https://github.com/pajicadvance/Defaulted/blob/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/versions%2F26.3-fabric%2Fsrc%2Fmain%2Fresources%2Ffabric.mod.json",
+      "raw_url": "https://github.com/pajicadvance/Defaulted/raw/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/versions%2F26.3-fabric%2Fsrc%2Fmain%2Fresources%2Ffabric.mod.json",
+      "contents_url": "https://api.github.com/repos/pajicadvance/Defaulted/contents/versions%2F26.3-fabric%2Fsrc%2Fmain%2Fresources%2Ffabric.mod.json?ref=9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+      "patch": "@@ -25,6 +25,7 @@\n   \"mixins\": [\n     \"defaulted.mixins.json\"\n   ],\n+  \"accessWidener\": \"defaulted.classtweaker\",\n   \"depends\": {\n     \"fabric-api\": \">=${fabric_api_version}\",\n     \"fabricloader\": \">=${fabric_version}\","
+    },
+    {
+      "sha": "94cf55bba5642f19294d57921e8249e8b9835faf",
+      "filename": "versions/26.3-neoforge/src/main/resources/META-INF/accesstransformer.cfg",
+      "status": "added",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "blob_url": "https://github.com/pajicadvance/Defaulted/blob/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/versions%2F26.3-neoforge%2Fsrc%2Fmain%2Fresources%2FMETA-INF%2Faccesstransformer.cfg",
+      "raw_url": "https://github.com/pajicadvance/Defaulted/raw/9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e/versions%2F26.3-neoforge%2Fsrc%2Fmain%2Fresources%2FMETA-INF%2Faccesstransformer.cfg",
+      "contents_url": "https://api.github.com/repos/pajicadvance/Defaulted/contents/versions%2F26.3-neoforge%2Fsrc%2Fmain%2Fresources%2FMETA-INF%2Faccesstransformer.cfg?ref=9f8dafd3a8c52937ae7a48aacfac6803e19dfc0e",
+      "patch": "@@ -0,0 +1,2 @@\n+\n+public net.minecraft.core.component.Removed\n\\ No newline at end of file"
+    }
+  ]
+}

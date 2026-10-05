@@ -113,6 +113,13 @@ def fetch(component):
                 configs.append(fabric['id'] + ':' + config)
     license_files = [p for p in (upstream / 'repository').glob('LICENSE*') if p.is_file()]
     record = dict(component=component, track='developer-release', mod_id=fabric['id'], artifact_version=fabric['version'], release_version=release['version_number'], minecraft=upstream_minecraft, suite_minecraft='26.3', upstream_minecraft=upstream_minecraft, advertised_game_versions=release['game_versions'], loader='fabric', modrinth_version_id=release['id'], modrinth_version_url=f"https://modrinth.com/mod/{slug}/version/{release['id']}", github=git_ref, binary=str(binary.relative_to(SUITE)), binary_sha256=hashlib.sha256(binary.read_bytes()).hexdigest(), published_sources=str(source.relative_to(SUITE)) if source else None, repository_snapshot=str((upstream / 'repository').relative_to(SUITE)), published_source_tree=str(source_tree.relative_to(SUITE)) if source else None, dependencies=fabric['depends'], suggests=fabric.get('suggests', {}), nested_jars=fabric.get('jars', []), config_ids=sorted(set(configs)), license=fabric['license'], copyright_file=str(license_files[0].relative_to(SUITE)) if license_files else None, artifacts=artifacts_lock, modifications=[], port_counterpart=None, port_counterpart_reason='Official developer release requires~26.2 and cannot be declared a26.3 runtime input. Existing local26.3 binary provenance must be independently resolved. Existing paused SSO-port is not updated or tested by this source-capture work.' if component == 'sso' else 'Official developer release supports26.3; no additional port created.')
+    previous_lock = root / 'inputs.lock.json'
+    if component == 'sso' and previous_lock.exists():
+        previous = json.loads(previous_lock.read_text())
+        if 'runtime_input' in previous:
+            record['runtime_input'] = previous['runtime_input']
+            record['suite_compatibility'] = previous.get('suite_compatibility')
+            record['port_counterpart_reason'] = previous.get('port_counterpart_reason')
     save_json(root / 'inputs.lock.json', record)
     print(f"{component}: {version} {record['binary_sha256']}")
     return record

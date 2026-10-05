@@ -1,0 +1,76 @@
+{
+  "verified_date": "2026-10-04",
+  "local_file": "libs/fzzy_config-0.7.7+fix2+26.3.jar",
+  "local_sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f",
+  "official_fix2": {
+    "version_id": "thw1Z19c",
+    "version": "0.7.7+fix2+26.3",
+    "date_published": "2026-09-24T16:03:12.969188Z",
+    "version_url": "https://modrinth.com/mod/fzzy-config/version/thw1Z19c",
+    "download_url": "https://cdn.modrinth.com/data/hYykXjDp/versions/thw1Z19c/fzzy_config-0.7.7%2Bfix2%2B26.3.jar",
+    "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f",
+    "modrinth_hashes_verified": true,
+    "byte_identical_to_local": true
+  },
+  "latest_official_fix3": {
+    "version_id": "YkOumqzV",
+    "version": "0.7.7+fix3+26.3",
+    "date_published": "2026-10-03T17:54:01.245597Z",
+    "version_url": "https://modrinth.com/mod/fzzy-config/version/YkOumqzV",
+    "download_url": "https://cdn.modrinth.com/data/hYykXjDp/versions/YkOumqzV/fzzy_config-0.7.7%2Bfix3%2B26.3.jar",
+    "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a",
+    "modrinth_hashes_verified": true,
+    "changed_files": [
+      "fabric.mod.json",
+      "me/fzzyhmstrs/fzzy_config/screen/internal/ConfigScreen.class",
+      "me/fzzyhmstrs/fzzy_config/screen/internal/ConfigScreenNarrator$MessageBuilder.class",
+      "me/fzzyhmstrs/fzzy_config/screen/internal/ConfigScreenNarrator.class"
+    ],
+    "new_files": [],
+    "removed_files": [],
+    "gui_api_abi_check": {
+      "me/fzzyhmstrs/fzzy_config/api/ConfigApiJava": {
+        "class_bytes_identical": true,
+        "private_and_public_descriptors_identical": true
+      },
+      "me/fzzyhmstrs/fzzy_config/config/Config": {
+        "class_bytes_identical": true,
+        "private_and_public_descriptors_identical": true
+      },
+      "me/fzzyhmstrs/fzzy_config/config/ConfigEntry": {
+        "class_bytes_identical": true,
+        "private_and_public_descriptors_identical": true
+      },
+      "me/fzzyhmstrs/fzzy_config/impl/ConfigApiImpl": {
+        "class_bytes_identical": true,
+        "private_and_public_descriptors_identical": true
+      },
+      "me/fzzyhmstrs/fzzy_config/impl/ConfigSet": {
+        "class_bytes_identical": true,
+        "private_and_public_descriptors_identical": true
+      },
+      "me/fzzyhmstrs/fzzy_config/registry/ClientConfigRegistry": {
+        "class_bytes_identical": true,
+        "private_and_public_descriptors_identical": true
+      },
+      "me/fzzyhmstrs/fzzy_config/registry/SyncedConfigRegistry": {
+        "class_bytes_identical": true,
+        "private_and_public_descriptors_identical": true
+      },
+      "me/fzzyhmstrs/fzzy_config/screen/internal/ConfigScreen": {
+        "class_bytes_identical": false,
+        "private_and_public_descriptors_identical": false
+      },
+      "me/fzzyhmstrs/fzzy_config/screen/internal/ConfigScreenManager": {
+        "class_bytes_identical": true,
+        "private_and_public_descriptors_identical": true
+      },
+      "me/fzzyhmstrs/fzzy_config/screen/internal/ConfigSingleUpdateManager": {
+        "class_bytes_identical": true,
+        "private_and_public_descriptors_identical": true
+      }
+    },
+    "runtime_tested": false
+  },
+  "recommendation": "Retain existing exact official fix2 pin; publish its public install URL. No private dependency chain exists for Fzzy. Latest fix3 upgrade is optional and requires its own runtime validation."
+}

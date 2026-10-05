@@ -1,18 +1,80 @@
 package suite.qa;
+
+import com.google.gson.JsonObject;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.minecraft.client.gui.screens.ConnectScreen;
+import net.minecraft.client.gui.screens.DisconnectedScreen;
+import net.minecraft.client.multiplayer.ServerData;
+import net.minecraft.client.multiplayer.resolver.ServerAddress;
 import java.nio.file.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.entity.Display;
+
 public final class SuiteClientQa implements ClientModInitializer {
-    private int ticks;
-    private boolean done;
+    private int ticks, joins;
+    private boolean done, mutated;
     public void onInitializeClient() {
+        ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> { joins++; ticks = 0; done = false; });
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            if (done || client.player == null || client.level == null) return;
-            // Several frames in-world catch immediate post-configuration packet failures.
-            if (++ticks < 60) return;
-            done = true;
-            try { Files.writeString(Path.of(System.getProperty("suite.qa.control"), "client-joined.txt"), "PASS in-world client ticks\n"); }
-            catch (Exception error) { throw new RuntimeException(error); }
+            Path directory = Path.of(System.getProperty("suite.qa.control"));
+            try {
+                Path reconnect = directory.resolve("reconnect.txt");
+                if (Files.exists(reconnect) && client.gui.screen() instanceof DisconnectedScreen) {
+                    Files.delete(reconnect);
+                    String address = System.getProperty("suite.qa.server.address");
+                    ConnectScreen.startConnecting(client.gui.screen(), client, ServerAddress.parseString(address),
+                            new ServerData("Suite QA", address, ServerData.Type.OTHER), false, null);
+                    return;
+                }
+                if (!mutated && Boolean.getBoolean("suite.qa.reply-mismatch")) { Mutation.install(); mutated = true; }
+                if (done || client.player == null || client.level == null || ++ticks < 60) return;
+                Path markerFile = directory.resolve("marker-expected.json");
+                if (!Files.exists(markerFile)) return;
+                var marker = com.google.gson.JsonParser.parseString(Files.readString(markerFile)).getAsJsonObject();
+                var position = new BlockPos(marker.get("x").getAsInt(), marker.get("y").getAsInt(), marker.get("z").getAsInt());
+                boolean nativeChalk = Boolean.getBoolean("suite.qa.native-chalk");
+                String expectedBlock = nativeChalk ? "chalk:red_glow_chalk_mark" : "minecraft:air";
+                String expectedItem = nativeChalk ? "chalk:red_glow_chalk" : "minecraft:paper";
+                var state = client.level.getBlockState(position);
+                var stack = client.player.getInventory().getItem(0);
+                String actualBlock = BuiltInRegistries.BLOCK.getKey(state.getBlock()).toString();
+                String actualItem = BuiltInRegistries.ITEM.getKey(stack.getItem()).toString();
+                int displays=0;
+                for (var entity : client.level.entitiesForRendering()) if (entity instanceof Display.ItemDisplay && entity.distanceToSqr(position.getX()+0.5,position.getY()+0.5,position.getZ()+0.5)<4) displays++;
+                if (!actualBlock.equals(expectedBlock) || !actualItem.equals(expectedItem)
+                        || stack.getDamageValue()!=13 || !stack.getOrDefault(DataComponents.CUSTOM_NAME,net.minecraft.network.chat.Component.empty()).getString().equals("Suite QA Chalk")
+                        || (nativeChalk ? displays!=0 : displays!=1)) {
+                    if (ticks < 200) return;
+                    throw new IllegalStateException("Marker/slot packet mismatch: block="+actualBlock+" item="+actualItem+" damage="+stack.getDamageValue()+" displays="+displays);
+                }
+                if (nativeChalk) {
+                    String facing=state.getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.FACING).getName();
+                    var orientation=state.getBlock().getStateDefinition().getProperty("orientation");
+                    if (!facing.equals("up") || !state.getValue((net.minecraft.world.level.block.state.properties.Property<Integer>)orientation).equals(3)) throw new IllegalStateException("Native mark state properties differ");
+                }
+                done = true;
+                Files.writeString(directory.resolve("client-joined.txt"), "PASS in-world client ticks\n");
+                JsonObject result = new JsonObject();result.addProperty("join_count", joins);result.addProperty("passed", true);
+                result.addProperty("native_chalk",nativeChalk);result.addProperty("actual_block",actualBlock);result.addProperty("actual_item",actualItem);
+                result.addProperty("damage",stack.getDamageValue());result.addProperty("custom_name",stack.get(DataComponents.CUSTOM_NAME).getString());result.addProperty("virtual_mark_displays",displays);
+                Files.writeString(directory.resolve("client-joined.json"), result.toString());
+            } catch (Exception error) { throw new RuntimeException(error); }
         });
+    }
+    /** Only loaded for a deliberate mismatch fixture running the full suite. */
+    private static final class Mutation {
+        static void install() {
+            var type = com.thenathe.suite.network.SuiteCapabilities.Offer.TYPE;
+            net.fabricmc.fabric.api.client.networking.v1.ClientConfigurationNetworking.unregisterGlobalReceiver(type);
+            net.fabricmc.fabric.api.client.networking.v1.ClientConfigurationNetworking.registerGlobalReceiver(type, (offer, context) -> {
+                var fingerprints = new java.util.ArrayList<>(com.thenathe.suite.network.SuiteCapabilities.fingerprints());
+                fingerprints.set(com.thenathe.suite.network.SuiteCapabilities.MODULES.indexOf("simple_smithing_overhaul"), "0".repeat(64));
+                context.responseSender().sendPacket(new com.thenathe.suite.network.SuiteCapabilities.Reply(offer.nonce(), java.util.List.copyOf(fingerprints)));
+            });
+        }
     }
 }

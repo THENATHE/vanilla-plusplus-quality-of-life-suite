@@ -1,0 +1,14 @@
+{
+  "elements": [
+    "#defaulted:iron_tools"
+  ],
+  "patch_generators": [
+    {
+      "generator": "defaulted:tool_material",
+      "weapon_level": 2,
+      "base_tier": "iron"
+    }
+  ],
+  "patch": {},
+  "priority": 800
+}

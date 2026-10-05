@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "defaulted",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "Alexandra"
+  ],
+  "contact": {
+    "sources": "https://github.com/Alexandra-Myers/Defaulted",
+    "issues": "https://github.com/Alexandra-Myers/Defaulted/issues"
+  },
+  "icon": "assets/icon.png",
+  "license": "${mod_license}",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.atlas.defaulted.fabric.DefaultedFabric"
+    ],
+    "client": [
+      "net.atlas.defaulted.fabric.client.DefaultedFabricClient"
+    ]
+  },
+  "mixins": [
+    "defaulted.mixins.json"
+  ],
+  "depends": {
+    "fabric-api": ">=${fabric_api_version}",
+    "fabricloader": ">=${fabric_version}",
+    "minecraft": "${minecraft}",
+    "java": ">=${java}"
+  },
+  "suggests": {
+    "another-mod": "*"
+  },
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/world/item/Item": ["net/atlas/defaulted/extension/ItemExtensions"],
+      "net/minecraft/world/item/ItemStack": ["net/atlas/defaulted/extension/ItemStackExtensions"],
+      "net/minecraft/core/Holder$Reference": ["net/atlas/defaulted/extension/ReferenceHolderExtensions"]
+    }
+  }
+}

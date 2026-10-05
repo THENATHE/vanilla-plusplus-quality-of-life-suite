@@ -2,7 +2,7 @@
   "archive_integrity": true,
   "root_id": "thenathe_mod_suite",
   "version": "1.0.0+26.3",
-  "sha256": "b2345736cdae8818aadfd2d98f63be19b8d0f2d9aefc315ee1a6767cadb74555",
+  "sha256": "0312a5d7ce8cf1e597e21a9d111f8efaa47fa7c01c6b18effb48977cd9bbc957",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -61,19 +61,19 @@
     {
       "id": "sso_backpack_toolpouch_mapstitch_shim",
       "version": "1.0.5-suite.1+26.3",
-      "sha256": "cd87d698fc8d2a9052dfb1784258408ff366e2101940e3ed658c756dd3ee57fb",
+      "sha256": "4d2054b989ff9779514c43599dd0a6aae5f2008c75e3dd8d82ef452e13bed768",
       "file": "META-INF/jars/thenathe-suite-combined-compat-1.0.5-suite.1+26.3.jar"
     },
     {
       "id": "chalk_polymer_compat",
       "version": "1.1.0-suite.1+26.3",
-      "sha256": "d23755941db39238aa446d788b2ef558111b7b9257169429547ed2ed5583479c",
+      "sha256": "94d52c88965608e5ac9fec46998cf398e37f76e4d79268b597624fcf19c2d72d",
       "file": "META-INF/jars/thenathe-suite-chalk-compat-1.1.0-suite.1+26.3.jar"
     },
     {
       "id": "shared_region_maps",
       "version": "1.0.4-combo.1+mc26.3",
-      "sha256": "8f3dd201a7a3fd58e4ba5d1f6d421eb93af95bd8053d7adf678c72e343498924",
+      "sha256": "35383e7187fbb1aa876959799a4ceafaf8729f6d4dc646b8a9b1facb9897316d",
       "file": "META-INF/jars/shared-region-maps-1.0.4-combo.1+mc26.3.jar"
     },
     {
@@ -86,5 +86,12 @@
   "original_inputs_unchanged": true,
   "defaulted_exact_dropfix_requirement": true,
   "licenses_retained": true,
-  "runtime_tested": false
+  "runtime_tested": true,
+  "runtime_evidence": [
+    "qa/evidence/final-connections.json",
+    "qa-mechanics/evidence/mechanics-and-persistence.json",
+    "qa-settings/evidence/results.json",
+    "qa-hud/evidence/2026-10-04/suite-hud.json"
+  ],
+  "date": "2026-10-04"
 }

@@ -1,0 +1,31 @@
+{
+  "required": true,
+  "package": "net.atlas.defaulted.mixin",
+  "compatibilityLevel": "${java}",
+  "minVersion": "0.8",
+  "client": [
+  ],
+  "mixins": [
+    "ActualItemMixin",
+    "DataComponentPatchAccessor",
+    "EnchantmentHelperAccessor",
+    "EnchantmentHelperMixin",
+    "GrindstoneMenuMixin",
+    "ItemAccessor",
+    "ItemMixin",
+    "ItemStackMixin",
+    "ItemStackStreamCodecMixin",
+    "MappedRegistryAccessor",
+    "PatchedDataComponentMapAccessor",
+    "PatchedDataComponentMapMixin",
+    "ReferenceHolderMixin",
+    "RegistrySyncManagerMixin",
+    "StructureTemplateManagerAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixinextras": {
+    "minVersion": "0.5.0-beta.1"
+  }
+}

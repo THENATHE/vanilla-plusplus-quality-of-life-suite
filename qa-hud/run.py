@@ -10,9 +10,9 @@ launch=importlib.util.module_from_spec(spec);spec.loader.exec_module(launch)
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--suite',type=Path,default=SUITE/'build/libs/thenathe-mod-suite-1.0.0+26.3.jar')
+    p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.0+26.3.jar')
     p.add_argument('--label',required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--settings-only',action='store_true');p.add_argument('--port',type=int,default=25976)
-    args=p.parse_args();suite=args.suite.resolve();assert suite.is_file()
+    args=p.parse_args();suite=args.suite.resolve();assert suite.is_file();suiteHash=sha(suite)
     run=HERE/'runs'/args.label;run.mkdir(parents=True,exist_ok=False);control=run/'control';control.mkdir();fixtures=run/'fixtures';fixtures.mkdir();classes=fixtures/'classes';classes.mkdir()
     # Original runtime dependencies remain separate; component mods are nested in suite.
     deps=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','defaulted-1.3.8+26.3.dropfix.1-fabric.jar','fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar','fzzy_config-0.7.7+fix2+26.3.jar','mixson-2.2.1-multiloader.jar']]
@@ -31,11 +31,11 @@ def main():
         with zipfile.ZipFile(fixtures/f'{side}.jar','w') as z:
             meta={'schemaVersion':1,'id':'suite_hud_qa_'+side,'version':'1','environment':side,'entrypoints':{'client' if side=='client' else 'main':['suitehudqa.Hud'+side.title()+'Qa']},'depends':{'fabric-api':'*','thenathe_mod_suite':'*'}}
             if side=='client':
-                meta['mixins']=['suite-hud-qa.mixins.json'];z.writestr('suite-hud-qa.mixins.json',json.dumps({'required':True,'package':'suitehudqa','compatibilityLevel':'JAVA_25','client':['InfoTraceMixin'],'injectors':{'defaultRequire':1}}))
+                meta['mixins']=['suite-hud-qa.mixins.json'];z.writestr('suite-hud-qa.mixins.json',json.dumps({'required':True,'package':'suitehudqa.mixin','compatibilityLevel':'JAVA_25','client':['InfoTraceMixin','GraphicsTraceMixin'],'injectors':{'defaultRequire':1}}))
             z.writestr('fabric.mod.json',json.dumps(meta))
             for file in classes.rglob('*.class'):z.write(file,file.relative_to(classes))
     if args.prepare_only:
-        (run/'prepare.json').write_text(json.dumps({'suite':str(suite),'suite_sha256':sha(suite),'fixtures_compiled':True,'runtime_launched':False},indent=2)+'\n')
+        (run/'prepare.json').write_text(json.dumps({'suite':str(suite),'suite_sha256':suiteHash,'fixtures_compiled':True,'runtime_launched':False},indent=2)+'\n')
         print('Fixtures compiled; no runtime launched');return
     children=[];env=os.environ.copy();env.update(SDL_VIDEODRIVER='x11',SDL_VIDEO_X11_XINPUT2='0',LP_NUM_THREADS='3',DISPLAY=env.get('DISPLAY',':1'))
     audits={}
@@ -44,15 +44,17 @@ def main():
         for side in sides:
             directory=run/side;mods=directory/'mods';mods.mkdir(parents=True)
             chosen=selected+[fixtures/f'{side}.jar']
-            if side=='server':chosen+=[launch.polymer()]
+            if side=='server':chosen+=[ROOT/'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar']
             for jar in chosen:shutil.copy2(jar,mods/jar.name)
             if side=='server':
                 launch.copy_accepted_eula(directory)
-                (directory/'server.properties').write_text(f'server-ip=127.0.0.1\nserver-port={args.port}\nonline-mode=false\nspawn-protection=0\nview-distance=2\nsimulation-distance=2\ndifficulty=peaceful\nlevel-type=minecraft:flat\ngenerator-settings={{"biome":"minecraft:plains","layers":[{{"block":"minecraft:bedrock","height":1}},{{"block":"minecraft:dirt","height":2}},{{"block":"minecraft:grass_block","height":1}}]}}\ngenerate-structures=false\n')
+                (directory/'server.properties').write_text(f'server-ip=127.0.0.1\nserver-port={args.port}\nonline-mode=false\nwhite-list=false\nenforce-secure-profile=false\nspawn-protection=0\nview-distance=2\nsimulation-distance=2\ndifficulty=peaceful\nlevel-type=minecraft:flat\ngenerator-settings={{"biome":"minecraft:plains","layers":[{{"block":"minecraft:bedrock","height":1}},{{"block":"minecraft:dirt","height":2}},{{"block":"minecraft:grass_block","height":1}}]}}\ngenerate-structures=false\n')
             else:(directory/'options.txt').write_text('pauseOnLostFocus:false\nguiScale:2\ngraphicsMode:0\nrenderDistance:3\nsimulationDistance:3\nmaxFps:30\nmaxFpsInactive:30\nsoundCategory_master:0.0\njoinedFirstServer:true\n')
             command=launch.base_command('server' if side=='server' else 'native',directory,args.port)
             command[0]='/usr/lib/jvm/java-25-openjdk/bin/java'
             command.insert(1,'-Dhud.qa.control='+str(control))
+            if side=='client':
+                command[command.index('--width')+1]='1280';command[command.index('--height')+1]='900'
             if args.settings_only:
                 command.insert(1,'-Dhud.qa.settingsOnly=true');index=command.index('--quickPlayMultiplayer');del command[index:index+2]
             audits[side]={'command':command,'mods':[{'file':j.name,'sha256':sha(j)} for j in chosen]}
@@ -80,7 +82,7 @@ def main():
                 try:child.wait(timeout=20)
                 except subprocess.TimeoutExpired:child.kill();child.wait()
             log.close()
-        evidence={'suite':str(suite),'suite_sha256':sha(suite),'settings_only':args.settings_only,'launches':audits}
+        evidence={'suite':str(suite),'suite_sha256':suiteHash,'settings_only':args.settings_only,'launches':audits}
         for name in ['result.txt','observations.json','failure']:
             if (control/name).exists():evidence[name]=(control/name).read_text()
         (run/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')

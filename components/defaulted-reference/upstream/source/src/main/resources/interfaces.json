@@ -1,0 +1,5 @@
+{
+  "net/minecraft/world/item/Item": ["net/atlas/defaulted/extension/ItemExtensions"],
+  "net/minecraft/world/item/ItemStack": ["net/atlas/defaulted/extension/ItemStackExtensions"],
+  "net/minecraft/core/Holder$Reference": ["net/atlas/defaulted/extension/ReferenceHolderExtensions"]
+}

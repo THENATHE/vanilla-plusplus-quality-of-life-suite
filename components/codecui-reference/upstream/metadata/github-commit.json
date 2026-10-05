@@ -1,0 +1,305 @@
+{
+  "sha": "c41b3c1fe1cf8d66483cb2b115c61788476da975",
+  "node_id": "C_kwDOUgQEY9oAKGM0MWIzYzFmZTFjZjhkNjY0ODNjYjJiMTE1YzYxNzg4NDc2ZGE5NzU",
+  "commit": {
+    "author": {
+      "name": "pajic",
+      "email": "32738446+pajicadvance@users.noreply.github.com",
+      "date": "2026-09-20T18:23:57Z"
+    },
+    "committer": {
+      "name": "pajic",
+      "email": "32738446+pajicadvance@users.noreply.github.com",
+      "date": "2026-09-20T18:23:57Z"
+    },
+    "message": "26.3 update",
+    "tree": {
+      "sha": "5c0baded36d2290c96ce00b8656a5613a14a8bc1",
+      "url": "https://api.github.com/repos/pajicadvance/codecui/git/trees/5c0baded36d2290c96ce00b8656a5613a14a8bc1"
+    },
+    "url": "https://api.github.com/repos/pajicadvance/codecui/git/commits/c41b3c1fe1cf8d66483cb2b115c61788476da975",
+    "comment_count": 0,
+    "verification": {
+      "verified": false,
+      "reason": "unsigned",
+      "signature": null,
+      "payload": null,
+      "verified_at": null
+    }
+  },
+  "url": "https://api.github.com/repos/pajicadvance/codecui/commits/c41b3c1fe1cf8d66483cb2b115c61788476da975",
+  "html_url": "https://github.com/pajicadvance/codecui/commit/c41b3c1fe1cf8d66483cb2b115c61788476da975",
+  "comments_url": "https://api.github.com/repos/pajicadvance/codecui/commits/c41b3c1fe1cf8d66483cb2b115c61788476da975/comments",
+  "author": {
+    "login": "pajicadvance",
+    "id": 32738446,
+    "node_id": "MDQ6VXNlcjMyNzM4NDQ2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/32738446?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/pajicadvance",
+    "html_url": "https://github.com/pajicadvance",
+    "followers_url": "https://api.github.com/users/pajicadvance/followers",
+    "following_url": "https://api.github.com/users/pajicadvance/following{/other_user}",
+    "gists_url": "https://api.github.com/users/pajicadvance/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/pajicadvance/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/pajicadvance/subscriptions",
+    "organizations_url": "https://api.github.com/users/pajicadvance/orgs",
+    "repos_url": "https://api.github.com/users/pajicadvance/repos",
+    "events_url": "https://api.github.com/users/pajicadvance/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/pajicadvance/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "pajicadvance",
+    "id": 32738446,
+    "node_id": "MDQ6VXNlcjMyNzM4NDQ2",
+    "avatar_url": "https://avatars.githubusercontent.com/u/32738446?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/pajicadvance",
+    "html_url": "https://github.com/pajicadvance",
+    "followers_url": "https://api.github.com/users/pajicadvance/followers",
+    "following_url": "https://api.github.com/users/pajicadvance/following{/other_user}",
+    "gists_url": "https://api.github.com/users/pajicadvance/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/pajicadvance/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/pajicadvance/subscriptions",
+    "organizations_url": "https://api.github.com/users/pajicadvance/orgs",
+    "repos_url": "https://api.github.com/users/pajicadvance/repos",
+    "events_url": "https://api.github.com/users/pajicadvance/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/pajicadvance/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "64aaf54dc429848da89947cd5543b1dee1a7bf82",
+      "url": "https://api.github.com/repos/pajicadvance/codecui/commits/64aaf54dc429848da89947cd5543b1dee1a7bf82",
+      "html_url": "https://github.com/pajicadvance/codecui/commit/64aaf54dc429848da89947cd5543b1dee1a7bf82"
+    }
+  ],
+  "stats": {
+    "total": 178,
+    "additions": 151,
+    "deletions": 27
+  },
+  "files": [
+    {
+      "sha": "4a544ecce36bfa6bfaece7f6dbf59e16d9109be3",
+      "filename": "build.common.gradle.kts",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 1,
+      "changes": 12,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/build.common.gradle.kts",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/build.common.gradle.kts",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/build.common.gradle.kts?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -141,7 +141,7 @@ repositories {\n }\n \n access {\n-    from = rootProject.file(\"src/main/resources/${property(\"mod.id\")}.${if (isUnobfuscated) \"classtweaker\" else \"accesswidener\"}\")\n+    from = rootProject.file(\"src/main/resources/${property(\"mod.id\")}${if (sc.current.parsed >= \"26.3\") \"_26_3\" else \"\"}.${if (isUnobfuscated) \"classtweaker\" else \"accesswidener\"}\")\n }\n \n val output = layout.buildDirectory.file(\"accesstransformer.cfg\").map { it.asFile }\n@@ -232,6 +232,16 @@ stonecutter {\n     val (version, loader) = current.project.split('-', limit = 2)\n     properties.tags(version, loader)\n \n+    filters.exclude(\"**/*.accesswidener\")\n+\n+    replacements.string(current.parsed >= \"26.3\") {\n+        replace(\"net.minecraft.core.RegistryCodecs\", \"net.minecraft.core.registries.codec.RegistryCodecs\")\n+        replace(\"RegistryCodecs.homogeneousList\", \"RegistryCodecs.holderSet\")\n+        replace(\"net.minecraft.resources.RegistryFixedCodec\", \"net.minecraft.core.registries.codec.RegistryFixedCodec\")\n+        replace(\"net.minecraft.resources.RegistryFileCodec\", \"net.minecraft.core.registries.codec.RegistryFileCodec\")\n+        replace(\"net.minecraft.resources.HolderSetCodec\", \"net.minecraft.core.registries.codec.HolderSetCodec\")\n+    }\n+\n     replacements.string(current.parsed >= \"1.21.11\") {\n         replace(\"ResourceLocation\", \"Identifier\")\n         replace(\"net.minecraft.Util\", \"net.minecraft.util.Util\")"
+    },
+    {
+      "sha": "ee2d2ac17e5f7c35fc2667b31f82282721ef3456",
+      "filename": "build.fabric.gradle.kts",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 3,
+      "changes": 16,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/build.fabric.gradle.kts",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/build.fabric.gradle.kts",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/build.fabric.gradle.kts?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -19,7 +19,7 @@ tasks.named<ProcessResources>(\"processResources\") {\n         this[\"fabric_api_version\"] = if (hasProp(\"deps.min-fabric-api\")) prop(\"deps.min-fabric-api\") else prop(\"deps.fabric-api\")\n         this[\"fabric_version\"] = if (isUnobfuscated) prop(\"deps.fabric-loader\") else \"0.18\"\n         this[\"java\"] = prop(\"deps.java\")\n-        this[\"mod_accesswidener\"] = \"${prop(\"mod.id\")}.${if (isUnobfuscated) \"classtweaker\" else \"accesswidener\"}\"\n+        this[\"mod_accesswidener\"] = \"${prop(\"mod.id\")}${if (sc.current.parsed >= \"26.3\") \"_26_3\" else \"\"}.${if (isUnobfuscated) \"classtweaker\" else \"accesswidener\"}\"\n         this[\"mod_id\"] = prop(\"mod.id\")\n         this[\"mod_name\"] = prop(\"mod.name\")\n         this[\"mod_description\"] = prop(\"mod.description\")\n@@ -46,8 +46,8 @@ tasks.named<ProcessResources>(\"processResources\") {\n }\n \n loom {\n-    if (isUnobfuscated) accessWidenerPath = rootProject.file(\"src/main/resources/${property(\"mod.id\")}.classtweaker\")\n-    else accessWidenerPath = rootProject.file(\"src/main/resources/${property(\"mod.id\")}.accesswidener\")\n+    accessWidenerPath = if (isUnobfuscated) rootProject.file(\"src/main/resources/${property(\"mod.id\")}${if (sc.current.parsed >= \"26.3\") \"_26_3\" else \"\"}.classtweaker\")\n+    else rootProject.file(\"src/main/resources/${property(\"mod.id\")}.accesswidener\")\n }\n \n version = \"${property(\"deps.minecraft\")}-${property(\"mod.version\")}-fabric\"\n@@ -216,6 +216,16 @@ stonecutter {\n     val (version, loader) = current.project.split('-', limit = 2)\n     properties.tags(version, loader)\n \n+    filters.exclude(\"**/*.accesswidener\")\n+\n+    replacements.string(current.parsed >= \"26.3\") {\n+        replace(\"net.minecraft.core.RegistryCodecs\", \"net.minecraft.core.registries.codec.RegistryCodecs\")\n+        replace(\"RegistryCodecs.homogeneousList\", \"RegistryCodecs.holderSet\")\n+        replace(\"net.minecraft.resources.RegistryFixedCodec\", \"net.minecraft.core.registries.codec.RegistryFixedCodec\")\n+        replace(\"net.minecraft.resources.RegistryFileCodec\", \"net.minecraft.core.registries.codec.RegistryFileCodec\")\n+        replace(\"net.minecraft.resources.HolderSetCodec\", \"net.minecraft.core.registries.codec.HolderSetCodec\")\n+    }\n+\n     replacements.string(current.parsed >= \"26.1\") {\n         replace(\"PayloadTypeRegistry.playS2C()\", \"PayloadTypeRegistry.clientboundPlay()\")\n     }"
+    },
+    {
+      "sha": "c3cd82decbdc7da8c9542eb170b8e4f16e82b2c4",
+      "filename": "build.neoforge.gradle.kts",
+      "status": "modified",
+      "additions": 11,
+      "deletions": 1,
+      "changes": 12,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/build.neoforge.gradle.kts",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/build.neoforge.gradle.kts",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/build.neoforge.gradle.kts?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -155,7 +155,7 @@ repositories {\n }\n \n access {\n-    from = rootProject.file(\"src/main/resources/${property(\"mod.id\")}.${if (isUnobfuscated) \"classtweaker\" else \"accesswidener\"}\")\n+    from = rootProject.file(\"src/main/resources/${property(\"mod.id\")}${if (sc.current.parsed >= \"26.3\") \"_26_3\" else \"\"}.${if (isUnobfuscated) \"classtweaker\" else \"accesswidener\"}\")\n }\n \n val output = layout.buildDirectory.file(\"accesstransformer.cfg\").map { it.asFile }\n@@ -243,6 +243,16 @@ stonecutter {\n     val (version, loader) = current.project.split('-', limit = 2)\n     properties.tags(version, loader)\n \n+    filters.exclude(\"**/*.accesswidener\")\n+\n+    replacements.string(current.parsed >= \"26.3\") {\n+        replace(\"net.minecraft.core.RegistryCodecs\", \"net.minecraft.core.registries.codec.RegistryCodecs\")\n+        replace(\"RegistryCodecs.homogeneousList\", \"RegistryCodecs.holderSet\")\n+        replace(\"net.minecraft.resources.RegistryFixedCodec\", \"net.minecraft.core.registries.codec.RegistryFixedCodec\")\n+        replace(\"net.minecraft.resources.RegistryFileCodec\", \"net.minecraft.core.registries.codec.RegistryFileCodec\")\n+        replace(\"net.minecraft.resources.HolderSetCodec\", \"net.minecraft.core.registries.codec.HolderSetCodec\")\n+    }\n+\n     replacements.string(current.parsed >= \"1.21.11\") {\n         replace(\"ResourceLocation\", \"Identifier\")\n         replace(\"net.minecraft.Util\", \"net.minecraft.util.Util\")"
+    },
+    {
+      "sha": "6f6f063bc960bc17dbe76ad13fbd44ce79b0b05f",
+      "filename": "gradle.properties",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/gradle.properties",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/gradle.properties",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/gradle.properties?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -8,15 +8,15 @@ mod.name=CodecUI\n mod.description=Declarative schemas and auto-generated editor GUIs for DataFixerUpper codecs\n mod.group=net.mehvahdjukaar\n mod.license=MIT\n-mod.version=1.4.3\n+mod.version=1.4.4\n mod.release_type=release\n mod.author=MehVahdJukaar\n mod.homepage = https://github.com/MehVahdJukaar/codecui\n mod.credits = MehVahdJukaar\n mod.github = https://github.com/MehVahdJukaar/codecui\n \n-deps.fabric-loader=0.19.2\n-loomx.loom_version=1.16-SNAPSHOT\n+deps.fabric-loader=0.19.5\n+loomx.loom_version=1.17-SNAPSHOT\n \n deps.minecraft=[VERSIONED]\n deps.fabric-api=[VERSIONED]"
+    },
+    {
+      "sha": "4c7a383abbb8b4c091992bcf805c8d0b1912e57b",
+      "filename": "settings.gradle.kts",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/settings.gradle.kts",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/settings.gradle.kts",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/settings.gradle.kts?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -15,8 +15,8 @@ pluginManagement {\n \n plugins {\n     id(\"org.gradle.toolchains.foojay-resolver-convention\") version \"1.0.0\"\n-    id(\"dev.kikugie.stonecutter\") version \"0.9.4\"\n-    id(\"dev.kikugie.loom-back-compat\") version \"0.3\"\n+    id(\"dev.kikugie.stonecutter\") version \"0.9.8\"\n+    id(\"dev.kikugie.loom-back-compat\") version \"0.4\"\n }\n \n stonecutter {\n@@ -31,6 +31,7 @@ stonecutter {\n         match(\"1.21.11\", \"common\", \"fabric\", \"neoforge\")\n         match(\"26.1\", \"common\", \"fabric\", \"neoforge\")\n         match(\"26.2\", \"common\", \"fabric\", \"neoforge\")\n+        match(\"26.3\", \"common\", \"fabric\", \"neoforge\")\n \n         vcsVersion = \"26.1-fabric\"\n     }"
+    },
+    {
+      "sha": "db4569492440a1f67f9faa05e22e69cf4c6743d3",
+      "filename": "src/main/java/net/mehvahdjukaar/codecui/fabric/CodecUIFabric.java",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 2,
+      "changes": 4,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Ffabric%2FCodecUIFabric.java",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Ffabric%2FCodecUIFabric.java",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Ffabric%2FCodecUIFabric.java?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -1,7 +1,7 @@\n package net.mehvahdjukaar.codecui.fabric;\n \n //? fabric {\n-/*import net.fabricmc.api.ModInitializer;\n+import net.fabricmc.api.ModInitializer;\n import net.fabricmc.fabric.api.event.lifecycle.v1.CommonLifecycleEvents;\n import net.fabricmc.loader.api.FabricLoader;\n import net.mehvahdjukaar.codecui.CodecUI;\n@@ -16,4 +16,4 @@ public void onInitialize() {\n         CommonLifecycleEvents.TAGS_LOADED.register(Identifier.fromNamespaceAndPath(CodecUI.MOD_ID, \"extract_context\"), (registryAccess, client) -> SchemaContext.update(registryAccess));\n     }\n }\n-*///?}\n\\ No newline at end of file\n+//?}\n\\ No newline at end of file"
+    },
+    {
+      "sha": "08afcf627fb4facff4eb28eb5b5dcb46619675de",
+      "filename": "src/main/java/net/mehvahdjukaar/codecui/internal/HolderSetCodecExtension.java",
+      "status": "added",
+      "additions": 11,
+      "deletions": 0,
+      "changes": 11,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Finternal%2FHolderSetCodecExtension.java",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Finternal%2FHolderSetCodecExtension.java",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Finternal%2FHolderSetCodecExtension.java?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -0,0 +1,11 @@\n+package net.mehvahdjukaar.codecui.internal;\n+\n+import com.mojang.serialization.Codec;\n+import net.minecraft.core.Registry;\n+import net.minecraft.resources.ResourceKey;\n+import org.jspecify.annotations.Nullable;\n+\n+public interface HolderSetCodecExtension {\n+    @Nullable Codec<?> codecui$elementCodec();\n+    @Nullable ResourceKey<? extends Registry<?>> codecui$registryKey();\n+}"
+    },
+    {
+      "sha": "ea763f592ecac05bcf9b00f2d968d91ef18856da",
+      "filename": "src/main/java/net/mehvahdjukaar/codecui/internal/LenientHolderSetCodec.java",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 0,
+      "changes": 8,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Finternal%2FLenientHolderSetCodec.java",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Finternal%2FLenientHolderSetCodec.java",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Finternal%2FLenientHolderSetCodec.java?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -49,6 +49,10 @@ Codec<Holder<E>> elementCodec() {\n         return elementCodec;\n     }\n \n+    ResourceKey<? extends Registry<E>> registryKey() {\n+        return registryKey;\n+    }\n+\n     @Override\n     public <T> DataResult<Pair<HolderSet<E>, T>> decode(DynamicOps<T> ops, T input) {\n         if (ops instanceof RegistryOps<T> registryOps) {\n@@ -77,7 +81,11 @@ private static <E> DataResult<HolderSet<E>> lookupTag(HolderGetter<E> getter, Ta\n     @Override\n     public <T> DataResult<T> encode(HolderSet<E> input, DynamicOps<T> ops, T prefix) {\n         if (ops instanceof RegistryOps<T> registryOps) {\n+            //? <26.3 {\n             Optional<HolderOwner<E>> owner = registryOps.owner(this.registryKey);\n+             //?} else {\n+            /*Optional<? extends HolderOwner<E>> owner = registryOps.getter(this.registryKey);\n+            *///?}\n             if (owner.isPresent()) {\n                 if (!input.canSerializeIn(owner.get())) {\n                     return DataResult.error(() -> \"HolderSet \" + input + \" is not valid in current registry set\");"
+    },
+    {
+      "sha": "1927c6cdd1ee767a5d154533483c18b0a9130384",
+      "filename": "src/main/java/net/mehvahdjukaar/codecui/internal/RecursiveHolderSetCodec.java",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Finternal%2FRecursiveHolderSetCodec.java",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Finternal%2FRecursiveHolderSetCodec.java",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Finternal%2FRecursiveHolderSetCodec.java?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -68,7 +68,11 @@ public <T> DataResult<Pair<HolderSet<E>, T>> decode(DynamicOps<T> ops, T input)\n     @Override\n     public <T> DataResult<T> encode(HolderSet<E> input, DynamicOps<T> ops, T prefix) {\n         if (ops instanceof RegistryOps<T> registryOps) {\n+            //? <26.3 {\n             Optional<HolderOwner<E>> owner = registryOps.owner(this.registryKey);\n+             //?} else {\n+            /*Optional<? extends HolderOwner<E>> owner = registryOps.getter(this.registryKey);\n+            *///?}\n             if (owner.isPresent() && !input.canSerializeIn(owner.get())) {\n                 return DataResult.error(() -> \"HolderSet \" + input + \" is not valid in current registry set\");\n             }"
+    },
+    {
+      "sha": "c2c79939c081b5621b8a3538eb28d2c2dcdd7bab",
+      "filename": "src/main/java/net/mehvahdjukaar/codecui/internal/SchemaResolver.java",
+      "status": "modified",
+      "additions": 16,
+      "deletions": 4,
+      "changes": 20,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Finternal%2FSchemaResolver.java",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Finternal%2FSchemaResolver.java",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Finternal%2FSchemaResolver.java?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -21,9 +21,14 @@\n import net.mehvahdjukaar.codecui.Schema;\n import net.mehvahdjukaar.codecui.SchemaHandler;\n import net.minecraft.core.Registry;\n-import net.minecraft.resources.*;\n import org.jspecify.annotations.Nullable;\n \n+//~ if >26.2 'resources.*' -> 'core.registries.codec.*'\n+import net.minecraft.resources.*;\n+\n+//? >26.2\n+//import net.minecraft.resources.ResourceKey;\n+\n import java.util.*;\n import java.util.concurrent.ConcurrentHashMap;\n import java.util.concurrent.CopyOnWriteArrayList;\n@@ -342,12 +347,19 @@ private Schema<?> tierTwoStructural(Codec<?> codec, IdentityHashMap<Object, Sche\n         }\n         // HolderSet<E> (vanilla or our lenient copy): a \"#namespace:path\" tag, a single entry,\n         // or a list of entries.\n-        Codec<?> holderSetElement = codec instanceof HolderSetCodec<?> hs ? hs.elementCodec\n-                : codec instanceof LenientHolderSetCodec<?> lhs ? lhs.elementCodec() : null;\n+        Codec<?> holderSetElement = null;\n+        ResourceKey<? extends Registry<?>> holderSetRegistry = null;\n+        if (codec instanceof HolderSetCodecExtension hs) {\n+            holderSetElement = hs.codecui$elementCodec();\n+            holderSetRegistry = hs.codecui$registryKey();\n+        } else if (codec instanceof LenientHolderSetCodec<?> lhs) {\n+            holderSetElement = lhs.elementCodec();\n+            holderSetRegistry = lhs.registryKey();\n+        }\n         if (holderSetElement != null) {\n             Schema<?> element = resolveCodec(holderSetElement, cache);\n             ResourceKey<? extends Registry<?>> registry =\n-                    element instanceof Schema.ResourceId r ? r.registry() : null;\n+                    element instanceof Schema.ResourceId r ? r.registry() : holderSetRegistry;\n             Schema<?> tag = registry != null\n                     ? new Schema.TagId(registry)\n                     : new Schema.Str(0, Integer.MAX_VALUE, null);"
+    },
+    {
+      "sha": "0c18d1cbffa671053c644b8fe2ade6d69ff1c7a0",
+      "filename": "src/main/java/net/mehvahdjukaar/codecui/mixins/HolderSetCodecMixin.java",
+      "status": "added",
+      "additions": 32,
+      "deletions": 0,
+      "changes": 32,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Fmixins%2FHolderSetCodecMixin.java",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Fmixins%2FHolderSetCodecMixin.java",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Fmixins%2FHolderSetCodecMixin.java?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -0,0 +1,32 @@\n+package net.mehvahdjukaar.codecui.mixins;\n+\n+import com.mojang.serialization.Codec;\n+import net.mehvahdjukaar.codecui.internal.HolderSetCodecExtension;\n+import net.minecraft.core.Holder;\n+import net.minecraft.core.Registry;\n+import net.minecraft.resources.HolderSetCodec;\n+import net.minecraft.resources.ResourceKey;\n+import org.spongepowered.asm.mixin.Mixin;\n+import org.spongepowered.asm.mixin.Unique;\n+import org.spongepowered.asm.mixin.injection.At;\n+import org.spongepowered.asm.mixin.injection.Inject;\n+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;\n+\n+@Mixin(HolderSetCodec.class)\n+public abstract class HolderSetCodecMixin<E> implements HolderSetCodecExtension {\n+\n+    @Unique private Codec<Holder<E>> codecui$elementCodec;\n+    @Unique private ResourceKey<? extends Registry<E>> codecui$registryKey;\n+\n+    @Inject(method = \"<init>\", at = @At(\"TAIL\"))\n+    private void codecui$captureElementCodec(ResourceKey<? extends Registry<E>> registryKey,\n+                                             Codec<Holder<E>> elementCodec,\n+                                             boolean alwaysUseList,\n+                                             CallbackInfo ci) {\n+        this.codecui$elementCodec = elementCodec;\n+        this.codecui$registryKey = registryKey;\n+    }\n+\n+    @Override public Codec<?> codecui$elementCodec() { return this.codecui$elementCodec; }\n+    @Override public ResourceKey<? extends Registry<?>> codecui$registryKey() { return this.codecui$registryKey; }\n+}"
+    },
+    {
+      "sha": "3faddc8e864dd5292a0469fd2ad1bb532ef38255",
+      "filename": "src/main/java/net/mehvahdjukaar/codecui/neoforge/CodecUINeoForge.java",
+      "status": "modified",
+      "additions": 7,
+      "deletions": 7,
+      "changes": 14,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Fneoforge%2FCodecUINeoForge.java",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Fneoforge%2FCodecUINeoForge.java",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/src%2Fmain%2Fjava%2Fnet%2Fmehvahdjukaar%2Fcodecui%2Fneoforge%2FCodecUINeoForge.java?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -1,7 +1,7 @@\n package net.mehvahdjukaar.codecui.neoforge;\n \n //? neoforge {\n-import net.mehvahdjukaar.codecui.CodecUI;\n+/*import net.mehvahdjukaar.codecui.CodecUI;\n import net.mehvahdjukaar.codecui.SchemaContext;\n import net.minecraft.core.RegistryAccess;\n import net.neoforged.bus.api.IEventBus;\n@@ -18,7 +18,7 @@\n public class CodecUINeoForge {\n \n     public CodecUINeoForge(IEventBus modBus) {\n-        CodecUI.init(!FMLEnvironment./*? >=1.21.9 {*/isProduction()/*?} <1.21.9 {*//*production*//*?}*/, true);\n+        CodecUI.init(!FMLEnvironment./^? >=1.21.9 {^/isProduction()/^?} <1.21.9 {^//^production^//^?}^/, true);\n         NeoForge.EVENT_BUS.register(this);\n     }\n \n@@ -29,18 +29,18 @@ public void onTagsLoaded(TagsUpdatedEvent event) {\n         //? >=26.1 {\n                 event.getRegistries();\n         //?} <1.21.2 {\n-                /*event.getRegistryAccess();\n-        *///?}\n+                /^event.getRegistryAccess();\n+        ^///?}\n         SchemaContext.update(access);\n     }\n     //?}\n \n     //? <26.1 && >=1.21.2 {\n-    /*@SubscribeEvent\n+    /^@SubscribeEvent\n     public void onAddReloadListener(AddServerReloadListenersEvent event) {\n         RegistryAccess access = event.getRegistryAccess();\n         SchemaContext.update(access);\n     }\n-    *///?}\n+    ^///?}\n }\n-//?}\n\\ No newline at end of file\n+*///?}\n\\ No newline at end of file"
+    },
+    {
+      "sha": "379f0e7344213e4d7218f1448ef447b9d40e04bb",
+      "filename": "src/main/resources/codecui.mixins.json",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fresources%2Fcodecui.mixins.json",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fresources%2Fcodecui.mixins.json",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/src%2Fmain%2Fresources%2Fcodecui.mixins.json?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -4,8 +4,9 @@\n   \"compatibilityLevel\": \"${java}\",\n   \"package\": \"net.mehvahdjukaar.codecui.mixins\",\n   \"mixins\": [\n-    \"RecordCodecBuilderMixin\",\n+    \"HolderSetCodecMixin\",\n     \"RecordCodecBuilderInstanceMixin\",\n+    \"RecordCodecBuilderMixin\",\n     \"RegistryByNameCodecMixin\",\n     \"StringRepresentableCodecMixin\",\n     \"TagKeyCodecMixin\""
+    },
+    {
+      "sha": "feb0453e9c52235bba6017378b72e233f48509d9",
+      "filename": "src/main/resources/codecui_26_3.classtweaker",
+      "status": "added",
+      "additions": 9,
+      "deletions": 0,
+      "changes": 9,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fresources%2Fcodecui_26_3.classtweaker",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/src%2Fmain%2Fresources%2Fcodecui_26_3.classtweaker",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/src%2Fmain%2Fresources%2Fcodecui_26_3.classtweaker?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -0,0 +1,9 @@\n+accessWidener\tv1\tofficial\n+\n+# Read private fields of Minecraft's registry/holder codecs so the schema resolver can\n+# introspect them. These are net.minecraft.* classes, so string reflection would break on\n+# Fabric's intermediary runtime - widening keeps it remap-safe on both loaders.\n+accessible\tfield\tnet/minecraft/core/registries/codec/RegistryFileCodec\tregistryKey\tLnet/minecraft/resources/ResourceKey;\n+accessible\tfield\tnet/minecraft/core/registries/codec/RegistryFileCodec\telementCodec\tLcom/mojang/serialization/Codec;\n+accessible\tfield\tnet/minecraft/core/registries/codec/RegistryFileCodec\tallowInline\tZ\n+accessible\tfield\tnet/minecraft/core/registries/codec/RegistryFixedCodec\tregistryKey\tLnet/minecraft/resources/ResourceKey;\n\\ No newline at end of file"
+    },
+    {
+      "sha": "3dd9bb7534ba1b38777ae57e1bf8489a4d877bef",
+      "filename": "stonecutter.gradle.kts",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/stonecutter.gradle.kts",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/stonecutter.gradle.kts",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/stonecutter.gradle.kts?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -4,8 +4,8 @@ import org.gradle.api.publish.maven.MavenPublication\n plugins {\n     id(\"dev.kikugie.stonecutter\")\n     id(\"co.uzzu.dotenv.gradle\") version \"4.0.0\"\n-    id(\"net.fabricmc.fabric-loom\") version \"1.16-SNAPSHOT\" apply false\n-    id(\"net.neoforged.moddev\") version \"2.0.141\" apply false\n+    id(\"net.fabricmc.fabric-loom\") version \"1.17-SNAPSHOT\" apply false\n+    id(\"net.neoforged.moddev\") version \"2.0.147\" apply false\n     id(\"dev.kikugie.postprocess.jsonlang\") version \"2.1-beta.4\" apply false\n     id(\"me.modmuss50.mod-publish-plugin\") version \"0.8.+\" apply false\n     id(\"dev.mixinmcp.decompile\") version \"1.3.0\" apply false\n@@ -16,7 +16,7 @@ subprojects {\n     apply(plugin = \"dev.mixinmcp.decompile\")\n }\n \n-stonecutter active \"26.1-neoforge\"\n+stonecutter active \"26.1-fabric\"\n \n tasks.register(\"runActiveClient\") {\n     group = \"stonecutter\""
+    },
+    {
+      "sha": "74224d5b4fa2d2d956165eaabbedfd9bd76395d6",
+      "filename": "versions/26.3-common/gradle.properties",
+      "status": "added",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/versions%2F26.3-common%2Fgradle.properties",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/versions%2F26.3-common%2Fgradle.properties",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/versions%2F26.3-common%2Fgradle.properties?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -0,0 +1,4 @@\n+deps.minecraft=26.3\n+deps.neoform=26.3-1\n+\n+deps.java=25"
+    },
+    {
+      "sha": "cc29b5e79a2d2cfb973c6ea3aebfc78115d598f5",
+      "filename": "versions/26.3-fabric/gradle.properties",
+      "status": "added",
+      "additions": 6,
+      "deletions": 0,
+      "changes": 6,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/versions%2F26.3-fabric%2Fgradle.properties",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/versions%2F26.3-fabric%2Fgradle.properties",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/versions%2F26.3-fabric%2Fgradle.properties?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -0,0 +1,6 @@\n+mod.mc_dep_fabric=>=26.3\n+deps.minecraft=26.3\n+\n+deps.java=25\n+deps.fabric-api=0.160.5+26.3\n+deps.fabric-loader=0.19.5"
+    },
+    {
+      "sha": "4d72d13ae028d33eba7e693f4e679717156e7ec3",
+      "filename": "versions/26.3-neoforge/gradle.properties",
+      "status": "added",
+      "additions": 6,
+      "deletions": 0,
+      "changes": 6,
+      "blob_url": "https://github.com/pajicadvance/codecui/blob/c41b3c1fe1cf8d66483cb2b115c61788476da975/versions%2F26.3-neoforge%2Fgradle.properties",
+      "raw_url": "https://github.com/pajicadvance/codecui/raw/c41b3c1fe1cf8d66483cb2b115c61788476da975/versions%2F26.3-neoforge%2Fgradle.properties",
+      "contents_url": "https://api.github.com/repos/pajicadvance/codecui/contents/versions%2F26.3-neoforge%2Fgradle.properties?ref=c41b3c1fe1cf8d66483cb2b115c61788476da975",
+      "patch": "@@ -0,0 +1,6 @@\n+deps.minecraft=26.3\n+deps.neoforge=26.3.0.4-beta\n+\n+mod.mc_dep_forgelike=[26.3,)\n+\n+deps.java=25"
+    }
+  ]
+}

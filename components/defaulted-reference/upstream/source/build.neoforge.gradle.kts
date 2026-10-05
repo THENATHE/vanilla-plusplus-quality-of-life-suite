@@ -1,0 +1,314 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+import java.util.Locale
+
+plugins {
+    id("net.neoforged.moddev")
+    id("dev.kikugie.postprocess.jsonlang")
+    id("me.modmuss50.mod-publish-plugin")
+    id("com.gradleup.shadow")
+}
+
+tasks.named<ShadowJar>("shadowJar") {
+    isZip64 = true
+}
+
+tasks.named<ProcessResources>("processResources") {
+    fun prop(name: String) = project.property(name) as String
+
+    val props = HashMap<String, String>().apply {
+        this["version"] = prop("mod.version")
+        this["minecraft"] = prop("mod.mc_dep_forgelike")
+        this["neoforge_version"] = prop("deps.neoforge")
+        this["mod_name"] = prop("mod.name")
+        this["mod_description"] = prop("mod.description")
+        this["mod_license"] = prop("mod.license")
+    }
+
+    filesMatching(listOf("fabric.mod.json", "META-INF/neoforge.mods.toml", "META-INF/mods.toml")) {
+        expand(props)
+    }
+
+    val mixin = HashMap<String, String>().apply {
+        this["java"] = "JAVA_${prop("deps.java")}"
+    }
+
+    filesMatching(listOf("defaulted.mixins.json")) {
+        expand(mixin)
+    }
+}
+
+version = "${property("mod.version")}.${property("mod.sub_version")}-${property("deps.minecraft")}-neoforge"
+base.archivesName = property("mod.archives_base") as String
+
+jsonlang {
+    languageDirectories = listOf("assets/${property("mod.id")}/lang")
+    prettyPrint = true
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        name = "Something Catchy"
+        url = uri("https://registry.somethingcatchy.net/repository/maven-public/")
+        content {
+            includeGroupAndSubgroups("net.mehvahdjukaar")
+        }
+    }
+    maven {
+        name = "Jitpack"
+        url = uri("https://jitpack.io")
+    }
+    maven {
+        name = "Sinytra"
+        url = uri("https://maven.su5ed.dev/releases")
+    }
+    maven {
+        name = "shedaniel (Cloth Config)"
+        url = uri("https://maven.shedaniel.me/")
+        content {
+            includeGroupAndSubgroups("me.shedaniel")
+        }
+    }
+    maven {
+        name = "Terraformers (Mod Menu)"
+        url = uri("https://maven.terraformersmc.com/releases/")
+        content {
+            includeGroupAndSubgroups("com.terraformersmc")
+            includeGroupAndSubgroups("dev.emi")
+        }
+    }
+    maven {
+        name = "Wisp Forest Maven"
+        url = uri("https://maven.wispforest.io/releases/")
+        content {
+            includeGroupAndSubgroups("io.wispforest")
+        }
+    }
+    maven {
+        name = "Modrinth"
+        url = uri("https://api.modrinth.com/maven")
+        content {
+            includeGroupAndSubgroups("maven.modrinth")
+        }
+    }
+    maven {
+        name = "WTHIT"
+        url = uri("https://maven2.bai.lol")
+        content {
+            includeGroupAndSubgroups("mcp.mobius.waila")
+            includeGroupAndSubgroups("lol.bai")
+        }
+    }
+    maven {
+        name = "Sisby Maven"
+        url = uri("https://repo.sleeping.town/")
+        content {
+            includeGroupAndSubgroups("folk.sisby")
+        }
+    }
+    maven {
+        name = "Parchment Mappings"
+        url = uri("https://maven.parchmentmc.org")
+        content {
+            includeGroupAndSubgroups("org.parchmentmc")
+        }
+    }
+    maven {
+        name = "Xander Maven"
+        url = uri("https://maven.isxander.dev/releases")
+        content {
+            includeGroupAndSubgroups("dev.isxander")
+            includeGroupAndSubgroups("org.quiltmc.parsers")
+        }
+    }
+    maven {
+        name = "Nucleoid Maven (Polymer/Trinkets)"
+        url = uri("https://maven.nucleoid.xyz")
+        content {
+            includeGroupAndSubgroups("eu.pb4")
+            includeGroupAndSubgroups("xyz.nucleoid")
+        }
+    }
+    maven {
+        name = "Fuzs Mod Resources"
+        url = uri("https://raw.githubusercontent.com/Fuzss/modresources/main/maven/")
+        content {
+            includeGroupAndSubgroups("fuzs")
+        }
+    }
+    maven {
+        name = "Kotlin For Forge"
+        url = uri("https://thedarkcolour.github.io/KotlinForForge/")
+        content {
+            includeGroupAndSubgroups("thedarkcolour")
+        }
+    }
+    exclusiveContent {
+        forRepository {
+            maven {
+              name = "Cassian's Maven"
+              url = uri("https://maven.cassian.cc")
+            }
+        }
+        filter {
+            includeGroupAndSubgroups("cc.cassian")
+        }
+    }
+    mavenCentral()
+}
+
+neoForge {
+    interfaceInjectionData.from(file("../../src/main/resources/interfaces.json"))
+    enable {
+        version = property("deps.neoforge") as String
+        // Disable recompilation for performance reasons.
+        isDisableRecompilation = true
+    }
+    validateAccessTransformers = true
+
+    if (hasProperty("deps.parchment")) parchment {
+        val (mc, ver) = (property("deps.parchment") as String).split(':')
+        mappingsVersion = ver
+        minecraftVersion = mc
+    }
+
+    runs {
+        register("client") {
+            gameDirectory = file("run/")
+            client()
+        }
+        register("server") {
+            gameDirectory = file("run/")
+            server()
+        }
+    }
+
+    mods {
+        register("defaulted") {
+            sourceSet(sourceSets["main"])
+        }
+    }
+    sourceSets["main"].resources.srcDir("src/main/generated")
+}
+
+dependencies {
+    compileOnly("io.wispforest:owo-lib${property("deps.owo_loader")}:${property("deps.owo_version")}")
+    implementation("io.github.java-diff-utils:java-diff-utils:${property("deps.java_diff_version")}")
+    jarJar("io.github.java-diff-utils:java-diff-utils:${property("deps.java_diff_version")}")
+    if (stonecutter.eval(stonecutter.current.version, "<1.21.9")) add("additionalRuntimeClasspath", "io.github.java-diff-utils:java-diff-utils:${property("deps.java_diff_version")}")
+    if (hasProperty("deps.codec_ui_version")) {
+        implementation("net.mehvahdjukaar:codecui-neoforge:${property("deps.codec_ui_version")}")
+        jarJar("net.mehvahdjukaar:codecui-neoforge:${property("deps.codec_ui_version")}")
+    }
+    if (hasProperty("deps.nautilus_studio_version"))
+        compileOnly("net.mehvahdjukaar:nautilus_studio-neoforge:${property("deps.nautilus_studio_version")}")
+}
+
+
+tasks {
+    processResources {
+        exclude("**/fabric.mod.json", "**/*.classtweaker", "**/mods.toml")
+    }
+
+    named("createMinecraftArtifacts") {
+        dependsOn("stonecutterGenerate")
+    }
+
+    register<Copy>("buildAndCollect") {
+        group = "build"
+        from(jar.map { it.archiveFile })
+        into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
+        dependsOn("build")
+    }
+}
+
+java {
+    withSourcesJar()
+    val javaCompat = if (stonecutter.eval(stonecutter.current.version, ">=26")) {
+        JavaVersion.VERSION_25
+    } else if (stonecutter.eval(stonecutter.current.version, ">=1.20.5")) {
+        JavaVersion.VERSION_21
+    } else {
+        JavaVersion.VERSION_17
+    }
+    sourceCompatibility = javaCompat
+    targetCompatibility = javaCompat
+}
+
+stonecutter {
+    val (version, loader) = current.project.split('-', limit = 2)
+    properties.tags(version, loader)
+
+    replacements.string(current.parsed >= "26.3") {
+        replace("net.minecraft.core.RegistryCodecs", "net.minecraft.core.registries.codec.RegistryCodecs")
+        replace("net.minecraft.resources.RegistryFixedCodec", "net.minecraft.core.registries.codec.RegistryFixedCodec")
+        replace("RegistryCodecs.homogeneousList", "RegistryCodecs.holderSet")
+    }
+
+    replacements.string(current.parsed >= "1.21.11") {
+        replace("ResourceLocation", "Identifier")
+        replace("net.minecraft.Util", "net.minecraft.util.Util")
+        replace("net.minecraft.FileUtil", "net.minecraft.util.FileUtil")
+        replace("org.jetbrains.annotations.Nullable", "org.jspecify.annotations.Nullable")
+        replace("org.jetbrains.annotations.NotNull", "org.jspecify.annotations.NonNull")
+        replace("@NotNull", "@NonNull")
+    }
+
+    replacements.string(current.parsed >= "1.21.4") {
+        replace("net.minecraft.world.item.Tier", "net.minecraft.world.item.ToolMaterial")
+        replace("Tiers.", "ToolMaterial.")
+    }
+}
+
+val additionalVersionsStr = findProperty("publish.additionalVersions") as String?
+val additionalVersions: List<String> = additionalVersionsStr
+    ?.split(",")
+    ?.map { it.trim() }
+    ?.filter { it.isNotEmpty() }
+    ?: emptyList()
+
+publishMods {
+    file = tasks.jar.map { it.archiveFile.get() }
+    additionalFiles.from(tasks.named<org.gradle.jvm.tasks.Jar>("sourcesJar").map { it.archiveFile.get() })
+
+    var release = "${property("mod.sub_version")}" == "release"
+    type =
+        if (release) STABLE
+        else BETA
+    var subVer =
+        if (release) ""
+        else ".${property("mod.sub_version")}"
+    var displaySubVer =
+        if (release) ""
+        else " ${(property("mod.sub_version") as String).replace(".", " ").uppercase(Locale.getDefault())}"
+
+    displayName = "${property("mod.name")} ${stonecutter.current.version + displaySubVer} ${property("mod.version")} NeoForge"
+    version = "${property("mod.version")}${subVer}-${property("deps.minecraft")}-NeoForge"
+    changelog = provider { rootProject.file("CHANGELOG-LATEST.md").readText() }
+    modLoaders.add("neoforge")
+
+    modrinth {
+        projectId = property("publish.modrinth") as String
+        accessToken = env.MODRINTH_API_KEY.orNull()
+        minecraftVersions.add(property("deps.minecraft") as String)
+        minecraftVersions.addAll(additionalVersions)
+        environment = SERVER_ONLY_CLIENT_OPTIONAL
+    }
+
+    curseforge {
+        projectId = property("publish.curseforge") as String
+        accessToken = env.CURSEFORGE_API_KEY.orNull()
+        minecraftVersions.add(property("deps.minecraft") as String)
+        minecraftVersions.addAll(additionalVersions)
+        javaVersions.add(if (stonecutter.eval(stonecutter.current.version, ">=26")) {
+            JavaVersion.VERSION_25
+        } else if (stonecutter.eval(stonecutter.current.version, ">=1.20.5")) {
+            JavaVersion.VERSION_21
+        } else {
+            JavaVersion.VERSION_17
+        })
+        changelogType = "markdown"
+        client = true
+        server = true
+    }
+}

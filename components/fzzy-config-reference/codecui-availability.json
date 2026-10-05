@@ -1,0 +1,33 @@
+{
+  "checked_date": "2026-10-04",
+  "local_version": "26.3-1.4.3",
+  "local_sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898",
+  "modrinth_project_slug_check": "codecui returned HTTP404",
+  "modrinth_search_hits": 0,
+  "github_releases": [],
+  "official_maven_metadata": "https://registry.somethingcatchy.net/repository/maven-public/net/mehvahdjukaar/codecui-fabric/maven-metadata.xml",
+  "official_maven_versions": [
+    "1.21.1-1.0.2",
+    "1.21.1-1.1.3",
+    "1.21.1-1.1.5",
+    "1.21.1-1.2.0",
+    "1.21.1-1.3.1",
+    "1.21.1-1.3.6",
+    "1.21.1-1.4.0",
+    "1.21.1-1.4.7",
+    "1.21.8-1.4.0",
+    "1.21.11-1.0.2",
+    "1.21.11-1.3.1",
+    "1.21.11-1.3.6",
+    "1.21.11-1.4.0",
+    "26.1.2-1.3.1",
+    "26.1.2-1.3.6",
+    "26.1.2-1.4.7",
+    "26.2-1.4.7"
+  ],
+  "official_26_3_versions": [],
+  "conclusion": "No publicly downloadable original-publisher 26.3 CodecUI release found in checked sources. Retained target HolderSetCodecExtension API is consistent with the Pajic 26.3 fork reference, not the separate historical ChatGPT HolderSetCodecAccess port; exact private build revision is not recorded. No binary replacement or migration performed.",
+  "source_family_reference": "components/codecui-reference/upstream/source/",
+  "source_family_reference_revision": "c41b3c1fe1cf8d66483cb2b115c61788476da975",
+  "private_binary_build_revision": "not recorded"
+}

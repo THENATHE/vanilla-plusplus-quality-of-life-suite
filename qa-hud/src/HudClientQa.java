@@ -58,7 +58,7 @@ public final class HudClientQa implements ClientModInitializer {
     void configure(Minecraft c)throws Exception {
         if(phase==9) {
             var sets=com.thenathe.suite.client.SuiteSettings.collectConfigs();
-            for(String id:new String[]{"simple_smithing_overhaul:config","mapstitch:config","toolpouch:config","tiered_backpacks:config","misctweaks:config","simple_death_improvements:config"}) {
+            for(String id:new String[]{"simple_smithing_overhaul:config-v2","mapstitch:config","toolpouch:config","tiered_backpacks:config","misctweaks:config","simple_death_improvements:config"}) {
                 String key=id.replace(':','.');if(!sets.containsKey(key))throw new AssertionError("config missing "+key+" found="+sets.keySet());
             }
             c.gui.setScreen(com.thenathe.suite.client.SuiteSettings.create(null));return;

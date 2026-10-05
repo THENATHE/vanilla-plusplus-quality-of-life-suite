@@ -3,7 +3,7 @@
 import hashlib,io,json,sys,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-path=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'build/libs/thenathe-mod-suite-1.0.0+26.3.jar'
+path=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.0+26.3.jar'
 locks=json.loads((ROOT/'locks/artifacts.json').read_text())
 with zipfile.ZipFile(path) as archive:
     assert archive.testzip() is None

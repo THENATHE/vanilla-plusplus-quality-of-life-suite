@@ -1,0 +1,269 @@
+{
+  "settings_runtime_sha256": "3bc3f314b70d78010334d62501ac1e7dfdcb2507ba72e36a24e1f61e5bc7f621",
+  "final_bundle_sha256": "0312a5d7ce8cf1e597e21a9d111f8efaa47fa7c01c6b18effb48977cd9bbc957",
+  "operator": [
+    {
+      "config_id": "simple_smithing_overhaul.config-v2",
+      "rows": 12,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "mapstitch.config",
+      "rows": 8,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "mapstitch.client_config",
+      "rows": 4,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "toolpouch.config",
+      "rows": 13,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "toolpouch.client_config",
+      "rows": 6,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "tiered_backpacks.config",
+      "rows": 12,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "misctweaks.config",
+      "rows": 18,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "misctweaks.client_config",
+      "rows": 4,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "simple_death_improvements.config",
+      "rows": 17,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "thenathe_mod_suite.overview",
+      "rows": 15,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "thenathe_mod_suite.chalk",
+      "rows": 1,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "case": "Chalk original AutoConfig saved/reloaded/reopened=false",
+      "passed": true
+    },
+    {
+      "case": "Chalk original AutoConfig saved/reloaded/reopened=true",
+      "passed": true
+    },
+    {
+      "case": "Tool Pouch native checkbox original file=false",
+      "passed": true
+    },
+    {
+      "case": "Tool Pouch native checkbox original file=true",
+      "passed": true
+    },
+    {
+      "case": "remote-server-library-context",
+      "client_level_present": true,
+      "client_connection_present": true,
+      "is_local_server": false,
+      "screen_out_of_game": true,
+      "update_out_of_game": false,
+      "permission_level": 4,
+      "native_widget_enabled": true
+    },
+    {
+      "case": "remote-server-original-config-routing",
+      "server_preventShulkerDuplication": true,
+      "passed": true
+    }
+  ],
+  "non_operator": [
+    {
+      "config_id": "simple_smithing_overhaul.config-v2",
+      "rows": 12,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "mapstitch.config",
+      "rows": 8,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "mapstitch.client_config",
+      "rows": 4,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "toolpouch.config",
+      "rows": 13,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "toolpouch.client_config",
+      "rows": 6,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "tiered_backpacks.config",
+      "rows": 12,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "misctweaks.config",
+      "rows": 18,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "misctweaks.client_config",
+      "rows": 4,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "simple_death_improvements.config",
+      "rows": 17,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "thenathe_mod_suite.overview",
+      "rows": 15,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "thenathe_mod_suite.chalk",
+      "rows": 1,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "case": "Chalk original AutoConfig saved/reloaded/reopened=false",
+      "passed": true
+    },
+    {
+      "case": "Chalk original AutoConfig saved/reloaded/reopened=true",
+      "passed": true
+    },
+    {
+      "case": "Tool Pouch native checkbox original file=false",
+      "passed": true
+    },
+    {
+      "case": "Tool Pouch native checkbox original file=true",
+      "passed": true
+    },
+    {
+      "case": "remote-server-library-context",
+      "client_level_present": true,
+      "client_connection_present": true,
+      "is_local_server": false,
+      "screen_out_of_game": true,
+      "update_out_of_game": false,
+      "permission_level": 0,
+      "native_widget_enabled": true,
+      "native_protected_button": "Can't Edit",
+      "protected_button_changed_value": false
+    },
+    {
+      "case": "remote-server-original-config-routing",
+      "server_preventShulkerDuplication": false,
+      "passed": true
+    }
+  ],
+  "coverage_limits": [
+    "Representative save/reload paths, not every original field combination.",
+    "No second connected client broadcast check.",
+    "Original reset/restart and forwarded-edit approval paths not individually exercised."
+  ],
+  "class_equivalence": {
+    "tested_sha256": "3bc3f314b70d78010334d62501ac1e7dfdcb2507ba72e36a24e1f61e5bc7f621",
+    "final_sha256": "0312a5d7ce8cf1e597e21a9d111f8efaa47fa7c01c6b18effb48977cd9bbc957",
+    "tested_java_classes": 657,
+    "final_java_classes": 657,
+    "changed_java_classes": [],
+    "identical": true
+  },
+  "final_visual": [
+    {
+      "case": "effective label misctweaks.client_config=MiscTweaks Client Settings",
+      "passed": true
+    },
+    {
+      "case": "effective label thenathe_mod_suite.overview=Vanilla++ Quality of Life Suite",
+      "passed": true
+    },
+    {
+      "case": "effective label tiered_backpacks.config=Mod Configuration",
+      "passed": true
+    },
+    {
+      "case": "effective label misctweaks.config=MiscTweaks Gameplay Settings",
+      "passed": true
+    },
+    {
+      "case": "effective label toolpouch.config=Tool Pouch Gameplay Settings",
+      "passed": true
+    },
+    {
+      "case": "effective label toolpouch.client_config=Tool Pouch Client Settings",
+      "passed": true
+    },
+    {
+      "case": "Tiered native config context=Tiered Backpacks gameplay settings. This section keeps the original Mod Configuration title.",
+      "passed": true
+    }
+  ]
+}

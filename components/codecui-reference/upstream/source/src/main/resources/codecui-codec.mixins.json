@@ -1,0 +1,16 @@
+{
+  "minVersion": "0.8",
+  "required": false,
+  "compatibilityLevel": "${java}",
+  "package": "net.mehvahdjukaar.codecui.mixins",
+  "mixins": [
+    "CodecXmapMixin",
+    "LateBoundIdMapperMixin",
+    "MapCodecXmapMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

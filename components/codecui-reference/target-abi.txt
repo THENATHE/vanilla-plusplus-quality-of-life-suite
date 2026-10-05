@@ -1,0 +1,26 @@
+Compiled from "HolderSetCodecExtension.java"
+public interface net.mehvahdjukaar.codecui.internal.HolderSetCodecExtension {
+  public abstract com.mojang.serialization.Codec<?> codecui$elementCodec();
+    descriptor: ()Lcom/mojang/serialization/Codec;
+
+  public abstract net.minecraft.resources.ResourceKey<? extends net.minecraft.core.Registry<?>> codecui$registryKey();
+    descriptor: ()Lnet/minecraft/resources/ResourceKey;
+}
+Compiled from "HolderSetCodecMixin.java"
+public abstract class net.mehvahdjukaar.codecui.mixins.HolderSetCodecMixin<E> implements net.mehvahdjukaar.codecui.internal.HolderSetCodecExtension {
+  private com.mojang.serialization.Codec<net.minecraft.core.Holder<E>> codecui$elementCodec;
+    descriptor: Lcom/mojang/serialization/Codec;
+  private net.minecraft.resources.ResourceKey<? extends net.minecraft.core.Registry<E>> codecui$registryKey;
+    descriptor: Lnet/minecraft/resources/ResourceKey;
+  public net.mehvahdjukaar.codecui.mixins.HolderSetCodecMixin();
+    descriptor: ()V
+
+  private void codecui$captureElementCodec(net.minecraft.resources.ResourceKey<? extends net.minecraft.core.Registry<E>>, com.mojang.serialization.Codec<net.minecraft.core.Holder<E>>, boolean, org.spongepowered.asm.mixin.injection.callback.CallbackInfo);
+    descriptor: (Lnet/minecraft/resources/ResourceKey;Lcom/mojang/serialization/Codec;ZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;)V
+
+  public com.mojang.serialization.Codec<?> codecui$elementCodec();
+    descriptor: ()Lcom/mojang/serialization/Codec;
+
+  public net.minecraft.resources.ResourceKey<? extends net.minecraft.core.Registry<?>> codecui$registryKey();
+    descriptor: ()Lnet/minecraft/resources/ResourceKey;
+}

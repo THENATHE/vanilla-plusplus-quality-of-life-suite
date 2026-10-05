@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "bundle_sha256": "ee06bdf23509e0a2f0c619b72126b8d875c42f2d77dba84fc6d89bb799791936",
+  "scope": "bounded connection/capability/resource-pack smoke only; no exhaustive gameplay or integrated-server test",
+  "defaulted_sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
+  "cases": [
+    {
+      "profile": "SuiteNativePoly",
+      "client_kind": "suite-polymer",
+      "client_polymer": true,
+      "server_polymer": true,
+      "passed": true,
+      "observed": {
+        "player": "SuiteNativePoly",
+        "expected_native": true,
+        "join_count": 1,
+        "intentional_sso_mismatch": false,
+        "polymer": true,
+        "chalk_state_bits": 16,
+        "native_modules": {
+          "mapstitch": true,
+          "simple_smithing_overhaul": true,
+          "tiered_backpacks": true,
+          "toolpouch": true,
+          "chalk": true,
+          "misctweaks": true,
+          "simple_death_improvements": true,
+          "shared_region_maps": true,
+          "amethyst_curse_cleanser": true,
+          "toolpouch_atlas_elytra_compat": true
+        },
+        "chalk_conversion_registered": true,
+        "defaulted_version": "1.3.8+26.3.dropfix.1",
+        "passed": true
+      },
+      "fallback_pack_loaded": false
+    }
+  ]
+}

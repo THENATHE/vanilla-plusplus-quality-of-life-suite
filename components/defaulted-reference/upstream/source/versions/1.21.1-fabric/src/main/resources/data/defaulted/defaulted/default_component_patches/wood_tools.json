@@ -1,0 +1,14 @@
+{
+  "elements": [
+    "#defaulted:wooden_tools"
+  ],
+  "patch_generators": [
+    {
+      "generator": "defaulted:tool_material",
+      "weapon_level": 0,
+      "base_tier": "wood"
+    }
+  ],
+  "patch": {},
+  "priority": 800
+}

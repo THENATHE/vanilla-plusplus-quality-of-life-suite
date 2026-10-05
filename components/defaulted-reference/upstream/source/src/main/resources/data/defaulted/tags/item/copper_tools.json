@@ -1,0 +1,29 @@
+{
+    "replace": false,
+    "values": [
+        {
+            "id": "minecraft:copper_axe",
+            "required": false
+        },
+        {
+            "id": "minecraft:copper_hoe",
+            "required": false
+        },
+        {
+            "id": "minecraft:copper_pickaxe",
+            "required": false
+        },
+        {
+            "id": "minecraft:copper_shovel",
+            "required": false
+        },
+        {
+            "id": "minecraft:copper_spear",
+            "required": false
+        },
+        {
+            "id": "minecraft:copper_sword",
+            "required": false
+        }
+    ]
+}

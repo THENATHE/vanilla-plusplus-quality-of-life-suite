@@ -9,3 +9,7 @@ libs/
 **/.idea/
 *.log
 **/__pycache__/
+**/runs/
+**/*.jar
+!**/gradle/wrapper/gradle-wrapper.jar
+**/upstream/*.zip

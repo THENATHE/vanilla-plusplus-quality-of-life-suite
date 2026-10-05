@@ -3,7 +3,7 @@
   "id": "chalk_polymer_compat",
   "version": "${version}",
   "name": "Chalk Polymer Compatibility",
-  "description": "Internal Thenathe Mod Suite compatibility component; shared capability negotiation.",
+  "description": "Internal Vanilla++ Quality of Life Suite compatibility component; shared capability negotiation.",
   "authors": [
     "THENATHE"
   ],

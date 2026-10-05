@@ -1,0 +1,106 @@
+[
+  {
+    "case": "same-left",
+    "map_shown": true,
+    "map_top": 1.8,
+    "map_bottom": 110.6,
+    "details_top": 115,
+    "details_bottom": 184,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true
+  },
+  {
+    "case": "same-right",
+    "map_shown": true,
+    "map_top": 1.8,
+    "map_bottom": 110.6,
+    "details_top": 115,
+    "details_bottom": 184,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true
+  },
+  {
+    "case": "opposite-sides",
+    "map_shown": true,
+    "map_top": 1.8,
+    "map_bottom": 110.6,
+    "details_top": 4,
+    "details_bottom": 73,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true
+  },
+  {
+    "case": "larger-map-with-info",
+    "map_shown": true,
+    "map_top": 2.2000003,
+    "map_bottom": 209.79999,
+    "details_top": 214,
+    "details_bottom": 283,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true
+  },
+  {
+    "case": "map-hidden",
+    "map_shown": false,
+    "map_top": 7.0,
+    "map_bottom": 135.0,
+    "details_top": 4,
+    "details_bottom": 73,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true
+  },
+  {
+    "case": "map-restored",
+    "map_shown": true,
+    "map_top": 1.8,
+    "map_bottom": 110.6,
+    "details_top": 115,
+    "details_bottom": 184,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true
+  },
+  {
+    "case": "atlas-removed",
+    "map_shown": false,
+    "map_top": 5.0,
+    "map_bottom": 133.0,
+    "details_top": 4,
+    "details_bottom": 73,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true
+  },
+  {
+    "case": "atlas-restored",
+    "map_shown": true,
+    "map_top": 1.8,
+    "map_bottom": 110.6,
+    "details_top": 115,
+    "details_bottom": 184,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true
+  },
+  {
+    "case": "bottom-left",
+    "map_shown": true,
+    "map_top": 339.8,
+    "map_bottom": 448.6,
+    "details_top": 266,
+    "details_bottom": 335,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true
+  },
+  {
+    "case": "settings",
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  }
+]

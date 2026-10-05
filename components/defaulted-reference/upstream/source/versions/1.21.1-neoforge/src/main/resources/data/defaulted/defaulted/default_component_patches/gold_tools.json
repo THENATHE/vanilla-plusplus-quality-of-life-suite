@@ -1,0 +1,15 @@
+{
+  "elements": [
+    "#defaulted:golden_tools"
+  ],
+  "patch_generators": [
+    {
+      "generator": "defaulted:tool_material",
+      "weapon_level": 0,
+      "speed_level": 5,
+      "base_tier": "gold"
+    }
+  ],
+  "patch": {},
+  "priority": 800
+}

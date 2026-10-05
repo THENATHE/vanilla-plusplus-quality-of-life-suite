@@ -2,8 +2,8 @@
 
 Custom replacement build `1.3.8+26.3.dropfix.1`, based on the retained
 `defaulted-1.3.8.release-26.3-fabric.jar`. This is a narrowly scoped modification,
-not a new Minecraft version port or a Polymer shim. No repository or release is
-published online. Original author: Alexandra; upstream project:
+not a new Minecraft version port or a Polymer shim. The original standalone fix was local; the suite now preserves its patch source
+and offers the same exact MIT-licensed binary in its optional local-library archive. Original author: Alexandra; upstream project:
 https://github.com/Alexandra-Myers/Defaulted (declared license: MIT).
 
 ## Problem and change
@@ -65,3 +65,7 @@ and restart. Keep only one Defaulted JAR. Existing configuration and datapacks s
 in place. This is a server-side fix; no new client mod is required. It prevents
 future failed drops but does not restore items already lost. To roll back, stop the
 server and swap the original JAR back in; the original crash will remain.
+
+## Suite source copy
+
+This directory preserves the exact historical patcher and notes. The original workspace path above remains valid locally. In a standalone suite checkout, the source is `components/defaulted-dropfix/tools/PatchDefaulted.java`; place the original hash-pinned input under this directory’s `inputs/`, then run `JAVA_HOME=/path/to/jdk25 PATH=/path/to/jdk25/bin:$PATH python3 components/defaulted-dropfix/build.py` from the checkout root. The copied script resolves its paths relative to its own directory. This suite release does not rebuild or replace the already verified patch binary.

@@ -1,0 +1,20 @@
+{
+  "checked_date": "2026-10-04",
+  "reference_repository": "https://github.com/pajicadvance/codecui",
+  "reference_revision": "c41b3c1fe1cf8d66483cb2b115c61788476da975",
+  "reference_declared_version": "1.4.4",
+  "exact_target_file": "libs/codecui-26.3-1.4.3-fabric.jar",
+  "exact_target_sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898",
+  "private_binary_build_revision": "not recorded; reference revision must not be presented as exact build revision",
+  "scope": "read-only source family and selected API signature comparison; no compilation, replacement, installation or new runtime QA",
+  "selected_classes": [
+    "net.mehvahdjukaar.codecui.internal.HolderSetCodecExtension",
+    "net.mehvahdjukaar.codecui.mixins.HolderSetCodecMixin"
+  ],
+  "observations": [
+    "Source and target provide HolderSetCodecExtension with codecui$elementCodec() returning Codec<?> and codecui$registryKey() returning ResourceKey<? extends Registry<?>>.",
+    "Reference source version 1.4.4 is newer than target 26.3-1.4.3; matching selected APIs do not prove identical full source or implementation.",
+    "Historical ChatGPT port source Minecraft/codecui-26.3/port26 uses HolderSetCodecAccess, so it is not the recorded source for this target."
+  ],
+  "license": "MIT declared in gradle.properties; no standalone LICENSE in inspected source or target JAR; full standard terms and attribution notice preserved separately without an invented copyright year."
+}

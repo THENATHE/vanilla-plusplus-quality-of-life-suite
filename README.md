@@ -1,4 +1,6 @@
-# Thenathe Mod Suite
+# Vanilla++ Quality of Life Suite
+
+[Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Installation](#installation) · [Update guide](docs/UPDATING.md) · [Validation](docs/VALIDATION.md)
 
 Unofficial Fabric gameplay suite for Minecraft **26.3**, maintained by THENATHE. One feature JAR packages separate modules with their existing mod IDs, assets, settings and saved-data formats. The modular structure keeps upstream updates reviewable. This is a new standalone repository, not a fork of Pajic's repositories.
 
@@ -6,15 +8,15 @@ Includes Simple Smithing Overhaul, MapStitch, Tool Pouch, Tiered Backpacks, Misc
 
 ## Installation
 
-Minecraft 26.3, Java 25 or newer, Fabric Loader 0.19.5. Install `thenathe-mod-suite-1.0.0+26.3.jar` on the server and on clients that want the native features. Remove separate copies of its included feature mods, addons and old compatibility shims from that instance's mods directory. Existing configurations and world data stay in place.
+Minecraft 26.3, Java 25 or newer, Fabric Loader 0.19.5. Install `vanilla-plusplus-quality-of-life-suite-1.0.0+26.3.jar` on the server and on clients that want the native features. Remove separate copies of its included feature mods, addons and old compatibility shims from that instance's mods directory. Existing configurations and world data stay in place.
 
-Shared libraries remain separate so their dependency identities and licensing are preserved. Use the exact validated runtime:
+Shared libraries remain separate so their dependency identities and licensing are preserved. The release includes an optional `vanilla-plusplus-local-libraries-1.0.0+26.3.zip` containing the exact MIT-licensed Defaulted dropfix and CodecUI inputs; extract its two JARs into `mods/`. Download the remaining libraries from their publishers. Fzzy Config is a separate official download and is excluded from that archive. Use the exact validated runtime:
 
 | Required library | Version |
 | --- | --- |
 | Fabric API | 0.161.0+26.3 |
 | Fabric Language Kotlin | 1.14.1+kotlin.2.4.20 |
-| Fzzy Config | 0.7.7+fix2+26.3 |
+| [Fzzy Config](https://modrinth.com/mod/fzzy-config/version/thw1Z19c) | 0.7.7+fix2+26.3 (official public release) |
 | Cloth Config | 26.3.159 |
 | **Defaulted, local drop fix** | **1.3.8+26.3.dropfix.1** |
 | CodecUI | 26.3-1.4.3 |
@@ -42,8 +44,8 @@ Open the suite through Mod Menu, or use `/suite-settings` on the client. See [se
 
 ## Source and maintenance
 
-See [source map and upstream update procedure](docs/UPDATING.md), [provenance and compatibility tracks](docs/PROVENANCE.md), and [light validation](docs/VALIDATION.md). The historical standalone projects and releases remain separate; the existing SSO port project remains paused unless explicitly resumed.
+See [source map and upstream update procedure](docs/UPDATING.md), [provenance and compatibility tracks](docs/PROVENANCE.md), and [validation and test limits](docs/VALIDATION.md). SSO uses the user-confirmed private official 26.3 developer release; its original bytes and source audit are recorded separately from the public 26.2 baseline. The historical standalone projects and releases remain separate; the existing SSO port project remains paused unless explicitly resumed.
 
-Build from the pinned inputs with `JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac`. Java 27 is an optional compiler used here with `--release 25`; Java 25 is the runtime target. `verifyInputs` rejects a missing or changed artifact before compilation. Output: `build/libs/thenathe-mod-suite-1.0.0+26.3.jar`.
+Build from the pinned inputs with `JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac`. Java 27 is an optional compiler used here with `--release 25`; Java 25 is the runtime target. `verifyInputs` rejects a missing or changed artifact before compilation. Output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.0.0+26.3.jar`.
 
 The repository excludes downloaded dependency JARs, Gradle caches and QA worlds. Pinned fetch and local-source build instructions are documented in docs/UPDATING.md. Published validation claims refer to the exact tested artifact, not to historical standalone results.

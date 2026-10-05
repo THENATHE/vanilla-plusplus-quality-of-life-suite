@@ -3,7 +3,7 @@
   "id": "sso_backpack_toolpouch_mapstitch_shim",
   "version": "${version}",
   "name": "SSO-backpack-toolpouch-mapstitch-shim",
-  "description": "Internal Thenathe Mod Suite compatibility component; shared capability negotiation.",
+  "description": "Internal Vanilla++ Quality of Life Suite compatibility component; shared capability negotiation.",
   "authors": [
     "THENATHE"
   ],
@@ -30,7 +30,7 @@
   },
   "suggests": {
     "simple_smithing_overhaul": "*",
-    "tiered_backpacks": "1.0.19",
+    "tiered_backpacks": "1.0.20",
     "toolpouch": "1.1.10",
     "mapstitch": "1.1.6",
     "toolpouch_atlas_elytra_compat": "*",

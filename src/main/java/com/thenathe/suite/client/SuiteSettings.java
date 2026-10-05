@@ -1,6 +1,8 @@
 package com.thenathe.suite.client;
 
 import java.lang.reflect.Field;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.lang.reflect.Method;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -32,9 +34,18 @@ public final class SuiteSettings {
 
     public static void initialize() {
         if (initialized) return;
+        SuiteOverview overview = new SuiteOverview();
+        ChalkSettings chalkConfig = new ChalkSettings();
+        try {
+            // Fzzy registers directory watchers before any transient GUI config is saved.
+            Files.createDirectories(overview.getDir().toPath());
+            Files.createDirectories(chalkConfig.getDir().toPath());
+        } catch (IOException failure) {
+            throw new IllegalStateException("Could not create the suite client configuration directory", failure);
+        }
+        ConfigApiJava.registerConfig(overview, SuiteOverview::new, RegisterType.CLIENT);
+        chalk = ConfigApiJava.registerConfig(chalkConfig, ChalkSettings::new, RegisterType.CLIENT);
         initialized = true;
-        ConfigApiJava.registerConfig(new SuiteOverview(), SuiteOverview::new, RegisterType.CLIENT);
-        chalk = ConfigApiJava.registerConfig(new ChalkSettings(), ChalkSettings::new, RegisterType.CLIENT);
         ConfigApiJava.registerScreenProvider(SCOPE, (namespace, scope) -> create(Minecraft.getInstance().gui.screen()));
     }
 

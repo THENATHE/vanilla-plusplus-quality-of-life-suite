@@ -1,0 +1,21 @@
+{
+  "track": "developer-release-private",
+  "release_version": "2.9.14+26.3",
+  "minecraft": "26.3",
+  "binary": "components/sso/private-developer-release/simple_smithing_overhaul-fabric-2.9.14+26.3.jar",
+  "binary_sha256": "fb6cbf8c13938d68fb19171dac386b5567d71625bce727b22d3380f6b7880126",
+  "provenance": "Private official developer release confirmed by user on2026-10-04. Exact developer source revision for the private binary was not independently recorded.",
+  "modrinth_version_id": null,
+  "dependencies": {
+    "minecraft": "~26.3",
+    "fabricloader": ">=0.19.5",
+    "java": ">=25",
+    "defaulted": ">=1.3.8",
+    "fabric-api": ">=0.160.4",
+    "fzzy_config": ">=0.7.6",
+    "mixson": ">=2.2.0"
+  },
+  "public_source_baseline": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2-sources.jar",
+  "source_correspondence_audit": "components/sso/upstream/metadata/local26.3-analysis.json",
+  "ssported_track": "Existing ChatGPT SSO-port remains paused and untouched."
+}

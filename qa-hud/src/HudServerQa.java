@@ -19,6 +19,11 @@ public final class HudServerQa implements ModInitializer {
     ItemStack atlas;
     String command = "";
     public void onInitialize() {
+        net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.SERVER_STARTED.register(server -> {
+            me.pajic.mapstitch.MapStitch.CONFIG.minimapInfo.allowCoordinates.accept(true);
+            me.pajic.mapstitch.MapStitch.CONFIG.minimapInfo.allowGameTime.accept(true);
+            me.pajic.mapstitch.MapStitch.CONFIG.minimapInfo.allowWeather.accept(true);
+        });
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             if (server.getPlayerList().getPlayers().isEmpty()) return;
             var p = server.getPlayerList().getPlayers().getFirst();
@@ -32,7 +37,11 @@ public final class HudServerQa implements ModInitializer {
                     var map = MapItem.create(p.level(), p.getBlockX(), p.getBlockZ(), (byte)0, true, false);
                     var data = MapItem.getSavedData(map, p.level());
                     map.set(ModDataComponents.MAP_CENTER, new org.joml.Vector2i(data.centerX, data.centerZ));
-                    atlas = new AtlasRecipe().assemble(CraftingInput.of(2,1,List.of(new ItemStack(Items.BOOK),map)));
+                    var recipe = new AtlasRecipe();
+                    var input = CraftingInput.of(2,1,List.of(new ItemStack(Items.BOOK),map));
+                    if(!recipe.matches(input,p.level()))throw new AssertionError("atlas fixture recipe did not match");
+                    atlas = recipe.assemble(input);
+                    if(atlas.isEmpty())throw new AssertionError("empty atlas fixture");
                     atlas.set(ModDataComponents.ATLAS_ACTIVE_MAP_ID, map.get(DataComponents.MAP_ID).id());
                     seed(p, true);
                     Files.writeString(control.resolve("seeded"), "ready\n");

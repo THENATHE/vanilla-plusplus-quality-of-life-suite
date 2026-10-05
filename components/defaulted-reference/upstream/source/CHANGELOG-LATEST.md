@@ -1,0 +1,3 @@
+- Un-removed `defaulted:patch_phantom_components` patch generator
+- Added `minecraft:enchantment_overrides` phantom data component
+- Fixed a bug causing 1.21.1 & 1.21.4 to not properly sync components to vanilla clients

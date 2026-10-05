@@ -25,6 +25,10 @@ Source: https://github.com/pajicadvance/simple-smithing-overhaul. Release: https
 
 SHA-256: `f393e8b48d6bdf06e69290843c0d041d5f70449f2af7355eaf4c7249bc97fc56`.
 
-## SSO26.3 provenance blocker
+## Private official developer release for26.3
 
-The requested developer26.3 release is not published on Modrinth and this repository has no GitHub releases. The preserved official Fabric2.9.14+26.2 binary requires `~26.2`; it is not an installable26.3 input as-is. The pre-existing local file named `simple_smithing_overhaul-fabric-2.9.14+26.3.jar` differs in two compiled classes, manifest, metadata and access-widener path. Its developer-release provenance must be resolved separately. The paused SSO-port track is not built, modified or tested by this source-capture work.
+The suite's26.3 runtime uses `private-developer-release/simple_smithing_overhaul-fabric-2.9.14+26.3.jar`, confirmed by the user as a private official developer release on2026-10-04. It is retained unchanged with SHA-256 `fb6cbf8c13938d68fb19171dac386b5567d71625bce727b22d3380f6b7880126`. Its separate lock records dependencies and provenance; no public Modrinth version ID is invented for it.
+
+The public Modrinth2.9.14+26.2 binary and published sources remain preserved independently in `upstream/`. That public binary requires `~26.2` and is not used in the26.3 suite. The source audit found81/83 compiled classes identical to the public developer release; the two differing classes correspond to26.3 branches already present in the public sources. The access widener has identical contents under its26.3 filename. This supports source correspondence, but does not establish an exact private build source revision. See `upstream/metadata/local26.3-analysis.json`.
+
+The separate ChatGPT SSO-port remains paused. No artifact from that port track is included, rebuilt or tested by this suite.

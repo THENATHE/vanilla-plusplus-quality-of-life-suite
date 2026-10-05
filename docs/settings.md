@@ -1,6 +1,6 @@
 # Suite settings and original configuration ownership
 
-Open **Thenathe Mod Suite** from Mod Menu, or run the client command `/suite-settings` while connected. The screen uses the existing Fzzy Config interface with one shared overview and sidebar. Each original gameplay/client configuration remains its own category, with the original fields, descriptions, validation, reset defaults, list/map editors, restart/resource-reload notices and server permission checks.
+Open **Vanilla++ Quality of Life Suite** from Mod Menu, or run the client command `/suite-settings` while connected. The screen uses the existing Fzzy Config interface with one shared overview and sidebar. Each original gameplay/client configuration remains its own category, with the original fields, descriptions, validation, reset defaults, list/map editors, restart/resource-reload notices and server permission checks.
 
 ## Configuration identities
 
@@ -17,6 +17,8 @@ Open **Thenathe Mod Suite** from Mod Menu, or run the client command `/suite-set
 | Amethyst Curse Removal | None in the local component | Amethyst shard + cursed item in grindstone |
 | Colorful Chalk | None; marker enables Chalk colors | Dye/glow crafting provided by integrated Chalk compatibility |
 | Elytra/MapStitch addon | Original Tool Pouch settings, key bindings and addon commands | Original implementations retained |
+
+Tiered Backpacks preserves its native **Mod Configuration** title; its category description identifies it as Tiered Backpacks. Original configuration IDs remain unchanged.
 
 Key bindings remain in **Options → Controls**. They are not copied into a new storage schema. Server settings remain subject to the original operator/permission requirements. A vanilla client has no mod settings GUI; server configuration files and the original Fzzy server controls remain available to server administrators.
 
@@ -38,13 +40,17 @@ No upstream config values, serialization methods or library binaries are replace
 
 ## Chalk bridge
 
-`ChalkSettings.java` presents the single Chalk option as a Fzzy client-only category. Before opening the suite screen it refreshes from `AutoConfig.getConfigHolder(ChalkConfig.class).getConfig().EmitParticles`. Applying a change updates that same holder and calls its native `save()`. Cloth Config remains installed and owns Chalk's persistent configuration. A Fzzy bridge cache file may be created after saving; it is not the authoritative Chalk file and is refreshed from Chalk on every new screen opening.
+`ChalkSettings.java` presents the single Chalk option as a Fzzy client-only category. Before opening the suite screen it refreshes from `AutoConfig.getConfigHolder(ChalkConfig.class).getConfig().EmitParticles`. Applying a change updates that same holder and calls its native `save()`. Refreshing or applying also aligns the original `Chalk.CONFIG` runtime reference with the holder's canonical instance, so an AutoConfig reload cannot leave the particle runtime using a stale object. Cloth Config remains installed and owns Chalk's persistent configuration. A Fzzy bridge cache file may be created after saving; it is not the authoritative Chalk file and is refreshed from Chalk on every new screen opening.
 
 The suite overview and Chalk bridge are registered as client-only configuration. They do not create replacement server settings for any original module.
 
-## Light checks and user testing
+## Verification and remaining user checks
 
-Compilation/API checks validate the pinned adapter and included entrypoints. A graphical smoke test should open the suite screen and verify every component appears in the sidebar. For acceptance:
+The native runtime fixture passed both an operator and non-operator dedicated-server session against the frozen settings candidate SHA-256 `3bc3f314b70d78010334d62501ac1e7dfdcb2507ba72e36a24e1f61e5bc7f621`. Each opened/rendered all eleven native configuration screens, verified original IDs and native row widgets, saved Chalk false/true through its original AutoConfig file, reloaded/reopened it with `Chalk.CONFIG` aligned to the canonical object, and saved/re-read Tool Pouch's original client file. The operator pressed an actual MiscTweaks checkbox and the original server config received/saved it. The non-operator saw the native locked `Can't Edit` button; pressing it did not change the local or server setting. Records and screenshots are under `qa-settings/runs/settings-final-admin/` and `qa-settings/runs/settings-final-guest-02/`.
+
+The final branded bundle SHA-256 `0312a5d7ce8cf1e597e21a9d111f8efaa47fa7c01c6b18effb48977cd9bbc957` passed the graphical overview/sidebar check. All 657 root and nested Java classes are byte-identical to the operator/non-operator-tested candidate. The final screen retains Tiered Backpacks' native title with an explicit module description. Sanitized results are in [settings evidence](../qa-settings/evidence/results.json); actual rendered [overview](../qa-settings/evidence/overview.png) and [expanded native sidebar](../qa-settings/evidence/sidebar.png) are preserved alongside them.
+
+These checks exercise representative native persistence and permissions, not every upstream setting combination, reset/restart path, forwarded-edit approval, or broadcast to a second connected client. Remaining acceptance steps:
 
 1. Open the suite settings from Mod Menu and `/suite-settings`.
 2. Confirm original gameplay and client sections are present, including list/map editors.

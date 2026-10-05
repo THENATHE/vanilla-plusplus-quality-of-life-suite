@@ -61,7 +61,28 @@
   ],
   "modifications": [],
   "port_counterpart": null,
-  "port_counterpart_reason": "Official developer release requires~26.2. Existing local26.3 artifact is materially modified and lacks confirmed developer-release provenance; paused SSO-port is untouched.",
+  "port_counterpart_reason": "Existing ChatGPT SSO-port remains paused. Suite uses confirmed private developer release, separately preserved from public26.2 baseline.",
   "suite_minecraft": "26.3",
-  "suite_compatibility": "blocked pending local26.3 input provenance"
+  "suite_compatibility": "uses separately pinned private developer26.3 release, confirmed by user",
+  "runtime_input": {
+    "track": "developer-release-private",
+    "release_version": "2.9.14+26.3",
+    "minecraft": "26.3",
+    "binary": "components/sso/private-developer-release/simple_smithing_overhaul-fabric-2.9.14+26.3.jar",
+    "binary_sha256": "fb6cbf8c13938d68fb19171dac386b5567d71625bce727b22d3380f6b7880126",
+    "provenance": "Private official developer release confirmed by user on2026-10-04. Exact developer source revision for the private binary was not independently recorded.",
+    "modrinth_version_id": null,
+    "dependencies": {
+      "minecraft": "~26.3",
+      "fabricloader": ">=0.19.5",
+      "java": ">=25",
+      "defaulted": ">=1.3.8",
+      "fabric-api": ">=0.160.4",
+      "fzzy_config": ">=0.7.6",
+      "mixson": ">=2.2.0"
+    },
+    "public_source_baseline": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2-sources.jar",
+    "source_correspondence_audit": "components/sso/upstream/metadata/local26.3-analysis.json",
+    "ssported_track": "Existing ChatGPT SSO-port remains paused and untouched."
+  }
 }

@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "bundle_sha256": "ee06bdf23509e0a2f0c619b72126b8d875c42f2d77dba84fc6d89bb799791936",
+  "scope": "bounded connection/capability/resource-pack smoke only; no exhaustive gameplay or integrated-server test",
+  "defaulted_sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
+  "cases": [
+    {
+      "profile": "SuiteNative",
+      "client_kind": "suite",
+      "client_polymer": false,
+      "server_polymer": true,
+      "passed": true,
+      "observed": {
+        "player": "SuiteNative",
+        "expected_native": true,
+        "polymer": true,
+        "native_modules": {
+          "mapstitch": true,
+          "simple_smithing_overhaul": true,
+          "tiered_backpacks": true,
+          "toolpouch": true,
+          "chalk": true,
+          "misctweaks": true,
+          "simple_death_improvements": true,
+          "shared_region_maps": true,
+          "amethyst_curse_cleanser": true,
+          "toolpouch_atlas_elytra_compat": true
+        },
+        "chalk_conversion_registered": true,
+        "defaulted_version": "1.3.8+26.3.dropfix.1",
+        "passed": true
+      },
+      "fallback_pack_loaded": false
+    },
+    {
+      "profile": "FabricOnly",
+      "client_kind": "fabric-api",
+      "client_polymer": false,
+      "server_polymer": true,
+      "passed": true,
+      "observed": {
+        "player": "FabricOnly",
+        "expected_native": false,
+        "polymer": true,
+        "native_modules": {
+          "mapstitch": false,
+          "simple_smithing_overhaul": false,
+          "tiered_backpacks": false,
+          "toolpouch": false,
+          "chalk": false,
+          "misctweaks": false,
+          "simple_death_improvements": false,
+          "shared_region_maps": false,
+          "amethyst_curse_cleanser": false,
+          "toolpouch_atlas_elytra_compat": false
+        },
+        "chalk_conversion_registered": true,
+        "defaulted_version": "1.3.8+26.3.dropfix.1",
+        "passed": true
+      },
+      "fallback_pack_loaded": true
+    },
+    {
+      "profile": "SuiteVanilla",
+      "client_kind": "vanilla",
+      "client_polymer": false,
+      "server_polymer": true,
+      "passed": true,
+      "observed": {
+        "player": "SuiteVanilla",
+        "expected_native": false,
+        "polymer": true,
+        "native_modules": {
+          "mapstitch": false,
+          "simple_smithing_overhaul": false,
+          "tiered_backpacks": false,
+          "toolpouch": false,
+          "chalk": false,
+          "misctweaks": false,
+          "simple_death_improvements": false,
+          "shared_region_maps": false,
+          "amethyst_curse_cleanser": false,
+          "toolpouch_atlas_elytra_compat": false
+        },
+        "chalk_conversion_registered": true,
+        "defaulted_version": "1.3.8+26.3.dropfix.1",
+        "passed": true
+      },
+      "fallback_pack_loaded": true
+    },
+    {
+      "profile": "SuiteNativeNP",
+      "client_kind": "suite",
+      "client_polymer": false,
+      "server_polymer": false,
+      "passed": true,
+      "observed": {
+        "player": "SuiteNativeNP",
+        "expected_native": true,
+        "polymer": false,
+        "native_modules": {
+          "mapstitch": true,
+          "simple_smithing_overhaul": true,
+          "tiered_backpacks": true,
+          "toolpouch": true,
+          "chalk": true,
+          "misctweaks": true,
+          "simple_death_improvements": true,
+          "shared_region_maps": true,
+          "amethyst_curse_cleanser": true,
+          "toolpouch_atlas_elytra_compat": true
+        },
+        "chalk_conversion_registered": true,
+        "defaulted_version": "1.3.8+26.3.dropfix.1",
+        "passed": true
+      },
+      "fallback_pack_loaded": false
+    }
+  ]
+}

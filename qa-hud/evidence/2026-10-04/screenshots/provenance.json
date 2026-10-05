@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-04",
+  "suite_sha256": "ee06bdf23509e0a2f0c619b72126b8d875c42f2d77dba84fc6d89bb799791936",
+  "nested_addon_sha256": "662859ed9e7d5792ab06514a3f0984ca2fcb0885417c6f556511d347d8f534ea",
+  "run": "qa-hud/runs/hud-suite-06",
+  "screenshots": {
+    "opposite-sides.png": {
+      "sha256": "4a1633a2d562e4a7a3a49b35a5fdcd4051157aa80dfe01838aaf7652eb0cc935",
+      "visually_inspected": true
+    },
+    "map-restored.png": {
+      "sha256": "2277f37ef76e80906a4244469c57ab9c7b4a1bf14b7c8dc272de7b2d921460d0",
+      "visually_inspected": false
+    },
+    "map-hidden.png": {
+      "sha256": "100507924c0aac0e8d13aadde29018c609c67b415eb1351b9b3ede63ada726ef",
+      "visually_inspected": true
+    },
+    "bottom-left.png": {
+      "sha256": "8b82404048d0d8b765b702203a30173d179002b1804101315efe44ab95839f1a",
+      "visually_inspected": true
+    },
+    "atlas-removed.png": {
+      "sha256": "938c7062e4311fa900eaf0b588547a369e4759e06a3a915c2c0d58f0ecaec133",
+      "visually_inspected": false
+    },
+    "settings.png": {
+      "sha256": "fbed1cb3dfe894145fbdede20af9601b6ef22f86d5a5ac76c1821562e9334ae0",
+      "visually_inspected": true
+    },
+    "atlas-restored.png": {
+      "sha256": "3ee84f4025cac465254f897b6b95e8d206321ba30dda666aaa93dfbcfeb2dd68",
+      "visually_inspected": true
+    },
+    "same-right.png": {
+      "sha256": "5ce26982d041df8ae7c2bc13965d8bb153525aab611b19d073b33d1c776b263c",
+      "visually_inspected": true
+    },
+    "larger-map-with-info.png": {
+      "sha256": "2dec3c3bb7edece662bcc863c40e2d2fa58daeacb4c4d7cdd0ecb97a4bc89645",
+      "visually_inspected": true
+    },
+    "same-left.png": {
+      "sha256": "eacbeef8e27589856ef38ddda86a1082768dd6ec18e0c7eb18c7996ad7ffa05c",
+      "visually_inspected": true
+    }
+  },
+  "limits": [
+    "Screen/window 1280x900, GUI scale 2",
+    "No persistence/config-edit/performance gameplay matrix",
+    "Temporary offline-connection and tutorial toasts appear in some frames and are unrelated to HUD placement"
+  ]
+}
