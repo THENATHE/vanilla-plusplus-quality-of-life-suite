@@ -1,6 +1,6 @@
 # Provenance and compatibility tracks
 
-This suite targets Minecraft 26.3, Fabric Loader 0.19.5 and Java 25. It combines official developer releases, existing local ports/additions and new suite-specific compatibility code. It does not relabel the entire distribution as an official developer release.
+Stable suite **1.1.0+26.3**, branch `main`, targets Minecraft 26.3, Fabric Loader 0.19.5 and Java 25. Its outer archive contains 16 nested modules; the suite root, shared coordinator, and mixed-scale addon each declare **1.1.0+26.3**. It combines official developer releases, existing local ports/additions and new suite-specific compatibility code. It does not relabel the entire distribution as an official developer release.
 
 ## Included inputs
 
@@ -26,14 +26,14 @@ This suite targets Minecraft 26.3, Fabric Loader 0.19.5 and Java 25. It combines
 
 | Component | Suite version | Baseline / record |
 | --- | --- | --- |
-| Combined compatibility | 1.0.8-merged.2+26.3 | Original standalone Multi-Shim 1.0.5+26.3; components/combined-compat/ORIGIN.json |
+| Combined compatibility | 1.1.0+26.3 | Original standalone Multi-Shim 1.0.5+26.3; components/combined-compat/ORIGIN.json |
 | Chalk compatibility | 1.1.1-suite.1+26.3 | Original standalone Chalk shim 1.1.0+26.3; components/chalk-compat/ORIGIN.json |
 | Shared Region Maps | 1.0.4-combo.1+mc26.3 | Original local 1.0.3, commit 338270a70c14be19ba79b535b40fac980e414470; components/shared-region-maps/upstream-manifest.json |
 | Tool Pouch atlas/Elytra addon | 1.0.6-suite.2+26.3 | Original local 1.0.4; components/toolpouch-atlas-elytra/upstream-manifest.json |
-| Mixed-scale MapStitch addon | 1.0.2-merged.3+26.3 | Separate module components/mapstitch-mixed-scales/working; coordinator dependency updated for merged branch |
+| Mixed-scale MapStitch addon | 1.1.0+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
 | Sensible Stackables port | 3.0.3-port.1+26.3 | Published 3.0.3+26.2 baseline and per-track source/dependency records in components/sensible-stackables/ |
 | Sensible Stackables Polymer compatibility | 1.0.0+26.3 | Separate components/sensible-stackables/compat module |
-| Suite root / settings | 1.0.2-merged.3+26.3 | Newly authored source in src/ |
+| Suite root / settings | 1.1.0+26.3 | Newly authored source in src/ |
 
 The production archive retains these original module IDs and embeds each module separately. Original standalone repositories and versioned releases remain available; the suite variants do not overwrite them.
 
@@ -49,7 +49,7 @@ The separately named ChatGPT SSO **2.9.14-port.1+26.3** project, its companion p
 
 ## Chalk track separation
 
-The suite uses the exact local Chalk 3.2.1+26.3 port and colorful-addon 2.1.1-port.1+26.3 input. Its new compatibility variants are compiled and tested for those inputs only. Historical original Chalk 3.2.0+26.2, original colorful-addon 2.1.1+1.19.3 and standalone shim 1.1.0+26.2 remain in their existing source/release track. This suite does not modify or newly verify that 26.2 installation. Other Pajic modules have no separately maintained ChatGPT port in this suite; no unsolicited port is invented.
+The suite uses the exact local Chalk 3.2.1+26.3 port and colorful-addon 2.1.1-port.1+26.3 input. Its new compatibility variants are compiled and tested for those inputs only. Historical original Chalk 3.2.0+26.2, original colorful-addon 2.1.1+1.19.3 and standalone shim 1.1.0+26.2 remain in their existing source/release track. This suite does not modify or newly verify that 26.2 installation. Sensible Stackables has a separately maintained 26.3 port and untouched 26.2 baseline recorded below. The other Pajic modules have no separately maintained ChatGPT port in this suite; no unsolicited port is invented.
 
 ## Validation authority
 
@@ -61,8 +61,8 @@ The CodecUI input is `26.3-1.4.3`, SHA-256 `4d07c219…be898`. Its HolderSetCode
 
 Defaulted's retained original 26.3 input and exact dropfix modification are separate records. The pinned Pajic fork source is future-update context; the patcher applies only to the exact original binary. The released dropfix output remains SHA-256 `e339d6f0…32c61` and no library versions or APIs are substituted. See components/defaulted-reference/README.md and components/defaulted-dropfix/README.md.
 
-Fzzy Config 0.7.7+fix2+26.3 is byte-identical to official public release thw1Z19c. It stays external, with a public download URL in the artifact lock. No Fzzy source or binary is bundled in the suite or the optional local-library archive.
+Fzzy Config 0.7.7+fix2+26.3 is byte-identical to official public release thw1Z19c. It stays external, with a public download URL in the artifact lock. No Fzzy source or binary is bundled in the suite or the installation ZIP; its official URL and hashes remain in the installation manifest, and the helper downloads it directly from the publisher.
 
-## Experimental branch additions
+## Stable integration and historical branches
 
-Current branch artifact/component versions and exact hashes are in [build verification](build-verification.json); [validation](VALIDATION.md) distinguishes newly executed branch checks from historical mainline evidence.
+Mixed-scale MapStitch and Sensible Stackables are included in stable main as separate modules. Current artifact/component versions and exact hashes are in [build verification](build-verification.json); [validation](VALIDATION.md) distinguishes new release checks, implementation-equivalence comparisons, and historical records. The earlier `feat/mapstitch-mixed-scales`, `feat/sensible-stackables`, and `merged` versions keep their original provenance and evidence; their old digests are not relabeled as stable-release test results.

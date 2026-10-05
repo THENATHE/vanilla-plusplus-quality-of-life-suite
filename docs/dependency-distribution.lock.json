@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-10-05",
+  "scope": "Unchanged permitted dependency binaries; Fzzy Config is manifest-download-only. Corresponding upstream LGPL sources and license texts accompany the installer ZIP.",
+  "sources": [
+    {
+      "id": "cloth-config",
+      "file": "cloth-config-26.3.159-source.zip",
+      "source": "libs/installation/cloth-config-26.3.159-source.zip",
+      "url": "https://codeload.github.com/shedaniel/ClothConfig/zip/afbcf7798a7004c7a66ccbbd0864610f734f8930",
+      "revision": "afbcf7798a7004c7a66ccbbd0864610f734f8930",
+      "sha256": "a865259cbb18728d067eeca021fdb19187559d8dcbf49254290d03a18a9c2702",
+      "fileSize": 471520
+    },
+    {
+      "id": "polymer",
+      "file": "polymer-0.18.2+26.3-source.zip",
+      "source": "libs/installation/polymer-0.18.2+26.3-source.zip",
+      "url": "https://codeload.github.com/Patbox/polymer/zip/refs/tags/0.18.2%2B26.3",
+      "revision": "682decf397d93c372a76c9441da13a8029a61cea",
+      "sha256": "98e28a6a89be9efbc06b178dd88e3294c6dccb09aabb34e3fe9fced5674f8eff",
+      "fileSize": 3181699
+    }
+  ],
+  "notices": [
+    {
+      "file": "mixson-LICENSE.txt",
+      "source": "docs/dependency-licenses/mixson-LICENSE.txt",
+      "sha256": "aa7e51b6dbf74bc28778d5cdcb54c2cf927d38ccab85d76bf8f0a1c6b79be3ed"
+    },
+    {
+      "file": "polymer-LICENSE.txt",
+      "source": "docs/dependency-licenses/polymer-LICENSE.txt",
+      "sha256": "a5681bf9b05db14d86776930017c647ad9e6e56ff6bbcfdf21e5848288dfaf1b"
+    },
+    {
+      "file": "cloth-config-LICENSE.txt",
+      "source": "docs/dependency-licenses/cloth-config-LICENSE.txt",
+      "sha256": "c084d3d0560c3731716fc2f2d7993647953810bba5d880e2aa2290d1c66d18d6"
+    },
+    {
+      "file": "GPL-3.0.txt",
+      "source": "docs/dependency-licenses/GPL-3.0.txt",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    }
+  ]
+}

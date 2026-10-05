@@ -1,6 +1,6 @@
 # Shared atlas and Tool Pouch HUD layout
 
-The merged suite's Tool Pouch / MapStitch addon uses one corner for the atlas minimap, ordinary filled-map minimap, and pouch compass/clock details. Changing **MapStitch Client Settings → Minimap → Position**, **Tool Pouch Client Settings → Minimap Overlay Settings → Position**, or **Tool Pouch Client Settings → Info Overlay Settings → Position** adopts that corner in all three controls when applied. Each original configuration file remains authoritative for its own native fields; synchronization saves the matching values to the other original file rather than introducing a separate settings store.
+Stable suite **1.1** on `main` uses one corner for the atlas minimap, ordinary filled-map minimap, and pouch compass/clock details. Changing **MapStitch Client Settings → Minimap → Position**, **Tool Pouch Client Settings → Minimap Overlay Settings → Position**, or **Tool Pouch Client Settings → Info Overlay Settings → Position** adopts that corner in all three controls when applied. Each original configuration file remains authoritative for its own native fields; synchronization saves the matching values to the other original file rather than introducing a separate settings store.
 
 When existing corners differ on first startup, the suite adopts the Tool Pouch information-overlay corner. This preserves the familiar pouch HUD location when switching from a filled map to an atlas. Both map renderers share their map X/Y offsets. Their existing size, background, opacity, zoom, information content, and effect-overlap controls remain available. Tool Pouch detail offsets remain independent padding; vertical padding is applied between the map and the details.
 
@@ -20,7 +20,7 @@ Details appear below the entire map with a gap and configured vertical padding. 
 
 The current `qa-hud` fixture contains eight cases: atlas left, atlas right selected through MapStitch, atlas left selected through Tool Pouch's minimap control, ordinary map at the same top-left anchor, atlas bottom-left selected through the pouch details control, ordinary map at the same bottom-left anchor, preservation of signed atlas offsets on the ordinary map, and the combined settings screen. It observes final text coordinates, checks nonoverlap against actual map bounds, verifies all three position controls, verifies saved original files, and preserves screenshots. Execution results are recorded in the release validation report; this document does not itself claim a completed run.
 
-The earlier independent-position implementation and its historical results remain documented in [hud-layout-fix.md](hud-layout-fix.md). The synchronized behavior above supersedes that earlier presentation preference on the merged branch.
+The earlier independent-position implementation and its historical results remain documented in [hud-layout-fix.md](hud-layout-fix.md). The synchronized behavior above supersedes that earlier presentation preference in the stable suite.
 
 ## Updating upstream
 

@@ -1,7 +1,20 @@
-# MapStitch Mixed Scales
+# Mixed-scale MapStitch module
 
-On the current `merged` branch, both experiments are included in suite **1.0.2-merged.1+26.3**. Coordinator is **1.0.7-merged.1+26.3**; the map addon is **1.0.1-merged.1+26.3** with its matching dependency pin. See `docs/MERGED_TESTING.md` for combined acceptance. Individual-branch versions and evidence below are retained history.
+Stable suite **1.1** on `main` includes this separately maintained addon. It extends the original MapStitch atlas while preserving the original developer JAR. The suite is maintained for modern Minecraft versions; exact installation requirements are listed in [the installation guide](../../docs/INSTALLATION_PACK.md).
 
+| Component | Declared stable version |
+| --- | --- |
+| Suite | `1.1.0+26.3` |
+| Shared coordinator | `1.1.0+26.3` |
+| This addon | `1.1.0+26.3` |
+
+The implementation is under `working/`, with output `working/build/libs/mapstitch-mixed-scales-1.1.0+26.3.jar`. The suite archive contains 16 nested mods, including this addon; do not install a duplicate standalone copy.
+
+Atlases accept maps at all five scales. **S** changes the world-map viewing layer, **M** changes minimap scale, and **1/2/4/8/16** independently toggle generation. A single atlas remembers these choices without converting its existing maps. The addon also guards owned-book changes and extends the original keep-atlas-on-death setting to supported nested containers.
+
+See [current controls](../../docs/ATLAS_CONTROLS.md), [implementation and maintenance](../../docs/MIXED_SCALES.md), [death retention](../../docs/ATLAS_DEATH_RETENTION.md), and [stable release testing](../../docs/RELEASE_1_1.md). Earlier branch results below describe their original artifacts and coupled controls, not new stable-release tests.
+
+## Historical first experiment
 
 Suite addon **1.0.0+26.3**, implemented separately under `working/`. The original developer MapStitch `1.1.6+26.3` JAR stays unchanged. This component is built into the independent `feat/mapstitch-mixed-scales` suite branch, version `1.0.2-multiscale.1+26.3`.
 

@@ -1,6 +1,6 @@
 # Mod Menu presentation
 
-The merged suite shows each original Pajic feature mod and Chalk as an individual
+Stable **1.1** on `main` shows each original Pajic feature mod and Chalk as an individual
 Mod Menu entry. Expand **Vanilla++ Quality of Life Suite** to see the suite's
 addons and compatibility modules; the shared coordinator is named
 **Vanilla / Polymer Shim**. Colorful Chalk remains installed and functional but
@@ -28,3 +28,5 @@ checked against the pinned Mod Menu **21.0.0** JAR. When upgrading Mod Menu,
 verify that its `FabricMod` class still exposes `getParent()` and `isHidden()`,
 then check the Mods screen with libraries and hidden entries both filtered and
 shown. Other installed mods retain their own display settings.
+
+The stable release includes the same grouped configuration hub described in [settings.md](settings.md). Its navigation buttons read **Configure...** while each original category keeps its full name. Current artifact checks are recorded in [validation](VALIDATION.md); previous merged-branch runtime records remain historical.

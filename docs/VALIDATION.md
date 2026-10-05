@@ -1,6 +1,17 @@
 # Validation
 
-## Merged presentation update 1.0.2-merged.3+26.3
+## Stable 1.1 promotion
+
+Final suite **1.1.0+26.3**, SHA-256 `8edee2f1ab0b06cc4328ddd18c3a945cf8183a010fad33cb46d9206e4fec77c0`. The full mainline Gradle build and archive verifier passed with all 16 original/component identities, unchanged developer inputs, retained licenses and exact Defaulted dropfix. [Build record](build-verification.json).
+
+- [Fresh connections](../qa-release/evidence/1.1.0/connections/result.json), with exact [server](../qa-release/evidence/1.1.0/connections/server-inputs.json), [native](../qa-release/evidence/1.1.0/connections/native-inputs.json) and [Fabric API-only](../qa-release/evidence/1.1.0/connections/fabric-inputs.json) inputs: both clients joined the Polymer server. Native atlas controls/layout/tooltip/generation targeting and settings hotkey passed. Both moved all 2,048 stone through actual inventory packets without loss; native maximum remained 2,048, fallback metadata 99. Actual native/fallback Chalk and SSO representations passed, including fallback resource-pack loading.
+- [Fresh settings checks](../qa-release/evidence/1.1.0/settings/observations.json) ([inputs](../qa-release/evidence/1.1.0/settings/evidence.json), [screenshots](../qa-release/evidence/1.1.0/settings/screenshots/)): 12 real configurations, Configure... actions, original category names/translations, grouped/hidden Mod Menu entries, functional Chalk navigation, hotkey registration and no-world guards passed.
+- [Byte comparison](../qa-release/evidence/1.1.0/merged3-bytecode-equivalence.json) confirms all **605 root/nested Java classes match the tested merged.3 build**. Promotion changes declared suite/coordinator/map-addon versions and documentation. Previous broad death/HUD/map-restart/menu scenarios remain historical evidence for their exact artifacts; they were not rerun for 1.1. Fresh genuine zero-mod vanilla, client-Polymer and no-server-Polymer profiles are not claimed for this promotion.
+- [Installation ZIP verification](installation-pack-verification.json): 13 focused archive/installer checks passed, including real client/server installs, all binary/source hashes, correct side selection, Fzzy exclusion, corrupted-cache/injection rejection, preservation of existing files, network-free identical reinstall and reproducible archive bytes. The installer downloads Fzzy directly from its official manifest URL; permitted dependencies are included. No launcher GUI import is claimed for this ZIP.
+
+The [stable release guide](RELEASE_1_1.md) includes the remaining user checks. The [standing release workflow](RELEASE_WORKFLOW.md) records documentation, four-asset packaging, version-only release titles and preserved-history branch cleanup. The separately maintained SSO port remains paused and was not built or tested.
+
+## Historical merged presentation update 1.0.2-merged.3+26.3
 
 Final SHA-256: `f8f4b9af150f1383084c8682fd50462155b056f0ac94eff74be4f0dbdc45fdf3`.
 
@@ -13,7 +24,7 @@ This is a small presentation update. [Comparison with merged.2](../qa-merged/evi
 
 Combined build and runtime evidence is recorded in [MERGED_TESTING.md](MERGED_TESTING.md). Prior branch and mainline evidence below is historical and does not stand in for fresh combined tests.
 
-The previous merged update has focused evidence under [merged2](../qa-merged/evidence/merged2/). The final JAR hash and exact evidence paths are recorded in [build verification](build-verification.json).
+The previous merged update has focused evidence under [merged2](../qa-merged/evidence/merged2/). Its exact artifact record remains in the [historical release](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/blob/v1.0.2-merged.2%2B26.3/docs/build-verification.json).
 
 - Matching native and Fabric API-only clients connected to the Polymer server. Native clients exercised all five M scales, independent S/generation controls, all-off/re-enable, duplicate inventory/pouch targeting and the in-world settings hotkey. Both clients moved all 2,048 stone through actual inventory packets with no loss; fallback maximum metadata remained 99.
 - Dedicated map mechanics/restarts passed **158 assertions**, with and without Polymer: all five layers, independent generation, blank conservation, one cartography packet per creation batch, stored options/unrelated data, and stale/replaced book rejection.
@@ -94,7 +105,7 @@ The suite JAR is frozen into each run and hashed. Each server/client audit recor
 Run against a frozen suite candidate:
 
 ```sh
-python3 qa/light.py --jar build/libs/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar --label <unique-label>
+python3 qa/light.py --jar build/libs/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar --label <unique-label>
 ```
 
 This requires the existing cached official libraries, assets, a graphical display (`DISPLAY=:1`), and local socket permission. It launches only disposable localhost worlds under `qa/runs/`. Check `qa/runs/<label>/result.json` and server/client `console.log` files. A success here is bounded connection evidence, not proof of every original mod system.

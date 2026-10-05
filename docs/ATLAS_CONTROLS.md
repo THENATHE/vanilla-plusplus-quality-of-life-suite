@@ -1,6 +1,6 @@
-# Atlas controls on merged
+# Atlas controls — stable 1.1
 
-Suite **1.0.2-merged.3+26.3** keeps its MapStitch changes in the separate `components/mapstitch-mixed-scales/working/` addon. The original MapStitch JAR is unchanged.
+Suite **1.1** keeps its MapStitch changes in the separate `components/mapstitch-mixed-scales/working/` addon. The original MapStitch JAR is unchanged.
 
 Open the world-map screen. A separate group just beneath the top coordinate numbers contains one aligned row of minimap and generation controls. Its right edge lines up with the original sidebar, with four pixels of margin; the buttons begin 16 GUI pixels from the top. The original right-side buttons retain their original positions and spacing:
 
@@ -18,4 +18,4 @@ Serverbound requests use `mapstitch_mixed_scales:select_scale_v2` and `mapstitch
 
 Screens remain bound to their original inventory/accessory/pouch source and book identity. The client may refresh the map anchor after first-map generation or ejection within that same book. It does not adopt the identity of a different atlas that replaces the source slot; the controls disable until the appropriate book is reopened. A newly created or legacy book needs its first server tick and inventory synchronization before native controls can edit it. If opened before that synchronization, reopen the screen once the book is synchronized. Matching client/server suite builds are required for native controls. Standard map creation sends one vanilla cartography sound packet to the explorer per generation batch; a batch creating multiple scales still plays one chime. Sound playback remains subject to the player's sound settings.
 
-Use [merged verification and testing steps](MERGED_TESTING.md) for runtime evidence. The optional original world-map buttons setting hides all these buttons together with the existing controls.
+Use [stable installation and testing steps](RELEASE_1_1.md) and [current validation](VALIDATION.md) for the released artifact. Earlier merged-branch records remain [historical evidence](MERGED_TESTING.md). The optional original world-map buttons setting hides all these buttons together with the existing controls.

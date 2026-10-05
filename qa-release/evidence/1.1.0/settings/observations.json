@@ -1,0 +1,230 @@
+[
+  {
+    "case": "Mod Menu keeps all eight original Pajic/Chalk feature entries individually visible",
+    "passed": true
+  },
+  {
+    "case": "Mod Menu nests all eight suite addon/shim entries beneath Vanilla++ Quality of Life Suite",
+    "passed": true
+  },
+  {
+    "case": "Mod Menu hides only Colorful Chalk and displays coordinator as Vanilla / Polymer Shim",
+    "passed": true
+  },
+  {
+    "case": "actual Chalk Mod Menu factory opens the functional thenathe_mod_suite.chalk settings screen",
+    "passed": true
+  },
+  {
+    "case": "suite hotkey safely ignores existing screens and no-world input",
+    "passed": true
+  },
+  {
+    "case": "effective native title simple_smithing_overhaul.config-v2\u003dSimple Smithing Overhaul Settings",
+    "passed": true
+  },
+  {
+    "case": "effective native title mapstitch.config\u003dMapStitch Gameplay Settings",
+    "passed": true
+  },
+  {
+    "case": "effective native title mapstitch.client_config\u003dMapStitch Client Settings",
+    "passed": true
+  },
+  {
+    "case": "effective native title toolpouch.config\u003dTool Pouch Gameplay Settings",
+    "passed": true
+  },
+  {
+    "case": "effective native title toolpouch.client_config\u003dTool Pouch Client Settings",
+    "passed": true
+  },
+  {
+    "case": "effective native title tiered_backpacks.config\u003dTiered Backpacks Settings",
+    "passed": true
+  },
+  {
+    "case": "effective native title misctweaks.config\u003dMiscTweaks Gameplay Settings",
+    "passed": true
+  },
+  {
+    "case": "effective native title misctweaks.client_config\u003dMiscTweaks Client Settings",
+    "passed": true
+  },
+  {
+    "case": "effective native title simple_death_improvements.config\u003dSimple Death Improvements Settings",
+    "passed": true
+  },
+  {
+    "case": "effective native title sensible_stackables.config\u003dSensible Stackables Gameplay Settings",
+    "passed": true
+  },
+  {
+    "case": "effective native title sensible_stackables.client_config\u003dSensible Stackables Client Settings",
+    "passed": true
+  },
+  {
+    "case": "effective native title thenathe_mod_suite.chalk\u003dChalk Settings",
+    "passed": true
+  },
+  {
+    "case": "only functional original configurations and Chalk bridge appear in native root navigation",
+    "passed": true
+  },
+  {
+    "case": "settings language overlay automatically enabled, required, and top by default",
+    "passed": true
+  },
+  {
+    "case": "all original language entries present in live client: 696",
+    "passed": true
+  },
+  {
+    "case": "original translation retained gui.toolpouch.coordinates_xyz",
+    "passed": true
+  },
+  {
+    "case": "original translation retained gui.toolpouch.facing",
+    "passed": true
+  },
+  {
+    "case": "original translation retained gui.toolpouch.day",
+    "passed": true
+  },
+  {
+    "case": "original translation retained gui.toolpouch.time",
+    "passed": true
+  },
+  {
+    "case": "original translation retained item.toolpouch.tool_pouch",
+    "passed": true
+  },
+  {
+    "case": "original translation retained mapstitch.gui.worldmap.title",
+    "passed": true
+  },
+  {
+    "case": "original translation retained simple_smithing_overhaul.config-v2.portableItemRepair",
+    "passed": true
+  },
+  {
+    "case": "original translation retained tiered_backpacks.config.leatherSize",
+    "passed": true
+  },
+  {
+    "case": "original translation retained misctweaks.config.sneakingPreventsBerryBushDamage",
+    "passed": true
+  },
+  {
+    "case": "original translation retained simple_death_improvements.config.noItemSplatterOnDeath",
+    "passed": true
+  },
+  {
+    "case": "original translation retained sensible_stackables.config.items",
+    "passed": true
+  },
+  {
+    "case": "all 12 root buttons say Configure... while native titles remain named; original Chalk button opens its correct category",
+    "passed": true
+  },
+  {
+    "config_id": "simple_smithing_overhaul.config-v2",
+    "rows": 12,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "mapstitch.config",
+    "rows": 8,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "mapstitch.client_config",
+    "rows": 4,
+    "client_only": true,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "toolpouch.config",
+    "rows": 13,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "toolpouch.client_config",
+    "rows": 6,
+    "client_only": true,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "tiered_backpacks.config",
+    "rows": 12,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "misctweaks.config",
+    "rows": 18,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "misctweaks.client_config",
+    "rows": 4,
+    "client_only": true,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "simple_death_improvements.config",
+    "rows": 17,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "sensible_stackables.config",
+    "rows": 4,
+    "client_only": false,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "sensible_stackables.client_config",
+    "rows": 3,
+    "client_only": true,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "config_id": "thenathe_mod_suite.chalk",
+    "rows": 1,
+    "client_only": true,
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  },
+  {
+    "case": "Chalk original AutoConfig saved/reloaded/reopened\u003dfalse",
+    "passed": true
+  },
+  {
+    "case": "Chalk original AutoConfig saved/reloaded/reopened\u003dtrue",
+    "passed": true
+  },
+  {
+    "case": "Tool Pouch native checkbox original file\u003dfalse",
+    "passed": true
+  },
+  {
+    "case": "Tool Pouch native checkbox original file\u003dtrue",
+    "passed": true
+  }
+]

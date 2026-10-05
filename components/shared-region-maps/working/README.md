@@ -2,7 +2,7 @@
 
 Version: **1.0.4-combo.1+mc26.3**. Minecraft 26.3, Fabric Loader >=0.19.5, Java >=25. Runtime Fabric API is not required by this component; the separate QA fixture requires it. MapStitch is optional when building or loading this component alone.
 
-This variant supplies shared ordinary vanilla map IDs and MapStitch integration in Thenathe Mod Suite. It retains the original `shared_region_maps` mod ID and persistent regional-index format. It is loadable on dedicated servers and in clients running an integrated server. It introduces no client packets, registries, resource pack, or settings screen.
+This variant supplies shared ordinary vanilla map IDs and MapStitch integration in Vanilla++ Quality of Life Suite. It retains the original `shared_region_maps` mod ID and persistent regional-index format. It is loadable on dedicated servers and in clients running an integrated server. It introduces no client packets, registries, resource pack, or settings screen.
 
 - Maps created for the same dimension, aligned region, and scale reuse one map ID and share explored terrain and banners.
 - All five vanilla scales have separate records. Zooming enrolled maps reuses the next scale; locked copies remain independent.

@@ -1,5 +1,14 @@
 # Changes
 
+## 1.1.0+26.3 — 2026-10-05
+
+- Promote tested mixed-scale MapStitch and Sensible Stackables modules, automatic negotiation and Polymer support to main. Keep both additions separately maintained for upstream updates.
+- Include independent world-map/minimap/generation controls, the top-right layout and ordered tooltip, map-creation sound, synchronized atlas/ordinary-map HUD, nested atlas death retention, Mod Menu grouping and Configure... settings actions.
+- Combine Chalk and its Colorful Addon into one README feature section with both original links and credits. Present wholly authored THENATHE features directly without a My tweaks subsection. Document Sensible Stackables alongside the other included feature mods.
+- Use stable suite/coordinator/map-addon versions 1.1.0+26.3, retain original mod IDs and all saved configuration/data formats, exact Defaulted dropfix and separate historical compatibility tracks.
+- Standardize user-facing documentation, canonical front-page dependency links, four public assets, version-only release titles and preservation-aware cleanup of finished branches. Include permitted dependencies/notices/corresponding sources in one client/server installation ZIP; Fzzy remains an official manifest download.
+
+
 ## 1.0.2-merged.3+26.3 — 2026-10-05 (testing branch)
 
 - Move minimap and generation controls into an aligned, right-aligned group immediately beneath the top coordinate numbers; restore every original right-side button position and gap.
@@ -31,7 +40,7 @@
 - Synchronize stack defaults through Polymer. Preserve full counts above 99 while advertising safe fallback maximum metadata; correct completed inventory actions.
 - Add independently negotiated Stackables capability and its original settings to the grouped hub.
 
-These features are not merged into main. Exact branch validation is in [VALIDATION.md](docs/VALIDATION.md).
+At this historical release they were not yet on main; stable 1.1 now includes them. Exact branch validation is in [VALIDATION.md](docs/VALIDATION.md).
 
 ## 1.0.1+26.3 — 2026-10-04
 

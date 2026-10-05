@@ -1,6 +1,8 @@
 # Native settings validation
 
-This development fixture opens the suite's actual Fzzy Config GUI in a disposable graphical client. It validates the twelve functional original/grouped configuration identities in the merged suite (ten without Sensible Stackables), their effective Settings titles, absence of the former fake overview, and the rebindable suite hotkey, constructs every native configuration screen, renders screenshots after the initial loading overlay has closed, and presses native checkbox widgets rather than substituting a settings serializer.
+Current stable **1.1** uses this fixture on `main`. [VALIDATION.md](../docs/VALIDATION.md) records the exact release checked; older candidates and their former labels below remain historical.
+
+This development fixture opens the suite's actual Fzzy Config GUI in a disposable graphical client. It validates the twelve functional original/grouped configuration identities in the stable suite (ten without Sensible Stackables), their effective Settings titles, absence of the former fake overview, and the rebindable suite hotkey, constructs every native configuration screen, renders screenshots after the initial loading overlay has closed, and presses native checkbox widgets rather than substituting a settings serializer.
 
 ```sh
 python3 qa-settings/run.py --label standalone --settings-only
@@ -25,6 +27,8 @@ Connected runs additionally queue a forwarded proposal through Fzzy's original r
 Earlier `settings-standalone-01`/`02` runs had a fixture packaging mistake: `suite_settings_qa_client` accidentally declared the unrelated `suite-hud-qa.mixins.json` HUD observer mixins without including those observer classes. That declaration was removed from the settings fixture. Those runs are excluded from suite acceptance. Both client/server QA fixture mods are development-only and are excluded from the release bundle. `settings-standalone-03` passed logic and persistence checks, but its first screenshot preceded the loading-overlay close and is excluded as root-screen visual evidence. Later connected runs wait for the overlay to close and a rendered frame before capturing screenshots.
 
 Runtime checks do not imply a complete gameplay matrix or every upstream field combination was exercised. They specifically verify combined presentation, native object ownership, representative persistence, server routing and permission behavior.
+
+## Historical settings candidates
 
 The frozen final settings candidate `3bc3f314b70d78010334d62501ac1e7dfdcb2507ba72e36a24e1f61e5bc7f621` passed `settings-final-admin` and `settings-final-guest-02`. `settings-final-guest` had an incorrect fixture assertion that interpreted the locked explanation button as editable; the corrected rerun pressed it and proved no setting change. `settings-remote-guest-01` could not connect because that older fixture left the dedicated-server whitelist enabled; current isolated servers explicitly disable it. Neither excluded run indicates a production failure.
 

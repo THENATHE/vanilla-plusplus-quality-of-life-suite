@@ -1,4 +1,8 @@
-# Current merged.3 focused verification
+# Historical merged-branch QA
+
+Stable **1.1** now includes these modules on `main`. Current release checks are reported in [validation](../docs/VALIDATION.md), and current installation/manual testing steps are in [RELEASE_1_1.md](../docs/RELEASE_1_1.md). This directory preserves the original branch artifacts, hashes and observations without relabeling them as tests of the stable release. Generic build/validation links in older records refer to their original publication context.
+
+# Historical merged.3 focused verification
 
 Evidence is under `evidence/merged3`: one final native/client-Polymer atlas control and tooltip run, final 12-category Configure... labels/navigation run, and previous-build module comparison. Broad gameplay matrices were not rerun for this small presentation change.
 
@@ -9,7 +13,7 @@ python3 qa-settings/run.py --suite build/libs/vanilla-plusplus-quality-of-life-s
 
 # Combined branch QA
 
-Current testing target: **1.0.2-merged.2+26.3** on `merged`. The final hash and published verification scope are in [build verification](../docs/build-verification.json) and [validation](../docs/VALIDATION.md). Historical evidence at the original `evidence/` paths below still belongs to merged.1; never attribute its hash or assertion totals to merged.2.
+Historical testing target: **1.0.2-merged.2+26.3** on `merged`. The final hash and published verification scope are in [build verification](../docs/build-verification.json) and [validation](../docs/VALIDATION.md). Historical evidence at the original `evidence/` paths below still belongs to merged.1; never attribute its hash or assertion totals to merged.2.
 
 Focused commands from the repository root:
 
@@ -24,7 +28,7 @@ Use a new label for every run. These are focused rerun recipes, not a claim that
 
 Each runtime captures its JAR hash and inputs. If a final presentation-only rebuild follows successful mechanics/HUD/network checks, compare production entries and retain both hashes plus the final settings run; this is evidence reuse with an explicit scope, not a fresh execution of the older tests against the final JAR. QA fixtures remain development-only and are excluded from the installable artifact. Exact Defaulted dropfix and the private official original SSO release remain in use; the paused ChatGPT SSO port is not tested.
 
-See [current manual testing steps](../docs/MERGED_TESTING.md).
+See [historical branch manual testing steps](../docs/MERGED_TESTING.md).
 
 # Historical merged.1 QA
 

@@ -50,9 +50,9 @@ Only the Chalk bridge is registered as a suite client configuration. The suite l
 
 `SuiteKeybindings.java` registers one standard Minecraft key mapping in the suite Controls category. Its unbound default and user-selected binding persist through Minecraft's existing `options.txt`; there is no duplicate configuration file. Client tick handling consumes key presses safely and requires a loaded player/world plus no existing screen before opening settings.
 
-## Merged branch presentation update
+## Stable 1.1 settings presentation
 
-The focused fixture now requires exactly twelve functional config IDs in the merged suite, checks every effective native category title, rejects the removed overview ID, and requires original HUD/field translations from every overridden namespace. It verifies that the suite binding appears in Minecraft Controls, dispatches a temporarily bound key through Minecraft's actual key click path, and checks opening from gameplay or ignoring input outside a world. Existing Chalk/Tool Pouch persistence, server permissions, forwarded proposals and manager lifecycle checks are retained. Fresh execution results belong in the release validation report; historical records below describe earlier builds and their former overview/title presentation.
+The focused fixture now requires exactly twelve functional config IDs in stable suite **1.1** on `main`, checks every effective native category title, rejects the removed overview ID, and requires original HUD/field translations from every overridden namespace. It verifies that the suite binding appears in Minecraft Controls, dispatches a temporarily bound key through Minecraft's actual key click path, and checks opening from gameplay or ignoring input outside a world. Existing Chalk/Tool Pouch persistence, server permissions, forwarded proposals and manager lifecycle checks are retained. Fresh execution results belong in the release validation report; historical records below describe earlier builds and their former overview/title presentation.
 
 ## Historical verification and remaining user checks
 

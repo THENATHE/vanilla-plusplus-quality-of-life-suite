@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate installation archives and already installed disposable client/server profiles."""
+"""Verify the installation ZIP and real disposable client/server installs."""
 import argparse
 import hashlib
 import importlib.util
@@ -10,12 +10,15 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location('installer', ROOT / 'tools/install-pack.py')
-installer = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(installer)
-builder_spec = importlib.util.spec_from_file_location('builder', ROOT / 'tools/package-installation.py')
-builder = importlib.util.module_from_spec(builder_spec)
-builder_spec.loader.exec_module(builder)
+
+def module(name, file):
+    spec = importlib.util.spec_from_file_location(name, ROOT / 'tools' / file)
+    result = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(result)
+    return result
+
+installer = module('installer', 'install-pack.py')
+builder = module('builder', 'package-installation.py')
 
 
 def main():
@@ -24,46 +27,50 @@ def main():
     parser.add_argument('--client', type=Path, required=True, help='Client installed with --with-optional')
     parser.add_argument('--server', type=Path, required=True)
     args = parser.parse_args()
-    historical_checksums = (args.release / 'SHA256SUMS.sha256').read_bytes()
-    original = {'sha256':hashlib.sha256(historical_checksums).hexdigest(),'bytes':len(historical_checksums)}
-    if (args.release / 'PUBLICATION.json').exists():
-        publication=json.loads((args.release / 'PUBLICATION.json').read_text())
-        original=next(entry for entry in publication['assets'] if entry['file']=='SHA256SUMS.sha256')
-        assert len(historical_checksums)==original['bytes'] and hashlib.sha256(historical_checksums).hexdigest()==original['sha256']
     lock = json.loads((ROOT / 'docs/installation-pack.lock.json').read_text())
-    stem = 'vanilla-plusplus-installation-pack-' + lock['pack_version']
-    pack = args.release / (stem + '.mrpack')
-    kit = args.release / (stem + '-manual.zip')
-    manifest, contents = installer.load_pack(pack)
-    manual_manifest, manual_contents = installer.load_pack(kit)
-    assert manifest == manual_manifest and contents == manual_contents
-    assert manifest['dependencies'] == {'minecraft': '26.3', 'fabric-loader': '0.19.5'}
+    kit = args.release / ('vanilla-plusplus-installation-pack-' + lock['pack_version'] + '.zip')
+    manifest, contents = installer.load_pack(kit)
+    assert manifest['versionId'] == lock['pack_version']
+    assert manifest['dependencies'] == lock['dependencies']
     assert len(manifest['files']) == 7
-    cases = ['Both ZIP archives pass integrity/path/duplicate validation', 'Client/server manifests and overrides are identical',
-             'Minecraft 26.3 and Fabric Loader 0.19.5 selected']
-    for entry in lock['overrides']:
-        data = contents['overrides/' + entry['path']]
-        installer.verify(data, entry)
+    cases = ['Installation ZIP integrity, safe paths and manifest identity verified']
+    jars = {name: data for name, data in contents.items() if name.endswith('.jar')}
+    assert len(jars) == 9
+    for data in jars.values():
         builder.no_fzzy(data)
-    assert len([name for name in contents if name.endswith('.jar')]) == 3
-    cases.append('Only exact suite, Defaulted dropfix and CodecUI JARs embedded; no nested Fzzy binary')
+    for entry in lock['overrides']:
+        installer.verify(contents['overrides/' + entry['path']], entry)
+    for entry in lock['downloads']:
+        if entry['distribution'] == 'embedded-cache':
+            installer.verify(contents['downloads/' + entry['path']], entry)
+        else:
+            assert entry['slug'] == 'fzzy-config' and 'downloads/' + entry['path'] not in contents
+    cases.append('Nine exact dependency/suite JARs embedded; Fzzy excluded recursively and remains official-manifest-only')
+    with zipfile.ZipFile(kit) as archive:
+        for line in archive.read('SHA256SUMS.sha256').decode().splitlines():
+            digest, name = line.split('  ', 1)
+            assert hashlib.sha256(archive.read(name)).hexdigest() == digest
+        sources = json.loads((ROOT / 'docs/dependency-distribution.lock.json').read_text())
+        for entry in sources['sources']:
+            data = archive.read('overrides/suite-installation/dependency-sources/' + entry['file'])
+            assert hashlib.sha256(data).hexdigest() == entry['sha256']
+    cases.append('Embedded binary/source checksums and corresponding Cloth Config/Polymer source archives verified')
     profiles = {}
     for side, directory in [('client', args.client), ('server', args.server)]:
         selected = [entry for entry in manifest['files'] if entry['env'][side] in ('required', 'optional')]
         expected = selected + lock['overrides']
-        assert {str(path.relative_to(directory)) for path in (directory / 'mods').glob('*.jar')} == {entry['path'] for entry in expected}
+        assert {path.relative_to(directory).as_posix() for path in (directory / 'mods').glob('*.jar')} == {entry['path'] for entry in expected}
         for entry in expected:
             installer.verify((directory / entry['path']).read_bytes(), entry)
         profiles[side] = {entry['path']: entry['hashes']['sha256'] for entry in expected}
-    cases.append('Real official-download installations: client includes optional Mod Menu but excludes Polymer; server includes Polymer but excludes Mod Menu; every installed hash/size matches')
-    bad_paths = ('../escape', '/absolute', 'C:/absolute', 'mods/../escape', 'mods\\escape', '')
-    for path in bad_paths:
+    cases.append('Real client/server installs match every hash: client includes optional Mod Menu, server Polymer; each excludes the other')
+    for path in ('../escape', '/absolute', 'C:/absolute', 'mods/../escape', 'mods\\escape', ''):
         try:
             installer.safe_path(path)
             raise AssertionError('Accepted unsafe path: ' + path)
         except ValueError:
             pass
-    cases.append('Traversal, absolute paths, Windows drive paths and backslash paths rejected')
+    cases.append('Traversal, absolute, Windows drive and backslash paths rejected')
     with tempfile.TemporaryDirectory(prefix='suite-pack-test-') as temporary:
         temp = Path(temporary)
         (temp / 'outside').mkdir()
@@ -74,55 +81,67 @@ def main():
             raise AssertionError('Accepted escaping destination symlink')
         except ValueError:
             pass
-        command = ['python3', str(ROOT / 'tools/install-pack.py'), '--pack', str(pack), '--side', 'client']
+        cases.append('Escaping destination symlink rejected')
+        command = ['python3', str(ROOT / 'tools/install-pack.py'), '--pack', str(kit), '--side', 'client']
         dry = temp / 'dry'
         result = subprocess.run(command + ['--instance', str(dry), '--dry-run'], check=True, capture_output=True, text=True)
         assert 'modmenu-21.0.0.jar' not in result.stdout and 'polymer-bundled' not in result.stdout and not dry.exists()
+        assert len([line for line in result.stdout.splitlines() if line.startswith('Download:')]) == 1
+        cases.append('Default client dry-run excludes optional/server files, writes nothing and selects only Fzzy for download')
         broken = temp / 'broken'
         first = manifest['files'][0]
-        target = broken / first['path']
-        target.parent.mkdir(parents=True)
+        target = broken / first['path'];target.parent.mkdir(parents=True)
         target.write_bytes(b'Existing instance data must survive')
         result = subprocess.run(command + ['--instance', str(broken)], capture_output=True, text=True)
         assert result.returncode != 0 and 'mismatch' in result.stderr
-        assert target.read_bytes() == b'Existing instance data must survive'
-        assert len(list(broken.rglob('*'))) == 2
-    cases.extend(['Escaping destination symlink rejected', 'Client default dry-run excludes both optional Mod Menu and server Polymer without writing files',
-                  'Mismatched existing mod aborts installation without changing any instance file'])
+        assert target.read_bytes() == b'Existing instance data must survive' and len(list(broken.rglob('*'))) == 2
+        cases.append('Mismatched existing mod aborts without changing any instance file')
+        # Reject corrupt cached publisher files before dry-run or any destination write.
+        cached = next(name for name in contents if name.startswith('downloads/') and name.endswith('.jar'))
+        changed = bytearray(contents[cached]);changed[-1] ^= 1
+        corrupted = temp / 'corrupted.zip'
+        builder.archive(corrupted, {**contents, 'modrinth.index.json': json.dumps(manifest).encode(), cached: bytes(changed)})
+        result = subprocess.run(['python3', str(ROOT / 'tools/install-pack.py'), '--pack', str(corrupted), '--side', 'client', '--instance', str(dry), '--dry-run'], capture_output=True, text=True)
+        assert result.returncode != 0 and 'mismatch' in result.stderr and not dry.exists()
+        cases.append('Same-size corrupted publisher cache rejected before installation')
+        forbidden = temp / 'forbidden.zip'
+        fzzy = next(entry for entry in lock['downloads'] if entry['slug'] == 'fzzy-config')
+        builder.archive(forbidden, {**contents, 'modrinth.index.json': json.dumps(manifest).encode(), 'downloads/' + fzzy['path']: b'Forbidden cached data'})
+        result = subprocess.run(['python3', str(ROOT / 'tools/install-pack.py'), '--pack', str(forbidden), '--side', 'client', '--instance', str(dry), '--dry-run'], capture_output=True, text=True)
+        assert result.returncode != 0 and 'Unexpected cached dependency' in result.stderr and not dry.exists()
+        cases.append('Manifest-only Fzzy cache injection rejected')
     sample = lock['overrides'][0]
-    damaged = bytearray(contents['overrides/' + sample['path']])
-    damaged[-1] ^= 1
+    damaged = bytearray(contents['overrides/' + sample['path']]);damaged[-1] ^= 1
     try:
         installer.verify(damaged, sample)
         raise AssertionError('Corrupt override accepted')
     except ValueError:
         pass
-    cases.append('Corrupt same-size override fails checksum validation')
-    subprocess.run(['python3', str(ROOT / 'tools/install-pack.py'), '--pack', str(pack), '--side', 'server', '--instance', str(args.server)],
-                   check=True, capture_output=True, text=True)
-    cases.append('Exact server reinstallation is idempotent and reuses verified existing downloads')
-    before = {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in (pack, kit)}
-    subprocess.run(['python3', str(ROOT / 'tools/package-installation.py'), '--output', str(args.release)],
-                   check=True, capture_output=True, text=True)
-    assert before == {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in (pack, kit)}
-    cases.append('Rebuilding both archives from the lock produces byte-identical output')
-    assert (args.release / 'SHA256SUMS.sha256').read_bytes() == historical_checksums
-    cases.append('Existing artifact checksums remain unchanged by installation packaging')
+    cases.append('Corrupted suite/local override rejected by checksum')
+    # All existing downloads, including Fzzy, must be reused without network access.
+    original_fetch = installer.fetch
+    def forbidden_fetch(entry):
+        raise AssertionError('Unexpected redownload of ' + entry['path'])
+    installer.fetch = forbidden_fetch
+    import sys
+    original_argv = sys.argv
+    try:
+        sys.argv = ['install-pack.py', '--pack', str(kit), '--side', 'server', '--instance', str(args.server)]
+        installer.main()
+    finally:
+        installer.fetch = original_fetch;sys.argv = original_argv
+    cases.append('Exact server reinstall is idempotent and succeeds with all network fetches forbidden')
+    before = hashlib.sha256(kit.read_bytes()).hexdigest()
+    builder.package(args.release)
+    assert hashlib.sha256(kit.read_bytes()).hexdigest() == before
+    cases.append('Rebuilding installation ZIP produces byte-identical output')
     report = {'pack_version': lock['pack_version'], 'date': '2026-10-05', 'passed': True,
               'suite_sha256': lock['overrides'][0]['hashes']['sha256'],
-              'archives': {path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in (pack, kit)},
-              'cases': cases, 'installed_profiles': profiles, 'launcher_gui_import_tested': False,
-              'artifact_checksums_preserved_during_packaging': True,
-              'runtime_note': 'Mod JARs are byte-identical to the existing suite runtime-tested inputs; this task tests archive/import structure and actual helper downloads/installation, not a new gameplay run.'}
+              'archives': {kit.name: before}, 'cases': cases, 'installed_profiles': profiles,
+              'launcher_gui_import_tested': False,
+              'runtime_note': 'Focused installer/archive checks; exact suite also has independently recorded stable 1.1 runtime checks.'}
     text = json.dumps(report, indent=2) + '\n'
     (ROOT / 'docs/installation-pack-verification.json').write_text(text)
-    (args.release / 'INSTALLATION_PACK_VERIFICATION.json').write_text(text)
-    builder.installation_checksums(args.release, lock['pack_version'])
-    checksums = (args.release / 'INSTALLATION_PACK_SHA256SUMS.sha256').read_text().splitlines()
-    assert len(checksums) == 4
-    for line in checksums:
-        digest, filename = line.split('  ', 1)
-        assert hashlib.sha256((args.release / filename).read_bytes()).hexdigest() == digest
     print(text)
 
 

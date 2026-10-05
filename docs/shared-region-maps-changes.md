@@ -2,8 +2,8 @@
 
 ## Source and provenance
 
-- Original local repository: `Minecraft/shared-region-maps/` (untouched).
-- Original repository URL: https://github.com/THENATHE/shared-region-maps-shim
+- Original local repository path: `Minecraft/shared-region-maps/`. Its unchanged historical source is now archived as documented in [LOCAL_ARCHIVE.md](LOCAL_ARCHIVE.md).
+- Historical original repository URL: https://github.com/THENATHE/shared-region-maps-shim (retained as provenance; the active source is in this suite).
 - Original clean revision: `338270a70c14be19ba79b535b40fac980e414470`, version `1.0.3+mc26.3`.
 - Exact clean source copy: `components/shared-region-maps/upstream/`.
 - Per-file SHA-256 baseline: `components/shared-region-maps/upstream-manifest.json`.

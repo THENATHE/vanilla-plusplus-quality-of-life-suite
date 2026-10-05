@@ -1,0 +1,9 @@
+{
+  "version": "1.1.0+26.3",
+  "sha256": "8edee2f1ab0b06cc4328ddd18c3a945cf8183a010fad33cb46d9206e4fec77c0",
+  "tested_previous_version": "1.0.2-merged.3+26.3",
+  "tested_previous_sha256": "f8f4b9af150f1383084c8682fd50462155b056f0ac94eff74be4f0dbdc45fdf3",
+  "all_java_classes_identical": true,
+  "class_count": 605,
+  "scope": "Stable promotion changes declared suite/coordinator/map-addon versions and documentation only. All root and nested Java classes match the tested merged.3 binary."
+}

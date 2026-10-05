@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "name": "Vanilla++ Quality of Life Suite",
-  "pack_version": "1.0.2-merged.3+26.3",
-  "verified_on": "2026-10-04",
+  "pack_version": "1.1.0+26.3",
+  "verified_on": "2026-10-05",
   "dependencies": {
     "minecraft": "26.3",
     "fabric-loader": "0.19.5"
@@ -44,7 +44,8 @@
       "downloads": [
         "https://cdn.modrinth.com/data/P7dR8mSH/versions/bNnaTiuM/fabric-api-0.161.0%2B26.3.jar"
       ],
-      "fileSize": 2620967
+      "fileSize": 2620967,
+      "distribution": "embedded-cache"
     },
     {
       "slug": "fabric-language-kotlin",
@@ -78,7 +79,8 @@
       "downloads": [
         "https://cdn.modrinth.com/data/Ha28R6CL/versions/eRRZzGMc/fabric-language-kotlin-1.14.1%2Bkotlin.2.4.20.jar"
       ],
-      "fileSize": 8142858
+      "fileSize": 8142858,
+      "distribution": "embedded-cache"
     },
     {
       "slug": "fzzy-config",
@@ -125,7 +127,8 @@
       "downloads": [
         "https://cdn.modrinth.com/data/hYykXjDp/versions/thw1Z19c/fzzy_config-0.7.7%2Bfix2%2B26.3.jar"
       ],
-      "fileSize": 2375140
+      "fileSize": 2375140,
+      "distribution": "manifest-download"
     },
     {
       "slug": "cloth-config",
@@ -159,7 +162,8 @@
       "downloads": [
         "https://cdn.modrinth.com/data/9s6osm5g/versions/fg2uyxOW/cloth-config-fabric-26.3.159.jar"
       ],
-      "fileSize": 1135009
+      "fileSize": 1135009,
+      "distribution": "embedded-cache"
     },
     {
       "slug": "mixson",
@@ -193,7 +197,8 @@
       "downloads": [
         "https://cdn.modrinth.com/data/EgugIDm8/versions/yWpBBcpq/mixson-2.2.1-multiloader.jar"
       ],
-      "fileSize": 61287
+      "fileSize": 61287,
+      "distribution": "embedded-cache"
     },
     {
       "slug": "modmenu",
@@ -240,7 +245,8 @@
       "downloads": [
         "https://cdn.modrinth.com/data/mOgUt4GM/versions/kyy7dbrZ/modmenu-21.0.0.jar"
       ],
-      "fileSize": 856779
+      "fileSize": 856779,
+      "distribution": "embedded-cache"
     },
     {
       "slug": "polymer",
@@ -281,22 +287,24 @@
       "downloads": [
         "https://cdn.modrinth.com/data/xGdtZczs/versions/REBDssAz/polymer-bundled-0.18.2%2B26.3.jar"
       ],
-      "fileSize": 1411315
+      "fileSize": 1411315,
+      "distribution": "embedded-cache"
     }
   ],
   "overrides": [
     {
       "id": "suite",
-      "source": "build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.3+26.3.jar",
-      "path": "mods/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.3+26.3.jar",
+      "source": "build/libs/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar",
+      "path": "mods/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar",
       "hashes": {
-        "sha1": "40fac2f6c7889ef739de8235d6225c904ec21109",
-        "sha256": "f8f4b9af150f1383084c8682fd50462155b056f0ac94eff74be4f0dbdc45fdf3",
-        "sha512": "fde8f21658e16de69c874e85fa7f8af3b598e7f9ccbd8dd8f983f52e23e92fed6a091abff79d00f8626c556971185ded1924556af429bc5062cac61b718e6fb8"
+        "sha1": "9c024c64e0029bdd77244be96007f81105491b6e",
+        "sha256": "8edee2f1ab0b06cc4328ddd18c3a945cf8183a010fad33cb46d9206e4fec77c0",
+        "sha512": "75acfbacf35a4c224abb45d76a5c5ace42931168517f440f8357315001faf116b4a6ab31849c0fd2d5ce8880fdc052043653e318a9562bea41dcbc3c43fff510"
       },
-      "fileSize": 2526099,
+      "fileSize": 2524266,
       "license": "Suite licenses and retained upstream notices",
-      "source_url": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/merged/"
+      "source_url": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/",
+      "version": "1.1.0+26.3"
     },
     {
       "id": "defaulted",

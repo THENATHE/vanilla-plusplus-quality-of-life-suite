@@ -1,6 +1,35 @@
-# Mixed-scale atlas branch
+# Mixed-scale atlases
 
-The current `merged` branch includes both experiments in suite **1.0.2-merged.2+26.3**. Coordinator is **1.0.8-merged.2+26.3**; map addon is **1.0.2-merged.2+26.3**. [Current independent controls](ATLAS_CONTROLS.md) replace the first experiment's coupled scale selection. [Merged validation](MERGED_TESTING.md) records current acceptance.
+Stable suite **1.1** includes mixed-scale MapStitch and Sensible Stackables as separate modules on `main`. The original MapStitch JAR remains unchanged. These features are maintained for modern Minecraft versions; [installation requirements](INSTALLATION_PACK.md) identify the exact supported version and dependencies for this release.
+
+## Current behavior
+
+- Store maps of all five scales in the same atlas. Existing map IDs, pixels, centers, capacity, paper admission, Globetrotter and ejection rules are preserved.
+- **S** and the original scale keys change only the world-map viewing layer.
+- **M1/M2/M4/M8/M16** selects the atlas minimap's scale independently.
+- **1/2/4/8/16** independently toggle generation at each scale. Each missing enabled layer consumes one available blank, in ascending scale order. Disabling a layer preserves its stored maps.
+- Atlas hover text reports storage, enabled generation scales and minimap scale, followed by the original count and ejection lines.
+- The normal Tool Pouch integration selects and saves the owned atlas. A persisted book identity and map anchor reject packets targeting a replacement atlas or stale location.
+- MapStitch's existing **Keep atlases on death** option also handles supported nested containers. The containing item and unrelated contents retain their configured drop behavior.
+
+See [atlas controls](ATLAS_CONTROLS.md), [shared HUD layout](HUD.md), and [container-safe death retention](ATLAS_DEATH_RETENTION.md) for player-facing details. Current release checks and testing steps are in [validation](VALIDATION.md) and [the stable release guide](RELEASE_1_1.md); previous branch evidence below remains historical.
+
+## Current implementation and build
+
+| Component | Stable artifact version | Source |
+| --- | --- | --- |
+| Suite root | `1.1.0+26.3` | `src/` |
+| Shared coordinator | `1.1.0+26.3` | `components/combined-compat/` |
+| Mixed-scale addon | `1.1.0+26.3` | `components/mapstitch-mixed-scales/working/` |
+| Original MapStitch | `1.1.6+26.3` | Unchanged developer input pinned in `locks/artifacts.json` |
+
+The stable archive includes 16 nested mods. Coordinator protocol v2 negotiates 11 feature capabilities, including Sensible Stackables. The MapStitch fingerprint includes this addon, the atlas/Elytra integration, Shared Region Maps, coordinator and suite versions. An untouched MapStitch client's original channels do not qualify for native mixed-scale behavior; matching suite clients retain native functionality, and a server with Polymer supplies the documented fallback to unsupported clients.
+
+`AtlasOptions` owns the per-book generation mask and identity in vanilla custom data. `MixedScaleMaps` handles exact layer coverage, blank conservation and regional sharing. `AtlasTarget` binds the owned source and saveback. `MixedScales` validates `select_scale_v2` and `select_generation_v2` requests. `MixedScalesClient` and the world-map mixins present independent controls. `AtlasDeathRetention` and the death/respawn mixins preserve atlases from supported nested containers.
+
+Build from `Minecraft/thenathe-mod-suite/` using the pinned inputs and Java/compiler command in [UPDATING.md](UPDATING.md). `tools/verify-bundle.py` verifies the 16 declared modules, exact component versions, preserved input hashes and Defaulted dropfix requirement. The component output is `components/mapstitch-mixed-scales/working/build/libs/mapstitch-mixed-scales-1.1.0+26.3.jar`; it is already nested in the suite and should not be installed again separately.
+
+The original MapStitch source remains update context. Compare new developer source with the exact retained baseline, then adjust these separate adapters rather than merging upstream classes into them. Recheck insertion/ticking, world-map and minimap controls, owned-location resolution, guarded packets, original data components, container/death methods and the optional accessory APIs. Preserve dependency APIs and the paused SSO-port track. Machine-assisted maintenance of this suite proceeds independently of the original author's own updates.
 
 ## Historical first experiment
 
@@ -10,7 +39,7 @@ Suite version: `1.0.2-multiscale.1+26.3`. Branch: `feat/mapstitch-mixed-scales`.
 
 This branch adds one nested addon under `components/mapstitch-mixed-scales/working/`. It uses the original developer MapStitch Fabric `1.1.6+26.3` artifact, SHA-256 `e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81`, without rewriting that JAR or its preserved sources. There is no separate ported MapStitch counterpart for this feature. The paused SSO-port track is not built or tested. Other exact library inputs, including Defaulted dropfix, stay pinned by `locks/artifacts.json`.
 
-## Player behavior
+### Historical player behavior
 
 - Insert maps at any of the five scales into the same atlas using either existing inventory insertion direction. Existing capacity, blank-map/paper admission, Globetrotter, ejection and item-stack rules remain in effect.
 - The world-map screen displays the scale selected by its existing button or scale keys. Changing that selector also persists the active exploration/minimap scale on the atlas that opened the screen. Opening through the global world-map key uses the minimap's selected atlas, or the first configured world-map atlas when no minimap atlas is available. Other carried books keep their own active scale.
@@ -22,7 +51,7 @@ This branch adds one nested addon under `components/mapstitch-mixed-scales/worki
 
 MapStitch already indexes its world-map tiles by position **and scale**, and its renderer already filters by the selected scale. The addon retains that rendering path. It clears the upstream map/decoration cache when the scale changes, preventing markers from the previous layer from appearing on a new grid. Existing exploration-marker projection and per-map ejection remain upstream behavior. Multiple independent maps with identical dimension/center/scale remain separate stored items; the upstream screen still displays one tile at each grid key.
 
-## Native negotiation and persistence
+### Historical negotiation and persistence
 
 MapStitch's existing negotiated fingerprint now includes this addon, the atlas/Elytra integration and Shared Region Maps. The fixed ten-module negotiation layout is unchanged. An untouched MapStitch client's original advertised channels no longer qualify it for native MapStitch on this branch; matching addon support is required. With server Polymer, that client receives the existing safe fallback. Vanilla clients also retain fallback. Native operation without Polymer requires the matching suite and dependencies on both sides.
 
@@ -30,7 +59,7 @@ The addon registers one serverbound selection payload, `mapstitch_mixed_scales:s
 
 Back up the world and inventories before trying this independent feature branch. Returning to the baseline suite preserves stored records but restores its original same-scale insertion and selection rules; use the feature branch to separate mixed-scale contents first if that baseline behavior is required.
 
-## Maintenance targets
+### Historical maintenance targets
 
 | Source | Responsibility |
 | --- | --- |
@@ -45,7 +74,7 @@ Back up the world and inventories before trying this independent feature branch.
 
 For a later MapStitch update, compare its exact published source against the retained baseline. Recheck `AtlasItem.isValidItemForAtlas`, `inventoryTick`, `updateActiveMap`, `getTooltip` and `use`, plus the world-map constructor, input handlers, render callback, scale field and scale-button tooltip call. Check upstream grid keys, minimap active-ID behavior and Tool Pouch bridge signatures before adjusting these small adapters. Update the pinned artifact/version and addon version, then rerun actual insertion, every selected scale, generation boundaries, ejection, pouch saveback, codec/restart persistence and native/fallback negotiation checks. Do not merge upstream classes into this addon or replace library dependencies to pass a build.
 
-## Build and evidence
+### Historical build and evidence
 
 From the suite root, stage the exact inputs using `tools/stage-inputs.py`, then run:
 

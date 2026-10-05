@@ -1,5 +1,7 @@
 # Shared atlas / ordinary-map HUD verification
 
+The synchronized layout is included in stable **1.1** on `main`; current release checks are recorded in [VALIDATION.md](../docs/VALIDATION.md).
+
 The current fixture uses eight bounded graphical cases to check synchronized native position controls, saved native files, atlas/ordinary-map identical corner anchors, signed offsets, actual map-versus-detail bounds, and the combined settings screen. It captures final renderer text coordinates and screenshots rather than guessing visibility from config values. See [shared HUD documentation](../docs/HUD.md).
 
 Existing evidence below describes the previous independent-position implementation and is retained as history.

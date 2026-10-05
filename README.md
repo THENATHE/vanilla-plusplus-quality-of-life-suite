@@ -2,15 +2,15 @@
 
 [What it is](#what-it-is) · [Features](#features) · [Vanilla compatibility](#the-shim-vanilla-and-modded-players-together) · [Installation](#installation) · [Technical info](#technical-info) · [Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Dependencies and compatible mods](docs/DEPENDENCIES.md)
 
-This is the `merged` testing branch, version **1.0.2-merged.3+26.3**. It combines the [mixed-scale MapStitch addon](docs/MIXED_SCALES.md) and [Sensible Stackables port with Polymer compatibility](components/sensible-stackables/README.md). Both features remain separate modules. Main stays at its stable feature set.
+Stable release **1.1** includes the [mixed-scale MapStitch addon](docs/MIXED_SCALES.md) and [Sensible Stackables port with Polymer compatibility](components/sensible-stackables/README.md). Their features remain separate modules within the suite. See the [1.1 release guide](docs/RELEASE_1_1.md) for installation and testing notes.
 
 ## What it is
 
-A collection of Minecraft quality-of-life mods brought together into one feature-packed **Fabric mod for Minecraft 26.3**, maintained by **THENATHE**. It combines better equipment repair and enchanting, useful storage, maps that work together, less punishing deaths, colorful cave markings, and everyday gameplay improvements.
+A collection of Minecraft quality-of-life mods brought together into one feature-packed **Fabric mod for modern Minecraft versions**, maintained by **THENATHE**. It combines better equipment repair and enchanting, useful storage, maps that work together, less punishing deaths, colorful cave markings, and everyday gameplay improvements.
 
 The suite includes the original mods listed below, plus my own additions to help them work together. It also includes a compatibility layer that lets players without the suite join a server when Polymer is installed. Those players can use the supported vanilla-friendly features; custom backpack, pouch, and atlas screens still need the suite on the client.
 
-This is an unofficial community project. Credit for the original mods belongs to their creators, thanked below. Many features are configurable, so your server's settings may differ from the defaults described here.
+This is an unofficial community project. Credit for the original mods belongs to their creators, thanked below. When needed, machine-assisted porting helps keep features available on newer Minecraft releases while original authors update independently. Use the Minecraft version supported by your chosen release, listed under [Installation](#installation). Many features are configurable, so your server's settings may differ from the defaults described here.
 
 ## Features
 
@@ -28,11 +28,7 @@ Thanks for your hard work, **pajic**!
 
 #### My tweaks and changes
 
-This branch uses an unofficial 26.3 port and a separate Polymer module. It keeps the original settings and server quantities. Clients without the suite receive safe stack defaults; above 99, only their prediction metadata is capped at 99, and completed inventory moves are corrected by the server. See [provenance, behavior, and verification](components/sensible-stackables/README.md).
-
-The world-map screen now has independent controls: **S** selects the world-map view, **M1–M16** selects the minimap, and **1, 2, 4, 8, 16** toggle generation at each scale. Enabled generation buttons are green. Tooltips show the selected generation scales. Each enabled missing layer consumes one blank; existing maps keep their data. These options are saved per atlas. See [atlas controls](docs/ATLAS_CONTROLS.md).
-
-Mod Menu shows original feature mods individually and groups additions beneath **Vanilla++ Quality of Life Suite**. The combined settings screen lists actual settings with consistent gameplay/client titles. Bind **Open Suite Settings** under the suite category in Minecraft Controls to open it from gameplay.
+The suite includes an unofficial compatibility port and a separate Polymer module, helping keep Sensible Stackables available on modern Minecraft versions. It keeps the original settings and server quantities. Clients without the suite receive **full item counts** with safe stack defaults. When a configured maximum exceeds 99, only their maximum-stack prediction metadata is capped at 99; completed inventory moves are corrected by the server. See [provenance, behavior, and verification](components/sensible-stackables/README.md).
 
 ### Simple Smithing Overhaul
 
@@ -85,7 +81,8 @@ Thanks for your hard work, **pajic**!
 - Made atlases work from inside the active Tool Pouch, including pouches attached to leggings. The world map, minimap, and exploration updates continue to work there.
 - Let MapStitch find a compass or clock inside the pouch for its item requirements.
 - Added shared regional map exploration through Shared Region Maps, described below.
-- Store every vanilla map scale in one atlas. Use **S** for the world-map view, **M1–M16** for the minimap, and the **1/2/4/8/16** switches for which maps to generate.
+- Store every vanilla map scale in one atlas. **S** selects the world-map view, **M1–M16** selects the minimap, and **1, 2, 4, 8, 16** independently toggle generation at each scale. These choices are saved per atlas.
+- Show enabled generation buttons in green and list selected generation scales in the hover text and atlas tooltip. Each enabled missing layer consumes one blank; existing maps keep their data. See [atlas controls](docs/ATLAS_CONTROLS.md).
 - Keep only the atlas on death when the original retention setting is enabled, even from nested pouches, backpacks, shulkers or bundles; the containing item and its other contents drop normally.
 - Included fixes for missing map centers, stale map selection, and atlas crafting previews/ingredient consumption in the compatibility component.
 - Cleared stale minimap position information when changing worlds or atlas map centers.
@@ -123,7 +120,7 @@ These include my **Tool Pouch Atlas & Elytra addon**, already built into the sui
 - Remember the flight preference between sessions and respawns. Turning it off does not disable a normal chest-slot Elytra.
 - Mend stored Elytra from collected XP **when SSO allows regular XP Mending**. Equipped Mending items take priority; pouch Elytra use the remaining XP. Flight can be switched off while repair still works.
 - Preserve the larger netherite pouch capacity when attached to leggings, and correct stale pouch-tier information when detaching or replacing it.
-- Add optional [ClientSort](https://modrinth.com/mod/clientsort/version/UWMryUad) sort, refill, and transfer controls while respecting pouch storage restrictions.
+- Add optional [ClientSort](https://modrinth.com/mod/clientsort) sort, refill, and transfer controls while respecting pouch storage restrictions.
 - Include safeguards against duplication and item loss when using a shulker box inside a pouch and changing or moving the owning pouch.
 - Use the same spacing for ordinary maps and atlases, keeping pouch details clear of the minimap.
 - Synchronize map and detail corner settings so changes in either mod apply to both minimap sources. This layout applies to Tool Pouch's own information overlay; an external replacement such as Immersive Overlays controls its own layout.
@@ -194,40 +191,29 @@ Thanks for your hard work, **pajic**!
 - Kept the original death behavior and its options, and made those options accessible from the suite settings screen.
 - Preserved the original accessory integrations and server control over these settings.
 
-### Chalk — Fabric port
+### Chalk — Fabric port and Colorful Addon
 
-[Original mod on Modrinth](https://modrinth.com/mod/chalk)
+[Original Chalk mod on Modrinth](https://modrinth.com/mod/chalk) · [Original Colorful Addon on Modrinth](https://modrinth.com/mod/chalk-colorful-addon)
 
-Thanks for your hard work, **mortuusars and DaFuqs**, and contributors **MCLegoMan and Pintér Gábor**!
+Thanks for your hard work, **mortuusars and DaFuqs**, on Chalk and its Colorful Addon! Thanks also to Chalk contributors **MCLegoMan and Pintér Gábor**.
 
 - Craft ordinary chalk from two calcite.
 - Mark block surfaces to leave a trail through caves, tunnels, and builds.
 - Draw directional arrows near a block's corners or an X near its center.
 - Use glow chalk to make marks visible in darkness.
 - Redraw marks or erase them when a route changes.
-
-#### My tweaks and additions
-
-- Included the local Minecraft 26.3 Fabric port.
-- Added recoloring and glow conversions that preserve the chalk's remaining durability, custom name, and other item data.
-- Connected the original particle setting to the suite settings screen.
-- Added the shared native/vanilla compatibility described below. Players with the matching suite use Chalk's original rendering.
-
-### Chalk: Colorful Addon
-
-[Original addon on Modrinth](https://modrinth.com/mod/chalk-colorful-addon)
-
-Thanks for your hard work, **DaFuqs and mortuusars**!
-
 - Add chalk in all 16 dye colors.
 - Use different colors to distinguish routes, rooms, destinations, or players' trails.
 - Combine colored marks with glow chalk for visible markings in dark places.
 
 #### My tweaks and additions
 
-- Included the addon port for the suite's Minecraft 26.3 Chalk version.
+- Included Fabric-compatible Chalk and matching Colorful Addon ports for the suite's supported Minecraft release.
+- Added recoloring and glow conversions that preserve the chalk's remaining durability, custom name, and other item data.
 - Made dye replace the chalk's current color, rather than mixing colors.
 - Let you add dye, glow ink, or both in one crafting operation. Recoloring glowing chalk keeps it glowing.
+- Connected the original particle setting to the suite settings screen.
+- Added the shared native/vanilla compatibility described below. Players with the matching suite use Chalk's original rendering.
 - Added the following combinations through the suite's compatibility/crafting component:
 
 | Ingredients | Result |
@@ -244,7 +230,7 @@ The same rules apply to the other dye colors. Converting existing chalk does not
 
 ### Shared Region Maps
 
-[Original standalone project](https://github.com/THENATHE/shared-region-maps-shim) — a THENATHE addition with no separate Modrinth listing.
+[THENATHE’s standalone project](https://github.com/THENATHE/shared-region-maps-shim) — my own addition, with no separate Modrinth listing.
 
 - Share exploration when players create ordinary maps for the same region, dimension, and scale.
 - Let terrain discoveries and banner updates appear on copies of the shared map.
@@ -252,9 +238,6 @@ The same rules apply to the other dye colors. Converting existing chalk does not
 - Keep sharing across server restarts.
 - Preserve old and special maps rather than automatically merging every map in an existing world.
 - Lock a map to keep an independent snapshot.
-
-#### My tweaks and additions
-
 - Focused the suite version on **vanilla maps and MapStitch**.
 - Removed the Map Atlases adapter and the special Interdimensional Map Markers handling. Improved Maps is not an advertised integration.
 - Preserved existing map identities and exploration data, and included the component for singleplayer as well as dedicated servers.
@@ -262,7 +245,7 @@ The same rules apply to the other dye colors. Converting existing chalk does not
 
 ### Amethyst Curse Cleanser
 
-[Original standalone project](https://github.com/THENATHE/amethyst-curse-cleanser) — a THENATHE addition with no separate Modrinth listing.
+[THENATHE’s standalone project](https://github.com/THENATHE/amethyst-curse-cleanser) — my own addition, with no separate Modrinth listing.
 
 - Put a cursed item and one amethyst shard into a grindstone, in either input order, to remove Curse of Binding and/or Curse of Vanishing.
 - Remove both supported curses with a single shard when the item has both.
@@ -270,13 +253,12 @@ The same rules apply to the other dye colors. Converting existing chalk does not
 - Receive one echo shard when you take the cleansed item. It drops beside you if your inventory is full.
 - Alternatively, use a smithing table with an empty template slot, the cursed item in the middle, and amethyst in the addition slot.
 - Perform the operation without earning grindstone XP.
-
-#### My tweaks and additions
-
-- Brought my standalone curse-removal mod into the suite for Minecraft 26.3, retaining both grindstone and smithing use.
+- Included my standalone curse-removal mod in the suite, retaining both grindstone and smithing use.
 - Kept it usable by vanilla players on a server running the suite's vanilla-compatibility setup.
 
 ### One place for settings
+
+Mod Menu shows original feature mods individually and groups additions beneath **Vanilla++ Quality of Life Suite**. The combined settings screen lists actual settings with consistent gameplay/client titles. Bind **Open Suite Settings** under the suite category in Minecraft Controls to open it from gameplay.
 
 - Open **Vanilla++ Quality of Life Suite** through [Mod Menu](https://modrinth.com/mod/modmenu), or use `/suite-settings` on the client.
 - Browse the original mod settings together in one screen, grouped by module.
@@ -313,38 +295,45 @@ The compatibility layer includes:
 
 ## Installation
 
-The [merged testing checklist](docs/MERGED_TESTING.md) covers both new features. For a fresh test instance, use the release’s `.mrpack` or manual installation ZIP; [installation pack instructions](docs/INSTALLATION_PACK.md) explain their client/server dependency selection.
+The [1.1 release guide](docs/RELEASE_1_1.md) covers the current features, installation, and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.0%2B26.3) provides four downloads:
+
+- **README.md:** this overview and installation guide.
+- **Suite JAR:** the combined feature mod.
+- **Documentation ZIP:** the full documentation and verification records.
+- **Installation ZIP:** setup files and the required dependency selection, with client/server instructions.
+
+Use the installation ZIP for a fresh instance. It includes the permitted dependencies and a helper that downloads Fzzy Config from its official publisher, so internet access is required. Follow its included instructions to install the compatible libraries selected for that release; [installation instructions](docs/INSTALLATION_PACK.md) explain the setup in more detail.
 
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Download `vanilla-plusplus-quality-of-life-suite-1.0.2-merged.3+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.0.2-merged.3%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
-3. Install the required libraries below. The suite includes the feature mods, but these shared libraries remain separate.
+2. Download `vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.0%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
+3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
 
-| Required library | Version to install |
-| --- | --- |
-| [Fabric API](https://modrinth.com/mod/fabric-api) | 0.161.0+26.3 |
-| [Fabric Language Kotlin](https://modrinth.com/mod/fabric-language-kotlin) | 1.14.1+kotlin.2.4.20 |
-| [Fzzy Config](https://modrinth.com/mod/fzzy-config/version/thw1Z19c) | 0.7.7+fix2+26.3 |
-| [Cloth Config](https://modrinth.com/mod/cloth-config) | 26.3.159 |
-| [Mixson](https://modrinth.com/mod/mixson) | 2.2.1 |
-| [Defaulted](https://modrinth.com/mod/defaulted) — use the suite's library ZIP | **1.3.8+26.3.dropfix.1** |
-| [CodecUI](https://github.com/MehVahdJukaar/codecui) — use the suite's library ZIP; no Modrinth listing | **26.3-1.4.3** |
+| Required library |
+| --- |
+| [Fabric API](https://modrinth.com/mod/fabric-api) |
+| [Fabric Language Kotlin](https://modrinth.com/mod/fabric-language-kotlin) |
+| [Fzzy Config](https://modrinth.com/mod/fzzy-config) |
+| [Cloth Config](https://modrinth.com/mod/cloth-config) |
+| [Mixson](https://modrinth.com/mod/mixson) |
+| [Defaulted](https://modrinth.com/mod/defaulted) |
+| [CodecUI](https://github.com/MehVahdJukaar/codecui) — no Modrinth listing |
 
-The release's `vanilla-plusplus-local-libraries-1.0.2-merged.3+26.3.zip` supplies the exact **Defaulted dropfix and CodecUI** builds. Extract its two JARs from `mods/` into your instance's `mods/` folder. Replace other external copies of those two libraries. Download the remaining libraries separately; the [dependency directory](docs/DEPENDENCIES.md) includes exact publisher download links. The ordinary Defaulted download does not replace the required dropfix build.
+For **Defaulted**, use the release installation ZIP; it includes the required **drop fix**. Use the release's selected **CodecUI** build as well. Follow the versions supplied or selected by [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases), rather than substituting each project's latest download. Exact requirements are recorded in the [dependency directory](docs/DEPENDENCIES.md).
 
 ### Allow vanilla players to join
 
-- Set up the server as above, then install **[Polymer Bundled 0.18.2+26.3](https://modrinth.com/mod/polymer/version/REBDssAz)** on the server.
+- Set up the server as above, then install **[Polymer Bundled](https://modrinth.com/mod/polymer)** on the server using the compatible version selected by the release installation setup.
 - Use the complete Polymer Bundled download and configure its generated resource pack using the [Polymer resource-pack hosting guide](https://polymer.pb4.eu/latest/user/resource-pack-hosting/).
 - Vanilla players install nothing. Players who want the full modded features install the matching suite and required libraries on their clients.
 - Read the [compatibility section](#the-shim-vanilla-and-modded-players-together) for which features require the client mod.
 
 ### Optional extras
 
-[Mod Menu 21.0.0](https://modrinth.com/mod/modmenu), [ClientSort 3.104.1+26.3](https://modrinth.com/mod/clientsort/version/UWMryUad), [Trinkets Updated](https://modrinth.com/mod/trinkets-updated), [Shulker Box Tooltip](https://modrinth.com/mod/shulkerboxtooltip), and [LambDynamicLights](https://modrinth.com/mod/lambdynamiclights) add settings access or supported integrations. They are not included in the suite. See [all dependencies and compatible mods](docs/DEPENDENCIES.md) for version requirements, installation roles, and testing limits.
+[Mod Menu](https://modrinth.com/mod/modmenu), [ClientSort](https://modrinth.com/mod/clientsort), [Trinkets Updated](https://modrinth.com/mod/trinkets-updated), [Shulker Box Tooltip](https://modrinth.com/mod/shulkerboxtooltip), and [LambDynamicLights](https://modrinth.com/mod/lambdynamiclights) add settings access or supported integrations. They are not included in the suite. See [all dependencies and compatible mods](docs/DEPENDENCIES.md) for version requirements, installation roles, and testing limits.
 
 For developers, server maintainers, or anyone troubleshooting a problem, the technical section below links the source layout, dependency records, update process, and test results. You do not need to build the mod yourself to use the downloads above.
 
@@ -356,7 +345,7 @@ This is a standalone, unofficial repository. One feature JAR contains separate m
 
 The suite combines developer releases, local ports, and THENATHE additions. SSO uses the user-confirmed private official Minecraft 26.3 developer release. Its exact bytes and source audit are recorded separately from the public 26.2 baseline. The separate ChatGPT-produced SSO port remains paused. Chalk uses the recorded local 26.3 Fabric port, with the matching Colorful Addon metadata port. See [provenance and compatibility tracks](docs/PROVENANCE.md).
 
-Defaulted is pinned to `1.3.8+26.3.dropfix.1`, SHA-256 `e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61`. The unpatched release is not interchangeable. Keep CodecUI `26.3-1.4.3` external as documented: Defaulted's older nested dependency remains unchanged. Fzzy Config is an official external download and is excluded from the local-library ZIP. Exact artifact versions and hashes are recorded in [the dependency lock](locks/artifacts.json).
+Defaulted is pinned to `1.3.8+26.3.dropfix.1`, SHA-256 `e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61`. The unpatched release is not interchangeable. Keep CodecUI `26.3-1.4.3` external as documented: Defaulted's older nested dependency remains unchanged. Fzzy Config is an official external dependency; its installation and distribution rules are recorded in [installation instructions](docs/INSTALLATION_PACK.md). Exact artifact versions and hashes are recorded in [the dependency lock](locks/artifacts.json).
 
 ### Negotiation and configuration
 
@@ -374,10 +363,12 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Branch output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.3+26.3.jar`.
+The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 
 ### Changes and testing
+
+The [release procedure](docs/RELEASE_WORKFLOW.md) records the standing documentation, four-asset packaging, version-only titles and branch-cleanup conventions.
 
 Read the [changelog](CHANGELOG.md) and [validation report](docs/VALIDATION.md) for the exact tested artifacts, current regression coverage, historical gameplay/HUD evidence, and remaining manual checks. A listed integration or successful build alone is not a claim that every gameplay combination has passed testing.

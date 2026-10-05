@@ -1,6 +1,6 @@
 # MapStitch / Tool Pouch HUD layout fix
 
-This is the historical independent-position implementation. The merged branch now uses [shared placement and actual bounds for both map types](HUD.md); that newer behavior supersedes the independent-position section below.
+This is the historical independent-position implementation. The stable suite now uses [shared placement and actual bounds for both map types](HUD.md); that newer behavior supersedes the independent-position section below.
 
 ## Component and baseline
 

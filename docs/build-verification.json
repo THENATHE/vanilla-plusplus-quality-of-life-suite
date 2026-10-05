@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "thenathe_mod_suite",
-  "version": "1.0.2-merged.3+26.3",
-  "sha256": "f8f4b9af150f1383084c8682fd50462155b056f0ac94eff74be4f0dbdc45fdf3",
+  "version": "1.1.0+26.3",
+  "sha256": "8edee2f1ab0b06cc4328ddd18c3a945cf8183a010fad33cb46d9206e4fec77c0",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -60,9 +60,9 @@
     },
     {
       "id": "sso_backpack_toolpouch_mapstitch_shim",
-      "version": "1.0.8-merged.2+26.3",
-      "sha256": "3aadf51fd223c463bb1e39ea4d924b1944d4e0344c3e4e04f1568f9f009b5544",
-      "file": "META-INF/jars/thenathe-suite-combined-compat-1.0.8-merged.2+26.3.jar"
+      "version": "1.1.0+26.3",
+      "sha256": "8f0731d337d5ea0789631b5264f01039acd94f3bd6dcae822712be3ad798b38a",
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.1.0+26.3.jar"
     },
     {
       "id": "chalk_polymer_compat",
@@ -96,20 +96,20 @@
     },
     {
       "id": "mapstitch_mixed_scales",
-      "version": "1.0.2-merged.3+26.3",
-      "sha256": "71a0ee763f55179f12826b21edce17985303ecbc47298acbb33c1737aacbace2",
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.0.2-merged.3+26.3.jar"
+      "version": "1.1.0+26.3",
+      "sha256": "522324b83ca82b3cccd8339645ca9c53c31dca750b0ba81106b3a968a7f5ff87",
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.0+26.3.jar"
     }
   ],
   "original_inputs_unchanged": true,
   "defaulted_exact_dropfix_requirement": true,
   "licenses_retained": true,
   "runtime_tested": true,
-  "test_date": "2026-10-05",
-  "runtime_evidence": {
-    "atlas_layout_tooltip_controls": "qa-merged/evidence/merged3/atlas/result.json",
-    "settings_labels_navigation": "qa-merged/evidence/merged3/settings/observations.json",
-    "prior_build_comparison": "qa-merged/evidence/merged3/previous-build-comparison.json"
-  },
-  "scope": "Small presentation update: one matching native client with client/server Polymer validates actual top-right widget geometry, restored native sidebar spacing, tooltip ordering, all M scales/S/generation choices, duplicate source and hotkey. Final standalone settings checks all 12 Configure... button labels, Chalk click destination, category titles/fields and prior native settings lifecycle. Earlier broad gameplay/death/HUD/fallback profiles were not rerun; 15 nested modules unchanged, changed map-addon classes only layout and tooltip mixins."
+  "verified_on": "2026-10-05",
+  "runtime_scope": "Fresh native/Fabric API-only Polymer connections, 2048-item network moves, atlas controls, settings; broader gameplay, zero-mod vanilla, no-Polymer and client-Polymer profiles retain separately identified historical evidence.",
+  "evidence": [
+    "qa-release/evidence/1.1.0/connections/result.json",
+    "qa-release/evidence/1.1.0/settings/observations.json",
+    "qa-release/evidence/1.1.0/merged3-bytecode-equivalence.json"
+  ]
 }

@@ -2,12 +2,14 @@
 
 `src/main/java/com/thenathe/suite/network/SuiteCapabilities.java` is compiled into this component and exposed to the root suite and Chalk component. The root common entrypoint calls `initialize()`; the root client entrypoint calls `initializeClient()`. Both are idempotent. The component common entrypoint independently calls `initialize()` to remove any dependency on entrypoint ordering. The root must exclude network sources from its own compilation to avoid duplicate classes.
 
+The stable coordinator is `1.1.0+26.3`, with protocol v2 payloads and 11 ordered module fingerprints.
+
 ## Connection sequence
 
 1. The only early registry scheduling mixin is `combinedshim.mixin.RegistrySyncSchedulingMixin`. It clears all connection-local decisions and invokes registered cleanup hooks.
-2. When supported, Fabric's existing common protocol queries PLAY channels once. This preserves recognition of untouched Tool Pouch/MapStitch clients.
+2. When supported, Fabric's existing common protocol queries PLAY channels once. This preserves recognition of untouched Tool Pouch clients. MapStitch channel-only recognition is disabled when the mixed-scale addon is present, as it is in stable main.
 3. A suite-aware client receives one nonce offer and replies with an ordered fingerprint for each module. There is no complete client mod list and no UUID override file or command. Exact module, relevant addon, suite compatibility versions, registry entries, and block-state definitions are hashed. Missing modules produce empty fingerprints.
-4. The server selects exact matches and sends one authoritative decision. Explicit mismatches stay on fallback rather than being overridden by original payload channels. Clients lacking the suite retain native Tool Pouch/MapStitch channel detection where available; SSO/backpacks/Chalk are Polymer fallback because untouched versions provide no reliable report.
+4. The server selects exact matches and sends one authoritative decision. Explicit mismatches stay on fallback rather than being overridden by original payload channels. Clients lacking the suite retain native Tool Pouch channel detection where available. Mixed-scale MapStitch requires the matching addon-aware suite fingerprint; SSO/backpacks/Chalk and Sensible Stackables use Polymer fallback when no reliable matching capability is available.
 5. Fabric registry synchronization begins after selection. Each Polymer module restores native registry entries only for the selected modules. The combined component owns final item/component/serializer dense wire mappings; The Chalk compatibility component owns the shared block/state map for native Chalk and SSO blocks.
 6. If either Chalk or SSO is native, the shared block transport subsequently requests actual client state IDs/bit width after Fabric's remap acknowledgement. This is registry confirmation, not a second capability negotiation. Invalid/incomplete state proofs disconnect with the existing clear diagnostic.
 

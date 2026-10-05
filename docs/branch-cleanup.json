@@ -1,0 +1,28 @@
+{
+  "release": "1.1.0+26.3",
+  "date": "2026-10-05",
+  "policy": "Keep main, tags, release artifacts and detached local snapshots; delete only finished branch references after publication.",
+  "branches": [
+    {
+      "branch": "feat/mapstitch-mixed-scales",
+      "tip": "7f8e4a292cb140249e14284bceeca982e36a724f",
+      "merged_into_main": true,
+      "local_preservation": "Detach existing worktree at this commit after verified publication",
+      "cleanup_authorized": "User requested removal of the extra branches after all release work is completed"
+    },
+    {
+      "branch": "feat/sensible-stackables",
+      "tip": "1e6f9d03aeb5f8526e81ff945075d0418ce25ecb",
+      "merged_into_main": true,
+      "local_preservation": "Detach existing worktree at this commit after verified publication",
+      "cleanup_authorized": "User requested removal of the extra branches after all release work is completed"
+    },
+    {
+      "branch": "merged",
+      "tip": "325988e7db3882bf9237d418e6013aa64ea2d829",
+      "merged_into_main": true,
+      "local_preservation": "Detach existing worktree at this commit after verified publication",
+      "cleanup_authorized": "User requested removal of the extra branches after all release work is completed"
+    }
+  ]
+}

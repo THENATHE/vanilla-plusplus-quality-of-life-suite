@@ -1,6 +1,8 @@
-# Suite variant: 1.0.5-suite.1+26.3
+# Suite addon: 1.0.6-suite.2+26.3
 
-This working source adds current-frame MapStitch / Tool Pouch HUD spacing to the original 1.0.4 addon. Read `../../../docs/hud-layout-fix.md` and `../verification.json` for the changes and current verification limits. The original README below describes inherited features and historical validation; its old release links are not this suite release.
+Stable suite **1.1** includes this separate Tool Pouch / MapStitch addon. It supplies shared minimap/details placement with measured bounds for both atlas and ordinary-map rendering, while retaining the original addon’s gameplay features and integrations. Read [the current HUD guide](../../../docs/HUD.md) and [suite validation](../../../docs/VALIDATION.md) for current behavior and exact verification scope.
+
+The original README below describes inherited features and historical validation. Its old standalone release links are historical references, not the stable suite download.
 
 # Tool Pouch Atlas & Elytra Modification
 

@@ -1,4 +1,8 @@
-# Current merged testing build
+# Historical merged-branch testing records
+
+The features below are now included in stable **1.1** on `main`. Use [the stable installation and testing guide](RELEASE_1_1.md), [current validation](VALIDATION.md), and [current build metadata](build-verification.json) for that release. The versions, hashes, commands, and assertion totals below are retained history for their respective `merged` artifacts; they are not fresh stable-release results. Generic build/validation links inside the older prose refer to the records as they existed at that time. Exact historical inputs remain in the linked evidence and original tagged releases.
+
+# Historical merged.3 testing build
 
 Version **1.0.2-merged.3+26.3**, branch `merged`. Minimap and generation controls now occupy one right-aligned top row immediately below the coordinate numbers, with a separate background; native sidebar positions/gaps are restored. Atlas tooltips show storage, generation scales and minimap scale before the unchanged count/ejection lines. Settings navigation buttons say **Configure...** while row names, sidebar titles and behavior stay the same.
 
@@ -10,7 +14,7 @@ For your check, replace the previous suite JAR on both sides. Open the atlas: M 
 
 # Merged testing branch
 
-Current version **1.0.2-merged.2+26.3**, branch `merged`. This testing build combines mixed-scale MapStitch and Sensible Stackables while keeping their implementations in separate modules. The final artifact hash and exact fresh verification scope are recorded in [build verification](build-verification.json) and [validation](VALIDATION.md). The merged.1 results retained below belong to that older artifact.
+Historical version **1.0.2-merged.2+26.3**, branch `merged`. This testing build combines mixed-scale MapStitch and Sensible Stackables while keeping their implementations in separate modules. The final artifact hash and exact fresh verification scope are recorded in [build verification](build-verification.json) and [validation](VALIDATION.md). The merged.1 results retained below belong to that older artifact.
 
 ## What changed in merged.2
 

@@ -1,6 +1,6 @@
 # Source map and updating upstream modules
 
-The experimental source is at `Minecraft/suite-merged/`; stable main remains at `Minecraft/thenathe-mod-suite/`. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
+The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, suite **1.1.0+26.3**. The earlier experimental checkouts and branch evidence remain historical references. Stable release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.1.0+26.3/`. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
 
 ## Where things live
 
@@ -9,7 +9,7 @@ The experimental source is at `Minecraft/suite-merged/`; stable main remains at 
 | src/main/java/com/thenathe/suite/Suite.java | Root common entrypoint |
 | src/main/java/com/thenathe/suite/network/ | Shared capability protocol; compiled into combined-compat only |
 | src/main/java/com/thenathe/suite/client/ | Unified Fzzy settings screen, Chalk settings bridge, client command and Mod Menu integration |
-| src/main/resources/ | Root identity, nested feature JAR list and translations |
+| src/main/resources/ | Root identity, 16 nested feature JARs, client mixin registration and always-enabled settings translation pack |
 | components/sso, mapstitch, toolpouch, tiered-backpacks, misctweaks, simple-death-improvements | Immutable published source/binary records plus upstream repository snapshots and staging scripts |
 | components/shared-region-maps/upstream | Original 1.0.3 source baseline |
 | components/shared-region-maps/working | Vanilla/MapStitch-only modified module |
@@ -25,6 +25,9 @@ The experimental source is at `Minecraft/suite-merged/`; stable main remains at 
 | components/*/ORIGIN.json or *manifest.json | Baseline/modified source hashes and provenance |
 | locks/ | Exact artifact hashes, runtime requirements and build provenance |
 | libs/ | Ignored local build inputs; do not commit dependencies |
+| libs/installation/ | Ignored redistributable publisher binaries and corresponding source/license inputs for the installation ZIP |
+| tools/stage-installation.py | Fetch and verify the permitted installation dependencies and corresponding sources; excludes Fzzy binary redistribution |
+| docs/RELEASE_WORKFLOW.md | Standing four-asset packaging, validation, publication and branch-cleanup procedure |
 | licenses/ | Complete original copyright and permission notices, copied into the bundle |
 | qa/ | Connection/capability smoke, final native/fallback packet checks and disposable runs |
 | qa-settings/, qa-hud/, qa-mechanics/ | Unified settings/permissions screenshots, actual HUD observations, recipe/menu/drop/map persistence regressions |
@@ -33,12 +36,12 @@ The experimental source is at `Minecraft/suite-merged/`; stable main remains at 
 | components/sensible-stackables/upstream/ | Untouched 26.2 publisher source/binary records and independently tested baseline |
 | components/sensible-stackables/ported/ | Independent 26.3 port retaining upstream mixins, settings and dependencies |
 | components/sensible-stackables/compat/ | Separate Polymer stack defaults, safe metadata and authoritative menu correction |
-| qa-merged/ | Fresh combined-build network, maps, stackables and settings evidence |
+| qa-merged/ | Historical combined-branch network, maps, stackables and settings evidence; current release scope is in docs/VALIDATION.md |
 | qa-multiscale/ | Mixed-scale mechanics/restart fixture and original experiment evidence |
 | qa-stackables/ | Actual menu/count conservation, drop, codec and restart evidence for both targets |
 | build/libs/ | Development output, separate from released artifacts |
 
-The historical projects outside this suite remain preserved. Consolidated local source/build locations and QA helper resolution are documented in [local archive maintenance](LOCAL_ARCHIVE.md). Suite releases use `Builds/Minecraft/Vanilla++ Quality of Life Suite/<Component>/<Release Version>/`, with the installable JAR, checksums, source archive and release notes together.
+The historical projects outside this suite remain preserved. Consolidated local source/build locations and QA helper resolution are documented in [local archive maintenance](LOCAL_ARCHIVE.md). Suite releases use `Builds/Minecraft/Vanilla++ Quality of Life Suite/<Component>/<Release Version>/`. The current main release folder contains the four public assets — `README.md`, the suite JAR, `docs.zip` and the installation ZIP — plus local checksum/publication records. Technical documentation, locks, notices and evidence are collected in `docs.zip`; GitHub provides its own source downloads. See [RELEASE_WORKFLOW.md](RELEASE_WORKFLOW.md) for the standing procedure.
 
 ## Updating Pajic's mods
 
@@ -47,7 +50,7 @@ The historical projects outside this suite remain preserved. Consolidated local 
 3. For Shared Region Maps, apply upstream vanilla/MapStitch changes to working while preserving its documented adapter removals. For the atlas/Elytra addon, inspect Tool Pouch and MapStitch HUD method signatures, corner enums, graphics transforms and info-overlay registration. See docs/HUD.md for shared layout, ordered render layers, original Apply callbacks and captured bounds.
 4. Review all affected mixins and networking payloads in both compatibility components. Check new items, components, recipe serializers, menus and block states; new registry entries may need Polymer mappings. A version fingerprint change selects fallback until both clients and server match, but does not implement compatibility for newly added content.
 5. Preserve external libraries and optional integrations. Update versions within the same library, pin hashes and document the change. Do not bypass Defaulted, Fzzy, Cloth, Mixson or another dependency to make compilation pass. Reapply or retire the Defaulted drop fix only after confirming the upstream implementation handles the same regression.
-6. Update unified settings registration and translations only where upstream configuration IDs/layouts change. Keep original paths, validation and Fzzy permissions/synchronization. The settings adapter uses pinned Fzzy internals; check it against a changed Fzzy release.
+6. Update unified settings registration and translations only where upstream configuration IDs/layouts change. Keep original paths, validation and Fzzy permissions/synchronization. The settings adapter uses pinned Fzzy internals; check it against a changed Fzzy release. Refresh the complete English language copies in `src/main/resources/resourcepacks/settings_titles/assets/` from the exact matching original artifacts before applying title overrides; verify all original entries survive.
 7. Update the nested JAR metadata list, locks/artifacts.json, attribution, source manifests and version. Build, verify archive integrity/nested IDs/dependencies, then run the focused profiles against the final hash. Perform the manual feature checks in docs/VALIDATION.md.
 8. Package the release under the required versioned build hierarchy, record checksums, and publish the standalone repository/release after actual compatibility verification. Older Minecraft releases are retained.
 
@@ -69,6 +72,14 @@ The atlas/Elytra component uses the same staged root inputs as the other suite p
 
 ## Rebuilding a public checkout from release inputs
 
-Download this version’s feature JAR and optional local-library ZIP from the public release. Extract the ZIP into an input directory, and put the exact remaining publisher library JARs listed in README/locks there too. Run `python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.3+26.3.jar --inputs /path/to/inputs --download-public`. The script verifies the outer release hash and stages only nested originals that match the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It also recursively finds the local-library archive’s `mods/` directory and rejects unavailable/mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs.
+Download the suite JAR and `vanilla-plusplus-installation-pack-1.1.0+26.3.zip` from the public release, and extract the installation ZIP into an input directory. The kit includes the exact Defaulted/CodecUI files under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Run:
 
-After changing source, build and run the applicable checks. Update the build and validation records with the exact tested hash, commit source/docs/evidence, then run `python3 tools/package-release.py` from a clean checkout. The packager creates the installable JAR, optional MIT-only library archive, tracked-source archive, release notes and checksums. It excludes QA fixtures and external public libraries. A new version requires updated metadata/locks/verification and a new tag; preserve older releases.
+```sh
+python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
+```
+
+The script verifies the outer release hash and recursively stages only original inputs matching the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It rejects unavailable or mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs. The release has no separate local-library ZIP or uploaded tracked-source archive; use the repository or GitHub’s generated source download for the working checkout.
+
+For installation-kit packaging, run `python3 tools/stage-installation.py`. It stages permitted publisher binaries under ignored `libs/installation/` and corresponding source/license inputs from `docs/dependency-distribution.lock.json`, verifying their locked sizes and hashes. Fzzy remains an official manifest download and must never be staged into the distribution. This installation cache is separate from normal compile/runtime inputs.
+
+After changing source, build and run the applicable checks. Update the build and validation records with the exact tested hash, rebuild and test the installation ZIP, then commit source/docs/evidence. Run `python3 tools/package-release.py` from a clean committed checkout. It creates exactly four public assets: `README.md`, the installable suite JAR, `docs.zip` and the installation ZIP, with local checksums/publication records alongside them. A new version requires updated metadata/locks/verification and a new tag; preserve older releases. Follow [RELEASE_WORKFLOW.md](RELEASE_WORKFLOW.md) for exact staging, installation checks and publication requirements.

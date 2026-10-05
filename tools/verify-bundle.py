@@ -3,7 +3,7 @@
 import hashlib,io,json,re,sys,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-path=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.3+26.3.jar'
+path=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar'
 locks=json.loads((ROOT/'locks/artifacts.json').read_text())
 def declared_version(build):
     versions=re.findall(r"^version\s*=\s*['\"]([^'\"]+)['\"]", build.read_text(), re.MULTILINE)
@@ -19,7 +19,7 @@ with zipfile.ZipFile(path) as archive:
     assert meta['id']=='thenathe_mod_suite' and meta['version']==declared_version(ROOT/'build.gradle')
     assert meta['depends']['defaulted']=='=1.3.8+26.3.dropfix.1'
     for required in ['mapstitch_mixed_scales','sensible_stackables','sensible_stackables_polymer_compat']:
-        assert meta['depends'][required]=='='+component_versions[required], 'Required merged module must not be optional: '+required
+        assert meta['depends'][required]=='='+component_versions[required], 'Required suite module must not be optional: '+required
     assert not any(name.endswith('.class') and '/suite/network/' in name for name in archive.namelist()),'Duplicated coordinator in root'
     modules=[]
     for nested in meta['jars']:

@@ -9,7 +9,7 @@ from workspace_paths import load_helper, project_path
 STAGE = project_path(WORKSPACE, 'polymer-shim-test-bundle') / 'staging-2026-10-01/mods'
 JAVA = '/usr/lib/jvm/java-25-openjdk/bin/java'
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.2-merged.3+26.3.jar')
+parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar')
 parser.add_argument('--all-profiles',action='store_true',help='Keep all four connection profiles when testing inventory actions')
 parser.add_argument('--stackables-actions',action='store_true',help='Run native and Fabric-only real inventory packet moves')
 parser.add_argument('--stackables-uncapped',action='store_true',help='Configure common stacks at 2048 and verify native/fallback packets')

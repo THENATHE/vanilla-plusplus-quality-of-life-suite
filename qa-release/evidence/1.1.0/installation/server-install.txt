@@ -1,0 +1,12 @@
+Vanilla++ Quality of Life Suite 1.1.0+26.3 (server)
+Minecraft 26.3; Fabric Loader 0.19.5; Java 25+
+Included: mods/fabric-api-0.161.0+26.3.jar
+Included: mods/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar
+Download: mods/fzzy_config-0.7.7+fix2+26.3.jar
+Included: mods/cloth-config-fabric-26.3.159.jar
+Included: mods/mixson-2.2.1-multiloader.jar
+Included: mods/polymer-bundled-0.18.2+26.3.jar
+Included: mods/codecui-26.3-1.4.3-fabric.jar
+Included: mods/defaulted-1.3.8+26.3.dropfix.1-fabric.jar
+Included: mods/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar
+Installed and verified mod files. Install Minecraft/Fabric and Java separately; no EULA was accepted or server started.

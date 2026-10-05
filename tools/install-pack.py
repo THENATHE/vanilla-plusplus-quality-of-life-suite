@@ -9,7 +9,7 @@ import urllib.request
 import zipfile
 from pathlib import Path, PurePosixPath
 
-USER_AGENT = 'THENATHE-suite-install-pack/1.0.1 (https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite)'
+USER_AGENT = 'THENATHE-suite-install-pack/1.1 (https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite)'
 
 
 def safe_path(value):
@@ -40,7 +40,7 @@ def load_pack(location):
     if location.is_dir():
         manifest = json.loads((location / 'modrinth.index.json').read_text(encoding='utf-8'))
         contents = {}
-        for folder in ('overrides', 'client-overrides', 'server-overrides'):
+        for folder in ('overrides', 'client-overrides', 'server-overrides', 'downloads'):
             for path in (location / folder).rglob('*'):
                 if path.is_symlink():
                     raise ValueError('Symlink in pack overrides: ' + str(path))
@@ -55,7 +55,7 @@ def load_pack(location):
                     safe_path(name)
             manifest = json.loads(archive.read('modrinth.index.json'))
             contents = {name: archive.read(name) for name in archive.namelist()
-                        if not name.endswith('/') and name.startswith(('overrides/', 'client-overrides/', 'server-overrides/'))}
+                        if not name.endswith('/') and name.startswith(('overrides/', 'client-overrides/', 'server-overrides/', 'downloads/'))}
     if manifest['formatVersion'] != 1 or manifest['game'] != 'minecraft':
         raise ValueError('Unsupported modpack format')
     return manifest, contents
@@ -84,7 +84,7 @@ def fetch(entry):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--pack', type=Path, default=Path(__file__).resolve().parent,
-                        help='A .mrpack file or extracted installation kit directory')
+                        help='An installation ZIP, legacy .mrpack, or extracted kit directory')
     parser.add_argument('--side', choices=('client', 'server'), required=True)
     parser.add_argument('--instance', type=Path, required=True, help='Prefer a new Minecraft/Fabric instance directory')
     parser.add_argument('--with-optional', action='store_true', help='Include optional files for the selected side (Mod Menu on client)')
@@ -119,12 +119,27 @@ def main():
         raise ValueError('Unexpected embedded JARs in pack overrides')
     for entry in lock['overrides']:
         verify(overrides[entry['path']], entry)
+    # A cache contains unchanged publisher files. Fzzy remains download-only;
+    # no cache file may introduce an unlisted dependency or change its bytes.
+    cached = {}
+    recorded = {entry['path']: entry for entry in lock['downloads']}
+    manifest_entries = {entry['path']: entry for entry in manifest['files']}
+    for name, data in contents.items():
+        if not name.startswith('downloads/'):
+            continue
+        relative = str(safe_path(name[len('downloads/'):]))
+        entry = recorded.get(relative)
+        if entry is None or entry.get('distribution') != 'embedded-cache':
+            raise ValueError('Unexpected cached dependency: ' + relative)
+        verify(data, entry)
+        verify(data, manifest_entries[relative])
+        cached[relative] = data
     for relative in [entry['path'] for entry in selected] + list(overrides):
         checked_target(instance, relative)
     print(manifest['name'], manifest['versionId'], '(' + args.side + ')')
     print('Minecraft ' + manifest['dependencies']['minecraft'] + '; Fabric Loader ' + manifest['dependencies']['fabric-loader'] + '; Java 25+')
     for entry in selected:
-        print('Download:', entry['path'])
+        print('Included:' if entry['path'] in cached else 'Download:', entry['path'])
     for relative in sorted(allowed_jars):
         print('Included:', relative)
     if args.dry_run:
@@ -142,6 +157,8 @@ def main():
             elif target.is_file():
                 data = target.read_bytes()
                 verify(data, entries[relative])
+            elif relative in cached:
+                data = cached[relative]
             else:
                 data = fetch(entries[relative])
             if target.exists() and (not target.is_file() or target.read_bytes() != data):

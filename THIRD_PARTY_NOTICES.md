@@ -10,14 +10,20 @@ New suite, negotiation, compatibility and addon code uses the MIT license in LIC
 | Chalk | mortuusars; Fabric port by DaFuqs and contributors | MIT; original and Fabric-port notices retained |
 | Chalk Colorful Addon | Original uploaded addon authors listed in its preserved metadata | MIT; its original license and icon are unchanged |
 | Shared Region Maps | THENATHE | All rights reserved, retained; redistributed here by its owner |
-| Optional local-library archive: Defaulted dropfix | Alexandra / Defaulted; Pajic fork reference; THENATHE dropfix | MIT; original notice retained |
-| Optional local-library archive: CodecUI retained26.3build | MehVahdJukaar / CodecUI; Pajic fork API reference | MIT declaration and full terms retained; no invented source revision |
+| Installation ZIP: Defaulted dropfix | Alexandra / Defaulted; Pajic fork reference; THENATHE dropfix | MIT; original notice retained |
+| Installation ZIP: retained CodecUI build | MehVahdJukaar / CodecUI; Pajic fork API reference | MIT declaration and full terms retained; no invented source revision |
 | Amethyst Curse Cleanser, atlas/Elytra addon, compatibility components | THENATHE | MIT |
 
 Original nested dependency JARs, including MixinConstraints, are kept intact with their own metadata and licenses. This is not a claim that every library used by the suite is MIT. Shared runtime libraries are installed separately and retain their own terms: Fabric API and Fabric Language Kotlin, Fzzy Config, Cloth Config, Defaulted, CodecUI, Mixson, and optional Polymer/Mod Menu. Library versions and hashes are pinned separately in locks/; no library API has been replaced with local code.
 
-[ClientSort](https://modrinth.com/mod/clientsort) is an optional runtime integration and pinned compile-only dependency; its binary is excluded from the suite and library archive. Full dependency and integration download links are in [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md).
+[ClientSort](https://modrinth.com/mod/clientsort) is an optional runtime integration and pinned compile-only dependency; its binary is excluded from the suite and installation ZIP. Full dependency and integration download links are in [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md).
 
-## Mixed-scale atlas branch addon
+## Mixed-scale atlas addon
 
-MapStitch Mixed Scales 1.0.0+26.3 is a separately authored THENATHE suite addon under the root MIT license. It targets the unchanged developer MapStitch 1.1.6+26.3 input and retains the upstream notices above. Its implementation and update boundaries are recorded in docs/MIXED_SCALES.md.
+MapStitch Mixed Scales is a separately authored THENATHE suite addon under the root MIT license. It targets the unchanged developer MapStitch 1.1.6+26.3 input and retains the upstream notices above. Its implementation and update boundaries are recorded in docs/MIXED_SCALES.md.
+
+## Installation ZIP dependencies
+
+The installation ZIP includes unchanged Fabric API and Fabric Language Kotlin (Apache-2.0), Mixson and optional Mod Menu (MIT), and Cloth Config and server Polymer (LGPL-3.0-only). These remain external libraries rather than nested suite modules. Publisher and nested-library notices are retained in the ZIP. Cloth Config and Polymer corresponding upstream source archives, GPL/LGPL text and immutable source/hash records accompany the binaries; see [distribution records](docs/dependency-distribution.lock.json) and [installation instructions](docs/INSTALLATION_PACK.md).
+
+Fzzy Config remains an official manifest download, never a redistributed binary or copied source module. Its TDL-M modpack exception permits official publisher downloads. All exact dependency versions, official URLs, hashes, side selections and permissions are recorded in [the installation lock](docs/installation-pack.lock.json).

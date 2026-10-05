@@ -1,16 +1,14 @@
-# Sensible Stackables integration branch
+# Sensible Stackables integration
 
-On the current `merged` branch, both experiments are included in suite **1.0.2-merged.1+26.3**. Coordinator is **1.0.7-merged.1+26.3**; the map addon is **1.0.1-merged.1+26.3** with its matching dependency pin. See `docs/MERGED_TESTING.md` for combined acceptance. Individual-branch versions and evidence below are retained history.
-
-
-This independent suite branch adds Pajic's [Sensible Stackables](https://github.com/pajicadvance/sensible-stackables) as its own module. The original mod ID, Fzzy configuration, Defaulted integration, Mixson recipes, menu fixes, uncapping option, throw cooldown, and native client count presentation are retained. This is an unofficial Minecraft 26.3 port, not a developer release.
+Stable suite **1.1** on `main` includes Pajic's [Sensible Stackables](https://github.com/pajicadvance/sensible-stackables) as its own module. The original mod ID, Fzzy configuration, Defaulted integration, Mixson recipes, menu fixes, uncapping option, throw cooldown, and native client count presentation are retained. This is an unofficial compatibility port for the suite’s supported Minecraft version. Machine-assisted suite updates are maintained independently while the original author continues their own work. See [installation requirements](../../docs/INSTALLATION_PACK.md) for the exact supported version.
 
 | Component | Version | Target |
 | --- | --- | --- |
 | Preserved developer release | `3.0.3+26.2` (declares `3.0.3`) | Minecraft 26.2 |
 | Version port | `3.0.3-port.1+26.3` | Minecraft 26.3 |
 | Separate suite compatibility JAR | `1.0.0+26.3` | Exact version port above |
-| Suite branch | `1.0.2-stackables.1+26.3` | Minecraft 26.3 |
+| Stable suite and shared coordinator | `1.1.0+26.3` | Minecraft 26.3 |
+| Historical standalone experiment | `1.0.2-stackables.1+26.3` | Original independent branch |
 
 The compatibility code is a separate nested JAR; it does not patch or redistribute a modified upstream binary. The port is compiled separately from the preserved developer source. No developer Minecraft 26.3 release was listed by the live Modrinth API at inspection on 2026-10-04. The suite's private official SSO input and exact Defaulted dropfix remain unchanged; the separate ChatGPT SSO-port track remains paused.
 
@@ -34,10 +32,14 @@ Run `python3 components/sensible-stackables/fetch-upstream.py` from the root to 
 
 The 26.3 port uses Java 25, Fabric Loader 0.19.5, Fabric API 0.161.0+26.3, Fzzy Config 0.7.7+fix2+26.3, Defaulted 1.3.8+26.3.dropfix.1, Mixson 2.2.1, and the suite's retained Kotlin/CodecUI dependency set. These are the existing exact suite inputs, not replacement libraries. See the per-track dependency lock JSON files and root `libs/SHA256SUMS.sha256`.
 
-The developer baseline remains Minecraft 26.2 with its own original dependency set, never the 26.3 port's Defaulted/Fzzy stack. It is retained and independently checked. A 26.2 compatibility shim is not produced by this branch, so the 26.3 shim is not presented as an upstream-targeted artifact or as evidence of upstream vanilla interoperability.
+The developer baseline remains Minecraft 26.2 with its own original dependency set, never the 26.3 port's Defaulted/Fzzy stack. It is retained and independently checked. A 26.2 compatibility shim is not produced by this integration, so the 26.3 shim is not presented as an upstream-targeted artifact or as evidence of upstream vanilla interoperability.
 
 ## Build and verification
 
-From the repository root, build with Java 25 and the documented Java 27 compiler override; `python3 tools/verify-bundle.py` validates all 15 nested modules. The standalone port and compatibility build outputs are in their separate `build/libs/` directories. Installation of the suite uses the root JAR plus its exact external dependencies; do not additionally install the two already nested Stackables JARs.
+From the repository root, build with Java 25 and the documented Java 27 compiler override; `python3 tools/verify-bundle.py` validates all 16 nested modules. The standalone port and compatibility build outputs are in their separate `build/libs/` directories. Installation of the suite uses the root JAR plus its exact external dependencies; do not additionally install the two already nested Stackables JARs.
 
 `python3 components/sensible-stackables/verify-upstream.py` independently compiles the 25 published Fabric source files against actual Minecraft 26.2 and recorded upstream dependencies. This is a Java compilation check, not a reproduction of the original multicutter release pipeline. `python3 qa-stackables/run.py --label <unique-label>` runs dedicated-server menu, conservation, codec, drop, and restart checks against the current suite artifact; add `--upstream-baseline` for the untouched developer binary. [Recorded mechanics evidence](../../qa-stackables/README.md) distinguishes these server fixtures from root QA's actual network-client gameplay tests.
+
+## Historical branch records
+
+The original integration branch was `feat/sensible-stackables`, followed by the combined `merged` experiments. Their exact versions, hashes and assertion totals remain in [Stackables evidence](../../qa-stackables/README.md) and [merged history](../../docs/MERGED_TESTING.md). Current stable-release checks are recorded separately in [validation](../../docs/VALIDATION.md) and [the stable guide](../../docs/RELEASE_1_1.md).
