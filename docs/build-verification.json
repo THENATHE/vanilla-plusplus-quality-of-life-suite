@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "thenathe_mod_suite",
-  "version": "1.1.1+26.3",
-  "sha256": "643a9ce8146c1ed7167f240b323044384027fb4990c722050b0ca66976bda86e",
+  "version": "1.1.2-bannerpoint.1+26.3",
+  "sha256": "493deec1a5013d318a1353fc749ee06d56554edd0765fd77f1d742c940cb6ab2",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -99,6 +99,18 @@
       "version": "1.1.1+26.3",
       "sha256": "278dcba81e4c6a28ce8389dc2405a583c61865b2b9fedea52f302491ee449143",
       "file": "META-INF/jars/mapstitch-mixed-scales-1.1.1+26.3.jar"
+    },
+    {
+      "id": "bannerpoint",
+      "version": "1.1.2",
+      "sha256": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
+      "file": "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar"
+    },
+    {
+      "id": "bannerpoint_polymer_compat",
+      "version": "1.0.0+26.3",
+      "sha256": "3ab0ce0acf7abfa0258e2cf8f2649f691c843baf611c014cb5d3e5e489d882ec",
+      "file": "META-INF/jars/thenathe-suite-bannerpoint-compat-1.0.0+26.3.jar"
     }
   ],
   "original_inputs_unchanged": true,
@@ -106,12 +118,11 @@
   "licenses_retained": true,
   "runtime_tested": true,
   "verified_on": "2026-10-05",
-  "runtime_scope": "Fresh final-JAR native/Fabric API-only Polymer connections and 2048-item inventory moves; 11 graphical independent HUD scenes; 21 actual atlas dimension/scale views, two real transfers and three minimap marker checks; 770 dedicated atlas/extraction/restart assertions with and without Polymer. Broader unchanged gameplay and zero-mod vanilla/client-Polymer profiles retain historical evidence.",
+  "runtime_scope": "Fresh final-SHA Bannerpoint five-profile connections, real pack loading/stale/removal/decline, native and ordinary-waypoint preservation, standard locator-bar sprite rendering; 14 native settings pages. Pure vanilla UI capture not performed; historical unchanged gameplay not rerun.",
   "evidence": [
-    "qa-release/evidence/1.1.1/connections/result.json",
-    "qa-hud/evidence/1.1.1/provenance.json",
-    "qa-multiscale/evidence/1.1.1/client/result.json",
-    "qa-release/evidence/1.1.1/previous-build-comparison.json",
-    "qa-multiscale/evidence/1.1.1/server/result.json"
+    "qa-bannerpoint/evidence/result.json",
+    "qa-bannerpoint/evidence/settings/evidence.json",
+    "qa-bannerpoint/evidence/settings/observations.json",
+    "qa-bannerpoint/evidence/parent-comparison.json"
   ]
 }

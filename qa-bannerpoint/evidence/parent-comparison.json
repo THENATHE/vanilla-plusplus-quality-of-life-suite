@@ -1,0 +1,12 @@
+{
+  "parent_version": "1.1.1+26.3",
+  "parent_sha256": "643a9ce8146c1ed7167f240b323044384027fb4990c722050b0ca66976bda86e",
+  "candidate_version": "1.1.2-bannerpoint.1+26.3",
+  "candidate_sha256": "493deec1a5013d318a1353fc749ee06d56554edd0765fd77f1d742c940cb6ab2",
+  "all_16_parent_nested_modules_identical": true,
+  "added_modules": [
+    "bannerpoint",
+    "bannerpoint_polymer_compat"
+  ],
+  "scope": "Archive byte comparison only; does not relabel historical runtime checks."
+}

@@ -9,10 +9,10 @@ public final class SuiteModPresentation {
     private static final Set<String> CHILDREN = Set.of(
             "sso_backpack_toolpouch_mapstitch_shim", "chalk_polymer_compat",
             "shared_region_maps", "toolpouch_atlas_elytra_compat", "mapstitch_mixed_scales",
-            "sensible_stackables_polymer_compat", "amethyst_curse_cleanser", "chalk-colorful-addon");
+            "sensible_stackables_polymer_compat", "bannerpoint_polymer_compat", "amethyst_curse_cleanser", "chalk-colorful-addon");
     private static final Set<String> ORIGINAL_FEATURES = Set.of(
             "simple_smithing_overhaul", "mapstitch", "toolpouch", "tiered_backpacks",
-            "misctweaks", "simple_death_improvements", "sensible_stackables", "chalk");
+            "misctweaks", "simple_death_improvements", "sensible_stackables", "bannerpoint", "chalk");
 
     private SuiteModPresentation() {}
 

@@ -13,3 +13,6 @@ project(':sensible-stackables-compat').projectDir = file('components/sensible-st
 
 include 'mapstitch-mixed-scales'
 project(':mapstitch-mixed-scales').projectDir = file('components/mapstitch-mixed-scales/working')
+
+include 'bannerpoint-compat'
+project(':bannerpoint-compat').projectDir = file('components/bannerpoint-compat')

@@ -1,0 +1,62 @@
+{
+  "game_versions": [
+    "26.3"
+  ],
+  "loaders": [
+    "fabric"
+  ],
+  "environment": "server_only_client_optional",
+  "id": "Vrns75Ns",
+  "project_id": "IfTBNyjQ",
+  "author_id": "Kg6RZEfM",
+  "featured": false,
+  "name": "1.1.2 for Fabric 26.3",
+  "version_number": "1.1.2+26.3",
+  "changelog": "- Added Fabric 26.3 version.\n",
+  "changelog_url": null,
+  "date_published": "2026-09-18T15:42:26.858531Z",
+  "downloads": 972,
+  "version_type": "release",
+  "status": "listed",
+  "requested_status": null,
+  "files": [
+    {
+      "id": "uUMNpzW9",
+      "hashes": {
+        "sha512": "6257569d0a927312e9af06ba7ef726bd5bd85c2ab9c1e56169cca22ae991dcf67b5940042cf0d89b79adb7567905ee3e9d14dd0f1ced32411690813678214537",
+        "sha1": "a6180f1541089f5c2c95f13d19dc70e66885a314"
+      },
+      "url": "https://cdn.modrinth.com/data/IfTBNyjQ/versions/Vrns75Ns/bannerpoint-fabric-1.1.2%2B26.3.jar",
+      "filename": "bannerpoint-fabric-1.1.2+26.3.jar",
+      "primary": true,
+      "size": 127889,
+      "file_type": null
+    },
+    {
+      "id": "GUQ0wDb4",
+      "hashes": {
+        "sha512": "04e39f3d5917f5d2fe633d44e14e57bd28c6f60b11b668206e367e7281c3869b6bd48bc7a078c0ce2f66cdb2c0766b4c4f2cd6d9ffe030f25c44e9ab318864f6",
+        "sha1": "114f3857fe9320313b9990ce287c3b5873f089b9"
+      },
+      "url": "https://cdn.modrinth.com/data/IfTBNyjQ/versions/Vrns75Ns/bannerpoint-fabric-1.1.2%2B26.3-sources.jar",
+      "filename": "bannerpoint-fabric-1.1.2+26.3-sources.jar",
+      "primary": false,
+      "size": 114015,
+      "file_type": null
+    }
+  ],
+  "dependencies": [
+    {
+      "version_id": null,
+      "project_id": "hYykXjDp",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "P7dR8mSH",
+      "file_name": null,
+      "dependency_type": "required"
+    }
+  ]
+}

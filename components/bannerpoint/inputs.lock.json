@@ -1,0 +1,54 @@
+{
+  "component": "bannerpoint",
+  "track": "developer-release",
+  "mod_id": "bannerpoint",
+  "artifact_version": "1.1.2",
+  "release_version": "1.1.2+26.3",
+  "minecraft": "26.3",
+  "modrinth_version_id": "Vrns75Ns",
+  "modrinth_version_url": "https://modrinth.com/mod/bannerpoint/version/Vrns75Ns",
+  "github": {
+    "repository": "https://github.com/pajicadvance/bannerpoint",
+    "branch": "multicutter-v3",
+    "commit": "e910c0155617b814bfd8690ce4ab0ce85a74efad"
+  },
+  "binary": "components/bannerpoint/upstream/artifacts/bannerpoint-fabric-1.1.2+26.3.jar",
+  "binary_sha256": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
+  "published_sources": "components/bannerpoint/upstream/artifacts/bannerpoint-fabric-1.1.2+26.3-sources.jar",
+  "repository_snapshot": "components/bannerpoint/upstream/repository",
+  "published_source_tree": "components/bannerpoint/upstream/source",
+  "dependencies": {
+    "minecraft": "~26.3",
+    "fabricloader": ">=0.19.5",
+    "java": ">=25",
+    "fabric-api": ">=0.160.5",
+    "fzzy_config": ">=0.7.7"
+  },
+  "suggests": {},
+  "config_ids": [
+    "bannerpoint:config",
+    "bannerpoint:client_config"
+  ],
+  "license": "MIT",
+  "copyright_file": "components/bannerpoint/upstream/repository/LICENSE",
+  "artifacts": [
+    {
+      "path": "components/bannerpoint/upstream/artifacts/bannerpoint-e910c0155617b814bfd8690ce4ab0ce85a74efad-source.zip",
+      "sha256": "6967a0f3170d93355e46bd87e5e95047670ec96f8e2c12f40be7be77f921b6ff",
+      "size": 279732
+    },
+    {
+      "path": "components/bannerpoint/upstream/artifacts/bannerpoint-fabric-1.1.2+26.3.jar",
+      "sha256": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
+      "size": 127889
+    },
+    {
+      "path": "components/bannerpoint/upstream/artifacts/bannerpoint-fabric-1.1.2+26.3-sources.jar",
+      "sha256": "1206ab9856f64dabf56b2ce0b5a0c69bfd0dd538bb209c78700d346c4b0a738d",
+      "size": 114015
+    }
+  ],
+  "modifications": [],
+  "port_counterpart": null,
+  "port_counterpart_reason": "Not applicable: official developer release supports26.3; no ChatGPT Bannerpoint port exists or is created."
+}

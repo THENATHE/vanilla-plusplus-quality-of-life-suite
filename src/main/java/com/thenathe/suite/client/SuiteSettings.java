@@ -27,7 +27,7 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 /** Groups existing native config objects without changing their identity or save/sync code. */
 public final class SuiteSettings {
     public static final String SCOPE = "thenathe_mod_suite";
-    private static final List<String> MODULES = List.of("simple_smithing_overhaul", "mapstitch", "toolpouch", "tiered_backpacks", "misctweaks", "simple_death_improvements", "sensible_stackables", SCOPE);
+    private static final List<String> MODULES = List.of("simple_smithing_overhaul", "mapstitch", "toolpouch", "tiered_backpacks", "misctweaks", "simple_death_improvements", "sensible_stackables", "bannerpoint", SCOPE);
     private static final Set<String> MODULE_SET = Set.copyOf(MODULES);
     private static boolean initialized;
     private static ConfigScreenManager currentManager;

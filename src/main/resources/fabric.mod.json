@@ -40,7 +40,9 @@
     "mixson": ">=2.2.1",
     "mapstitch_mixed_scales": "=1.1.1+26.3",
     "sensible_stackables": "=3.0.3-port.1+26.3",
-    "sensible_stackables_polymer_compat": "=1.0.0+26.3"
+    "sensible_stackables_polymer_compat": "=1.0.0+26.3",
+    "bannerpoint": "=1.1.2",
+    "bannerpoint_polymer_compat": "=1.0.0+26.3"
   },
   "suggests": {
     "polymer-core": "0.18.2+26.3",
@@ -96,6 +98,12 @@
     },
     {
       "file": "META-INF/jars/mapstitch-mixed-scales-1.1.1+26.3.jar"
+    },
+    {
+      "file": "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar"
+    },
+    {
+      "file": "META-INF/jars/thenathe-suite-bannerpoint-compat-1.0.0+26.3.jar"
     }
   ],
   "mixins": [

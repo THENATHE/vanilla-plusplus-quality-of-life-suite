@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "bannerpoint_polymer_compat",
+  "version": "${version}",
+  "name": "Bannerpoint Suite Compatibility",
+  "description": "Native Bannerpoint waypoints, Polymer waypoint artwork, and per-client suppression until the artwork is loaded.",
+  "authors": ["THENATHE"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": { "main": ["com.thenathe.bannerpointcompat.BannerpointCompat"] },
+  "mixins": ["bannerpoint_suite_compat.mixins.json"],
+  "depends": {
+    "minecraft": "26.3",
+    "java": ">=25",
+    "fabricloader": ">=0.19.5",
+    "fabric-api": ">=0.161.0+26.3",
+    "bannerpoint": "=1.1.2"
+  },
+  "suggests": { "polymer-resource-pack": "0.18.2+26.3" },
+  "custom": { "modmenu": { "parent": "thenathe_mod_suite" } }
+}

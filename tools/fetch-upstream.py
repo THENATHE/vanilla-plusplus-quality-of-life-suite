@@ -16,6 +16,7 @@ import zipfile
 
 SUITE = Path(__file__).resolve().parents[1]
 COMPONENTS = {
+    'bannerpoint': ('bannerpoint', '1.1.2+26.3', 'pajicadvance/bannerpoint'),
     'sso': ('simple-smithing-overhaul', '2.9.14+26.2', 'pajicadvance/simple-smithing-overhaul'),
     'mapstitch': ('mapstitch', '1.1.6+26.3', 'pajicadvance/mapstitch'),
     'toolpouch': ('tool-pouch', '1.1.10+26.3', 'pajicadvance/toolpouch'),

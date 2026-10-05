@@ -2,7 +2,9 @@
 
 [What it is](#what-it-is) · [Features](#features) · [Vanilla compatibility](#the-shim-vanilla-and-modded-players-together) · [Installation](#installation) · [Technical info](#technical-info) · [Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Dependencies and compatible mods](docs/DEPENDENCIES.md)
 
-Stable release **1.1.1** includes the [mixed-scale MapStitch addon](docs/MIXED_SCALES.md) and [Sensible Stackables port with Polymer compatibility](components/sensible-stackables/README.md). Their features remain separate modules within the suite. You can place the minimap and Tool Pouch information on different sides of the screen. See the [1.1.1 release guide](docs/RELEASE_1_1_1.md) for installation and testing notes.
+This experimental **Bannerpoint branch** adds banner waypoints and safe resource-pack support to the suite. See [Bannerpoint support](docs/BANNERPOINT.md) for how icons work with vanilla clients. The stable release on `main` remains **1.1.1**; this branch has its own testing downloads.
+
+The suite includes the [mixed-scale MapStitch addon](docs/MIXED_SCALES.md) and [Sensible Stackables port with Polymer compatibility](components/sensible-stackables/README.md). Their features remain separate modules within the suite. You can place the minimap and Tool Pouch information on different sides of the screen. The [1.1.1 guide](docs/RELEASE_1_1_1.md) describes the stable baseline; [Bannerpoint support](docs/BANNERPOINT.md) describes this branch’s additions.
 
 ## What it is
 
@@ -89,6 +91,25 @@ Thanks for your hard work, **pajic**!
 - Included fixes for missing map centers, stale map selection, and atlas crafting previews/ingredient consumption in the compatibility component.
 - Cleared stale minimap position information when changing worlds or atlas map centers.
 - Share minimap placement between MapStitch and Tool Pouch, so atlas and ordinary-map minimaps use the same corner. Set the Tool Pouch information overlay independently.
+
+### Bannerpoint
+
+[Original mod on Modrinth](https://modrinth.com/mod/bannerpoint)
+
+Thanks for your hard work, **pajic**!
+
+- Use banners as waypoints on Minecraft’s locator bar.
+- Let named banners and banners marked on maps transmit according to the server’s settings.
+- Show icons tinted to match the banner’s base color.
+- Configure transmission range and the native client’s text color, shadow and background.
+- On a client with Bannerpoint installed, show banner names by holding the player-list key or looking toward the waypoint while sneaking.
+
+#### My tweaks and additions
+
+- Included the original mod as its own module, with its gameplay and client settings in the suite’s combined screen.
+- Added a separate compatibility module that includes the original waypoint textures in Polymer’s server resource pack.
+- Players with Bannerpoint on their client use its normal icons and names. Other players receive banner icons only after the server’s Polymer pack finishes loading successfully; declining or failing the pack leaves those banner waypoints hidden.
+- Kept ordinary player waypoints and saved banner data intact. Resource packs provide the icons; custom banner-name labels still require the client mod. See [Bannerpoint support](docs/BANNERPOINT.md).
 
 ### Tool Pouch
 
@@ -287,17 +308,18 @@ The compatibility layer includes:
 - SSO repair, smithing, anvil, Mending, and enchantment support through the established vanilla-compatible interactions and guidance.
 - Chalk drawing, colors, glow marks, recoloring, crafting, erasing, and durability handling for supported vanilla play.
 - Safe visible representations of backpacks, pouches, and atlases for players without their client features.
+- Bannerpoint locator-bar icons after the server resource pack loads successfully, with unsupported banner waypoints hidden instead of missing-texture squares.
 - Clear install notices when an action needs the modded client.
 - Automatic decisions for each supported module, so a mismatched module can use its fallback without forcing every other module into fallback too.
 - Preservation of the real stored items and world data while their appearance is translated for another player.
 
 **Vanilla players do not get custom backpack or pouch screens, MapStitch's world map/minimap, or the client-side HUD additions.** Install the matching suite on the client for those features. The compatibility layer does not turn every client-only feature into a vanilla one.
 
-**Accept the server's generated resource pack for Chalk's vanilla-visible items and marks.** Server owners need to generate and host that pack through Polymer. Optional integration mods remain separate downloads; their presence does not mean every combination has been runtime-tested.
+**Accept the server's generated resource pack for Chalk's vanilla-visible items and marks, and Bannerpoint’s locator-bar icons.** Bannerpoint’s custom name labels require its client code. Server owners need to generate and host that pack through Polymer. Optional integration mods remain separate downloads; their presence does not mean every combination has been runtime-tested.
 
 ## Installation
 
-The [1.1.1 release guide](docs/RELEASE_1_1_1.md) covers the current features, installation, and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.1%2B26.3) provides four downloads:
+This branch targets **Minecraft 26.3** and is packaged as an experimental prerelease **1.1.2-bannerpoint.1+26.3**. Keep its matching server/client files together. [Testing releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.2-bannerpoint.1%2B26.3) provide the usual four downloads; [Bannerpoint support](docs/BANNERPOINT.md) explains the added behavior. Stable **1.1.1** remains on `main`.
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -309,7 +331,7 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Download `vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.1%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
+2. Download `vanilla-plusplus-quality-of-life-suite-1.1.2-bannerpoint.1+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.2-bannerpoint.1%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
@@ -351,11 +373,11 @@ Defaulted is pinned to `1.3.8+26.3.dropfix.1`, SHA-256 `e339d6f0eb471a4ac41185fb
 
 ### Negotiation and configuration
 
-The connection-scoped capability protocol checks module/addon versions and registry fingerprints. Native Chalk and SSO share confirmed block-state IDs after registry synchronization, preserving their native blocks independently. Without matching support, the affected module uses its Polymer fallback when available. Untouched original Tool Pouch/MapStitch clients can still be recognized through their advertised channels; untouched SSO/backpacks/Chalk clients cannot reliably prove installation without suite negotiation and use fallback.
+The connection-scoped capability protocol checks module/addon versions and registry fingerprints. Native Chalk and SSO share confirmed block-state IDs after registry synchronization, preserving their native blocks independently. Without matching support, the affected module uses its Polymer fallback when available. Untouched original Tool Pouch/MapStitch clients can still be recognized through their advertised channels. Bannerpoint’s original `bannerpoint:banner_name` channel separately proves its client-side support; the server sends its custom name packets only to clients advertising that channel. Other clients get Bannerpoint icons only after the compatibility module verifies that the offered Polymer pack contains the original artwork and the client reports successful loading; untouched SSO/backpacks/Chalk clients cannot reliably prove installation without suite negotiation and use fallback.
 
 The settings screen uses the original Fzzy configuration IDs, validation, permissions, and saving. Chalk's particle control saves to its original configuration. Settings managers preserve proposals within a connection, restore routing after invalidation, and clear connection-specific state on disconnect.
 
-Implementation details: [negotiation](components/combined-compat/NEGOTIATION.md), [settings](docs/settings.md), [minimap and independent information layout](docs/HUD.md), and [shared-map changes](docs/shared-region-maps-changes.md).
+Implementation details: [negotiation](components/combined-compat/NEGOTIATION.md), [settings](docs/settings.md), [minimap and independent information layout](docs/HUD.md), [shared-map changes](docs/shared-region-maps-changes.md), and [Bannerpoint compatibility](docs/BANNERPOINT.md).
 
 ### Building and updating
 
@@ -365,7 +387,7 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar`.
+The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.1.2-bannerpoint.1+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 

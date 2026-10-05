@@ -1,0 +1,1576 @@
+{
+  "passed": true,
+  "bundle_sha256": "493deec1a5013d318a1353fc749ee06d56554edd0765fd77f1d742c940cb6ab2",
+  "original_sha256": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
+  "observations": [
+    {
+      "profile": "fabric",
+      "phase": "before acceptance",
+      "client": {
+        "ticks": 50,
+        "overlay_visible": false,
+        "quiet_hud_ticks": 39,
+        "waypoints": [
+          {
+            "id": "Left[aca2b810-9353-4ae5-8c72-1eb6540f147f]",
+            "style": "minecraft:default",
+            "color": 0
+          }
+        ],
+        "sprites": [
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_0",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_1",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_2",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_3",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          }
+        ],
+        "rendered": [],
+        "pack_style_resource": false
+      },
+      "server": {
+        "name": "BannerQAFabric",
+        "native_banner_channel": false,
+        "polymer_main_pack": false,
+        "can_render": false,
+        "events": [
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[aca2b810-9353-4ae5-8c72-1eb6540f147f] minecraft:default"
+          },
+          {
+            "kind": "joined",
+            "detail": "native-banner-channel=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DECLINED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "FAILED_DOWNLOAD can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "ACCEPTED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DOWNLOADED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "INVALID_URL can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "FAILED_RELOAD can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DISCARDED can_render=false"
+          }
+        ]
+      }
+    },
+    {
+      "profile": "fabric",
+      "phase": "loaded",
+      "client": {
+        "ticks": 190,
+        "overlay_visible": false,
+        "quiet_hud_ticks": 38,
+        "waypoints": [
+          {
+            "id": "Left[aca2b810-9353-4ae5-8c72-1eb6540f147f]",
+            "style": "minecraft:default",
+            "color": 0
+          },
+          {
+            "id": "Left[926ac799-9a02-47d8-9c52-037ab63bc5eb]",
+            "style": "bannerpoint:banner",
+            "color": -12827478
+          },
+          {
+            "id": "Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc]",
+            "style": "bannerpoint:banner",
+            "color": -5231066
+          }
+        ],
+        "sprites": [
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_0",
+            "resolved": "bannerpoint:hud/locator_bar_dot/banner_0",
+            "width": 9,
+            "height": 9
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_1",
+            "resolved": "bannerpoint:hud/locator_bar_dot/banner_1",
+            "width": 9,
+            "height": 9
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_2",
+            "resolved": "bannerpoint:hud/locator_bar_dot/banner_2",
+            "width": 9,
+            "height": 9
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_3",
+            "resolved": "bannerpoint:hud/locator_bar_dot/banner_3",
+            "width": 9,
+            "height": 9
+          }
+        ],
+        "rendered": [
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26"
+        ],
+        "pack_style_resource": true
+      },
+      "server": {
+        "name": "BannerQAFabric",
+        "native_banner_channel": false,
+        "polymer_main_pack": true,
+        "can_render": true,
+        "events": [
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[aca2b810-9353-4ae5-8c72-1eb6540f147f] minecraft:default"
+          },
+          {
+            "kind": "joined",
+            "detail": "native-banner-channel=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DECLINED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "FAILED_DOWNLOAD can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "ACCEPTED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DOWNLOADED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "INVALID_URL can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "FAILED_RELOAD can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DISCARDED can_render=false"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/resource_pack.zip"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] bannerpoint:banner"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] bannerpoint:banner"
+          }
+        ]
+      }
+    },
+    {
+      "profile": "fabric",
+      "phase": "stale mainpack loaded with no banner artwork",
+      "client": {
+        "ticks": 300,
+        "overlay_visible": false,
+        "quiet_hud_ticks": 38,
+        "waypoints": [
+          {
+            "id": "Left[aca2b810-9353-4ae5-8c72-1eb6540f147f]",
+            "style": "minecraft:default",
+            "color": 0
+          }
+        ],
+        "sprites": [
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_0",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_1",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_2",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_3",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          }
+        ],
+        "rendered": [
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26"
+        ],
+        "pack_style_resource": false
+      },
+      "server": {
+        "name": "BannerQAFabric",
+        "native_banner_channel": false,
+        "polymer_main_pack": true,
+        "can_render": false,
+        "events": [
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[aca2b810-9353-4ae5-8c72-1eb6540f147f] minecraft:default"
+          },
+          {
+            "kind": "joined",
+            "detail": "native-banner-channel=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DECLINED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "FAILED_DOWNLOAD can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "ACCEPTED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DOWNLOADED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "INVALID_URL can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "FAILED_RELOAD can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DISCARDED can_render=false"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/resource_pack.zip"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] bannerpoint:banner"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] bannerpoint:banner"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/stale-pack.zip"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "UNTRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] minecraft:default"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "UNTRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] minecraft:default"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          }
+        ]
+      }
+    },
+    {
+      "profile": "fabric",
+      "phase": "fresh pack restored after stale replacement",
+      "client": {
+        "ticks": 340,
+        "overlay_visible": true,
+        "quiet_hud_ticks": 0,
+        "waypoints": [
+          {
+            "id": "Left[aca2b810-9353-4ae5-8c72-1eb6540f147f]",
+            "style": "minecraft:default",
+            "color": 0
+          },
+          {
+            "id": "Left[926ac799-9a02-47d8-9c52-037ab63bc5eb]",
+            "style": "bannerpoint:banner",
+            "color": -12827478
+          },
+          {
+            "id": "Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc]",
+            "style": "bannerpoint:banner",
+            "color": -5231066
+          }
+        ],
+        "sprites": [
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_0",
+            "resolved": "bannerpoint:hud/locator_bar_dot/banner_0",
+            "width": 9,
+            "height": 9
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_1",
+            "resolved": "bannerpoint:hud/locator_bar_dot/banner_1",
+            "width": 9,
+            "height": 9
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_2",
+            "resolved": "bannerpoint:hud/locator_bar_dot/banner_2",
+            "width": 9,
+            "height": 9
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_3",
+            "resolved": "bannerpoint:hud/locator_bar_dot/banner_3",
+            "width": 9,
+            "height": 9
+          }
+        ],
+        "rendered": [
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26"
+        ],
+        "pack_style_resource": true
+      },
+      "server": {
+        "name": "BannerQAFabric",
+        "native_banner_channel": false,
+        "polymer_main_pack": true,
+        "can_render": true,
+        "events": [
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[aca2b810-9353-4ae5-8c72-1eb6540f147f] minecraft:default"
+          },
+          {
+            "kind": "joined",
+            "detail": "native-banner-channel=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DECLINED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "FAILED_DOWNLOAD can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "ACCEPTED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DOWNLOADED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "INVALID_URL can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "FAILED_RELOAD can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DISCARDED can_render=false"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/resource_pack.zip"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] bannerpoint:banner"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] bannerpoint:banner"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/stale-pack.zip"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "UNTRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] minecraft:default"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "UNTRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] minecraft:default"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/resource_pack.zip"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] bannerpoint:banner"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] bannerpoint:banner"
+          }
+        ]
+      }
+    },
+    {
+      "profile": "fabric",
+      "phase": "removed",
+      "client": {
+        "ticks": 470,
+        "overlay_visible": false,
+        "quiet_hud_ticks": 37,
+        "waypoints": [
+          {
+            "id": "Left[aca2b810-9353-4ae5-8c72-1eb6540f147f]",
+            "style": "minecraft:default",
+            "color": 0
+          }
+        ],
+        "sprites": [
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_0",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_1",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_2",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_3",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          }
+        ],
+        "rendered": [
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26"
+        ],
+        "pack_style_resource": false
+      },
+      "server": {
+        "name": "BannerQAFabric",
+        "native_banner_channel": false,
+        "polymer_main_pack": true,
+        "can_render": false,
+        "events": [
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[aca2b810-9353-4ae5-8c72-1eb6540f147f] minecraft:default"
+          },
+          {
+            "kind": "joined",
+            "detail": "native-banner-channel=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DECLINED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "FAILED_DOWNLOAD can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "ACCEPTED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DOWNLOADED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "INVALID_URL can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "FAILED_RELOAD can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DISCARDED can_render=false"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/resource_pack.zip"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] bannerpoint:banner"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] bannerpoint:banner"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/stale-pack.zip"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "UNTRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] minecraft:default"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "UNTRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] minecraft:default"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/resource_pack.zip"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] bannerpoint:banner"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] bannerpoint:banner"
+          },
+          {
+            "kind": "pack-pop",
+            "detail": "Optional[80536d49-002a-4d9c-9bb8-391abd17ae69]"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "UNTRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] minecraft:default"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "UNTRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] minecraft:default"
+          }
+        ]
+      }
+    },
+    {
+      "profile": "fabric",
+      "phase": "declined",
+      "client": {
+        "ticks": 530,
+        "overlay_visible": false,
+        "quiet_hud_ticks": 97,
+        "waypoints": [
+          {
+            "id": "Left[aca2b810-9353-4ae5-8c72-1eb6540f147f]",
+            "style": "minecraft:default",
+            "color": 0
+          }
+        ],
+        "sprites": [
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_0",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_1",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_2",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_3",
+            "resolved": "minecraft:missingno",
+            "width": 16,
+            "height": 16
+          }
+        ],
+        "rendered": [
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26"
+        ],
+        "pack_style_resource": false
+      },
+      "server": {
+        "name": "BannerQAFabric",
+        "native_banner_channel": false,
+        "polymer_main_pack": false,
+        "can_render": false,
+        "events": [
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[aca2b810-9353-4ae5-8c72-1eb6540f147f] minecraft:default"
+          },
+          {
+            "kind": "joined",
+            "detail": "native-banner-channel=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DECLINED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "FAILED_DOWNLOAD can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "ACCEPTED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DOWNLOADED can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "INVALID_URL can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "FAILED_RELOAD can_render=false"
+          },
+          {
+            "kind": "strict-state",
+            "detail": "DISCARDED can_render=false"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/resource_pack.zip"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] bannerpoint:banner"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] bannerpoint:banner"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/stale-pack.zip"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "UNTRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] minecraft:default"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "UNTRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] minecraft:default"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/resource_pack.zip"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 ACCEPTED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DOWNLOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 SUCCESSFULLY_LOADED"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] bannerpoint:banner"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] bannerpoint:banner"
+          },
+          {
+            "kind": "pack-pop",
+            "detail": "Optional[80536d49-002a-4d9c-9bb8-391abd17ae69]"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "UNTRACK Left[926ac799-9a02-47d8-9c52-037ab63bc5eb] minecraft:default"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "UNTRACK Left[77bbb9e7-c9cb-4bd6-aa29-ae03ce4c2ccc] minecraft:default"
+          },
+          {
+            "kind": "pack-push",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 http://127.0.0.1:45963/resource_pack.zip"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          },
+          {
+            "kind": "pack-status",
+            "detail": "80536d49-002a-4d9c-9bb8-391abd17ae69 DECLINED"
+          }
+        ]
+      }
+    }
+  ]
+}

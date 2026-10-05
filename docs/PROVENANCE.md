@@ -1,11 +1,14 @@
 # Provenance and compatibility tracks
 
-Stable suite **1.1.1+26.3**, branch `main`, targets Minecraft 26.3, Fabric Loader 0.19.5 and Java 25. Its outer archive contains 16 nested modules; the suite root and mixed-scale addon declare **1.1.1+26.3**, while the shared coordinator remains **1.1.0+26.3**. It combines official developer releases, existing local ports/additions and new suite-specific compatibility code. It does not relabel the entire distribution as an official developer release.
+Experimental suite **1.1.2-bannerpoint.1+26.3**, branch `feat/bannerpoint`, targets Minecraft 26.3, Fabric Loader 0.19.5 and Java 25. The outer archive contains 18 nested modules: the 16 parent-release modules, the untouched official Bannerpoint 1.1.2+26.3 JAR, and a separately authored Bannerpoint compatibility module. The suite root declares the experimental version, the shared coordinator remains **1.1.0+26.3** and the mixed-scale addon remains **1.1.1+26.3**. Stable `main` remains **1.1.1+26.3**.
+
+This distribution combines original developer releases, existing ports/additions and suite compatibility code. It does not relabel original mods as official releases of the suite. Bannerpoint's developer-release compatibility track is supported here; no ChatGPT Bannerpoint port exists or is created. Other existing compatibility tracks and the paused SSO port remain preserved.
 
 ## Included inputs
 
 | Module/library | Artifact version | SHA-256 | Origin |
 | --- | --- | --- | --- |
+| bannerpoint | 1.1.2 | `499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0` | Official developer Fabric 26.3 release [Vrns75Ns](https://modrinth.com/mod/bannerpoint/version/Vrns75Ns); exact source record components/bannerpoint/inputs.lock.json. |
 | amethyst_curse_cleanser | 1.0.1+26.3 | `5ec26e2a0010dfdee82aa5cb27664314150a4daa36deadc10f0c659f399507b6` | Existing local authored 26.3 mod; source snapshot components/amethyst-curse-cleanser/upstream |
 | chalk | 3.2.1+26.3 | `886b0b10cc12df65d47f446c2bd54c0c670f9a54fa09a1fe95c9ec46df565f49` | Existing ChatGPT Fabric 26.3 port of DaFuqs Chalk; source snapshot components/chalk/upstream; historical git dfb461ef9eb6f7bf5188570594c3bd21171c2391 |
 | chalk-colorful-addon | 2.1.1-port.1+26.3 | `69a2443250abd95100636194a145b5479d240151cd19bf4186766117d0710b34` | Existing metadata-only ChatGPT 26.3 port; original uploaded addon retained; source components/chalk-colorful/upstream |
@@ -33,7 +36,8 @@ Stable suite **1.1.1+26.3**, branch `main`, targets Minecraft 26.3, Fabric Loade
 | Mixed-scale MapStitch addon | 1.1.1+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
 | Sensible Stackables port | 3.0.3-port.1+26.3 | Published 3.0.3+26.2 baseline and per-track source/dependency records in components/sensible-stackables/ |
 | Sensible Stackables Polymer compatibility | 1.0.0+26.3 | Separate components/sensible-stackables/compat module |
-| Suite root / settings | 1.1.1+26.3 | Newly authored source in src/ |
+| Bannerpoint compatibility | 1.0.0+26.3 | New separate components/bannerpoint-compat module; source/pack notices preserve Bannerpoint MIT artwork. |
+| Suite root / settings | 1.1.2-bannerpoint.1+26.3 | Newly authored source in src/ |
 
 The production archive retains these original module IDs and embeds each module separately. Original standalone repositories and versioned releases remain available; the suite variants do not overwrite them.
 
@@ -66,3 +70,9 @@ Fzzy Config 0.7.7+fix2+26.3 is byte-identical to official public release thw1Z19
 ## Stable integration and historical branches
 
 Mixed-scale MapStitch and Sensible Stackables are included in stable main as separate modules. Current artifact/component versions and exact hashes are in [build verification](build-verification.json); [validation](VALIDATION.md) distinguishes new release checks, implementation-equivalence comparisons, and historical records. The earlier `feat/mapstitch-mixed-scales`, `feat/sensible-stackables`, and `merged` versions keep their original provenance and evidence; their old digests are not relabeled as stable-release test results.
+
+## Bannerpoint source and artwork
+
+The exact official binary is retained unchanged, with its published source JAR SHA-256 `1206ab9856f64dabf56b2ce0b5a0c69bfd0dd538bb209c78700d346c4b0a738d`. GitHub revision `e910c0155617b814bfd8690ce4ab0ce85a74efad` is a pinned source/history reference (September 18, 2026), not an invented private build revision. Its source ZIP SHA-256 is `6967a0f3170d93355e46bd87e5e95047670ec96f8e2c12f40be7be77f921b6ff`. The original standalone Bannerpoint Icons.zip contains the same waypoint-style JSON and four GUI sprites byte-for-byte. Artwork/source notices retain copyright 2026 pajic under MIT.
+
+The compatibility module copies only those five original resources into the generated Polymer pack, plus credits and the complete MIT artwork notice. It does not copy client code or overwrite suite settings translations. Native detection reuses the original advertised `bannerpoint:banner_name` channel, so original clients need no suite handshake and the existing fixed suite v2 protocol is unchanged. Fallback eligibility requires an observed offer whose SHA-1 matches the verified five-resource local Polymer archive, and actual SUCCESSFULLY_LOADED acknowledgement for that main pack; ACCEPTED/DOWNLOADED alone do not enable icons. Name labels remain client code, documented in [Bannerpoint](BANNERPOINT.md).

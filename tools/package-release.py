@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Publishable four-asset layout from an already committed, runtime-verified build."""
+import argparse
 import hashlib
 import importlib.util
 import json
@@ -21,6 +22,10 @@ sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--component', default='Main Plugin', help='Workspace release component folder; main defaults remain unchanged')
+    args = parser.parse_args()
+    assert args.component and '/' not in args.component and '\\' not in args.component and args.component not in ('.', '..')
     report = json.loads((ROOT / 'docs/build-verification.json').read_text())
     version = report['version']
     artifact = ROOT / 'build/libs' / f'{SLUG}-{version}.jar'
@@ -30,7 +35,7 @@ def main():
     assert not subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT, text=True).strip(), 'Commit final source/evidence before packaging'
     installation = json.loads((ROOT / 'docs/installation-pack-verification.json').read_text())
     assert installation['passed'] and installation['pack_version'] == version
-    release = WORKSPACE / 'Builds/Minecraft' / PRODUCT / 'Main Plugin' / version
+    release = WORKSPACE / 'Builds/Minecraft' / PRODUCT / args.component / version
     release.mkdir(parents=True, exist_ok=True)
     shutil.copy2(artifact, release / artifact.name)
     kit = builder.package(release)

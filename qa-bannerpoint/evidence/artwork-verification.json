@@ -1,0 +1,33 @@
+{
+  "generated_pack_sha256": "3b16082cbeb3fbfef55a05478b7b9cb0aeb97f7ed28bd03dba1dbcfcb88fbdf2",
+  "generated_pack_sha1": "2e18521ca882df94f58233362119f95ce7cc6eeb",
+  "stale_pack_sha256": "8ee9e3ee36153eef8d9614dbc647866b29a016f93dd7d161c602c8d48fd85e69",
+  "stale_pack_sha1": "b393492d637633fa1c278d3b660805f37c01c8ff",
+  "assets": [
+    {
+      "file": "assets/bannerpoint/waypoint_style/banner.json",
+      "sha256": "cdd1ed36715b27d71cd0c7bf6b6ab9423f24e065d83ae190e3bedfe91971c4e3",
+      "identical_to_original": true
+    },
+    {
+      "file": "assets/bannerpoint/textures/gui/sprites/hud/locator_bar_dot/banner_0.png",
+      "sha256": "932976e008e31f008c708088fb86f3b844cd1a959f42dd769a5e07ec137d7b5d",
+      "identical_to_original": true
+    },
+    {
+      "file": "assets/bannerpoint/textures/gui/sprites/hud/locator_bar_dot/banner_1.png",
+      "sha256": "1449d8849d8e4ac29a2a38d6b4b430cac2b819cba02c50f421365a5c04c250d5",
+      "identical_to_original": true
+    },
+    {
+      "file": "assets/bannerpoint/textures/gui/sprites/hud/locator_bar_dot/banner_2.png",
+      "sha256": "e17dc5327acab5afa26802c393fd6d247f255c7691a18ba6c8b42675ae189273",
+      "identical_to_original": true
+    },
+    {
+      "file": "assets/bannerpoint/textures/gui/sprites/hud/locator_bar_dot/banner_3.png",
+      "sha256": "f66dab8f57c2fab25951e0985684d025063b68fb80658f1c7d22584362ca3523",
+      "identical_to_original": true
+    }
+  ]
+}

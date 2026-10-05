@@ -65,6 +65,7 @@ public final class SettingsClientQa implements ClientModInitializer {
                     ids=new ArrayList<>(configs.keySet());
                     var expected=new java.util.HashSet<>(Set.of("simple_smithing_overhaul.config-v2","mapstitch.config","mapstitch.client_config","toolpouch.config","toolpouch.client_config","tiered_backpacks.config","misctweaks.config","misctweaks.client_config","simple_death_improvements.config","thenathe_mod_suite.chalk"));
                     if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("sensible_stackables")){expected.add("sensible_stackables.config");expected.add("sensible_stackables.client_config");}
+                    if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("bannerpoint")){expected.add("bannerpoint.config");expected.add("bannerpoint.client_config");}
                     if(!configs.keySet().equals(expected)) throw new AssertionError("unexpected config keys="+configs.keySet());
                     for(var entry:configs.entrySet()) {
                         if(!entry.getValue().getActive().getId().toLanguageKey().equals(entry.getKey())) throw new AssertionError("identity changed "+entry.getKey());
@@ -81,6 +82,8 @@ public final class SettingsClientQa implements ClientModInitializer {
                         Map.entry("simple_death_improvements.config","Simple Death Improvements Settings"),
                         Map.entry("sensible_stackables.config","Sensible Stackables Gameplay Settings"),
                         Map.entry("sensible_stackables.client_config","Sensible Stackables Client Settings"),
+                        Map.entry("bannerpoint.config","Bannerpoint Gameplay Settings"),
+                        Map.entry("bannerpoint.client_config","Bannerpoint Client Settings"),
                         Map.entry("thenathe_mod_suite.chalk","Chalk Settings"));
                     for(var entry:configs.entrySet()) {
                         String actual=entry.getValue().getActive().translation(null).getString();
@@ -273,13 +276,15 @@ public final class SettingsClientQa implements ClientModInitializer {
         var roots=com.terraformersmc.modmenu.ModMenu.ROOT_MODS;
         var parent=mods.get("thenathe_mod_suite");
         if(parent==null || roots.get(parent.getId())!=parent)throw new AssertionError("suite is not a visible Mod Menu root");
-        var originals=Set.of("simple_smithing_overhaul","mapstitch","toolpouch","tiered_backpacks","misctweaks","simple_death_improvements","sensible_stackables","chalk");
+        var originals=new java.util.HashSet<>(Set.of("simple_smithing_overhaul","mapstitch","toolpouch","tiered_backpacks","misctweaks","simple_death_improvements","sensible_stackables","chalk"));
+        if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("bannerpoint"))originals.add("bannerpoint");
         for(String id:originals) {
             var mod=mods.get(id);
             if(mod==null || roots.get(id)!=mod || mod.getParent()!=null || mod.isHidden())throw new AssertionError("original feature is not individually visible in Mod Menu: "+id);
         }
-        row("Mod Menu keeps all eight original Pajic/Chalk feature entries individually visible");
-        var expectedChildren=Set.of("sso_backpack_toolpouch_mapstitch_shim","chalk_polymer_compat","shared_region_maps","toolpouch_atlas_elytra_compat","mapstitch_mixed_scales","sensible_stackables_polymer_compat","amethyst_curse_cleanser","chalk-colorful-addon");
+        row("Mod Menu keeps all original Pajic/Chalk feature entries individually visible");
+        var expectedChildren=new java.util.HashSet<>(Set.of("sso_backpack_toolpouch_mapstitch_shim","chalk_polymer_compat","shared_region_maps","toolpouch_atlas_elytra_compat","mapstitch_mixed_scales","sensible_stackables_polymer_compat","amethyst_curse_cleanser","chalk-colorful-addon"));
+        if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("bannerpoint_polymer_compat"))expectedChildren.add("bannerpoint_polymer_compat");
         var actualChildren=new HashSet<String>();
         for(var child:com.terraformersmc.modmenu.ModMenu.PARENT_MAP.get(parent))actualChildren.add(child.getId());
         if(!actualChildren.equals(expectedChildren))throw new AssertionError("Mod Menu suite children mismatch: "+actualChildren);

@@ -1,6 +1,6 @@
 # Source map and updating upstream modules
 
-The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, suite **1.1.1+26.3**. The earlier experimental checkouts and branch evidence remain historical references. Stable release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.1.1+26.3/`. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
+This working checkout is the experimental branch **`feat/bannerpoint`**, suite **1.1.2-bannerpoint.1+26.3**, based on stable `main` **1.1.1+26.3**. Stable `main` and its release remain unchanged. The source is at `Minecraft/thenathe-mod-suite/`. The earlier experimental checkouts and branch evidence remain historical references. Stable release files remain under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.1.1+26.3/`. This branch’s test releases belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin - Bannerpoint Testing/1.1.2-bannerpoint.1+26.3/`. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
 
 ## Where things live
 
@@ -9,12 +9,14 @@ The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, s
 | src/main/java/com/thenathe/suite/Suite.java | Root common entrypoint |
 | src/main/java/com/thenathe/suite/network/ | Shared capability protocol; compiled into combined-compat only |
 | src/main/java/com/thenathe/suite/client/ | Unified Fzzy settings screen, Chalk settings bridge, client command and Mod Menu integration |
-| src/main/resources/ | Root identity, 16 nested feature JARs, client mixin registration and always-enabled settings translation pack |
+| src/main/resources/ | Root identity, nested feature JARs, client mixin registration and always-enabled settings translation pack |
 | components/sso, mapstitch, toolpouch, tiered-backpacks, misctweaks, simple-death-improvements | Immutable published source/binary records plus upstream repository snapshots and staging scripts |
 | components/shared-region-maps/upstream | Original 1.0.3 source baseline |
 | components/shared-region-maps/working | Vanilla/MapStitch-only modified module |
 | components/toolpouch-atlas-elytra/upstream | Original local addon 1.0.4 source baseline |
 | components/toolpouch-atlas-elytra/working | Preserved addon features plus synchronized minimaps and independent details; HudLayout and four client mixins capture map bounds, move details, order rendering and observe native config Apply. |
+| components/bannerpoint/ | Unchanged official Bannerpoint 1.1.2+26.3, published sources, repository/reference records and exact staged-input lock |
+| components/bannerpoint-compat/ | Separate native-channel detection, Polymer waypoint-asset contribution and per-player banner-waypoint gating; original Bannerpoint JAR remains unchanged |
 | components/chalk/upstream | Exact local Chalk Fabric 26.3 port source snapshot |
 | components/chalk-colorful/upstream | Original colorful addon and its metadata-only 26.3 port source |
 | components/amethyst-curse-cleanser/upstream | Existing 26.3 curse-removal source snapshot |
@@ -41,7 +43,7 @@ The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, s
 | qa-stackables/ | Actual menu/count conservation, drop, codec and restart evidence for both targets |
 | build/libs/ | Development output, separate from released artifacts |
 
-The historical projects outside this suite remain preserved. Consolidated local source/build locations and QA helper resolution are documented in [local archive maintenance](LOCAL_ARCHIVE.md). Suite releases use `Builds/Minecraft/Vanilla++ Quality of Life Suite/<Component>/<Release Version>/`. The current main release folder contains the four public assets — `README.md`, the suite JAR, `docs.zip` and the installation ZIP — plus local checksum/publication records. Technical documentation, locks, notices and evidence are collected in `docs.zip`; GitHub provides its own source downloads. See [RELEASE_WORKFLOW.md](RELEASE_WORKFLOW.md) for the standing procedure.
+The historical projects outside this suite remain preserved. Consolidated local source/build locations and QA helper resolution are documented in [local archive maintenance](LOCAL_ARCHIVE.md). Suite releases use `Builds/Minecraft/Vanilla++ Quality of Life Suite/<Component>/<Release Version>/`. Each completed release folder contains the four public assets — `README.md`, the suite JAR, `docs.zip` and the installation ZIP — plus local checksum/publication records. Technical documentation, locks, notices and evidence are collected in `docs.zip`; GitHub provides its own source downloads. See [RELEASE_WORKFLOW.md](RELEASE_WORKFLOW.md) for the standing procedure.
 
 ## Updating Pajic's mods
 
@@ -51,8 +53,9 @@ The historical projects outside this suite remain preserved. Consolidated local 
 4. Review all affected mixins and networking payloads in both compatibility components. Check new items, components, recipe serializers, menus and block states; new registry entries may need Polymer mappings. A version fingerprint change selects fallback until both clients and server match, but does not implement compatibility for newly added content.
 5. Preserve external libraries and optional integrations. Update versions within the same library, pin hashes and document the change. Do not bypass Defaulted, Fzzy, Cloth, Mixson or another dependency to make compilation pass. Reapply or retire the Defaulted drop fix only after confirming the upstream implementation handles the same regression.
 6. Update unified settings registration and translations only where upstream configuration IDs/layouts change. Keep original paths, validation and Fzzy permissions/synchronization. The settings adapter uses pinned Fzzy internals; check it against a changed Fzzy release. Refresh the complete English language copies in `src/main/resources/resourcepacks/settings_titles/assets/` from the exact matching original artifacts before applying title overrides; verify all original entries survive.
-7. Update the nested JAR metadata list, locks/artifacts.json, attribution, source manifests and version. Build, verify archive integrity/nested IDs/dependencies, then run the focused profiles against the final hash. Perform the manual feature checks in docs/VALIDATION.md.
-8. Package the release under the required versioned build hierarchy, record checksums, and publish the standalone repository/release after actual compatibility verification. Older Minecraft releases are retained.
+7. For Bannerpoint, compare its published waypoint connection and naming code, original channel ID, style JSON/sprites and saved-banner lifecycle against `components/bannerpoint-compat/`. Preserve player waypoints and native clients; test Polymer pack success, decline, failure and removal separately. Refresh the original Bannerpoint resources included in the generated pack without modifying the official JAR.
+8. Update the nested JAR metadata list, locks/artifacts.json, attribution, source manifests and version. Build, verify archive integrity/nested IDs/dependencies, then run the focused profiles against the final hash. Perform the manual feature checks in docs/VALIDATION.md.
+9. Package the release under the required versioned build hierarchy, record checksums, and publish the standalone repository/release after actual compatibility verification. Older Minecraft releases are retained.
 
 ## Compatibility tracks
 
@@ -72,10 +75,10 @@ The atlas/Elytra component uses the same staged root inputs as the other suite p
 
 ## Rebuilding a public checkout from release inputs
 
-Download the suite JAR and `vanilla-plusplus-installation-pack-1.1.1+26.3.zip` from the public release, and extract the installation ZIP into an input directory. The kit includes the exact Defaulted/CodecUI files under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Run:
+Download the suite JAR and `vanilla-plusplus-installation-pack-1.1.2-bannerpoint.1+26.3.zip` from the public release, and extract the installation ZIP into an input directory. The kit includes the exact Defaulted/CodecUI files under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Run:
 
 ```sh
-python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
+python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.1.2-bannerpoint.1+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
 ```
 
 The script verifies the outer release hash and recursively stages only original inputs matching the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It rejects unavailable or mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs. The release has no separate local-library ZIP or uploaded tracked-source archive; use the repository or GitHub’s generated source download for the working checkout.

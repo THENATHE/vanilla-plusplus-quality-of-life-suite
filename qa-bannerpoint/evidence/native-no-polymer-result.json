@@ -1,0 +1,166 @@
+{
+  "passed": true,
+  "bundle_sha256": "493deec1a5013d318a1353fc749ee06d56554edd0765fd77f1d742c940cb6ab2",
+  "original_sha256": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
+  "observations": [
+    {
+      "profile": "nopolymer",
+      "phase": "native without Polymer",
+      "client": {
+        "ticks": 50,
+        "waypoints": [
+          {
+            "id": "Left[aca2b810-9353-4ae5-8c72-1eb6540f147f]",
+            "style": "minecraft:default",
+            "color": 0
+          },
+          {
+            "id": "Left[57299355-680b-41f2-b91c-4b2c1a79d14c]",
+            "style": "bannerpoint:banner",
+            "color": -5231066
+          },
+          {
+            "id": "Left[01921ad8-b151-440f-a348-7206c821f2c5]",
+            "style": "bannerpoint:banner",
+            "color": -12827478
+          }
+        ],
+        "sprites": [
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_0",
+            "resolved": "bannerpoint:hud/locator_bar_dot/banner_0",
+            "width": 9,
+            "height": 9
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_1",
+            "resolved": "bannerpoint:hud/locator_bar_dot/banner_1",
+            "width": 9,
+            "height": 9
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_2",
+            "resolved": "bannerpoint:hud/locator_bar_dot/banner_2",
+            "width": 9,
+            "height": 9
+          },
+          {
+            "requested": "bannerpoint:hud/locator_bar_dot/banner_3",
+            "resolved": "bannerpoint:hud/locator_bar_dot/banner_3",
+            "width": 9,
+            "height": 9
+          }
+        ],
+        "rendered": [
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ffb02e26",
+          "bannerpoint:hud/locator_bar_dot/banner_0 tint=ff3c44aa"
+        ],
+        "pack_style_resource": true
+      },
+      "server": {
+        "name": "BannerQANoPoly",
+        "native_banner_channel": true,
+        "polymer_main_pack": false,
+        "can_render": true,
+        "events": [
+          {
+            "kind": "banner-name",
+            "detail": "S2CBannerNamePayload[uuid=57299355-680b-41f2-b91c-4b2c1a79d14c, name=literal{QA Red Named Banner}[style={color=#FF0000}]]"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[57299355-680b-41f2-b91c-4b2c1a79d14c] bannerpoint:banner"
+          },
+          {
+            "kind": "banner-name",
+            "detail": "S2CBannerNamePayload[uuid=57299355-680b-41f2-b91c-4b2c1a79d14c, name=literal{QA Red Named Banner}[style={color=#FF0000}]]"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[57299355-680b-41f2-b91c-4b2c1a79d14c] bannerpoint:banner"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[01921ad8-b151-440f-a348-7206c821f2c5] bannerpoint:banner"
+          },
+          {
+            "kind": "waypoint",
+            "detail": "TRACK Left[aca2b810-9353-4ae5-8c72-1eb6540f147f] minecraft:default"
+          },
+          {
+            "kind": "joined",
+            "detail": "native-banner-channel=true"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -120,5 +120,13 @@
     "version_url": "https://modrinth.com/mod/clientsort/version/UWMryUad",
     "download_url": "https://cdn.modrinth.com/data/K0AkAin6/versions/UWMryUad/clientsort-fabric-3.104.1%2B26.3.jar",
     "release_version": "3.104.1+26.3"
+  },
+  {
+    "file": "libs/bannerpoint-fabric-1.1.2+26.3.jar",
+    "id": "bannerpoint",
+    "version": "1.1.2",
+    "sha256": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
+    "origin": "Official developer Fabric26.3 release; components/bannerpoint/inputs.lock.json",
+    "download_url": "https://cdn.modrinth.com/data/IfTBNyjQ/versions/Vrns75Ns/bannerpoint-fabric-1.1.2%2B26.3.jar"
   }
 ]

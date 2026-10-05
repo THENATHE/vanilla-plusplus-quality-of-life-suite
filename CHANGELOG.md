@@ -1,5 +1,14 @@
 # Changes
 
+## 1.1.2-bannerpoint.1+26.3 — 2026-10-05 (experimental branch)
+
+- Integrate Pajic’s original Bannerpoint developer release unchanged as a separate nested module on `feat/bannerpoint`; stable `main` remains 1.1.1.
+- Add a separate compatibility component that contributes Bannerpoint’s waypoint style and four locator-bar sprites to Polymer’s generated resource pack.
+- Send banner waypoint icons to clients with Bannerpoint installed, or to other clients only after Polymer confirms its main pack loaded successfully. Pending, declined, failed or removed packs hide banner waypoints instead of showing missing-texture squares.
+- Send the original custom banner-name payload only to clients advertising its original channel. Resource-pack-only clients receive icons without Bannerpoint’s custom name overlay.
+- Preserve original player waypoints, banner identities, persistence, configuration files and native functionality. Include Bannerpoint gameplay/client settings in the combined settings hub.
+- Keep the existing libraries, Defaulted dropfix and four-asset packaging procedure. See [Bannerpoint support](docs/BANNERPOINT.md) and [validation](docs/VALIDATION.md) for the exact implementation and verification records.
+
 ## 1.1.1+26.3 — 2026-10-05
 
 - Restore independent placement for Tool Pouch's information overlay: put the minimap on the right and compass/clock text on the left, or choose other corners independently.

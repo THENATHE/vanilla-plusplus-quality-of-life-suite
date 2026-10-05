@@ -1,6 +1,6 @@
 # Dependencies and optional integrations
 
-Applies to **Vanilla++ Quality of Life Suite 1.1.1+26.3**. Publisher Modrinth project links and Fabric 26.3 version listings were checked on **2026-10-04**. The [recorded link inventory](modrinth-links.json) preserves the result. A listed optional integration means the included module contains support for it; it is not a claim that every combination has passed the suite tests. See [validation](VALIDATION.md) for the combinations actually exercised.
+Applies to the experimental **Vanilla++ Quality of Life Suite 1.1.2-bannerpoint.1+26.3**. Publisher Modrinth project links and Fabric 26.3 version listings were checked on **2026-10-04**. The [recorded link inventory](modrinth-links.json) preserves that result. Bannerpoint’s exact official release was inspected separately on **2026-10-05**; its component records preserve the input. A listed optional integration means the included module contains support for it; it is not a claim that every combination has passed the suite tests. See [validation](VALIDATION.md) for the combinations actually exercised.
 
 ## Required external libraries
 
@@ -13,12 +13,12 @@ Install these separately on the server and on clients using the suite. Vanilla c
 | [Fzzy Config](https://modrinth.com/mod/fzzy-config) | [0.7.7+fix2+26.3](https://modrinth.com/mod/fzzy-config/version/thw1Z19c) | Exact suite pin. Public publisher download; downloaded by the installation helper from its official publisher; its binary is not redistributed. |
 | [Cloth Config API](https://modrinth.com/mod/cloth-config) | [26.3.159+fabric](https://modrinth.com/mod/cloth-config/version/fg2uyxOW) | Preserves the original Chalk configuration backend. |
 | [mixson](https://modrinth.com/mod/mixson) | [2.2.1](https://modrinth.com/mod/mixson/version/yWpBBcpq) | Required by SSO and MiscTweaks. |
-| [Defaulted](https://modrinth.com/mod/defaulted) | **1.3.8+26.3.dropfix.1** — [suite installation ZIP](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.1%2B26.3) | Required exact local fix. The public Defaulted page is attribution/upstream information, not a replacement download for this binary. |
+| [Defaulted](https://modrinth.com/mod/defaulted) | **1.3.8+26.3.dropfix.1** — [suite installation ZIP](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.2-bannerpoint.1%2B26.3) | Required exact local fix. The public Defaulted page is attribution/upstream information, not a replacement download for this binary. |
 | [CodecUI — publisher source](https://github.com/MehVahdJukaar/codecui) | **26.3-1.4.3** — same suite installation ZIP | No publisher Modrinth project was found. This is the retained fork-family input; see [provenance](PROVENANCE.md). Keep it external so it supersedes Defaulted’s older nested CodecUI. |
 
 **Platform:** Minecraft 26.3, Java 25+, and [Fabric Loader 0.19.5](https://fabricmc.net/use/installer/). Fabric Loader is installed through the launcher/installer; it is not a dependency mod downloaded from a Modrinth project. Java and Minecraft are platform prerequisites.
 
-The release’s `vanilla-plusplus-installation-pack-1.1.1+26.3.zip` supplies the suite, exact Defaulted and CodecUI files, six permitted public dependencies, their notices and a side-aware Python installer. Fzzy Config remains an official manifest download. Follow [installation instructions](INSTALLATION_PACK.md); no separate library ZIP is published.
+The release’s `vanilla-plusplus-installation-pack-1.1.2-bannerpoint.1+26.3.zip` supplies the suite, exact Defaulted and CodecUI files, six permitted public dependencies, their notices and a side-aware Python installer. Fzzy Config remains an official manifest download. Follow [installation instructions](INSTALLATION_PACK.md); no separate library ZIP is published.
 
 ## Optional libraries and tools
 
@@ -74,6 +74,7 @@ These modules are already inside the suite JAR. Keep their separate original JAR
 | Included module | Publisher link | Suite input note |
 | --- | --- | --- |
 | Simple Smithing Overhaul | [Modrinth](https://modrinth.com/mod/simple-smithing-overhaul) | Private official 26.3 input; public project page does not host that exact binary. |
+| Bannerpoint | [Modrinth](https://modrinth.com/mod/bannerpoint) | Official 1.1.2+26.3, unchanged; separate suite compatibility 1.0.0+26.3. |
 | MapStitch | [Modrinth](https://modrinth.com/mod/mapstitch) | Official 1.1.6+26.3. |
 | Tool Pouch | [Modrinth](https://modrinth.com/mod/tool-pouch) | Official 1.1.10+26.3. |
 | Tiered Backpacks | [Modrinth](https://modrinth.com/mod/tiered-backpacks) | Official 1.0.20+26.3. |
@@ -87,3 +88,7 @@ Shared Region Maps, Amethyst Curse Cleanser, the atlas/Elytra addon, and suite c
 ## Included Sensible Stackables module
 
 [Pajic’s Sensible Stackables](https://modrinth.com/mod/sensible-stackables) is nested in the stable suite as the unofficial **3.0.3-port.1+26.3** port, alongside a separate **1.0.0+26.3** compatibility module. No external copy is needed. Its Fzzy Config, Defaulted and Mixson dependencies use the same exact suite versions listed above. The published developer baseline is **3.0.3+26.2**; it is not a 26.3 developer release. [Per-track provenance, dependency locks and verification](../components/sensible-stackables/README.md).
+
+## Included Bannerpoint module
+
+[Pajic’s Bannerpoint](https://modrinth.com/mod/bannerpoint) is already included in this experimental branch as the unchanged official **1.1.2+26.3** Fabric release. Its separate **1.0.0+26.3** compatibility module keeps the original native behavior and contributes its waypoint assets through the existing Polymer resource-pack dependency. No additional library is required. Do not install a separate Bannerpoint JAR alongside the suite. Native Bannerpoint clients work without Polymer; clients without Bannerpoint see its locator-bar icons only after the Polymer server pack successfully loads. Custom name labels require Bannerpoint’s client code. See [Bannerpoint support](BANNERPOINT.md) and [component provenance](../components/bannerpoint/README.md).
