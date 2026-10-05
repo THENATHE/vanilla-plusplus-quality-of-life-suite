@@ -13,6 +13,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -26,7 +27,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class WorldMapScaleMixin extends Screen {
     protected WorldMapScaleMixin(Component title) { super(title); }
     @Shadow private int scale;
+    @Shadow private static Identifier dimensionId;
     @Unique private int mixedScales$previous;
+    @Unique private Identifier mixedScales$previousDimension;
     @Unique private AtlasTarget mixedScales$target;
     @Unique private Button mixedScales$minimap;
     @Unique private Button[] mixedScales$generation;
@@ -43,6 +46,8 @@ public abstract class WorldMapScaleMixin extends Screen {
         mixedScales$target = MixedScalesClient.openTarget(scaleOverride);
         // Opening uses the normal world-map view, independently of saved minimap options.
         mixedScales$previous = scale;
+        mixedScales$previousDimension = dimensionId;
+        WorldMapScreen.clearMaps();
     }
 
     @Inject(method = "init", at = @At("RETURN"))
@@ -125,8 +130,9 @@ public abstract class WorldMapScaleMixin extends Screen {
     }
 
     @Unique private void mixedScales$changed() {
-        if (scale == mixedScales$previous) return;
+        if (scale == mixedScales$previous && java.util.Objects.equals(dimensionId, mixedScales$previousDimension)) return;
         mixedScales$previous = scale;
+        mixedScales$previousDimension = dimensionId;
         WorldMapScreen.clearMaps();
     }
     @Inject(method = "extractRenderState", at = @At("HEAD"))

@@ -1,6 +1,6 @@
 # Mixed-scale atlases
 
-Stable suite **1.1** includes mixed-scale MapStitch and Sensible Stackables as separate modules on `main`. The original MapStitch JAR remains unchanged. These features are maintained for modern Minecraft versions; [installation requirements](INSTALLATION_PACK.md) identify the exact supported version and dependencies for this release.
+Stable suite **1.1.1** includes mixed-scale MapStitch and Sensible Stackables as separate modules on `main`. The original MapStitch JAR remains unchanged. These features are maintained for modern Minecraft versions; [installation requirements](INSTALLATION_PACK.md) identify the exact supported version and dependencies for this release.
 
 ## Current behavior
 
@@ -12,24 +12,32 @@ Stable suite **1.1** includes mixed-scale MapStitch and Sensible Stackables as s
 - The normal Tool Pouch integration selects and saves the owned atlas. A persisted book identity and map anchor reject packets targeting a replacement atlas or stale location.
 - MapStitch's existing **Keep atlases on death** option also handles supported nested containers. The containing item and unrelated contents retain their configured drop behavior.
 
-See [atlas controls](ATLAS_CONTROLS.md), [shared HUD layout](HUD.md), and [container-safe death retention](ATLAS_DEATH_RETENTION.md) for player-facing details. Current release checks and testing steps are in [validation](VALIDATION.md) and [the stable release guide](RELEASE_1_1.md); previous branch evidence below remains historical.
+See [atlas controls](ATLAS_CONTROLS.md), [shared HUD layout](HUD.md), and [container-safe death retention](ATLAS_DEATH_RETENTION.md) for player-facing details. Current release checks and testing steps are in [validation](VALIDATION.md) and [the stable release guide](RELEASE_1_1_1.md); previous branch evidence below remains historical.
 
 ## Current implementation and build
 
 | Component | Stable artifact version | Source |
 | --- | --- | --- |
-| Suite root | `1.1.0+26.3` | `src/` |
+| Suite root | `1.1.1+26.3` | `src/` |
 | Shared coordinator | `1.1.0+26.3` | `components/combined-compat/` |
-| Mixed-scale addon | `1.1.0+26.3` | `components/mapstitch-mixed-scales/working/` |
+| Mixed-scale addon | `1.1.1+26.3` | `components/mapstitch-mixed-scales/working/` |
 | Original MapStitch | `1.1.6+26.3` | Unchanged developer input pinned in `locks/artifacts.json` |
 
 The stable archive includes 16 nested mods. Coordinator protocol v2 negotiates 11 feature capabilities, including Sensible Stackables. The MapStitch fingerprint includes this addon, the atlas/Elytra integration, Shared Region Maps, coordinator and suite versions. An untouched MapStitch client's original channels do not qualify for native mixed-scale behavior; matching suite clients retain native functionality, and a server with Polymer supplies the documented fallback to unsupported clients.
 
 `AtlasOptions` owns the per-book generation mask and identity in vanilla custom data. `MixedScaleMaps` handles exact layer coverage, blank conservation and regional sharing. `AtlasTarget` binds the owned source and saveback. `MixedScales` validates `select_scale_v2` and `select_generation_v2` requests. `MixedScalesClient` and the world-map mixins present independent controls. `AtlasDeathRetention` and the death/respawn mixins preserve atlases from supported nested containers.
 
-Build from `Minecraft/thenathe-mod-suite/` using the pinned inputs and Java/compiler command in [UPDATING.md](UPDATING.md). `tools/verify-bundle.py` verifies the 16 declared modules, exact component versions, preserved input hashes and Defaulted dropfix requirement. The component output is `components/mapstitch-mixed-scales/working/build/libs/mapstitch-mixed-scales-1.1.0+26.3.jar`; it is already nested in the suite and should not be installed again separately.
+Build from `Minecraft/thenathe-mod-suite/` using the pinned inputs and Java/compiler command in [UPDATING.md](UPDATING.md). `tools/verify-bundle.py` verifies the 16 declared modules, exact component versions, preserved input hashes and Defaulted dropfix requirement. The component output is `components/mapstitch-mixed-scales/working/build/libs/mapstitch-mixed-scales-1.1.1+26.3.jar`; it is already nested in the suite and should not be installed again separately.
 
 The original MapStitch source remains update context. Compare new developer source with the exact retained baseline, then adjust these separate adapters rather than merging upstream classes into them. Recheck insertion/ticking, world-map and minimap controls, owned-location resolution, guarded packets, original data components, container/death methods and the optional accessory APIs. Preserve dependency APIs and the paused SSO-port track. Machine-assisted maintenance of this suite proceeds independently of the original author's own updates.
+
+## Dimension metadata and extraction
+
+Vanilla map update packets omit the original map dimension and center. A client receiving a previously unseen map creates its local data using the current dimension, which can mix Nether and Overworld tiles in an atlas. The addon sends `mapstitch_mixed_scales:map_metadata_v1` immediately before ordinary and forced atlas updates, including the optional Remapped path. It sends only when the coordinator accepts native MapStitch and the client advertises the channel. Vanilla, Fabric-only and mismatched clients receive no new payload.
+
+Matching clients correct the existing map object's dimension, center, scale and locked state in place, retaining pixels, decorations and optional integration state. World-map caches clear on opening, dimension changes and viewing-scale changes; minimap markers refresh on dimension or metadata changes. No world map files are rewritten. Reopen an existing atlas to receive corrected metadata.
+
+`AtlasMapExtraction.java` registers `/extractmap` separately from upstream MapStitch. Scale and dimension filters use authoritative server saved data. Unknown or missing map records stay in the atlas; extracting an item never deletes saved map data. The chosen atlas is the main-hand book, then offhand book, otherwise the active Tool Pouch atlas. Retained contents, item components, book identity and generation/minimap settings remain intact; the enclosing pouch is saved. Maps, blanks and paper go to inventory first, with overflow dropped at the player. See [command examples](ATLAS_CONTROLS.md).
 
 ## Historical first experiment
 

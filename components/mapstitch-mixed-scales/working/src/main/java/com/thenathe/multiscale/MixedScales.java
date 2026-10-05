@@ -13,6 +13,8 @@ import net.minecraft.server.level.ServerPlayer;
 
 public final class MixedScales implements ModInitializer {
     @Override public void onInitialize() {
+        AtlasMapExtraction.register();
+        MapMetadata.register();
         PayloadTypeRegistry.serverboundPlay().register(SelectScale.TYPE, SelectScale.CODEC);
         PayloadTypeRegistry.serverboundPlay().register(SelectGeneration.TYPE, SelectGeneration.CODEC);
         ServerPlayNetworking.registerGlobalReceiver(SelectScale.TYPE, (payload, context) -> select(context.player(), payload));

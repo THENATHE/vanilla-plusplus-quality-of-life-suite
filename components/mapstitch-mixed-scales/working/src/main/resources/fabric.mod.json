@@ -12,6 +12,9 @@
   "entrypoints": {
     "main": [
       "com.thenathe.multiscale.MixedScales"
+    ],
+    "client": [
+      "com.thenathe.multiscale.client.MixedScalesClient"
     ]
   },
   "mixins": [

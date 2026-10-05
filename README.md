@@ -2,7 +2,7 @@
 
 [What it is](#what-it-is) · [Features](#features) · [Vanilla compatibility](#the-shim-vanilla-and-modded-players-together) · [Installation](#installation) · [Technical info](#technical-info) · [Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Dependencies and compatible mods](docs/DEPENDENCIES.md)
 
-Stable release **1.1** includes the [mixed-scale MapStitch addon](docs/MIXED_SCALES.md) and [Sensible Stackables port with Polymer compatibility](components/sensible-stackables/README.md). Their features remain separate modules within the suite. See the [1.1 release guide](docs/RELEASE_1_1.md) for installation and testing notes.
+Stable release **1.1.1** includes the [mixed-scale MapStitch addon](docs/MIXED_SCALES.md) and [Sensible Stackables port with Polymer compatibility](components/sensible-stackables/README.md). Their features remain separate modules within the suite. You can place the minimap and Tool Pouch information on different sides of the screen. See the [1.1.1 release guide](docs/RELEASE_1_1_1.md) for installation and testing notes.
 
 ## What it is
 
@@ -82,11 +82,13 @@ Thanks for your hard work, **pajic**!
 - Let MapStitch find a compass or clock inside the pouch for its item requirements.
 - Added shared regional map exploration through Shared Region Maps, described below.
 - Store every vanilla map scale in one atlas. **S** selects the world-map view, **M1–M16** selects the minimap, and **1, 2, 4, 8, 16** independently toggle generation at each scale. These choices are saved per atlas.
+- Keep maps separated by dimension and scale in the world map and minimap, including an atlas containing Overworld, Nether and End maps together.
+- Extract stored maps with `/extractmap`, filtering by scale, dimension, or both. For example, `/extractmap 1:1 minecraft:the_end` extracts only matching End maps; `/extractmap empty` extracts all blank maps and paper. Items go to your inventory first, with overflow dropped at your feet. Hold the atlas in either hand or keep it in the active Tool Pouch; see [atlas controls](docs/ATLAS_CONTROLS.md#extract-maps-from-an-atlas) for all command forms.
 - Show enabled generation buttons in green and list selected generation scales in the hover text and atlas tooltip. Each enabled missing layer consumes one blank; existing maps keep their data. See [atlas controls](docs/ATLAS_CONTROLS.md).
 - Keep only the atlas on death when the original retention setting is enabled, even from nested pouches, backpacks, shulkers or bundles; the containing item and its other contents drop normally.
 - Included fixes for missing map centers, stale map selection, and atlas crafting previews/ingredient consumption in the compatibility component.
 - Cleared stale minimap position information when changing worlds or atlas map centers.
-- Share map/detail corner placement between MapStitch and Tool Pouch, with one layout for atlas and ordinary-map minimaps.
+- Share minimap placement between MapStitch and Tool Pouch, so atlas and ordinary-map minimaps use the same corner. Set the Tool Pouch information overlay independently.
 
 ### Tool Pouch
 
@@ -123,7 +125,7 @@ These include my **Tool Pouch Atlas & Elytra addon**, already built into the sui
 - Add optional [ClientSort](https://modrinth.com/mod/clientsort) sort, refill, and transfer controls while respecting pouch storage restrictions.
 - Include safeguards against duplication and item loss when using a shulker box inside a pouch and changing or moving the owning pouch.
 - Use the same spacing for ordinary maps and atlases, keeping pouch details clear of the minimap.
-- Synchronize map and detail corner settings so changes in either mod apply to both minimap sources. This layout applies to Tool Pouch's own information overlay; an external replacement such as Immersive Overlays controls its own layout.
+- Choose a separate corner for pouch details and the minimap: for example, map on the right and compass/clock text on the left. The two minimap sources share their placement, and details remain clear of either map when placed together. An external replacement such as Immersive Overlays controls its own layout.
 
 ### Tiered Backpacks
 
@@ -263,7 +265,7 @@ Mod Menu shows original feature mods individually and groups additions beneath *
 - Open **Vanilla++ Quality of Life Suite** through [Mod Menu](https://modrinth.com/mod/modmenu), or use `/suite-settings` on the client.
 - Browse the original mod settings together in one screen, grouped by module.
 - Keep the original setting descriptions, validation, and server permissions.
-- Change minimap/detail placement from either original client settings screen; atlas and ordinary pouch maps share the same layout. Keep appearance and displayed information controls in their original sections.
+- Set the map through **MapStitch Client Settings → Minimap → Position** or **Tool Pouch Client Settings → Minimap Overlay Settings → Position**; atlas and ordinary pouch maps share that placement. Set text separately through **Tool Pouch Client Settings → Info Overlay Settings → Position**. Choose **Top Right** for the map and **Top Left** for text to keep them on opposite sides. Appearance, offsets and displayed information stay in their original sections.
 - Keep pending setting-change proposals when reopening the screen, and refresh correctly when the server sends updated settings.
 - Leave each server's pending proposals and permissions behind when you disconnect.
 
@@ -295,7 +297,7 @@ The compatibility layer includes:
 
 ## Installation
 
-The [1.1 release guide](docs/RELEASE_1_1.md) covers the current features, installation, and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.0%2B26.3) provides four downloads:
+The [1.1.1 release guide](docs/RELEASE_1_1_1.md) covers the current features, installation, and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.1%2B26.3) provides four downloads:
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -307,7 +309,7 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Download `vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.0%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
+2. Download `vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.1%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
@@ -353,7 +355,7 @@ The connection-scoped capability protocol checks module/addon versions and regis
 
 The settings screen uses the original Fzzy configuration IDs, validation, permissions, and saving. Chalk's particle control saves to its original configuration. Settings managers preserve proposals within a connection, restore routing after invalidation, and clear connection-specific state on disconnect.
 
-Implementation details: [negotiation](components/combined-compat/NEGOTIATION.md), [settings](docs/settings.md), [shared HUD layout](docs/HUD.md), and [shared-map changes](docs/shared-region-maps-changes.md).
+Implementation details: [negotiation](components/combined-compat/NEGOTIATION.md), [settings](docs/settings.md), [minimap and independent information layout](docs/HUD.md), and [shared-map changes](docs/shared-region-maps-changes.md).
 
 ### Building and updating
 
@@ -363,7 +365,7 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar`.
+The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 

@@ -1,6 +1,19 @@
 # Validation
 
-## Stable 1.1 promotion
+## Stable 1.1.1 update
+
+Final suite **1.1.1+26.3**, SHA-256 `643a9ce8146c1ed7167f240b323044384027fb4990c722050b0ca66976bda86e`. The mainline Gradle build and archive verifier passed: 16 nested modules, unchanged original inputs and retained licenses, exact Defaulted dropfix. [Build record](build-verification.json).
+
+- [Graphical HUD acceptance](../qa-hud/evidence/1.1.1/provenance.json), [observations](../qa-hud/evidence/1.1.1/observations.json) and [11 screenshots](../qa-hud/evidence/1.1.1/screenshots/) passed against the final hash. Both atlas and ordinary maps remain right while information stays left; native Apply, saved offsets/corners, same-side overlap, opposite vertical corners, signed offsets and settings access passed.
+- [Native map renderer](../qa-multiscale/evidence/1.1.1/client/result.json) and [observations](../qa-multiscale/evidence/1.1.1/client/observations.json) passed 21 actual rendered views, all 15 dimension/scale combinations and two real dimension transfers. Ordinary and forced updates initialized authoritative metadata for 15 real maps. Repair retained the same map object, pixels and banner; invalid payload values were ignored. Three direct minimap treasure-marker checks retained only the current dimension's marker. Optional Remapped was not installed in this runtime test; its packet path remains preserved and in-place correction avoids replacing integration state.
+- [Dedicated atlas commands and restart](../qa-multiscale/evidence/1.1.1/server/result.json) passed **770 assertions** across initial/restart profiles with and without Polymer. These include 12 actual command forms plus no-atlas rejection in each phase: scale/dimension/both, blank maps/paper, prefixes, held/offhand/pouch targeting, inventory-first/overflow drops, quantity and map-component conservation, unchanged other books/options, unknown records and invalid scales. Existing insertion, generation, codec, map sound and saved-world checks also passed. The fixture observes real drop() results to exclude asynchronously loaded historical test drops.
+- [Fresh native/Fabric API-only connections](../qa-release/evidence/1.1.1/connections/result.json), with [server](../qa-release/evidence/1.1.1/connections/server-inputs.json), [native](../qa-release/evidence/1.1.1/connections/native-inputs.json) and [fallback](../qa-release/evidence/1.1.1/connections/fabric-inputs.json) inputs, passed automatic negotiation, atlas controls, settings hotkey, fallback resource pack and actual 2,048-item inventory packet moves without loss. Native maximum remained 2,048 and fallback metadata 99. The new map channel caused no unsupported-packet disconnect.
+- [Installation ZIP verification](installation-pack-verification.json) passed **13 focused checks**, including real fresh client/server installations, all hashes/notices/source archives, side filtering, recursive Fzzy exclusion, corruption/injection rejection, existing-file protection, network-free identical reinstall and reproducible ZIP bytes. Fzzy was downloaded from its official manifest URL. No launcher GUI import is claimed.
+- [Previous-build comparison](../qa-release/evidence/1.1.1/previous-build-comparison.json) confirms **14 unchanged nested modules** and identical root Java classes. Only the HUD integration and mixed-scale addon binaries changed. Earlier broad death/menu/gameplay, zero-mod vanilla and client-Polymer results below remain historical for their exact artifacts; they were not rerun here. The no-Polymer result above covers dedicated mechanics, not a fresh connected-client profile.
+
+See [the 1.1.1 release guide](RELEASE_1_1_1.md) for installation and remaining player checks. The separate ChatGPT SSO port track remains paused and was neither built nor tested.
+
+## Historical stable 1.1 promotion
 
 Final suite **1.1.0+26.3**, SHA-256 `8edee2f1ab0b06cc4328ddd18c3a945cf8183a010fad33cb46d9206e4fec77c0`. The full mainline Gradle build and archive verifier passed with all 16 original/component identities, unchanged developer inputs, retained licenses and exact Defaulted dropfix. [Build record](build-verification.json).
 

@@ -1,0 +1,25 @@
+{
+  "release": "1.1.1+26.3",
+  "suite_sha256": "643a9ce8146c1ed7167f240b323044384027fb4990c722050b0ca66976bda86e",
+  "run_label": "release111-hud-frozen",
+  "runtime_launched": true,
+  "passed_scenes": 11,
+  "scope": "Native graphical client plus Polymer-enabled localhost server; independently positioned atlas and ordinary minimaps, original information renderer, native Apply and saved files. No claim of broader gameplay or new vanilla connection coverage.",
+  "screenshots_note": "Screenshots are unmodified captures. Ordinary Minecraft server chat-trust notifications may overlap the minimap while visible; acceptance compares actual map and Tool Pouch detail coordinates.",
+  "files_sha256": {
+    "suite-hud.json": "304243a355035438904f0ab851e39d324bda602ef614746ec21f8b91eda71e7f",
+    "observations.json": "ed92bbe8543348e91ee96237372991c858aa8d6905bf23f73a0703c6687fe032",
+    "result.txt": "3ba4ac0e2ffe4ac133469b199a123880e666f3bcde0759307891d5b2dc9354d0",
+    "screenshots/ordinary-map-separated-same-corner.png": "de8f2a4786d72c6c61fa3f223666d47a0b6003b316b350f660abadef08ac1a57",
+    "screenshots/settings.png": "eed78b45be01353ef9719c807a219b017d4f51cc474e0a6f1136bcd34d1088ab",
+    "screenshots/map-apply-right-info-left.png": "8f02f34fafa785f5aeb4dca0a1ec92831686fa6fee9fb18b0e73d9d3c0058e81",
+    "screenshots/startup-atlas-right-info-left.png": "1333e5261c133ebd97d84d987d490e6a5bfd866fc672246fda71d513cab929c0",
+    "screenshots/atlas-top-left-info-bottom-left.png": "075b57e3f0ce5aa808653933b15a2d483c7dd81644e1d59bfab6452e97b8e414",
+    "screenshots/ordinary-map-same-top-left.png": "cf105ec7610f9741b95c3a18138f7a90c0674af4a7a4c6f0465e5816bcddee81",
+    "screenshots/ordinary-map-signed-offset.png": "f8f80c7949ca399f04b80e7b181b63764c306b7d39c005d5f08825d7dadf97c6",
+    "screenshots/atlas-same-top-left.png": "10d4baf1008cbad118e9f882f79390b92e1769337f5105aeac8c8c77fc292411",
+    "screenshots/ordinary-map-same-bottom-left.png": "d2ab6e21059b6d0bb61c910e5442c9eb7c22b0110d86981dc89143b548714685",
+    "screenshots/info-apply-bottom-right.png": "8827fa6efc69b830a5d29a977bee904e04c6deb2dfd5936d7e4ae1ad6df2ee4c",
+    "screenshots/ordinary-map-right-info-left.png": "64e778ae7003392269f8665831dcc29620e0112e372ad84498d1b2080301c10b"
+  }
+}

@@ -1,5 +1,15 @@
 # Changes
 
+## 1.1.1+26.3 — 2026-10-05
+
+- Restore independent placement for Tool Pouch's information overlay: put the minimap on the right and compass/clock text on the left, or choose other corners independently.
+- Keep atlas and ordinary filled-map minimap positions and map offsets synchronized through their original settings. Information-overlay position and offsets stay separate.
+- Preserve measured map bounds, text/background alignment and overlap protection when maps and details share a side, including bottom corners.
+- Fix world-map and minimap dimension/scale selection for atlases containing mixed map sizes and multiple dimensions. Matching native clients receive each map’s authoritative dimension and center through a guarded metadata payload; vanilla/fallback clients receive no unsupported packet.
+- Add `/extractmap` to extract filled maps by scale, dimension or both, and `/extractmap empty` for blank maps and paper. Use a held atlas first, otherwise the active pouch atlas; return items to the owner’s inventory and drop only overflow. No operator permission is required.
+- Retain the original settings files, separate feature modules, exact dependencies, saved data and automatic native/Polymer negotiation.
+- Update the settings directions, source/update guide and four-asset release documentation. See [the 1.1.1 release guide](docs/RELEASE_1_1_1.md) and [validation](docs/VALIDATION.md) for installation and the exact test scope.
+
 ## 1.1.0+26.3 — 2026-10-05
 
 - Promote tested mixed-scale MapStitch and Sensible Stackables modules, automatic negotiation and Polymer support to main. Keep both additions separately maintained for upstream updates.

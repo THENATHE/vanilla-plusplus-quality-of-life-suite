@@ -87,21 +87,19 @@ public final class HudLayout {
         if (savingPreferences || MapStitchClient.CONFIG == null || ToolPouchClient.CONFIG == null) return;
         var atlas = MapStitchClient.CONFIG.minimap;
         var pouch = ToolPouchClient.CONFIG.minimapOverlaySettings;
-        var info = ToolPouchClient.CONFIG.infoOverlaySettings;
         String corner;
         int x, y;
         if (!preferencesInitialized) {
-            // Adopt the existing pouch details corner, matching its familiar HUD layout.
-            corner = info.position.get().name();
-            x = atlas.xOffset.get() < 0 ? atlas.xOffset.get() : pouch.offsetX.get();
-            y = atlas.yOffset.get() < 0 ? atlas.yOffset.get() : pouch.offsetY.get();
+            // The two map renderers share placement; the information overlay
+            // keeps its own original position and offsets, including at startup.
+            corner = atlas.position.get().name();
+            x = atlas.xOffset.get();
+            y = atlas.yOffset.get();
         } else {
             boolean mapChanged = !atlas.position.get().name().equals(sharedCorner);
             boolean pouchChanged = !pouch.position.get().name().equals(sharedCorner);
-            boolean infoChanged = !info.position.get().name().equals(sharedCorner);
             // The namespace whose native Apply ran wins simultaneous conflicting edits.
             corner = "mapstitch".equals(appliedNamespace) && mapChanged ? atlas.position.get().name()
-                    : infoChanged ? info.position.get().name()
                     : pouchChanged ? pouch.position.get().name()
                     : mapChanged ? atlas.position.get().name() : sharedCorner;
             x = atlas.xOffset.get() != sharedX ? atlas.xOffset.get()
@@ -110,7 +108,7 @@ public final class HudLayout {
                     : pouch.offsetY.get() != Math.max(0, sharedY) ? pouch.offsetY.get() : sharedY;
         }
         boolean mapDirty = !atlas.position.get().name().equals(corner) || atlas.xOffset.get() != x || atlas.yOffset.get() != y;
-        boolean pouchDirty = !pouch.position.get().name().equals(corner) || !info.position.get().name().equals(corner)
+        boolean pouchDirty = !pouch.position.get().name().equals(corner)
                 || pouch.offsetX.get() != Math.max(0, x) || pouch.offsetY.get() != Math.max(0, y);
         sharedCorner = corner;
         sharedX = x; sharedY = y;
@@ -119,7 +117,6 @@ public final class HudLayout {
         try {
             atlas.position.accept(MinimapPosition.valueOf(corner));
             pouch.position.accept(OverlayPosition.valueOf(corner));
-            info.position.accept(OverlayPosition.valueOf(corner));
             atlas.xOffset.accept(x); atlas.yOffset.accept(y);
             // Pouch validation is nonnegative. Preserve signed atlas values at render time.
             pouch.offsetX.accept(Math.max(0, x)); pouch.offsetY.accept(Math.max(0, y));
@@ -173,10 +170,18 @@ public final class HudLayout {
             // ordering while finding the top of the whole details block.
             int top = originalTextY - (detailsBottom ? 12 * (detailCount - 1) : 0);
             int padding = ToolPouchClient.CONFIG.infoOverlaySettings.offsetY.get();
-            int requiredTop = (int) Math.ceil(mapOriginY + mapScaleY * mapLocalBottom) + 4 + padding;
-            int targetTop = Math.max(top, requiredTop);
             var mc = Minecraft.getInstance();
             int textHeight = 12 * (detailCount - 1) + mc.font.lineHeight;
+            float mapTop = mapOriginY + mapScaleY * mapLocalTop;
+            float mapBottom = mapOriginY + mapScaleY * mapLocalBottom;
+            // Opposite vertical corners can share a side without colliding.
+            // Leave the user's information position alone when it is already clear.
+            if (top + textHeight + 2 <= mapTop - 4 || top - 2 >= mapBottom + 4) {
+                detailShift = 0;
+                return 0;
+            }
+            int requiredTop = (int) Math.ceil(mapOriginY + mapScaleY * mapLocalBottom) + 4 + padding;
+            int targetTop = Math.max(top, requiredTop);
             if (targetTop + textHeight > mc.getWindow().getGuiScaledHeight() - 2) {
                 // Bottom minimaps leave no space below; use the free space above
                 // without moving either configured corner or changing offsets.

@@ -1,13 +1,13 @@
-# Installation pack — Vanilla++ Quality of Life Suite 1.1.0+26.3
+# Installation pack — Vanilla++ Quality of Life Suite 1.1.1+26.3
 
 The installation ZIP supplies the suite and its exact libraries for a native Fabric client or a dedicated server that also accepts vanilla players. Its helper selects the appropriate files for each side. **Internet access is required to obtain Fzzy Config from its official publisher.** Minecraft, Java, Fabric Loader and the server’s resource-pack hosting must be set up separately.
 
-The [stable 1.1 release](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.0%2B26.3) has four public assets:
+The [stable 1.1.1 release](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.1%2B26.3) has four public assets:
 
 - `README.md` — the accessible feature overview and installation entry point.
-- `vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar` — the combined mod, for an instance whose exact dependencies are already installed.
+- `vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar` — the combined mod, for an instance whose exact dependencies are already installed.
 - `docs.zip` — documentation, technical records and release verification information.
-- `vanilla-plusplus-installation-pack-1.1.0+26.3.zip` — the suite, permitted dependency binaries, licenses and installer described below.
+- `vanilla-plusplus-installation-pack-1.1.1+26.3.zip` — the suite, permitted dependency binaries, licenses and installer described below.
 
 There is one installation ZIP; no separate `.mrpack`, manual ZIP or library ZIP is published. The final suite digest is recorded in the [installation lock](installation-pack.lock.json) and [build verification](build-verification.json).
 
@@ -57,7 +57,7 @@ The ZIP includes these three local files under `overrides/mods/`:
 
 | Included file | SHA-256 | License/source context |
 | --- | --- | --- |
-| Suite 1.1.0+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
+| Suite 1.1.1+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
 | Defaulted 1.3.8+26.3.dropfix.1 | `e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61` | MIT; exact local repair. [Patch source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/defaulted-dropfix). |
 | CodecUI 26.3-1.4.3 | `4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898` | MIT declaration and retained notices; precise private build revision is unrecorded. [Source-family record](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference). |
 
@@ -83,4 +83,4 @@ The kit uses `modrinth.index.json` to retain publisher URLs, pinned hashes and p
 
 The [installation lock](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/blob/main/docs/installation-pack.lock.json) records publisher API version/project URLs, licenses, sizes, SHA-1/SHA-512/SHA-256 hashes, side selections and local overrides. The lock is separate from the production JAR’s build lock. `tools/package-installation.py` reproduces the kit; `tools/install-pack.py` is included as `install.py`.
 
-The helper verifies selected included files and its official download before writing them to the instance. Release checksum and installation verification records accompany the documentation in `docs.zip` and remain available locally. [Runtime validation](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/blob/main/docs/VALIDATION.md) identifies the exact stable artifact and separates fresh promotion checks from historical evidence; installation verification separately covers archive bytes, side filtering and helper installation. A launcher GUI import is not claimed for this installer ZIP.
+The helper verifies selected included files and its official download before writing them to the instance. Release checksum and installation verification records accompany the documentation in `docs.zip` and remain available locally. [Runtime validation](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/blob/main/docs/VALIDATION.md) identifies the exact stable artifact and separates fresh release checks from historical evidence; installation verification separately covers archive bytes, side filtering and helper installation. A launcher GUI import is not claimed for this installer ZIP.

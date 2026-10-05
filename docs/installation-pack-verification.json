@@ -1,10 +1,10 @@
 {
-  "pack_version": "1.1.0+26.3",
+  "pack_version": "1.1.1+26.3",
   "date": "2026-10-05",
   "passed": true,
-  "suite_sha256": "8edee2f1ab0b06cc4328ddd18c3a945cf8183a010fad33cb46d9206e4fec77c0",
+  "suite_sha256": "643a9ce8146c1ed7167f240b323044384027fb4990c722050b0ca66976bda86e",
   "archives": {
-    "vanilla-plusplus-installation-pack-1.1.0+26.3.zip": "67062629d4bdc6b746afd073f93a1ab1bd30aa6355087503083980d13cf9980f"
+    "vanilla-plusplus-installation-pack-1.1.1+26.3.zip": "70c91c5c87b74b4ffe8fd497617b6579c8caa9c280d928e16255e4c68698c9cf"
   },
   "cases": [
     "Installation ZIP integrity, safe paths and manifest identity verified",
@@ -29,7 +29,7 @@
       "mods/cloth-config-fabric-26.3.159.jar": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b",
       "mods/mixson-2.2.1-multiloader.jar": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0",
       "mods/modmenu-21.0.0.jar": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f",
-      "mods/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar": "8edee2f1ab0b06cc4328ddd18c3a945cf8183a010fad33cb46d9206e4fec77c0",
+      "mods/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar": "643a9ce8146c1ed7167f240b323044384027fb4990c722050b0ca66976bda86e",
       "mods/defaulted-1.3.8+26.3.dropfix.1-fabric.jar": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
       "mods/codecui-26.3-1.4.3-fabric.jar": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
     },
@@ -40,11 +40,11 @@
       "mods/cloth-config-fabric-26.3.159.jar": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b",
       "mods/mixson-2.2.1-multiloader.jar": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0",
       "mods/polymer-bundled-0.18.2+26.3.jar": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f",
-      "mods/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar": "8edee2f1ab0b06cc4328ddd18c3a945cf8183a010fad33cb46d9206e4fec77c0",
+      "mods/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar": "643a9ce8146c1ed7167f240b323044384027fb4990c722050b0ca66976bda86e",
       "mods/defaulted-1.3.8+26.3.dropfix.1-fabric.jar": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
       "mods/codecui-26.3-1.4.3-fabric.jar": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
     }
   },
   "launcher_gui_import_tested": false,
-  "runtime_note": "Focused installer/archive checks; exact suite also has independently recorded stable 1.1 runtime checks."
+  "runtime_note": "Focused installer/archive checks; exact suite also has independently recorded 1.1.1+26.3 runtime checks."
 }

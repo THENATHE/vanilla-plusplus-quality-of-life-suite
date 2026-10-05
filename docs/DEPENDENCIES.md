@@ -1,6 +1,6 @@
 # Dependencies and optional integrations
 
-Applies to **Vanilla++ Quality of Life Suite 1.1.0+26.3**. Publisher Modrinth project links and Fabric 26.3 version listings were checked on **2026-10-04**. The [recorded link inventory](modrinth-links.json) preserves the result. A listed optional integration means the included module contains support for it; it is not a claim that every combination has passed the suite tests. See [validation](VALIDATION.md) for the combinations actually exercised.
+Applies to **Vanilla++ Quality of Life Suite 1.1.1+26.3**. Publisher Modrinth project links and Fabric 26.3 version listings were checked on **2026-10-04**. The [recorded link inventory](modrinth-links.json) preserves the result. A listed optional integration means the included module contains support for it; it is not a claim that every combination has passed the suite tests. See [validation](VALIDATION.md) for the combinations actually exercised.
 
 ## Required external libraries
 
@@ -13,12 +13,12 @@ Install these separately on the server and on clients using the suite. Vanilla c
 | [Fzzy Config](https://modrinth.com/mod/fzzy-config) | [0.7.7+fix2+26.3](https://modrinth.com/mod/fzzy-config/version/thw1Z19c) | Exact suite pin. Public publisher download; downloaded by the installation helper from its official publisher; its binary is not redistributed. |
 | [Cloth Config API](https://modrinth.com/mod/cloth-config) | [26.3.159+fabric](https://modrinth.com/mod/cloth-config/version/fg2uyxOW) | Preserves the original Chalk configuration backend. |
 | [mixson](https://modrinth.com/mod/mixson) | [2.2.1](https://modrinth.com/mod/mixson/version/yWpBBcpq) | Required by SSO and MiscTweaks. |
-| [Defaulted](https://modrinth.com/mod/defaulted) | **1.3.8+26.3.dropfix.1** — [suite installation ZIP](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.0%2B26.3) | Required exact local fix. The public Defaulted page is attribution/upstream information, not a replacement download for this binary. |
+| [Defaulted](https://modrinth.com/mod/defaulted) | **1.3.8+26.3.dropfix.1** — [suite installation ZIP](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.1%2B26.3) | Required exact local fix. The public Defaulted page is attribution/upstream information, not a replacement download for this binary. |
 | [CodecUI — publisher source](https://github.com/MehVahdJukaar/codecui) | **26.3-1.4.3** — same suite installation ZIP | No publisher Modrinth project was found. This is the retained fork-family input; see [provenance](PROVENANCE.md). Keep it external so it supersedes Defaulted’s older nested CodecUI. |
 
 **Platform:** Minecraft 26.3, Java 25+, and [Fabric Loader 0.19.5](https://fabricmc.net/use/installer/). Fabric Loader is installed through the launcher/installer; it is not a dependency mod downloaded from a Modrinth project. Java and Minecraft are platform prerequisites.
 
-The release’s `vanilla-plusplus-installation-pack-1.1.0+26.3.zip` supplies the suite, exact Defaulted and CodecUI files, six permitted public dependencies, their notices and a side-aware Python installer. Fzzy Config remains an official manifest download. Follow [installation instructions](INSTALLATION_PACK.md); no separate library ZIP is published.
+The release’s `vanilla-plusplus-installation-pack-1.1.1+26.3.zip` supplies the suite, exact Defaulted and CodecUI files, six permitted public dependencies, their notices and a side-aware Python installer. Fzzy Config remains an official manifest download. Follow [installation instructions](INSTALLATION_PACK.md); no separate library ZIP is published.
 
 ## Optional libraries and tools
 

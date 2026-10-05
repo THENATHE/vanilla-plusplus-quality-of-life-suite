@@ -5,7 +5,7 @@ import argparse,hashlib,json,os,shutil,subprocess,sys,zipfile
 ROOT=Path(__file__).resolve().parents[1];WORKSPACE=ROOT.parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
 from workspace_paths import load_helper, project_path
-parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--label',required=True);parser.add_argument('--jar',type=Path,default=ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar');parser.add_argument('--only',choices=['maps']);args=parser.parse_args()
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--label',required=True);parser.add_argument('--jar',type=Path,default=ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar');parser.add_argument('--only',choices=['maps']);args=parser.parse_args()
 RUN=ROOT/'qa-multiscale/runs'/args.label;RUN.mkdir(parents=True,exist_ok=False)
 helper=load_helper(project_path(WORKSPACE,'chalk-polymer-shim')/'qa/run.py','cached_cp')
 servercp,clientcp,info=helper.prepare_classpaths('26.3',RUN/'libraries')
@@ -29,7 +29,7 @@ def nested(p):
     if not dest.exists():dest.write_bytes(data);paths.append(dest);nested(dest)
 for p in [bundle,*mods,polymer]:nested(p)
 patched=next((project_path(WORKSPACE,'SSO-backpack-toolpouch-mapstitch-shim')/'.gradle/loom-cache').rglob('minecraft-merged-*-26.3.jar'));paths.insert(0,patched)
-subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(map(str,dict.fromkeys(paths))),'-d',str(classes),*map(str,(ROOT/'qa-multiscale/src').rglob('*.java'))],check=True)
+subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(map(str,dict.fromkeys(paths))),'-d',str(classes),str(ROOT/'qa-multiscale/src/MixedScaleQa.java')],check=True)
 fixtures={}
 for kind,entry in [('maps','qa.MixedScaleQa')]:
  jar=RUN/(kind+'.jar');fixtures[kind]=jar

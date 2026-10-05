@@ -11,7 +11,7 @@ launch=mapstitch_launch(ROOT)
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar')
+    p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar')
     p.add_argument('--label',required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--settings-only',action='store_true');p.add_argument('--port',type=int,default=25976)
     args=p.parse_args();suite=args.suite.resolve();assert suite.is_file();suiteHash=sha(suite)
     run=HERE/'runs'/args.label;run.mkdir(parents=True,exist_ok=False);control=run/'control';control.mkdir();fixtures=run/'fixtures';fixtures.mkdir();classes=fixtures/'classes';classes.mkdir()
@@ -50,7 +50,15 @@ def main():
             if side=='server':
                 launch.copy_accepted_eula(directory)
                 (directory/'server.properties').write_text(f'server-ip=127.0.0.1\nserver-port={args.port}\nonline-mode=false\nwhite-list=false\nenforce-secure-profile=false\nspawn-protection=0\nview-distance=2\nsimulation-distance=2\ndifficulty=peaceful\nlevel-type=minecraft:flat\ngenerator-settings={{"biome":"minecraft:plains","layers":[{{"block":"minecraft:bedrock","height":1}},{{"block":"minecraft:dirt","height":2}},{{"block":"minecraft:grass_block","height":1}}]}}\ngenerate-structures=false\n')
-            else:(directory/'options.txt').write_text('pauseOnLostFocus:false\nguiScale:2\ngraphicsMode:0\nrenderDistance:3\nsimulationDistance:3\nmaxFps:30\nmaxFpsInactive:30\nsoundCategory_master:0.0\njoinedFirstServer:true\n')
+            else:
+                for mod, text in {
+                    'mapstitch': 'version = 1\n[minimap]\nposition = "TOP_RIGHT"\nsize = 19\nxOffset = 5\nyOffset = 7\n[minimapInfo]\ncoordinates = false\ngameTime = false\nweather = false\nrealTime = false\nbiome = false\n',
+                    'toolpouch': 'version = 1\n[infoOverlaySettings]\nposition = "TOP_LEFT"\noffsetX = 11\noffsetY = 13\n[minimapOverlaySettings]\nposition = "BOTTOM_LEFT"\nsize = 1.0\noffsetX = 19\noffsetY = 23\n',
+                }.items():
+                    config_dir = directory/'config'/mod
+                    config_dir.mkdir(parents=True, exist_ok=True)
+                    (config_dir/'client_config.toml').write_text(text)
+                (directory/'options.txt').write_text('pauseOnLostFocus:false\nguiScale:2\ngraphicsMode:0\nrenderDistance:3\nsimulationDistance:3\nmaxFps:30\nmaxFpsInactive:30\nsoundCategory_master:0.0\njoinedFirstServer:true\ntutorialStep:none\nnotificationDisplayTime:0.0\n')
             command=launch.base_command('server' if side=='server' else 'native',directory,args.port)
             command[0]='/usr/lib/jvm/java-25-openjdk/bin/java'
             command.insert(1,'-Dhud.qa.control='+str(control))

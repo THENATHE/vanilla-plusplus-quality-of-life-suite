@@ -1,6 +1,6 @@
 # Source map and updating upstream modules
 
-The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, suite **1.1.0+26.3**. The earlier experimental checkouts and branch evidence remain historical references. Stable release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.1.0+26.3/`. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
+The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, suite **1.1.1+26.3**. The earlier experimental checkouts and branch evidence remain historical references. Stable release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.1.1+26.3/`. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
 
 ## Where things live
 
@@ -14,7 +14,7 @@ The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, s
 | components/shared-region-maps/upstream | Original 1.0.3 source baseline |
 | components/shared-region-maps/working | Vanilla/MapStitch-only modified module |
 | components/toolpouch-atlas-elytra/upstream | Original local addon 1.0.4 source baseline |
-| components/toolpouch-atlas-elytra/working | Preserved addon features plus synchronized HUD; HudLayout and four client mixins capture map bounds, move details, order rendering and observe native config Apply. |
+| components/toolpouch-atlas-elytra/working | Preserved addon features plus synchronized minimaps and independent details; HudLayout and four client mixins capture map bounds, move details, order rendering and observe native config Apply. |
 | components/chalk/upstream | Exact local Chalk Fabric 26.3 port source snapshot |
 | components/chalk-colorful/upstream | Original colorful addon and its metadata-only 26.3 port source |
 | components/amethyst-curse-cleanser/upstream | Existing 26.3 curse-removal source snapshot |
@@ -47,7 +47,7 @@ The historical projects outside this suite remain preserved. Consolidated local 
 
 1. Identify the exact developer release for the target Minecraft version. Record its Modrinth version ID, original binary hash, published-source hash and repository commit. `tools/fetch-upstream.py` fetches the locked components; a GitHub HEAD snapshot is context, not proof that a published binary contains that exact source.
 2. Put new snapshots in a new versioned baseline rather than overwriting the recorded old inputs. Compare published source trees and original metadata/dependencies. Modules that are bundled unchanged should remain unchanged.
-3. For Shared Region Maps, apply upstream vanilla/MapStitch changes to working while preserving its documented adapter removals. For the atlas/Elytra addon, inspect Tool Pouch and MapStitch HUD method signatures, corner enums, graphics transforms and info-overlay registration. See docs/HUD.md for shared layout, ordered render layers, original Apply callbacks and captured bounds.
+3. For Shared Region Maps, apply upstream vanilla/MapStitch changes to working while preserving its documented adapter removals. For the atlas/Elytra addon, inspect Tool Pouch and MapStitch HUD method signatures, corner enums, graphics transforms and info-overlay registration. See docs/HUD.md for shared map placement, independent information placement, ordered render layers, original Apply callbacks and captured bounds. Keep infoOverlaySettings.position out of minimap synchronization; changing a map must not move the text, or vice versa.
 4. Review all affected mixins and networking payloads in both compatibility components. Check new items, components, recipe serializers, menus and block states; new registry entries may need Polymer mappings. A version fingerprint change selects fallback until both clients and server match, but does not implement compatibility for newly added content.
 5. Preserve external libraries and optional integrations. Update versions within the same library, pin hashes and document the change. Do not bypass Defaulted, Fzzy, Cloth, Mixson or another dependency to make compilation pass. Reapply or retire the Defaulted drop fix only after confirming the upstream implementation handles the same regression.
 6. Update unified settings registration and translations only where upstream configuration IDs/layouts change. Keep original paths, validation and Fzzy permissions/synchronization. The settings adapter uses pinned Fzzy internals; check it against a changed Fzzy release. Refresh the complete English language copies in `src/main/resources/resourcepacks/settings_titles/assets/` from the exact matching original artifacts before applying title overrides; verify all original entries survive.
@@ -72,10 +72,10 @@ The atlas/Elytra component uses the same staged root inputs as the other suite p
 
 ## Rebuilding a public checkout from release inputs
 
-Download the suite JAR and `vanilla-plusplus-installation-pack-1.1.0+26.3.zip` from the public release, and extract the installation ZIP into an input directory. The kit includes the exact Defaulted/CodecUI files under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Run:
+Download the suite JAR and `vanilla-plusplus-installation-pack-1.1.1+26.3.zip` from the public release, and extract the installation ZIP into an input directory. The kit includes the exact Defaulted/CodecUI files under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Run:
 
 ```sh
-python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.1.0+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
+python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
 ```
 
 The script verifies the outer release hash and recursively stages only original inputs matching the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It rejects unavailable or mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs. The release has no separate local-library ZIP or uploaded tracked-source archive; use the repository or GitHub’s generated source download for the working checkout.

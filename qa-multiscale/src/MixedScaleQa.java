@@ -45,7 +45,14 @@ public final class MixedScaleQa implements ModInitializer {
   try {
    ServerLevel level=server.overworld();
    var profile=new GameProfile(UUID.randomUUID(),"MixedScaleQA");
-   var player=new ServerPlayer(server,level,profile,ClientInformation.createDefault());
+   var extractionDrops=new ArrayList<net.minecraft.world.entity.item.ItemEntity>();
+   var player=new ServerPlayer(server,level,profile,ClientInformation.createDefault()) {
+    @Override public net.minecraft.world.entity.item.ItemEntity drop(ItemStack stack,boolean randomThrow,net.minecraft.util.Prediction prediction) {
+     var entity=super.drop(stack,randomThrow,prediction);
+     if(entity!=null)extractionDrops.add(entity);
+     return entity;
+    }
+   };
    var creationSounds=new java.util.concurrent.atomic.AtomicInteger();
    player.connection=new ServerGamePacketListenerImpl(server,new Connection(PacketFlow.SERVERBOUND),player,CommonListenerCookie.createInitial(profile,false)) {
     @Override public void send(Packet<?> packet) {
@@ -176,9 +183,79 @@ public final class MixedScaleQa implements ModInitializer {
     var inventoryOnly=com.thenathe.multiscale.AtlasTarget.firstForScan(player,java.util.List.of("hotbar","inventory"));
     check(inventoryOnly!=null&&inventoryOnly.location()==com.thenathe.multiscale.AtlasTarget.INVENTORY&&inventoryOnly.index()==1,"disabled accessories scan selects inventory book");
    }
-   result="PASS "+checks+" mixed-scale insertion, extraction, codec and restart checks";
+   extractionChecks(server,player,extractionDrops);
+   result="PASS "+checks+" mixed-scale insertion, extraction commands, codec and restart checks";
   } catch(Throwable error) {error.printStackTrace();result="FAIL "+error;}
   try {Files.writeString(Path.of("mixedscale-qa-result.txt"),result+"\n");}catch(Exception e){throw new RuntimeException(e);}
   finally {server.halt(false);}
- }); }
+ }); } private void extractionChecks(net.minecraft.server.MinecraftServer server, ServerPlayer player, ArrayList<net.minecraft.world.entity.item.ItemEntity> extractionDrops) throws Exception {
+  me.pajic.toolpouch.ToolPouch.CONFIG.allowUseFromInventory.accept(true);
+  String[] commands={"extractmap 1:1 minecraft:the_end", "extractmap 1:1", "extractmap minecraft:the_end", "extractmap empty", "extractmap scale 1:16 minecraft:the_nether", "extractmap dimension minecraft:the_end 1:1", "extractmap scale 1:1", "extractmap dimension minecraft:the_end", "extractmap 1:16 minecraft:the_end", "extractmap 1:1 minecraft:the_end", "extractmap minecraft:missing", "extractmap scale 1:3"};
+  int[] expected={1,3,2,8,1,1,3,2,1,1,0,0};
+  for(int test=0;test<commands.length;test++) {
+   player.getInventory().clearContent();
+   var book=new ItemStack(me.pajic.mapstitch.item.ModItems.ATLAS);
+   book.set(DataComponents.CUSTOM_NAME,net.minecraft.network.chat.Component.literal("Extraction QA book"));
+   com.thenathe.multiscale.AtlasOptions.setGenerationMask(book,21);
+   book.set(ModDataComponents.ATLAS_SCALE,4);
+   var entries=new ArrayList<ItemStackTemplate>();
+   var original=new HashMap<Integer,ItemStack>();
+   for(var dim:java.util.List.of(net.minecraft.world.level.Level.OVERWORLD,net.minecraft.world.level.Level.NETHER,net.minecraft.world.level.Level.END)) {
+    var origin=server.getLevel(dim);check(origin!=null,"extraction fixture dimension loaded "+dim.identifier());
+    for(byte scale:new byte[]{0,4}) {
+     var map=MapItem.create(origin,1234,5678,scale,true,false);
+     map.set(DataComponents.CUSTOM_NAME,net.minecraft.network.chat.Component.literal(dim.identifier()+" scale "+scale));
+     original.put(map.get(DataComponents.MAP_ID).id(),map.copy());entries.add(ItemStackTemplate.fromNonEmptyStack(map));
+    }
+   }
+   var unknown=new ItemStack(Items.FILLED_MAP);unknown.set(DataComponents.MAP_ID,new MapId(Integer.MAX_VALUE));
+   entries.add(ItemStackTemplate.fromNonEmptyStack(unknown));
+   entries.add(ItemStackTemplate.fromNonEmptyStack(new ItemStack(Items.MAP,3)));
+   entries.add(ItemStackTemplate.fromNonEmptyStack(new ItemStack(Items.PAPER,5)));
+   var initial=new BundleContents(entries);var mutable=initial.asMutable();mutable.toggleSelectedItem(8);book.set(DataComponents.BUNDLE_CONTENTS,mutable.toImmutable());
+   com.thenathe.multiscale.AtlasOptions.ensureIdentity(book);
+   var identity=com.thenathe.multiscale.AtlasOptions.identity(book);
+   boolean pouch=test==8,offhand=test==9,overflow=test==4;
+   var untouched=book.copy();
+   if(pouch) {
+    var bag=new ItemStack(me.pajic.toolpouch.item.ModItems.TOOL_POUCH);
+    bag.set(DataComponents.CONTAINER,net.minecraft.world.item.component.ItemContainerContents.fromItems(java.util.List.of(book)));
+    player.getInventory().setItem(0,bag);
+   } else player.getInventory().setItem(offhand?40:0,book);
+   // Another unselected atlas must not be modified, even if its contents match.
+   player.getInventory().setItem(2,untouched);
+   if(overflow)for(int slot=1;slot<36;slot++)if(slot!=2)player.getInventory().setItem(slot,new ItemStack(Items.STONE,64));
+   var level=player.level();level.getChunkAt(player.blockPosition());
+   // Observe real drop() results, not a chunk query that can include asynchronously
+   // reloaded item entities from the previous restart phase.
+   int beforeDrops=extractionDrops.size();
+   int returned;
+   try {returned=server.getCommands().getDispatcher().execute(commands[test],player.createCommandSourceStack());}
+   catch(com.mojang.brigadier.exceptions.CommandSyntaxException error) {if(test!=11)throw error;returned=0;}
+   check(returned==expected[test],"actual command "+commands[test]+" extracts expected quantity "+expected[test]);
+   var after=pouch?com.thenathe.toolpouchcompat.AtlasBridge.atlases(player).getFirst():player.getInventory().getItem(offhand?40:0);
+   int remaining=after.get(DataComponents.BUNDLE_CONTENTS).items().stream().mapToInt(ItemStackTemplate::count).sum();
+   check(remaining==15-expected[test],"command conserves atlas contents quantity "+commands[test]);
+   check(com.thenathe.multiscale.AtlasOptions.identity(after).equals(identity)&&after.get(DataComponents.CUSTOM_NAME).getString().equals("Extraction QA book"),"command preserves book identity and name "+test);
+   check(com.thenathe.multiscale.AtlasOptions.generationMask(after)==21&&after.get(ModDataComponents.ATLAS_SCALE)==4,"command preserves generation and minimap choices "+test);
+   check(ItemStack.isSameItemSameComponents(player.getInventory().getItem(2),untouched),"command leaves other atlas unchanged "+test);
+   check(ids(after).contains(Integer.MAX_VALUE),"unavailable map data remains untouched "+test);
+   var outputs=new ArrayList<ItemStack>();
+   for(int slot=0;slot<player.getInventory().getContainerSize();slot++) {
+    var stack=player.getInventory().getItem(slot);if(stack.is(Items.FILLED_MAP)||stack.is(Items.MAP)||stack.is(Items.PAPER))outputs.add(stack);
+   }
+   int dropped=0;
+   for(var entity:extractionDrops.subList(beforeDrops,extractionDrops.size())){outputs.add(entity.getItem());dropped+=entity.getItem().getCount();}
+   check(outputs.stream().mapToInt(ItemStack::getCount).sum()==expected[test],"actual inventory plus drops conserve extracted quantity "+test);
+   if(overflow)check(dropped==expected[test],"full inventory drops matching contents once");
+   for(var output:outputs)if(output.is(Items.FILLED_MAP)) {
+    var id=output.get(DataComponents.MAP_ID).id();check(original.containsKey(id)&&ItemStack.isSameItemSameComponents(output,original.get(id)),"extracted map preserves identity/custom components "+id);
+    check(!ids(after).contains(id),"extracted map removed from selected atlas only "+id);
+   }
+   if(test==3)check(ids(after).size()==7&&after.get(DataComponents.BUNDLE_CONTENTS).items().stream().noneMatch(e->e.is(Items.MAP)||e.is(Items.PAPER)),"empty filter removes all paper/blanks and retains all filled maps");
+  }
+  player.getInventory().clearContent();
+  check(server.getCommands().getDispatcher().execute("extractmap empty",player.createCommandSourceStack())==0,"no atlas reports failure without extracting another inventory");
+ }
+
 }

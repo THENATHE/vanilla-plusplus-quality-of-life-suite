@@ -5,11 +5,16 @@
   "mixins": [
     "AtlasMixedScalesMixin",
     "AtlasDeathPlayerMixin",
-    "AtlasDeathRespawnMixin"
+    "AtlasDeathRespawnMixin",
+    "ModUtilMapMetadataMixin",
+    "MapItemSavedDataMetadataMixin",
+    "RemappedMapMetadataMixin"
   ],
   "client": [
     "AtlasUseClientMixin",
-    "WorldMapScaleMixin"
+    "WorldMapScaleMixin",
+    "MinimapDimensionMixin",
+    "MapMetadataAccess"
   ],
   "injectors": {
     "defaultRequire": 1

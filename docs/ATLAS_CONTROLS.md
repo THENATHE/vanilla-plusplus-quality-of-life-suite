@@ -1,6 +1,6 @@
-# Atlas controls — stable 1.1
+# Atlas controls — stable 1.1.1
 
-Suite **1.1** keeps its MapStitch changes in the separate `components/mapstitch-mixed-scales/working/` addon. The original MapStitch JAR is unchanged.
+Suite **1.1.1** keeps its MapStitch changes in the separate `components/mapstitch-mixed-scales/working/` addon. The original MapStitch JAR is unchanged.
 
 Open the world-map screen. A separate group just beneath the top coordinate numbers contains one aligned row of minimap and generation controls. Its right edge lines up with the original sidebar, with four pixels of margin; the buttons begin 16 GUI pixels from the top. The original right-side buttons retain their original positions and spacing:
 
@@ -14,8 +14,33 @@ The minimap and generation buttons' hover text lists what is generating. The atl
 
 Existing atlases start with generation enabled at their prior active scale. Changing M preserves those generation choices. New per-atlas choices use the namespaced integer `mapstitch_mixed_scales:generation_mask` in vanilla `minecraft:custom_data`. Normal server atlas ticking also assigns a UUID string at `mapstitch_mixed_scales:book_id` if the book has no identity yet. Both tags persist through normal saves and inventory/codec synchronization while retaining unrelated custom tags. Minimap selection continues to use the original `mapstitch:atlas_scale` component; map IDs/contents are preserved. There is no new custom component registry to synchronize to vanilla clients.
 
+## Dimension and scale selection
+
+An atlas can hold maps from multiple dimensions and all five scales together. The world map's selected dimension and **S** scale select only matching stored maps; neither changes the minimap's saved **M** scale or generation choices. The minimap uses maps from your current dimension at its selected scale. Switching dimension or scale clears stale world-map layer caches so another dimension's tiles do not remain on screen.
+
+Vanilla map-update packets omit map dimension and center, so client-side map data could previously inherit the player's current dimension. The addon sends the authoritative map dimension, center, scale and lock state to matching suite clients through `mapstitch_mixed_scales:map_metadata_v1`. These native-only metadata updates correct rendering without replacing stored maps or exploration data. The server checks native MapStitch negotiation and advertised payload support before sending; vanilla, Fabric-only and unsupported clients receive no unknown custom packet.
+
+## Extract maps from an atlas
+
+Run `/extractmap` in singleplayer or on a server running the suite. Hold the atlas in your main hand or offhand; a main-hand atlas takes priority. If neither hand holds an atlas, the command uses the atlas in your active Tool Pouch. It only edits your own selected atlas and needs no operator permission. A loose atlas elsewhere in your inventory is not selected automatically.
+
+| Command | Extracts |
+| --- | --- |
+| `/extractmap 1:1` | All filled maps at scale 1:1, across dimensions. |
+| `/extractmap minecraft:the_end` | All filled maps from the End, across scales. |
+| `/extractmap 1:1 minecraft:the_end` | Only filled maps matching both that scale and dimension. |
+| `/extractmap scale 1:1 [dimension]` | The explicit scale form, with an optional dimension filter. |
+| `/extractmap dimension minecraft:the_end [ratio]` | The explicit dimension form, with an optional scale filter. |
+| `/extractmap empty` | All blank maps and paper, leaving filled maps in the atlas. |
+
+Replace `1:1` with `1:2`, `1:4`, `1:8` or `1:16` as needed. Dimension IDs include `minecraft:overworld`, `minecraft:the_nether` and `minecraft:the_end`; command suggestions include the server's dimensions. Brackets in the table indicate an optional argument and are not typed. Running `/extractmap` alone displays usage help.
+
+Extracted items go to your inventory first. Any overflow drops at your feet; the command reports how many items were added and dropped. Nonmatching contents remain stored, and the atlas's active-map selection refreshes after extraction. Scale/generation choices, names and other unrelated item data stay with the atlas. If nothing matches, the command reports that without removing contents. When both scale and dimension are specified, both must match; invalid arguments are rejected rather than broadening the selection.
+
+## Control networking and source identity
+
 Serverbound requests use `mapstitch_mixed_scales:select_scale_v2` and `mapstitch_mixed_scales:select_generation_v2`. Each carries the owned source location/index, current map anchor, and persisted book identity before its scale or generation mask. The server validates native MapStitch negotiation, nonempty matching identity, owned location, map anchor, living player state, and bounds. Empty identity, stale anchor, replaced slot, invalid scale/mask, and unsupported client requests are rejected.
 
 Screens remain bound to their original inventory/accessory/pouch source and book identity. The client may refresh the map anchor after first-map generation or ejection within that same book. It does not adopt the identity of a different atlas that replaces the source slot; the controls disable until the appropriate book is reopened. A newly created or legacy book needs its first server tick and inventory synchronization before native controls can edit it. If opened before that synchronization, reopen the screen once the book is synchronized. Matching client/server suite builds are required for native controls. Standard map creation sends one vanilla cartography sound packet to the explorer per generation batch; a batch creating multiple scales still plays one chime. Sound playback remains subject to the player's sound settings.
 
-Use [stable installation and testing steps](RELEASE_1_1.md) and [current validation](VALIDATION.md) for the released artifact. Earlier merged-branch records remain [historical evidence](MERGED_TESTING.md). The optional original world-map buttons setting hides all these buttons together with the existing controls.
+Use [stable installation and testing steps](RELEASE_1_1_1.md) and [current validation](VALIDATION.md) for the released artifact. Earlier merged-branch records remain [historical evidence](MERGED_TESTING.md). The optional original world-map buttons setting hides all these buttons together with the existing controls.

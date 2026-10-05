@@ -1,0 +1,169 @@
+[
+  {
+    "case": "first receipt plus stale map repair",
+    "network_maps": 15,
+    "preserved_pixels_and_banner": true
+  },
+  {
+    "case": "minimap exploration marker dimension filter",
+    "dimension": "minecraft:overworld",
+    "foreign_dimension_markers_excluded": true
+  },
+  {
+    "case": "worldmap view 0",
+    "dimension": "minecraft:overworld",
+    "scale": 0,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 1",
+    "dimension": "minecraft:overworld",
+    "scale": 1,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 2",
+    "dimension": "minecraft:overworld",
+    "scale": 2,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 3",
+    "dimension": "minecraft:overworld",
+    "scale": 3,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 4",
+    "dimension": "minecraft:overworld",
+    "scale": 4,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 5",
+    "dimension": "minecraft:the_end",
+    "scale": 4,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 6",
+    "dimension": "minecraft:the_end",
+    "scale": 0,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 7",
+    "dimension": "minecraft:the_end",
+    "scale": 1,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 8",
+    "dimension": "minecraft:the_end",
+    "scale": 2,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 9",
+    "dimension": "minecraft:the_end",
+    "scale": 3,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 10",
+    "dimension": "minecraft:the_nether",
+    "scale": 3,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 11",
+    "dimension": "minecraft:the_nether",
+    "scale": 4,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 12",
+    "dimension": "minecraft:the_nether",
+    "scale": 0,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 13",
+    "dimension": "minecraft:the_nether",
+    "scale": 1,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 14",
+    "dimension": "minecraft:the_nether",
+    "scale": 2,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "minimap exploration marker dimension filter",
+    "dimension": "minecraft:the_nether",
+    "foreign_dimension_markers_excluded": true
+  },
+  {
+    "case": "worldmap view 16",
+    "dimension": "minecraft:the_nether",
+    "scale": 0,
+    "render_calls": 27,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 17",
+    "dimension": "minecraft:the_nether",
+    "scale": 1,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 18",
+    "dimension": "minecraft:the_nether",
+    "scale": 2,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 19",
+    "dimension": "minecraft:the_nether",
+    "scale": 3,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "worldmap view 20",
+    "dimension": "minecraft:the_nether",
+    "scale": 4,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  },
+  {
+    "case": "minimap exploration marker dimension filter",
+    "dimension": "minecraft:overworld",
+    "foreign_dimension_markers_excluded": true
+  },
+  {
+    "case": "worldmap view 22",
+    "dimension": "minecraft:overworld",
+    "scale": 0,
+    "render_calls": 28,
+    "matching_dimension_cache": 5
+  }
+]

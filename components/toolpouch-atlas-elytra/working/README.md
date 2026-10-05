@@ -1,6 +1,8 @@
-# Suite addon: 1.0.6-suite.2+26.3
+# Suite addon: 1.0.7-suite.1+26.3
 
-Stable suite **1.1** includes this separate Tool Pouch / MapStitch addon. It supplies shared minimap/details placement with measured bounds for both atlas and ordinary-map rendering, while retaining the original addon’s gameplay features and integrations. Read [the current HUD guide](../../../docs/HUD.md) and [suite validation](../../../docs/VALIDATION.md) for current behavior and exact verification scope.
+Stable suite **1.1.1** includes this separate Tool Pouch / MapStitch addon. It shares atlas and ordinary-map minimap placement while keeping Tool Pouch information placement independent, with measured bounds to prevent same-side overlap. It retains the original addon’s gameplay features and integrations. Read [the current HUD guide](../../../docs/HUD.md) and [suite validation](../../../docs/VALIDATION.md) for current behavior and exact verification scope.
+
+For a map on the right and text on the left, choose **MapStitch Client Settings → Minimap → Position → Top Right** and **Tool Pouch Client Settings → Info Overlay Settings → Position → Top Left**. Tool Pouch’s **Minimap Overlay Settings → Position** also controls the shared map corner; it never changes the info corner. Text offsets remain independent.
 
 The original README below describes inherited features and historical validation. Its old standalone release links are historical references, not the stable suite download.
 

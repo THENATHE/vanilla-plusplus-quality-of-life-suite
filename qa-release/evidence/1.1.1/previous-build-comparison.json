@@ -1,0 +1,32 @@
+{
+  "previous_version": "1.1.0+26.3",
+  "previous_sha256": "8edee2f1ab0b06cc4328ddd18c3a945cf8183a010fad33cb46d9206e4fec77c0",
+  "version": "1.1.1+26.3",
+  "sha256": "643a9ce8146c1ed7167f240b323044384027fb4990c722050b0ca66976bda86e",
+  "unchanged_nested_modules": 14,
+  "changed_modules": {
+    "toolpouch_atlas_elytra_compat": {
+      "previous": {
+        "version": "1.0.6-suite.2+26.3",
+        "sha256": "a8ded8c6d696c24fa25aadc3808193a5d948986fe6d5755cfcc3ab31116c5be9"
+      },
+      "current": {
+        "version": "1.0.7-suite.1+26.3",
+        "sha256": "aa8850ae17fb1b4e3d89f49eee8baf339df0a0213258030f097ad4f53c0278b8"
+      }
+    },
+    "mapstitch_mixed_scales": {
+      "previous": {
+        "version": "1.1.0+26.3",
+        "sha256": "522324b83ca82b3cccd8339645ca9c53c31dca750b0ba81106b3a968a7f5ff87"
+      },
+      "current": {
+        "version": "1.1.1+26.3",
+        "sha256": "278dcba81e4c6a28ce8389dc2405a583c61865b2b9fedea52f302491ee449143"
+      }
+    }
+  },
+  "root_java_classes_identical": true,
+  "root_java_class_count": 12,
+  "scope": "Archive byte comparison, not a new runtime test of unchanged features."
+}

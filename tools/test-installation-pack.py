@@ -139,7 +139,7 @@ def main():
               'suite_sha256': lock['overrides'][0]['hashes']['sha256'],
               'archives': {kit.name: before}, 'cases': cases, 'installed_profiles': profiles,
               'launcher_gui_import_tested': False,
-              'runtime_note': 'Focused installer/archive checks; exact suite also has independently recorded stable 1.1 runtime checks.'}
+              'runtime_note': f"Focused installer/archive checks; exact suite also has independently recorded {lock['pack_version']} runtime checks."}
     text = json.dumps(report, indent=2) + '\n'
     (ROOT / 'docs/installation-pack-verification.json').write_text(text)
     print(text)
