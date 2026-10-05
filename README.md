@@ -289,6 +289,8 @@ The compatibility layer includes:
 
 ## Installation
 
+For a ready-to-import setup, download the **[1.0.1 installation pack](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.0.1%2B26.3)**: import the `.mrpack` in a compatible launcher, or use the manual ZIP's Python installer for a dedicated server. It supplies the suite and exact local libraries and downloads the public dependencies from their publishers; the server selection includes Polymer. See [installation-pack instructions](docs/INSTALLATION_PACK.md). Internet access, Minecraft/Fabric and Java setup, and server resource-pack hosting are still required. The individual-file installation below remains available.
+
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.

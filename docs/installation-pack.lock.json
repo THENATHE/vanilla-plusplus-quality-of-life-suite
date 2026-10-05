@@ -1,0 +1,328 @@
+{
+  "schema_version": 1,
+  "name": "Vanilla++ Quality of Life Suite",
+  "pack_version": "1.0.1+26.3",
+  "verified_on": "2026-10-04",
+  "dependencies": {
+    "minecraft": "26.3",
+    "fabric-loader": "0.19.5"
+  },
+  "java_minimum": 25,
+  "modrinth_format_source": "https://support.modrinth.com/en/articles/8802351-modrinth-modpack-format-mrpack",
+  "modrinth_api_source": "https://docs.modrinth.com/api/operations/getversion/",
+  "fzzy_modpack_permission": "https://github.com/fzzyhmstrs/fconfig/blob/master/LICENSE#L25",
+  "downloads": [
+    {
+      "slug": "fabric-api",
+      "name": "Fabric API",
+      "version": "0.161.0+26.3",
+      "version_id": "bNnaTiuM",
+      "project_id": "P7dR8mSH",
+      "project_url": "https://modrinth.com/mod/fabric-api",
+      "version_url": "https://modrinth.com/mod/fabric-api/version/bNnaTiuM",
+      "metadata_url": "https://api.modrinth.com/v2/version/bNnaTiuM",
+      "project_metadata_url": "https://api.modrinth.com/v2/project/fabric-api",
+      "source_url": "https://github.com/FabricMC/fabric",
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": null
+      },
+      "publisher_client_side": "optional",
+      "publisher_server_side": "optional",
+      "publisher_dependencies": [],
+      "path": "mods/fabric-api-0.161.0+26.3.jar",
+      "hashes": {
+        "sha512": "ed6b2586d6fde11fde8472f5a527c51e99b67026e46f94d4bfd85e7e28ce5ee299173ee16ad576ceb51f39f98d30a811086a6deb1a86a524859cc16e12da109d",
+        "sha1": "53f9ee02c3702734d90520aa8c9719bf0e1c8d4f",
+        "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/P7dR8mSH/versions/bNnaTiuM/fabric-api-0.161.0%2B26.3.jar"
+      ],
+      "fileSize": 2620967
+    },
+    {
+      "slug": "fabric-language-kotlin",
+      "name": "Fabric Language Kotlin",
+      "version": "1.14.1+kotlin.2.4.20",
+      "version_id": "eRRZzGMc",
+      "project_id": "Ha28R6CL",
+      "project_url": "https://modrinth.com/mod/fabric-language-kotlin",
+      "version_url": "https://modrinth.com/mod/fabric-language-kotlin/version/eRRZzGMc",
+      "metadata_url": "https://api.modrinth.com/v2/version/eRRZzGMc",
+      "project_metadata_url": "https://api.modrinth.com/v2/project/fabric-language-kotlin",
+      "source_url": "https://github.com/FabricMC/fabric-language-kotlin/",
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": null
+      },
+      "publisher_client_side": "optional",
+      "publisher_server_side": "optional",
+      "publisher_dependencies": [],
+      "path": "mods/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+      "hashes": {
+        "sha512": "91404f87774466ce8604aafea791d8cc97b603bc310dce17c8188f94f7783cca6dc14fc726ce871ca317bfe9033c199d8d858d51284106a00754e952147703b8",
+        "sha1": "62ae40a31b689b52fde399f2143d547a631e942c",
+        "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/Ha28R6CL/versions/eRRZzGMc/fabric-language-kotlin-1.14.1%2Bkotlin.2.4.20.jar"
+      ],
+      "fileSize": 8142858
+    },
+    {
+      "slug": "fzzy-config",
+      "name": "Fzzy Config",
+      "version": "0.7.7+fix2+26.3",
+      "version_id": "thw1Z19c",
+      "project_id": "hYykXjDp",
+      "project_url": "https://modrinth.com/mod/fzzy-config",
+      "version_url": "https://modrinth.com/mod/fzzy-config/version/thw1Z19c",
+      "metadata_url": "https://api.modrinth.com/v2/version/thw1Z19c",
+      "project_metadata_url": "https://api.modrinth.com/v2/project/fzzy-config",
+      "source_url": "https://github.com/fzzyhmstrs/fconfig",
+      "license": {
+        "id": "LicenseRef-TDL-M",
+        "name": "",
+        "url": "https://github.com/fzzyhmstrs/Timefall-Development-Licence-Modified"
+      },
+      "publisher_client_side": "required",
+      "publisher_server_side": "required",
+      "publisher_dependencies": [
+        {
+          "version_id": null,
+          "project_id": "Ha28R6CL",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "P7dR8mSH",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ],
+      "path": "mods/fzzy_config-0.7.7+fix2+26.3.jar",
+      "hashes": {
+        "sha512": "c33e0464b6bcda00a7bdb7b84f7390ed1b168b1ce9e553226bef2bbfc0608f127665040ba7cb3701d30cb34f70e2cae72d4847da0d2994092d3af15fb7a3ccd4",
+        "sha1": "ff4a284dee01f08ae1a9cb07fcfa8e98b2391bf1",
+        "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/hYykXjDp/versions/thw1Z19c/fzzy_config-0.7.7%2Bfix2%2B26.3.jar"
+      ],
+      "fileSize": 2375140
+    },
+    {
+      "slug": "cloth-config",
+      "name": "Cloth Config API",
+      "version": "26.3.159+fabric",
+      "version_id": "fg2uyxOW",
+      "project_id": "9s6osm5g",
+      "project_url": "https://modrinth.com/mod/cloth-config",
+      "version_url": "https://modrinth.com/mod/cloth-config/version/fg2uyxOW",
+      "metadata_url": "https://api.modrinth.com/v2/version/fg2uyxOW",
+      "project_metadata_url": "https://api.modrinth.com/v2/project/cloth-config",
+      "source_url": "https://github.com/shedaniel/ClothConfig/",
+      "license": {
+        "id": "LGPL-3.0-only",
+        "name": "GNU Lesser General Public License v3.0 only",
+        "url": null
+      },
+      "publisher_client_side": "optional",
+      "publisher_server_side": "optional",
+      "publisher_dependencies": [],
+      "path": "mods/cloth-config-fabric-26.3.159.jar",
+      "hashes": {
+        "sha1": "9a5cce069380a2047250831dcb19f4ef1b15872d",
+        "sha512": "8924e19d41845096724fa10f3717bc51964a0edbbbcad0ff1e6c6187a398b08f356e49579a657c2dc44a7f92e3850771f3ca70bf8c1f654de60425163b91dbb1",
+        "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/9s6osm5g/versions/fg2uyxOW/cloth-config-fabric-26.3.159.jar"
+      ],
+      "fileSize": 1135009
+    },
+    {
+      "slug": "mixson",
+      "name": "mixson",
+      "version": "2.2.1",
+      "version_id": "yWpBBcpq",
+      "project_id": "EgugIDm8",
+      "project_url": "https://modrinth.com/mod/mixson",
+      "version_url": "https://modrinth.com/mod/mixson/version/yWpBBcpq",
+      "metadata_url": "https://api.modrinth.com/v2/version/yWpBBcpq",
+      "project_metadata_url": "https://api.modrinth.com/v2/project/mixson",
+      "source_url": "https://github.com/Ramixin/Mixson-Fabric",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": "https://github.com/Ramixin/Mixson-Fabric/blob/fabric/LICENSE.txt"
+      },
+      "publisher_client_side": "optional",
+      "publisher_server_side": "optional",
+      "publisher_dependencies": [],
+      "path": "mods/mixson-2.2.1-multiloader.jar",
+      "hashes": {
+        "sha1": "93fc7b5e94f551e4493a1b89650ee66f0f44bd69",
+        "sha512": "653497a63372d41b7ec4801b0f6b7b4042020779977ac233ab655bb72ee46ad68f00719c8718655ff63cbd26b35c09bfe9056a94dade689e4a967d9f833b4cf2",
+        "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+      },
+      "env": {
+        "client": "required",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/EgugIDm8/versions/yWpBBcpq/mixson-2.2.1-multiloader.jar"
+      ],
+      "fileSize": 61287
+    },
+    {
+      "slug": "modmenu",
+      "name": "Mod Menu",
+      "version": "21.0.0",
+      "version_id": "kyy7dbrZ",
+      "project_id": "mOgUt4GM",
+      "project_url": "https://modrinth.com/mod/modmenu",
+      "version_url": "https://modrinth.com/mod/modmenu/version/kyy7dbrZ",
+      "metadata_url": "https://api.modrinth.com/v2/version/kyy7dbrZ",
+      "project_metadata_url": "https://api.modrinth.com/v2/project/modmenu",
+      "source_url": "https://github.com/TerraformersMC/ModMenu",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": null
+      },
+      "publisher_client_side": "required",
+      "publisher_server_side": "unsupported",
+      "publisher_dependencies": [
+        {
+          "version_id": null,
+          "project_id": "eXts2L7r",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "P7dR8mSH",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ],
+      "path": "mods/modmenu-21.0.0.jar",
+      "hashes": {
+        "sha1": "66ec40f1cd0c037ddca2b5fc6b4b976d479c18e8",
+        "sha512": "588c0c557963f4778572ee81bfafc190b332c26d5926c5fe7e3e1614dcf8e14f58e3bc80a97694521dd05907e9753a7c8575048ea769e4dbf40a3db74a4e2606",
+        "sha256": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f"
+      },
+      "env": {
+        "client": "optional",
+        "server": "unsupported"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/mOgUt4GM/versions/kyy7dbrZ/modmenu-21.0.0.jar"
+      ],
+      "fileSize": 856779
+    },
+    {
+      "slug": "polymer",
+      "name": "Polymer",
+      "version": "0.18.2+26.3",
+      "version_id": "REBDssAz",
+      "project_id": "xGdtZczs",
+      "project_url": "https://modrinth.com/mod/polymer",
+      "version_url": "https://modrinth.com/mod/polymer/version/REBDssAz",
+      "metadata_url": "https://api.modrinth.com/v2/version/REBDssAz",
+      "project_metadata_url": "https://api.modrinth.com/v2/project/polymer",
+      "source_url": "https://github.com/Patbox/polymer",
+      "license": {
+        "id": "LGPL-3.0-only",
+        "name": "GNU Lesser General Public License v3.0 only",
+        "url": null
+      },
+      "publisher_client_side": "optional",
+      "publisher_server_side": "required",
+      "publisher_dependencies": [
+        {
+          "version_id": null,
+          "project_id": "P7dR8mSH",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ],
+      "path": "mods/polymer-bundled-0.18.2+26.3.jar",
+      "hashes": {
+        "sha512": "a83bec0ef7ee4c905429f102a9a1b2ff9db60fb23f3e6b5a26ff4442b0427c3edd821f311643a3c377541cfd5a4753519001cbfebbeb78014a77041d91449f51",
+        "sha1": "8571b8aaa1533e08739e75f01020836a76daa30d",
+        "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+      },
+      "env": {
+        "client": "unsupported",
+        "server": "required"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/xGdtZczs/versions/REBDssAz/polymer-bundled-0.18.2%2B26.3.jar"
+      ],
+      "fileSize": 1411315
+    }
+  ],
+  "overrides": [
+    {
+      "id": "suite",
+      "source": "build/libs/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar",
+      "path": "mods/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar",
+      "hashes": {
+        "sha1": "3e558b1c19350ba59065451e5ad506c36fbe7452",
+        "sha256": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a",
+        "sha512": "4b86b8245d0b05202062e4709d81dab86d7d5d2b1d88d7933aae474422e59014a84922c4defc9afe7c82d88d119e91a1555996be6fb02f1ffc24236f01c5ffd2"
+      },
+      "fileSize": 2399014,
+      "license": "Suite licenses and retained upstream notices",
+      "source_url": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/"
+    },
+    {
+      "id": "defaulted",
+      "source": "libs/defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+      "path": "mods/defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+      "hashes": {
+        "sha1": "0211552810095e213354532cc06c93472f2aab17",
+        "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
+        "sha512": "d0cc08a7a91b6678ce96ccfaba299bc637f209ea02e481f77948cc84c8cda9dc025234a81fbb88c81b19e63a56b22669b8c5a198f5aa9bd099b62a6222e5244a"
+      },
+      "fileSize": 1002125,
+      "license": "MIT",
+      "source_url": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/defaulted-dropfix"
+    },
+    {
+      "id": "codecui",
+      "source": "libs/codecui-26.3-1.4.3-fabric.jar",
+      "path": "mods/codecui-26.3-1.4.3-fabric.jar",
+      "hashes": {
+        "sha1": "51bac36b894b7e366f4626b3f6f33afce3d967e9",
+        "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898",
+        "sha512": "b825bfe6d15e1cd6fc1a8cae29e4778cc33545097f8afebc8543d6d3dcf9a4741be1cab487867cec2d1ade7be1f67617fc84d8babead27cdbc4ce13b533053de"
+      },
+      "fileSize": 268473,
+      "license": "MIT",
+      "source_url": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference"
+    }
+  ]
+}

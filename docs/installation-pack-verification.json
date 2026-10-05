@@ -1,0 +1,52 @@
+{
+  "pack_version": "1.0.1+26.3",
+  "date": "2026-10-04",
+  "passed": true,
+  "suite_sha256": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a",
+  "archives": {
+    "vanilla-plusplus-installation-pack-1.0.1+26.3.mrpack": "992d3fd712e94d50e4e3e3c77b14f3d54afb58ed6672906206485733f1d22b34",
+    "vanilla-plusplus-installation-pack-1.0.1+26.3-manual.zip": "f049edce496220ad373b5b088b99fa6712e5d0fbece83bf9ca2518cf86c64345"
+  },
+  "cases": [
+    "Both ZIP archives pass integrity/path/duplicate validation",
+    "Client/server manifests and overrides are identical",
+    "Minecraft 26.3 and Fabric Loader 0.19.5 selected",
+    "Only exact suite, Defaulted dropfix and CodecUI JARs embedded; no nested Fzzy binary",
+    "Real official-download installations: client includes optional Mod Menu but excludes Polymer; server includes Polymer but excludes Mod Menu; every installed hash/size matches",
+    "Traversal, absolute paths, Windows drive paths and backslash paths rejected",
+    "Escaping destination symlink rejected",
+    "Client default dry-run excludes both optional Mod Menu and server Polymer without writing files",
+    "Mismatched existing mod aborts installation without changing any instance file",
+    "Corrupt same-size override fails checksum validation",
+    "Exact server reinstallation is idempotent and reuses verified existing downloads",
+    "Rebuilding both archives from the lock produces byte-identical output",
+    "Historical SHA256SUMS.sha256 remains byte-identical to its original publication record"
+  ],
+  "installed_profiles": {
+    "client": {
+      "mods/fabric-api-0.161.0+26.3.jar": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6",
+      "mods/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5",
+      "mods/fzzy_config-0.7.7+fix2+26.3.jar": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f",
+      "mods/cloth-config-fabric-26.3.159.jar": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b",
+      "mods/mixson-2.2.1-multiloader.jar": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0",
+      "mods/modmenu-21.0.0.jar": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f",
+      "mods/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a",
+      "mods/defaulted-1.3.8+26.3.dropfix.1-fabric.jar": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
+      "mods/codecui-26.3-1.4.3-fabric.jar": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+    },
+    "server": {
+      "mods/fabric-api-0.161.0+26.3.jar": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6",
+      "mods/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5",
+      "mods/fzzy_config-0.7.7+fix2+26.3.jar": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f",
+      "mods/cloth-config-fabric-26.3.159.jar": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b",
+      "mods/mixson-2.2.1-multiloader.jar": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0",
+      "mods/polymer-bundled-0.18.2+26.3.jar": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f",
+      "mods/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a",
+      "mods/defaulted-1.3.8+26.3.dropfix.1-fabric.jar": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
+      "mods/codecui-26.3-1.4.3-fabric.jar": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+    }
+  },
+  "launcher_gui_import_tested": false,
+  "historical_release_checksums_sha256": "46c36f521d43559a80c19309b992acea48ccdc3fd8de0409349f0c6b4e41d37e",
+  "runtime_note": "Mod JARs are byte-identical to the existing suite runtime-tested inputs; this task tests archive/import structure and actual helper downloads/installation, not a new gameplay run."
+}
