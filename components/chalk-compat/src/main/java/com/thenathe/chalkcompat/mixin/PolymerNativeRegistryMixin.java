@@ -21,7 +21,7 @@ public abstract class PolymerNativeRegistryMixin {
     private static void chalkcompat$preserveNativeRegistryIds(
             ServerGamePacketListenerImpl handler, CustomPacketPayload.Type<?> packetId,
             List<?> entries, CallbackInfo ci) {
-        if (NativeClients.nativeClient(handler.getPacketContext())
+        if (NativeClients.nativeBlocks(handler.getPacketContext())
                 && (packetId.equals(S2CPackets.SYNC_ITEM_ID)
                 || packetId.equals(S2CPackets.SYNC_DATA_COMPONENT_TYPE_ID)
                 || packetId.equals(S2CPackets.SYNC_BLOCK_ID)

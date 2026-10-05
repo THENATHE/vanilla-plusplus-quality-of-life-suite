@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "bundle_sha256": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a",
+  "scope": "Bounded connection/capability/resource-pack smoke with client-observed Chalk and broken-anvil block/state/item assertions; pure vanilla is uninstrumented connection/render smoke; no exhaustive gameplay test.",
+  "defaulted_sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
+  "cases": [
+    {
+      "profile": "SuiteNativePoly",
+      "client_kind": "suite-polymer",
+      "client_polymer": true,
+      "server_polymer": true,
+      "passed": true,
+      "observed": {
+        "marker": {
+          "x": 0,
+          "y": -63,
+          "z": 2,
+          "orientation": 3,
+          "facing": "up",
+          "damage": 13,
+          "custom_name": "Suite QA Chalk",
+          "server_block": "chalk:red_glow_chalk_mark",
+          "server_item": "chalk:red_glow_chalk",
+          "anvil_x": 0,
+          "anvil_y": -63,
+          "anvil_z": 4,
+          "server_anvil": "simple_smithing_overhaul:broken_anvil",
+          "anvil_facing": "east"
+        },
+        "player": "SuiteNativePoly",
+        "expected_native": true,
+        "join_count": 1,
+        "intentional_sso_mismatch": false,
+        "polymer": true,
+        "local_memory_connection": false,
+        "chalk_state_bits": 16,
+        "native_modules": {
+          "mapstitch": true,
+          "simple_smithing_overhaul": true,
+          "tiered_backpacks": true,
+          "toolpouch": true,
+          "chalk": true,
+          "misctweaks": true,
+          "simple_death_improvements": true,
+          "shared_region_maps": true,
+          "amethyst_curse_cleanser": true,
+          "toolpouch_atlas_elytra_compat": true
+        },
+        "chalk_conversion_registered": true,
+        "defaulted_version": "1.3.8+26.3.dropfix.1",
+        "passed": true
+      },
+      "fallback_pack_loaded": false,
+      "client_marker": {
+        "join_count": 1,
+        "passed": true,
+        "native_chalk": true,
+        "actual_block": "chalk:red_glow_chalk_mark",
+        "actual_item": "chalk:red_glow_chalk",
+        "damage": 13,
+        "custom_name": "Suite QA Chalk",
+        "virtual_mark_displays": 0,
+        "native_sso": true,
+        "actual_anvil": "simple_smithing_overhaul:broken_anvil",
+        "actual_anvil_item": "simple_smithing_overhaul:broken_anvil",
+        "anvil_facing": "east"
+      }
+    }
+  ]
+}

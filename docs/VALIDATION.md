@@ -1,6 +1,27 @@
 # Suite validation and test limits
 
-## Current evidence
+## Current 1.0.1 network evidence
+
+The release `vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar`, SHA-256 `8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a`, passed 12 bounded connection cases after the nested compatibility versions were corrected. Every result below comes from that exact artifact; earlier candidate runs remain local development records.
+
+- [Four base profiles](../qa/evidence/1.0.1/connections.json) ([exact inputs](../qa/evidence/1.0.1/connections-inputs.json)): native suite with and without server Polymer, Fabric API-only fallback, and zero-mod vanilla. Instrumented clients asserted broken-anvil block and item identity, EAST facing, custom name, and the existing Chalk state/item/damage/name/display checks. Native SSO receives the real broken anvil; Fabric-only receives the safe damaged-anvil representation. Vanilla connected, loaded the generated pack, and stayed connected, but has no observation mod to inspect its decoded block/item state.
+- [Five extended cases](../qa/evidence/1.0.1/extended-connections.json) ([exact inputs](../qa/evidence/1.0.1/extended-connections-inputs.json)): native connection, reconfiguration, same-process reconnect, SSO-only fingerprint mismatch, and Chalk-only mismatch. Each asserted client block/state/item results. A mismatched module fell back while the other retained its native blocks, with a shared confirmed 16-bit state map.
+- [Client Polymer](../qa/evidence/1.0.1/client-polymer.json) ([exact inputs](../qa/evidence/1.0.1/client-polymer-inputs.json)): all ten modules remained native, with correct broken-anvil and Chalk client observations.
+- [Integrated singleplayer with and without Polymer](../qa/evidence/1.0.1/integrated.json) ([exact inputs](../qa/evidence/1.0.1/integrated-inputs.json)): local memory connections retained native broken anvils and Chalk. Shared integrated registries correctly skip the remote state-ID proof.
+
+These checks verify negotiation, registry/state translation, reconnect behavior, and the native broken-anvil regression. They do not replace exhaustive gameplay, persistence, or LAN-client acceptance. The separate ChatGPT SSO-port track remained paused and was not built or tested.
+
+## Current 1.0.1 settings and build evidence
+
+[Settings lifecycle results](../qa-settings/evidence/lifecycle-1.0.1.json) passed all 11 native configuration screens, representative Chalk/Tool Pouch persistence, operator and guest permissions, pending proposal preservation across reopening, and routing recovery after an actual Fzzy client update invalidated its cache. Real different-server reconnects passed in both permission directions and cleared previous proposals. Forwarded proposals were injected through the original Fzzy receiver; this was not a two-player forwarding network test.
+
+The full settings matrix used candidate `47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d`. [All 658 Java classes match the final artifact](../qa-settings/evidence/lifecycle-1.0.1-class-equivalence.json); only stale nested version metadata was corrected afterward. The final `8e4783...` artifact also passed the focused graphical lifecycle smoke recorded in the same results file.
+
+A [clean exported-source build](clean-build-verification.json) passed with all 16 exact inputs staged at the root and no ignored component-local libraries or project caches. It reused the existing Gradle dependency cache, so it does not establish a build from an empty network cache. All 1,247 recursive files, including 658 classes and nested metadata, match the final runtime artifact; ZIP container bytes differ. The archive verifier checks declared nested versions, original input hashes, licensing, and the exact Defaulted dropfix requirement. It also rejected the stale-metadata candidate. Public ClientSort staging passed SHA-256 validation and rejected a corrupted download.
+
+The unchanged gameplay and HUD components retain the historical 1.0.0 evidence below; those broad mechanics/HUD suites were not rerun for 1.0.1.
+
+## Historical 1.0.0 evidence
 
 The shared negotiation and both compatibility source variants passed direct Java compilation (83 source files) against cached Loom-patched Minecraft 26.3, Fabric API 0.161.0+26.3, Polymer 0.18.2+26.3, local compatibility inputs, and the explicitly requested Defaulted dropfix build. This preliminary direct compile is superseded by the complete clean Gradle build and exact-final runtime records below. This checks source compatibility only; it does not prove connection or gameplay behavior or classify the provenance of the local SSO input.
 
@@ -20,17 +41,17 @@ Additional connection behavior passed on the prior functional candidate `ee06bdf
 
 | Server | Client | Expected result |
 | --- | --- | --- |
-| Suite + external libraries + full Polymer | Same suite + external libraries, no client Polymer | Native modules confirmed; real Chalk mark/state and item-slot packets preserved |
-| Same server | Fabric API only, no suite/original mods | Fallback; generated pack loads; safe Chalk item/block plus virtual mark observed |
+| Suite + external libraries + full Polymer | Same suite + external libraries, no client Polymer | Native modules confirmed; real Chalk and broken-anvil block/state and item-slot packets preserved |
+| Same server | Fabric API only, no suite/original mods | Fallback; generated pack loads; safe Chalk item/block plus virtual mark and damaged-anvil fallback observed |
 | Same server | Official vanilla Main, zero Fabric/observer mods | Fallback login and pack load; stays connected after mark/slot updates |
-| Suite + external libraries, no Polymer | Same suite + external libraries, no Polymer | Native modules confirmed; real Chalk mark/state and item-slot packets preserved |
+| Suite + external libraries, no Polymer | Same suite + external libraries, no Polymer | Native modules confirmed; real Chalk and broken-anvil block/state and item-slot packets preserved |
 
-The suite JAR is frozen into each run and hashed. Each server/client audit records launch arguments and exact mod hashes. The two QA fixtures observe completed login and per-module native decisions, create one disposable red glow Chalk mark and named damaged Chalk item, and inspect their client representations after several frames. They modify only the disposable test world and inventory; the production suite JAR stays unchanged.
+The suite JAR is frozen into each run and hashed. Each server/client audit records launch arguments and exact mod hashes. The two QA fixtures observe completed login and per-module native decisions, create a disposable red glow Chalk mark, named damaged Chalk item, and named broken anvil block/item, and inspect their client representations after several frames. They modify only the disposable test world and inventory; the production suite JAR stays unchanged.
 
 Run against a frozen suite candidate:
 
 ```sh
-python3 qa/light.py --jar build/libs/vanilla-plusplus-quality-of-life-suite-1.0.0+26.3.jar --label <unique-label>
+python3 qa/light.py --jar build/libs/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar --label <unique-label>
 ```
 
 This requires the existing cached official libraries, assets, a graphical display (`DISPLAY=:1`), and local socket permission. It launches only disposable localhost worlds under `qa/runs/`. Check `qa/runs/<label>/result.json` and server/client `console.log` files. A success here is bounded connection evidence, not proof of every original mod system.
@@ -50,11 +71,11 @@ Use a copy of a disposable world first. Keep the exact server/client module and 
 
 A mismatch in the suite's version/registry fingerprints should select fallback for the affected module when Polymer is available. Untouched Tool Pouch/MapStitch clients retain their existing advertised-channel detection; untouched SSO/backpacks/Chalk clients do not receive invented compatibility proof. Full automatic native negotiation comes from the bundled client code, with no external shim or UUID override.
 
-## Parent build and archive verification
+## Historical 1.0.0 parent build and archive verification
 
-The root Gradle build completed successfully with the pinned inputs and `--release 25`. `tools/verify-bundle.py` verified archive integrity, all 13 nested module identities, unchanged original input hashes, retained complete license notices, absence of duplicate root coordinator classes, and the exact Defaulted dropfix requirement. [Machine-readable record](build-verification.json). The built candidate hash is `0312a5d7ce8cf1e597e21a9d111f8efaa47fa7c01c6b18effb48977cd9bbc957`. Runtime testing was authorized on 2026-10-04; compilation is not runtime acceptance.
+The root Gradle build completed successfully with the pinned inputs and `--release 25`. `tools/verify-bundle.py` verified archive integrity, all 13 nested module identities, unchanged original input hashes, retained complete license notices, absence of duplicate root coordinator classes, and the exact Defaulted dropfix requirement. The built candidate hash is `0312a5d7ce8cf1e597e21a9d111f8efaa47fa7c01c6b18effb48977cd9bbc957`. Runtime testing was authorized on 2026-10-04; compilation is not runtime acceptance.
 
-## Combined mechanics and persistence
+## Historical 1.0.0 combined mechanics and persistence
 
 The final release `0312a5d7ce8cf1e597e21a9d111f8efaa47fa7c01c6b18effb48977cd9bbc957` passed [actual-suite mechanics and persistence](../qa-mechanics/evidence/mechanics-and-persistence.json). With and without Polymer, all 752 positive Chalk conversion transitions and 32 calcite recipes passed, including durability/name/custom-component preservation and invalid ingredient rejection. Actual curse-removal menus passed both grindstone orders and smithing, with retained enchantments and exactly-once ingredient/byproduct behavior. All 19 Defaulted lifecycle/drop regressions passed in both profiles. Shared-map checks passed 606 assertions initially and 616 after restart with MapStitch loaded, including correct center metadata.
 

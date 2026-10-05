@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.lang.reflect.Method;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -21,13 +22,14 @@ import me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen;
 import me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreenManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 
 /** Groups existing native config objects without changing their identity or save/sync code. */
 public final class SuiteSettings {
     public static final String SCOPE = "thenathe_mod_suite";
     private static final List<String> MODULES = List.of("simple_smithing_overhaul", "mapstitch", "toolpouch", "tiered_backpacks", "misctweaks", "simple_death_improvements", SCOPE);
     private static final Set<String> MODULE_SET = Set.copyOf(MODULES);
-    private static boolean initialized, moduleProvidersRegistered;
+    private static boolean initialized;
     private static ConfigScreenManager currentManager;
     private static ChalkSettings chalk;
     private SuiteSettings() {}
@@ -47,33 +49,64 @@ public final class SuiteSettings {
         chalk = ConfigApiJava.registerConfig(chalkConfig, ChalkSettings::new, RegisterType.CLIENT);
         initialized = true;
         ConfigApiJava.registerScreenProvider(SCOPE, (namespace, scope) -> create(Minecraft.getInstance().gui.screen()));
+        for (String module : MODULES) {
+            if (!module.equals(SCOPE)) ConfigApiJava.registerScreenProvider(module, (namespace, scope) ->
+                    provide(Minecraft.getInstance().gui.screen(), scope.equals(namespace) ? SCOPE : scope));
+        }
+        ClientPlayConnectionEvents.INIT.register((handler, client) -> resetSession());
+        ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> resetSession());
     }
 
     public static Screen create(Screen parent) {
+        return provide(parent, SCOPE);
+    }
+
+    private static Screen provide(Screen parent, String scope) {
         initialize();
         chalk.refreshFromChalk();
         try {
-            Map<String, ConfigSet> configs = collectConfigs();
-            ConfigScreenManager manager = new ConfigScreenManager(SCOPE, configs.keySet(), configs);
-            currentManager = manager;
-            // Server forwarded edits are routed by original namespace. Keep those callbacks
-            // on the same manager that owns the displayed native configuration objects.
-            managers().put(SCOPE, manager);
-            for (String module : MODULES) {
-                if (module.equals(SCOPE)) continue;
-                managers().put(module, manager);
-                if (!moduleProvidersRegistered) ConfigApiJava.registerScreenProvider(module, (namespace, scope) -> {
-                    String target = scope.equals(namespace) ? SCOPE : scope;
-                    return currentManager.provideScreen$fzzy_config(target);
-                });
+            Map<String, ConfigScreenManager> registered = managers();
+            // Fzzy removes a namespace's manager when a server sync/update invalidates
+            // its widgets. Rebuild all grouped widgets together, retaining proposals.
+            boolean invalid = currentManager == null || MODULES.stream().anyMatch(module -> registered.get(module) != currentManager);
+            if (invalid) {
+                var pending = pendingUpdates(currentManager);
+                Map<String, ConfigSet> configs = collectConfigs();
+                ConfigScreenManager manager = new ConfigScreenManager(SCOPE, configs.keySet(), configs);
+                for (var update : pending) manager.receiveForwardedUpdate$fzzy_config(
+                        update.getUpdate(), update.getPlayer(), update.getScope(), update.getSummary());
+                currentManager = manager;
+                for (String module : MODULES) registered.put(module, manager);
             }
-            moduleProvidersRegistered = true;
-            Screen screen = manager.provideScreen$fzzy_config(SCOPE);
+            Screen screen = currentManager.provideScreen$fzzy_config(scope);
             if (screen instanceof ConfigScreen configScreen) configScreen.setParent(parent);
             return screen;
         } catch (ReflectiveOperationException failure) {
             throw new IllegalStateException("The suite settings adapter requires the pinned Fzzy Config API; see docs/settings.md", failure);
         }
+    }
+
+    /** A proposal belongs to one play connection, never the next server/world. */
+    private static void resetSession() {
+        try {
+            ConfigScreenManager previous = currentManager;
+            currentManager = null;
+            if (previous != null) managers().entrySet().removeIf(entry -> entry.getValue() == previous);
+        } catch (ReflectiveOperationException failure) {
+            throw new IllegalStateException("Could not reset the suite settings session", failure);
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private static Set<ConfigScreenManager.ForwardedUpdate> pendingUpdates(ConfigScreenManager manager) throws ReflectiveOperationException {
+        Set<ConfigScreenManager.ForwardedUpdate> updates = new LinkedHashSet<>();
+        if (manager == null) return updates;
+        Field field = ConfigScreenManager.class.getDeclaredField("screenCaches");
+        field.setAccessible(true);
+        for (Object cache : ((Map<?, ?>) field.get(manager)).values()) {
+            updates.addAll((List<ConfigScreenManager.ForwardedUpdate>) invoke(cache, "getForwardedUpdates"));
+        }
+        return updates;
     }
 
     /** Visible for a bounded UI smoke test; values retain original active/default objects. */

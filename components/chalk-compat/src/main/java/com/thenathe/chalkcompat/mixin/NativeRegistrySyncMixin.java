@@ -5,6 +5,7 @@ import com.thenathe.chalkcompat.NativeClients;
 import com.thenathe.chalkcompat.WireRegistries;
 import it.unimi.dsi.fastutil.objects.Object2IntLinkedOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 import net.fabricmc.fabric.api.networking.v1.context.PacketContextProvider;
 import net.fabricmc.fabric.impl.registry.sync.RegistrySyncManager;
 import net.minecraft.core.Registry;
@@ -26,23 +27,22 @@ public abstract class NativeRegistrySyncMixin {
             Map<Identifier, Object2IntMap<Identifier>> original,
             ServerConfigurationPacketListenerImpl listener, MinecraftServer server) {
         var context = ((PacketContextProvider) listener).getPacketContext();
-        boolean nativeClient = NativeClients.nativeClient(context);
-        if (!nativeClient) return original;
+        if (!NativeClients.nativeBlocks(context)) return original;
         var result = new LinkedHashMap<Identifier, Object2IntMap<Identifier>>();
         if (original != null) original.forEach((key, value) -> result.put(key, new Object2IntLinkedOpenHashMap<>(value)));
         for (Registry<?> registry : BuiltInRegistries.REGISTRY) {
             Identifier key = registry.key().identifier();
             if (!WireRegistries.handles(key)) continue;
             var entries = result.computeIfAbsent(key, ignored -> new Object2IntLinkedOpenHashMap<>());
-            restore(registry, entries);
+            restore(registry, entries, context);
         }
         return WireRegistries.prepare(result, context);
     }
 
-    private static <T> void restore(Registry<T> registry, Object2IntMap<Identifier> entries) {
+    private static <T> void restore(Registry<T> registry, Object2IntMap<Identifier> entries, PacketContext context) {
         for (T value : registry) {
             var id = registry.getKey(value);
-            if (id != null && (id.getNamespace().equals("minecraft") || NativeClients.ownEntry(id))) {
+            if (id != null && (id.getNamespace().equals("minecraft") || NativeClients.nativeEntry(context, id))) {
                 entries.put(id, registry.getId(value));
             }
         }

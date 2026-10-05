@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """Stage only hash-matching existing inputs; never substitute a similarly named release."""
-import argparse, hashlib, json, shutil, sys, zipfile
+import argparse, hashlib, json, shutil, sys, urllib.request, zipfile
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--workspace', type=Path, help='Existing Minecraft development workspace')
 parser.add_argument('--inputs', type=Path, help='Directory containing the exact pinned input JARs')
 parser.add_argument('--bundle', type=Path, help='Verified released suite JAR containing original pinned feature inputs')
+parser.add_argument('--download-public', action='store_true', help='Download missing inputs with pinned public URLs and verify their SHA-256 before staging')
 args = parser.parse_args()
 records = json.loads((ROOT / 'locks/artifacts.json').read_text())
 if args.bundle:
@@ -41,6 +42,15 @@ for record in records:
         target.parent.mkdir(parents=True, exist_ok=True)
         if source != target.resolve(): shutil.copy2(source, target)
         print('Verified ' + target.name)
+    elif args.download_public and record.get('download_url'):
+        request = urllib.request.Request(record['download_url'], headers={'User-Agent': 'VanillaPlusPlus-input-staging/1.0'})
+        with urllib.request.urlopen(request, timeout=60) as response:
+            data = response.read()
+        if hashlib.sha256(data).hexdigest() != record['sha256']:
+            raise RuntimeError('Downloaded input checksum mismatch: ' + record['file'])
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(data)
+        print('Downloaded and verified ' + target.name)
     elif record['id'] is not None:
         missing.append(record)
 # Compile-only stdlib is already inside the pinned language-Kotlin mod.

@@ -3,7 +3,7 @@
 from pathlib import Path
 import argparse,hashlib,importlib.util,json,os,shutil,subprocess,zipfile
 ROOT=Path(__file__).resolve().parents[1];WORKSPACE=ROOT.parents[1]
-parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--label',required=True);parser.add_argument('--jar',type=Path,default=ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.0+26.3.jar');parser.add_argument('--only',choices=['mechanics','maps']);args=parser.parse_args()
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--label',required=True);parser.add_argument('--jar',type=Path,default=ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar');parser.add_argument('--only',choices=['mechanics','maps']);args=parser.parse_args()
 RUN=ROOT/'qa-mechanics/runs'/args.label;RUN.mkdir(parents=True,exist_ok=False)
 spec=importlib.util.spec_from_file_location('cached_cp',WORKSPACE/'Minecraft/chalk-polymer-shim/qa/run.py');helper=importlib.util.module_from_spec(spec);spec.loader.exec_module(helper)
 servercp,clientcp,info=helper.prepare_classpaths('26.3',RUN/'libraries')

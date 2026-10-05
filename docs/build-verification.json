@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "thenathe_mod_suite",
-  "version": "1.0.0+26.3",
-  "sha256": "0312a5d7ce8cf1e597e21a9d111f8efaa47fa7c01c6b18effb48977cd9bbc957",
+  "version": "1.0.1+26.3",
+  "sha256": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -60,15 +60,15 @@
     },
     {
       "id": "sso_backpack_toolpouch_mapstitch_shim",
-      "version": "1.0.5-suite.1+26.3",
-      "sha256": "4d2054b989ff9779514c43599dd0a6aae5f2008c75e3dd8d82ef452e13bed768",
-      "file": "META-INF/jars/thenathe-suite-combined-compat-1.0.5-suite.1+26.3.jar"
+      "version": "1.0.6-suite.1+26.3",
+      "sha256": "a8718aa1a8248f8cbb4870a6da9afe766f7bc6323b7cbd43ab6473465a9289cc",
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.0.6-suite.1+26.3.jar"
     },
     {
       "id": "chalk_polymer_compat",
-      "version": "1.1.0-suite.1+26.3",
-      "sha256": "94d52c88965608e5ac9fec46998cf398e37f76e4d79268b597624fcf19c2d72d",
-      "file": "META-INF/jars/thenathe-suite-chalk-compat-1.1.0-suite.1+26.3.jar"
+      "version": "1.1.1-suite.1+26.3",
+      "sha256": "653ad94d86bf9ba128e287075ea842c0439a802bfd5d24e33f3e5089f04636a0",
+      "file": "META-INF/jars/thenathe-suite-chalk-compat-1.1.1-suite.1+26.3.jar"
     },
     {
       "id": "shared_region_maps",
@@ -87,11 +87,17 @@
   "defaulted_exact_dropfix_requirement": true,
   "licenses_retained": true,
   "runtime_tested": true,
+  "date": "2026-10-04",
   "runtime_evidence": [
-    "qa/evidence/final-connections.json",
-    "qa-mechanics/evidence/mechanics-and-persistence.json",
-    "qa-settings/evidence/results.json",
-    "qa-hud/evidence/2026-10-04/suite-hud.json"
+    "qa/evidence/1.0.1/connections.json",
+    "qa/evidence/1.0.1/extended-connections.json",
+    "qa/evidence/1.0.1/client-polymer.json",
+    "qa/evidence/1.0.1/integrated.json",
+    "qa-settings/evidence/lifecycle-1.0.1.json",
+    "qa-settings/evidence/lifecycle-1.0.1-class-equivalence.json"
   ],
-  "date": "2026-10-04"
+  "build_evidence": [
+    "docs/clean-build-verification.json"
+  ],
+  "scope": "12 exact-final network/integrated cases and focused settings lifecycle smoke; full settings permissions/reconnect matrix on a candidate with all 658 Java classes identical. Older broad mechanics/HUD results are historical; see docs/VALIDATION.md."
 }

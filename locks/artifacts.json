@@ -109,5 +109,16 @@
     "version": "2.4.20",
     "sha256": "078594f80e214438a35454e3f16f890a68dba6a607aa2c83014065344d13308a",
     "origin": "Compile-only unchanged META-INF/jars/kotlin-stdlib-2.4.20.jar extracted from pinned Fabric Language Kotlin archive"
+  },
+  {
+    "file": "libs/compile-only/clientsort-fabric-3.104.1+26.3.jar",
+    "id": "clientsort",
+    "version": "3.104.1",
+    "sha256": "37f812d25307bc011be64a4853e26d848b858599c5068244dd857c521d4078ce",
+    "scope": "compile-only",
+    "origin": "Official ClientSort Fabric 26.3 release; addon optional integration compile input only. Never bundled or installed by suite runtime profiles.",
+    "version_url": "https://modrinth.com/mod/clientsort/version/UWMryUad",
+    "download_url": "https://cdn.modrinth.com/data/K0AkAin6/versions/UWMryUad/clientsort-fabric-3.104.1%2B26.3.jar",
+    "release_version": "3.104.1+26.3"
   }
 ]

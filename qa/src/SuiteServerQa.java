@@ -31,13 +31,14 @@ public final class SuiteServerQa implements ModInitializer {
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             JsonObject result = new JsonObject();
             String name = handler.player.getGameProfile().name();
-            boolean expected = name.startsWith("SuiteNative") || name.equals("SuiteMismatch");
+            boolean expected = name.startsWith("SuiteNative") || name.equals("SuiteMismatch") || name.equals("SuiteChalkMiss");
             boolean passed = true;
             JsonObject selected = new JsonObject();
             for (String mod : SuiteCapabilities.MODULES) {
                 boolean actual = SuiteCapabilities.isNative(handler.getPacketContext(), mod);
                 selected.addProperty(mod, actual);
-                boolean moduleExpected = expected && !(name.equals("SuiteMismatch") && mod.equals("simple_smithing_overhaul"));
+                boolean moduleExpected = expected && !(name.equals("SuiteMismatch") && mod.equals("simple_smithing_overhaul"))
+                        && !(name.equals("SuiteChalkMiss") && mod.equals("chalk"));
                 passed &= actual == moduleExpected;
             }
             var position = handler.player.blockPosition().offset(2, 0, 0);
@@ -50,13 +51,25 @@ public final class SuiteServerQa implements ModInitializer {
             stack.setDamageValue(13);
             stack.set(DataComponents.CUSTOM_NAME, Component.literal("Suite QA Chalk"));
             handler.player.getInventory().setItem(0, stack);
+            var anvilPosition = position.offset(0, 0, 2);
+            level.setBlock(anvilPosition.below(), Blocks.STONE.defaultBlockState(), 3);
+            var anvil = BuiltInRegistries.BLOCK.getValue(Identifier.parse("simple_smithing_overhaul:broken_anvil")).defaultBlockState()
+                    .setValue(net.minecraft.world.level.block.AnvilBlock.FACING, Direction.EAST);
+            level.setBlock(anvilPosition, anvil, 3);
+            var anvilStack = new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.parse("simple_smithing_overhaul:broken_anvil")));
+            anvilStack.set(DataComponents.CUSTOM_NAME, Component.literal("Suite QA Broken Anvil"));
+            handler.player.getInventory().setItem(1, anvilStack);
             handler.player.inventoryMenu.broadcastFullState();
             JsonObject marker = new JsonObject();
             marker.addProperty("x",position.getX());marker.addProperty("y",position.getY());marker.addProperty("z",position.getZ());
             marker.addProperty("orientation",3);marker.addProperty("facing","up");marker.addProperty("damage",13);marker.addProperty("custom_name","Suite QA Chalk");
             marker.addProperty("server_block",BuiltInRegistries.BLOCK.getKey(level.getBlockState(position).getBlock()).toString());
             marker.addProperty("server_item",BuiltInRegistries.ITEM.getKey(stack.getItem()).toString());
+            marker.addProperty("anvil_x", anvilPosition.getX());marker.addProperty("anvil_y", anvilPosition.getY());marker.addProperty("anvil_z", anvilPosition.getZ());
+            marker.addProperty("server_anvil", BuiltInRegistries.BLOCK.getKey(level.getBlockState(anvilPosition).getBlock()).toString());
+            marker.addProperty("anvil_facing", "east");
             result.add("marker",marker);
+            passed &= level.getBlockState(anvilPosition).equals(anvil);
             passed &= level.getBlockState(position).equals(mark);
             var loader = FabricLoader.getInstance();
             result.addProperty("player", handler.player.getGameProfile().name());
@@ -68,7 +81,7 @@ public final class SuiteServerQa implements ModInitializer {
             result.addProperty("local_memory_connection", local);
             Integer bits = handler.getPacketContext().get(com.thenathe.chalkcompat.NativeClients.STATE_BITS);
             result.addProperty("chalk_state_bits", bits);
-            if (!local && loader.isModLoaded("polymer-core") && SuiteCapabilities.isNative(handler.getPacketContext(), "chalk")) passed &= bits != null && bits > 0;
+            if (!local && loader.isModLoaded("polymer-core") && com.thenathe.chalkcompat.NativeClients.nativeBlocks(handler.getPacketContext())) passed &= bits != null && bits > 0;
             result.add("native_modules", selected);
             result.addProperty("chalk_conversion_registered", BuiltInRegistries.RECIPE_SERIALIZER.containsKey(Identifier.parse("chalk_polymer_compat:chalk_conversion")));
             passed &= BuiltInRegistries.RECIPE_SERIALIZER.containsKey(Identifier.parse("chalk_polymer_compat:chalk_conversion"));

@@ -21,7 +21,7 @@ public abstract class NativeTagsMixin {
             at = @At("HEAD"), argsOnly = true)
     private Packet<?> chalkcompat$tagIds(Packet<?> packet) {
         var context = ((PacketContextProvider) this).getPacketContext();
-        if (!(packet instanceof ClientboundUpdateTagsPacket tags) || !NativeClients.nativeClient(context)) return packet;
+        if (!(packet instanceof ClientboundUpdateTagsPacket tags) || !NativeClients.nativeBlocks(context)) return packet;
         var result = new LinkedHashMap<>(tags.getTags());
         result.replaceAll((registry, payload) -> {
             if (!WireRegistries.handles(registry.identifier())) return payload;

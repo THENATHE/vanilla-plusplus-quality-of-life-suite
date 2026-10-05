@@ -30,7 +30,7 @@ public final class SuiteClientQa implements ClientModInitializer {
                             new ServerData("Suite QA", address, ServerData.Type.OTHER), false, null);
                     return;
                 }
-                if (!mutated && Boolean.getBoolean("suite.qa.reply-mismatch")) { Mutation.install(); mutated = true; }
+                if (!mutated && !System.getProperty("suite.qa.reply-mismatch", "").isEmpty()) { Mutation.install(); mutated = true; }
                 if (done || client.player == null || client.level == null || ++ticks < 60) return;
                 Path markerFile = directory.resolve("marker-expected.json");
                 if (!Files.exists(markerFile)) return;
@@ -56,11 +56,26 @@ public final class SuiteClientQa implements ClientModInitializer {
                     var orientation=state.getBlock().getStateDefinition().getProperty("orientation");
                     if (!facing.equals("up") || !state.getValue((net.minecraft.world.level.block.state.properties.Property<Integer>)orientation).equals(3)) throw new IllegalStateException("Native mark state properties differ");
                 }
+                boolean nativeSso = Boolean.getBoolean("suite.qa.native-sso");
+                var anvilPosition = new BlockPos(marker.get("anvil_x").getAsInt(), marker.get("anvil_y").getAsInt(), marker.get("anvil_z").getAsInt());
+                var anvilState = client.level.getBlockState(anvilPosition);
+                var anvilStack = client.player.getInventory().getItem(1);
+                String actualAnvil = BuiltInRegistries.BLOCK.getKey(anvilState.getBlock()).toString();
+                String actualAnvilItem = BuiltInRegistries.ITEM.getKey(anvilStack.getItem()).toString();
+                String expectedAnvil = nativeSso ? "simple_smithing_overhaul:broken_anvil" : "minecraft:damaged_anvil";
+                if (!actualAnvil.equals(expectedAnvil) || !actualAnvilItem.equals(expectedAnvil)
+                        || !anvilState.getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING).getName().equals("east")
+                        || !anvilStack.getOrDefault(DataComponents.CUSTOM_NAME, net.minecraft.network.chat.Component.empty()).getString().equals("Suite QA Broken Anvil")) {
+                    if (ticks < 200) return;
+                    throw new IllegalStateException("Broken anvil packet mismatch: block=" + actualAnvil + " item=" + actualAnvilItem);
+                }
                 done = true;
                 Files.writeString(directory.resolve("client-joined.txt"), "PASS in-world client ticks\n");
                 JsonObject result = new JsonObject();result.addProperty("join_count", joins);result.addProperty("passed", true);
                 result.addProperty("native_chalk",nativeChalk);result.addProperty("actual_block",actualBlock);result.addProperty("actual_item",actualItem);
                 result.addProperty("damage",stack.getDamageValue());result.addProperty("custom_name",stack.get(DataComponents.CUSTOM_NAME).getString());result.addProperty("virtual_mark_displays",displays);
+                result.addProperty("native_sso", nativeSso);result.addProperty("actual_anvil", actualAnvil);
+                result.addProperty("actual_anvil_item", actualAnvilItem);result.addProperty("anvil_facing", "east");
                 Files.writeString(directory.resolve("client-joined.json"), result.toString());
             } catch (Exception error) { throw new RuntimeException(error); }
         });
@@ -72,7 +87,7 @@ public final class SuiteClientQa implements ClientModInitializer {
             net.fabricmc.fabric.api.client.networking.v1.ClientConfigurationNetworking.unregisterGlobalReceiver(type);
             net.fabricmc.fabric.api.client.networking.v1.ClientConfigurationNetworking.registerGlobalReceiver(type, (offer, context) -> {
                 var fingerprints = new java.util.ArrayList<>(com.thenathe.suite.network.SuiteCapabilities.fingerprints());
-                fingerprints.set(com.thenathe.suite.network.SuiteCapabilities.MODULES.indexOf("simple_smithing_overhaul"), "0".repeat(64));
+                fingerprints.set(com.thenathe.suite.network.SuiteCapabilities.MODULES.indexOf(System.getProperty("suite.qa.reply-mismatch")), "0".repeat(64));
                 context.responseSender().sendPacket(new com.thenathe.suite.network.SuiteCapabilities.Reply(offer.nonce(), java.util.List.copyOf(fingerprints)));
             });
         }

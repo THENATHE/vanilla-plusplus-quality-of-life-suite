@@ -9,11 +9,20 @@ import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
 /** Avoid resolving optional Chalk/Polymer classes on a client that only installs the companion. */
 public final class ChalkMixinPlugin implements IMixinConfigPlugin {
+    private static final Set<String> SHARED_BLOCK_TRANSPORT = Set.of(
+            "NativeRegistrySyncMixin", "NativeTagsMixin", "PolymerNativeRegistryMixin",
+            "RegistryPacketDecoderMixin", "RegistryPacketEncoderMixin", "RegistryWireIdsMixin",
+            "RegistryStateIdsMixin", "RegistryChunkSerializationMixin", "NativeBlockBitsMixin",
+            "TagsPayloadAccessor", "NativeStateSyncSchedulingMixin");
     public void onLoad(String mixinPackage) {}
     public String getRefMapperConfig() { return null; }
     public boolean shouldApplyMixin(String target, String mixin) {
         var loader = FabricLoader.getInstance();
         if (mixin.endsWith("ChalkInitializationMixin")) return loader.isModLoaded("chalk");
+        if (SHARED_BLOCK_TRANSPORT.contains(mixin.substring(mixin.lastIndexOf('.') + 1))) {
+            return (loader.isModLoaded("chalk") || loader.isModLoaded("simple_smithing_overhaul"))
+                    && loader.isModLoaded("polymer-core") && loader.isModLoaded("polymer-resource-pack");
+        }
         return loader.isModLoaded("chalk") && loader.isModLoaded("polymer-core")
                 && loader.isModLoaded("polymer-resource-pack") && loader.isModLoaded("polymer-virtual-entity");
     }

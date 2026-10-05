@@ -30,11 +30,14 @@ The root overview contains explanatory entries for automatic modules. It does no
 
 Fzzy's `ConfigSingleUpdateManager` derives save behavior and network update keys from `ConfigSet.active.getId().toLanguageKey()`. Consequently, grouping configurations under the suite sidebar changes their presentation while preserving their original synchronization destinations, file paths and permissions. Original namespace screen providers and manager cache entries route forwarded changes into this same manager, preserving the original review/approval workflow.
 
+The combined manager is reused when the screen closes and reopens, so pending forwarded proposals remain available for review. When Fzzy removes a namespace cache after a server sync/update, the next suite or original-module opening rebuilds the combined manager, replays pending proposals into its fresh native caches, and restores every namespace route. Client play connection initialization and disconnection clear the manager and its aliases: proposals and cached permissions never carry from one server to another.
+
 The adapter uses the pinned **Fzzy Config 0.7.7+fix2+26.3** runtime. Java-visible internal classes are used because the public API exposes per-namespace screens but no public cross-namespace grouping builder. The only reflective accesses are:
 
 - `ClientConfigRegistry.clientConfigs`, to obtain registered entries.
 - `ClientConfigEntry.getBase()` and `getNoGui()`, because the entry implementation is package-private.
 - `ClientConfigRegistry.configScreenManagers`, to keep forwarded-update routing attached to the combined screen.
+- `ConfigScreenManager.screenCaches` and each cache's `getForwardedUpdates()`, to retain pending proposals when native sync/update invalidation requires rebuilding widgets. Proposals are replayed through Fzzy's original receiver; entries are resolved against the current configuration objects.
 
 No upstream config values, serialization methods or library binaries are replaced. When updating Fzzy, verify these APIs before changing its pinned version. A changed internal API stops opening the combined screen with an explicit error; it does not guess a field schema or discard saved settings.
 
@@ -61,3 +64,11 @@ These checks exercise representative native persistence and permissions, not eve
 7. Check Tool Pouch/MapStitch addon controls in Options → Controls and the original addon command help.
 
 Record completed runtime checks separately; these steps are not a claim that the full matrix has been executed.
+
+## Settings lifecycle regression — 1.0.1+26.3
+
+Candidate SHA-256 `47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d` passed real graphical client runs `lifecycle-admin-to-guest-1.0.1-02` and `lifecycle-guest-to-admin-1.0.1`. Both rendered all eleven config categories and repeated Chalk/Tool Pouch persistence plus the native operator/guest setting checks. They verified pending proposals survive closing/reopening, native `receiveUpdate` invalidation rebuilds widgets and restores namespace routing while preserving proposals, and actual reconnection to a different dedicated server clears proposals and uses that server's opposite permission level. Each second server's saved setting was checked too. Proposals were supplied to the original Fzzy client receiver; this does not claim two-player forwarding transport coverage.
+
+Sanitized results are in [lifecycle evidence](../qa-settings/evidence/lifecycle-1.0.1.json). The first sandbox launch could not create its localhost socket and is excluded. Packaging review subsequently identified stale nested version metadata in the tested candidate; the corrected release hash, class equivalence and focused lifecycle smoke are recorded separately in this evidence rather than labeling the earlier candidate as the final artifact.
+
+The corrected final release SHA-256 `8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a` passed `lifecycle-final-1.0.1`: the graphical client opened the combined screen, validated all eleven configuration identities, retained a proposal across close/reopen, and rebuilt native update-invalidated caches while retaining proposals and restoring routing. [Recursive class comparison](../qa-settings/evidence/lifecycle-1.0.1-class-equivalence.json) confirms all 658 root/nested Java classes match the full two-server matrix candidate exactly. Only packaging metadata changed between those candidates.

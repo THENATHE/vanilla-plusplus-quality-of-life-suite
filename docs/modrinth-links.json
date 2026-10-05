@@ -1,0 +1,730 @@
+{
+  "checked": "2026-10-04",
+  "projects": [
+    {
+      "query": "fabric-api",
+      "slug": "fabric-api",
+      "title": "Fabric API",
+      "id": "P7dR8mSH",
+      "url": "https://modrinth.com/mod/fabric-api",
+      "source_url": "https://github.com/FabricMC/fabric",
+      "fabric_26_3_versions": [
+        {
+          "id": "bNnaTiuM",
+          "number": "0.161.0+26.3",
+          "url": "https://modrinth.com/mod/fabric-api/version/bNnaTiuM"
+        },
+        {
+          "id": "hHj6EvFZ",
+          "number": "0.160.7+26.3",
+          "url": "https://modrinth.com/mod/fabric-api/version/hHj6EvFZ"
+        },
+        {
+          "id": "BQfN2OGk",
+          "number": "0.160.6+26.3",
+          "url": "https://modrinth.com/mod/fabric-api/version/BQfN2OGk"
+        },
+        {
+          "id": "oCYG2H4L",
+          "number": "0.160.5+26.3",
+          "url": "https://modrinth.com/mod/fabric-api/version/oCYG2H4L"
+        }
+      ],
+      "client_side": "optional",
+      "server_side": "optional"
+    },
+    {
+      "query": "fabric-language-kotlin",
+      "slug": "fabric-language-kotlin",
+      "title": "Fabric Language Kotlin",
+      "id": "Ha28R6CL",
+      "url": "https://modrinth.com/mod/fabric-language-kotlin",
+      "source_url": "https://github.com/FabricMC/fabric-language-kotlin/",
+      "fabric_26_3_versions": [
+        {
+          "id": "eRRZzGMc",
+          "number": "1.14.1+kotlin.2.4.20",
+          "url": "https://modrinth.com/mod/fabric-language-kotlin/version/eRRZzGMc"
+        }
+      ],
+      "client_side": "optional",
+      "server_side": "optional"
+    },
+    {
+      "query": "fzzy-config",
+      "slug": "fzzy-config",
+      "title": "Fzzy Config",
+      "id": "hYykXjDp",
+      "url": "https://modrinth.com/mod/fzzy-config",
+      "source_url": "https://github.com/fzzyhmstrs/fconfig",
+      "fabric_26_3_versions": [
+        {
+          "id": "YkOumqzV",
+          "number": "0.7.7+fix3+26.3",
+          "url": "https://modrinth.com/mod/fzzy-config/version/YkOumqzV"
+        },
+        {
+          "id": "thw1Z19c",
+          "number": "0.7.7+fix2+26.3",
+          "url": "https://modrinth.com/mod/fzzy-config/version/thw1Z19c"
+        },
+        {
+          "id": "YcvFFXpz",
+          "number": "0.7.7-fix1+26.3",
+          "url": "https://modrinth.com/mod/fzzy-config/version/YcvFFXpz"
+        },
+        {
+          "id": "RlUQZcxK",
+          "number": "0.7.7+26.3",
+          "url": "https://modrinth.com/mod/fzzy-config/version/RlUQZcxK"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "cloth-config",
+      "slug": "cloth-config",
+      "title": "Cloth Config API",
+      "id": "9s6osm5g",
+      "url": "https://modrinth.com/mod/cloth-config",
+      "source_url": "https://github.com/shedaniel/ClothConfig/",
+      "fabric_26_3_versions": [
+        {
+          "id": "fg2uyxOW",
+          "number": "26.3.159+fabric",
+          "url": "https://modrinth.com/mod/cloth-config/version/fg2uyxOW"
+        },
+        {
+          "id": "eZ3xIIuk",
+          "number": "26.3.158+fabric",
+          "url": "https://modrinth.com/mod/cloth-config/version/eZ3xIIuk"
+        }
+      ],
+      "client_side": "optional",
+      "server_side": "optional"
+    },
+    {
+      "query": "defaulted",
+      "slug": "defaulted",
+      "title": "Defaulted",
+      "id": "LxgPJAAy",
+      "url": "https://modrinth.com/mod/defaulted",
+      "source_url": "https://github.com/Alexandra-Myers/Defaulted/",
+      "fabric_26_3_versions": [],
+      "client_side": "optional",
+      "server_side": "required"
+    },
+    {
+      "query": "codecui",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "query": "mixson",
+      "slug": "mixson",
+      "title": "mixson",
+      "id": "EgugIDm8",
+      "url": "https://modrinth.com/mod/mixson",
+      "source_url": "https://github.com/Ramixin/Mixson-Fabric",
+      "fabric_26_3_versions": [
+        {
+          "id": "yWpBBcpq",
+          "number": "2.2.1",
+          "url": "https://modrinth.com/mod/mixson/version/yWpBBcpq"
+        }
+      ],
+      "client_side": "optional",
+      "server_side": "optional"
+    },
+    {
+      "query": "modmenu",
+      "slug": "modmenu",
+      "title": "Mod Menu",
+      "id": "mOgUt4GM",
+      "url": "https://modrinth.com/mod/modmenu",
+      "source_url": "https://github.com/TerraformersMC/ModMenu",
+      "fabric_26_3_versions": [
+        {
+          "id": "kyy7dbrZ",
+          "number": "21.0.0",
+          "url": "https://modrinth.com/mod/modmenu/version/kyy7dbrZ"
+        },
+        {
+          "id": "lcxkZSq6",
+          "number": "21.0.0-beta.1",
+          "url": "https://modrinth.com/mod/modmenu/version/lcxkZSq6"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "unsupported"
+    },
+    {
+      "query": "polymer",
+      "slug": "polymer",
+      "title": "Polymer",
+      "id": "xGdtZczs",
+      "url": "https://modrinth.com/mod/polymer",
+      "source_url": "https://github.com/Patbox/polymer",
+      "fabric_26_3_versions": [
+        {
+          "id": "REBDssAz",
+          "number": "0.18.2+26.3",
+          "url": "https://modrinth.com/mod/polymer/version/REBDssAz"
+        },
+        {
+          "id": "VARBJvT9",
+          "number": "0.18.1+26.3",
+          "url": "https://modrinth.com/mod/polymer/version/VARBJvT9"
+        },
+        {
+          "id": "QBYrHLvh",
+          "number": "0.18.0+26.3-rc-1",
+          "url": "https://modrinth.com/mod/polymer/version/QBYrHLvh"
+        }
+      ],
+      "client_side": "optional",
+      "server_side": "required"
+    },
+    {
+      "query": "clientsort",
+      "slug": "clientsort",
+      "title": "Client Sort",
+      "id": "K0AkAin6",
+      "url": "https://modrinth.com/mod/clientsort",
+      "source_url": "https://github.com/TerminalMC/ClientSort",
+      "fabric_26_3_versions": [
+        {
+          "id": "UWMryUad",
+          "number": "3.104.1+26.3",
+          "url": "https://modrinth.com/mod/clientsort/version/UWMryUad"
+        },
+        {
+          "id": "O1azWLtc",
+          "number": "3.104.0+26.3",
+          "url": "https://modrinth.com/mod/clientsort/version/O1azWLtc"
+        },
+        {
+          "id": "ZBIfOq2Y",
+          "number": "3.104.0-beta.1+26.3-rc-2",
+          "url": "https://modrinth.com/mod/clientsort/version/ZBIfOq2Y"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "optional"
+    },
+    {
+      "query": "trinkets-updated",
+      "slug": "trinkets-updated",
+      "title": "Trinkets Updated",
+      "id": "XaT8sLP6",
+      "url": "https://modrinth.com/mod/trinkets-updated",
+      "source_url": "https://github.com/Patbox/trinkets",
+      "fabric_26_3_versions": [
+        {
+          "id": "lVR1OKgV",
+          "number": "4.2.1+26.3",
+          "url": "https://modrinth.com/mod/trinkets-updated/version/lVR1OKgV"
+        },
+        {
+          "id": "GjCPLWaf",
+          "number": "4.2.0+26.3",
+          "url": "https://modrinth.com/mod/trinkets-updated/version/GjCPLWaf"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "trinkets",
+      "slug": "trinkets",
+      "title": "Trinkets",
+      "id": "5aaWibi9",
+      "url": "https://modrinth.com/mod/trinkets",
+      "source_url": "https://github.com/emilyalexandra/trinkets",
+      "fabric_26_3_versions": [],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "ohmega",
+      "slug": "ohmega",
+      "title": "Ohmega",
+      "id": "scvT0o5w",
+      "url": "https://modrinth.com/mod/ohmega",
+      "source_url": "https://github.com/Swackyy/Ohmega",
+      "fabric_26_3_versions": [
+        {
+          "id": "S23rLuKN",
+          "number": "1.5.21",
+          "url": "https://modrinth.com/mod/ohmega/version/S23rLuKN"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "shulkerboxtooltip",
+      "slug": "shulkerboxtooltip",
+      "title": "Shulker Box Tooltip",
+      "id": "2M01OLQq",
+      "url": "https://modrinth.com/mod/shulkerboxtooltip",
+      "source_url": "https://github.com/MisterPeModder/ShulkerBoxTooltip",
+      "fabric_26_3_versions": [
+        {
+          "id": "Cj9VEeGt",
+          "number": "5.4.2+26.3-fabric",
+          "url": "https://modrinth.com/mod/shulkerboxtooltip/version/Cj9VEeGt"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "optional"
+    },
+    {
+      "query": "lambdynamiclights",
+      "slug": "lambdynamiclights",
+      "title": "LambDynamicLights - Dynamic Lights",
+      "id": "yBW8D80W",
+      "url": "https://modrinth.com/mod/lambdynamiclights",
+      "source_url": "https://github.com/LambdAurora/LambDynamicLights",
+      "fabric_26_3_versions": [
+        {
+          "id": "rylKnJ4M",
+          "number": "4.13.0+26.3",
+          "url": "https://modrinth.com/mod/lambdynamiclights/version/rylKnJ4M"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "unsupported"
+    },
+    {
+      "query": "immersive-overlays",
+      "slug": "immersive-overlays",
+      "title": "Immersive Overlays",
+      "id": "PKoLkD98",
+      "url": "https://modrinth.com/mod/immersive-overlays",
+      "source_url": "https://github.com/cassiancc/Immersive-Overlays",
+      "fabric_26_3_versions": [
+        {
+          "id": "4kNndntn",
+          "number": "1.8.5+26.3-fabric",
+          "url": "https://modrinth.com/mod/immersive-overlays/version/4kNndntn"
+        },
+        {
+          "id": "ybLaDKxw",
+          "number": "1.8.4+26.3-snapshot-7-fabric",
+          "url": "https://modrinth.com/mod/immersive-overlays/version/ybLaDKxw"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "unsupported"
+    },
+    {
+      "query": "raised",
+      "slug": "raised",
+      "title": "Raised",
+      "id": "nCQRBEiR",
+      "url": "https://modrinth.com/mod/raised",
+      "source_url": "https://github.com/yurisuika/Raised",
+      "fabric_26_3_versions": [
+        {
+          "id": "XeTvS6Rx",
+          "number": "Fabric-26.3-6.0.2",
+          "url": "https://modrinth.com/mod/raised/version/XeTvS6Rx"
+        },
+        {
+          "id": "4lggh8Q6",
+          "number": "Fabric-26.3-6.0.1",
+          "url": "https://modrinth.com/mod/raised/version/4lggh8Q6"
+        },
+        {
+          "id": "30UUDQRX",
+          "number": "Fabric-26.3-6.0.0",
+          "url": "https://modrinth.com/mod/raised/version/30UUDQRX"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "unsupported"
+    },
+    {
+      "query": "serene-seasons",
+      "slug": "serene-seasons",
+      "title": "Serene Seasons",
+      "id": "e0bNACJD",
+      "url": "https://modrinth.com/mod/serene-seasons",
+      "source_url": "https://github.com/Glitchfiend/SereneSeasons",
+      "fabric_26_3_versions": [
+        {
+          "id": "V9PxJPuw",
+          "number": "26.1.2.0.7",
+          "url": "https://modrinth.com/mod/serene-seasons/version/V9PxJPuw"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "ok-zoomer",
+      "slug": "ok-zoomer",
+      "title": "Ok Zoomer - It's Zoom!",
+      "id": "aXf2OSFU",
+      "url": "https://modrinth.com/mod/ok-zoomer",
+      "source_url": "https://github.com/Up-Mods/OkZoomer",
+      "fabric_26_3_versions": [
+        {
+          "id": "3UXOK2JF",
+          "number": "19.0.0-beta.2",
+          "url": "https://modrinth.com/mod/ok-zoomer/version/3UXOK2JF"
+        },
+        {
+          "id": "JBjgPuHH",
+          "number": "19.0.0-beta.1",
+          "url": "https://modrinth.com/mod/ok-zoomer/version/JBjgPuHH"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "unsupported"
+    },
+    {
+      "query": "zoomify",
+      "slug": "zoomify",
+      "title": "Zoomify (Zoom)",
+      "id": "w7ThoJFB",
+      "url": "https://modrinth.com/mod/zoomify",
+      "source_url": "https://github.com/isXander/Zoomify",
+      "fabric_26_3_versions": [
+        {
+          "id": "bvz5KJLQ",
+          "number": "2.16.3+26.3",
+          "url": "https://modrinth.com/mod/zoomify/version/bvz5KJLQ"
+        },
+        {
+          "id": "uo6HF9Rj",
+          "number": "2.16.2+26.3",
+          "url": "https://modrinth.com/mod/zoomify/version/uo6HF9Rj"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "unsupported"
+    },
+    {
+      "query": "spyglass-astronomy",
+      "slug": "spyglass-astronomy",
+      "title": "Spyglass Astronomy",
+      "id": "EdBSdqge",
+      "url": "https://modrinth.com/mod/spyglass-astronomy",
+      "source_url": "https://github.com/Nettakrim/Spyglass-Astronomy",
+      "fabric_26_3_versions": [
+        {
+          "id": "ecgGUD5e",
+          "number": "1.0.27-mc26.3",
+          "url": "https://modrinth.com/mod/spyglass-astronomy/version/ecgGUD5e"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "unsupported"
+    },
+    {
+      "query": "aileron",
+      "slug": "aileron",
+      "title": "Aileron",
+      "id": "b8kG1VGq",
+      "url": "https://modrinth.com/mod/aileron",
+      "source_url": "https://github.com/OrtusMC/Aileron",
+      "fabric_26_3_versions": [],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "remapped",
+      "slug": "remapped",
+      "title": "Remapped",
+      "id": "MqALL8pc",
+      "url": "https://modrinth.com/mod/remapped",
+      "source_url": "https://github.com/Apollounknowndev/remapped",
+      "fabric_26_3_versions": [],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "sodium",
+      "slug": "sodium",
+      "title": "Sodium",
+      "id": "AANobbMI",
+      "url": "https://modrinth.com/mod/sodium",
+      "source_url": "https://github.com/CaffeineMC/sodium",
+      "fabric_26_3_versions": [
+        {
+          "id": "v4PSXean",
+          "number": "mc26.3-0.9.3-alpha.1-fabric",
+          "url": "https://modrinth.com/mod/sodium/version/v4PSXean"
+        },
+        {
+          "id": "bAZQdGpg",
+          "number": "mc26.3-0.9.2-fabric",
+          "url": "https://modrinth.com/mod/sodium/version/bAZQdGpg"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "unsupported"
+    },
+    {
+      "query": "enchantment-disabler",
+      "slug": "enchantment-disabler",
+      "title": "Enchantment Disabler",
+      "id": "Kd03i2oU",
+      "url": "https://modrinth.com/mod/enchantment-disabler",
+      "source_url": "https://github.com/pajicadvance/enchantmentdisabler",
+      "fabric_26_3_versions": [
+        {
+          "id": "V3NIVkpR",
+          "number": "3.4.9+26.3",
+          "url": "https://modrinth.com/mod/enchantment-disabler/version/V3NIVkpR"
+        }
+      ],
+      "client_side": "optional",
+      "server_side": "required"
+    },
+    {
+      "query": "tax-free-levels",
+      "slug": "tax-free-levels",
+      "title": "Tax Free Levels",
+      "id": "jCBrrLTs",
+      "url": "https://modrinth.com/mod/tax-free-levels",
+      "source_url": "https://github.com/Fourmisain/TaxFreeLevels",
+      "fabric_26_3_versions": [
+        {
+          "id": "nnOm34tW",
+          "number": "1.5.4",
+          "url": "https://modrinth.com/mod/tax-free-levels/version/nnOm34tW"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "better-tridents",
+      "slug": "better-tridents",
+      "title": "Better Tridents",
+      "id": "KNUSlHiU",
+      "url": "https://modrinth.com/mod/better-tridents",
+      "source_url": "https://github.com/Fuzss/bettertridents",
+      "fabric_26_3_versions": [
+        {
+          "id": "Opngvnij",
+          "number": "26.3.1",
+          "url": "https://modrinth.com/mod/better-tridents/version/Opngvnij"
+        },
+        {
+          "id": "xdFNO7gU",
+          "number": "26.3.0",
+          "url": "https://modrinth.com/mod/better-tridents/version/xdFNO7gU"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "penchant",
+      "slug": "penchant",
+      "title": "Penchant",
+      "id": "BTORUTmf",
+      "url": "https://modrinth.com/mod/penchant",
+      "source_url": "https://github.com/ThePotatoArchivist/Penchant",
+      "fabric_26_3_versions": [
+        {
+          "id": "fcFywiHG",
+          "number": "0.5.7+mc26.3",
+          "url": "https://modrinth.com/mod/penchant/version/fcFywiHG"
+        },
+        {
+          "id": "ND4fXBxd",
+          "number": "0.5.5+mc26.3",
+          "url": "https://modrinth.com/mod/penchant/version/ND4fXBxd"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "modest-magic",
+      "slug": "modest-magic",
+      "title": "Modest Magic",
+      "id": "sWRvoDiO",
+      "url": "https://modrinth.com/mod/modest-magic",
+      "source_url": "https://grimbly.club/mods-modest-magic",
+      "fabric_26_3_versions": [
+        {
+          "id": "U22md98I",
+          "number": "1.4.1-26.1.2-fabric",
+          "url": "https://modrinth.com/mod/modest-magic/version/U22md98I"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "curios",
+      "slug": "curios",
+      "title": "Curios API",
+      "id": "vvuO3ImH",
+      "url": "https://modrinth.com/mod/curios",
+      "source_url": "https://github.com/TheIllusiveC4/Curios",
+      "fabric_26_3_versions": [],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "mixinconstraints",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "query": "simple-smithing-overhaul",
+      "slug": "simple-smithing-overhaul",
+      "title": "Simple Smithing Overhaul",
+      "id": "U5TJjZc3",
+      "url": "https://modrinth.com/mod/simple-smithing-overhaul",
+      "source_url": "https://github.com/pajicadvance/simple-smithing-overhaul",
+      "fabric_26_3_versions": [],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "mapstitch",
+      "slug": "mapstitch",
+      "title": "MapStitch",
+      "id": "etdHQJ0B",
+      "url": "https://modrinth.com/mod/mapstitch",
+      "source_url": "https://github.com/pajicadvance/mapstitch",
+      "fabric_26_3_versions": [
+        {
+          "id": "kRE6nsB7",
+          "number": "1.1.6+26.3",
+          "url": "https://modrinth.com/mod/mapstitch/version/kRE6nsB7"
+        },
+        {
+          "id": "pjLHZurd",
+          "number": "1.1.5+26.3",
+          "url": "https://modrinth.com/mod/mapstitch/version/pjLHZurd"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "tool-pouch",
+      "slug": "tool-pouch",
+      "title": "Tool Pouch",
+      "id": "ZY6C1rJ4",
+      "url": "https://modrinth.com/mod/tool-pouch",
+      "source_url": "https://github.com/pajicadvance/toolpouch",
+      "fabric_26_3_versions": [
+        {
+          "id": "6Z3zMyN8",
+          "number": "1.1.10+26.3",
+          "url": "https://modrinth.com/mod/tool-pouch/version/6Z3zMyN8"
+        },
+        {
+          "id": "ELJN1s6x",
+          "number": "1.1.9+26.3",
+          "url": "https://modrinth.com/mod/tool-pouch/version/ELJN1s6x"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "tiered-backpacks",
+      "slug": "tiered-backpacks",
+      "title": "Tiered Backpacks",
+      "id": "IhNtYNEF",
+      "url": "https://modrinth.com/mod/tiered-backpacks",
+      "source_url": "https://github.com/pajicadvance/tiered_backpacks",
+      "fabric_26_3_versions": [
+        {
+          "id": "GHnqX59p",
+          "number": "1.0.20+26.3",
+          "url": "https://modrinth.com/mod/tiered-backpacks/version/GHnqX59p"
+        },
+        {
+          "id": "buHAPhpA",
+          "number": "1.0.19+26.3",
+          "url": "https://modrinth.com/mod/tiered-backpacks/version/buHAPhpA"
+        }
+      ],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "misctweaks",
+      "slug": "misctweaks",
+      "title": "MiscTweaks",
+      "id": "9sMkzzYU",
+      "url": "https://modrinth.com/mod/misctweaks",
+      "source_url": "https://github.com/pajicadvance/misctweaks",
+      "fabric_26_3_versions": [
+        {
+          "id": "c2JwxbVC",
+          "number": "1.4.4+26.3",
+          "url": "https://modrinth.com/mod/misctweaks/version/c2JwxbVC"
+        }
+      ],
+      "client_side": "optional",
+      "server_side": "required"
+    },
+    {
+      "query": "simple-death-improvements",
+      "slug": "simple-death-improvements",
+      "title": "Simple Death Improvements",
+      "id": "2JFsuD70",
+      "url": "https://modrinth.com/mod/simple-death-improvements",
+      "source_url": "https://github.com/pajicadvance/simple-death-improvements",
+      "fabric_26_3_versions": [
+        {
+          "id": "AYTsBnki",
+          "number": "1.6.0+26.3",
+          "url": "https://modrinth.com/mod/simple-death-improvements/version/AYTsBnki"
+        }
+      ],
+      "client_side": "unsupported",
+      "server_side": "required"
+    },
+    {
+      "query": "chalk",
+      "slug": "chalk",
+      "title": "Chalk (Fabric)",
+      "id": "OrtjXTCH",
+      "url": "https://modrinth.com/mod/chalk",
+      "source_url": "https://github.com/DaFuqs/Chalk",
+      "fabric_26_3_versions": [],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "chalk-colorful-addon",
+      "slug": "chalk-colorful-addon",
+      "title": "Chalk: Colorful Addon",
+      "id": "VPJS28NH",
+      "url": "https://modrinth.com/mod/chalk-colorful-addon",
+      "source_url": "https://github.com/DaFuqs/Chalk-Multicolored-Addon",
+      "fabric_26_3_versions": [],
+      "client_side": "required",
+      "server_side": "required"
+    },
+    {
+      "query": "locator_lodestones",
+      "slug": "locator_lodestones",
+      "title": "Locator Lodestones",
+      "id": "pMBcsVIg",
+      "url": "https://modrinth.com/mod/locator_lodestones",
+      "source_url": "https://github.com/PneumonoIsNotAvailable/LocatorLodestones",
+      "fabric_26_3_versions": [],
+      "client_side": "required",
+      "server_side": "unsupported"
+    }
+  ],
+  "notes": [
+    "Modrinth project/version API; links verified 2026-10-04. Optional listing is not a runtime test.",
+    "CodecUI and MixinConstraints exact-name searches returned no projects; publisher source links are used instead.",
+    "Internal locator_lodestones id equals its public underscore slug."
+  ]
+}

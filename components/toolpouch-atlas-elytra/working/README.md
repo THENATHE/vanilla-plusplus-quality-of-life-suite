@@ -102,7 +102,7 @@ Startup feature detection inspects the installed mods before applying the releva
 
 ## Build and validation
 
-Use a Java 25 JDK. Place the compile-only dependency JARs listed in [libs/README.md](libs/README.md) in `libs/`, then run:
+For the combined suite, follow the [root dependency staging instructions](../../../docs/UPDATING.md#rebuilding-inputs); no component-local dependency copies are needed. For a standalone component build, use a Java 25 JDK and the [compile dependency instructions](docs/BUILDING.md), then run:
 
 ```sh
 ./gradlew build

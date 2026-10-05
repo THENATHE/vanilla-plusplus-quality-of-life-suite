@@ -7,7 +7,7 @@ dependencies {
  implementation 'net.fabricmc.fabric-api:fabric-api:0.161.0+26.3'
  compileOnly rootProject.fileTree('libs') { include '*.jar' }
 }
-processResources { inputs.property 'version', project.version; filesMatching('fabric.mod.json') { expand(version:project.version, mc:'26.3', chalk:'3.2.1+26.3', polymer:'0.18.2+26.3') } }
+processResources { inputs.property 'version', providers.provider { project.version.toString() }; filesMatching('fabric.mod.json') { expand(version:project.version, mc:'26.3', chalk:'3.2.1+26.3', polymer:'0.18.2+26.3') } }
 tasks.withType(JavaCompile).configureEach {
  options.encoding = 'UTF-8'; options.release = 25
  if (providers.gradleProperty('compilerVersion').isPresent()) {
@@ -17,7 +17,7 @@ tasks.withType(JavaCompile).configureEach {
 java { withSourcesJar(); sourceCompatibility = JavaVersion.VERSION_25; targetCompatibility = JavaVersion.VERSION_25 }
 jar { from('LICENSE') }
 
-version = '1.0.0+26.3'
+version = '1.0.1+26.3'
 base { archivesName = 'vanilla-plusplus-quality-of-life-suite' }
 sourceSets.main.java.exclude('com/thenathe/suite/network/**')
 dependencies {
@@ -39,6 +39,7 @@ tasks.register('verifyInputs') {
 }
 tasks.named('compileJava') { dependsOn 'verifyInputs' }
 ['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra'].each { evaluationDependsOn(":${it}") }
+subprojects { tasks.withType(JavaCompile).configureEach { dependsOn rootProject.tasks.named('verifyInputs') } }
 def componentJars = ['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra'].collect { rootProject.project(":${it}").tasks.named('jar').flatMap { it.archiveFile } }
 jar {
  dependsOn ':combined-compat:jar', ':chalk-compat:jar', ':shared-region-maps:jar', ':toolpouch-atlas-elytra:jar'

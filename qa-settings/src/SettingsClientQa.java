@@ -27,6 +27,7 @@ public final class SettingsClientQa implements ClientModInitializer {
     int ticks, phase;
     boolean done;
     String opened;
+    ConfigScreenManager beforeInvalidation;
     public void onInitializeClient() {
         ClientTickEvents.END_CLIENT_TICK.register(c -> {
             if(done) return;
@@ -44,6 +45,7 @@ public final class SettingsClientQa implements ClientModInitializer {
                     for(var entry:configs.entrySet()) {
                         if(!entry.getValue().getActive().getId().toLanguageKey().equals(entry.getKey())) throw new AssertionError("identity changed "+entry.getKey());
                     }
+                    if(Boolean.getBoolean("settings.qa.lifecycleOnly"))phase=ids.size()*2+10;
                     return;
                 }
                 if(Boolean.getBoolean("settings.qa.visual")) {
@@ -136,9 +138,61 @@ public final class SettingsClientQa implements ClientModInitializer {
                     var row=new JsonObject();row.addProperty("case","remote-server-original-config-routing");row.addProperty("server_preventShulkerDuplication",state.get("preventShulkerDuplication").getAsBoolean());row.addProperty("passed",state.get("preventShulkerDuplication").getAsBoolean()!=Boolean.getBoolean("settings.qa.guest"));observations.add(row);
                     Files.writeString(control.resolve("observations.json"),new GsonBuilder().setPrettyPrinting().create().toJson(observations));
                     if(state.get("preventShulkerDuplication").getAsBoolean()==Boolean.getBoolean("settings.qa.guest"))throw new AssertionError("native server config permission/routing mismatch");
+                } else if(action==10) {
+                    c.gui.setScreen(SuiteSettings.create(null));
+                    beforeInvalidation=manager();
+                    forward("reopen proposal");
+                    if(forwards()!=1)throw new AssertionError("proposal not queued");
+                    c.gui.setScreen(null);
+                    c.gui.setScreen(SuiteSettings.create(null));
+                    if(manager()!=beforeInvalidation || forwards()!=1)throw new AssertionError("reopening discarded pending proposal");
+                    row("pending forwarded proposal survives suite close/reopen");
+                } else if(action==11) {
+                    ClientConfigRegistry.INSTANCE.receiveUpdate$fzzy_config(Map.of("toolpouch.config","canOpenWithRightClick = true"),c.player);
+                } else if(action==12) {
+                    if(registered().containsKey("toolpouch"))throw new AssertionError("native update did not invalidate namespace");
+                    c.gui.setScreen(ClientConfigRegistry.INSTANCE.provideScreen$fzzy_config("toolpouch.config"));
+                    if(c.gui.screen()==null || manager()==beforeInvalidation)throw new AssertionError("native invalidation did not rebuild settings");
+                    if(registered().get("toolpouch")!=manager() || forwards()!=1)throw new AssertionError("rebuilt routing/proposal mismatch");
+                    forward("post-update proposal");
+                    if(forwards()!=2)throw new AssertionError("post-update forwarded proposal not routed");
+                    if(ClientConfigRegistry.INSTANCE.provideUpdateManager$fzzy_config("toolpouch.config")==null)throw new AssertionError("native update manager routing missing");
+                    row("native receiveUpdate invalidation rebuilds widgets, restores original routing, preserves and receives proposals");
+                } else if(action==13 && Integer.getInteger("settings.qa.reconnectPort",0)>0) {
+                    beforeInvalidation=manager();
+                    var title=new net.minecraft.client.gui.screens.TitleScreen();
+                    c.level.disconnect(net.minecraft.network.chat.Component.literal("Settings lifecycle QA reconnect"));
+                    c.disconnect(title,false,true);
+                    if(manager()!=null || registered().containsValue(beforeInvalidation))throw new AssertionError("disconnect retained suite session");
+                    String address="127.0.0.1:"+Integer.getInteger("settings.qa.reconnectPort");
+                    net.minecraft.client.gui.screens.ConnectScreen.startConnecting(title,c,
+                            net.minecraft.client.multiplayer.resolver.ServerAddress.parseString(address),
+                            new net.minecraft.client.multiplayer.ServerData("Settings QA second server",address,net.minecraft.client.multiplayer.ServerData.Type.OTHER),false,null);
+                    row("real disconnect clears manager and original namespace aliases");
+                } else if(action==14 && Integer.getInteger("settings.qa.reconnectPort",0)>0) {
+                    c.gui.setScreen(ClientConfigRegistry.INSTANCE.provideScreen$fzzy_config("toolpouch.config"));
+                    if(manager()==beforeInvalidation || forwards()!=0)throw new AssertionError("proposal or manager crossed servers");
+                    if(registered().get("toolpouch")!=manager())throw new AssertionError("new connection alias missing");
+                    forward("new-server proposal");
+                    if(forwards()!=1)throw new AssertionError("new-server forwarding failed");
+                    c.gui.setScreen(ClientConfigRegistry.INSTANCE.provideScreen$fzzy_config("misctweaks.config"));
+                    boolean secondGuest=!Boolean.getBoolean("settings.qa.guest");
+                    var button=nativeButton("misctweaks.config.preventShulkerDuplication");
+                    if(button.getMessage().getString().equals("Can't Edit")!=secondGuest)throw new AssertionError("permissions leaked across servers");
+                    var config=(me.pajic.misctweaks.config.ModConfig)SuiteSettings.collectConfigs().get("misctweaks.config").getActive();
+                    if(config.preventShulkerDuplication.get())throw new AssertionError("old server setting crossed connection");
+                    button.onPress();
+                    manager().provideUpdateManager$fzzy_config("misctweaks.config").apply(false);
+                    if(config.preventShulkerDuplication.get()==secondGuest)throw new AssertionError("new server permission behavior incorrect");
+                    row("different-server reconnect drops old proposals, uses new permission level, and routes new proposals");
+                } else if(action==15 && Integer.getInteger("settings.qa.reconnectPort",0)>0) {
+                    var server=JsonParser.parseString(Files.readString(control.resolve("server2/server-config.json"))).getAsJsonObject();
+                    boolean expected=Boolean.getBoolean("settings.qa.guest");
+                    if(server.get("preventShulkerDuplication").getAsBoolean()!=expected)throw new AssertionError("second server native setting permission/save mismatch");
+                    row("second server native checkbox permission and save verified");
                 } else {
                     Files.writeString(control.resolve("observations.json"),new GsonBuilder().setPrettyPrinting().create().toJson(observations));
-                    Files.writeString(control.resolve("result.txt"),"PASS all11 native config screens, Chalk false/true persistence, Tool Pouch original client file persistence\n");
+                    Files.writeString(control.resolve("result.txt"),"PASS native settings checks (see observations for executed cases)\n");
                     done=true;return;
                 }
                 phase++;
@@ -149,6 +203,9 @@ public final class SettingsClientQa implements ClientModInitializer {
         });
     }
     void row(String text){JsonObject row=new JsonObject();row.addProperty("case",text);row.addProperty("passed",true);observations.add(row);}
+    void forward(String summary){ClientConfigRegistry.INSTANCE.handleForwardedUpdate$fzzy_config("entry = false",UUID.fromString("00000000-0000-0000-0000-000000000001"),"toolpouch.config.canOpenWithRightClick",summary);}
+    int forwards()throws Exception{return manager().provideUpdateManager$fzzy_config("toolpouch.config").forwardsCount();}
+    @SuppressWarnings("unchecked") static Map<String,ConfigScreenManager> registered()throws Exception{Field field=ClientConfigRegistry.class.getDeclaredField("configScreenManagers");field.setAccessible(true);return(Map<String,ConfigScreenManager>)field.get(null);}
     static ConfigScreenManager manager()throws Exception {Field field=SuiteSettings.class.getDeclaredField("currentManager");field.setAccessible(true);return(ConfigScreenManager)field.get(null);}
     static DynamicListWidget list(ConfigScreen screen)throws Exception {Field field=ConfigScreen.class.getDeclaredField("configList");field.setAccessible(true);return(DynamicListWidget)field.get(screen);}
     CustomButtonWidget nativeButton(String key)throws Exception {

@@ -12,7 +12,7 @@ import net.minecraft.server.network.ConfigurationTask;
 import net.minecraft.server.network.ServerConfigurationPacketListenerImpl;
 import java.util.function.Consumer;
 
-/** Explicit, connection-scoped negotiation; the decision is fixed before registry sync. */
+/** Chalk decisions and shared suite block-state confirmation; payload IDs retain their original namespace. */
 public final class NativeClients {
     public static final PacketContext.Key<Integer> STATE_BITS = PacketContext.key(id("state_bits"));
     private static final PacketContext.Key<Boolean> WAITING_STATES = PacketContext.key(id("waiting_states"));
@@ -22,6 +22,15 @@ public final class NativeClients {
     public static Identifier id(String path) { return Identifier.fromNamespaceAndPath("chalk_polymer_compat", path); }
     public static boolean nativeClient(PacketContext context) {
         return com.thenathe.suite.network.SuiteCapabilities.isNative(context, "chalk");
+    }
+    /** One shared block/state map covers every native block-owning suite module. */
+    public static boolean nativeBlocks(PacketContext context) {
+        return nativeClient(context) || com.thenathe.suite.network.SuiteCapabilities.isNative(context, "simple_smithing_overhaul");
+    }
+    public static boolean nativeEntry(PacketContext context, Identifier id) {
+        return id != null && ((nativeClient(context) && ownEntry(id))
+                || (id.getNamespace().equals("simple_smithing_overhaul")
+                && com.thenathe.suite.network.SuiteCapabilities.isNative(context, "simple_smithing_overhaul")));
     }
     public static boolean nativeClient(ServerPlayer player) {
         return player != null && nativeClient(player.connection.getPacketContext());
@@ -53,14 +62,14 @@ public final class NativeClients {
                 context.packetContext().set(STATE_BITS, reply.bits());
                 context.packetListener().completeTask(STATE_TASK);
             } catch (IllegalArgumentException | IllegalStateException error) {
-                context.packetListener().disconnect(net.minecraft.network.chat.Component.literal("Chalk native state negotiation failed: " + error.getMessage()));
+                context.packetListener().disconnect(net.minecraft.network.chat.Component.literal("Suite native block state negotiation failed: " + error.getMessage()));
             }
         });
     }
     /** Queued from Fabric's actual sync task, after any other shim's deferred scheduling. */
     public static void afterRegistrySyncStarted(ServerConfigurationPacketListenerImpl listener) {
         var context = listener.getPacketContext();
-        if (!nativeClient(context)) return;
+        if (!nativeBlocks(context)) return;
         listener.addTask(new ConfigurationTask() {
             public void start(Consumer<Packet<?>> sender) {
                 context.set(WAITING_STATES, true);

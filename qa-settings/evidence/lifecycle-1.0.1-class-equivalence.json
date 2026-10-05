@@ -1,0 +1,8 @@
+{
+  "tested_sha256": "47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d",
+  "final_sha256": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a",
+  "tested_java_classes": 658,
+  "final_java_classes": 658,
+  "changed_java_classes": [],
+  "identical": true
+}

@@ -1,0 +1,674 @@
+{
+  "suite_version": "1.0.1+26.3",
+  "runtime_tested_candidate_sha256": "47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d",
+  "date": "2026-10-04",
+  "scope": "Original native settings presentation, representative persistence/permissions, forwarded proposal close/reopen and native update invalidation, actual different-server reconnect in both permission directions. Proposal injection uses original Fzzy client receivers, not a two-player forwarding network test.",
+  "runs": [
+    {
+      "label": "lifecycle-admin-to-guest-1.0.1-02",
+      "suite_sha256": "47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d",
+      "result": "PASS native settings/persistence/permissions and forwarded proposal lifecycle checks",
+      "observations": [
+        {
+          "config_id": "simple_smithing_overhaul.config-v2",
+          "rows": 12,
+          "client_only": false,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "mapstitch.config",
+          "rows": 8,
+          "client_only": false,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "mapstitch.client_config",
+          "rows": 4,
+          "client_only": true,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "toolpouch.config",
+          "rows": 13,
+          "client_only": false,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "toolpouch.client_config",
+          "rows": 6,
+          "client_only": true,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "tiered_backpacks.config",
+          "rows": 12,
+          "client_only": false,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "misctweaks.config",
+          "rows": 18,
+          "client_only": false,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "misctweaks.client_config",
+          "rows": 4,
+          "client_only": true,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "simple_death_improvements.config",
+          "rows": 17,
+          "client_only": false,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "thenathe_mod_suite.overview",
+          "rows": 15,
+          "client_only": true,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "thenathe_mod_suite.chalk",
+          "rows": 1,
+          "client_only": true,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "case": "Chalk original AutoConfig saved/reloaded/reopened=false",
+          "passed": true
+        },
+        {
+          "case": "Chalk original AutoConfig saved/reloaded/reopened=true",
+          "passed": true
+        },
+        {
+          "case": "Tool Pouch native checkbox original file=false",
+          "passed": true
+        },
+        {
+          "case": "Tool Pouch native checkbox original file=true",
+          "passed": true
+        },
+        {
+          "case": "remote-server-library-context",
+          "client_level_present": true,
+          "client_connection_present": true,
+          "is_local_server": false,
+          "screen_out_of_game": true,
+          "update_out_of_game": false,
+          "permission_level": 4,
+          "native_widget_enabled": true
+        },
+        {
+          "case": "remote-server-original-config-routing",
+          "server_preventShulkerDuplication": true,
+          "passed": true
+        },
+        {
+          "case": "pending forwarded proposal survives suite close/reopen",
+          "passed": true
+        },
+        {
+          "case": "native receiveUpdate invalidation rebuilds widgets, restores original routing, preserves and receives proposals",
+          "passed": true
+        },
+        {
+          "case": "real disconnect clears manager and original namespace aliases",
+          "passed": true
+        },
+        {
+          "case": "different-server reconnect drops old proposals, uses new permission level, and routes new proposals",
+          "passed": true
+        },
+        {
+          "case": "second server native checkbox permission and save verified",
+          "passed": true
+        }
+      ],
+      "runtime_mods": {
+        "server": [
+          {
+            "file": "vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar",
+            "sha256": "47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d"
+          },
+          {
+            "file": "codecui-26.3-1.4.3-fabric.jar",
+            "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+          },
+          {
+            "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+            "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+          },
+          {
+            "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+            "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+          },
+          {
+            "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+            "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+          },
+          {
+            "file": "mixson-2.2.1-multiloader.jar",
+            "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+          },
+          {
+            "file": "fabric-api-0.161.0+26.3.jar",
+            "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+          },
+          {
+            "file": "cloth-config-fabric-26.3.159.jar",
+            "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+          },
+          {
+            "file": "modmenu-21.0.0.jar",
+            "sha256": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f"
+          },
+          {
+            "file": "server.jar",
+            "sha256": "3f014cc2c3103798aeb045d0f27f7e75c3a8129b3648bd83d6387ba19b67da6c"
+          },
+          {
+            "file": "polymer-bundled-0.18.2+26.3.jar",
+            "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+          }
+        ],
+        "server2": [
+          {
+            "file": "vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar",
+            "sha256": "47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d"
+          },
+          {
+            "file": "codecui-26.3-1.4.3-fabric.jar",
+            "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+          },
+          {
+            "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+            "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+          },
+          {
+            "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+            "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+          },
+          {
+            "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+            "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+          },
+          {
+            "file": "mixson-2.2.1-multiloader.jar",
+            "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+          },
+          {
+            "file": "fabric-api-0.161.0+26.3.jar",
+            "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+          },
+          {
+            "file": "cloth-config-fabric-26.3.159.jar",
+            "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+          },
+          {
+            "file": "modmenu-21.0.0.jar",
+            "sha256": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f"
+          },
+          {
+            "file": "server.jar",
+            "sha256": "3f014cc2c3103798aeb045d0f27f7e75c3a8129b3648bd83d6387ba19b67da6c"
+          },
+          {
+            "file": "polymer-bundled-0.18.2+26.3.jar",
+            "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+          }
+        ],
+        "client": [
+          {
+            "file": "vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar",
+            "sha256": "47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d"
+          },
+          {
+            "file": "codecui-26.3-1.4.3-fabric.jar",
+            "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+          },
+          {
+            "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+            "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+          },
+          {
+            "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+            "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+          },
+          {
+            "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+            "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+          },
+          {
+            "file": "mixson-2.2.1-multiloader.jar",
+            "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+          },
+          {
+            "file": "fabric-api-0.161.0+26.3.jar",
+            "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+          },
+          {
+            "file": "cloth-config-fabric-26.3.159.jar",
+            "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+          },
+          {
+            "file": "modmenu-21.0.0.jar",
+            "sha256": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f"
+          },
+          {
+            "file": "client.jar",
+            "sha256": "a3722144566470f761c4a2fe2440835b7deb9b247a036b085a206a84313f806d"
+          }
+        ]
+      }
+    },
+    {
+      "label": "lifecycle-guest-to-admin-1.0.1",
+      "suite_sha256": "47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d",
+      "result": "PASS native settings/persistence/permissions and forwarded proposal lifecycle checks",
+      "observations": [
+        {
+          "config_id": "simple_smithing_overhaul.config-v2",
+          "rows": 12,
+          "client_only": false,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "mapstitch.config",
+          "rows": 8,
+          "client_only": false,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "mapstitch.client_config",
+          "rows": 4,
+          "client_only": true,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "toolpouch.config",
+          "rows": 13,
+          "client_only": false,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "toolpouch.client_config",
+          "rows": 6,
+          "client_only": true,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "tiered_backpacks.config",
+          "rows": 12,
+          "client_only": false,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "misctweaks.config",
+          "rows": 18,
+          "client_only": false,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "misctweaks.client_config",
+          "rows": 4,
+          "client_only": true,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "simple_death_improvements.config",
+          "rows": 17,
+          "client_only": false,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "thenathe_mod_suite.overview",
+          "rows": 15,
+          "client_only": true,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "config_id": "thenathe_mod_suite.chalk",
+          "rows": 1,
+          "client_only": true,
+          "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+          "passed": true
+        },
+        {
+          "case": "Chalk original AutoConfig saved/reloaded/reopened=false",
+          "passed": true
+        },
+        {
+          "case": "Chalk original AutoConfig saved/reloaded/reopened=true",
+          "passed": true
+        },
+        {
+          "case": "Tool Pouch native checkbox original file=false",
+          "passed": true
+        },
+        {
+          "case": "Tool Pouch native checkbox original file=true",
+          "passed": true
+        },
+        {
+          "case": "remote-server-library-context",
+          "client_level_present": true,
+          "client_connection_present": true,
+          "is_local_server": false,
+          "screen_out_of_game": true,
+          "update_out_of_game": false,
+          "permission_level": 0,
+          "native_widget_enabled": true,
+          "native_protected_button": "Can't Edit",
+          "protected_button_changed_value": false
+        },
+        {
+          "case": "remote-server-original-config-routing",
+          "server_preventShulkerDuplication": false,
+          "passed": true
+        },
+        {
+          "case": "pending forwarded proposal survives suite close/reopen",
+          "passed": true
+        },
+        {
+          "case": "native receiveUpdate invalidation rebuilds widgets, restores original routing, preserves and receives proposals",
+          "passed": true
+        },
+        {
+          "case": "real disconnect clears manager and original namespace aliases",
+          "passed": true
+        },
+        {
+          "case": "different-server reconnect drops old proposals, uses new permission level, and routes new proposals",
+          "passed": true
+        },
+        {
+          "case": "second server native checkbox permission and save verified",
+          "passed": true
+        }
+      ],
+      "runtime_mods": {
+        "server": [
+          {
+            "file": "vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar",
+            "sha256": "47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d"
+          },
+          {
+            "file": "codecui-26.3-1.4.3-fabric.jar",
+            "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+          },
+          {
+            "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+            "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+          },
+          {
+            "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+            "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+          },
+          {
+            "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+            "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+          },
+          {
+            "file": "mixson-2.2.1-multiloader.jar",
+            "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+          },
+          {
+            "file": "fabric-api-0.161.0+26.3.jar",
+            "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+          },
+          {
+            "file": "cloth-config-fabric-26.3.159.jar",
+            "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+          },
+          {
+            "file": "modmenu-21.0.0.jar",
+            "sha256": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f"
+          },
+          {
+            "file": "server.jar",
+            "sha256": "15c00df2e2970ddaafe50ec96ee71d4d093fc148526645ae6377ee38577fa7d3"
+          },
+          {
+            "file": "polymer-bundled-0.18.2+26.3.jar",
+            "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+          }
+        ],
+        "server2": [
+          {
+            "file": "vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar",
+            "sha256": "47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d"
+          },
+          {
+            "file": "codecui-26.3-1.4.3-fabric.jar",
+            "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+          },
+          {
+            "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+            "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+          },
+          {
+            "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+            "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+          },
+          {
+            "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+            "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+          },
+          {
+            "file": "mixson-2.2.1-multiloader.jar",
+            "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+          },
+          {
+            "file": "fabric-api-0.161.0+26.3.jar",
+            "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+          },
+          {
+            "file": "cloth-config-fabric-26.3.159.jar",
+            "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+          },
+          {
+            "file": "modmenu-21.0.0.jar",
+            "sha256": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f"
+          },
+          {
+            "file": "server.jar",
+            "sha256": "15c00df2e2970ddaafe50ec96ee71d4d093fc148526645ae6377ee38577fa7d3"
+          },
+          {
+            "file": "polymer-bundled-0.18.2+26.3.jar",
+            "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+          }
+        ],
+        "client": [
+          {
+            "file": "vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar",
+            "sha256": "47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d"
+          },
+          {
+            "file": "codecui-26.3-1.4.3-fabric.jar",
+            "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+          },
+          {
+            "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+            "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+          },
+          {
+            "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+            "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+          },
+          {
+            "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+            "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+          },
+          {
+            "file": "mixson-2.2.1-multiloader.jar",
+            "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+          },
+          {
+            "file": "fabric-api-0.161.0+26.3.jar",
+            "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+          },
+          {
+            "file": "cloth-config-fabric-26.3.159.jar",
+            "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+          },
+          {
+            "file": "modmenu-21.0.0.jar",
+            "sha256": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f"
+          },
+          {
+            "file": "client.jar",
+            "sha256": "9622bfc6b4cbc5ca67057e2997be79004561411d520642586b5f673db984806d"
+          }
+        ]
+      }
+    }
+  ],
+  "excluded_runs": [
+    {
+      "label": "lifecycle-admin-to-guest-1.0.1",
+      "reason": "Sandbox rejected localhost server socket creation before runtime testing; rerun with approved escalation passed."
+    }
+  ],
+  "candidate_note": "The full two-server matrix tested candidate 47e656 with stale nested component version metadata. Metadata-corrected final release 8e4783 contains all 658 byte-identical Java classes and passed its own focused graphical opening/proposal reopen/native update invalidation smoke. Full matrix was not redundantly rerun for metadata-only changes.",
+  "final_release_sha256": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a",
+  "class_equivalence": {
+    "tested_sha256": "47e656b8856b9c36164fe47189b6e798f1139ce8af1e2fce7174d0ef5e58cd3d",
+    "final_sha256": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a",
+    "tested_java_classes": 658,
+    "final_java_classes": 658,
+    "changed_java_classes": [],
+    "identical": true
+  },
+  "final_focused_smoke": {
+    "label": "lifecycle-final-1.0.1",
+    "suite_sha256": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a",
+    "result": "PASS native settings checks (see observations for executed cases)",
+    "config_identity_validation": "All eleven native/grouped IDs checked before lifecycle cases",
+    "observations": [
+      {
+        "case": "pending forwarded proposal survives suite close/reopen",
+        "passed": true
+      },
+      {
+        "case": "native receiveUpdate invalidation rebuilds widgets, restores original routing, preserves and receives proposals",
+        "passed": true
+      }
+    ],
+    "runtime_mods": {
+      "server": [
+        {
+          "file": "vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar",
+          "sha256": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a"
+        },
+        {
+          "file": "codecui-26.3-1.4.3-fabric.jar",
+          "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+        },
+        {
+          "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+          "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+        },
+        {
+          "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+          "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+        },
+        {
+          "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+          "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+        },
+        {
+          "file": "mixson-2.2.1-multiloader.jar",
+          "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.3.jar",
+          "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+        },
+        {
+          "file": "cloth-config-fabric-26.3.159.jar",
+          "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+        },
+        {
+          "file": "modmenu-21.0.0.jar",
+          "sha256": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f"
+        },
+        {
+          "file": "server.jar",
+          "sha256": "260e026c6a0c9cc04eaeae5590f15f9696d220c18fc47dc5c2df3b679b321d6a"
+        },
+        {
+          "file": "polymer-bundled-0.18.2+26.3.jar",
+          "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+        }
+      ],
+      "client": [
+        {
+          "file": "vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar",
+          "sha256": "8e4783b66633a7f6f5cfa38e285b530638d4d82326d5eca15376f7b698d0791a"
+        },
+        {
+          "file": "codecui-26.3-1.4.3-fabric.jar",
+          "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+        },
+        {
+          "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+          "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+        },
+        {
+          "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+          "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+        },
+        {
+          "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+          "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+        },
+        {
+          "file": "mixson-2.2.1-multiloader.jar",
+          "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.3.jar",
+          "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+        },
+        {
+          "file": "cloth-config-fabric-26.3.159.jar",
+          "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+        },
+        {
+          "file": "modmenu-21.0.0.jar",
+          "sha256": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f"
+        },
+        {
+          "file": "client.jar",
+          "sha256": "db30220d4586d90ecf315b9ee41bf7674b9a1f1fc9f6760ab13fa04722d02c4e"
+        }
+      ]
+    }
+  }
+}

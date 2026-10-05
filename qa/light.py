@@ -7,7 +7,7 @@ WORKSPACE = ROOT.parents[1]
 STAGE = WORKSPACE / 'Minecraft/polymer-shim-test-bundle/staging-2026-10-01/mods'
 JAVA = '/usr/lib/jvm/java-25-openjdk/bin/java'
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.0+26.3.jar')
+parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar')
 parser.add_argument('--label', default='light-'+time.strftime('%Y%m%d-%H%M%S'))
 parser.add_argument('--integrated-only', action='store_true', help='Singleplayer suite worlds with and without Polymer on the physical client')
 parser.add_argument('--world-template', type=Path, default=ROOT/'qa/runs/official-private-02/server-polymer/world')
@@ -97,7 +97,7 @@ def server(label,with_polymer):
         with zipfile.ZipFile(pack) as z:assert z.testzip() is None
     return proc,directory,port,pack
 
-def client(name,kind,sp,serverdir,port,pack,extended=False,mismatch=False):
+def client(name,kind,sp,serverdir,port,pack,extended=False,mismatch=None):
     directory=RUN/name;(directory/'mods').mkdir(parents=True)
     mods=[] if kind=='vanilla' else [fixtures['client'],STAGE/'fabric-api-0.161.0+26.3.jar']
     if kind.startswith('suite'):mods=[bundle,*external,fixtures['client']]
@@ -109,8 +109,8 @@ def client(name,kind,sp,serverdir,port,pack,extended=False,mismatch=False):
         packopt='resourcePacks:["vanilla","file/suite-qa.zip"]\n'
     (directory/'options.txt').write_text('graphicsMode:0\nrenderDistance:2\nsimulationDistance:5\nmaxFps:20\nmaxFpsInactive:20\nsoundCategory_master:0.0\njoinedFirstServer:true\npauseOnLostFocus:false\n'+packopt)
     cp=[p for p in clientcp if kind!='vanilla' or not any(t in str(p) for t in ['/net.fabricmc/','/org.ow2.asm/'])]
-    cmd=[JAVA,'-Xmx2G','-XX:ActiveProcessorCount=2','--enable-native-access=ALL-UNNAMED','-XX:StackShadowPages=32','--add-exports','java.base/jdk.internal.misc=ALL-UNNAMED','-Dsuite.qa.control='+str(directory),'-Dsuite.qa.server.address=127.0.0.1:'+str(port),'-Dsuite.qa.native-chalk='+str(kind.startswith('suite')).lower()]
-    if mismatch:cmd+=['-Dsuite.qa.reply-mismatch=true']
+    cmd=[JAVA,'-Xmx2G','-XX:ActiveProcessorCount=2','--enable-native-access=ALL-UNNAMED','-XX:StackShadowPages=32','--add-exports','java.base/jdk.internal.misc=ALL-UNNAMED','-Dsuite.qa.control='+str(directory),'-Dsuite.qa.server.address=127.0.0.1:'+str(port),'-Dsuite.qa.native-chalk='+str(kind.startswith('suite') and mismatch!='chalk').lower(),'-Dsuite.qa.native-sso='+str(kind.startswith('suite') and mismatch!='simple_smithing_overhaul').lower()]
+    if mismatch:cmd+=['-Dsuite.qa.reply-mismatch='+mismatch]
     for prop,folder in [('java.library.path','java'),('jna.tmpdir','jna'),('org.lwjgl.system.SharedLibraryExtractPath','lwjgl'),('io.netty.native.workdir','netty')]:cmd+=['-D'+prop+'='+str(directory/'natives'/folder)]
     cmd+=['-cp',os.pathsep.join(map(str,cp)),'net.minecraft.client.main.Main' if kind=='vanilla' else 'net.fabricmc.loader.impl.launch.knot.KnotClient','--username',name,'--version','26.3','--gameDir',str(directory),'--assetsDir',str(Path.home()/'.local/share/ModrinthApp/meta/assets'),'--assetIndex',info['assetIndex']['id'],'--uuid',str(uuid.uuid3(uuid.NAMESPACE_DNS,name)),'--accessToken','0','--versionType','release','--width','900','--height','600','--quickPlayMultiplayer',f'127.0.0.1:{port}']
     proc=start(directory,cmd,mods)
@@ -131,13 +131,13 @@ def client(name,kind,sp,serverdir,port,pack,extended=False,mismatch=False):
         wait(lambda:json.loads(joined.read_text()).get('join_count',0)>=2,proc,'native reconfiguration server',90)
         wait(lambda:json.loads((directory/'client-joined.json').read_text()).get('join_count',0)>=2,proc,'native reconfiguration client',90)
         after=json.loads(joined.read_text());assert after['passed'],after
-        result['cases'].append({'profile':name+'-reconfigure','passed':True,'observed':after})
+        result['cases'].append({'profile':name+'-reconfigure','passed':True,'observed':after,'client_marker':json.loads((directory/'client-joined.json').read_text())})
         sp.stdin.write('kick '+name+' QA reconnect test\n');sp.stdin.flush()
         (directory/'reconnect.txt').write_text('reconnect\n')
         wait(lambda:json.loads(joined.read_text()).get('join_count',0)>=3,proc,'same-process reconnect server',90)
         wait(lambda:json.loads((directory/'client-joined.json').read_text()).get('join_count',0)>=3,proc,'same-process reconnect client',90)
         after=json.loads(joined.read_text());assert after['passed'],after
-        result['cases'].append({'profile':name+'-same-process-reconnect','passed':True,'observed':after})
+        result['cases'].append({'profile':name+'-same-process-reconnect','passed':True,'observed':after,'client_marker':json.loads((directory/'client-joined.json').read_text())})
         print('PASS reconfiguration and same-process reconnect '+name,flush=True)
     stop(proc)
 def integrated(name,with_polymer):
@@ -147,7 +147,7 @@ def integrated(name,with_polymer):
     worldname='SuiteIntegrated'
     shutil.copytree(args.world_template,directory/'saves'/worldname,ignore=shutil.ignore_patterns('session.lock'))
     (directory/'options.txt').write_text('graphicsMode:0\nrenderDistance:2\nsimulationDistance:5\nmaxFps:20\nmaxFpsInactive:20\nsoundCategory_master:0.0\njoinedFirstServer:true\npauseOnLostFocus:false\n')
-    cmd=[JAVA,'-Xmx3G','-XX:ActiveProcessorCount=2','--enable-native-access=ALL-UNNAMED','-XX:StackShadowPages=32','--add-exports','java.base/jdk.internal.misc=ALL-UNNAMED','-Dsuite.qa.control='+str(directory),'-Dsuite.qa.native-chalk=true']
+    cmd=[JAVA,'-Xmx3G','-XX:ActiveProcessorCount=2','--enable-native-access=ALL-UNNAMED','-XX:StackShadowPages=32','--add-exports','java.base/jdk.internal.misc=ALL-UNNAMED','-Dsuite.qa.control='+str(directory),'-Dsuite.qa.native-chalk=true','-Dsuite.qa.native-sso=true']
     for prop,folder in [('java.library.path','java'),('jna.tmpdir','jna'),('org.lwjgl.system.SharedLibraryExtractPath','lwjgl'),('io.netty.native.workdir','netty')]:cmd+=['-D'+prop+'='+str(directory/'natives'/folder)]
     cmd+=['-cp',os.pathsep.join(map(str,clientcp)),'net.fabricmc.loader.impl.launch.knot.KnotClient','--username',name,'--version','26.3','--gameDir',str(directory),'--assetsDir',str(Path.home()/'.local/share/ModrinthApp/meta/assets'),'--assetIndex',info['assetIndex']['id'],'--uuid',str(uuid.uuid3(uuid.NAMESPACE_DNS,name)),'--accessToken','0','--versionType','release','--width','900','--height','600','--quickPlaySingleplayer',worldname]
     proc=start(directory,cmd,mods)
@@ -172,7 +172,8 @@ try:
             stop(sp,server=True);assert sp.returncode==0
         elif args.extended_only:
             client('SuiteNative','suite',sp,directory,port,pack,extended=True)
-            client('SuiteMismatch','suite',sp,directory,port,pack,mismatch=True)
+            client('SuiteMismatch','suite',sp,directory,port,pack,mismatch='simple_smithing_overhaul')
+            client('SuiteChalkMiss','suite',sp,directory,port,pack,mismatch='chalk')
             stop(sp,server=True);assert sp.returncode==0
         else:
             client('SuiteNative','suite',sp,directory,port,pack)

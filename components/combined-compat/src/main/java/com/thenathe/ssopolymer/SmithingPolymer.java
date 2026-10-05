@@ -40,8 +40,21 @@ public final class SmithingPolymer {
         PolymerItem.registerOverlay(ModItems.BROKEN_ANVIL, new ItemOverlay(Items.DAMAGED_ANVIL));
         PolymerItem.registerOverlay(ModItems.INFO_ENCHANTMENT_UPGRADE, new ItemOverlay(Items.PAPER));
         PolymerItem.registerOverlay(ModItems.INFO_PINNACLE_ENCHANTMENT, new ItemOverlay(Items.PAPER));
-        PolymerBlock.registerOverlay(ModBlocks.BROKEN_ANVIL, (state, context) ->
-                Blocks.DAMAGED_ANVIL.defaultBlockState().setValue(AnvilBlock.FACING, state.getValue(AnvilBlock.FACING)));
+        PolymerBlock.registerOverlay(ModBlocks.BROKEN_ANVIL, new PolymerBlock() {
+            @Override public boolean canSyncRawToClient(PacketContext context) {
+                return com.thenathe.combinedshim.NativeClients.isNative(context, "simple_smithing_overhaul");
+            }
+            @Override public net.minecraft.world.level.block.state.BlockState getPolymerBlockState(
+                    net.minecraft.world.level.block.state.BlockState state, PacketContext context) {
+                return canSyncRawToClient(context) ? state
+                        : Blocks.DAMAGED_ANVIL.defaultBlockState().setValue(AnvilBlock.FACING, state.getValue(AnvilBlock.FACING));
+            }
+            @Override public boolean handleMiningOnServer(ItemStack stack,
+                    net.minecraft.world.level.block.state.BlockState state, net.minecraft.core.BlockPos pos,
+                    net.minecraft.server.level.ServerPlayer player) {
+                return !canSyncRawToClient(player.connection.getPacketContext());
+            }
+        });
         PolymerComponent.registerDataComponent(ModDataComponents.REPAIR_COUNT,
                 ModDataComponents.PINNACLE_COUNT, ModDataComponents.BROKEN);
         RegistrySyncUtils.setServerEntry(BuiltInRegistries.RECIPE_SERIALIZER, ModRecipeSerializers.PORTABLE_ITEM_REPAIR);

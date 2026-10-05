@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-/** Native global palettes use the actual client's state width even without client Polymer. */
+/** Shared native block palettes use the actual client's state width even without client Polymer. */
 @Mixin(value = PolymerServerNetworking.class, remap = false)
 public abstract class NativeBlockBitsMixin {
     @Inject(method = "getMetadata(Lnet/minecraft/network/Connection;Lnet/minecraft/resources/Identifier;Lnet/minecraft/nbt/TagType;)Lnet/minecraft/nbt/Tag;",
@@ -23,7 +23,7 @@ public abstract class NativeBlockBitsMixin {
                                                             CallbackInfoReturnable<T> cir) {
         var context = PacketContext.get();
         if (context != null && context.get(PacketContext.CONNECTION) == connection
-                && NativeClients.nativeClient(context) && key.equals(ClientMetadataKeys.BLOCKSTATE_BITS) && type == IntTag.TYPE) {
+                && NativeClients.nativeBlocks(context) && key.equals(ClientMetadataKeys.BLOCKSTATE_BITS) && type == IntTag.TYPE) {
             Integer bits = context.get(NativeClients.STATE_BITS);
             if (bits != null) cir.setReturnValue((T) IntTag.valueOf(bits));
         }

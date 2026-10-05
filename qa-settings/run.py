@@ -10,8 +10,8 @@ launch=importlib.util.module_from_spec(spec);spec.loader.exec_module(launch)
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--visual-only',action='store_true');p.add_argument('--guest',action='store_true');p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.0+26.3.jar')
-    p.add_argument('--label',required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--settings-only',action='store_true');p.add_argument('--port',type=int,default=25976)
+    p.add_argument('--visual-only',action='store_true');p.add_argument('--lifecycle-only',action='store_true');p.add_argument('--guest',action='store_true');p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.0.1+26.3.jar')
+    p.add_argument('--label',required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--settings-only',action='store_true');p.add_argument('--port',type=int,default=25976);p.add_argument('--reconnect',action='store_true',help='Reconnect to a second isolated server with opposite operator permissions')
     args=p.parse_args();suite=args.suite.resolve();assert suite.is_file();suiteHash=sha(suite)
     run=HERE/'runs'/args.label;run.mkdir(parents=True,exist_ok=False);control=run/'control';control.mkdir();fixtures=run/'fixtures';fixtures.mkdir();classes=fixtures/'classes';classes.mkdir()
     frozen=run/suite.name;shutil.copy2(suite,frozen);assert sha(frozen)==suiteHash;suite=frozen
@@ -39,31 +39,36 @@ def main():
     children=[];env=os.environ.copy();env.update(SDL_VIDEODRIVER='x11',SDL_VIDEO_X11_XINPUT2='0',LP_NUM_THREADS='3',DISPLAY=env.get('DISPLAY',':1'))
     audits={}
     try:
-        sides=['client'] if args.settings_only else ['server','client']
+        sides=['client'] if args.settings_only else (['server','server2','client'] if args.reconnect else ['server','client'])
         for side in sides:
+            isServer=side.startswith('server');runtimeSide='server' if isServer else 'client';port=args.port+(1 if side=='server2' else 0)
             directory=run/side;mods=directory/'mods';mods.mkdir(parents=True)
-            chosen=selected+[fixtures/f'{side}.jar']
-            if side=='server':chosen+=[ROOT/'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar']
+            chosen=selected+[fixtures/f'{runtimeSide}.jar']
+            if isServer:chosen+=[ROOT/'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar']
             for jar in chosen:shutil.copy2(jar,mods/jar.name)
-            if side=='server':
+            if isServer:
                 launch.copy_accepted_eula(directory)
                 profile=uuid.UUID(bytes=hashlib.md5(b'OfflinePlayer:SettingsQa').digest(),version=3)
-                (directory/'ops.json').write_text(json.dumps([] if args.guest else [dict(uuid=str(profile),name='SettingsQa',level=4,bypassesPlayerLimit=True)]))
-                (directory/'server.properties').write_text(f'server-ip=127.0.0.1\nserver-port={args.port}\nonline-mode=false\nwhite-list=false\nenforce-secure-profile=false\nspawn-protection=0\nview-distance=2\nsimulation-distance=2\ndifficulty=peaceful\nlevel-type=minecraft:flat\ngenerator-settings={{"biome":"minecraft:plains","layers":[{{"block":"minecraft:bedrock","height":1}},{{"block":"minecraft:dirt","height":2}},{{"block":"minecraft:grass_block","height":1}}]}}\ngenerate-structures=false\n')
+                guest=(not args.guest) if side=='server2' else args.guest
+                (directory/'ops.json').write_text(json.dumps([] if guest else [dict(uuid=str(profile),name='SettingsQa',level=4,bypassesPlayerLimit=True)]))
+                (directory/'server.properties').write_text(f'server-ip=127.0.0.1\nserver-port={port}\nonline-mode=false\nwhite-list=false\nenforce-secure-profile=false\nspawn-protection=0\nview-distance=2\nsimulation-distance=2\ndifficulty=peaceful\nlevel-type=minecraft:flat\ngenerator-settings={{"biome":"minecraft:plains","layers":[{{"block":"minecraft:bedrock","height":1}},{{"block":"minecraft:dirt","height":2}},{{"block":"minecraft:grass_block","height":1}}]}}\ngenerate-structures=false\n')
             else:(directory/'options.txt').write_text('pauseOnLostFocus:false\nguiScale:2\ngraphicsMode:0\nrenderDistance:3\nsimulationDistance:3\nmaxFps:30\nmaxFpsInactive:30\nsoundCategory_master:0.0\njoinedFirstServer:true\n')
-            command=launch.base_command('server' if side=='server' else 'native',directory,args.port)
+            command=launch.base_command('server' if isServer else 'native',directory,port)
             command[0]='/usr/lib/jvm/java-25-openjdk/bin/java'
             if side=='client':command[command.index('--username')+1]='SettingsQa'
-            command.insert(1,'-Dsettings.qa.control='+str(control))
+            sideControl=control/'server2' if side=='server2' else control;sideControl.mkdir(exist_ok=True)
+            command.insert(1,'-Dsettings.qa.control='+str(sideControl))
+            if side=='client' and args.reconnect:command.insert(1,'-Dsettings.qa.reconnectPort='+str(args.port+1))
             command.insert(1,'-Djava.awt.headless=true')
             if args.guest:command.insert(1,'-Dsettings.qa.guest=true')
             if args.visual_only:command.insert(1,'-Dsettings.qa.visual=true')
+            if args.lifecycle_only:command.insert(1,'-Dsettings.qa.lifecycleOnly=true')
             if args.settings_only:
                 command.insert(1,'-Dsettings.qa.standalone=true');index=command.index('--quickPlayMultiplayer');del command[index:index+2]
             audits[side]={'command':command,'mods':[{'file':j.name,'sha256':sha(j)} for j in chosen]}
             (directory/'launch-audit.json').write_text(json.dumps(audits[side],indent=2))
             logpath=directory/'console.log';log=logpath.open('w');child=subprocess.Popen(command,cwd=directory,env=env,stdin=subprocess.PIPE,stdout=log,stderr=subprocess.STDOUT,text=True);children.append((child,log,side))
-            if side=='server':
+            if isServer:
                 for _ in range(120):
                     if child.poll() is not None:raise RuntimeError('server exited: '+str(logpath))
                     if 'Done (' in logpath.read_text():break
@@ -78,7 +83,7 @@ def main():
     finally:
         for child,log,side in reversed(children):
             if child.poll() is None:
-                if side=='server':
+                if side.startswith('server'):
                     try:child.stdin.write('stop\n');child.stdin.flush()
                     except BrokenPipeError:pass
                 else:child.terminate()

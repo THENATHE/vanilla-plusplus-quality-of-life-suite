@@ -7,7 +7,7 @@ dependencies {
  implementation 'net.fabricmc.fabric-api:fabric-api:0.161.0+26.3'
  compileOnly rootProject.fileTree('libs') { include '*.jar' }
 }
-processResources { inputs.property 'version', project.version; filesMatching('fabric.mod.json') { expand(version:project.version, mc:'26.3', chalk:'3.2.1+26.3', polymer:'0.18.2+26.3') } }
+processResources { inputs.property 'version', providers.provider { project.version.toString() }; filesMatching('fabric.mod.json') { expand(version:project.version, mc:'26.3', chalk:'3.2.1+26.3', polymer:'0.18.2+26.3') } }
 tasks.withType(JavaCompile).configureEach {
  options.encoding = 'UTF-8'; options.release = 25
  if (providers.gradleProperty('compilerVersion').isPresent()) {
@@ -22,7 +22,7 @@ dependencies {
  implementation 'eu.pb4:polymer-virtual-entity:0.18.2+26.3'
 }
 
-version = '1.1.0-suite.1+26.3'
+version = '1.1.1-suite.1+26.3'
 base { archivesName = 'thenathe-suite-chalk-compat' }
 sourceSets.main.java.srcDir('src/26.3/java')
 dependencies { implementation project(':combined-compat') }
