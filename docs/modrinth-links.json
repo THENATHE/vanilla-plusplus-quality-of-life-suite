@@ -720,6 +720,40 @@
       "fabric_26_3_versions": [],
       "client_side": "required",
       "server_side": "unsupported"
+    },
+    {
+      "query": "itemswapper",
+      "slug": "itemswapper",
+      "title": "ItemSwapper",
+      "id": "RPOSBQgq",
+      "url": "https://modrinth.com/plugin/itemswapper",
+      "fabric_26_3_versions": [
+        {
+          "id": "xuDEChlT",
+          "number": "1.0.0-beta.3-26.3",
+          "url": "https://modrinth.com/plugin/itemswapper/version/xuDEChlT",
+          "version_type": "beta"
+        }
+      ],
+      "checked": "2026-10-04",
+      "scope": "Optional Tiered Backpacks integration assets confirmed in locked JAR; not suite runtime-tested."
+    },
+    {
+      "query": "item-descriptions",
+      "slug": "item-descriptions",
+      "title": "Item Descriptions",
+      "id": "UaizcMKP",
+      "url": "https://modrinth.com/mod/item-descriptions",
+      "fabric_26_3_versions": [
+        {
+          "id": "fu09rx8G",
+          "number": "2.8.4+26.2-fabric",
+          "url": "https://modrinth.com/mod/item-descriptions/version/fu09rx8G",
+          "version_type": "release"
+        }
+      ],
+      "checked": "2026-10-04",
+      "scope": "Optional Tiered Backpacks integration assets confirmed in locked JAR; not suite runtime-tested."
     }
   ],
   "notes": [

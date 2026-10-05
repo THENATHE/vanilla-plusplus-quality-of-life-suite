@@ -37,6 +37,8 @@ These are optional and are not bundled. Choose a Fabric build for Minecraft 26.3
 | [Trinkets Updated](https://modrinth.com/mod/trinkets-updated) | MapStitch, Tool Pouch, Tiered Backpacks and Simple Death Improvements: accessory slots and associated item/death handling. | Available; use the updated API, not the legacy Trinkets project. |
 | [Ohmega](https://modrinth.com/mod/ohmega) | Accessory integration in the same modules. | Available. Upstream metadata requires **>=1.5.21 and <1.6**; do not substitute 1.6+. |
 | [Shulker Box Tooltip](https://modrinth.com/mod/shulkerboxtooltip) | Tool Pouch and Tiered Backpacks: container content tooltips. | Available. |
+| [ItemSwapper](https://modrinth.com/plugin/itemswapper) | Tiered Backpacks includes device-group assets for quick item swapping. Install separately; not runtime-tested with this suite. | Fabric 26.3 beta listing available: 1.0.0-beta.3-26.3. |
+| [Item Descriptions](https://modrinth.com/mod/item-descriptions) | Tiered Backpacks includes description translations for this optional client mod. Not runtime-tested with this suite. | Available; 2.8.4+26.2-fabric metadata also lists 26.3. |
 | [LambDynamicLights - Dynamic Lights](https://modrinth.com/mod/lambdynamiclights) | Tool Pouch: light from a lantern carried in the pouch. | Available. |
 | [Immersive Overlays](https://modrinth.com/mod/immersive-overlays) | Tool Pouch suppresses its own info overlay when this is installed, letting Immersive Overlays provide it. The suite’s minimap spacing fix targets Tool Pouch’s own overlay. | Available; the replacement overlay’s positioning is outside the suite HUD fix. |
 | [Raised](https://modrinth.com/mod/raised) | Tool Pouch/MiscTweaks: compatibility with adjusted HUD positioning. | Available. |
