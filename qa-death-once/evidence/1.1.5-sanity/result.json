@@ -1,0 +1,52 @@
+{
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "death-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 127 assertions, 25 death cases: loose inventory; loose offhand; pouch inventory; open pouch final contents; open backpack final contents; pouch leggings attached; backpack tiered_backpacks:leather_backpack; backpack tiered_backpacks:copper_backpack; backpack tiered_backpacks:iron_backpack; backpack tiered_backpacks:golden_backpack; backpack tiered_backpacks:diamond_backpack; backpack tiered_backpacks:netherite_backpack; backpack chestplate attached; shulker inventory; bundle selected atlas; nested bundle in shulker in backpack; two atlases with empty middle slot; disabled retention loose; disabled retention nested; keep inventory gamerule; loose vanishing atlas; vanishing ancestor container; full inventory cursor atlas; full inventory cursor container; overflow save/load and room recovery",
+      "passed": true
+    },
+    {
+      "profile": "death-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 127 assertions, 25 death cases: loose inventory; loose offhand; pouch inventory; open pouch final contents; open backpack final contents; pouch leggings attached; backpack tiered_backpacks:leather_backpack; backpack tiered_backpacks:copper_backpack; backpack tiered_backpacks:iron_backpack; backpack tiered_backpacks:golden_backpack; backpack tiered_backpacks:diamond_backpack; backpack tiered_backpacks:netherite_backpack; backpack chestplate attached; shulker inventory; bundle selected atlas; nested bundle in shulker in backpack; two atlases with empty middle slot; disabled retention loose; disabled retention nested; keep inventory gamerule; loose vanishing atlas; vanishing ancestor container; full inventory cursor atlas; full inventory cursor container; overflow save/load and room recovery",
+      "passed": true
+    }
+  ],
+  "date": "2026-10-06",
+  "suite_version": "1.1.5+26.3",
+  "qa_fixture_sha256": "7d61e93751b2b116c0acbb24e9566c550ab86599075b0b2660679463ef6f0fa1",
+  "runtime_defaulted_absent": true,
+  "fixture_sources": [
+    {
+      "file": "qa-death-once/src/AtlasDeathOnceQa.java",
+      "sha256": "127df56df383c346c0423cfc20641ef059ea6b25bfe5555c7c5abb359226debc"
+    }
+  ],
+  "runner": {
+    "file": "qa-death-once/run.py",
+    "sha256": "153350d5e15e15fea76338e9b5e4fb5c365c069a5725d9fe78d8b9a6319b517e"
+  },
+  "total_assertions": 254,
+  "runtime_scope": "Disposable dedicated servers with packaged release; in-process test players and packet capture; not interactive remote client inventory or death animations.",
+  "logs": [
+    {
+      "file": "death-native-console-0.txt",
+      "raw_sha256": "84ab5ec6c52351038069347176197a2ebe03dbdf6a3f28bbe0896d10adb61395",
+      "sanitized_sha256": "71b1732514887481632e513705f43ebd12140410bd5ffa814260f9931afaff75",
+      "normal_shutdown_observed": true,
+      "errors": 0
+    },
+    {
+      "file": "death-polymer-console-0.txt",
+      "raw_sha256": "0644a6d8a552596d140bffd3462834b9b5772d8d4315db0c3280d14d0cd35c8e",
+      "sanitized_sha256": "fc24a2d94be6fae41d90e3d7a8da499a66a4b01268d3621efcf0f792fcf6cc40",
+      "normal_shutdown_observed": true,
+      "errors": 0
+    }
+  ]
+}

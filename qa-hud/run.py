@@ -11,12 +11,13 @@ launch=mapstitch_launch(ROOT)
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar')
-    p.add_argument('--label',required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--settings-only',action='store_true');p.add_argument('--port',type=int,default=25976)
+    p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar')
+    p.add_argument('--client-polymer',action='store_true',help='Also install Polymer on the native QA client');p.add_argument('--label',required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--settings-only',action='store_true');p.add_argument('--port',type=int,default=25976)
     args=p.parse_args();suite=args.suite.resolve();assert suite.is_file();suiteHash=sha(suite)
     run=HERE/'runs'/args.label;run.mkdir(parents=True,exist_ok=False);control=run/'control';control.mkdir();fixtures=run/'fixtures';fixtures.mkdir();classes=fixtures/'classes';classes.mkdir()
+    frozen=run/suite.name;shutil.copy2(suite,frozen);assert sha(frozen)==suiteHash;suite=frozen
     # Original runtime dependencies remain separate; component mods are nested in suite.
-    deps=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','defaulted-1.3.8+26.3.dropfix.1-fabric.jar','fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar','fzzy_config-0.7.7+fix2+26.3.jar','mixson-2.2.1-multiloader.jar']]
+    deps=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar','fzzy_config-0.7.7+fix3+26.3.jar','mixson-2.2.1-multiloader.jar']]
     deps+=[launch.artifact('net.fabricmc.fabric-api','fabric-api','0.161.0+26.3'),launch.artifact('me.shedaniel.cloth','cloth-config-fabric','26.3.159'),launch.artifact('com.terraformersmc','modmenu','21.0.0')]
     selected=[suite]+deps
     serverAudit,clientAudit=launch.audits();paths=launch.cp(serverAudit['command'])+launch.cp(clientAudit['command'])+[str(p) for p in selected]+[str(launch.artifact('io.github.llamalad7','mixinextras-fabric','0.5.5'))]
@@ -27,7 +28,7 @@ def main():
                     blob=z.read(n);dest=fixtures/(hashlib.sha256(blob).hexdigest()[:12]+'-'+Path(n).name)
                     if not dest.exists():dest.write_bytes(blob);paths.append(str(dest));extract(dest)
     for jar in selected:extract(jar)
-    subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(dict.fromkeys(paths)),'-d',str(classes),*map(str,(HERE/'src').glob('*.java'))],check=True)
+    subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(dict.fromkeys(paths)),'-d',str(classes),*map(str,(HERE/'src').rglob('*.java'))],check=True)
     for side in ['client','server']:
         with zipfile.ZipFile(fixtures/f'{side}.jar','w') as z:
             meta={'schemaVersion':1,'id':'suite_hud_qa_'+side,'version':'1','environment':side,'entrypoints':{'client' if side=='client' else 'main':['suitehudqa.Hud'+side.title()+'Qa']},'depends':{'fabric-api':'*','thenathe_mod_suite':'*'}}
@@ -45,7 +46,7 @@ def main():
         for side in sides:
             directory=run/side;mods=directory/'mods';mods.mkdir(parents=True)
             chosen=selected+[fixtures/f'{side}.jar']
-            if side=='server':chosen+=[ROOT/'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar']
+            if side=='server' or args.client_polymer:chosen+=[ROOT/'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar']
             for jar in chosen:shutil.copy2(jar,mods/jar.name)
             if side=='server':
                 launch.copy_accepted_eula(directory)
@@ -91,7 +92,7 @@ def main():
                 try:child.wait(timeout=20)
                 except subprocess.TimeoutExpired:child.kill();child.wait()
             log.close()
-        evidence={'suite':str(suite),'suite_sha256':suiteHash,'settings_only':args.settings_only,'launches':audits}
+        evidence={'client_polymer':args.client_polymer,'suite':str(suite),'suite_sha256':suiteHash,'settings_only':args.settings_only,'launches':audits}
         for name in ['result.txt','observations.json','failure']:
             if (control/name).exists():evidence[name]=(control/name).read_text()
         (run/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')

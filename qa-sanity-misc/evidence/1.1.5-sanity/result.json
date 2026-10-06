@@ -1,0 +1,59 @@
+{
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "misc-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 154 assertions: MiscTweaks: block positions/velocities, targeted fling/crouch/range controls, obsidian+anchor mining controls, configured cobweb fire odds, adult/baby cow goal and actual food consumption; SDI: saved safe position, XP percentages and vanilla/keepInventory controls, actual orb spawning, item lifetime/splatter/explosion toggles, airborne lava and void rescue, armor/hotbar/offhand death retention and exclusion lists",
+      "passed": true
+    },
+    {
+      "profile": "misc-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 154 assertions: MiscTweaks: block positions/velocities, targeted fling/crouch/range controls, obsidian+anchor mining controls, configured cobweb fire odds, adult/baby cow goal and actual food consumption; SDI: saved safe position, XP percentages and vanilla/keepInventory controls, actual orb spawning, item lifetime/splatter/explosion toggles, airborne lava and void rescue, armor/hotbar/offhand death retention and exclusion lists",
+      "passed": true
+    }
+  ],
+  "date": "2026-10-06",
+  "suite_version": "1.1.5+26.3",
+  "runtime_defaulted_absent": true,
+  "total_assertions": 308,
+  "fixture_sources": [
+    {
+      "file": "qa-sanity-misc/src/MiscSdiQa.java",
+      "sha256": "0f7b77d05894db0f800a1d9748e7ab714789dc392aa6043d7cb71e174911877c"
+    }
+  ],
+  "runner": {
+    "file": "qa-sanity-misc/run.py",
+    "sha256": "b156dfa23507ca79fa0f6adcfbf0b4e904dc09120de3cd9cae2d8fa649ec76db"
+  },
+  "logs": [
+    {
+      "file": "misc-polymer-console-0.txt",
+      "raw_sha256": "e89445ae024ad9af4925faf1aac54d62689d6ffcb0c696b254e9abb6a4ddc843",
+      "sanitized_sha256": "7433d2a907c1c7cce809cedbbc4be6dc217140180e67970a81a77a0343568729",
+      "normal_shutdown_observed": true,
+      "errors": 0
+    },
+    {
+      "file": "misc-native-console-0.txt",
+      "raw_sha256": "2786eb43bd3362ce7a14fa3dad6a0bf1b5b37b90ca949e4a1c9f0299ad885cf6",
+      "sanitized_sha256": "a56ac314bba571c09c3139c30a322eea79c5b4a53f1cd871a997949c10f71e43",
+      "normal_shutdown_observed": true,
+      "errors": 0
+    }
+  ],
+  "qa_fixture_sha256": "e1b385bf682325819b355809b8fe2fef6234e343d89f58d1b7934d2ab136d5cc",
+  "runtime_scope": "Dedicated packaged production methods; explicitly tracked disposable test chunks, stub player networking. No interactive remote multiplayer or third-party addon stack claimed.",
+  "fixture_development_notes": [
+    "Initial compilation resolved registry-only cow type and inherited Entity.Connection name shadowing.",
+    "Runtime fixture corrections marked startup chunks entity-tracked for immediate lookup, called ServerPlayer.doTick for Player.tick injection, cleared synthetic teleported airborne support state, and counted merged vanilla orb multiplicities.",
+    "Earlier failed fixture runs are retained in ignored runs; no production sources or shipped bytes were changed."
+  ],
+  "run_label": "1.1.5-sanity-misc-final",
+  "xp_oracle": "Fixed vanilla total XP: level 0=0, 1=7, 10=160, 30=1395, 50=5345, plus progress using vanilla next-level requirement."
+}

@@ -1,0 +1,64 @@
+{
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "original_sha256": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
+  "dependencies": [
+    {
+      "file": "codecui-26.3-1.4.3-fabric.jar",
+      "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+    },
+    {
+      "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+      "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+    },
+    {
+      "file": "fzzy_config-0.7.7+fix3+26.3.jar",
+      "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+    },
+    {
+      "file": "mixson-2.2.1-multiloader.jar",
+      "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+    },
+    {
+      "file": "fabric-api-0.161.0+26.3.jar",
+      "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+    },
+    {
+      "file": "cloth-config-fabric-26.3.159.jar",
+      "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+    }
+  ],
+  "fixtures": [
+    {
+      "file": "server.jar",
+      "sha256": "faeea18f52f72034281b63df8d90076c9dc01ecfd479d26e6f0e097dec9afd12"
+    },
+    {
+      "file": "client.jar",
+      "sha256": "682abfe4021d14455e107d93fbdf17452b8c3e304968785af5a8e4da172128d5"
+    }
+  ],
+  "date": "2026-10-06",
+  "runtime_launched": false,
+  "fixture_sources": [
+    {
+      "path": "qa-bannerpoint/run.py",
+      "sha256": "1d81af55540c353e2636e0b3cd6474d56211725578be7d6fcd0f31051553893f"
+    },
+    {
+      "path": "qa-bannerpoint/src/BannerpointClientQa.java",
+      "sha256": "be75fcbf6560c8070b0f3944f7cb83cba7974245176d2819441aed4ccf223433"
+    },
+    {
+      "path": "qa-bannerpoint/src/BannerpointServerQa.java",
+      "sha256": "f587eeeda43b6f26406404b109e89443afff7cc039b03b7d2bbdcdc32731cfcd"
+    },
+    {
+      "path": "qa-bannerpoint/src/GuiSpriteTraceMixin.java",
+      "sha256": "9ce389ad3642d63c752f3993cf39b38363494e4e794581b386912eb6eec21dae"
+    },
+    {
+      "path": "qa-bannerpoint/src/ServerPacketTraceMixin.java",
+      "sha256": "058dba25d66841487b9a43f5e78d88e6b1cec9c520de9b73d6daabb3a27ea44d"
+    }
+  ]
+}

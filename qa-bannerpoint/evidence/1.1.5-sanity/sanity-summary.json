@@ -1,0 +1,208 @@
+{
+  "date": "2026-10-06",
+  "run": "qa-bannerpoint/runs/1.1.5-sanity-full",
+  "passed": true,
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "original_sha256": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
+  "observation_count": 12,
+  "profile_observation_counts": {
+    "suite": 1,
+    "original": 1,
+    "fabric": 6,
+    "vanilla": 1,
+    "nopolymer": 3
+  },
+  "screenshot_count": 6,
+  "negative_pack_state_count": 7,
+  "fixtures": [
+    {
+      "path": "qa-bannerpoint/run.py",
+      "sha256": "1d81af55540c353e2636e0b3cd6474d56211725578be7d6fcd0f31051553893f"
+    },
+    {
+      "path": "qa-bannerpoint/src/BannerpointClientQa.java",
+      "sha256": "be75fcbf6560c8070b0f3944f7cb83cba7974245176d2819441aed4ccf223433"
+    },
+    {
+      "path": "qa-bannerpoint/src/BannerpointServerQa.java",
+      "sha256": "f587eeeda43b6f26406404b109e89443afff7cc039b03b7d2bbdcdc32731cfcd"
+    },
+    {
+      "path": "qa-bannerpoint/src/GuiSpriteTraceMixin.java",
+      "sha256": "9ce389ad3642d63c752f3993cf39b38363494e4e794581b386912eb6eec21dae"
+    },
+    {
+      "path": "qa-bannerpoint/src/ServerPacketTraceMixin.java",
+      "sha256": "058dba25d66841487b9a43f5e78d88e6b1cec9c520de9b73d6daabb3a27ea44d"
+    },
+    {
+      "path": "qa-bannerpoint/runs/1.1.5-sanity-full/fixtures/server.jar",
+      "sha256": "59a8c0631f880bd9e49e65f998644eaf3e132c5e4670f85f97480a60ad23f166"
+    },
+    {
+      "path": "qa-bannerpoint/runs/1.1.5-sanity-full/fixtures/client.jar",
+      "sha256": "6b71cf17368c84ba251545cfbc040fa6170d7ed4cc5cd5daf6968386f64b92ea"
+    }
+  ],
+  "logs": [
+    {
+      "profile": "BannerQAFabric",
+      "file": "console.log",
+      "error_matches": [
+        "[03:14:38] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:14:38] [Download-2/ERROR]: Failed to fetch user properties",
+        "Caused by: MinecraftClientHttpException[type=HTTP_ERROR, status=401, response=ErrorResponse[path=/player/attributes, error=null, errorMessage=null, details=null]]",
+        "[03:14:38] [Render thread/ERROR]: Error while loading the narrator",
+        "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite':",
+        "[03:14:39] [Download-2/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "known_environment_diagnostics": [
+        "[03:14:38] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:14:38] [Download-2/ERROR]: Failed to fetch user properties",
+        "Caused by: MinecraftClientHttpException[type=HTTP_ERROR, status=401, response=ErrorResponse[path=/player/attributes, error=null, errorMessage=null, details=null]]",
+        "[03:14:38] [Render thread/ERROR]: Error while loading the narrator",
+        "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite':",
+        "[03:14:39] [Download-2/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "unclassified_error_matches": []
+    },
+    {
+      "profile": "BannerQANoPoly",
+      "file": "console.log",
+      "error_matches": [
+        "[03:15:43] [Download-2/ERROR]: Failed to fetch user properties",
+        "Caused by: MinecraftClientHttpException[type=HTTP_ERROR, status=401, response=ErrorResponse[path=/player/attributes, error=null, errorMessage=null, details=null]]",
+        "[03:15:43] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:15:43] [Render thread/ERROR]: Error while loading the narrator",
+        "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite':",
+        "[03:15:43] [Download-2/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "known_environment_diagnostics": [
+        "[03:15:43] [Download-2/ERROR]: Failed to fetch user properties",
+        "Caused by: MinecraftClientHttpException[type=HTTP_ERROR, status=401, response=ErrorResponse[path=/player/attributes, error=null, errorMessage=null, details=null]]",
+        "[03:15:43] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:15:43] [Render thread/ERROR]: Error while loading the narrator",
+        "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite':",
+        "[03:15:43] [Download-2/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "unclassified_error_matches": []
+    },
+    {
+      "profile": "BannerQAOriginal",
+      "file": "console.log",
+      "error_matches": [
+        "[03:14:23] [Download-2/ERROR]: Failed to fetch user properties",
+        "Caused by: MinecraftClientHttpException[type=HTTP_ERROR, status=401, response=ErrorResponse[path=/player/attributes, error=null, errorMessage=null, details=null]]",
+        "[03:14:23] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:14:23] [Render thread/ERROR]: Error while loading the narrator",
+        "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite':",
+        "[03:14:24] [Download-1/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "known_environment_diagnostics": [
+        "[03:14:23] [Download-2/ERROR]: Failed to fetch user properties",
+        "Caused by: MinecraftClientHttpException[type=HTTP_ERROR, status=401, response=ErrorResponse[path=/player/attributes, error=null, errorMessage=null, details=null]]",
+        "[03:14:23] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:14:23] [Render thread/ERROR]: Error while loading the narrator",
+        "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite':",
+        "[03:14:24] [Download-1/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "unclassified_error_matches": []
+    },
+    {
+      "profile": "BannerQARestart",
+      "file": "console.log",
+      "error_matches": [
+        "[03:16:20] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:16:20] [Download-2/ERROR]: Failed to fetch user properties",
+        "Caused by: MinecraftClientHttpException[type=HTTP_ERROR, status=401, response=ErrorResponse[path=/player/attributes, error=null, errorMessage=null, details=null]]",
+        "[03:16:20] [Render thread/ERROR]: Error while loading the narrator",
+        "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite':",
+        "[03:16:20] [Download-1/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "known_environment_diagnostics": [
+        "[03:16:20] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:16:20] [Download-2/ERROR]: Failed to fetch user properties",
+        "Caused by: MinecraftClientHttpException[type=HTTP_ERROR, status=401, response=ErrorResponse[path=/player/attributes, error=null, errorMessage=null, details=null]]",
+        "[03:16:20] [Render thread/ERROR]: Error while loading the narrator",
+        "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite':",
+        "[03:16:20] [Download-1/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "unclassified_error_matches": []
+    },
+    {
+      "profile": "BannerQASuite",
+      "file": "console.log",
+      "error_matches": [
+        "[03:14:06] [Download-2/ERROR]: Failed to fetch user properties",
+        "Caused by: MinecraftClientHttpException[type=HTTP_ERROR, status=401, response=ErrorResponse[path=/player/attributes, error=null, errorMessage=null, details=null]]",
+        "[03:14:06] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:14:07] [Render thread/ERROR]: Error while loading the narrator",
+        "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite':",
+        "[03:14:07] [Download-1/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "known_environment_diagnostics": [
+        "[03:14:06] [Download-2/ERROR]: Failed to fetch user properties",
+        "Caused by: MinecraftClientHttpException[type=HTTP_ERROR, status=401, response=ErrorResponse[path=/player/attributes, error=null, errorMessage=null, details=null]]",
+        "[03:14:06] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:14:07] [Render thread/ERROR]: Error while loading the narrator",
+        "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite':",
+        "[03:14:07] [Download-1/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "unclassified_error_matches": []
+    },
+    {
+      "profile": "BannerQAVanilla",
+      "file": "console.log",
+      "error_matches": [
+        "[03:15:12] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:15:12] [Download-2/ERROR]: Failed to fetch user properties",
+        "Caused by: MinecraftClientHttpException[type=HTTP_ERROR, status=401, response=ErrorResponse[path=/player/attributes, error=null, errorMessage=null, details=null]]",
+        "[03:15:13] [Render thread/ERROR]: Error while loading the narrator",
+        "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite':",
+        "[03:15:13] [Download-1/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "known_environment_diagnostics": [
+        "[03:15:12] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:15:12] [Download-2/ERROR]: Failed to fetch user properties",
+        "Caused by: MinecraftClientHttpException[type=HTTP_ERROR, status=401, response=ErrorResponse[path=/player/attributes, error=null, errorMessage=null, details=null]]",
+        "[03:15:13] [Render thread/ERROR]: Error while loading the narrator",
+        "Caused by: java.lang.UnsatisfiedLinkError: Unable to load library 'flite':",
+        "[03:15:13] [Download-1/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "unclassified_error_matches": []
+    },
+    {
+      "profile": "server-native",
+      "file": "console-before-restart.log",
+      "error_matches": [],
+      "known_environment_diagnostics": [],
+      "unclassified_error_matches": []
+    },
+    {
+      "profile": "server-native",
+      "file": "console.log",
+      "error_matches": [],
+      "known_environment_diagnostics": [],
+      "unclassified_error_matches": []
+    },
+    {
+      "profile": "server-polymer",
+      "file": "console.log",
+      "error_matches": [],
+      "known_environment_diagnostics": [],
+      "unclassified_error_matches": []
+    }
+  ],
+  "error_match_line_count": 36,
+  "unclassified_error_match_count": 0,
+  "environment_notes": [
+    "All six client processes fall back from unavailable OpenGL to successfully rendered Vulkan; actual captured Minecraft frames and traced sprites passed.",
+    "Offline local QA account intentionally has no Mojang bearer token: user-attribute/Realms HTTP401 is expected, also on untouched pure vanilla.",
+    "Host lacks flite narrator native library; narrator remains unavailable, unrelated to gameplay."
+  ],
+  "visual_inspection": {
+    "all_six_screenshots_inspected": true,
+    "accepted_profiles": "suite, original Bannerpoint, Fabric API only, native without Polymer: colored original locator flag sprites present with no checkerboard/missing texture.",
+    "stale_and_removed": "Fabric API-only screenshots retain the ordinary green locator dot and hide both flag icons. Physical world banner blocks remain present, as intended."
+  }
+}

@@ -1,0 +1,1501 @@
+{
+  "polymer": true,
+  "uncapped": false,
+  "passed": true,
+  "failures": 0,
+  "assertions": 5268,
+  "cases": [
+    {
+      "case": "template-effective-hot-override-and-explicit-priority",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:potion/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:potion/3/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:saddle/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:saddle/16/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:enchanted_book/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:enchanted_book/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:stone/1/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:stone/64/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:shulker_box/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/toolpouch:tool_pouch/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/toolpouch:netherite_tool_pouch/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:netherite_leggings/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/tiered_backpacks:netherite_backpack/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:netherite_chestplate/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:shulker_box/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:bundle/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/mapstitch:atlas/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/toolpouch:netherite_tool_pouch/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:netherite_leggings/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "malformed-negative-template/recipient\u003dfallback",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:potion/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:potion/3/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:saddle/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:saddle/16/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:enchanted_book/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:enchanted_book/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:stone/1/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:stone/64/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:shulker_box/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/toolpouch:tool_pouch/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/toolpouch:netherite_tool_pouch/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:netherite_leggings/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/tiered_backpacks:netherite_backpack/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:netherite_chestplate/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:shulker_box/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:bundle/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/mapstitch:atlas/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/toolpouch:netherite_tool_pouch/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:netherite_leggings/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "malformed-negative-template/recipient\u003dnative",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:potion/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:potion/3/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:saddle/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:saddle/16/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:enchanted_book/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:enchanted_book/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:stone/1/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "template-create/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d0/minecraft:shulker_box/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d1/toolpouch:tool_pouch/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d2/toolpouch:netherite_tool_pouch/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d3/minecraft:netherite_leggings/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d4/tiered_backpacks:netherite_backpack/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d5/minecraft:netherite_chestplate/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d6/minecraft:shulker_box/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d7/minecraft:bundle/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d8/mapstitch:atlas/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d9/toolpouch:netherite_tool_pouch/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "packet/carrier\u003d10/minecraft:netherite_leggings/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "charged-projectiles/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "use-remainder/minecraft:stone/64/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:shulker_box/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/toolpouch:tool_pouch/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/toolpouch:netherite_tool_pouch/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:netherite_leggings/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/tiered_backpacks:netherite_backpack/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:netherite_chestplate/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:shulker_box/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:bundle/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/mapstitch:atlas/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/toolpouch:netherite_tool_pouch/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "explicit-override/minecraft:netherite_leggings/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    },
+    {
+      "case": "malformed-negative-template/recipient\u003dpartial-native-without-stackables",
+      "passed": true
+    }
+  ]
+}

@@ -25,6 +25,7 @@ def main():
     parser.add_argument('--label', required=True)
     parser.add_argument('--profiles', default='suite,original,fabric,vanilla,nopolymer')
     parser.add_argument('--restart', action='store_true', help='Also restart the no-Polymer world, verify both saved banners/name/UUIDs and break the map-linked banner')
+    parser.add_argument('--prepare-only', action='store_true', help='Compile the exact-current QA fixtures without launching a server or graphical client')
     args = parser.parse_args()
     if args.restart and 'nopolymer' not in args.profiles.split(','): parser.error('--restart requires the nopolymer profile')
     run = ROOT / 'qa-bannerpoint/runs' / args.label; run.mkdir(parents=True, exist_ok=False)
@@ -32,8 +33,8 @@ def main():
     fixtures = run / 'fixtures'; fixtures.mkdir(); classes = fixtures / 'classes'; classes.mkdir()
     launch = mapstitch_launch(WORKSPACE); suite = run / args.jar.name; shutil.copy2(args.jar.resolve(), suite)
     dependencies = [ROOT / 'libs' / name for name in (
-        'codecui-26.3-1.4.3-fabric.jar', 'defaulted-1.3.8+26.3.dropfix.1-fabric.jar',
-        'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'fzzy_config-0.7.7+fix2+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
+        'codecui-26.3-1.4.3-fabric.jar',
+        'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'fzzy_config-0.7.7+fix3+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
     api = launch.artifact('net.fabricmc.fabric-api', 'fabric-api', '0.161.0+26.3')
     dependencies += [api, launch.artifact('me.shedaniel.cloth', 'cloth-config-fabric', '26.3.159')]
     original = ROOT / 'libs/bannerpoint-fabric-1.1.2+26.3.jar'
@@ -59,6 +60,12 @@ def main():
             archive.writestr('fabric.mod.json', json.dumps(metadata))
             archive.writestr('bannerpoint-qa-' + side + '.mixins.json', json.dumps({'required': True, 'package': 'qa.bannerpoint.mixin', 'compatibilityLevel': 'JAVA_25', side if side == 'client' else 'mixins': ['GuiSpriteTraceMixin' if side == 'client' else 'ServerPacketTraceMixin'], 'injectors': {'defaultRequire': 1}}))
             for file in classes.rglob('*.class'): archive.write(file, file.relative_to(classes))
+    if args.prepare_only:
+        (run / 'preparation.json').write_text(json.dumps({'bundle_sha256': sha(suite), 'original_sha256': sha(original),
+            'dependencies': [{'file': jar.name, 'sha256': sha(jar)} for jar in dependencies],
+            'fixtures': [{'file': (fixtures / (side + '.jar')).name, 'sha256': sha(fixtures / (side + '.jar'))} for side in ('server', 'client')]}, indent=2) + '\n')
+        print('PASS compiled current Bannerpoint QA fixtures; no runtime launched', flush=True)
+        return
     children = []; observations = []; env = os.environ.copy()
     env.update(DISPLAY=env.get('DISPLAY', ':1'), SDL_VIDEODRIVER='x11', SDL_VIDEO_X11_XINPUT2='0', LP_NUM_THREADS='2')
     def start(directory, command, mods=()):
@@ -130,7 +137,7 @@ def main():
                 name = 'BannerQA' + ('NoPoly' if profile == 'nopolymer' else profile.title()); client_directory = run / name; client_directory.mkdir()
                 mods = [] if profile == 'vanilla' else [api, fixtures / 'client.jar']
                 if profile in ('suite', 'nopolymer'): mods = [suite, *dependencies, fixtures / 'client.jar']
-                elif profile == 'original': mods += [original, ROOT / 'libs/fzzy_config-0.7.7+fix2+26.3.jar', ROOT / 'libs/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar']
+                elif profile == 'original': mods += [original, ROOT / 'libs/fzzy_config-0.7.7+fix3+26.3.jar', ROOT / 'libs/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar']
                 save_server(client_directory / 'servers.dat', port, 'decline' if profile == 'fabric' else 'accept')
                 (client_directory / 'options.txt').write_text('pauseOnLostFocus:false\nguiScale:2\ngraphicsMode:0\nrenderDistance:2\nmaxFps:25\nmaxFpsInactive:25\nsoundCategory_master:0.0\njoinedFirstServer:true\n')
                 command = launch.base_command('vanilla' if profile == 'vanilla' else 'native', client_directory, port)

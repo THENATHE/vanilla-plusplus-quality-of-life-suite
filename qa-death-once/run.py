@@ -5,7 +5,7 @@ import argparse,hashlib,json,os,shutil,subprocess,sys,zipfile
 ROOT=Path(__file__).resolve().parents[1];WORKSPACE=ROOT.parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
 from workspace_paths import load_helper, project_path
-parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--label',required=True);parser.add_argument('--jar',type=Path,default=ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar');parser.add_argument('--prepare-only',action='store_true');args=parser.parse_args()
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--label',required=True);parser.add_argument('--jar',type=Path,default=ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar');parser.add_argument('--prepare-only',action='store_true');args=parser.parse_args()
 RUN=ROOT/'qa-death-once/runs'/args.label;RUN.mkdir(parents=True,exist_ok=False)
 helper=load_helper(project_path(WORKSPACE,'chalk-polymer-shim')/'qa/run.py','cached_cp')
 servercp,clientcp,info=helper.prepare_classpaths('26.3',RUN/'libraries')
@@ -19,7 +19,7 @@ for p in (ROOT/'libs').glob('*.jar'):
   if 'fabric.mod.json' not in z.namelist():continue
  mods.append(p)
 stage=project_path(WORKSPACE,'polymer-shim-test-bundle')/'staging-2026-10-01/mods';mods += [stage/'fabric-api-0.161.0+26.3.jar',stage/'cloth-config-fabric-26.3.159.jar'];polymer=stage/'polymer-bundled-0.18.2+26.3.jar'
-assert sha(next(p for p in mods if p.name.startswith('defaulted-')))=='e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61'
+assert not any(p.name.startswith('defaulted-') for p in mods), 'Active developer-release suite must boot without Defaulted'
 classes=RUN/'classes';classes.mkdir();paths=[*servercp,*clientcp,bundle,*mods,polymer]
 def nested(p):
  with zipfile.ZipFile(p) as z:

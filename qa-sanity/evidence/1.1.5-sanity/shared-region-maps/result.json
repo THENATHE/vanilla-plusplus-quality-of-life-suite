@@ -1,0 +1,39 @@
+{
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "maps-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 606 checks; phase=first; mapstitch=true",
+      "passed": true
+    },
+    {
+      "profile": "maps-polymer",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "PASS 616 checks; phase=restart; mapstitch=true",
+      "passed": true
+    }
+  ],
+  "date": "2026-10-06",
+  "total_assertions": 1222,
+  "runtime_defaulted_absent": true,
+  "logs": [
+    {
+      "file": "console-0.txt",
+      "sha256": "3276a4ae3c3a05df904d8623196f1c643c2358123b1626045b0117e85d6d5e31"
+    },
+    {
+      "file": "console-1.txt",
+      "sha256": "760b8e8e500560f194b01a549445fdaf290f5de12a758b3fe9891254d4e1501d"
+    }
+  ],
+  "fixture_sources": [
+    {
+      "file": "qa-mechanics/src/sharedmaps/Qa.java",
+      "sha256": "810a512016ecb7866f38b10716ce140f6516148bea2ccc5ef2f5c59f2a660a4f"
+    }
+  ]
+}

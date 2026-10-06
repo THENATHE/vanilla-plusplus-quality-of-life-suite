@@ -1,0 +1,73 @@
+{
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "mechanics-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 140 broader SSO, 180 storage, 15587 chalk placement assertions",
+      "passed": true
+    },
+    {
+      "profile": "mechanics-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 105 broader SSO, 180 storage, 15587 chalk placement assertions",
+      "passed": true
+    }
+  ],
+  "suite_version": "1.1.5+26.3",
+  "date": "2026-10-06",
+  "total_assertions": 31779,
+  "runtime_defaulted_absent": true,
+  "scope": "Packaged dedicated mechanics with synthetic player networking and explicit tracked test chunks; real connection and rendered menu coverage are recorded separately.",
+  "fixture_sources": [
+    {
+      "file": "qa-sanity/src/ChalkChecks.java",
+      "sha256": "344454c01b1e52afc03a1d9fba9c6f49d3cdc8b7a9c9085e90dbbae601766bf8"
+    },
+    {
+      "file": "qa-sanity/src/GeneralSanityQa.java",
+      "sha256": "2705c098aa124de5e6db09fa19483c3ef6232f32f6d92ce1977b58192db189bb"
+    },
+    {
+      "file": "qa-sanity/src/RepairChecks.java",
+      "sha256": "bbc0e89210b38a3186c56e1726f5ac663756d7024f6b4af34f4a196adab98a69"
+    },
+    {
+      "file": "qa-sanity/src/StorageChecks.java",
+      "sha256": "7dae54992ee30a4a5f4e9be6eba581b0a0f521b0b74905bb7bfd01e5a97b95f3"
+    }
+  ],
+  "runner": {
+    "file": "qa-sanity/run.py",
+    "sha256": "7c0b8b7ecf8741e2dfa519124f067a26ec7defc49511485e6c3b83cb548e2dab",
+    "post_run_nonbehavioral_cleanup": "Removed unused --only maps selector from copied mechanics runner and corrected its scope docstring; executed default gameplay profiles unchanged.",
+    "executed_sha256": "2a604808ab7d998e5a436d673aa780477fac46e8c215c94621bb1f0ec2391ca5",
+    "executed_copy": "executed-launcher.txt"
+  },
+  "logs": [
+    {
+      "file": "mechanics-polymer-console.txt",
+      "raw_sha256": "3cd5b3e97ea6a5befd117db66533a1419e313d244b9783ba1577cf5729a19225",
+      "sanitized_sha256": "85bcaf42c55f9be74141871870dbc3f6651e232f9bd574d490c8560ef97b5f48",
+      "normal_shutdown": true,
+      "error_matches": 0
+    },
+    {
+      "file": "mechanics-native-console.txt",
+      "raw_sha256": "66989f54e7b9f3d3391a6cfd3d6413adecb5094a6950a1de44005d3feb768521",
+      "sanitized_sha256": "c57843b1c1859563d70bddce328a9812572e7ad106f0abe0581fa772e5af0568",
+      "normal_shutdown": true,
+      "error_matches": 0
+    }
+  ],
+  "fixture_development_notes": [
+    "Historical helper ModInitializer entrypoints removed for direct invocation; Inventory API adapted, separate counter names prevent package shadowing.",
+    "Curse Cleanser wraps the grindstone result slot; the old private-method reflection was replaced with actual output-taking and observed XP entities. Startup test chunks were explicitly entity-tracked for immediate entity queries.",
+    "Official SSO2.10 weights item/empty loot entries10:90; the old chance-condition assertion was adapted to the equivalent effective10percent chance.",
+    "Backpack output comparisons snapshot expected contents before smithing consumes the input; consumed empty stacks do not expose components.",
+    "Earlier failed runs remain isolated under ignored runs. No shipped classes, publisher inputs or production source changed."
+  ]
+}

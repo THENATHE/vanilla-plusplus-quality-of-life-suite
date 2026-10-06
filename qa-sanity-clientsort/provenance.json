@@ -1,0 +1,11 @@
+{
+  "source": "Archived toolpouch-atlas-elytra-compat-26.3 QA snapshot 2026-10-04-suite-consolidation",
+  "original_java_sources_unchanged": true,
+  "sources_sha256": {
+    "src/SortServerQa.java": "dbb4102f97c3ce3f64f5c8cde653f1e0888af0f9043a8b54857c8317e04906f6",
+    "src/SortClientQa.java": "5a9e1498050307135e33a124b7869e5ebda7cc9c896c4bbf07faffb9264834ee",
+    "src/SortClientOperatorTraceMixin.java": "e9538d5a620a44cc6e7737ba554238a6493fd864a4e7305a64bd500cb6ea6c8b",
+    "boundaries/ClientSortServerBoundaryQa.java": "386dae98ecdc65914406c6a646e7e2c5f8188a010fc8d92f310b30a70e34ef01"
+  },
+  "runner": "Adapted to exact current suite and dependencies; no original upstream mods substituted."
+}

@@ -1,0 +1,92 @@
+{
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "maps-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 1363 mixed-scale insertion, extraction commands, banner edits, map integrity, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-polymer",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "PASS 1294 mixed-scale insertion, extraction commands, banner edits, map integrity, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 1363 mixed-scale insertion, extraction commands, banner edits, map integrity, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-native",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "PASS 1294 mixed-scale insertion, extraction commands, banner edits, map integrity, codec and restart checks",
+      "passed": true
+    }
+  ],
+  "date": "2026-10-06",
+  "suite_version": "1.1.5+26.3",
+  "qa_fixture_sha256": "54aa6421c43c9d87f6cb27ed723ab7e43f40c32274c2f9b1e1c1644e8dac43d3",
+  "runtime_defaulted_absent": true,
+  "fixture_sources": [
+    {
+      "file": "qa-multiscale/src/MixedScaleQa.java",
+      "sha256": "2124aee4791fd85c807ed27d2b4ad7526e79b2683138f5d95cc81bb1abf3cd37"
+    },
+    {
+      "file": "qa-multiscale/src/AtlasBannerQa.java",
+      "sha256": "7baebed013970515bcdb65e0051aceebd3fa18e77b36a58ac63c8d3c7a76953e"
+    },
+    {
+      "file": "qa-multiscale/src/AtlasRepairQa.java",
+      "sha256": "507783265ece85061e3103cd2992ba900670d839129c600e41f2d190963e9df8"
+    },
+    {
+      "file": "qa-multiscale/src/AtlasCartographyQa.java",
+      "sha256": "407dc583f62f9979c38bd21babdf5cd9b2fd46b0ee8b3ea894e20508d10d6c30"
+    }
+  ],
+  "runner": {
+    "file": "qa-multiscale/run.py",
+    "sha256": "5ccd1e8d64dbb9c70a4f6751f885537bdc2dd036c58eccfbde0af447e0cfe7cb"
+  },
+  "total_assertions": 5314,
+  "runtime_scope": "Disposable dedicated servers with packaged release; in-process test players and packet capture; not interactive remote client inventory or death animations.",
+  "logs": [
+    {
+      "file": "maps-native-console-0.txt",
+      "raw_sha256": "51a637f794b521e7773cf154b26638d1cf296f1783106d8885774c194692529f",
+      "sanitized_sha256": "a1d2b6ac4feebf73e2d72a063379d5272a0541fbcee52f77bf705f63c09c2d70",
+      "normal_shutdown_observed": true,
+      "errors": 0
+    },
+    {
+      "file": "maps-native-console-1.txt",
+      "raw_sha256": "60e5a04037caeee17d2a566a670357e2eb1c5b00e3302600041252d1f26e63e4",
+      "sanitized_sha256": "11b3d29c63d928b452773461b78905d064d7c982c296e025419d2c2cde816fe5",
+      "normal_shutdown_observed": true,
+      "errors": 0
+    },
+    {
+      "file": "maps-polymer-console-0.txt",
+      "raw_sha256": "a5ec04bd8113e4c3ff160b2463d7d1d510e84b22fea71fc4cc1e9f6e17fe1717",
+      "sanitized_sha256": "9d08495ea9fea1ed7747489b12592f3829ff1389349801e7321edfec01f0e0b0",
+      "normal_shutdown_observed": true,
+      "errors": 0
+    },
+    {
+      "file": "maps-polymer-console-1.txt",
+      "raw_sha256": "748d6149f3a6c29ed785cc2ff63a9319a9518b58223cef98128d9f82c50dd06e",
+      "sanitized_sha256": "b11032d7b055e806ca1caba82ef995b87ad24b35475d714f6043ff2186ebf02e",
+      "normal_shutdown_observed": true,
+      "errors": 0
+    }
+  ]
+}

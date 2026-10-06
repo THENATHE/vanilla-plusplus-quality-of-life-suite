@@ -1,8 +1,10 @@
 # Source map and updating upstream modules
 
-The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, suite **1.1.5+26.3**. The earlier Bannerpoint and atlas/stackables testing releases remain historical references. Stable release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.1.5+26.3/`; preserve earlier testing-component release folders rather than relabeling their artifacts. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
+The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, suite **1.1.6+26.3**. The earlier Bannerpoint and atlas/stackables testing releases remain historical references. Stable release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.1.6+26.3/`; preserve earlier testing-component release folders rather than relabeling their artifacts. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
 
 ## Where things live
+
+Stable **1.1.6+26.3** includes Stackables compatibility **1.0.2+26.3**. The [packet-fix record](PACKET_FIX_1_1_6.md) identifies the exact build and evidence. Original inputs and external dependencies are unchanged.
 
 | Path | Purpose |
 | --- | --- |
@@ -38,10 +40,12 @@ The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, s
 | components/sensible-stackables/upstream/ | Untouched 26.2 publisher source/binary records and independently tested baseline |
 | components/sensible-stackables/ported/ | Preserved historical independent 26.3 port; not the current suite input |
 | components/sensible-stackables/developer-release/ | Current unchanged official 3.1.1+26.3 source/binary records and exact input lock |
-| components/sensible-stackables/compat/ | Separate Polymer stack defaults, safe metadata and authoritative menu correction |
+| components/sensible-stackables/compat/ | Separate Polymer stack defaults, safe metadata and authoritative menu correction; ItemStackTemplateMixin mirrors upstream effective limits, FallbackContainerPreview suppresses unsupported nested previews, PolymerPreviewMixin also covers native carrier clients lacking Stackables. |
 | qa-merged/ | Historical combined-branch network, maps, stackables and settings evidence; current release scope is in docs/VALIDATION.md |
 | qa-multiscale/ | Mixed-scale mechanics/restart fixture and original experiment evidence |
 | qa-stackables/ | Actual menu/count conservation, drop, codec and restart evidence for both targets |
+| qa-packet-templates/ | Actual nested container-content packet codecs, strict template validation, source/count conservation and partial-native carrier coverage; frozen failing baselines and preliminary candidates remain separate from final passing release evidence. |
+| qa-packet-client/ | Physical native/Fabric client receipt of a netherite pouch containing a shulker with stacked potions, plus actual high-count inventory moves. |
 | build/libs/ | Development output, separate from released artifacts |
 
 The historical projects outside this suite remain preserved. Consolidated local source/build locations and QA helper resolution are documented in [local archive maintenance](LOCAL_ARCHIVE.md). Suite releases use `Builds/Minecraft/Vanilla++ Quality of Life Suite/<Component>/<Release Version>/`. Each completed release folder contains the four public assets — `README.md`, the suite JAR, `docs.zip` and the installation ZIP — plus local checksum/publication records. Technical documentation, locks, notices and evidence are collected in `docs.zip`; GitHub provides its own source downloads. See [RELEASE_WORKFLOW.md](RELEASE_WORKFLOW.md) for the standing procedure.
@@ -78,10 +82,10 @@ The atlas/Elytra component uses the same staged root inputs as the other suite p
 
 ## Rebuilding a public checkout from release inputs
 
-Download the suite JAR and `vanilla-plusplus-installation-pack-1.1.5+26.3.zip` from the public release, and extract the installation ZIP into an input directory. The kit includes the suite and exact CodecUI file under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Compile-only Defaulted remains a separate historical input: retrieve the exact locked dropfix from retained prior-release inputs when building its optional compatibility hook; do not install it merely to build current runtime profiles. Run:
+Download the suite JAR and `vanilla-plusplus-installation-pack-1.1.6+26.3.zip` from the public release, and extract the installation ZIP into an input directory. The kit includes the suite and exact CodecUI file under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Compile-only Defaulted remains a separate historical input: retrieve the exact locked dropfix from retained prior-release inputs when building its optional compatibility hook; do not install it merely to build current runtime profiles. Run:
 
 ```sh
-python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
+python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.1.6+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
 ```
 
 The script verifies the outer release hash and recursively stages only original inputs matching the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It rejects unavailable or mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs. The release has no separate local-library ZIP or uploaded tracked-source archive; use the repository or GitHub’s generated source download for the working checkout.

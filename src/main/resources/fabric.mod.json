@@ -39,7 +39,7 @@
     "mixson": ">=2.2.1",
     "mapstitch_mixed_scales": "=1.1.5+26.3",
     "sensible_stackables": "=3.1.1",
-    "sensible_stackables_polymer_compat": "=1.0.1+26.3",
+    "sensible_stackables_polymer_compat": "=1.0.2+26.3",
     "bannerpoint": "=1.1.2",
     "bannerpoint_polymer_compat": "=1.0.1+26.3"
   },
@@ -93,7 +93,7 @@
       "file": "META-INF/jars/sensible_stackables-fabric-3.1.1+26.3.jar"
     },
     {
-      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.1+26.3.jar"
+      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.2+26.3.jar"
     },
     {
       "file": "META-INF/jars/mapstitch-mixed-scales-1.1.5+26.3.jar"

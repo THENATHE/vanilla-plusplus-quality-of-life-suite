@@ -1,0 +1,170 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+> Configure project :
+Fabric Loom: 1.17.20
+
+> Configure project :combined-compat
+Fabric Loom: 1.17.20
+
+> Configure project :chalk-compat
+Fabric Loom: 1.17.20
+
+> Configure project :shared-region-maps
+Fabric Loom: 1.17.20
+
+> Configure project :toolpouch-atlas-elytra
+Fabric Loom: 1.17.20
+
+> Configure project :mapstitch-mixed-scales
+Fabric Loom: 1.17.20
+
+> Configure project :sensible-stackables-compat
+Fabric Loom: 1.17.20
+
+> Configure project :bannerpoint-compat
+Fabric Loom: 1.17.20
+
+> Task :clean
+> Task :bannerpoint-compat:clean
+> Task :chalk-compat:clean
+> Task :combined-compat:clean
+> Task :mapstitch-mixed-scales:clean
+> Task :sensible-stackables-compat:clean
+> Task :shared-region-maps:clean
+> Task :toolpouch-atlas-elytra:clean
+> Task :verifyInputs
+
+> Task :combined-compat:compileJava
+Note: /home/thenathe/SSDC/Plugins/WP Plugin Dev/Minecraft/thenathe-mod-suite/components/combined-compat/src/main/java/com/thenathe/combinedshim/RepairMaterialRecovery.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :compileJava
+Note: /home/thenathe/SSDC/Plugins/WP Plugin Dev/Minecraft/thenathe-mod-suite/src/main/java/com/thenathe/suite/client/SuiteSettings.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+> Task :processResources
+> Task :classes
+> Task :processIncludeJars
+> Task :shared-region-maps:compileJava
+> Task :toolpouch-atlas-elytra:compileJava
+> Task :mapstitch-mixed-scales:compileJava
+> Task :bannerpoint-compat:compileJava
+> Task :bannerpoint-compat:processResources
+> Task :bannerpoint-compat:classes
+> Task :bannerpoint-compat:processIncludeJars
+> Task :bannerpoint-compat:jar
+
+> Task :chalk-compat:compileJava
+Note: /home/thenathe/SSDC/Plugins/WP Plugin Dev/Minecraft/thenathe-mod-suite/components/chalk-compat/src/main/java/com/thenathe/chalkcompat/mixin/NativeBlockBitsMixin.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :chalk-compat:processResources
+> Task :chalk-compat:classes
+> Task :chalk-compat:processIncludeJars
+> Task :chalk-compat:jar
+> Task :combined-compat:processResources
+> Task :combined-compat:classes
+> Task :combined-compat:processIncludeJars
+> Task :combined-compat:jar
+> Task :mapstitch-mixed-scales:processResources
+> Task :mapstitch-mixed-scales:classes
+> Task :mapstitch-mixed-scales:processIncludeJars
+> Task :mapstitch-mixed-scales:jar
+> Task :sensible-stackables-compat:compileJava
+> Task :sensible-stackables-compat:processResources
+> Task :sensible-stackables-compat:classes
+> Task :sensible-stackables-compat:processIncludeJars
+> Task :sensible-stackables-compat:jar
+> Task :shared-region-maps:processResources
+> Task :shared-region-maps:classes
+> Task :shared-region-maps:processIncludeJars
+> Task :shared-region-maps:jar
+> Task :toolpouch-atlas-elytra:processResources
+> Task :toolpouch-atlas-elytra:classes
+> Task :toolpouch-atlas-elytra:processIncludeJars
+> Task :toolpouch-atlas-elytra:jar
+> Task :sourcesJar
+> Task :compileTestJava NO-SOURCE
+> Task :processTestResources NO-SOURCE
+> Task :jar
+> Task :testClasses UP-TO-DATE
+> Task :test NO-SOURCE
+> Task :assemble
+> Task :validateAccessWidener NO-SOURCE
+> Task :check UP-TO-DATE
+> Task :build
+> Task :bannerpoint-compat:sourcesJar
+> Task :bannerpoint-compat:assemble
+> Task :bannerpoint-compat:compileTestJava NO-SOURCE
+> Task :bannerpoint-compat:processTestResources NO-SOURCE
+> Task :bannerpoint-compat:testClasses UP-TO-DATE
+> Task :bannerpoint-compat:test NO-SOURCE
+> Task :bannerpoint-compat:validateAccessWidener NO-SOURCE
+> Task :bannerpoint-compat:check UP-TO-DATE
+> Task :bannerpoint-compat:build
+> Task :chalk-compat:sourcesJar
+> Task :chalk-compat:assemble
+> Task :chalk-compat:compileTestJava NO-SOURCE
+> Task :chalk-compat:processTestResources NO-SOURCE
+> Task :chalk-compat:testClasses UP-TO-DATE
+> Task :chalk-compat:test NO-SOURCE
+> Task :chalk-compat:validateAccessWidener NO-SOURCE
+> Task :chalk-compat:check UP-TO-DATE
+> Task :chalk-compat:build
+> Task :combined-compat:sourcesJar
+> Task :combined-compat:assemble
+> Task :combined-compat:compileTestJava NO-SOURCE
+> Task :combined-compat:processTestResources NO-SOURCE
+> Task :combined-compat:testClasses UP-TO-DATE
+> Task :combined-compat:test NO-SOURCE
+> Task :combined-compat:validateAccessWidener NO-SOURCE
+> Task :combined-compat:check UP-TO-DATE
+> Task :combined-compat:build
+> Task :mapstitch-mixed-scales:sourcesJar
+> Task :mapstitch-mixed-scales:assemble
+> Task :mapstitch-mixed-scales:compileTestJava NO-SOURCE
+> Task :mapstitch-mixed-scales:processTestResources NO-SOURCE
+> Task :mapstitch-mixed-scales:testClasses UP-TO-DATE
+> Task :mapstitch-mixed-scales:test NO-SOURCE
+> Task :mapstitch-mixed-scales:validateAccessWidener NO-SOURCE
+> Task :mapstitch-mixed-scales:check UP-TO-DATE
+> Task :mapstitch-mixed-scales:build
+> Task :sensible-stackables-compat:sourcesJar
+> Task :sensible-stackables-compat:assemble
+> Task :sensible-stackables-compat:compileTestJava NO-SOURCE
+> Task :sensible-stackables-compat:processTestResources NO-SOURCE
+> Task :sensible-stackables-compat:testClasses UP-TO-DATE
+> Task :sensible-stackables-compat:test NO-SOURCE
+> Task :sensible-stackables-compat:validateAccessWidener NO-SOURCE
+> Task :sensible-stackables-compat:check UP-TO-DATE
+> Task :sensible-stackables-compat:build
+> Task :shared-region-maps:sourcesJar
+> Task :shared-region-maps:assemble
+> Task :shared-region-maps:compileTestJava NO-SOURCE
+> Task :shared-region-maps:processTestResources NO-SOURCE
+> Task :shared-region-maps:testClasses UP-TO-DATE
+> Task :shared-region-maps:test NO-SOURCE
+> Task :shared-region-maps:validateAccessWidener NO-SOURCE
+> Task :shared-region-maps:check UP-TO-DATE
+> Task :shared-region-maps:build
+> Task :toolpouch-atlas-elytra:sourcesJar
+> Task :toolpouch-atlas-elytra:assemble
+> Task :toolpouch-atlas-elytra:compileTestJava NO-SOURCE
+> Task :toolpouch-atlas-elytra:processTestResources NO-SOURCE
+> Task :toolpouch-atlas-elytra:testClasses UP-TO-DATE
+> Task :toolpouch-atlas-elytra:test NO-SOURCE
+> Task :toolpouch-atlas-elytra:validateAccessWidener NO-SOURCE
+> Task :toolpouch-atlas-elytra:check UP-TO-DATE
+> Task :toolpouch-atlas-elytra:build
+
+[Incubating] Problems report is available at: file:///home/thenathe/SSDC/Plugins/WP%20Plugin%20Dev/Minecraft/thenathe-mod-suite/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.6.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 21s
+49 actionable tasks: 49 executed

@@ -1,5 +1,13 @@
 # Changes
 
+## 1.1.6+26.3 — 2026-10-06
+
+- Fix immutable stored-item templates ignoring Sensible Stackables' effective override table. This reproduces the `container_set_content` / `Stack must be non-empty` disconnect for a netherite Tool Pouch containing a shulker with potion stacks of three, saddles of sixteen or enchanted books of sixty-four.
+- Honor live override changes, explicit maximum additions/removals and ordinary strict validation on client and server without modifying original developer JARs.
+- Preserve full counts and authoritative stored contents. For fallback clients, omit only preview components containing nested counts above 99, which vanilla cannot materialize. Safe smaller previews remain intact, and native clients retain full previews.
+- Apply safe maximum metadata even when a client has native support for a carrier mod but lacks Stackables. Keep the existing empty-stack guard and optional Polymer behavior; constrain the final projection to server connections.
+- Record actual packet reproduction, native/Fabric physical-client acceptance and focused Stackables regression. All 17 other nested modules and root Java classes remain unchanged. [Details and installation](docs/PACKET_FIX_1_1_6.md). The stable release includes the standard README, suite JAR, documentation ZIP and installation ZIP.
+
 ## 1.1.5+26.3 — 2026-10-06
 
 - Update unchanged official developer inputs to Simple Smithing Overhaul 2.10.0, MapStitch 1.1.7 and Sensible Stackables 3.1.1. MapStitch changes only its Russian translation; all 90 Java classes match the previous release. Preserve the previous inputs and the separately paused SSO port.

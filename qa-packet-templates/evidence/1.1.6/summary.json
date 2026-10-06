@@ -1,0 +1,219 @@
+{
+  "target": "Minecraft 26.3",
+  "released_baseline_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "final_candidate_sha256": "ea383c52581970f5b69eb0db0cffdc9c26a0a0efb2f80e0ab82f8b8f9d2a5f86",
+  "final_passed": true,
+  "final_assertions": 28156,
+  "final_cases": 1742,
+  "runs": {
+    "baseline-1.1.5-exact-pouch": {
+      "artifact_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+      "fixture_sha256": "d9a38a8500d66ef601fce572ea5f0007754881dfce9688c4dd053515652ee15c",
+      "qa_sources": {
+        "source/PacketTemplatesQa.java": "8f712b27e500b9586035e4438ad0a64b67f4433829ac35471e702e31d1c74e57"
+      },
+      "profiles": [
+        {
+          "profile": "polymer",
+          "passed": false,
+          "assertions": 4800,
+          "failures": 19,
+          "cases": 373
+        },
+        {
+          "profile": "no-polymer",
+          "passed": false,
+          "assertions": 4215,
+          "failures": 19,
+          "cases": 373
+        }
+      ]
+    },
+    "getter-only-default": {
+      "artifact_sha256": "075de73241e9e907604013e4685c5d08f15d412bb7c57c20d0b4bc4ce3fae9bc",
+      "fixture_sha256": "e5a6aed68de9f9c1d1fa31c269a7a1a0830d58cacf99cbb9e90d64d74474cba0",
+      "qa_sources": {
+        "source/PacketTemplatesQa.java": "8f712b27e500b9586035e4438ad0a64b67f4433829ac35471e702e31d1c74e57"
+      },
+      "profiles": [
+        {
+          "profile": "polymer",
+          "passed": true,
+          "assertions": 5268,
+          "failures": 0,
+          "cases": 373
+        },
+        {
+          "profile": "no-polymer",
+          "passed": true,
+          "assertions": 4489,
+          "failures": 0,
+          "cases": 373
+        }
+      ]
+    },
+    "getter-only-uncapped": {
+      "artifact_sha256": "075de73241e9e907604013e4685c5d08f15d412bb7c57c20d0b4bc4ce3fae9bc",
+      "fixture_sha256": "0ef4a1067d64fff9de0cd90719c3613beaeefd9142a18769f6539ec522f53d62",
+      "qa_sources": {
+        "source/PacketTemplatesQa.java": "8f712b27e500b9586035e4438ad0a64b67f4433829ac35471e702e31d1c74e57"
+      },
+      "profiles": [
+        {
+          "profile": "polymer",
+          "passed": false,
+          "assertions": 5420,
+          "failures": 34,
+          "cases": 415
+        },
+        {
+          "profile": "no-polymer",
+          "passed": true,
+          "assertions": 4969,
+          "failures": 0,
+          "cases": 415
+        }
+      ]
+    },
+    "pre-guard-default": {
+      "artifact_sha256": "941cdbb36e942cc553a4d4b955e72f4e25da7292d6a54706f058a3e9500d01f9",
+      "fixture_sha256": "235a699803c06ade21e2a16b6117eaecd34d24d722134936ec19907cc02d7415",
+      "qa_sources": {
+        "source/PacketTemplatesQa.java": "8c26dc1b850cd1f408966ba09b36a861f392b6b03bfbb61f133bdd92a41a0f4c"
+      },
+      "profiles": [
+        {
+          "profile": "polymer",
+          "passed": true,
+          "assertions": 7095,
+          "failures": 0,
+          "cases": 403
+        },
+        {
+          "profile": "no-polymer",
+          "passed": true,
+          "assertions": 6202,
+          "failures": 0,
+          "cases": 403
+        }
+      ]
+    },
+    "pre-guard-uncapped": {
+      "artifact_sha256": "941cdbb36e942cc553a4d4b955e72f4e25da7292d6a54706f058a3e9500d01f9",
+      "fixture_sha256": "147de6200694358e8e32eeb244faa959610f291b3d037ab03cc312a7de5c44cf",
+      "qa_sources": {
+        "source/PacketTemplatesQa.java": "8c26dc1b850cd1f408966ba09b36a861f392b6b03bfbb61f133bdd92a41a0f4c"
+      },
+      "profiles": [
+        {
+          "profile": "polymer",
+          "passed": true,
+          "assertions": 7720,
+          "failures": 0,
+          "cases": 466
+        },
+        {
+          "profile": "no-polymer",
+          "passed": true,
+          "assertions": 7123,
+          "failures": 0,
+          "cases": 466
+        }
+      ]
+    },
+    "fixture-api-overload-correction-default": {
+      "artifact_sha256": "ea383c52581970f5b69eb0db0cffdc9c26a0a0efb2f80e0ab82f8b8f9d2a5f86",
+      "fixture_sha256": "3dcbfb138eaf829de8b3e731bddea684a63bc59e0283c1f9218c850e96944195",
+      "qa_sources": {
+        "source/PacketTemplatesQa.java": "9c221b286ed35151c0c27ae64c7d35b62029e552133368bb499f5541abe234e0"
+      },
+      "profiles": [
+        {
+          "profile": "polymer",
+          "passed": false,
+          "assertions": 7099,
+          "failures": 1,
+          "cases": 405
+        },
+        {
+          "profile": "no-polymer",
+          "passed": true,
+          "assertions": 6202,
+          "failures": 0,
+          "cases": 403
+        }
+      ],
+      "classification": "QA fixture used connection-requiring convenience overload with no connection; corrected to four-argument API in final acceptance. Not a production regression."
+    },
+    "fixture-api-overload-correction-uncapped": {
+      "artifact_sha256": "ea383c52581970f5b69eb0db0cffdc9c26a0a0efb2f80e0ab82f8b8f9d2a5f86",
+      "fixture_sha256": "37085a14976fd13b0f2c97b5ac2d152e1eec808502277cf8a896355c40d6ff09",
+      "qa_sources": {
+        "source/PacketTemplatesQa.java": "9c221b286ed35151c0c27ae64c7d35b62029e552133368bb499f5541abe234e0"
+      },
+      "profiles": [
+        {
+          "profile": "polymer",
+          "passed": false,
+          "assertions": 7724,
+          "failures": 1,
+          "cases": 468
+        },
+        {
+          "profile": "no-polymer",
+          "passed": true,
+          "assertions": 7123,
+          "failures": 0,
+          "cases": 466
+        }
+      ],
+      "classification": "QA fixture used connection-requiring convenience overload with no connection; corrected to four-argument API in final acceptance. Not a production regression."
+    },
+    "final-default": {
+      "artifact_sha256": "ea383c52581970f5b69eb0db0cffdc9c26a0a0efb2f80e0ab82f8b8f9d2a5f86",
+      "fixture_sha256": "dc489142a3d4141a63d8eb7f08335d6dc0a13cf517341f02e882e629a3a71906",
+      "qa_sources": {
+        "source/PacketTemplatesQa.java": "3b431300fcb8c5c0f652fbfab57d68b614a635bf3350e3ee630804e18bb09686"
+      },
+      "profiles": [
+        {
+          "profile": "polymer",
+          "passed": true,
+          "assertions": 7103,
+          "failures": 0,
+          "cases": 405
+        },
+        {
+          "profile": "no-polymer",
+          "passed": true,
+          "assertions": 6202,
+          "failures": 0,
+          "cases": 403
+        }
+      ]
+    },
+    "final-uncapped": {
+      "artifact_sha256": "ea383c52581970f5b69eb0db0cffdc9c26a0a0efb2f80e0ab82f8b8f9d2a5f86",
+      "fixture_sha256": "3df89aa8dd6c2d6dc4eb74cf147b0a9544d82bde906a0d6f6e8495ab326077f1",
+      "qa_sources": {
+        "source/PacketTemplatesQa.java": "3b431300fcb8c5c0f652fbfab57d68b614a635bf3350e3ee630804e18bb09686"
+      },
+      "profiles": [
+        {
+          "profile": "polymer",
+          "passed": true,
+          "assertions": 7728,
+          "failures": 0,
+          "cases": 468
+        },
+        {
+          "profile": "no-polymer",
+          "passed": true,
+          "assertions": 7123,
+          "failures": 0,
+          "cases": 466
+        }
+      ]
+    }
+  }
+}

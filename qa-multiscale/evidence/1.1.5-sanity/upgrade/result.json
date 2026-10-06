@@ -1,0 +1,58 @@
+{
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "passed": true,
+  "origin_suite_version": "1.1.4+26.3",
+  "origin_suite_sha256": "2c1273947279693e5ec3c78b2c39793c3b5fdbc320216476e04d16f79b2a1754",
+  "cases": [
+    {
+      "profile": "maps-polymer-upgrade-from-1.1.4",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 1294 mixed-scale insertion, extraction commands, banner edits, map integrity, codec and restart checks",
+      "passed": true
+    }
+  ],
+  "date": "2026-10-06",
+  "suite_version": "1.1.5+26.3",
+  "runtime_defaulted_absent": true,
+  "total_assertions": 1294,
+  "fixture_sources": [
+    {
+      "file": "qa-multiscale/src/MixedScaleQa.java",
+      "sha256": "2124aee4791fd85c807ed27d2b4ad7526e79b2683138f5d95cc81bb1abf3cd37"
+    },
+    {
+      "file": "qa-multiscale/src/AtlasBannerQa.java",
+      "sha256": "7baebed013970515bcdb65e0051aceebd3fa18e77b36a58ac63c8d3c7a76953e"
+    },
+    {
+      "file": "qa-multiscale/src/AtlasRepairQa.java",
+      "sha256": "507783265ece85061e3103cd2992ba900670d839129c600e41f2d190963e9df8"
+    },
+    {
+      "file": "qa-multiscale/src/AtlasCartographyQa.java",
+      "sha256": "407dc583f62f9979c38bd21babdf5cd9b2fd46b0ee8b3ea894e20508d10d6c30"
+    }
+  ],
+  "runner": {
+    "file": "qa-multiscale/run-upgrade.py",
+    "sha256": "82142db5fef2bdf2755bce7ae7c6f3092c06fb6da60f53c1496ae92fd9453a56"
+  },
+  "logs": [
+    {
+      "file": "maps-polymer-upgrade-from-1.1.4-console-0.txt",
+      "raw_sha256": "c6b507aa012ae16efc083349a72a27e9f1934e69cf00207c2977b6f4aac9fa4e",
+      "sanitized_sha256": "3dd5a2008d937d1d9f3fff1ffaf88a06fba5f2b504d0657b1fcc887faf0f974a",
+      "normal_shutdown_observed": true,
+      "errors": 0
+    }
+  ],
+  "qa_fixture_sha256": "54aa6421c43c9d87f6cb27ed723ab7e43f40c32274c2f9b1e1c1644e8dac43d3",
+  "runtime_scope": "Copied prior stable world/config/serialized atlas booted with current release; original source files preserved and hashes recorded; not every possible player inventory/config migration.",
+  "executed_launcher": {
+    "raw_sha256": "e1eb0bbc6a84eae3893f15015027e36b404b7ed6aab8afb2871be2f412f63704",
+    "sanitized_file": "executed-launcher.txt",
+    "sanitized_sha256": "4cc44c62e81975ff3f9a76e2aac43aadc76d01fb33375c144a1af504b16a4924",
+    "note": "Tracked run-upgrade.py parameterizes label/origin/current from this executed launch body."
+  }
+}

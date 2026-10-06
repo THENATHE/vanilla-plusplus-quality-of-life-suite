@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-06",
+  "suite_version": "1.1.5+26.3",
+  "suite_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "released_source_revision": "a9af44ff0b1385c5a67b1dabc38516126e220d2d",
+  "passed": true,
+  "additional_assertions_and_policy_checks": 55911,
+  "actual_clientsort_operations": 180,
+  "retained_rendered_screenshots": 140,
+  "settings_hud_atlas_observations": 187,
+  "bannerpoint_observations": 12,
+  "extended_connection_records": 5,
+  "integrated_singleplayer_records": 2,
+  "production_sources_changed": false,
+  "published_release_replaced": false,
+  "defaulted_current_runtime_present": false,
+  "records": [
+    {
+      "file": "qa-multiscale/evidence/1.1.5-sanity/server/result.json",
+      "sha256": "5dcf1d7231a9c88e0410cc4182b3f918d6e52c57b3de940a329ed148447e2ec7",
+      "passed": true
+    },
+    {
+      "file": "qa-multiscale/evidence/1.1.5-sanity/upgrade/result.json",
+      "sha256": "3f4694e8cf697ce79b90db0e965fe1b694e30b405c7289545cad64f80fec3d37",
+      "passed": true
+    },
+    {
+      "file": "qa-death-once/evidence/1.1.5-sanity/result.json",
+      "sha256": "5347c27c7bba2920a0616b6910651d43757e3338b9b1b346afc8ad66ea1ac879",
+      "passed": true
+    },
+    {
+      "file": "qa-sanity-misc/evidence/1.1.5-sanity/result.json",
+      "sha256": "0f84a7a39983a6e1be94474021896ba2ebe47cfe466c51d2bcd5a27834c2859f",
+      "passed": true
+    },
+    {
+      "file": "qa-sanity/evidence/1.1.5-sanity/gameplay/result.json",
+      "sha256": "98cf8937dff533dd96478c58c9c9067f84da015aebac1cadf089f23861ba6246",
+      "passed": true
+    },
+    {
+      "file": "qa-sanity/evidence/1.1.5-sanity/shared-region-maps/result.json",
+      "sha256": "efb6a05ffc87c7efa04e088b16166a6003a3e17768477cc0892755a39d5d5298",
+      "passed": true
+    },
+    {
+      "file": "qa-settings/evidence/1.1.5-sanity/operator-to-guest/results.json",
+      "sha256": "5384a149a790d22c36674799a6fe12288a145062820d3d46e06722464cc5ed37",
+      "passed": true
+    },
+    {
+      "file": "qa-settings/evidence/1.1.5-sanity/guest-to-operator/results.json",
+      "sha256": "222fd8935ebee34465d5b78c9778c13e9d7a9b99ddce07c4ad07a83456f6bb8f",
+      "passed": true
+    },
+    {
+      "file": "qa-hud/evidence/1.1.5-sanity/native-client/results.json",
+      "sha256": "de0604514c4cd8ff77ecc8e9e941c750f63b9b659890de9abf23b7c439cb42b6",
+      "passed": true
+    },
+    {
+      "file": "qa-hud/evidence/1.1.5-sanity/client-polymer/results.json",
+      "sha256": "03f0013502c16a9b2fea275a0d5145a0067a174c0e1613b01d6774ec7eb35c42",
+      "passed": true
+    },
+    {
+      "file": "qa-multiscale/evidence/1.1.5-sanity/complete-client/results.json",
+      "sha256": "79f888f5aa0b669d0c6d79f5df75339b6ef92f5dfe871e0993e4de6ec7efe4dd",
+      "passed": true
+    },
+    {
+      "file": "qa-bannerpoint/evidence/1.1.5-sanity/result.json",
+      "sha256": "368a748f61c033919554d566c6267757e327ea583a636954985a55e2a3afb5a8",
+      "passed": true
+    },
+    {
+      "file": "qa-sanity-clientsort/evidence/1.1.5-sanity/client-only/results.json",
+      "sha256": "3dc8c835de760dc4999f6c243ba34461354da01b159fd1f0df61d19c81ab5a85",
+      "passed": true
+    },
+    {
+      "file": "qa-sanity-clientsort/evidence/1.1.5-sanity/accelerated/results.json",
+      "sha256": "62733fdfe5954c40a9865ff05a8c6294734cff00a9407b29f165f24b69303f58",
+      "passed": true
+    },
+    {
+      "file": "qa-sanity/evidence/1.1.5-sanity/negotiation/result.json",
+      "sha256": "08acbaedc495dd0b284191faabf9d57870eb44df8d75a7874edc491ca808ae90",
+      "passed": true
+    },
+    {
+      "file": "qa-sanity/evidence/1.1.5-sanity/singleplayer/result.json",
+      "sha256": "3826f7c901d682ab750cbce7ec958d3e0a84cfbf8eb737fa817e5093b219cc9f",
+      "passed": true
+    }
+  ],
+  "reused_release_acceptance": "docs/VALIDATION.md original1.1.5 section; records remain unchanged",
+  "known_findings": [
+    "Official upstream SSO optional text-renaming builtin packs use incompatible metadata. Gameplay tests pass; original publisher JAR retained."
+  ],
+  "limitations": "See docs/SANITY_1_1_5.md; exact complete hosted third-party stack not reproduced."
+}

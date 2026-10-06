@@ -1,0 +1,36 @@
+{
+  "old_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "new_sha256": "ea383c52581970f5b69eb0db0cffdc9c26a0a0efb2f80e0ab82f8b8f9d2a5f86",
+  "unchanged_nested_modules": [
+    "amethyst_curse_cleanser",
+    "chalk",
+    "chalk-colorful-addon",
+    "mapstitch",
+    "misctweaks",
+    "simple_death_improvements",
+    "simple_smithing_overhaul",
+    "tiered_backpacks",
+    "toolpouch",
+    "sso_backpack_toolpouch_mapstitch_shim",
+    "chalk_polymer_compat",
+    "shared_region_maps",
+    "toolpouch_atlas_elytra_compat",
+    "sensible_stackables",
+    "mapstitch_mixed_scales",
+    "bannerpoint",
+    "bannerpoint_polymer_compat"
+  ],
+  "changed_nested_modules": {
+    "sensible_stackables_polymer_compat": {
+      "before": {
+        "version": "1.0.1+26.3",
+        "sha256": "8e373d8da7eee676dee9f4868b4dadb40ddccd5ca211e5aa85909dd2670bd88a"
+      },
+      "after": {
+        "version": "1.0.2+26.3",
+        "sha256": "3f476da7973a2165a11db2b8343f4ff08f3e58656d27a0d7cb7ea5cb9f02ca9a"
+      }
+    }
+  },
+  "root_classes_unchanged": true
+}

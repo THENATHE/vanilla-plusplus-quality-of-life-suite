@@ -1,6 +1,8 @@
 # Provenance and compatibility tracks
 
-Stable suite **1.1.5+26.3**, on `main`, targets Minecraft 26.3, Fabric Loader 0.19.5 and Java 25. Its 18 nested modules include official SSO **2.10.0**, MapStitch **1.1.7**, Sensible Stackables **3.1.1** and Bannerpoint **1.1.2**. The coordinator is **1.1.1+26.3** and the mixed-scale addon is **1.1.5+26.3**. Combined compatibility is **1.1.1+26.3**, Stackables compatibility is **1.0.1+26.3**, and the pouch addon is **1.0.9-suite.1+26.3**. Existing atlas maintenance/copying, multiscale banners, saved IDs, configuration identities, Unbreaking and SSO material repair remain intact. This release replaces the active Stackables port with the unchanged official developer binary and adds native guards for the new repairables/stack-size payloads. It fixes the independently reproduced Clumps early-return bypass of pouch XP repair. Defaulted leaves the runtime/installation set; its exact historical input remains compile-only for guarded optional compatibility.
+Stable **1.1.6+26.3** advances only Stackables compatibility to **1.0.2+26.3** relative to 1.1.5. [Exact artifact comparison](packet-fix-previous-build-comparison-1.1.6.json) confirms all 17 other nested modules and root Java classes are unchanged; [fix/installation notes](PACKET_FIX_1_1_6.md) record the release scope and original-input preservation.
+
+Stable suite **1.1.6+26.3**, on `main`, targets Minecraft 26.3, Fabric Loader 0.19.5 and Java 25. Its 18 nested modules include official SSO **2.10.0**, MapStitch **1.1.7**, Sensible Stackables **3.1.1** and Bannerpoint **1.1.2**. The coordinator is **1.1.1+26.3** and the mixed-scale addon is **1.1.5+26.3**. Combined compatibility is **1.1.1+26.3**, Stackables compatibility is **1.0.2+26.3**, and the pouch addon is **1.0.9-suite.1+26.3**. Existing atlas maintenance/copying, multiscale banners, saved IDs, configuration identities, Unbreaking and SSO material repair remain intact. Release 1.1.5 replaced the active Stackables port with the unchanged official developer binary, added native guards for repairables/stack-size payloads, fixed the Clumps early-return bypass of pouch XP repair and removed Defaulted from runtime installation. Release 1.1.6 retains those changes and fixes effective limits on stored-item templates, with safe outgoing nested previews for fallback clients. The exact historical Defaulted input remains compile-only for guarded optional compatibility.
 
 This distribution combines original developer releases, existing ports/additions and suite compatibility code. It does not relabel original mods as official releases of the suite. Bannerpoint's developer-release compatibility track is supported here; no ChatGPT Bannerpoint port exists or is created. Other existing compatibility tracks and the paused SSO port remain preserved.
 
@@ -38,9 +40,9 @@ The [2026-10-06 publisher audit](pajic-release-audit-2026-10-06.json) distinguis
 | Tool Pouch atlas/Elytra addon | 1.0.9-suite.1+26.3 | Original local 1.0.4; components/toolpouch-atlas-elytra/upstream-manifest.json |
 | Mixed-scale MapStitch addon | 1.1.5+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
 | Sensible Stackables historical port (not nested) | 3.0.3-port.1+26.3 | Preserved published 3.0.3+26.2 baseline and independent port source/dependency records in components/sensible-stackables/ |
-| Sensible Stackables Polymer compatibility | 1.0.1+26.3 | Separate components/sensible-stackables/compat module |
+| Sensible Stackables Polymer compatibility | 1.0.2+26.3 | Separate components/sensible-stackables/compat module |
 | Bannerpoint compatibility | 1.0.1+26.3 | Separate components/bannerpoint-compat module; original artwork notices and client/pack detection retained. Reconciles map-linked tracking after multiscale atlas edits through the internal addon event. |
-| Suite root / settings | 1.1.5+26.3 | Newly authored source in src/ |
+| Suite root / settings | 1.1.6+26.3 | Newly authored source in src/ |
 
 The production archive retains these original module IDs and embeds each module separately. Original standalone repositories and versioned releases remain available; the suite variants do not overwrite them.
 

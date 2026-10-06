@@ -1,0 +1,244 @@
+{
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "passed": true,
+  "resource_count": 43,
+  "failures": [],
+  "resources": [
+    {
+      "path": "assets/bannerpoint/lang/en_us.json",
+      "module": "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/bannerpoint/textures/gui/sprites/hud/locator_bar_dot/banner_0.png",
+      "module": "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar",
+      "width": 9,
+      "height": 9
+    },
+    {
+      "path": "assets/bannerpoint/textures/gui/sprites/hud/locator_bar_dot/banner_1.png",
+      "module": "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar",
+      "width": 9,
+      "height": 9
+    },
+    {
+      "path": "assets/bannerpoint/textures/gui/sprites/hud/locator_bar_dot/banner_2.png",
+      "module": "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar",
+      "width": 9,
+      "height": 9
+    },
+    {
+      "path": "assets/bannerpoint/textures/gui/sprites/hud/locator_bar_dot/banner_3.png",
+      "module": "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar",
+      "width": 9,
+      "height": 9
+    },
+    {
+      "path": "assets/bannerpoint/waypoint_style/banner.json",
+      "module": "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/blockstates/broken_anvil.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/items/broken_anvil.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/items/enchantment_upgrade.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/items/info_enchantment_upgrade.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/items/info_pinnacle_enchantment.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/items/pinnacle_enchantment.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/items/whetstone.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/lang/en_us.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/models/block/broken_anvil.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/models/item/broken_anvil.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/models/item/enchantment_upgrade.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/models/item/info_enchantment_upgrade.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/models/item/info_pinnacle_enchantment.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/models/item/pinnacle_enchantment.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/models/item/whetstone.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/models/item/whetstone_broken.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/models/item/whetstone_chipped.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/models/item/whetstone_damaged.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/models/item/whetstone_full.json",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/block/broken_anvil_top.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/gui/advancements/backgrounds/smithing.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/gui/sprites/container/slot/echo_shard.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/gui/sprites/container/slot/enchanted_book.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/gui/sprites/container/slot/whetstone.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/empty_slot_echo_shard.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/empty_slot_enchanted_book.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/empty_slot_whetstone.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/enchantment_upgrade.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 64
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/enchantment_upgrade.png.mcmeta",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/info_enchantment_upgrade.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/info_pinnacle_enchantment.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/pinnacle_enchantment.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 64
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/pinnacle_enchantment.png.mcmeta",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "parsed": true
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/whetstone.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/whetstone_broken.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/whetstone_chipped.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "path": "assets/simple_smithing_overhaul/textures/item/whetstone_damaged.png",
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "width": 16,
+      "height": 16
+    }
+  ],
+  "scope": "Input JSON/PNG validation and direct custom model texture targets; generated pack byte equality pending runtime"
+}

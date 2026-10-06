@@ -1,0 +1,201 @@
+{
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "artifacts": [
+    {
+      "module": "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar",
+      "sha256": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
+      "direct_assets": [
+        {
+          "path": "assets/bannerpoint/lang/en_us.json",
+          "sha256": "27b125e900b90a600c5b7b14d78c44c3dc94ea23f6238a2f5aa6265bd15d7686"
+        },
+        {
+          "path": "assets/bannerpoint/textures/gui/sprites/hud/locator_bar_dot/banner_0.png",
+          "sha256": "932976e008e31f008c708088fb86f3b844cd1a959f42dd769a5e07ec137d7b5d"
+        },
+        {
+          "path": "assets/bannerpoint/textures/gui/sprites/hud/locator_bar_dot/banner_1.png",
+          "sha256": "1449d8849d8e4ac29a2a38d6b4b430cac2b819cba02c50f421365a5c04c250d5"
+        },
+        {
+          "path": "assets/bannerpoint/textures/gui/sprites/hud/locator_bar_dot/banner_2.png",
+          "sha256": "e17dc5327acab5afa26802c393fd6d247f255c7691a18ba6c8b42675ae189273"
+        },
+        {
+          "path": "assets/bannerpoint/textures/gui/sprites/hud/locator_bar_dot/banner_3.png",
+          "sha256": "f66dab8f57c2fab25951e0985684d025063b68fb80658f1c7d22584362ca3523"
+        },
+        {
+          "path": "assets/bannerpoint/waypoint_style/banner.json",
+          "sha256": "cdd1ed36715b27d71cd0c7bf6b6ab9423f24e065d83ae190e3bedfe91971c4e3"
+        }
+      ],
+      "optional_builtin_pack_resources": []
+    },
+    {
+      "module": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "sha256": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
+      "direct_assets": [
+        {
+          "path": "assets/simple_smithing_overhaul/blockstates/broken_anvil.json",
+          "sha256": "f6343e5a3cd7b4234cb45f36e2ef01169e79437ba4d5bae864d8ee064a4d36e7"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/items/broken_anvil.json",
+          "sha256": "cc71212c8f53af5cf3b729e56e2ae2265fd2a28128f887f5872150c37e587b75"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/items/enchantment_upgrade.json",
+          "sha256": "0b2ec9f5cc4a49b924b6aff33a9d2d95f8b97d69c4a6ef76b16d055213715d36"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/items/info_enchantment_upgrade.json",
+          "sha256": "b2364cd9f425424018c172e5265b866bc5b641603e84aae504ccc6b55c07f207"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/items/info_pinnacle_enchantment.json",
+          "sha256": "feadc89321bf54738fba259288985d6ed38177b746501d2e4f93426e9c462b74"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/items/pinnacle_enchantment.json",
+          "sha256": "7b835422e81e400fe217916010dfd50b048f4a644b38a452ba81862dbb36ea5b"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/items/whetstone.json",
+          "sha256": "41d4ef26a14a15f7632ff0f3140e302bd4bb6edec63f6d43c6b091df6da4ac74"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/lang/en_us.json",
+          "sha256": "7415ea402fbd32aee484559c5add83b9f89095d16b7a93975e7be5f31d4f94c0"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/models/block/broken_anvil.json",
+          "sha256": "4ef7c0002cbab8b03c273468e0f598baf02c03c9991f853a962b8ee9cad70834"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/models/item/broken_anvil.json",
+          "sha256": "bd73cbd65094d0def7cb90dea5189f58f9b8f4221a3ccebf5c4bb7848e9ac65b"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/models/item/enchantment_upgrade.json",
+          "sha256": "04c1187cd87c8b23f25812a32a5c8a17c63cc7aca20864d1dba35d14d54722ea"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/models/item/info_enchantment_upgrade.json",
+          "sha256": "8f353aace6c6cd952cbf278c7e7ddb72d779a71d9b51731ae806522cbb4e4fb6"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/models/item/info_pinnacle_enchantment.json",
+          "sha256": "b4a32dda7f0bb4c72389907d40b2eedf64204851f5c2997bce63a22f7e2bdeb9"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/models/item/pinnacle_enchantment.json",
+          "sha256": "5dc6b3ec6b4d87c59a5112d96bc0b5f6a206199e2af1d1bdc12cb65dd3de7263"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/models/item/whetstone.json",
+          "sha256": "1daf655dbbd32501738d5e47ce1b454d546965e581a15d758f18dc09e72422a2"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/models/item/whetstone_broken.json",
+          "sha256": "f32a1a7d694eea59dd989a2f5f216867cf60fdf982905708ce6032aff0a19caa"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/models/item/whetstone_chipped.json",
+          "sha256": "b9c9e010061a83b91d5c8832a165007d4f09c039183a0d7fd217c5633faa0ecf"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/models/item/whetstone_damaged.json",
+          "sha256": "c5ba527fe41e7b26bb81661c7fdd2409160b78178c21b88ef2a67948ffd731ee"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/models/item/whetstone_full.json",
+          "sha256": "a6a8c991c897ed9bd4c702c24cf3843e6e83141e5a98d3dc106154948948ddd2"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/block/broken_anvil_top.png",
+          "sha256": "016aa6eeed0ac9140c1cfd7cb10b99b89a1c43f5491ebb4b9feeb3e095851e47"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/gui/advancements/backgrounds/smithing.png",
+          "sha256": "d7a5a523f5bed62f709ee4ee58b5e40d8e1856bc2553a6ec8403d4e3b00daee9"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/gui/sprites/container/slot/echo_shard.png",
+          "sha256": "c1be3d16cf9347315b50fe49afae1d87dc8d3d42035fc03e0c59b5f28728d8c7"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/gui/sprites/container/slot/enchanted_book.png",
+          "sha256": "7b3fd23e6250b8ae2a651ea47d0756beed9a160c7793d96edb910bbb4245cd75"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/gui/sprites/container/slot/whetstone.png",
+          "sha256": "25ba1dd12633ba640452a927c34838f32a67a98431ca98173153f4e50ade0025"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/empty_slot_echo_shard.png",
+          "sha256": "c1be3d16cf9347315b50fe49afae1d87dc8d3d42035fc03e0c59b5f28728d8c7"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/empty_slot_enchanted_book.png",
+          "sha256": "7b3fd23e6250b8ae2a651ea47d0756beed9a160c7793d96edb910bbb4245cd75"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/empty_slot_whetstone.png",
+          "sha256": "25ba1dd12633ba640452a927c34838f32a67a98431ca98173153f4e50ade0025"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/enchantment_upgrade.png",
+          "sha256": "611fca11225af8e83dbdd6e2bd579890ebb46801039752e700585ec7135fa824"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/enchantment_upgrade.png.mcmeta",
+          "sha256": "461880d25665d1a24393ab95cbc4ea1b77696492ea508e0b1b656e7aa37042d0"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/info_enchantment_upgrade.png",
+          "sha256": "463a845ea1f5fbf3c47c12bd5ba362a04f61325d291bc29820267893bc1efe89"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/info_pinnacle_enchantment.png",
+          "sha256": "463a845ea1f5fbf3c47c12bd5ba362a04f61325d291bc29820267893bc1efe89"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/pinnacle_enchantment.png",
+          "sha256": "a7c8a37135248062f8792c557ee11fadb0f902a03308440db2a38a813b013e23"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/pinnacle_enchantment.png.mcmeta",
+          "sha256": "461880d25665d1a24393ab95cbc4ea1b77696492ea508e0b1b656e7aa37042d0"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/whetstone.png",
+          "sha256": "31fceae55048a0470317a22605e0761814335ee7ab84642547e2ba24bee92d89"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/whetstone_broken.png",
+          "sha256": "cb55d9767ec3039631b43c09fd280e52e24668018f39892f799b6d135d9d08ca"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/whetstone_chipped.png",
+          "sha256": "fbe4ad3bf381a1c3ac7551992e1ae44bc9237124ec6357be54c70dd2523f582d"
+        },
+        {
+          "path": "assets/simple_smithing_overhaul/textures/item/whetstone_damaged.png",
+          "sha256": "96f3d45f43ac397e880d33795559fd3c455bbd72e77784787dca94856abef221"
+        }
+      ],
+      "optional_builtin_pack_resources": [
+        "resourcepacks/rename_mending_description/pack.mcmeta",
+        "resourcepacks/rename_mending_description/pack.png",
+        "resourcepacks/rename_mending_description/assets/simple_smithing_overhaul/lang/en_us.json",
+        "resourcepacks/rename_xp_bottle/pack.mcmeta",
+        "resourcepacks/rename_xp_bottle/pack.png",
+        "resourcepacks/rename_xp_bottle/assets/simple_smithing_overhaul/lang/en_us.json",
+        "resourcepacks/required/pack.mcmeta",
+        "resourcepacks/required/pack.png",
+        "resourcepacks/required/assets/simple_smithing_overhaul/lang/en_us.json"
+      ]
+    }
+  ]
+}

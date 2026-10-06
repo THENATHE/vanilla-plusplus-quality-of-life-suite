@@ -2,7 +2,7 @@
 
 [What it is](#what-it-is) · [Features](#features) · [Vanilla compatibility](#the-shim-vanilla-and-modded-players-together) · [Installation](#installation) · [Technical info](#technical-info) · [Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Dependencies and compatible mods](docs/DEPENDENCIES.md)
 
-Stable release **1.1.5** updates Simple Smithing Overhaul, MapStitch and Sensible Stackables to their latest matching developer releases. It fixes XP Mending for an Elytra inside the active Tool Pouch when Clumps is installed, and no longer requires Defaulted. Bannerpoint, mixed-scale atlases, atlas maintenance/copying and the independent minimap/information controls remain available. See the [1.1.5 release guide](docs/RELEASE_1_1_5.md) for installation and testing notes.
+Stable release **1.1.6** fixes disconnects when a shulker inside a Tool Pouch contains stacked items. It preserves all stored items and counts, the updated original mods, Elytra Mending with Clumps, mixed-scale atlases and independent minimap/information controls. Defaulted remains unnecessary. See the [1.1.6 release guide](docs/RELEASE_1_1_6.md) for installation and testing notes.
 
 ## What it is
 
@@ -29,7 +29,7 @@ Thanks for your hard work, **pajic**!
 
 #### My tweaks and changes
 
-The suite includes the original developer release and a separate Polymer module for modern Minecraft versions. It keeps the original settings and server quantities. Clients without the suite receive **full item counts** with safe stack defaults. When a configured maximum exceeds 99, only their maximum-stack prediction metadata is capped at 99; completed inventory moves are corrected by the server. See [provenance, behavior, and verification](components/sensible-stackables/README.md).
+The suite includes the original developer release and a separate Polymer module for modern Minecraft versions. It keeps the original settings and server quantities. Clients without the suite receive **full item counts** with safe stack defaults. When a configured maximum exceeds 99, only their maximum-stack prediction metadata is capped at 99; completed inventory moves are corrected by the server. Stored items follow the same configured limits, including items in shulkers inside pouches. For clients without Stackables support, an unsafe nested preview above 99 is hidden while the actual items and quantities remain intact. Native clients keep complete previews. See [provenance, behavior, and verification](components/sensible-stackables/README.md).
 
 ### Simple Smithing Overhaul
 
@@ -326,7 +326,7 @@ The compatibility layer includes:
 
 ## Installation
 
-The [1.1.5 release guide](docs/RELEASE_1_1_5.md) covers the current features, installation and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.5%2B26.3) provides four downloads:
+The [1.1.6 release guide](docs/RELEASE_1_1_6.md) covers the current features, installation and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.6%2B26.3) provides four downloads:
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -338,7 +338,7 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Download `vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.5%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
+2. Download `vanilla-plusplus-quality-of-life-suite-1.1.6+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.6%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
@@ -395,7 +395,7 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar`.
+The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.1.6+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 

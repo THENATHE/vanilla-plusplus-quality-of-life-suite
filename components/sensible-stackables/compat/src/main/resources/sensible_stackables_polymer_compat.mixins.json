@@ -1,9 +1,12 @@
 {
   "required": true,
   "package": "com.thenathe.stackablescompat.mixin",
+  "plugin": "com.thenathe.stackablescompat.StackablesMixinPlugin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
     "ContainerResyncMixin",
+    "ItemStackTemplateMixin",
+    "PolymerPreviewMixin",
     "StackablesNetworkingMixin"
   ],
   "injectors": {

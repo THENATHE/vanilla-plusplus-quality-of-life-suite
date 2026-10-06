@@ -1,0 +1,50 @@
+{
+  "bundle_sha256": "ea383c52581970f5b69eb0db0cffdc9c26a0a0efb2f80e0ab82f8b8f9d2a5f86",
+  "minecraft": "26.3",
+  "track": "developer-release-suite",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":false,\"common_stack_size\":64,\"restart\":false,\"assertions\":94}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":false,\"common_stack_size\":64,\"restart\":true,\"assertions\":95}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":false,\"assertions\":94}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":true,\"assertions\":95}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":false,\"assertions\":70}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":true,\"assertions\":71}",
+      "passed": true
+    }
+  ]
+}

@@ -11,7 +11,7 @@ def sha(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--label', required=True)
-    parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar')
+    parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar')
     parser.add_argument('--baseline-1.1.3', dest='baseline_1_1_3', action='store_true', help='Use the historical repair command for the expected full-screen regression on stable1.1.3.')
     parser.add_argument('--atlas-smoke', action='store_true', help='Run two negative-grid Ctrl+Q cases and all source/pouch cases; omit the historical21-view matrix.')
     args = parser.parse_args()
@@ -22,9 +22,10 @@ def main():
     classes = fixtures / 'classes'; classes.mkdir()
     launch = mapstitch_launch(WORKSPACE)
     suite = args.jar.resolve()
+    frozen = run / suite.name; shutil.copy2(suite, frozen); assert sha(frozen) == sha(suite); suite = frozen
     dependencies = [ROOT / 'libs' / name for name in (
-        'codecui-26.3-1.4.3-fabric.jar', 'defaulted-1.3.8+26.3.dropfix.1-fabric.jar',
-        'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'fzzy_config-0.7.7+fix2+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
+        'codecui-26.3-1.4.3-fabric.jar',
+        'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'fzzy_config-0.7.7+fix3+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
     dependencies += [launch.artifact('net.fabricmc.fabric-api', 'fabric-api', '0.161.0+26.3'),
                      launch.artifact('me.shedaniel.cloth', 'cloth-config-fabric', '26.3.159')]
     polymer = WORKSPACE / 'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar'

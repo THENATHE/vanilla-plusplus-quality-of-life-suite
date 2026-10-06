@@ -11,13 +11,13 @@ launch=mapstitch_launch(ROOT)
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--visual-only',action='store_true');p.add_argument('--lifecycle-only',action='store_true');p.add_argument('--guest',action='store_true');p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.2+26.3.jar')
+    p.add_argument('--visual-only',action='store_true');p.add_argument('--lifecycle-only',action='store_true');p.add_argument('--guest',action='store_true');p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar')
     p.add_argument('--label',required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--settings-only',action='store_true');p.add_argument('--port',type=int,default=25976);p.add_argument('--reconnect',action='store_true',help='Reconnect to a second isolated server with opposite operator permissions')
     args=p.parse_args();suite=args.suite.resolve();assert suite.is_file();suiteHash=sha(suite)
     run=HERE/'runs'/args.label;run.mkdir(parents=True,exist_ok=False);control=run/'control';control.mkdir();fixtures=run/'fixtures';fixtures.mkdir();classes=fixtures/'classes';classes.mkdir()
     frozen=run/suite.name;shutil.copy2(suite,frozen);assert sha(frozen)==suiteHash;suite=frozen
     # Original runtime dependencies remain separate; component mods are nested in suite.
-    deps=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','defaulted-1.3.8+26.3.dropfix.1-fabric.jar','fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar','fzzy_config-0.7.7+fix2+26.3.jar','mixson-2.2.1-multiloader.jar']]
+    deps=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar','fzzy_config-0.7.7+fix3+26.3.jar','mixson-2.2.1-multiloader.jar']]
     deps+=[launch.artifact('net.fabricmc.fabric-api','fabric-api','0.161.0+26.3'),launch.artifact('me.shedaniel.cloth','cloth-config-fabric','26.3.159'),launch.artifact('com.terraformersmc','modmenu','21.0.0')]
     selected=[suite]+deps
     serverAudit,clientAudit=launch.audits();paths=launch.cp(serverAudit['command'])+launch.cp(clientAudit['command'])+[str(p) for p in selected]+[str(launch.artifact('io.github.llamalad7','mixinextras-fabric','0.5.5'))]
@@ -31,16 +31,17 @@ def main():
     subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(dict.fromkeys(paths)),'-d',str(classes),*map(str,(HERE/'src').glob('*.java'))],check=True)
     original_language_keys=[]
     for namespace,filename in {
-        'mapstitch':'mapstitch-fabric-1.1.6+26.3.jar',
+        'mapstitch':'mapstitch-fabric-1.1.7+26.3.jar',
         'misctweaks':'misctweaks-fabric-1.4.4+26.3.jar',
         'simple_death_improvements':'simple_death_improvements-fabric-1.6.0+26.3.jar',
-        'simple_smithing_overhaul':'simple_smithing_overhaul-fabric-2.9.14+26.3.jar',
+        'simple_smithing_overhaul':'simple_smithing_overhaul-fabric-2.10.0+26.3.jar',
         'tiered_backpacks':'tiered_backpacks-fabric-1.0.20+26.3.jar',
         'toolpouch':'toolpouch-fabric-1.1.10+26.3.jar',
     }.items():
         with zipfile.ZipFile(SUITE/'libs'/filename) as z:
             original_language_keys.extend(json.loads(z.read(f'assets/{namespace}/lang/en_us.json')))
-    original_language_keys.extend(json.loads((SUITE/'components/sensible-stackables/ported/src/main/resources/assets/sensible_stackables/lang/en_us.json').read_text()))
+    with zipfile.ZipFile(SUITE/'libs/sensible_stackables-fabric-3.1.1+26.3.jar') as z:
+        original_language_keys.extend(json.loads(z.read('assets/sensible_stackables/lang/en_us.json')))
     for side in ['client','server']:
         with zipfile.ZipFile(fixtures/f'{side}.jar','w') as z:
             meta={'schemaVersion':1,'id':'suite_settings_qa_'+side,'version':'1','environment':side,'entrypoints':{'client' if side=='client' else 'main':['suitesettingsqa.Settings'+side.title()+'Qa']},'depends':{'fabric-api':'*','thenathe_mod_suite':'*'}}
@@ -66,7 +67,7 @@ def main():
                 guest=(not args.guest) if side=='server2' else args.guest
                 (directory/'ops.json').write_text(json.dumps([] if guest else [dict(uuid=str(profile),name='SettingsQa',level=4,bypassesPlayerLimit=True)]))
                 (directory/'server.properties').write_text(f'server-ip=127.0.0.1\nserver-port={port}\nonline-mode=false\nwhite-list=false\nenforce-secure-profile=false\nspawn-protection=0\nview-distance=2\nsimulation-distance=2\ndifficulty=peaceful\nlevel-type=minecraft:flat\ngenerator-settings={{"biome":"minecraft:plains","layers":[{{"block":"minecraft:bedrock","height":1}},{{"block":"minecraft:dirt","height":2}},{{"block":"minecraft:grass_block","height":1}}]}}\ngenerate-structures=false\n')
-            else:(directory/'options.txt').write_text('pauseOnLostFocus:false\nguiScale:2\ngraphicsMode:0\nrenderDistance:3\nsimulationDistance:3\nmaxFps:30\nmaxFpsInactive:30\nsoundCategory_master:0.0\njoinedFirstServer:true\n')
+            else:(directory/'options.txt').write_text('pauseOnLostFocus:false\nguiScale:2\ngraphicsMode:0\nrenderDistance:3\nsimulationDistance:3\nmaxFps:30\nmaxFpsInactive:30\nsoundCategory_master:0.0\njoinedFirstServer:true\nnotificationDisplayTime:0.0\ntutorialStep:none\n')
             command=launch.base_command('server' if isServer else 'native',directory,port)
             command[0]='/usr/lib/jvm/java-25-openjdk/bin/java'
             if side=='client':command[command.index('--username')+1]='SettingsQa'

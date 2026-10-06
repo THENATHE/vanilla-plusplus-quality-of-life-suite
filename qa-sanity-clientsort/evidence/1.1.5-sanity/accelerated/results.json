@@ -1,0 +1,273 @@
+{
+  "track": "developer",
+  "candidate_expectations": true,
+  "server_clientsort": true,
+  "refill_buttons": true,
+  "suite_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "artifacts": {
+    "server": {
+      "mods": [
+        {
+          "filename": "vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar",
+          "sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5"
+        },
+        {
+          "filename": "codecui-26.3-1.4.3-fabric.jar",
+          "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+        },
+        {
+          "filename": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+          "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+        },
+        {
+          "filename": "fzzy_config-0.7.7+fix3+26.3.jar",
+          "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+        },
+        {
+          "filename": "mixson-2.2.1-multiloader.jar",
+          "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+        },
+        {
+          "filename": "fabric-api-0.161.0+26.3.jar",
+          "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+        },
+        {
+          "filename": "cloth-config-fabric-26.3.159.jar",
+          "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+        },
+        {
+          "filename": "polymer-bundled-0.18.2+26.3.jar",
+          "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+        },
+        {
+          "filename": "clientsort-fabric-3.104.1+26.3.jar",
+          "sha256": "37f812d25307bc011be64a4853e26d848b858599c5068244dd857c521d4078ce"
+        },
+        {
+          "filename": "server.jar",
+          "sha256": "596df033764a877d7cda6c5082db47ec6d4f64e9b5925ed2f54f73f72622c907"
+        }
+      ],
+      "qa_fixture": true
+    },
+    "client": {
+      "mods": [
+        {
+          "filename": "vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar",
+          "sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5"
+        },
+        {
+          "filename": "codecui-26.3-1.4.3-fabric.jar",
+          "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+        },
+        {
+          "filename": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+          "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+        },
+        {
+          "filename": "fzzy_config-0.7.7+fix3+26.3.jar",
+          "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+        },
+        {
+          "filename": "mixson-2.2.1-multiloader.jar",
+          "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+        },
+        {
+          "filename": "fabric-api-0.161.0+26.3.jar",
+          "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+        },
+        {
+          "filename": "cloth-config-fabric-26.3.159.jar",
+          "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+        },
+        {
+          "filename": "clientsort-fabric-3.104.1+26.3.jar",
+          "sha256": "37f812d25307bc011be64a4853e26d848b858599c5068244dd857c521d4078ce"
+        },
+        {
+          "filename": "client.jar",
+          "sha256": "49d9fd3f23006739fd009f70f568a28794a4a27c0f6d4e339afe232448c180f0"
+        }
+      ],
+      "qa_fixture": true
+    }
+  },
+  "original_jars_unchanged": true,
+  "result.txt": "COMPLETE OPERATIONS_PASS variants=10 checks=7864",
+  "observations.txt": "SERVER_BOUNDARIES [PASS valid three-way permutation preserves counts, cursor and player inventory, PASS duplicate source, non-permutation, odd length, mixed inventory and invalid index rejected without mutation, PASS over-quota destination rolls back earlier accepted move and preserves unrelated slot, PASS configured per-slot stack cap rejection restores complete prior state, PASS forbidden-item rejection restores complete prior state, PASS intrinsic stack-limit rejection restores even an originally overlarge stack without clamping, PASS existing stack can refill at quota while additional stacks and forbidden items remain blocked]\nVARIANT=0 owner=toolpouch:tool_pouch\nOPEN variant=0 1|bagButtons=4,playerButtons=4,screen=me.pajic.toolpouch.menu.ToolPouchScreen\nPASS variant=0 operation=sort|false transport=2|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=0 operation=sort|true transport=5|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=0 operation=fill|true transport=6|serverOperators=1 conservation={minecraft:arrow=30, minecraft:clock=1, minecraft:compass=11, minecraft:firework_rocket=18, minecraft:stone=7}\nPASS variant=0 operation=fill|false transport=7|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=18}\nPASS variant=0 operation=match|true transport=8|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10, minecraft:stone=7}\nPASS variant=0 operation=match|false transport=9|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10}\nPASS variant=0 operation=transfer|true transport=10|serverOperators=1 conservation={minecraft:arrow=20, minecraft:clock=2, minecraft:compass=3, minecraft:firework_rocket=10, minecraft:shulker_box=1, minecraft:stone=7}\nPASS variant=0 operation=sort|false|occupied transport=11|serverOperators=2 conservation={minecraft:arrow=10, minecraft:diamond=1, minecraft:firework_rocket=8}\nPASS variant=0 operation=transfer|false transport=12|serverOperators=1 conservation={minecraft:arrow=20, minecraft:compass=1, minecraft:firework_rocket=10}\nVARIANT=1 owner=toolpouch:netherite_tool_pouch\nOPEN variant=1 16|bagButtons=4,playerButtons=4,screen=me.pajic.toolpouch.menu.ToolPouchScreen\nPASS variant=1 operation=sort|false transport=17|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=1 operation=sort|true transport=20|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=1 operation=fill|true transport=21|serverOperators=1 conservation={minecraft:arrow=30, minecraft:clock=1, minecraft:compass=11, minecraft:firework_rocket=18, minecraft:stone=7}\nPASS variant=1 operation=fill|false transport=22|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=18}\nPASS variant=1 operation=match|true transport=23|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10, minecraft:stone=7}\nPASS variant=1 operation=match|false transport=24|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10}\nPASS variant=1 operation=transfer|true transport=25|serverOperators=1 conservation={minecraft:arrow=20, minecraft:clock=2, minecraft:compass=3, minecraft:firework_rocket=10, minecraft:shulker_box=1, minecraft:stone=7}\nPASS variant=1 operation=sort|false|occupied transport=26|serverOperators=2 conservation={minecraft:arrow=10, minecraft:diamond=1, minecraft:firework_rocket=8}\nPASS variant=1 operation=transfer|false transport=27|serverOperators=1 conservation={minecraft:arrow=20, minecraft:compass=1, minecraft:firework_rocket=10}\nVARIANT=2 owner=minecraft:netherite_leggings\nOPEN variant=2 31|bagButtons=4,playerButtons=4,screen=me.pajic.toolpouch.menu.ToolPouchScreen\nPASS variant=2 operation=sort|false transport=32|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=2 operation=sort|true transport=35|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=2 operation=fill|true transport=36|serverOperators=1 conservation={minecraft:arrow=30, minecraft:clock=1, minecraft:compass=11, minecraft:firework_rocket=18, minecraft:stone=7}\nPASS variant=2 operation=fill|false transport=37|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=18}\nPASS variant=2 operation=match|true transport=38|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10, minecraft:stone=7}\nPASS variant=2 operation=match|false transport=39|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10}\nPASS variant=2 operation=transfer|true transport=40|serverOperators=1 conservation={minecraft:arrow=20, minecraft:clock=2, minecraft:compass=3, minecraft:firework_rocket=10, minecraft:shulker_box=1, minecraft:stone=7}\nPASS variant=2 operation=sort|false|occupied transport=41|serverOperators=2 conservation={minecraft:arrow=10, minecraft:diamond=1, minecraft:firework_rocket=8}\nPASS variant=2 operation=transfer|false transport=42|serverOperators=1 conservation={minecraft:arrow=20, minecraft:compass=1, minecraft:firework_rocket=10}\nVARIANT=3 owner=minecraft:netherite_leggings\nOPEN variant=3 46|bagButtons=4,playerButtons=4,screen=me.pajic.toolpouch.menu.ToolPouchScreen\nPASS variant=3 operation=sort|false transport=47|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=3 operation=sort|true transport=50|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=3 operation=fill|true transport=51|serverOperators=1 conservation={minecraft:arrow=30, minecraft:clock=1, minecraft:compass=11, minecraft:firework_rocket=18, minecraft:stone=7}\nPASS variant=3 operation=fill|false transport=52|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=18}\nPASS variant=3 operation=match|true transport=53|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10, minecraft:stone=7}\nPASS variant=3 operation=match|false transport=54|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10}\nPASS variant=3 operation=transfer|true transport=55|serverOperators=1 conservation={minecraft:arrow=20, minecraft:clock=2, minecraft:compass=3, minecraft:firework_rocket=10, minecraft:shulker_box=1, minecraft:stone=7}\nPASS variant=3 operation=sort|false|occupied transport=56|serverOperators=2 conservation={minecraft:arrow=10, minecraft:diamond=1, minecraft:firework_rocket=8}\nPASS variant=3 operation=transfer|false transport=57|serverOperators=1 conservation={minecraft:arrow=20, minecraft:compass=1, minecraft:firework_rocket=10}\nVARIANT=4 owner=tiered_backpacks:leather_backpack\nOPEN variant=4 61|bagButtons=4,playerButtons=4,screen=me.pajic.tiered_backpacks.ui.BackpackScreen\nPASS variant=4 operation=sort|false transport=62|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=4 operation=sort|true transport=65|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=4 operation=fill|true transport=66|serverOperators=1 conservation={minecraft:arrow=30, minecraft:clock=1, minecraft:compass=11, minecraft:firework_rocket=18, minecraft:stone=7}\nPASS variant=4 operation=fill|false transport=67|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=18}\nPASS variant=4 operation=match|true transport=68|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10, minecraft:stone=7}\nPASS variant=4 operation=match|false transport=69|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10}\nPASS variant=4 operation=transfer|true transport=70|serverOperators=1 conservation={minecraft:arrow=20, minecraft:clock=2, minecraft:compass=3, minecraft:firework_rocket=10, minecraft:shulker_box=1, minecraft:stone=7}\nPASS variant=4 operation=sort|false|occupied transport=71|serverOperators=2 conservation={minecraft:arrow=10, minecraft:diamond=1, minecraft:firework_rocket=8}\nPASS variant=4 operation=transfer|false transport=72|serverOperators=1 conservation={minecraft:arrow=20, minecraft:compass=1, minecraft:firework_rocket=10}\nVARIANT=5 owner=tiered_backpacks:copper_backpack\nOPEN variant=5 76|bagButtons=4,playerButtons=4,screen=me.pajic.tiered_backpacks.ui.BackpackScreen\nPASS variant=5 operation=sort|false transport=77|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=5 operation=sort|true transport=80|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=5 operation=fill|true transport=81|serverOperators=1 conservation={minecraft:arrow=30, minecraft:clock=1, minecraft:compass=11, minecraft:firework_rocket=18, minecraft:stone=7}\nPASS variant=5 operation=fill|false transport=82|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=18}\nPASS variant=5 operation=match|true transport=83|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10, minecraft:stone=7}\nPASS variant=5 operation=match|false transport=84|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10}\nPASS variant=5 operation=transfer|true transport=85|serverOperators=1 conservation={minecraft:arrow=20, minecraft:clock=2, minecraft:compass=3, minecraft:firework_rocket=10, minecraft:shulker_box=1, minecraft:stone=7}\nPASS variant=5 operation=sort|false|occupied transport=86|serverOperators=2 conservation={minecraft:arrow=10, minecraft:diamond=1, minecraft:firework_rocket=8}\nPASS variant=5 operation=transfer|false transport=87|serverOperators=1 conservation={minecraft:arrow=20, minecraft:compass=1, minecraft:firework_rocket=10}\nVARIANT=6 owner=tiered_backpacks:iron_backpack\nOPEN variant=6 91|bagButtons=4,playerButtons=4,screen=me.pajic.tiered_backpacks.ui.BackpackScreen\nPASS variant=6 operation=sort|false transport=92|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=6 operation=sort|true transport=95|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=6 operation=fill|true transport=96|serverOperators=1 conservation={minecraft:arrow=30, minecraft:clock=1, minecraft:compass=11, minecraft:firework_rocket=18, minecraft:stone=7}\nPASS variant=6 operation=fill|false transport=97|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=18}\nPASS variant=6 operation=match|true transport=98|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10, minecraft:stone=7}\nPASS variant=6 operation=match|false transport=99|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10}\nPASS variant=6 operation=transfer|true transport=100|serverOperators=1 conservation={minecraft:arrow=20, minecraft:clock=2, minecraft:compass=3, minecraft:firework_rocket=10, minecraft:shulker_box=1, minecraft:stone=7}\nPASS variant=6 operation=sort|false|occupied transport=101|serverOperators=2 conservation={minecraft:arrow=10, minecraft:diamond=1, minecraft:firework_rocket=8}\nPASS variant=6 operation=transfer|false transport=102|serverOperators=1 conservation={minecraft:arrow=20, minecraft:compass=1, minecraft:firework_rocket=10}\nVARIANT=7 owner=tiered_backpacks:golden_backpack\nOPEN variant=7 106|bagButtons=4,playerButtons=4,screen=me.pajic.tiered_backpacks.ui.BackpackScreen\nPASS variant=7 operation=sort|false transport=107|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=7 operation=sort|true transport=110|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=7 operation=fill|true transport=111|serverOperators=1 conservation={minecraft:arrow=30, minecraft:clock=1, minecraft:compass=11, minecraft:firework_rocket=18, minecraft:stone=7}\nPASS variant=7 operation=fill|false transport=112|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=18}\nPASS variant=7 operation=match|true transport=113|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10, minecraft:stone=7}\nPASS variant=7 operation=match|false transport=114|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10}\nPASS variant=7 operation=transfer|true transport=115|serverOperators=1 conservation={minecraft:arrow=20, minecraft:clock=2, minecraft:compass=3, minecraft:firework_rocket=10, minecraft:shulker_box=1, minecraft:stone=7}\nPASS variant=7 operation=sort|false|occupied transport=116|serverOperators=2 conservation={minecraft:arrow=10, minecraft:diamond=1, minecraft:firework_rocket=8}\nPASS variant=7 operation=transfer|false transport=117|serverOperators=1 conservation={minecraft:arrow=20, minecraft:compass=1, minecraft:firework_rocket=10}\nVARIANT=8 owner=tiered_backpacks:diamond_backpack\nOPEN variant=8 121|bagButtons=4,playerButtons=4,screen=me.pajic.tiered_backpacks.ui.BackpackScreen\nPASS variant=8 operation=sort|false transport=122|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=8 operation=sort|true transport=125|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=8 operation=fill|true transport=126|serverOperators=1 conservation={minecraft:arrow=30, minecraft:clock=1, minecraft:compass=11, minecraft:firework_rocket=18, minecraft:stone=7}\nPASS variant=8 operation=fill|false transport=127|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=18}\nPASS variant=8 operation=match|true transport=128|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10, minecraft:stone=7}\nPASS variant=8 operation=match|false transport=129|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10}\nPASS variant=8 operation=transfer|true transport=130|serverOperators=1 conservation={minecraft:arrow=20, minecraft:clock=2, minecraft:compass=3, minecraft:firework_rocket=10, minecraft:shulker_box=1, minecraft:stone=7}\nPASS variant=8 operation=sort|false|occupied transport=131|serverOperators=2 conservation={minecraft:arrow=10, minecraft:diamond=1, minecraft:firework_rocket=8}\nPASS variant=8 operation=transfer|false transport=132|serverOperators=1 conservation={minecraft:arrow=20, minecraft:compass=1, minecraft:firework_rocket=10}\nVARIANT=9 owner=tiered_backpacks:netherite_backpack\nOPEN variant=9 136|bagButtons=4,playerButtons=4,screen=me.pajic.tiered_backpacks.ui.BackpackScreen\nPASS variant=9 operation=sort|false transport=137|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=9 operation=sort|true transport=140|serverOperators=2 conservation={minecraft:arrow=15, minecraft:compass=1, minecraft:firework_rocket=8}\nPASS variant=9 operation=fill|true transport=141|serverOperators=1 conservation={minecraft:arrow=30, minecraft:clock=1, minecraft:compass=11, minecraft:firework_rocket=18, minecraft:stone=7}\nPASS variant=9 operation=fill|false transport=142|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=18}\nPASS variant=9 operation=match|true transport=143|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10, minecraft:stone=7}\nPASS variant=9 operation=match|false transport=144|serverOperators=1 conservation={minecraft:arrow=30, minecraft:compass=11, minecraft:firework_rocket=10}\nPASS variant=9 operation=transfer|true transport=145|serverOperators=1 conservation={minecraft:arrow=20, minecraft:clock=2, minecraft:compass=3, minecraft:firework_rocket=10, minecraft:shulker_box=1, minecraft:stone=7}\nPASS variant=9 operation=sort|false|occupied transport=146|serverOperators=2 conservation={minecraft:arrow=10, minecraft:diamond=1, minecraft:firework_rocket=8}\nPASS variant=9 operation=transfer|false transport=147|serverOperators=1 conservation={minecraft:arrow=20, minecraft:compass=1, minecraft:firework_rocket=10}\n",
+  "client-policy.txt": "PASS policy checks=6 explicitNONE preserved; absent bag follows disabled/enabled chest; lookups preserve saved maps",
+  "date": "2026-10-06",
+  "suite_version": "1.1.5+26.3",
+  "profile": "accelerated",
+  "server_checks": 7864,
+  "real_operation_rows": 90,
+  "policy_checks": 6,
+  "defaulted_runtime_present": false,
+  "fixtures_sha256": {
+    "mapstitch-fabric-1.1.7+26.3.jar": "d7949f082d365fa4b71ce29b7fdce21ecec3f759ef9f9da9be34b880fc64b5e4",
+    "fabric-particles-v1-5.0.24+3434d6d95d.jar": "0bf0c29bd7f1803eac7c5d4aec1af51bb25790ba41583108a2320740043cd0c2",
+    "fabric-events-interaction-v0-5.3.6+3434d6d95d.jar": "f57dd8df1d78cbcaf6ee1073aebd64e5c959cc7224002098e653832f0ecd7de8",
+    "thenathe-suite-stackables-compat-1.0.1+26.3.jar": "8e373d8da7eee676dee9f4868b4dadb40ddccd5ca211e5aa85909dd2670bd88a",
+    "fabric-object-builder-api-v1-24.1.9+3434d6d95d.jar": "3a5f0ccef440552828d9469420547dc3cdbe3e206af73fa98d0bfcfb5b75c1ba",
+    "fabric-data-generation-api-v1-27.2.4+427eab975d.jar": "2c22049cd3a75ddd59bbdcf7f8468637d18a75b6a7917420814920d05a19193c",
+    "fabric-loot-api-v3-4.0.8+4068fd645d.jar": "569540023c6d19e4b4854e14ea4bb99aed401946d5470f761ac1f1388cc7de2c",
+    "kotlinx-datetime-jvm-0.8.0.jar": "28cf54bf6dc8fd304249fea4b33ae10855e65fb4ef007c5acbbcf3dfa72f549e",
+    "fabric-lifecycle-events-v1-4.1.9+ffef5f675d.jar": "b9ba49109cf21f968d0b44c26b2c930af74d54e2f71d9fdf505e1359275842e2",
+    "polymer-sound-patcher-0.18.2+26.3.jar": "c58e90572d7253a0f87a7c3b117c00d6b61c91bab76561463207b29326ee1a60",
+    "fabric-advancement-api-v1-1.0.0+38c7a2d55d.jar": "89e2094ca63a5e3e4687ebd5530eb56a3f051fc568b7ab60243b69a6c8c3e74e",
+    "toolpouch-fabric-1.1.10+26.3.jar": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903",
+    "fabric-creative-tab-api-v1-5.0.21+fcdff87f5d.jar": "415e659be69014edac017bc384a96c4f2da5ce8fa2093e7d488593e05f03a0b6",
+    "fabric-item-api-v1-14.7.0+cf6bc2db5d.jar": "aff8cffc3d6da5475f21060e45cd28307676974674c4e10504c0fcc89c7746c4",
+    "fabric-renderer-indigo-9.1.23+b9d63e335d.jar": "1e71ac3ddf0dd1d1657425e02f5d9eae383fd8cbc47d0def4980e41d8a8b9c93",
+    "kotlin-reflect-2.4.20.jar": "8b041cd8c1c6084cb6324dedcb895d3260ac2736ac43141ecdcdbaade8baa6bb",
+    "tiered_backpacks-fabric-1.0.20+26.3.jar": "b129b9b61ec1da62842dc2dfa5b166a6df8e91c796666dcee70f7b8acf1ecc33",
+    "fabric-block-api-v1-3.1.0+0ae6f9115d.jar": "12df8ce066403f03483ef89d13600072b56c5be290fb12260035fdaf5604761f",
+    "thenathe-suite-bannerpoint-compat-1.0.1+26.3.jar": "7804c3e0cc3dc49dc778079871dc2b7d13105837817085265a7fede7b5d8daba",
+    "kotlinx-serialization-core-jvm-1.11.0.jar": "61222d6d12fd1529db2bb810ce5bc8a222ea3371c98a556345c2fd258798baac",
+    "kotlin-stdlib-2.4.20.jar": "078594f80e214438a35454e3f16f890a68dba6a607aa2c83014065344d13308a",
+    "kotlinx-coroutines-core-jvm-1.11.0.jar": "14f5a46b344ab7420d35ed618ed0a483687d57b23470722b6568f1b643f001f3",
+    "simple_death_improvements-fabric-1.6.0+26.3.jar": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2",
+    "fabric-registry-sync-v0-8.0.1+fcdff87f5d.jar": "039a5c3dee042ff156c52c4bec64a384e766e830a37cc9f6bf68f1e7dc3646b1",
+    "kotlin-stdlib-jdk7-2.4.20.jar": "6a96385256028358f56896df0c608c324273ec1551c7de36c0129bc22ff524d8",
+    "shared-region-maps-1.0.5-combo.1+mc26.3.jar": "e49a046d76764a823792f3da611c94a3353d5630bcb966af695157912fcb49b5",
+    "fabric-game-rule-api-v1-4.0.10+3434d6d95d.jar": "58266b2e28d20444584f22f1940b99656437728bd45e1b226c4869637e704638",
+    "thenathe-suite-combined-compat-1.1.1+26.3.jar": "96f8219a07cae7ddf65d8eb19bbac7d5e730cac5436c5965f3f353ed5d6da852",
+    "fabric-content-registries-v0-15.0.4+74ed1ea55d.jar": "e83273ce3a8d06e08c00f31bdc38497d653f678af3693a2fc3ba094537fa8879",
+    "polymer-blocks-0.18.2+26.3.jar": "5682b81481f25a6bc085b872308f6783075653efc63de3ea192fbba550d83ea5",
+    "fabric-resource-loader-v1-3.0.4+fcdff87f5d.jar": "2d2fb907728c895640c1261ff3dd115b5087913d88d1ba1d9f3a8a4cfd1ca87e",
+    "fabric-networking-api-v1-6.3.8+fcdff87f5d.jar": "dfff56a878bba654646e986d90cf05913d7a914ad6c1292874de1ad505474544",
+    "kotlinx-serialization-cbor-jvm-1.11.0.jar": "cb0996e2d4f908c4ec8d26c768dc2276308cb164b84e41d0c95ec7a3930cd4f6",
+    "basic-math-0.6.1.jar": "2527eb04394e7a13fa5b8884baa9319f60b07ad6229d759f9451563cd113c059",
+    "fabric-resource-conditions-api-v1-6.1.5+3434d6d95d.jar": "1d7d9bea7e90eacfb57ac9e6d1f09036c8f118fc5ab50328f55c4d0b8519782c",
+    "kotlinx-io-bytestring-jvm-0.9.1.jar": "2a5f2fa5c405189e38b2bdc287fc4e5661e4c6ec0ad50883e10af9fb2a401512",
+    "kotlinx-io-core-jvm-0.9.1.jar": "38da6c1a9aa4c9210bf2b83e2e1e6ebc2ba51c5db5d81b85eb2334ffd923407a",
+    "fabric-model-loading-api-v1-8.0.35+fcdff87f5d.jar": "4889e5947bb2f9d899f72c17676b27aaef7d2594ecaaf75e89626e1eea169711",
+    "fabric-menu-api-v1-2.0.27+ed66f0a35d.jar": "2d406ae5995d2249b2f76faf3046e68683449a96d0214aabe7f8b16b35ec50e6",
+    "fabric-entity-events-v1-6.0.4+3434d6d95d.jar": "a5a9e382e4f9875f7450dbf0d45221ca70afc00cf84aa02023104bb15a530ade",
+    "fabric-convention-tags-v2-4.10.3+6b5b47fd5d.jar": "96fa76cd74df23aa2332980b0577eb88ec3ef8a2ab7c0eb0c99810bbc6390fe9",
+    "fabric-permission-api-v1-1.0.8+fcdff87f5d.jar": "a3a82771b3fd9f2eb36e1098c5f90759ac877982b9ac297831a1fce9b2185bf8",
+    "fabric-tag-api-v1-2.1.10+fcdff87f5d.jar": "6c2fa7a4d870ee33305c946e5dce6870f92f7f909fa0aa84011d976527e1b3cb",
+    "fabric-dimensions-v1-5.1.19+47f74c985d.jar": "1b2d1d92f0e32719b571a51de70acc363b388f888bd8abf0882580a9a0a4f4d5",
+    "fabric-recipe-api-v1-10.0.8+fcdff87f5d.jar": "7d63b44a449ddd84d4988ef17cec1894ef1890b2844079500ea47c3dc678d967",
+    "thenathe-suite-chalk-compat-1.1.1-suite.1+26.3.jar": "cb8533c87bdfa64a00c1deaa630bbbfd307e5a092a5cf031cd3cc242774d0d19",
+    "polymer-resource-pack-extras-0.18.2+26.3.jar": "37599e46d21a6001027f22b94689080ff7072a7aa3412892176544abb3571485",
+    "fabric-debug-api-v1-1.0.4+3434d6d95d.jar": "1ef63bc24f6319cc43d2d4add8a2df5e8c3986b5bd1f39b920a5bd7738ec52e3",
+    "polymer-autohost-0.18.2+26.3.jar": "47397df6e725c722f6204ed11a78d8f718ab83604fc039a5f1a5f6f90ce9c9ab",
+    "sensible_stackables-fabric-3.1.1+26.3.jar": "bf750cbe40394caffe3fd7c9bc2b57985d4110c5cae51dc726f948b55a25598a",
+    "fabric-command-api-v2-3.1.2+fcdff87f5d.jar": "71e0ce2931b3467422b17fd49b181698a7ed79ca8cb92d112fc50ad2fced105e",
+    "fabric-message-api-v1-7.0.10+3434d6d95d.jar": "967f819dc19e4e50e3adb145dbcd23fdab1329cd772d781fd38addc246eea8e6",
+    "simple_smithing_overhaul-fabric-2.10.0+26.3.jar": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
+    "jankson-1.2.3.jar": "e91321d0d83538603699764becd64f2b90ab77d1dae395db02bc118338b9c4f1",
+    "polymer-common-0.18.2+26.3.jar": "bea2ee243fe90215f8923275f6007ad747b0fca9fe4c16b8cc2880268700d181",
+    "kotlinx-serialization-json-jvm-1.11.0.jar": "a7f8870500369a34fc817965d79866f19934cddf7975d221e348f12bb377824e",
+    "fabric-rendering-fluids-v1-6.0.6+3434d6d95d.jar": "ce4c943f676d105275247800ce1a7ed4a6410c95b3b98ef1b39aba4dcf8a4264",
+    "fabric-permissions-api-0.7.0.jar": "444c8752bf3fc40a452074106fd02d3341b7d350ff006254f59ea1fd17f1272b",
+    "fabric-api-lookup-api-v1-2.0.24+3434d6d95d.jar": "4ff3be674760c602b4ed59c10d74d2d52597e8a562489ecd4b68ebf7f71d466c",
+    "fabric-transfer-api-v1-8.0.25+fcdff87f5d.jar": "599f69de9e7e693b4b8ca2f2792f129d8bd2e17fced9ae7b66f7e20b5a674db6",
+    "server.jar": "596df033764a877d7cda6c5082db47ec6d4f64e9b5925ed2f54f73f72622c907",
+    "fabric-serialization-api-v1-2.0.7+74ed1ea55d.jar": "eb0799d38e825cb6e82fe40ce1dd80da2ed9f142d60952e04609ccbbba153691",
+    "toolpouch-atlas-elytra-compat-1.0.9-suite.1+26.3.jar": "91735f856ee1ca91aa3edc23c4d3273b8ab2f78b4fb83c603bc9d5a2ffc53d54",
+    "fabric-key-mapping-api-v1-2.0.8+3434d6d95d.jar": "6ec1d5560d333f443626837379e495aef614b30cee6ccb4b1eb3856830b49e16",
+    "fabric-resource-loader-v0-3.3.26+4fc5413f5d.jar": "18afa6466d69ff68e1eeb74088d210a55004d11380ec14aad6ea66faa7da1922",
+    "atomicfu-jvm-0.33.0.jar": "843dd749ff32112956dba51a57923ad995900665d058cb9c90d44cbeace7dcdb",
+    "mapstitch-mixed-scales-1.1.5+26.3.jar": "e16187bdc281881bb51bdc6dde8bb78f80cfc1493cbb3fc07bba71630268baa9",
+    "polymer-resource-pack-0.18.2+26.3.jar": "c8f1cf36845c73f81ce3034bbe864629c27afa3a9bbc5f3e6e036551b08a6079",
+    "kotlinx-coroutines-jdk8-1.11.0.jar": "180d58cac512a1a3003b2f11085a81636792dc13fcf0b4859e6f502a93ab9ded",
+    "fabric-data-attachment-api-v1-2.2.30+3434d6d95d.jar": "916e1b1046113d5289920fb4058d26ac184e2581f2403b3a482848a2e1dcf7cc",
+    "polymer-core-0.18.2+26.3.jar": "84c5a7a8b3db0801b66e069645b84ee66b671becdc1f9245f45e8c0f9286ef67",
+    "client.jar": "49d9fd3f23006739fd009f70f568a28794a4a27c0f6d4e339afe232448c180f0",
+    "bannerpoint-fabric-1.1.2+26.3.jar": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
+    "fabric-biome-api-v1-20.0.9+74ed1ea55d.jar": "ce9698da6dd365c6ee59ad5f5e85602cefaaddaebf6d80fad76925e84cda5176",
+    "fabric-sound-api-v1-2.0.7+3434d6d95d.jar": "d2c61f4bc044025112c9f3c18a1adfe72e15a4d29c856033a7bd8cbdeb0fede5",
+    "chalk-colorful-addon-2.1.1-port.1+26.3.jar": "69a2443250abd95100636194a145b5479d240151cd19bf4186766117d0710b34",
+    "fabric-api-base-2.0.6+fcdff87f5d.jar": "88485b1edbcb642fa28b8f53e173835b19f6b6e49aa5b088e3fe16653ef67a13",
+    "fabric-crash-report-info-v1-1.0.7+fcdff87f5d.jar": "8c89611954926210a9d7c388a2566a61ffbaec4a9d87d64a3f7eb86c8aff9a5a",
+    "tomlkt-jvm-0.3.7.jar": "b222b2742d5c12b007e331b4837ef405c23ab8352bb79e3fa2906b25ce68a333",
+    "chalk-3.2.1+26.3.jar": "886b0b10cc12df65d47f446c2bd54c0c670f9a54fa09a1fe95c9ec46df565f49",
+    "amethyst-curse-cleanser-1.0.1+26.3.jar": "5ec26e2a0010dfdee82aa5cb27664314150a4daa36deadc10f0c659f399507b6",
+    "fabric-rendering-v1-27.0.14+901a437c5d.jar": "749427999b4845b129683b1db268a04b524abb6ab351dcaf67cda9a3ab56b5c0",
+    "fabric-transitive-access-wideners-v1-8.1.16+52268a0e5d.jar": "8bb488c84c37af37c6a07d383fdf81a30da404654208e5d66e10068c0a72b641",
+    "misctweaks-fabric-1.4.4+26.3.jar": "97fe263764cb6b93822e13fe9423cf91c3a6a0169aeeb8734b65136cc9ea9647",
+    "kotlin-stdlib-jdk8-2.4.20.jar": "8eaa2cede0e8ed0989f972b30884c9d877e3cfa0e50651a96b9e2f4eea034331",
+    "polymer-virtual-entity-0.18.2+26.3.jar": "21b824195b4db423a025ecc3f5fc9f07011ab2f6476ef8f52fcdbcdf56d1ca01",
+    "fabric-renderer-api-v1-17.0.15+79385d0b5d.jar": "2e4aaeb20f8615e8176f30bc82616cee25f8727323bfef7a70d5a6555ae8e9ee",
+    "fabric-screen-api-v1-5.2.4+48607d035d.jar": "6d0660544189cee8ed9a0d7a668ff69c30068799de633e4813924c0b6d3d49ed",
+    "fabric-block-getter-api-v2-2.0.9+3434d6d95d.jar": "0f819114e0eb2d7e2950b25fe4edc581eb453bd4f98f77ffc2ddabe07a557764"
+  },
+  "sources_sha256": {
+    "qa-sanity-clientsort/src/SortServerQa.java": "dbb4102f97c3ce3f64f5c8cde653f1e0888af0f9043a8b54857c8317e04906f6",
+    "qa-sanity-clientsort/src/SortClientQa.java": "5a9e1498050307135e33a124b7869e5ebda7cc9c896c4bbf07faffb9264834ee",
+    "qa-sanity-clientsort/src/SortClientOperatorTraceMixin.java": "e9538d5a620a44cc6e7737ba554238a6493fd864a4e7305a64bd500cb6ea6c8b",
+    "qa-sanity-clientsort/boundaries/ClientSortServerBoundaryQa.java": "386dae98ecdc65914406c6a646e7e2c5f8188a010fc8d92f310b30a70e34ef01",
+    "qa-sanity-clientsort/run.py": "60f39a311cecbf00b3c81106e84042461f930d16c4e5e6d653755745416d1434"
+  },
+  "provenance": {
+    "source": "Archived toolpouch-atlas-elytra-compat-26.3 QA snapshot 2026-10-04-suite-consolidation",
+    "original_java_sources_unchanged": true,
+    "sources_sha256": {
+      "src/SortServerQa.java": "dbb4102f97c3ce3f64f5c8cde653f1e0888af0f9043a8b54857c8317e04906f6",
+      "src/SortClientQa.java": "5a9e1498050307135e33a124b7869e5ebda7cc9c896c4bbf07faffb9264834ee",
+      "src/SortClientOperatorTraceMixin.java": "e9538d5a620a44cc6e7737ba554238a6493fd864a4e7305a64bd500cb6ea6c8b",
+      "boundaries/ClientSortServerBoundaryQa.java": "386dae98ecdc65914406c6a646e7e2c5f8188a010fc8d92f310b30a70e34ef01"
+    },
+    "runner": "Adapted to exact current suite and dependencies; no original upstream mods substituted."
+  },
+  "nested_modules_sha256": {
+    "META-INF/jars/amethyst-curse-cleanser-1.0.1+26.3.jar": "5ec26e2a0010dfdee82aa5cb27664314150a4daa36deadc10f0c659f399507b6",
+    "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
+    "META-INF/jars/chalk-3.2.1+26.3.jar": "886b0b10cc12df65d47f446c2bd54c0c670f9a54fa09a1fe95c9ec46df565f49",
+    "META-INF/jars/chalk-colorful-addon-2.1.1-port.1+26.3.jar": "69a2443250abd95100636194a145b5479d240151cd19bf4186766117d0710b34",
+    "META-INF/jars/mapstitch-fabric-1.1.7+26.3.jar": "d7949f082d365fa4b71ce29b7fdce21ecec3f759ef9f9da9be34b880fc64b5e4",
+    "META-INF/jars/misctweaks-fabric-1.4.4+26.3.jar": "97fe263764cb6b93822e13fe9423cf91c3a6a0169aeeb8734b65136cc9ea9647",
+    "META-INF/jars/sensible_stackables-fabric-3.1.1+26.3.jar": "bf750cbe40394caffe3fd7c9bc2b57985d4110c5cae51dc726f948b55a25598a",
+    "META-INF/jars/simple_death_improvements-fabric-1.6.0+26.3.jar": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2",
+    "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
+    "META-INF/jars/tiered_backpacks-fabric-1.0.20+26.3.jar": "b129b9b61ec1da62842dc2dfa5b166a6df8e91c796666dcee70f7b8acf1ecc33",
+    "META-INF/jars/toolpouch-fabric-1.1.10+26.3.jar": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903",
+    "META-INF/jars/thenathe-suite-combined-compat-1.1.1+26.3.jar": "96f8219a07cae7ddf65d8eb19bbac7d5e730cac5436c5965f3f353ed5d6da852",
+    "META-INF/jars/thenathe-suite-chalk-compat-1.1.1-suite.1+26.3.jar": "cb8533c87bdfa64a00c1deaa630bbbfd307e5a092a5cf031cd3cc242774d0d19",
+    "META-INF/jars/shared-region-maps-1.0.5-combo.1+mc26.3.jar": "e49a046d76764a823792f3da611c94a3353d5630bcb966af695157912fcb49b5",
+    "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.9-suite.1+26.3.jar": "91735f856ee1ca91aa3edc23c4d3273b8ab2f78b4fb83c603bc9d5a2ffc53d54",
+    "META-INF/jars/mapstitch-mixed-scales-1.1.5+26.3.jar": "e16187bdc281881bb51bdc6dde8bb78f80cfc1493cbb3fc07bba71630268baa9",
+    "META-INF/jars/thenathe-suite-stackables-compat-1.0.1+26.3.jar": "8e373d8da7eee676dee9f4868b4dadb40ddccd5ca211e5aa85909dd2670bd88a",
+    "META-INF/jars/thenathe-suite-bannerpoint-compat-1.0.1+26.3.jar": "7804c3e0cc3dc49dc778079871dc2b7d13105837817085265a7fede7b5d8daba"
+  },
+  "screenshots_sha256": {
+    "screenshots/clientsort-7-109.png": "31a6a93715501a0200cf6f2ead3e1c1eff90f4d66e06b979edf24e62f00da253",
+    "screenshots/clientsort-7-119.png": "2ee442a2984e3b49609d2a28e185ad8d2e8b7fc8ee18ecedcf0f3c697d36daa2",
+    "screenshots/clientsort-0-14.png": "7569c46813596191a72f3c7a73f5ee1570b6afaabf392824b20465e0bacdfe64",
+    "screenshots/clientsort-4-64.png": "0af2cfc81b016f20d7ea9dbaaf35b61e27f3864498cdcabe300c6d322051474d",
+    "screenshots/clientsort-6-91.png": "19d091a63121e38b0f30f2f8a9b8a5db90e46b94dffbbf21bdafc165abe0602d",
+    "screenshots/clientsort-3-59.png": "5cfd836ab7ba44560fbe8a07b489804fddea03f3265122e2039611233f7edf52",
+    "screenshots/clientsort-2-34.png": "f1854fcf529793883c4f316325dcec5410a78d1fb5e690239614eacc36461e40",
+    "screenshots/clientsort-9-149.png": "0e8715755ae3e5a49d12a164872a675d5292969396978a1c556a9979803c2314",
+    "screenshots/clientsort-5-76.png": "1bfe8ddf20ffd55b7b819c8f206f19c3c6fb9b96bb82c55d69770c167d8b81a4",
+    "screenshots/clientsort-2-31.png": "6e6f3c25f53ab1cd352fcba164a538266ea816dd0a0e43989bb622a1548af24e",
+    "screenshots/clientsort-1-16.png": "553c4d0c103961da67f957104ccba096d7ca65eeee303e407f12830c63d69ec4",
+    "screenshots/clientsort-3-49.png": "afcecd6f5118b90258e9e7bdda884cd773a09249e7f0e195e7acd3c51c39e96d",
+    "screenshots/clientsort-5-79.png": "8ecc2ebe24b8214393e90f240b636ca3234d30c8e8f29ed20ad6db5a7170cbe7",
+    "screenshots/clientsort-6-104.png": "f1c2152bb8c59440f6160c11cdc2486ac042c9d5ee44cb5a686d385f9c8b88f1",
+    "screenshots/clientsort-1-19.png": "a5f429906abd2562845602189257113f4abc02dfa4e6caaeb6e7c07890a367ea",
+    "screenshots/clientsort-8-121.png": "016ed068014f709afd9ccda4ed634bd3555ecec28df9dd96eb0831bc4863ee84",
+    "screenshots/clientsort-9-136.png": "8458aaab6658ebab180c7177bdc0a2058d487492732c74c169620e88d553ef37",
+    "screenshots/clientsort-0-1.png": "104824fac636725c419899577766439dc17f9fd3c8ea3d997441aa767cf630d0",
+    "screenshots/clientsort-3-46.png": "53b946687fc6be2d57713085c83032b15989901c68f6ba80f4edb0011a1d845e",
+    "screenshots/clientsort-8-134.png": "ed3cf3415a310af37033b07841c2bc449ba8719a42e24710ca25b282a2fe17c4",
+    "screenshots/clientsort-9-139.png": "02dd767543c70e5697dbc87aa6bae7ee9b63ea763e8dd9fa7762ccb2b6e65238",
+    "screenshots/clientsort-1-29.png": "b72f191b5ce0554e19f746bc752ac24cf5da33c3be6a03001628711d6d18e179",
+    "screenshots/clientsort-4-74.png": "d91208597390f920a1e8770c1caac1a83653b6e5f4b1f2c72ad65fd7f7ab74fa",
+    "screenshots/clientsort-5-89.png": "8ce3eba61dd3751f915e682bf8934fbae4834b96a2e5bf4ef1941278a03569f6",
+    "screenshots/clientsort-2-44.png": "4c0d35e8752eddd42e1e8154c7228f03bd9af1c65e9daa858c4a465baa9adfc2",
+    "screenshots/clientsort-8-124.png": "aeb281fcaf8f7a6a6f09eec89ecea6e56e3156a00ad62afca85a312963ddb14b",
+    "screenshots/clientsort-4-61.png": "045247781ade81253db573b4c584b97ede1a8204dad41c2ee936676484428f29",
+    "screenshots/clientsort-0-4.png": "08e3474171094462e398d3ff82222b5c697beaeeb9e215456034005c4ee2c550",
+    "screenshots/clientsort-6-94.png": "4585b93ba03b321bdc3e19696fee19bbd02f2f9484a9fe0d799ceeb16a22a2fb",
+    "screenshots/clientsort-7-106.png": "baf80d2c74c0909d00801c008658461bd08cdc8c51de8d0a23b42e2a1edc45ce"
+  },
+  "limits": [
+    "Real local network Client Sort operations with isolated fixture worlds; remote production server unavailable.",
+    "Accelerated directed boundary checks complement real packets; separately reported in observations.",
+    "Ten variants: standalone normal/netherite pouch, attached normal/netherite pouch, all six backpack tiers."
+  ],
+  "directed_boundary_groups": 7
+}

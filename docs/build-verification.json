@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "thenathe_mod_suite",
-  "version": "1.1.5+26.3",
-  "sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "version": "1.1.6+26.3",
+  "sha256": "ea383c52581970f5b69eb0db0cffdc9c26a0a0efb2f80e0ab82f8b8f9d2a5f86",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -90,9 +90,9 @@
     },
     {
       "id": "sensible_stackables_polymer_compat",
-      "version": "1.0.1+26.3",
-      "sha256": "8e373d8da7eee676dee9f4868b4dadb40ddccd5ca211e5aa85909dd2670bd88a",
-      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.1+26.3.jar"
+      "version": "1.0.2+26.3",
+      "sha256": "3f476da7973a2165a11db2b8343f4ff08f3e58656d27a0d7cb7ea5cb9f02ca9a",
+      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.2+26.3.jar"
     },
     {
       "id": "mapstitch_mixed_scales",
@@ -118,17 +118,38 @@
   "defaulted_runtime_required": false,
   "licenses_retained": true,
   "runtime_tested": true,
-  "verified_on": "2026-10-06",
-  "runtime_scope": "Actual native Polymer/Fabric API-only/vanilla/native-without-Polymer connections and2048-itemmoves; originalSSO+Stackables withoutsuite safe/native modes;519Stackablesoverride/restartassertions;370pouchMendingchecks includingClumps/InventoryMending/ArmoredElytra;SSO/Chalk/curseremoval/dropmechanics. AllcurrentprofileswithoutDefaulted. Focused packetrefreshandinstallationchecks recorded separately beforepublication. Final connected native/Fabric-only clients also pass both new payload initial+live-refresh native-only guards and actual atlas commands/cartography clicks; 13 fresh installation/checksum/negative/rebuild checks pass.",
-  "evidence": [
-    "qa-release/evidence/1.1.5/clean-build.json",
-    "qa-release/evidence/1.1.5/previous-build-comparison.json",
-    "qa-release/evidence/1.1.5/connections/result.json",
-    "qa-release/evidence/1.1.5/originals/result.json",
-    "qa-release/evidence/1.1.5/pouch-mending/result.json",
-    "qa-stackables/evidence/1.1.5/result.json",
-    "qa-mechanics/evidence/1.1.5/mechanics-and-sso.json",
-    "qa-release/evidence/1.1.5/network/result.json",
-    "docs/installation-pack-verification.json"
-  ]
+  "evidence": {
+    "packet_templates": "qa-packet-templates/evidence/1.1.6/summary.json",
+    "physical_clients": "qa-packet-client/evidence/1.1.6-serverguard/result.json",
+    "stackables_restart": "qa-stackables/evidence/1.1.6/result.json",
+    "previous_build_comparison": "docs/packet-fix-previous-build-comparison-1.1.6.json"
+  },
+  "packet_assertions": 28156,
+  "packet_cases": 1742,
+  "stackables_assertions": 519,
+  "physical_client_profiles": 2,
+  "clean_build_tasks": 49,
+  "evidence_sha256": {
+    "packet_templates": "47c6ee9bbb9c0f1821c1ce81ab7b8c0a31118418ae4dc38678e42ec118a14683",
+    "physical_clients": "1958c68974c9ede0354ac8944f958b499bc9eab85bfec8f5da50769be2a1aaaa",
+    "stackables_restart": "fbe2fdefd42cff4c3d28692cbacead6488935bca3376a8cc7c99d99473e9ff61",
+    "previous_build_comparison": "d384df108f7767502b9704d1cc8a49b5a19884e9ae7318432dfcb912f0a6d5a3"
+  },
+  "source_files_sha256": {
+    "components/sensible-stackables/compat/src/main/java/com/thenathe/stackablescompat/FallbackContainerPreview.java": "c9053b42d750200069d9b4212c795c28860b6978432f7988f9d85889763c2f29",
+    "components/sensible-stackables/compat/src/main/java/com/thenathe/stackablescompat/StackSizePayloadProjection.java": "864f478998e68b385f263af182d9b5e7c1f8389e9bc182b3ed773105eacd42a6",
+    "components/sensible-stackables/compat/src/main/java/com/thenathe/stackablescompat/StackablesCompat.java": "0123f49ec41672475661f10c95683e35e987f42b76e9c0f08cba96f007f546fd",
+    "components/sensible-stackables/compat/src/main/java/com/thenathe/stackablescompat/StackablesMixinPlugin.java": "16f3096640cae33e1fd15389ec398cc9b800043c14a87b8576b429188f7a3558",
+    "components/sensible-stackables/compat/src/main/java/com/thenathe/stackablescompat/mixin/ContainerResyncMixin.java": "628cfad92f8f6a8e7aff1e8e349d7fcd98618073aa11d26e10a40293949554fe",
+    "components/sensible-stackables/compat/src/main/java/com/thenathe/stackablescompat/mixin/ItemStackTemplateMixin.java": "25c57e8bfb537655e400c26895e6e4558e778548b1e69ce0770dd941042d0265",
+    "components/sensible-stackables/compat/src/main/java/com/thenathe/stackablescompat/mixin/PolymerPreviewMixin.java": "b3e2758a2ca740e6ed7f879ea83c862aaf0d54825e5e64694c4c854470eb2333",
+    "components/sensible-stackables/compat/src/main/java/com/thenathe/stackablescompat/mixin/StackablesNetworkingMixin.java": "ea6b8a539f5bf30c84a90ba34da911a5d24586883e7813402ce528646d6e5bc1",
+    "components/sensible-stackables/compat/src/main/resources/fabric.mod.json": "fbf2dfcdccb364ce596121cb571983e940215abfbc8dc1e384ce8d4c6c3bd5b5",
+    "components/sensible-stackables/compat/src/main/resources/sensible_stackables_polymer_compat.mixins.json": "23932f1d9c350674f898347696646800d94744884fda1ca5c05024dc514ebefb",
+    "build.gradle": "a6c35e1447a28b5e8953421028831bef200c7196f0fb1a53a600a2a4c7ba8aac",
+    "src/main/resources/fabric.mod.json": "3a77648f315cccbafd7217a56f1044718786952f40836058d01a34b05f233f5a",
+    "components/sensible-stackables/compat/build.gradle": "ca914694795785342130785d860e05cb2721cd63e19768399e299b83a4484977"
+  },
+  "validated_source_base_revision": "a9af44ff0b1385c5a67b1dabc38516126e220d2d",
+  "release_channel": "stable main; final commit recorded in packaged release record"
 }

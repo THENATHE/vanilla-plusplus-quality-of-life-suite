@@ -1,0 +1,231 @@
+{
+  "passed": true,
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "scope": "Physical-client integrated singleplayer with and without Polymer; local in-memory connection native capability, actual original items/blocks, attributes/components and in-world client frames. No exhaustive singleplayer gameplay claim.",
+  "defaulted_runtime_present": false,
+  "cases": [
+    {
+      "profile": "SuiteNativeSP",
+      "integrated": true,
+      "client_polymer": false,
+      "server_polymer": false,
+      "passed": true,
+      "observed": {
+        "marker": {
+          "x": 0,
+          "y": -63,
+          "z": -8,
+          "orientation": 3,
+          "facing": "up",
+          "damage": 13,
+          "custom_name": "Suite QA Chalk",
+          "server_block": "chalk:red_glow_chalk_mark",
+          "server_item": "chalk:red_glow_chalk",
+          "anvil_x": 0,
+          "anvil_y": -63,
+          "anvil_z": -6,
+          "server_anvil": "simple_smithing_overhaul:broken_anvil",
+          "anvil_facing": "east",
+          "stone_count": 64,
+          "stone_max": 64,
+          "potion_count": 3,
+          "potion_max": 3
+        },
+        "player": "SuiteNativeSP",
+        "expected_native": true,
+        "join_count": 1,
+        "intentional_sso_mismatch": false,
+        "polymer": false,
+        "local_memory_connection": true,
+        "chalk_state_bits": null,
+        "native_modules": {
+          "mapstitch": true,
+          "simple_smithing_overhaul": true,
+          "tiered_backpacks": true,
+          "toolpouch": true,
+          "chalk": true,
+          "misctweaks": true,
+          "simple_death_improvements": true,
+          "shared_region_maps": true,
+          "amethyst_curse_cleanser": true,
+          "toolpouch_atlas_elytra_compat": true,
+          "sensible_stackables": true
+        },
+        "chalk_conversion_registered": true,
+        "defaulted_version": "absent",
+        "passed": true
+      },
+      "client_marker": {
+        "stone_count": 64,
+        "inventory_packet_moves": false,
+        "stone_max": 64,
+        "potion_count": 3,
+        "potion_max": 3,
+        "mixed_scale_ui_roundtrip": true,
+        "join_count": 1,
+        "passed": true,
+        "native_chalk": true,
+        "actual_block": "chalk:red_glow_chalk_mark",
+        "actual_item": "chalk:red_glow_chalk",
+        "damage": 13,
+        "custom_name": "Suite QA Chalk",
+        "virtual_mark_displays": 0,
+        "native_sso": true,
+        "actual_anvil": "simple_smithing_overhaul:broken_anvil",
+        "actual_anvil_item": "simple_smithing_overhaul:broken_anvil",
+        "anvil_facing": "east"
+      }
+    },
+    {
+      "profile": "SuiteNativeSPP",
+      "integrated": true,
+      "client_polymer": true,
+      "server_polymer": true,
+      "passed": true,
+      "observed": {
+        "marker": {
+          "x": 1,
+          "y": -63,
+          "z": 3,
+          "orientation": 3,
+          "facing": "up",
+          "damage": 13,
+          "custom_name": "Suite QA Chalk",
+          "server_block": "chalk:red_glow_chalk_mark",
+          "server_item": "chalk:red_glow_chalk",
+          "anvil_x": 1,
+          "anvil_y": -63,
+          "anvil_z": 5,
+          "server_anvil": "simple_smithing_overhaul:broken_anvil",
+          "anvil_facing": "east",
+          "stone_count": 64,
+          "stone_max": 64,
+          "potion_count": 3,
+          "potion_max": 3
+        },
+        "player": "SuiteNativeSPP",
+        "expected_native": true,
+        "join_count": 1,
+        "intentional_sso_mismatch": false,
+        "polymer": true,
+        "local_memory_connection": true,
+        "chalk_state_bits": null,
+        "native_modules": {
+          "mapstitch": true,
+          "simple_smithing_overhaul": true,
+          "tiered_backpacks": true,
+          "toolpouch": true,
+          "chalk": true,
+          "misctweaks": true,
+          "simple_death_improvements": true,
+          "shared_region_maps": true,
+          "amethyst_curse_cleanser": true,
+          "toolpouch_atlas_elytra_compat": true,
+          "sensible_stackables": true
+        },
+        "chalk_conversion_registered": true,
+        "defaulted_version": "absent",
+        "passed": true
+      },
+      "client_marker": {
+        "stone_count": 64,
+        "inventory_packet_moves": false,
+        "stone_max": 64,
+        "potion_count": 3,
+        "potion_max": 3,
+        "mixed_scale_ui_roundtrip": true,
+        "join_count": 1,
+        "passed": true,
+        "native_chalk": true,
+        "actual_block": "chalk:red_glow_chalk_mark",
+        "actual_item": "chalk:red_glow_chalk",
+        "damage": 13,
+        "custom_name": "Suite QA Chalk",
+        "virtual_mark_displays": 0,
+        "native_sso": true,
+        "actual_anvil": "simple_smithing_overhaul:broken_anvil",
+        "actual_anvil_item": "simple_smithing_overhaul:broken_anvil",
+        "anvil_facing": "east"
+      }
+    }
+  ],
+  "date": "2026-10-06",
+  "suite_version": "1.1.5+26.3",
+  "fixture_sources": [
+    {
+      "file": "qa/src/SuiteClientQa.java",
+      "sha256": "965b13453a681824826ab231800a6ca0a6ee6a5cbab1251245079148b3ed5066"
+    },
+    {
+      "file": "qa/src/SuiteServerQa.java",
+      "sha256": "f14613bdf63db5acace58c947ef7d4eaae1d29380c9baf2178d820af8ab60db2"
+    }
+  ],
+  "runner": {
+    "file": "qa/light.py",
+    "sha256": "fde9af86df127260bb69bc40757f77ea1d286d67859b8c4c358afd85cb35ebaf"
+  },
+  "logs": [
+    {
+      "file": "SuiteNativeSP-console.txt",
+      "raw_sha256": "931389e7934660829397e111919e568eb7a46afd045a7b8aa6bf70e522ab3927",
+      "sanitized_sha256": "89193c962c9cd8a7b2a6936c828b48c98ca5c0c58dff063da0889a230e1edd59",
+      "diagnostic_error_lines": [
+        "[03:28:27] [Download-2/ERROR]: Failed to fetch user properties",
+        "[03:28:27] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:28:28] [Render thread/ERROR]: Error while loading the narrator",
+        "[03:28:28] [Download-1/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "classified_diagnostics": [
+        {
+          "line": "[03:28:27] [Download-2/ERROR]: Failed to fetch user properties",
+          "classification": "Expected authentication failure for disposable offline test accounts"
+        },
+        {
+          "line": "[03:28:27] [Render thread/ERROR]: Failed to create backend OpenGL",
+          "classification": "Host OpenGL unavailable; subsequent Vulkan initialization and observed frames succeeded"
+        },
+        {
+          "line": "[03:28:28] [Render thread/ERROR]: Error while loading the narrator",
+          "classification": "Host optional flite narrator library absent"
+        },
+        {
+          "line": "[03:28:28] [Download-1/ERROR]: Failed to fetch Realms feature flags",
+          "classification": "Expected authentication failure for disposable offline test accounts"
+        }
+      ],
+      "unclassified_errors": 0
+    },
+    {
+      "file": "SuiteNativeSPP-console.txt",
+      "raw_sha256": "2ecafad0455f676cac917c77a3247ccfadbcc0dcf309bdb473ef6c4588bdc5f1",
+      "sanitized_sha256": "32c85b5d274e831ed3b8be802ffaadeb7213be47760fea0031a6097841676981",
+      "diagnostic_error_lines": [
+        "[03:28:53] [Download-2/ERROR]: Failed to fetch user properties",
+        "[03:28:53] [Render thread/ERROR]: Failed to create backend OpenGL",
+        "[03:28:54] [Render thread/ERROR]: Error while loading the narrator",
+        "[03:28:54] [Download-1/ERROR]: Failed to fetch Realms feature flags"
+      ],
+      "classified_diagnostics": [
+        {
+          "line": "[03:28:53] [Download-2/ERROR]: Failed to fetch user properties",
+          "classification": "Expected authentication failure for disposable offline test accounts"
+        },
+        {
+          "line": "[03:28:53] [Render thread/ERROR]: Failed to create backend OpenGL",
+          "classification": "Host OpenGL unavailable; subsequent Vulkan initialization and observed frames succeeded"
+        },
+        {
+          "line": "[03:28:54] [Render thread/ERROR]: Error while loading the narrator",
+          "classification": "Host optional flite narrator library absent"
+        },
+        {
+          "line": "[03:28:54] [Download-1/ERROR]: Failed to fetch Realms feature flags",
+          "classification": "Expected authentication failure for disposable offline test accounts"
+        }
+      ],
+      "unclassified_errors": 0
+    }
+  ],
+  "unclassified_runtime_errors": 0
+}
