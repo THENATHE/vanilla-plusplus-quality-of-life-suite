@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "thenathe_mod_suite",
-  "version": "1.1.2-bannerpoint.1+26.3",
-  "sha256": "493deec1a5013d318a1353fc749ee06d56554edd0765fd77f1d742c940cb6ab2",
+  "version": "1.1.2+26.3",
+  "sha256": "c21a103fc19be5121ab3c21bf50c02133dff2719812985010767e3c28cc7c3dd",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -96,9 +96,9 @@
     },
     {
       "id": "mapstitch_mixed_scales",
-      "version": "1.1.1+26.3",
-      "sha256": "278dcba81e4c6a28ce8389dc2405a583c61865b2b9fedea52f302491ee449143",
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.1+26.3.jar"
+      "version": "1.1.2+26.3",
+      "sha256": "f5f4ce1df13955ca6d8ebb1dde396b5d63a78e9e30c90211cb8e9a9873b65b81",
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.2+26.3.jar"
     },
     {
       "id": "bannerpoint",
@@ -108,9 +108,9 @@
     },
     {
       "id": "bannerpoint_polymer_compat",
-      "version": "1.0.0+26.3",
-      "sha256": "3ab0ce0acf7abfa0258e2cf8f2649f691c843baf611c014cb5d3e5e489d882ec",
-      "file": "META-INF/jars/thenathe-suite-bannerpoint-compat-1.0.0+26.3.jar"
+      "version": "1.0.1+26.3",
+      "sha256": "7804c3e0cc3dc49dc778079871dc2b7d13105837817085265a7fede7b5d8daba",
+      "file": "META-INF/jars/thenathe-suite-bannerpoint-compat-1.0.1+26.3.jar"
     }
   ],
   "original_inputs_unchanged": true,
@@ -118,11 +118,13 @@
   "licenses_retained": true,
   "runtime_tested": true,
   "verified_on": "2026-10-05",
-  "runtime_scope": "Fresh final-SHA Bannerpoint five-profile connections, real pack loading/stale/removal/decline, native and ordinary-waypoint preservation, standard locator-bar sprite rendering; 14 native settings pages. Pure vanilla UI capture not performed; historical unchanged gameplay not rerun.",
+  "runtime_scope": "Fresh final-SHA1050 dedicated atlas/banner assertions with/without Polymer across restarts; five real Bannerpoint client profiles plus world restart/banner removal, native names and fallback sprite/lifecycle/stale checks;14settings pages.13installer checks. Unchanged broad gameplay/HUD not rerun; no vanilla UI capture.",
   "evidence": [
-    "qa-bannerpoint/evidence/result.json",
-    "qa-bannerpoint/evidence/settings/evidence.json",
-    "qa-bannerpoint/evidence/settings/observations.json",
-    "qa-bannerpoint/evidence/parent-comparison.json"
+    "qa-multiscale/evidence/1.1.2/server/result.json",
+    "qa-multiscale/evidence/1.1.2/server/banner-audit.json",
+    "qa-bannerpoint/evidence/1.1.2/result.json",
+    "qa-bannerpoint/evidence/1.1.2/settings/evidence.json",
+    "qa-bannerpoint/evidence/1.1.2/settings/observations.json",
+    "qa-release/evidence/1.1.2/previous-build-comparison.json"
   ]
 }

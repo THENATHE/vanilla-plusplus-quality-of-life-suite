@@ -2,6 +2,7 @@ package com.thenathe.multiscale.mixin;
 
 import com.thenathe.multiscale.MixedScaleMaps;
 import com.thenathe.multiscale.AtlasOptions;
+import com.thenathe.multiscale.AtlasBanners;
 import java.util.ArrayList;
 import java.util.List;
 import me.pajic.mapstitch.component.ModDataComponents;
@@ -14,6 +15,9 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.MapItem;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.component.BundleContents;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
@@ -24,6 +28,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = AtlasItem.class, remap = false)
 public abstract class AtlasMixedScalesMixin {
+    @Inject(method = "useOn", at = @At("HEAD"), cancellable = true)
+    private void mixedScales$editEnabledBannerLayers(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
+        if (!context.getLevel().getBlockState(context.getClickedPos()).is(BlockTags.BANNERS)) return;
+        if (context.getLevel() instanceof ServerLevel server)
+            cir.setReturnValue(AtlasBanners.toggle(context.getItemInHand(), server, context.getClickedPos())
+                    ? InteractionResult.SUCCESS : InteractionResult.FAIL);
+        else cir.setReturnValue(InteractionResult.SUCCESS);
+    }
+
     @Inject(method = "getTooltip", at = @At("RETURN"), cancellable = true)
     private static void mixedScales$describeLayers(ItemStack atlas, CallbackInfoReturnable<List<Component>> cir) {
         var original = new ArrayList<>(cir.getReturnValue());

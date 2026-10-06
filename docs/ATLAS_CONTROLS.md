@@ -1,6 +1,6 @@
-# Atlas controls — stable 1.1.1
+# Atlas controls — stable 1.1.2
 
-Suite **1.1.1** keeps its MapStitch changes in the separate `components/mapstitch-mixed-scales/working/` addon. The original MapStitch JAR is unchanged.
+Suite **1.1.2** keeps its MapStitch changes in the separate `components/mapstitch-mixed-scales/working/` addon. The original MapStitch JAR is unchanged.
 
 Open the world-map screen. A separate group just beneath the top coordinate numbers contains one aligned row of minimap and generation controls. Its right edge lines up with the original sidebar, with four pixels of margin; the buttons begin 16 GUI pixels from the top. The original right-side buttons retain their original positions and spacing:
 
@@ -19,6 +19,14 @@ Existing atlases start with generation enabled at their prior active scale. Chan
 An atlas can hold maps from multiple dimensions and all five scales together. The world map's selected dimension and **S** scale select only matching stored maps; neither changes the minimap's saved **M** scale or generation choices. The minimap uses maps from your current dimension at its selected scale. Switching dimension or scale clears stale world-map layer caches so another dimension's tiles do not remain on screen.
 
 Vanilla map-update packets omit map dimension and center, so client-side map data could previously inherit the player's current dimension. The addon sends the authoritative map dimension, center, scale and lock state to matching suite clients through `mapstitch_mixed_scales:map_metadata_v1`. These native-only metadata updates correct rendering without replacing stored maps or exploration data. The server checks native MapStitch negotiation and advertised payload support before sending; vanilla, Fabric-only and unsupported clients receive no unknown custom packet.
+
+## Banner markers across scales
+
+Hold the atlas and right-click a banner. The **1/2/4/8/16 generation toggles** also select which existing map scales receive its marker. The operation only affects maps in the current dimension covering the banner; **M** and **S** do not limit it. It never creates maps or spends blanks/paper during the click.
+
+If every selected map already has the current marker, the click removes it from all of them. Otherwise it adds missing markers or updates changed names/colors, retaining matching markers. Disabled scales and other dimensions remain unchanged. All toggles off or no covering maps means no edit. A vanilla map-edge or decoration-limit failure rejects the group before any map changes. Locked maps retain vanilla decoration support.
+
+Bannerpoint's map-linked waypoint remains enabled if any current-dimension map in this atlas still contains the banner, including a disabled scale. Its locator-bar icons remain separate from map decorations. See [Bannerpoint support](BANNERPOINT.md) and [the implementation guide](MIXED_SCALES.md).
 
 ## Extract maps from an atlas
 
@@ -43,4 +51,4 @@ Serverbound requests use `mapstitch_mixed_scales:select_scale_v2` and `mapstitch
 
 Screens remain bound to their original inventory/accessory/pouch source and book identity. The client may refresh the map anchor after first-map generation or ejection within that same book. It does not adopt the identity of a different atlas that replaces the source slot; the controls disable until the appropriate book is reopened. A newly created or legacy book needs its first server tick and inventory synchronization before native controls can edit it. If opened before that synchronization, reopen the screen once the book is synchronized. Matching client/server suite builds are required for native controls. Standard map creation sends one vanilla cartography sound packet to the explorer per generation batch; a batch creating multiple scales still plays one chime. Sound playback remains subject to the player's sound settings.
 
-Use [stable installation and testing steps](RELEASE_1_1_1.md) and [current validation](VALIDATION.md) for the released artifact. Earlier merged-branch records remain [historical evidence](MERGED_TESTING.md). The optional original world-map buttons setting hides all these buttons together with the existing controls.
+Use [stable installation and testing steps](RELEASE_1_1_2.md) and [current validation](VALIDATION.md) for the released artifact. Earlier merged-branch records remain [historical evidence](MERGED_TESTING.md). The optional original world-map buttons setting hides all these buttons together with the existing controls.

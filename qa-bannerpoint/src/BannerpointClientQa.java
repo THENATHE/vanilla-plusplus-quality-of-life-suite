@@ -41,6 +41,12 @@ public final class BannerpointClientQa implements ClientModInitializer {
                     observed.addProperty("color", waypoint.icon().color.orElse(0)); waypoints.add(observed);
                 });
                 row.add("waypoints", waypoints);
+                if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("bannerpoint") && Files.exists(control.resolve("banner-ids.json"))) {
+                    var namedId = UUID.fromString(JsonParser.parseString(Files.readString(control.resolve("banner-ids.json"))).getAsJsonArray().get(0).getAsString());
+                    var lookup = Class.forName("me.pajic.bannerpoint.client.BannerNameRenderer").getMethod("getName", UUID.class);
+                    var component = (net.minecraft.network.chat.Component) lookup.invoke(null, namedId);
+                    row.addProperty("native_banner_name", component.getString());
+                }
                 var resources = new JsonArray();
                 for (int i = 0; i < 4; i++) {
                     var id = Identifier.parse("bannerpoint:hud/locator_bar_dot/banner_" + i);

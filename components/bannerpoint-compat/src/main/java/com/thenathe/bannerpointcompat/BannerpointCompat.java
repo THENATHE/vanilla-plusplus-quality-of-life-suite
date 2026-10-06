@@ -44,6 +44,8 @@ public final class BannerpointCompat implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        com.thenathe.multiscale.AtlasBannerEvents.AFTER_EDIT.register((atlas, level, pos, retained) ->
+                me.pajic.bannerpoint.waypoint.BannerWaypointUtil.setMapTracking(retained, level, pos));
         if (FabricLoader.getInstance().isModLoaded("polymer-resource-pack")) {
             registeredArtwork = PolymerArtwork.register();
         }

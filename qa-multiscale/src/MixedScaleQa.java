@@ -184,7 +184,8 @@ public final class MixedScaleQa implements ModInitializer {
     check(inventoryOnly!=null&&inventoryOnly.location()==com.thenathe.multiscale.AtlasTarget.INVENTORY&&inventoryOnly.index()==1,"disabled accessories scan selects inventory book");
    }
    extractionChecks(server,player,extractionDrops);
-   result="PASS "+checks+" mixed-scale insertion, extraction commands, codec and restart checks";
+   checks += AtlasBannerQa.run(server,player);
+   result="PASS "+checks+" mixed-scale insertion, extraction commands, banner edits, codec and restart checks";
   } catch(Throwable error) {error.printStackTrace();result="FAIL "+error;}
   try {Files.writeString(Path.of("mixedscale-qa-result.txt"),result+"\n");}catch(Exception e){throw new RuntimeException(e);}
   finally {server.halt(false);}

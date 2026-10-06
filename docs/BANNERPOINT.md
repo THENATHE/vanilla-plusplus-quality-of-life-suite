@@ -1,6 +1,6 @@
-# Bannerpoint support — experimental branch
+# Bannerpoint support
 
-The `feat/bannerpoint` branch adds [Pajic’s Bannerpoint](https://modrinth.com/mod/bannerpoint) to Vanilla++ Quality of Life Suite as a separate module. It targets modern Minecraft versions using the exact platform listed below. Stable `main` **1.1.1** is unchanged; this branch is packaged separately for testing.
+Stable suite **1.1.2** includes [Pajic’s Bannerpoint](https://modrinth.com/mod/bannerpoint) as a separate module on `main`. It supports modern Minecraft versions using the exact platform listed below. The earlier Bannerpoint testing release remains a historical record; its features are now part of the main suite.
 
 Bannerpoint creates **locator-bar waypoints** for banners. These are separate from MapStitch’s atlas-map banner decorations. The original style and its four image files can be delivered through Polymer’s resource pack: a vanilla client already understands Minecraft’s waypoint-style resources and locator-bar packets. Bannerpoint’s custom name renderer is Java client code, so a pack supplies icons but cannot supply that name overlay.
 
@@ -18,19 +18,25 @@ Ordinary player waypoints remain available under Minecraft’s normal rules. Ori
 
 ## Installation and use
 
-Use the branch release **1.1.2-bannerpoint.1+26.3** on the server and participating suite clients. Do not additionally install the original Bannerpoint JAR: it is already nested in the suite. [Installation instructions](INSTALLATION_PACK.md) cover the client/server kit and all external libraries.
+Use stable release **1.1.2+26.3** on the server and participating suite clients. Do not additionally install the original Bannerpoint JAR: it is already nested in the suite. [Installation instructions](INSTALLATION_PACK.md) cover the client/server kit and all external libraries.
 
 For vanilla clients, install the release-selected Polymer Bundled on the server. Generate and host the server pack through [Polymer’s hosting workflow](https://polymer.pb4.eu/latest/user/resource-pack-hosting/), and have players accept it. The suite contributes Bannerpoint’s original assets automatically. A player who declines or fails to load the pack receives no Bannerpoint waypoint icons. Pack acceptance alone is insufficient: the server waits for successful loading.
 
 Open **Bannerpoint Gameplay Settings** in the suite hub to control named-banner transmission, map-linked transmission and maximum range. Open **Bannerpoint Client Settings** to control the native client’s name color, shadow, background and background opacity. With Bannerpoint on the client, hold the player-list key or sneak while looking toward the waypoint to reveal its name. Original server settings retain their relog notice.
 
+## Atlas banner marking across scales
+
+Using an atlas on a banner applies the mark to every **enabled generation scale** with an existing map covering that banner in the **current dimension**. These are the atlas’s **1/2/4/8/16** toggles, not the world-map **S** view or minimap **M** selection. Disabled scales, other dimensions and maps that do not cover the banner are unchanged.
+
+If all eligible maps already contain the same banner mark, the operation removes it from all of them. Otherwise it adds or updates the mark across the eligible maps together, repairing a partially marked set. This operation does not generate maps or consume empty maps/paper. Renaming or recoloring a banner updates its mark instead of treating the old mark as a removal. If an eligible map cannot accept the decoration because the banner is at its outermost pixels or its marker limit is reached, the operation leaves the whole eligible set unchanged rather than applying only some scales. Bannerpoint’s original map-linked transmission setting still determines whether a map-linked banner becomes a locator-bar waypoint. After the coordinated atlas operation, the compatibility module reconciles tracking once: removing marks from enabled layers does not untrack the banner while a disabled layer in the same atlas still carries it. This is scoped to the interacted atlas; it does not introduce global reference counting across unrelated books. See [mixed-scale behavior](MIXED_SCALES.md) for maintenance boundaries.
+
 ## Exact versions and retained dependencies
 
 | Component | Version / requirement |
 | --- | --- |
-| Experimental suite | `1.1.2-bannerpoint.1+26.3`, branch `feat/bannerpoint` |
+| Stable suite | `1.1.2+26.3`, branch `main` |
 | Unchanged official Bannerpoint | `1.1.2+26.3`; Fabric metadata declares `1.1.2` |
-| Separate Bannerpoint compatibility component | `1.0.0+26.3` |
+| Separate Bannerpoint compatibility component | `1.0.1+26.3` |
 | Minecraft / runtime / loader | `26.3` / Java `25+` / Fabric Loader `0.19.5` |
 | Fabric API / Fzzy Config | `0.161.0+26.3` / `0.7.7+fix2+26.3` |
 | Polymer for resource-pack clients | Full Polymer Bundled `0.18.2+26.3` on the server |
@@ -62,7 +68,7 @@ When Bannerpoint updates, compare its waypoint connection factories, naming chan
 
 ## Verification and player testing
 
-[VALIDATION.md](VALIDATION.md) records the exact tested build, completed checks and any remaining limits. The behaviors described here are the intended branch contract; historical stable-release tests alone do not verify the newly added module.
+[VALIDATION.md](VALIDATION.md) records the exact tested build, completed checks and any remaining limits. Historical testing-release evidence is preserved separately from fresh stable-release checks; consult the recorded build hashes and scope.
 
 For a manual acceptance check:
 

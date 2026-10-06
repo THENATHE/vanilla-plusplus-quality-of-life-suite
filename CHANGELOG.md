@@ -1,5 +1,13 @@
 # Changes
 
+## 1.1.2+26.3 — 2026-10-05
+
+- Promote Bannerpoint and its separate compatibility module to stable `main`, preserving the original developer JAR, config identities, assets and saved banner data.
+- Deliver original locator-bar icons through the verified Polymer server pack only after successful loading. Native Bannerpoint clients retain their original icons and name labels; unsupported clients without a loaded pack receive no banner waypoints. Ordinary player waypoints remain unchanged.
+- Keep Bannerpoint gameplay/client settings together with the original suite settings; preserve native channel detection and avoid unsupported name payloads.
+- Apply an atlas banner click to all enabled generation scales with an existing covering map in the current dimension. Add the mark to all eligible maps together, or remove it from all eligible maps when already present throughout. Disabled layers and other dimensions remain untouched; no maps are created and no blanks consumed by this interaction.
+- Retain the separate module layout, dependencies, Defaulted dropfix, mixed-dimension fixes and extraction commands. Update accessible documentation and package the standard four release assets. See [the 1.1.2 guide](docs/RELEASE_1_1_2.md) and [validation](docs/VALIDATION.md) for exact release requirements and verification.
+
 ## 1.1.2-bannerpoint.1+26.3 — 2026-10-05 (experimental branch)
 
 - Integrate Pajic’s original Bannerpoint developer release unchanged as a separate nested module on `feat/bannerpoint`; stable `main` remains 1.1.1.

@@ -1,0 +1,30 @@
+{
+  "prior_version": "1.1.2-bannerpoint.1+26.3",
+  "prior_sha256": "493deec1a5013d318a1353fc749ee06d56554edd0765fd77f1d742c940cb6ab2",
+  "final_version": "1.1.2+26.3",
+  "final_sha256": "c21a103fc19be5121ab3c21bf50c02133dff2719812985010767e3c28cc7c3dd",
+  "unchanged_nested_modules": [
+    "amethyst_curse_cleanser",
+    "bannerpoint",
+    "chalk",
+    "chalk-colorful-addon",
+    "chalk_polymer_compat",
+    "mapstitch",
+    "misctweaks",
+    "sensible_stackables",
+    "sensible_stackables_polymer_compat",
+    "shared_region_maps",
+    "simple_death_improvements",
+    "simple_smithing_overhaul",
+    "sso_backpack_toolpouch_mapstitch_shim",
+    "tiered_backpacks",
+    "toolpouch",
+    "toolpouch_atlas_elytra_compat"
+  ],
+  "changed_nested_modules": [
+    "bannerpoint_polymer_compat",
+    "mapstitch_mixed_scales"
+  ],
+  "root_java_classes_identical": true,
+  "comparison_scope": "Exact binaries compared; unchanged identity does not constitute newly executed gameplay tests."
+}

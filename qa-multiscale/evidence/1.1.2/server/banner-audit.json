@@ -1,0 +1,12 @@
+{
+  "run_label": "banner-scales-1.1.2-c",
+  "bundle_sha256": "c21a103fc19be5121ab3c21bf50c02133dff2719812985010767e3c28cc7c3dd",
+  "banner_assertions_per_phase": 70,
+  "banner_assertions_total": 280,
+  "total_assertions": 1050,
+  "fixture_sources": {
+    "qa-multiscale/src/MixedScaleQa.java": "5f0f985c3aff66231cb8965becdf84a3913085451151331cfd4acd4e44ee80a7",
+    "qa-multiscale/src/AtlasBannerQa.java": "7baebed013970515bcdb65e0051aceebd3fa18e77b36a58ac63c8d3c7a76953e",
+    "qa-multiscale/run.py": "268a8e1b1ff99d6c1cd2f6ed2495909f87f7bd16d832e2922fc5f9b98bdf379b"
+  }
+}

@@ -1,6 +1,6 @@
 # Mixed-scale atlases
 
-Stable suite **1.1.1** includes mixed-scale MapStitch and Sensible Stackables as separate modules on `main`. The original MapStitch JAR remains unchanged. These features are maintained for modern Minecraft versions; [installation requirements](INSTALLATION_PACK.md) identify the exact supported version and dependencies for this release.
+Stable suite **1.1.2** includes mixed-scale MapStitch and Sensible Stackables as separate modules on `main`. The original MapStitch JAR remains unchanged. These features are maintained for modern Minecraft versions; [installation requirements](INSTALLATION_PACK.md) identify the exact supported version and dependencies for this release.
 
 ## Current behavior
 
@@ -8,26 +8,27 @@ Stable suite **1.1.1** includes mixed-scale MapStitch and Sensible Stackables as
 - **S** and the original scale keys change only the world-map viewing layer.
 - **M1/M2/M4/M8/M16** selects the atlas minimap's scale independently.
 - **1/2/4/8/16** independently toggle generation at each scale. Each missing enabled layer consumes one available blank, in ascending scale order. Disabling a layer preserves its stored maps.
+- Use an atlas on a banner to add or remove its mark across every enabled generation scale with an existing covering map in the current dimension. Disabled layers and other dimensions are unchanged; marking creates no maps and spends no blanks.
 - Atlas hover text reports storage, enabled generation scales and minimap scale, followed by the original count and ejection lines.
 - The normal Tool Pouch integration selects and saves the owned atlas. A persisted book identity and map anchor reject packets targeting a replacement atlas or stale location.
 - MapStitch's existing **Keep atlases on death** option also handles supported nested containers. The containing item and unrelated contents retain their configured drop behavior.
 
-See [atlas controls](ATLAS_CONTROLS.md), [shared HUD layout](HUD.md), and [container-safe death retention](ATLAS_DEATH_RETENTION.md) for player-facing details. Current release checks and testing steps are in [validation](VALIDATION.md) and [the stable release guide](RELEASE_1_1_1.md); previous branch evidence below remains historical.
+See [atlas controls](ATLAS_CONTROLS.md), [shared HUD layout](HUD.md), and [container-safe death retention](ATLAS_DEATH_RETENTION.md) for player-facing details. Current release checks and testing steps are in [validation](VALIDATION.md) and [the stable release guide](RELEASE_1_1_2.md); previous branch evidence below remains historical.
 
 ## Current implementation and build
 
 | Component | Stable artifact version | Source |
 | --- | --- | --- |
-| Suite root | `1.1.1+26.3` | `src/` |
+| Suite root | `1.1.2+26.3` | `src/` |
 | Shared coordinator | `1.1.0+26.3` | `components/combined-compat/` |
-| Mixed-scale addon | `1.1.1+26.3` | `components/mapstitch-mixed-scales/working/` |
+| Mixed-scale addon | `1.1.2+26.3` | `components/mapstitch-mixed-scales/working/` |
 | Original MapStitch | `1.1.6+26.3` | Unchanged developer input pinned in `locks/artifacts.json` |
 
-The stable archive includes 16 nested mods. Coordinator protocol v2 negotiates 11 feature capabilities, including Sensible Stackables. The MapStitch fingerprint includes this addon, the atlas/Elytra integration, Shared Region Maps, coordinator and suite versions. An untouched MapStitch client's original channels do not qualify for native mixed-scale behavior; matching suite clients retain native functionality, and a server with Polymer supplies the documented fallback to unsupported clients.
+The stable archive includes 18 nested mods. Coordinator protocol v2 negotiates 11 feature capabilities, including Sensible Stackables. The MapStitch fingerprint includes this addon, the atlas/Elytra integration, Shared Region Maps, coordinator and suite versions. An untouched MapStitch client's original channels do not qualify for native mixed-scale behavior; matching suite clients retain native functionality, and a server with Polymer supplies the documented fallback to unsupported clients.
 
 `AtlasOptions` owns the per-book generation mask and identity in vanilla custom data. `MixedScaleMaps` handles exact layer coverage, blank conservation and regional sharing. `AtlasTarget` binds the owned source and saveback. `MixedScales` validates `select_scale_v2` and `select_generation_v2` requests. `MixedScalesClient` and the world-map mixins present independent controls. `AtlasDeathRetention` and the death/respawn mixins preserve atlases from supported nested containers.
 
-Build from `Minecraft/thenathe-mod-suite/` using the pinned inputs and Java/compiler command in [UPDATING.md](UPDATING.md). `tools/verify-bundle.py` verifies the 16 declared modules, exact component versions, preserved input hashes and Defaulted dropfix requirement. The component output is `components/mapstitch-mixed-scales/working/build/libs/mapstitch-mixed-scales-1.1.1+26.3.jar`; it is already nested in the suite and should not be installed again separately.
+Build from `Minecraft/thenathe-mod-suite/` using the pinned inputs and Java/compiler command in [UPDATING.md](UPDATING.md). `tools/verify-bundle.py` verifies the 18 declared modules, exact component versions, preserved input hashes and Defaulted dropfix requirement. The component output is `components/mapstitch-mixed-scales/working/build/libs/mapstitch-mixed-scales-1.1.2+26.3.jar`; it is already nested in the suite and should not be installed again separately.
 
 The original MapStitch source remains update context. Compare new developer source with the exact retained baseline, then adjust these separate adapters rather than merging upstream classes into them. Recheck insertion/ticking, world-map and minimap controls, owned-location resolution, guarded packets, original data components, container/death methods and the optional accessory APIs. Preserve dependency APIs and the paused SSO-port track. Machine-assisted maintenance of this suite proceeds independently of the original author's own updates.
 
@@ -38,6 +39,12 @@ Vanilla map update packets omit the original map dimension and center. A client 
 Matching clients correct the existing map object's dimension, center, scale and locked state in place, retaining pixels, decorations and optional integration state. World-map caches clear on opening, dimension changes and viewing-scale changes; minimap markers refresh on dimension or metadata changes. No world map files are rewritten. Reopen an existing atlas to receive corrected metadata.
 
 `AtlasMapExtraction.java` registers `/extractmap` separately from upstream MapStitch. Scale and dimension filters use authoritative server saved data. Unknown or missing map records stay in the atlas; extracting an item never deletes saved map data. The chosen atlas is the main-hand book, then offhand book, otherwise the active Tool Pouch atlas. Retained contents, item components, book identity and generation/minimap settings remain intact; the enclosing pouch is saved. Maps, blanks and paper go to inventory first, with overflow dropped at the player. See [command examples](ATLAS_CONTROLS.md).
+
+## Coordinated banner marking
+
+The separate mixed-scale addon intercepts MapStitch’s atlas/banner interaction and selects existing maps covering the banner in the current dimension at the atlas’s enabled generation scales. The world-map view and minimap scale do not choose the marking layers. If the same banner mark is present throughout the eligible set, the operation removes it throughout; otherwise it adds or updates the mark throughout, filling partially marked sets coherently. A missing covering map is skipped, not generated. Empty maps and paper are not consumed. Duplicate stored references to one map are edited once. Add/remove comparisons use the live banner’s full mark, including name and color, so a renamed/recolored banner updates rather than removing its old label. Vanilla decoration-coordinate limits and tracked-marker capacity are checked across every target before edits; a rejected layer leaves the full group unchanged. Locked maps retain vanilla’s ability to update decorations.
+
+Keep this adapter separate from both the original MapStitch JAR and Bannerpoint’s locator-bar compatibility. It calls the original map banner machinery so banner color/name updates, map sharing and Bannerpoint’s map-linked transmission integration retain their existing hooks. Bannerpoint compatibility 1.0.1+26.3 reconciles map-linked transmission once after the atlas operation, retaining a locator-bar waypoint if a disabled layer in the same atlas still holds the mark. This reconciliation is local to that atlas, not a new global reference counter for unrelated books. Changes to upstream banner-toggle return values, map coverage, decoration limits or transmission hooks require focused interaction tests when updating. [Bannerpoint support](BANNERPOINT.md) explains the separate locator-bar and resource-pack path.
 
 ## Historical first experiment
 

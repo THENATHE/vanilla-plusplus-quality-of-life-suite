@@ -59,20 +59,33 @@ public final class BannerpointServerQa implements ModInitializer {
                     if (seeded.add(player.getUUID())) {
                         player.teleportTo(player.level(), 0.5, -62, 0.5, Set.of(), 0, 0, true);
                         if (banners.isEmpty()) {
+                            boolean restarted = Boolean.getBoolean("banner.qa.restart");
+                            var expectedIds = restarted ? JsonParser.parseString(Files.readString(CONTROL.resolve("banner-ids.json"))).getAsJsonArray() : null;
                             for (int i = 0; i < 2; i++) {
                                 var pos = new BlockPos(i == 0 ? -3 : 3, -63, 18);
                                 player.level().getChunkAt(pos);
-                                player.level().setBlock(pos, Blocks.BANNER.pick(i == 0 ? net.minecraft.world.item.DyeColor.RED : net.minecraft.world.item.DyeColor.BLUE).defaultBlockState(), 3);
+                                if (!restarted) player.level().setBlock(pos, Blocks.BANNER.pick(i == 0 ? net.minecraft.world.item.DyeColor.RED : net.minecraft.world.item.DyeColor.BLUE).defaultBlockState(), 3);
                                 var banner = (BannerBlockEntity) player.level().getBlockEntity(pos);
-                                if (i == 0) {
+                                if (restarted) {
+                                    if (banner == null || !((BannerBlockEntityExtension) banner).bannerpoint$getUUID().toString().equals(expectedIds.get(i).getAsString())) throw new AssertionError("Banner UUID/block was not preserved across restart");
+                                    if (!((net.minecraft.world.waypoints.WaypointTransmitter) banner).isTransmittingWaypoint()) throw new AssertionError("Restored named/map-linked banner no longer transmits");
+                                    if (!((me.pajic.bannerpoint.extension.ServerLevelExtension) player.level()).bannerpoint$getSavedBanners().getBanners().contains(pos)) throw new AssertionError("Restored banner missing from original saved data");
+                                    if (!player.level().getWaypointManager().transmitters().contains((net.minecraft.world.waypoints.WaypointTransmitter) banner)) throw new AssertionError("Original Bannerpoint startup did not restore transmitter");
+                                    if (i == 0 && (!banner.hasCustomName() || !banner.getCustomName().getString().equals("QA Red Named Banner"))) throw new AssertionError("Native named banner lost its name");
+                                } else if (i == 0) {
                                     var item = new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.BANNER.pick(net.minecraft.world.item.DyeColor.RED));
                                     item.set(DataComponents.CUSTOM_NAME, Component.literal("QA Red Named Banner"));
                                     banner.applyComponentsFromItemStack(item);
-                                } else ((BannerBlockEntityExtension) banner).bannerpoint$setTiedToMap(true);
-                                BannerWaypointUtil.startTracking(player.level(), banner, true); banners.add(banner);
+                                } else {
+                                    var map = net.minecraft.world.item.MapItem.create(player.level(), 0, 0, (byte) 0, true, false);
+                                    if (!net.minecraft.world.item.MapItem.getSavedData(map, player.level()).toggleBanner(player.level(), pos)) throw new AssertionError("Real vanilla map did not link blue banner");
+                                }
+                                if (!restarted) BannerWaypointUtil.startTracking(player.level(), banner, true);
+                                banners.add(banner);
                             }
                             var ids = new JsonArray(); for (var banner : banners) ids.add(((BannerBlockEntityExtension) banner).bannerpoint$getUUID().toString());
                             Files.writeString(CONTROL.resolve("banner-ids.json"), ids.toString());
+                            if (restarted) Files.writeString(CONTROL.resolve("restart-verified.json"), "{\"passed\":true,\"preserved_banner_count\":2,\"preserved_uuids\":true,\"preserved_native_name\":true,\"restored_original_transmitters\":true,\"map_linked_banner_transmits\":true}\n");
                         }
                         // A default, non-banner locator waypoint must survive every compatibility state.
                         player.connection.send(ClientboundTrackedWaypointPacket.addWaypointPosition(REGULAR, new Waypoint.Icon(), new BlockPos(0, -63, 24)));
@@ -95,6 +108,13 @@ public final class BannerpointServerQa implements ModInitializer {
                                 if (allowed) throw new AssertionError("Non-success state enabled banner artwork: " + state);
                                 observe(player, "strict-state", state + " can_render=false");
                             }
+                        } else if (content.equals("break-blue")) {
+                            var removed = banners.get(1);
+                            if (!player.gameMode.destroyBlock(removed.getBlockPos())) throw new AssertionError("Native banner breaking failed");
+                            if (player.level().getBlockEntity(removed.getBlockPos()) instanceof BannerBlockEntity) throw new AssertionError("Broken banner block remained");
+                            if (((me.pajic.bannerpoint.extension.ServerLevelExtension) player.level()).bannerpoint$getSavedBanners().getBanners().contains(removed.getBlockPos())) throw new AssertionError("Broken banner remained in original saved data");
+                            if (player.level().getWaypointManager().transmitters().contains((net.minecraft.world.waypoints.WaypointTransmitter) removed)) throw new AssertionError("Broken banner remained a transmitter");
+                            observe(player, "native-banner-removed", ((BannerBlockEntityExtension) removed).bannerpoint$getUUID());
                         }
                     }
                     if (ticks % 10 == 0) {

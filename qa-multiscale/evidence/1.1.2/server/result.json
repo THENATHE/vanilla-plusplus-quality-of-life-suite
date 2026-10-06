@@ -1,0 +1,34 @@
+{
+  "bundle_sha256": "c21a103fc19be5121ab3c21bf50c02133dff2719812985010767e3c28cc7c3dd",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "maps-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 297 mixed-scale insertion, extraction commands, banner edits, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-polymer",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "PASS 228 mixed-scale insertion, extraction commands, banner edits, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 297 mixed-scale insertion, extraction commands, banner edits, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-native",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "PASS 228 mixed-scale insertion, extraction commands, banner edits, codec and restart checks",
+      "passed": true
+    }
+  ]
+}

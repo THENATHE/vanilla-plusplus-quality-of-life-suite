@@ -1,0 +1,11 @@
+{
+  "bundle_sha256": "c21a103fc19be5121ab3c21bf50c02133dff2719812985010767e3c28cc7c3dd",
+  "run_label": "stable112-bannerpoint-final",
+  "source_files": {
+    "qa-bannerpoint/run.py": "cfe4862dcd2b67786b9acb73fe1aba4919046ce35b2d9e3a42872321d8c7a1fd",
+    "qa-bannerpoint/src/BannerpointClientQa.java": "be75fcbf6560c8070b0f3944f7cb83cba7974245176d2819441aed4ccf223433",
+    "qa-bannerpoint/src/BannerpointServerQa.java": "f587eeeda43b6f26406404b109e89443afff7cc039b03b7d2bbdcdc32731cfcd",
+    "qa-bannerpoint/src/GuiSpriteTraceMixin.java": "9ce389ad3642d63c752f3993cf39b38363494e4e794581b386912eb6eec21dae",
+    "qa-bannerpoint/src/ServerPacketTraceMixin.java": "058dba25d66841487b9a43f5e78d88e6b1cec9c520de9b73d6daabb3a27ea44d"
+  }
+}

@@ -24,11 +24,13 @@ def main():
     parser.add_argument('--jar', type=Path, required=True)
     parser.add_argument('--label', required=True)
     parser.add_argument('--profiles', default='suite,original,fabric,vanilla,nopolymer')
+    parser.add_argument('--restart', action='store_true', help='Also restart the no-Polymer world, verify both saved banners/name/UUIDs and break the map-linked banner')
     args = parser.parse_args()
+    if args.restart and 'nopolymer' not in args.profiles.split(','): parser.error('--restart requires the nopolymer profile')
     run = ROOT / 'qa-bannerpoint/runs' / args.label; run.mkdir(parents=True, exist_ok=False)
     control = run / 'control'; control.mkdir()
     fixtures = run / 'fixtures'; fixtures.mkdir(); classes = fixtures / 'classes'; classes.mkdir()
-    launch = mapstitch_launch(WORKSPACE); suite = args.jar.resolve()
+    launch = mapstitch_launch(WORKSPACE); suite = run / args.jar.name; shutil.copy2(args.jar.resolve(), suite)
     dependencies = [ROOT / 'libs' / name for name in (
         'codecui-26.3-1.4.3-fabric.jar', 'defaulted-1.3.8+26.3.dropfix.1-fabric.jar',
         'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'fzzy_config-0.7.7+fix2+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
@@ -106,7 +108,9 @@ def main():
                 (config_directory / 'resource-pack.json').write_text(json.dumps({'main_uuid': '80536d49-002a-4d9c-9bb8-391abd17ae69', 'markResourcePackAsRequiredByDefault': False, 'include_mod_assets': [], 'include_zips': [], 'resource_pack_location': 'polymer/resource_pack.zip', 'prevent_path_with': [], 'ignore_pack_version': False, 'log_errors': True}))
             command = launch.base_command('server', directory, port); command[0] = '/usr/lib/jvm/java-25-openjdk/bin/java'
             command[1:1] = ['-Dbanner.qa.control=' + str(control), '-Dbanner.qa.pack.url=' + pack_url]
-            server = start(directory, command, [suite, *dependencies, fixtures / 'server.jar'] + ([polymer] if with_polymer else []))
+            server_command = command[:]
+            server_mods = [suite, *dependencies, fixtures / 'server.jar'] + ([polymer] if with_polymer else [])
+            server = start(directory, command, server_mods)
             wait(lambda: 'Done (' in (directory / 'console.log').read_text(), server, 'server startup')
             if with_polymer:
                 server.stdin.write('polymer generate-pack\n'); server.stdin.flush(); pack = directory / 'polymer/resource_pack.zip'
@@ -158,6 +162,8 @@ def main():
                 observed = read(name, 'server')
                 assert observed['can_render'], observed
                 native = profile in ('suite', 'original', 'nopolymer'); assert observed['native_banner_channel'] == native
+                if native:
+                    wait(lambda: read(name, 'client').get('native_banner_name') == 'QA Red Named Banner', client, name + ' native name payload decoded')
                 if not native: assert not any(e['kind'] == 'banner-name' for e in observed['events']), observed
                 observations.append({'profile': profile, 'phase': 'loaded' if with_polymer else 'native without Polymer', 'client': read(name, 'client') if profile != 'vanilla' else {'loader': None, 'mods': [], 'real_pack_loaded': True, 'ui_capture': 'Not performed: Wayland focus cannot be established reliably; actual sprite evidence uses Fabric API-only vanilla renderer.'}, 'server': observed})
                 if profile == 'fabric':
@@ -175,14 +181,35 @@ def main():
                     capture(name, client_directory, 'removed')
                     observations.append({'profile': profile, 'phase': 'removed', 'client': read(name, 'client'), 'server': read(name, 'server')})
                     (control / (name + '-client-action.txt')).write_text('reject'); time.sleep(1)
+                    previous_declines = sum('DECLINED' in e['detail'] for e in read(name, 'server').get('events', []) if e['kind'] == 'pack-status')
                     (control / (name + '-action.txt')).write_text('push')
-                    wait(lambda: any('DECLINED' in e['detail'] for e in read(name, 'server').get('events', []) if e['kind'] == 'pack-status'), client, 'pack explicitly declined')
+                    wait(lambda: sum('DECLINED' in e['detail'] for e in read(name, 'server').get('events', []) if e['kind'] == 'pack-status') > previous_declines, client, 'pack explicitly declined')
                     time.sleep(2); row = read(name, 'client'); assert banner_count(row) == 0 and regular(row), row
                     observations.append({'profile': profile, 'phase': 'declined', 'client': row, 'server': read(name, 'server')})
                 stop(client)
                 print('PASS ' + name, flush=True)
             stop(server, True)
             if with_polymer: stop(http)
+            elif args.restart:
+                shutil.copy2(directory / 'audit.json', directory / 'audit-before-restart.json')
+                shutil.copy2(directory / 'console.log', directory / 'console-before-restart.log')
+                restart_command = server_command[:]; restart_command.insert(1, '-Dbanner.qa.restart=true')
+                server = start(directory, restart_command, server_mods)
+                wait(lambda: 'Done (' in (directory / 'console.log').read_text(), server, 'restart original Bannerpoint saved world')
+                name = 'BannerQARestart'; client_directory = run / name; client_directory.mkdir()
+                (client_directory / 'options.txt').write_text('pauseOnLostFocus:false\nguiScale:2\ngraphicsMode:0\nrenderDistance:2\nmaxFps:25\nmaxFpsInactive:25\nsoundCategory_master:0.0\njoinedFirstServer:true\n')
+                command = launch.base_command('native', client_directory, port); command[0] = '/usr/lib/jvm/java-25-openjdk/bin/java'
+                command[1:1] = ['-Dbanner.qa.control=' + str(control)]
+                command[command.index('--username') + 1] = name
+                command[command.index('--width') + 1] = '900'; command[command.index('--height') + 1] = '600'
+                client = start(client_directory, command, [suite, *dependencies, fixtures / 'client.jar'])
+                wait(lambda: (control / 'restart-verified.json').exists() and banner_count(read(name, 'client')) == 2 and regular(read(name, 'client')) and read(name, 'client').get('native_banner_name') == 'QA Red Named Banner', client, 'native restart restores name/UUIDs/map-linked waypoint')
+                observations.append({'profile': 'nopolymer', 'phase': 'real saved-world restart', 'persistence': json.loads((control / 'restart-verified.json').read_text()), 'client': read(name, 'client'), 'server': read(name, 'server')})
+                (control / (name + '-action.txt')).write_text('break-blue')
+                wait(lambda: banner_count(read(name, 'client')) == 1 and regular(read(name, 'client')) and any(e['kind'] == 'native-banner-removed' for e in read(name, 'server').get('events', [])), client, 'actual banner destruction removes only its own waypoint and saved transmitter')
+                observations.append({'profile': 'nopolymer', 'phase': 'native banner block destroyed after restart', 'client': read(name, 'client'), 'server': read(name, 'server')})
+                stop(client); stop(server, True)
+                print('PASS saved-world restart, stable UUIDs/name/map link, native banner removal', flush=True)
         (run / 'result.json').write_text(json.dumps({'passed': True, 'bundle_sha256': sha(suite), 'original_sha256': sha(original), 'observations': observations}, indent=2) + '\n')
         print('PASS profiles: ' + args.profiles, flush=True)
     finally:
