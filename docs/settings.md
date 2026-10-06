@@ -28,7 +28,7 @@ The native root page and sidebar contain only usable configuration categories. A
 
 ## How the combined Fzzy screen preserves behavior
 
-`src/main/java/com/thenathe/suite/client/SuiteSettings.java` collects registered GUI configurations from the eight included Pajic namespaces in stable suite 1.1.3, including `bannerpoint`. It uses each existing active config and the original default/base object. It constructs a single Fzzy `ConfigScreenManager` containing the original keys and `ConfigSet`s, rather than serializing fields into another configuration type. Server/client classification uses the original `SyncedConfigRegistry.hasConfig` result, exactly as Fzzy's own screen factory does.
+`src/main/java/com/thenathe/suite/client/SuiteSettings.java` collects registered GUI configurations from the eight included Pajic namespaces in stable suite 1.1.4, including `bannerpoint`. It uses each existing active config and the original default/base object. It constructs a single Fzzy `ConfigScreenManager` containing the original keys and `ConfigSet`s, rather than serializing fields into another configuration type. Server/client classification uses the original `SyncedConfigRegistry.hasConfig` result, exactly as Fzzy's own screen factory does.
 
 Fzzy's `ConfigSingleUpdateManager` derives save behavior and network update keys from `ConfigSet.active.getId().toLanguageKey()`. Consequently, grouping configurations under the suite sidebar changes their presentation while preserving their original synchronization destinations, file paths and permissions. Original namespace screen providers and manager cache entries route forwarded changes into this same manager, preserving the original review/approval workflow.
 
@@ -53,7 +53,7 @@ Only the Chalk bridge is registered as a suite client configuration. The suite l
 
 ## Bannerpoint settings
 
-Stable suite 1.1.3 includes fourteen functional categories: the previous twelve plus **Bannerpoint Gameplay Settings** and **Bannerpoint Client Settings**. Gameplay retains transmit-named-banners, transmit-map-linked-banners and maximum-range options. Client settings retain banner-name color, shadow, background and background-opacity options. Client-only name rendering requires Bannerpoint’s code; a server resource pack provides waypoint icons, not these text-rendering features. The original IDs, files, server permissions and relog notices remain authoritative. The compatibility component is automatic and has no placeholder settings page. Bannerpoint remains an individual feature entry in Mod Menu, while its compatibility module belongs under the suite.
+Stable suite 1.1.4 includes fourteen functional categories: the previous twelve plus **Bannerpoint Gameplay Settings** and **Bannerpoint Client Settings**. Gameplay retains transmit-named-banners, transmit-map-linked-banners and maximum-range options. Client settings retain banner-name color, shadow, background and background-opacity options. Client-only name rendering requires Bannerpoint’s code; a server resource pack provides waypoint icons, not these text-rendering features. The original IDs, files, server permissions and relog notices remain authoritative. The compatibility component is automatic and has no placeholder settings page. Bannerpoint remains an individual feature entry in Mod Menu, while its compatibility module belongs under the suite.
 
 ## Stable 1.1 settings presentation
 

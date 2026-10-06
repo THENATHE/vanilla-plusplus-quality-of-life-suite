@@ -1,0 +1,49 @@
+{
+  "baseline_version": "1.1.3+26.3",
+  "baseline_sha256": "0492e88a51fb88cc5dbc0d815022d3d5a39f095fa299c5069f040ad5be63c69b",
+  "candidate_version": "1.1.4+26.3",
+  "candidate_sha256": "2c1273947279693e5ec3c78b2c39793c3b5fdbc320216476e04d16f79b2a1754",
+  "unchanged_modules": [
+    "amethyst_curse_cleanser",
+    "bannerpoint",
+    "bannerpoint_polymer_compat",
+    "chalk",
+    "chalk-colorful-addon",
+    "chalk_polymer_compat",
+    "mapstitch",
+    "misctweaks",
+    "sensible_stackables",
+    "sensible_stackables_polymer_compat",
+    "shared_region_maps",
+    "simple_death_improvements",
+    "simple_smithing_overhaul",
+    "sso_backpack_toolpouch_mapstitch_shim",
+    "tiered_backpacks",
+    "toolpouch"
+  ],
+  "changed_modules": {
+    "toolpouch_atlas_elytra_compat": {
+      "before": {
+        "version": "1.0.7-suite.1+26.3",
+        "sha256": "aa8850ae17fb1b4e3d89f49eee8baf339df0a0213258030f097ad4f53c0278b8"
+      },
+      "after": {
+        "version": "1.0.8-suite.1+26.3",
+        "sha256": "a70fede6139090bbaa21d598130c1886654d16c2995682f62c3fd7317ad7f445"
+      }
+    },
+    "mapstitch_mixed_scales": {
+      "before": {
+        "version": "1.1.3+26.3",
+        "sha256": "b916c2bbc21225092d6e016d85fcea72f064498bd5da27eb72204f0b1eca7083"
+      },
+      "after": {
+        "version": "1.1.4+26.3",
+        "sha256": "aaa9bb55aecfee49198d7c0c90b0de26b75dbab87b30e393fc3e1d194d0312ac"
+      }
+    }
+  },
+  "root_java_classes_identical": true,
+  "root_java_class_count": 12,
+  "all_original_inputs_and_external_dependencies_unchanged": true
+}

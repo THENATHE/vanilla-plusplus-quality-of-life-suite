@@ -25,9 +25,15 @@ public final class AtlasMapRepair {
 
     public static void register() {
         CommandRegistrationCallback.EVENT.register((dispatcher, access, environment) ->
-                dispatcher.register(Commands.literal("repairmaps")
-                        .executes(context -> repair(context.getSource(), false))
-                        .then(Commands.literal("check").executes(context -> repair(context.getSource(), true)))));
+                dispatcher.register(Commands.literal("atlas")
+                        .then(repairBranch("fix"))
+                        .then(repairBranch("repair"))));
+    }
+
+    private static com.mojang.brigadier.builder.LiteralArgumentBuilder<CommandSourceStack> repairBranch(String name) {
+        return Commands.literal(name)
+                .executes(context -> repair(context.getSource(), false))
+                .then(Commands.literal("check").executes(context -> repair(context.getSource(), true)));
     }
 
     public static int repair(CommandSourceStack source, boolean check) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
@@ -78,7 +84,10 @@ public final class AtlasMapRepair {
             MixedScaleMaps.selectActive(atlas, player.level(), player, false);
             handle.save().run();
             player.getInventory().setChanged();
-            player.containerMenu.broadcastChanges();
+            // Correct server metadata can coexist with a stale client atlas entry.
+            // A delta broadcast would send nothing when the server item is unchanged.
+            player.inventoryMenu.broadcastFullState();
+            if (player.containerMenu != player.inventoryMenu) player.containerMenu.broadcastFullState();
             MapRefresh.send(player);
         }
         String summary = (check ? "Atlas check: " : "Atlas refreshed: ") + seen.size() + " map records, "

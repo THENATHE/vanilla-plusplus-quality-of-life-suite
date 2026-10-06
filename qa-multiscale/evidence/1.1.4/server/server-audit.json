@@ -1,0 +1,21 @@
+{
+  "run_label": "atlas-copy-release-final3",
+  "bundle_sha256": "2c1273947279693e5ec3c78b2c39793c3b5fdbc320216476e04d16f79b2a1754",
+  "total_assertions": 5314,
+  "scope": "Four disposable dedicated-server phases: Polymer and no-Polymer, initial and saved-world restart. Source packet objects and real vanilla menu click handling are exercised; connections are mechanics-fixture mocks.",
+  "source_sha256": {
+    "qa-multiscale/src/MixedScaleQa.java": "2124aee4791fd85c807ed27d2b4ad7526e79b2683138f5d95cc81bb1abf3cd37",
+    "qa-multiscale/src/AtlasRepairQa.java": "507783265ece85061e3103cd2992ba900670d839129c600e41f2d190963e9df8",
+    "qa-multiscale/src/AtlasCartographyQa.java": "407dc583f62f9979c38bd21babdf5cd9b2fd46b0ee8b3ea894e20508d10d6c30",
+    "qa-multiscale/src/AtlasBannerQa.java": "7baebed013970515bcdb65e0051aceebd3fa18e77b36a58ac63c8d3c7a76953e",
+    "qa-multiscale/run.py": "b32c8d7de200f199cb449ce3f65c3161b3eab612d5565f74dc835968e32ba83f",
+    "components/shared-region-maps/working/src/main/java/org/sharedregionmaps/MapstitchMaps.java": "899e5de0e3fa44e76326315cd5b5c324d671d9e1dd4aed84b9b399130b6cc451",
+    "components/mapstitch-mixed-scales/working/src/main/java/com/thenathe/multiscale/AtlasMapRepair.java": "8c95dca3dd211f22837a52709491a9246f9a817e177f6d1efb81972c854e4315",
+    "components/mapstitch-mixed-scales/working/src/main/java/com/thenathe/multiscale/AtlasMapCleanup.java": "1dfa55cac33bfe75a96a21ec9c5d98c672f6269788680fe3d39ee3bffa00c7b0",
+    "components/mapstitch-mixed-scales/working/src/main/java/com/thenathe/multiscale/AtlasCartographyCopy.java": "32fa7ac648b5b15494ad7c6415cc344085244882c2007e2f104195e35a842564",
+    "components/mapstitch-mixed-scales/working/src/main/java/com/thenathe/multiscale/MapRefresh.java": "7ecf30f87208b0ef160ade52a257e521f2980a1fe40b243871df3d4f26a8aeac",
+    "components/mapstitch-mixed-scales/working/src/main/java/com/thenathe/multiscale/mixin/AtlasCartographyMenuMixin.java": "fbf56482a143fcec82ec2682069dc6cbde852429cd4b966bb87b0b9ea5eb8e0c",
+    "components/mapstitch-mixed-scales/working/src/main/java/com/thenathe/multiscale/mixin/AtlasCartographyInputMixin.java": "4b46ebb9161240230b20c6d315bf0af521de3c36a84db641f9c7584d9d8bc52a",
+    "components/mapstitch-mixed-scales/working/src/main/java/com/thenathe/multiscale/mixin/AtlasCartographyResultMixin.java": "ef2af5002d17bf07d72c64ed6e4e96802feaf3b2f8589c368b0a4aba3bb0c3ce"
+  }
+}

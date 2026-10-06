@@ -22,7 +22,8 @@ public final class AtlasMapCleanup {
 
     public static void register() {
         CommandRegistrationCallback.EVENT.register((dispatcher, access, environment) ->
-                dispatcher.register(Commands.literal("dedupemaps").executes(context -> cleanup(context.getSource()))));
+                dispatcher.register(Commands.literal("atlas")
+                        .then(Commands.literal("dedupe").executes(context -> cleanup(context.getSource())))));
     }
 
     public static int cleanup(CommandSourceStack source) throws com.mojang.brigadier.exceptions.CommandSyntaxException {

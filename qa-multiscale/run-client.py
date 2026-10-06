@@ -12,6 +12,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--label', required=True)
     parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar')
+    parser.add_argument('--baseline-1.1.3', dest='baseline_1_1_3', action='store_true', help='Use the historical repair command for the expected full-screen regression on stable1.1.3.')
+    parser.add_argument('--atlas-smoke', action='store_true', help='Run two negative-grid Ctrl+Q cases and all source/pouch cases; omit the historical21-view matrix.')
     args = parser.parse_args()
     run = ROOT / 'qa-multiscale/runs' / args.label
     run.mkdir(parents=True, exist_ok=False)
@@ -40,7 +42,7 @@ def main():
                     if not target.exists(): target.write_bytes(content); paths.append(str(target)); nested(target)
     for jar in [suite, *dependencies, polymer]: nested(jar)
     sources = [ROOT / 'qa-multiscale/src' / name for name in (
-        'MixedScaleClientServerQa.java', 'MixedScaleClientQa.java', 'MapRenderTraceMixin.java')]
+        'MixedScaleClientServerQa.java', 'MixedScaleClientQa.java', 'MapRenderTraceMixin.java', 'MapEjectTraceMixin.java', 'WorldMapTextTraceMixin.java')]
     subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac', '--release', '25', '-proc:none',
                     '-cp', os.pathsep.join(dict.fromkeys(paths)), '-d', str(classes), *map(str, sources)], check=True)
     for side in ('server', 'client'):
@@ -52,7 +54,7 @@ def main():
             if side == 'client':
                 metadata['mixins'] = ['suite-map-render-qa.mixins.json']
                 archive.writestr('suite-map-render-qa.mixins.json', json.dumps({'required': True, 'package': 'qa.mixin',
-                    'compatibilityLevel': 'JAVA_25', 'client': ['MapRenderTraceMixin'], 'injectors': {'defaultRequire': 1}}))
+                    'compatibilityLevel': 'JAVA_25', 'client': ['MapRenderTraceMixin', 'MapEjectTraceMixin', 'WorldMapTextTraceMixin'], 'injectors': {'defaultRequire': 1}}))
             archive.writestr('fabric.mod.json', json.dumps(metadata))
             for file in classes.rglob('*.class'): archive.write(file, file.relative_to(classes))
     with socket.socket() as sock: sock.bind(('127.0.0.1', 0)); port = sock.getsockname()[1]
@@ -71,6 +73,8 @@ def main():
             command = launch.base_command('server' if side == 'server' else 'native', directory, port)
             command[0] = '/usr/lib/jvm/java-25-openjdk/bin/java'
             command.insert(1, '-Dmaps.qa.control=' + str(control))
+            if args.baseline_1_1_3: command.insert(1, '-Dmaps.qa.baseline114=true')
+            if args.atlas_smoke: command.insert(1, '-Dmaps.qa.atlasSmoke=true')
             audits[side] = {'command': command, 'mods': [{'file': p.name, 'sha256': sha(p)} for p in selected]}
             (directory / 'audit.json').write_text(json.dumps(audits[side], indent=2) + '\n')
             log = (directory / 'console.log').open('w')
@@ -82,7 +86,7 @@ def main():
                     if 'Done (' in (directory / 'console.log').read_text(): break
                     time.sleep(1)
                 else: raise TimeoutError('Server startup')
-        for _ in range(240):
+        for _ in range(300):
             if (control / 'failure').exists(): raise RuntimeError((control / 'failure').read_text())
             if (control / 'result.txt').exists(): print((control / 'result.txt').read_text()); break
             if any(p.poll() is not None for p, _, _ in children): raise RuntimeError('Runtime exited; inspect console.log')

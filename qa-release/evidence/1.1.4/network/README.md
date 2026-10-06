@@ -1,0 +1,13 @@
+# 1.1.4 atlas synchronization and copying network QA
+
+Passed one complete final-artifact acceptance run on suite `1.1.4+26.3`, SHA-256 `2c1273947279693e5ec3c78b2c39793c3b5fdbc320216476e04d16f79b2a1754`, run `atlas-network-release114`.
+
+Both actual Fabric API-only and native suite clients remain connected after `/atlas fix`, `/atlas fix check`, `/atlas repair check`, `/atlas repair`, `/atlas dedupe` and `/atlas makecopy`. The initial fix and unchanged alias repair each send an actual inventory full-content packet containing the atlas. Both check forms leave the atlas unchanged and send no full snapshot. Client chat confirms the repeated repair has zero centers repaired. Deduplication removes one redundant exact map ID. Command copying consumes one ordinary book, retains the source, preserves filled-map IDs/components and explored pixels, creates one fresh atlas identity in inventory and excludes stored empty maps/paper.
+
+Each client opens the real standard cartography screen and sends five actual mapped client input packets: pickup atlas from hotbar, place in top slot, pickup book, place in second slot and quick-move output. Every step waits for settled server and client state. On Fabric API-only, the unchanged vanilla local BOOK placement rule returns false, yet the authoritative server accepts the packet and corrects the client. Native suite placement returns true. Both consume exactly one book, retain the original atlas in the top slot and receive one complete fresh copy in inventory, with further connected ticks afterward.
+
+The fallback receives ordinary vanilla map packets and zero custom payloads. Native receives three advertised refresh payloads and advertised map metadata. Every recorded outgoing mod payload uses an advertised channel. `result.json` records both profiles, actual outgoing packets and all five client/server GUI observations; `launches.json` and `fixture-inputs.json` preserve sanitized provenance. Retained Defaulted dropfix and Fzzy Config are unchanged.
+
+Scope is bounded: default inventory-menu repair synchronization, command copy with inventory space, normal cartography input clicks and quick-move output. Inventory-full overflow and other output-taking/cancel paths have separate server QA. Pure vanilla, broader resource-pack/gameplay/GUI matrices were not repeated; no screenshot capture was performed. Historical 1.1.3 evidence is untouched. Compile-only preparatory runs are not acceptance results.
+
+The earlier candidate is preserved under `candidate-96bdb9d6/`. These atlas network tests ran again on the final binary containing the pouch durability/SSO repair and creative command-overflow fixes.

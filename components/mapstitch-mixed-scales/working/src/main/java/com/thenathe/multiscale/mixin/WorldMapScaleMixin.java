@@ -1,5 +1,7 @@
 package com.thenathe.multiscale.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.thenathe.multiscale.AtlasOptions;
 import com.thenathe.multiscale.AtlasTarget;
 import com.thenathe.multiscale.MixedScaleMaps;
@@ -12,8 +14,13 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.ItemStackTemplate;
+import net.minecraft.world.item.ItemStack;
+import org.joml.Vector2i;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -35,6 +42,39 @@ public abstract class WorldMapScaleMixin extends Screen {
     @Unique private Button[] mixedScales$generation;
     @Unique private int mixedScales$minimapScale, mixedScales$mask;
     @Unique private long mixedScales$pendingUntil;
+    @Unique private boolean mixedScales$anyAtlasSource;
+
+    @Inject(method = "renderMaps", at = @At("HEAD"))
+    private void mixedScales$resetSources(GuiGraphicsExtractor graphics, int minX, int maxX, int minZ, int maxZ, CallbackInfo ci) {
+        mixedScales$anyAtlasSource = false;
+    }
+
+    @WrapOperation(method = "renderMaps", at = @At(value = "INVOKE",
+            target = "Lme/pajic/mapstitch/worldmap/WorldMapScreen;prepareAtlas(Lnet/minecraft/world/item/ItemStack;)Z"))
+    private boolean mixedScales$collectSources(WorldMapScreen screen, ItemStack atlas, Operation<Boolean> original) {
+        // Scan every native/accessory/pouch source in its original order. An empty
+        // later book must not hide earlier maps; reset the accumulator each frame.
+        mixedScales$anyAtlasSource |= original.call(screen, atlas);
+        return mixedScales$anyAtlasSource;
+    }
+
+    @WrapOperation(method = "prepareAtlas", at = @At(value = "INVOKE",
+            target = "Lnet/minecraft/world/item/ItemStackTemplate;get(Lnet/minecraft/core/component/DataComponentType;)Ljava/lang/Object;"))
+    private Object mixedScales$authoritativeWorldCenter(ItemStackTemplate map, DataComponentType<?> component,
+                                                       Operation<Object> original) {
+        if (component == me.pajic.mapstitch.component.ModDataComponents.MAP_CENTER) {
+            var level = Minecraft.getInstance().level;
+            var id = map.get(DataComponents.MAP_ID);
+            var data = level == null || id == null ? null : level.getMapData(id);
+            if (data != null && data.scale >= 0 && data.scale <= 4
+                    && dimensionId.equals(data.dimension.identifier())) {
+                // Use the same saved map for tile placement and Ctrl+Q's grid lookup.
+                // Item centers can be absent/stale even when pixels are synchronized.
+                return new Vector2i(data.centerX, data.centerZ);
+            }
+        }
+        return original.call(map, component);
+    }
 
     @ModifyArg(method = "init", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/components/Tooltip;create(Lnet/minecraft/network/chat/Component;)Lnet/minecraft/client/gui/components/Tooltip;", ordinal = 3), index = 0)
     private Component mixedScales$scaleHelp(Component original) {

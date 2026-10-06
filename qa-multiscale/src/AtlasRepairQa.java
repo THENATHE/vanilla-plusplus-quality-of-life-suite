@@ -32,7 +32,8 @@ public final class AtlasRepairQa {
 
     public static int run(MinecraftServer server, ServerPlayer player, ArrayList<Packet<?>> packets,
             ArrayList<net.minecraft.world.entity.item.ItemEntity> drops) throws Exception {
-        var qa=new AtlasRepairQa();qa.verify(server,player,packets);qa.cleanup(server,player,drops);return qa.checks;
+        var qa=new AtlasRepairQa();qa.verify(server,player,packets);qa.cleanup(server,player,drops);
+        qa.ejectionAndGeneration(server,player,drops);return qa.checks;
     }
 
     private void cleanup(MinecraftServer server, ServerPlayer player,
@@ -71,7 +72,7 @@ public final class AtlasRepairQa {
             } else player.getInventory().setItem(mode==1?40:0,atlas);
             player.getInventory().setItem(2,untouched);
             int beforeDrops=drops.size();
-            check(server.getCommands().getDispatcher().execute("dedupemaps",player.createCommandSourceStack())==5,"cleanup returns5 redundant copies "+mode);
+            check(server.getCommands().getDispatcher().execute("atlas dedupe",player.createCommandSourceStack())==5,"cleanup returns5 redundant copies "+mode);
             var after=pouch?com.thenathe.toolpouchcompat.AtlasBridge.atlases(player).getFirst():player.getInventory().getItem(mode==1?40:0);
             var contents=after.get(DataComponents.BUNDLE_CONTENTS);
             check(contents.items().stream().mapToInt(ItemStackTemplate::count).sum()==beforeCount-5,"cleanup conserves retained quantity "+mode);
@@ -90,14 +91,17 @@ public final class AtlasRepairQa {
             int dropped=0;for(var entity:drops.subList(beforeDrops,drops.size())) {check(entity.getItem().is(Items.MAP),"cleanup only drops ordinary blanks "+mode);dropped+=entity.getItem().getCount();}
             check(returned+dropped==5,"cleanup returns exactly one blank per removed copy "+mode);
             check(pouch?dropped==5:returned==5&&dropped==0,"cleanup inventory-first/overflow delivery "+mode);
-            check(server.getCommands().getDispatcher().execute("dedupemaps",player.createCommandSourceStack())==0,"repeated cleanup has no additional duplicates "+mode);
+            check(server.getCommands().getDispatcher().execute("atlas dedupe",player.createCommandSourceStack())==0,"repeated cleanup has no additional duplicates "+mode);
         }
         player.getInventory().clearContent();
-        check(server.getCommands().getDispatcher().execute("dedupemaps",player.createCommandSourceStack())==0,"cleanup without atlas returns zero");
+        check(server.getCommands().getDispatcher().execute("atlas dedupe",player.createCommandSourceStack())==0,"cleanup without atlas returns zero");
     }
 
     private void verify(MinecraftServer server, ServerPlayer player, ArrayList<Packet<?>> packets) throws Exception {
         player.getInventory().clearContent();player.setPos(-80,100,-80);
+        // Match a joined player's real inventory synchronizer so packet assertions
+        // exercise vanilla remote-slot equality, rather than an uninitialized menu.
+        player.initInventoryMenu();
         var book=new ItemStack(ModItems.ATLAS);
         book.set(DataComponents.CUSTOM_NAME,net.minecraft.network.chat.Component.literal("Repair QA atlas"));
         AtlasOptions.setGenerationMask(book,0);book.set(ModDataComponents.ATLAS_SCALE,2);
@@ -146,30 +150,114 @@ public final class AtlasRepairQa {
         AtlasOptions.ensureIdentity(book);
         var before=book.copy();player.getInventory().setItem(0,book);
         packets.clear();
-        check(server.getCommands().getDispatcher().execute("repairmaps check",player.createCommandSourceStack())==16,"check reports all unique ordinary/explorer records");
+        check(server.getCommands().getDispatcher().execute("atlas fix check",player.createCommandSourceStack())==16,"check reports all unique ordinary/explorer records");
         check(ItemStack.isSameItemSameComponents(book,before),"check changes no atlas component");
         check(packets.stream().noneMatch(p->p instanceof ClientboundMapItemDataPacket),"check sends no color snapshots");
         packets.clear();
-        check(server.getCommands().getDispatcher().execute("repairmaps",player.createCommandSourceStack())==16,"repair executes actual command");
+        check(server.getCommands().getDispatcher().execute("atlas fix",player.createCommandSourceStack())==16,"repair executes actual command");
         assertRepaired(book,before,originals,snapshots,banners,packets);
+        assertZeroCenterResend(server,player,book,player.getInventory().getItem(0),packets);
 
         // Offhand and pouch saveback target only the selected book, never another atlas.
         player.getInventory().clearContent();var offhand=before.copy();player.getInventory().setItem(40,offhand);
         var untouched=before.copy();player.getInventory().setItem(2,untouched);
-        packets.clear();check(server.getCommands().getDispatcher().execute("repairmaps",player.createCommandSourceStack())==16,"offhand repair succeeds");
+        packets.clear();check(server.getCommands().getDispatcher().execute("atlas fix",player.createCommandSourceStack())==16,"offhand repair succeeds");
         assertRepaired(offhand,before,originals,snapshots,banners,packets);
         check(ItemStack.isSameItemSameComponents(untouched,before),"offhand repair leaves unselected inventory atlas unchanged");
+        assertZeroCenterResend(server,player,offhand,player.getInventory().getItem(40),packets);
         player.getInventory().clearContent();me.pajic.toolpouch.ToolPouch.CONFIG.allowUseFromInventory.accept(true);
         var pouch=new ItemStack(me.pajic.toolpouch.item.ModItems.TOOL_POUCH);
         pouch.set(DataComponents.CONTAINER,ItemContainerContents.fromItems(List.of(before.copy())));player.getInventory().setItem(0,pouch);
         player.getInventory().setItem(2,untouched);packets.clear();
-        check(server.getCommands().getDispatcher().execute("repairmaps",player.createCommandSourceStack())==16,"pouch repair succeeds");
+        check(server.getCommands().getDispatcher().execute("atlas fix",player.createCommandSourceStack())==16,"pouch repair succeeds");
         var repairedPouch=com.thenathe.toolpouchcompat.AtlasBridge.atlases(player).getFirst();
         assertRepaired(repairedPouch,before,originals,snapshots,banners,packets);
         check(ItemStack.isSameItemSameComponents(untouched,before),"pouch repair leaves unselected inventory atlas unchanged");
+        assertZeroCenterResend(server,player,repairedPouch,player.getInventory().getItem(0),packets);
         player.getInventory().clearContent();packets.clear();
-        check(server.getCommands().getDispatcher().execute("repairmaps",player.createCommandSourceStack())==0,"no atlas repair fails without mutation");
+        check(server.getCommands().getDispatcher().execute("atlas fix",player.createCommandSourceStack())==0,"no atlas repair fails without mutation");
         check(packets.stream().noneMatch(p->p instanceof ClientboundMapItemDataPacket),"no atlas sends no snapshots");
+    }
+
+    private void assertZeroCenterResend(MinecraftServer server, ServerPlayer player, ItemStack selected,
+            ItemStack transmittedItem, ArrayList<Packet<?>> packets) throws Exception {
+        // Establish remote cache equality. A client can still hold corrupt/missing
+        // nested metadata independently; ordinary broadcastChanges then sends nothing.
+        player.containerMenu.broadcastChanges();packets.clear();
+        var before=selected.copy();
+        check(server.getCommands().getDispatcher().execute("atlas fix check",player.createCommandSourceStack())==16,"already-correct check reports available records");
+        check(ItemStack.isSameItemSameComponents(selected,before),"already-correct check remains read-only");
+        check(packets.stream().noneMatch(AtlasRepairQa::inventoryPacket),"check never forces an inventory snapshot");
+        check(packets.stream().noneMatch(p->p instanceof ClientboundMapItemDataPacket),"already-correct check never sends map colors");
+        check(server.getCommands().getDispatcher().execute("atlas repair check",player.createCommandSourceStack())==16,"repair alias provides read-only atlas check");
+        check(ItemStack.isSameItemSameComponents(selected,before)&&packets.stream().noneMatch(AtlasRepairQa::inventoryPacket),"repair check alias never changes or resends inventory");
+        packets.clear();
+        check(server.getCommands().getDispatcher().execute("atlas fix",player.createCommandSourceStack())==16,"already-correct repair succeeds");
+        check(ItemStack.isSameItemSameComponents(selected,before),"already-correct repair preserves exact atlas state");
+        boolean found=false;
+        for(var packet:packets) {
+            if(packet instanceof net.minecraft.network.protocol.game.ClientboundContainerSetContentPacket all)
+                found|=all.items().stream().anyMatch(stack->ItemStack.isSameItemSameComponents(stack,transmittedItem));
+            else if(packet instanceof net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket slot)
+                found|=ItemStack.isSameItemSameComponents(slot.getItem(),transmittedItem);
+            else if(packet instanceof net.minecraft.network.protocol.game.ClientboundSetPlayerInventoryPacket slot)
+                found|=ItemStack.isSameItemSameComponents(slot.contents(),transmittedItem);
+        }
+        check(found,"zero-center repair resends actual held/offhand/pouch inventory item metadata despite remote equality");
+        check(packets.stream().filter(p->p instanceof ClientboundMapItemDataPacket).count()==16,"zero-center repair resends all unique full color records");
+    }
+
+    private static boolean inventoryPacket(Packet<?> packet) {
+        return packet instanceof net.minecraft.network.protocol.game.ClientboundContainerSetContentPacket
+                ||packet instanceof net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket
+                ||packet instanceof net.minecraft.network.protocol.game.ClientboundSetPlayerInventoryPacket;
+    }
+
+    private void ejectionAndGeneration(MinecraftServer server, ServerPlayer player,
+            ArrayList<net.minecraft.world.entity.item.ItemEntity> drops) {
+        var level=server.overworld();
+        for(int mode=0;mode<2;mode++) {
+            player.getInventory().clearContent();player.setPos(65536+mode*8192,100,65536);
+            level.getChunkAt(player.blockPosition());
+            var map=org.sharedregionmaps.SharedMaps.create(level,player.getBlockX(),player.getBlockZ(),(byte)2,true,false);
+            var id=map.get(DataComponents.MAP_ID);var saved=MapItem.getSavedData(map,level);
+            var neighbor=MapItem.create(level,player.getBlockX()+8192,player.getBlockZ(),(byte)2,true,false);
+            var neighborId=neighbor.get(DataComponents.MAP_ID);
+            var book=new ItemStack(ModItems.ATLAS);AtlasOptions.setGenerationMask(book,4);
+            book.set(ModDataComponents.ATLAS_SCALE,2);AtlasOptions.ensureIdentity(book);
+            book.set(DataComponents.BUNDLE_CONTENTS,new BundleContents(List.of(ItemStackTemplate.fromNonEmptyStack(neighbor),
+                    ItemStackTemplate.fromNonEmptyStack(map),ItemStackTemplate.fromNonEmptyStack(new ItemStack(Items.MAP)))));
+            var otherBook=new ItemStack(ModItems.ATLAS);AtlasOptions.setGenerationMask(otherBook,0);
+            otherBook.set(DataComponents.BUNDLE_CONTENTS,new BundleContents(List.of(ItemStackTemplate.fromNonEmptyStack(neighbor))));
+            var otherBefore=otherBook.copy();player.getInventory().setItem(2,otherBook);
+            if(mode==0)player.getInventory().setItem(0,book);
+            else {
+                var pouch=new ItemStack(me.pajic.toolpouch.item.ModItems.TOOL_POUCH);
+                pouch.set(DataComponents.CONTAINER,ItemContainerContents.fromItems(List.of(book)));player.getInventory().setItem(0,pouch);
+            }
+            int beforeDrops=drops.size();
+            me.pajic.mapstitch.networking.ServerNetworkEvents.ejectMap(
+                    new me.pajic.mapstitch.networking.payload.C2SEjectMap(id),player);
+            var after=mode==0?player.getInventory().getItem(0):com.thenathe.toolpouchcompat.AtlasBridge.atlases(player).getFirst();
+            check(drops.size()==beforeDrops+1,"real C2SEjectMap handler drops one map "+mode);
+            var dropped=drops.getLast().getItem();
+            check(dropped.getCount()==1&&id.equals(dropped.get(DataComponents.MAP_ID)),"ejection drop identifies exact requested map ID "+mode);
+            check(after.get(DataComponents.BUNDLE_CONTENTS).items().stream().noneMatch(entry->id.equals(entry.get(DataComponents.MAP_ID))),"requested map removed before next exploration tick "+mode);
+            check(after.get(DataComponents.BUNDLE_CONTENTS).items().stream().anyMatch(entry->neighborId.equals(entry.get(DataComponents.MAP_ID))),"different region map remains in selected atlas "+mode);
+            check(ItemStack.isSameItemSameComponents(otherBook,otherBefore),"ejection leaves unrelated atlas unchanged "+mode);
+            check(MapItem.getSavedData(id,level)==saved,"ejection preserves world map record "+mode);
+            check(after.get(DataComponents.BUNDLE_CONTENTS).items().stream().filter(entry->entry.is(Items.MAP)).mapToInt(ItemStackTemplate::count).sum()==1,"ejection does not consume atlas blank "+mode);
+            com.thenathe.multiscale.MixedScaleMaps.selectActive(after,level,player,true);
+            if(mode==1)com.thenathe.toolpouchcompat.AtlasBridge.save(player,after,0);
+            var regenerated=mode==0?player.getInventory().getItem(0):com.thenathe.toolpouchcompat.AtlasBridge.atlases(player).getFirst();
+            check(regenerated.get(ModDataComponents.ATLAS_ACTIVE_MAP_ID)==id.id(),"enabled generation reuses same shared region ID after ejection "+mode);
+            check(MapItem.getSavedData(id,level)==saved,"generation reuses saved map object rather than resetting artwork "+mode);
+            check(regenerated.get(DataComponents.BUNDLE_CONTENTS).items().stream().filter(entry->id.equals(entry.get(DataComponents.MAP_ID))).mapToInt(ItemStackTemplate::count).sum()==1,"regeneration inserts one atlas copy "+mode);
+            check(regenerated.get(DataComponents.BUNDLE_CONTENTS).items().stream().noneMatch(entry->entry.is(Items.MAP)),"regeneration consumes exactly stored blank "+mode);
+            check(regenerated.get(DataComponents.BUNDLE_CONTENTS).items().stream().mapToInt(ItemStackTemplate::count).sum()+dropped.getCount()==3,"drop plus regenerated atlas preserves total item quantity "+mode);
+            check(AtlasOptions.generationMask(regenerated)==4&&regenerated.get(ModDataComponents.ATLAS_SCALE)==2,"ejection/regeneration preserves generation and display choices "+mode);
+        }
+        player.getInventory().clearContent();
     }
 
     private void assertRepaired(ItemStack atlas, ItemStack before, HashMap<MapId,MapItemSavedData> originals,

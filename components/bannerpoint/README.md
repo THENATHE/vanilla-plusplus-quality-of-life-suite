@@ -1,6 +1,6 @@
 # Bannerpoint developer component
 
-Stable suite **1.1.3** on `main` includes [Pajic’s Bannerpoint](https://modrinth.com/mod/bannerpoint) as a separate unchanged developer module. Thanks for your hard work, **pajic**!
+Stable suite **1.1.4** on `main` includes [Pajic’s Bannerpoint](https://modrinth.com/mod/bannerpoint) as a separate unchanged developer module. Thanks for your hard work, **pajic**!
 
 | Record | Exact input |
 | --- | --- |
@@ -11,7 +11,7 @@ Stable suite **1.1.3** on `main` includes [Pajic’s Bannerpoint](https://modrin
 | SHA-256 | `499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0` |
 | License | MIT; original notices retained |
 | Minecraft / loader | `26.3` / Fabric |
-| Stable suite | `1.1.3+26.3` |
+| Stable suite | `1.1.4+26.3` |
 | Separate compatibility module | `components/bannerpoint-compat/`, `1.0.1+26.3` |
 
 The developer binary, published source archive and publisher metadata are preserved independently from the suite compatibility source. Root artifact locks and [provenance](../../docs/PROVENANCE.md) identify their precise source locations and hashes. A GitHub source snapshot is update context, not a substitute for the published source archive associated with this binary. No modified original JAR or Bannerpoint version port is produced by this integration.

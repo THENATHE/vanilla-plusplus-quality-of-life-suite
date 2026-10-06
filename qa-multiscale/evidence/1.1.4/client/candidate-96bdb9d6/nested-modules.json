@@ -1,0 +1,113 @@
+{
+  "bundle_sha256": "96bdb9d63210f1fce11d361a054b590dda2a6d828dfe7d2732b20d1f42e6be84",
+  "modules": [
+    {
+      "file": "amethyst-curse-cleanser-1.0.1+26.3.jar",
+      "id": "amethyst_curse_cleanser",
+      "version": "1.0.1+26.3",
+      "sha256": "5ec26e2a0010dfdee82aa5cb27664314150a4daa36deadc10f0c659f399507b6"
+    },
+    {
+      "file": "bannerpoint-fabric-1.1.2+26.3.jar",
+      "id": "bannerpoint",
+      "version": "1.1.2",
+      "sha256": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0"
+    },
+    {
+      "file": "chalk-3.2.1+26.3.jar",
+      "id": "chalk",
+      "version": "3.2.1+26.3",
+      "sha256": "886b0b10cc12df65d47f446c2bd54c0c670f9a54fa09a1fe95c9ec46df565f49"
+    },
+    {
+      "file": "chalk-colorful-addon-2.1.1-port.1+26.3.jar",
+      "id": "chalk-colorful-addon",
+      "version": "2.1.1-port.1+26.3",
+      "sha256": "69a2443250abd95100636194a145b5479d240151cd19bf4186766117d0710b34"
+    },
+    {
+      "file": "mapstitch-fabric-1.1.6+26.3.jar",
+      "id": "mapstitch",
+      "version": "1.1.6",
+      "sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81"
+    },
+    {
+      "file": "misctweaks-fabric-1.4.4+26.3.jar",
+      "id": "misctweaks",
+      "version": "1.4.4",
+      "sha256": "97fe263764cb6b93822e13fe9423cf91c3a6a0169aeeb8734b65136cc9ea9647"
+    },
+    {
+      "file": "simple_death_improvements-fabric-1.6.0+26.3.jar",
+      "id": "simple_death_improvements",
+      "version": "1.6.0",
+      "sha256": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2"
+    },
+    {
+      "file": "simple_smithing_overhaul-fabric-2.9.14+26.3.jar",
+      "id": "simple_smithing_overhaul",
+      "version": "2.9.14",
+      "sha256": "fb6cbf8c13938d68fb19171dac386b5567d71625bce727b22d3380f6b7880126"
+    },
+    {
+      "file": "tiered_backpacks-fabric-1.0.20+26.3.jar",
+      "id": "tiered_backpacks",
+      "version": "1.0.20",
+      "sha256": "b129b9b61ec1da62842dc2dfa5b166a6df8e91c796666dcee70f7b8acf1ecc33"
+    },
+    {
+      "file": "toolpouch-fabric-1.1.10+26.3.jar",
+      "id": "toolpouch",
+      "version": "1.1.10",
+      "sha256": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903"
+    },
+    {
+      "file": "thenathe-suite-combined-compat-1.1.0+26.3.jar",
+      "id": "sso_backpack_toolpouch_mapstitch_shim",
+      "version": "1.1.0+26.3",
+      "sha256": "8f0731d337d5ea0789631b5264f01039acd94f3bd6dcae822712be3ad798b38a"
+    },
+    {
+      "file": "thenathe-suite-chalk-compat-1.1.1-suite.1+26.3.jar",
+      "id": "chalk_polymer_compat",
+      "version": "1.1.1-suite.1+26.3",
+      "sha256": "cb8533c87bdfa64a00c1deaa630bbbfd307e5a092a5cf031cd3cc242774d0d19"
+    },
+    {
+      "file": "shared-region-maps-1.0.5-combo.1+mc26.3.jar",
+      "id": "shared_region_maps",
+      "version": "1.0.5-combo.1+mc26.3",
+      "sha256": "e49a046d76764a823792f3da611c94a3353d5630bcb966af695157912fcb49b5"
+    },
+    {
+      "file": "toolpouch-atlas-elytra-compat-1.0.7-suite.1+26.3.jar",
+      "id": "toolpouch_atlas_elytra_compat",
+      "version": "1.0.7-suite.1+26.3",
+      "sha256": "aa8850ae17fb1b4e3d89f49eee8baf339df0a0213258030f097ad4f53c0278b8"
+    },
+    {
+      "file": "mapstitch-mixed-scales-1.1.4+26.3.jar",
+      "id": "mapstitch_mixed_scales",
+      "version": "1.1.4+26.3",
+      "sha256": "b2f290e013b80cdcc963e879ab4916fcf28dd5e1ec6b1cf12ddab8a156786316"
+    },
+    {
+      "file": "sensible_stackables-fabric-3.0.3-port.1+26.3.jar",
+      "id": "sensible_stackables",
+      "version": "3.0.3-port.1+26.3",
+      "sha256": "d3c20a42a4d288a0a7a1e7d4e5d6e8ef48fcfd4cc24b7a126ddd4840ca92543e"
+    },
+    {
+      "file": "thenathe-suite-stackables-compat-1.0.0+26.3.jar",
+      "id": "sensible_stackables_polymer_compat",
+      "version": "1.0.0+26.3",
+      "sha256": "34b268d7d8f4959fb039c6a6eac7f8d76c35ccbc1ee65c3d89d01a399ed96039"
+    },
+    {
+      "file": "thenathe-suite-bannerpoint-compat-1.0.1+26.3.jar",
+      "id": "bannerpoint_polymer_compat",
+      "version": "1.0.1+26.3",
+      "sha256": "7804c3e0cc3dc49dc778079871dc2b7d13105837817085265a7fede7b5d8daba"
+    }
+  ]
+}

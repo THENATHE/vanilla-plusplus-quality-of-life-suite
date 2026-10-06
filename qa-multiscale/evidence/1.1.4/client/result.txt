@@ -1,0 +1,1 @@
+PASS final atlas smoke: four minimap regressions, /atlas fix restores full pixels for 15 maps, two negative-grid full-screen Ctrl+Q payload/drop cases across dimensions, five inventory/pouch source cases, metadata pixels/banners preserved. Broader 21 views and two travels retained as candidate evidence, not rerun.

@@ -1,0 +1,18 @@
+{
+  "candidate_bundle_sha256": "96bdb9d63210f1fce11d361a054b590dda2a6d828dfe7d2732b20d1f42e6be84",
+  "final_bundle_sha256": "2c1273947279693e5ec3c78b2c39793c3b5fdbc320216476e04d16f79b2a1754",
+  "candidate_module_sha256": "b2f290e013b80cdcc963e879ab4916fcf28dd5e1ec6b1cf12ddab8a156786316",
+  "final_module_sha256": "aaa9bb55aecfee49198d7c0c90b0de26b75dbab87b30e393fc3e1d194d0312ac",
+  "client_bytecode_identical": true,
+  "client_class_hashes": {
+    "com/thenathe/multiscale/client/MixedScalesClient.class": "cb14d8ad456d9a055a3ea76b4ff802ae16539a3a3937f2e14fbb7b459f6ab8ed",
+    "com/thenathe/multiscale/mixin/AtlasUseClientMixin.class": "9d5c29e2aa74cce6ccecfb750e1d4edd85c9a972eb5a42faf791494e75631217",
+    "com/thenathe/multiscale/mixin/MapMetadataAccess.class": "abeeb2d8fc6f6850c975a8f09ba20f46194a3dac8521c121e1c1d43c0a25fd52",
+    "com/thenathe/multiscale/mixin/MinimapDimensionMixin.class": "1c740486af0a148800963c535cba67b69f024cbed35059d64a573c56a5c47704",
+    "com/thenathe/multiscale/mixin/WorldMapScaleMixin.class": "6259e45614a2bfeafd8749478dc257e33283e6e41a0ad7a7ccd8a3e5763dd7bc"
+  },
+  "changed_classes": [
+    "com/thenathe/multiscale/AtlasCartographyCopy.class"
+  ],
+  "scope": "All client package classes and all registered client mixins (including inner classes) are byte-identical. Changed classes are restricted to the server-side cartography helper."
+}

@@ -1,0 +1,103 @@
+{
+  "bundle_version": "1.1.4+26.3",
+  "bundle_sha256": "2c1273947279693e5ec3c78b2c39793c3b5fdbc320216476e04d16f79b2a1754",
+  "passed": true,
+  "run_label": "atlas-smoke-1.1.4-mending-final",
+  "runner": "qa-multiscale/run-client.py",
+  "runner_flags": [
+    "--atlas-smoke"
+  ],
+  "fixture_sources": [
+    "qa-multiscale/src/MixedScaleClientQa.java",
+    "qa-multiscale/src/MixedScaleClientServerQa.java",
+    "qa-multiscale/src/MapRenderTraceMixin.java",
+    "qa-multiscale/src/MapEjectTraceMixin.java",
+    "qa-multiscale/src/WorldMapTextTraceMixin.java"
+  ],
+  "minecraft": "26.3",
+  "fabric_loader": "0.19.5",
+  "java_runtime": "OpenJDK 25.0.4.1",
+  "graphics_backend": "Vulkan",
+  "observation_rows": 14,
+  "coverage": {
+    "minimap_center_dimension_cases": 4,
+    "real_repair_command": "/atlas fix",
+    "maps_with_all_pixels_restored": 15,
+    "pixels_per_map": 16384,
+    "fullscreen_missing_stale_center_cases": 2,
+    "actual_ctrl_q_payload_and_server_drop_cases": 2,
+    "negative_grid_cases": 2,
+    "multiple_atlas_pouch_source_priority_cases": 5,
+    "worldmap_render_views": 0,
+    "real_dimension_transfers": 0
+  },
+  "result_text": "PASS final atlas smoke: four minimap regressions, /atlas fix restores full pixels for 15 maps, two negative-grid full-screen Ctrl+Q payload/drop cases across dimensions, five inventory/pouch source cases, metadata pixels/banners preserved. Broader 21 views and two travels retained as candidate evidence, not rerun.\n",
+  "audits": {
+    "client": "client-audit.json",
+    "server": "server-audit.json"
+  },
+  "observations": "observations.json",
+  "seeded_maps": "seeded-maps.json",
+  "screenshots": [
+    {
+      "file": "screenshots/minimap-case-0.png",
+      "sha256": "d71bbcc51088a946e05ddabbaf947e39173aeb29e01652b3d5b66e33a9e87604"
+    },
+    {
+      "file": "screenshots/minimap-case-1.png",
+      "sha256": "de384622fceed181a4b26377e0f220856cec7a74dc3af406072703368c40825d"
+    },
+    {
+      "file": "screenshots/minimap-case-2.png",
+      "sha256": "f1ecb0d2ff04864fe18da42af43db9314d9272148a0be388470450cad315c150"
+    },
+    {
+      "file": "screenshots/minimap-case-3.png",
+      "sha256": "7fcd8b590ffcd231f845aef76b2f339159106ffa7dfd363ff19541792f9d53d4"
+    },
+    {
+      "file": "screenshots/minimap-repaired-pixels.png",
+      "sha256": "6f4d7131869ea86702aa7f422c1298e1bca623f328ee7dff6e69044901ae4991"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-0.png",
+      "sha256": "db80855bd635792b6ce00624f4e4f7c5bd1a7ad025dac9eb9e757c9da4d9dc7a"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-11.png",
+      "sha256": "1a8e12feddd41ad3b36d79cabf5138f87099623e2ee2d9f0f58cec49b50833f9"
+    },
+    {
+      "file": "screenshots/worldmap-source-case-0.png",
+      "sha256": "c53122c0905be63774b804723816097265841a356a8fdd9d439b6c4fd2141718"
+    },
+    {
+      "file": "screenshots/worldmap-source-case-1.png",
+      "sha256": "ff52566d482f6e93c820bbea0b9c1950864f5b24a8757af82ebb3b5bd2d394cf"
+    },
+    {
+      "file": "screenshots/worldmap-source-case-2.png",
+      "sha256": "471295c507bca39e434d8ec5516d14241dac498b6c6faf4f2b8daaf532543bb3"
+    },
+    {
+      "file": "screenshots/worldmap-source-case-3.png",
+      "sha256": "df27eb2133671e01811defcf4c5c71507952c4ae0a486e7fe7dbb12366f5f0db"
+    },
+    {
+      "file": "screenshots/worldmap-source-case-4.png",
+      "sha256": "47de7a62e5bd4b9a5102e0135bfacb49a611a5f9d5e25a99f0524bf45e01bdac"
+    }
+  ],
+  "complete_candidate_matrix": "candidate-96bdb9d6/result.json",
+  "unchanged_atlas_client_bytecode": {
+    "id": "mapstitch_mixed_scales",
+    "comparison": "atlas-class-comparison.json",
+    "candidate_bundle_sha256": "96bdb9d63210f1fce11d361a054b590dda2a6d828dfe7d2732b20d1f42e6be84"
+  },
+  "limitations": [
+    "The final binary receives bounded atlas smoke; the broader 21-view matrix and two dimension transfers were performed only on the separately identified candidate.",
+    "The fixture uses deterministic synthetic locked maps and local client item metadata changes, not the user\u2019s exact world.",
+    "Ctrl+Q dispatch uses original WorldMapScreen.keyPressed and named Minecraft SDL constants. Actual outgoing payloads and real server drops are independently observed.",
+    "Remapped is not installed in this focused client test. Normal tutorial/chat notifications may partially cover the minimap."
+  ]
+}

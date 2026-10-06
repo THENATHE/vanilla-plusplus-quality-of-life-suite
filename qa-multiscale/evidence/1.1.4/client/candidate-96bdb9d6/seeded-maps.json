@@ -1,0 +1,122 @@
+[
+  {
+    "id": 0,
+    "dimension": "minecraft:overworld",
+    "scale": 0,
+    "x": -2048,
+    "z": -2048,
+    "color": 4
+  },
+  {
+    "id": 1,
+    "dimension": "minecraft:overworld",
+    "scale": 1,
+    "x": -1984,
+    "z": -1984,
+    "color": 5
+  },
+  {
+    "id": 2,
+    "dimension": "minecraft:overworld",
+    "scale": 2,
+    "x": -1856,
+    "z": -1856,
+    "color": 6
+  },
+  {
+    "id": 3,
+    "dimension": "minecraft:overworld",
+    "scale": 3,
+    "x": -1600,
+    "z": -1600,
+    "color": 7
+  },
+  {
+    "id": 4,
+    "dimension": "minecraft:overworld",
+    "scale": 4,
+    "x": -1088,
+    "z": -1088,
+    "color": 8
+  },
+  {
+    "id": 5,
+    "dimension": "minecraft:the_nether",
+    "scale": 0,
+    "x": 2048,
+    "z": -2048,
+    "color": 8
+  },
+  {
+    "id": 6,
+    "dimension": "minecraft:the_nether",
+    "scale": 1,
+    "x": 2112,
+    "z": -1984,
+    "color": 9
+  },
+  {
+    "id": 7,
+    "dimension": "minecraft:the_nether",
+    "scale": 2,
+    "x": 2240,
+    "z": -1856,
+    "color": 10
+  },
+  {
+    "id": 8,
+    "dimension": "minecraft:the_nether",
+    "scale": 3,
+    "x": 2496,
+    "z": -1600,
+    "color": 11
+  },
+  {
+    "id": 9,
+    "dimension": "minecraft:the_nether",
+    "scale": 4,
+    "x": 3008,
+    "z": -1088,
+    "color": 12
+  },
+  {
+    "id": 10,
+    "dimension": "minecraft:the_end",
+    "scale": 0,
+    "x": 6144,
+    "z": -2048,
+    "color": 12
+  },
+  {
+    "id": 11,
+    "dimension": "minecraft:the_end",
+    "scale": 1,
+    "x": 6208,
+    "z": -1984,
+    "color": 13
+  },
+  {
+    "id": 12,
+    "dimension": "minecraft:the_end",
+    "scale": 2,
+    "x": 6336,
+    "z": -1856,
+    "color": 14
+  },
+  {
+    "id": 13,
+    "dimension": "minecraft:the_end",
+    "scale": 3,
+    "x": 6592,
+    "z": -1600,
+    "color": 15
+  },
+  {
+    "id": 14,
+    "dimension": "minecraft:the_end",
+    "scale": 4,
+    "x": 7104,
+    "z": -1088,
+    "color": 16
+  }
+]

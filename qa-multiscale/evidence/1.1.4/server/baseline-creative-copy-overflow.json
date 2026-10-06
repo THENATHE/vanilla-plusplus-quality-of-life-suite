@@ -1,0 +1,17 @@
+{
+  "bundle_sha256": "96bdb9d63210f1fce11d361a054b590dda2a6d828dfe7d2732b20d1f42e6be84",
+  "passed": false,
+  "cases": [
+    {
+      "profile": "maps-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "FAIL java.lang.AssertionError: makecopy creates exactly one output even creative overflow 4",
+      "passed": false
+    }
+  ],
+  "expected_failure": true,
+  "run_label": "atlas-copy-creative-baseline",
+  "purpose": "The pre-fix 96b candidate consumes an ordinary book but loses its fresh atlas output when Inventory.add cannot insert it for a creative player.",
+  "compiled_fixture_sha256": "8d2aeeb7c2705c5a47d21df8b0ffdd78c43165d729a075a30e11a3cabf8c8ad5"
+}

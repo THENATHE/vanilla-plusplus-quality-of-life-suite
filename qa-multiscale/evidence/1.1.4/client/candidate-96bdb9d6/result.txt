@@ -1,0 +1,1 @@
+PASS four minimap regressions, /atlas fix restores all pixels of 15 maps, 12 full-screen missing/stale-center Ctrl+Q payload and real drop cases including negative grids, five multiple-atlas/pouch source and priority cases, native metadata, old pixels/banners, 21 dimension/scale render views, two real dimension travels

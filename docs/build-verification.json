@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "thenathe_mod_suite",
-  "version": "1.1.3+26.3",
-  "sha256": "0492e88a51fb88cc5dbc0d815022d3d5a39f095fa299c5069f040ad5be63c69b",
+  "version": "1.1.4+26.3",
+  "sha256": "2c1273947279693e5ec3c78b2c39793c3b5fdbc320216476e04d16f79b2a1754",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -78,9 +78,9 @@
     },
     {
       "id": "toolpouch_atlas_elytra_compat",
-      "version": "1.0.7-suite.1+26.3",
-      "sha256": "aa8850ae17fb1b4e3d89f49eee8baf339df0a0213258030f097ad4f53c0278b8",
-      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.7-suite.1+26.3.jar"
+      "version": "1.0.8-suite.1+26.3",
+      "sha256": "a70fede6139090bbaa21d598130c1886654d16c2995682f62c3fd7317ad7f445",
+      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.8-suite.1+26.3.jar"
     },
     {
       "id": "sensible_stackables",
@@ -96,9 +96,9 @@
     },
     {
       "id": "mapstitch_mixed_scales",
-      "version": "1.1.3+26.3",
-      "sha256": "b916c2bbc21225092d6e016d85fcea72f064498bd5da27eb72204f0b1eca7083",
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.3+26.3.jar"
+      "version": "1.1.4+26.3",
+      "sha256": "aaa9bb55aecfee49198d7c0c90b0de26b75dbab87b30e393fc3e1d194d0312ac",
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.4+26.3.jar"
     },
     {
       "id": "bannerpoint",
@@ -117,16 +117,16 @@
   "defaulted_exact_dropfix_requirement": true,
   "licenses_retained": true,
   "runtime_tested": true,
-  "verified_on": "2026-10-05",
-  "runtime_scope": "Final-SHA: 4278 dedicated atlas/repair/deduplication/banner/generation/extraction assertions with/without Polymer across restarts; four actual graphical minimap regressions, full15x16384 pixel recovery via real repairmaps,21world-map views,two dimension transfers; native/Fabric API-only command network safety;13 fresh installer/archive checks. Broader unchanged gameplay/settings and pure-vanilla/optional Remapped matrices not repeated.",
+  "verified_on": "2026-10-06",
+  "runtime_scope": "Final-SHA: 5314 dedicated atlas/repair/copy/banner/generation/extraction assertions across Polymer/no-Polymer restarts; bounded actual graphical atlas smoke (four minimap,15 full pixel buffers,two Ctrl+Q,five source/pouch cases); actual native/Fabric API-only command and cartography connections;162 stored-Elytra assertions/58 observations including no-SSO;13 fresh installer checks. Broader unchanged gameplay and pure-vanilla/pack/optional Remapped matrices not repeated.",
   "evidence": [
-    "qa-multiscale/evidence/1.1.3/server/result.json",
-    "qa-multiscale/evidence/1.1.3/server/repair-audit.json",
-    "qa-multiscale/evidence/1.1.3/client/result.json",
-    "qa-multiscale/evidence/1.1.3/client/observations.json",
-    "qa-release/evidence/1.1.3/network/result.json",
-    "qa-release/evidence/1.1.3/clean-build.json",
-    "qa-release/evidence/1.1.3/previous-build-comparison.json",
+    "qa-multiscale/evidence/1.1.4/server/result.json",
+    "qa-multiscale/evidence/1.1.4/client/result.json",
+    "qa-multiscale/evidence/1.1.4/client/atlas-class-comparison.json",
+    "qa-release/evidence/1.1.4/network/result.json",
+    "qa-release/evidence/1.1.4/pouch-mending/result.json",
+    "qa-release/evidence/1.1.4/clean-build.json",
+    "qa-release/evidence/1.1.4/previous-build-comparison.json",
     "docs/installation-pack-verification.json"
   ]
 }

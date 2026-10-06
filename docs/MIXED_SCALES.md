@@ -1,6 +1,6 @@
 # Mixed-scale atlases
 
-Stable suite **1.1.3** includes mixed-scale MapStitch and Sensible Stackables as separate modules on `main`. The original MapStitch JAR remains unchanged. These features are maintained for modern Minecraft versions; [installation requirements](INSTALLATION_PACK.md) identify the exact supported version and dependencies for this release.
+Stable suite **1.1.4** includes mixed-scale MapStitch and Sensible Stackables as separate modules on `main`. The original MapStitch JAR remains unchanged. These features are maintained for modern Minecraft versions; [installation requirements](INSTALLATION_PACK.md) identify the exact supported version and dependencies for this release.
 
 ## Current behavior
 
@@ -13,15 +13,15 @@ Stable suite **1.1.3** includes mixed-scale MapStitch and Sensible Stackables as
 - The normal Tool Pouch integration selects and saves the owned atlas. A persisted book identity and map anchor reject packets targeting a replacement atlas or stale location.
 - MapStitch's existing **Keep atlases on death** option also handles supported nested containers. The containing item and unrelated contents retain their configured drop behavior.
 
-See [atlas controls](ATLAS_CONTROLS.md), [shared HUD layout](HUD.md), and [container-safe death retention](ATLAS_DEATH_RETENTION.md) for player-facing details. Current release checks and testing steps are in [validation](VALIDATION.md) and [the stable release guide](RELEASE_1_1_3.md); previous branch evidence below remains historical.
+See [atlas controls](ATLAS_CONTROLS.md), [shared HUD layout](HUD.md), and [container-safe death retention](ATLAS_DEATH_RETENTION.md) for player-facing details. Current release checks and testing steps are in [validation](VALIDATION.md) and [the stable release guide](RELEASE_1_1_4.md); previous branch evidence below remains historical.
 
 ## Current implementation and build
 
 | Component | Stable artifact version | Source |
 | --- | --- | --- |
-| Suite root | `1.1.3+26.3` | `src/` |
+| Suite root | `1.1.4+26.3` | `src/` |
 | Shared coordinator | `1.1.0+26.3` | `components/combined-compat/` |
-| Mixed-scale addon | `1.1.3+26.3` | `components/mapstitch-mixed-scales/working/` |
+| Mixed-scale addon | `1.1.4+26.3` | `components/mapstitch-mixed-scales/working/` |
 | Shared Region Maps | `1.0.5-combo.1+mc26.3` | `components/shared-region-maps/working/` |
 | Original MapStitch | `1.1.6+26.3` | Unchanged developer input pinned in `locks/artifacts.json` |
 
@@ -29,7 +29,7 @@ The stable archive includes 18 nested mods. Coordinator protocol v2 negotiates 1
 
 `AtlasOptions` owns the per-book generation mask and identity in vanilla custom data. `MixedScaleMaps` handles exact layer coverage, blank conservation and regional sharing. `AtlasTarget` binds the owned source and saveback. `MixedScales` validates `select_scale_v2` and `select_generation_v2` requests. `MixedScalesClient` and the world-map mixins present independent controls. `AtlasDeathRetention` and the death/respawn mixins preserve atlases from supported nested containers.
 
-Build from `Minecraft/thenathe-mod-suite/` using the pinned inputs and Java/compiler command in [UPDATING.md](UPDATING.md). `tools/verify-bundle.py` verifies the 18 declared modules, exact component versions, preserved input hashes and Defaulted dropfix requirement. The component output is `components/mapstitch-mixed-scales/working/build/libs/mapstitch-mixed-scales-1.1.3+26.3.jar`; it is already nested in the suite and should not be installed again separately.
+Build from `Minecraft/thenathe-mod-suite/` using the pinned inputs and Java/compiler command in [UPDATING.md](UPDATING.md). `tools/verify-bundle.py` verifies the 18 declared modules, exact component versions, preserved input hashes and Defaulted dropfix requirement. The component output is `components/mapstitch-mixed-scales/working/build/libs/mapstitch-mixed-scales-1.1.4+26.3.jar`; it is already nested in the suite and should not be installed again separately.
 
 The original MapStitch source remains update context. Compare new developer source with the exact retained baseline, then adjust these separate adapters rather than merging upstream classes into them. Recheck insertion/ticking, world-map and minimap controls, owned-location resolution, guarded packets, original data components, container/death methods and the optional accessory APIs. Preserve dependency APIs and the paused SSO-port track. Machine-assisted maintenance of this suite proceeds independently of the original author's own updates.
 
@@ -45,13 +45,29 @@ Matching clients correct the existing map object's dimension, center, scale and 
 
 A reproduced 1.1.2 failure stored a valid map ID and saved terrain in an atlas template without the item-level `mapstitch:map_center` component. The baseline client selected no map and made zero minimap render calls. The client adapter now uses the authoritative saved map’s center when the item component is absent, while retaining current-dimension and selected-scale filtering. It does not change saved map IDs or pixels. A separate server-side reproduction without Polymer retained an already present but incorrect `mapstitch:map_center` component because the helper trusted its presence. Shared Region Maps now validates both missing and present centers against saved map data. That server-side defect concerns stale placement metadata; it is not assumed to be the cause of every blank-minimap symptom. Other persistent blank-minimap symptoms remain distinct unless reproduced and verified separately.
 
-`/repairmaps check` inspects the selected held/active-pouch atlas using the same target priority as `/extractmap`. It reports selected scale and current dimension, covering maps, missing records, unexplored/locked maps and duplicate references without editing contents. `/repairmaps` restores stored item-center components from server map data, retains all other components, and resends stored pixels and decorations. The normal vanilla-map path uses a full 128×128 pixel snapshot; custom metadata and cache-refresh payloads remain advertised-channel and capability gated. The optional Remapped integration retains its existing packet path; Remapped is absent from the baseline test setup, so no new full-RGB runtime verification is claimed. Repair never regenerates maps, deletes world records or invents exploration pixels; missing records remain unrecoverable by this command. See [player commands](ATLAS_CONTROLS.md).
+`/atlas fix check` inspects the selected held/active-pouch atlas using the same target priority as `/extractmap`. It reports selected scale and current dimension, covering maps, missing records, unexplored/locked maps and duplicate references without editing contents. `/atlas fix` restores stored item-center components from server map data, retains all other components, and resends stored pixels and decorations. The normal vanilla-map path uses a full 128×128 pixel snapshot; custom metadata and cache-refresh payloads remain advertised-channel and capability gated. The optional Remapped integration retains its existing packet path; Remapped is absent from the baseline test setup, so no new full-RGB runtime verification is claimed. Repair never regenerates maps, deletes world records or invents exploration pixels; missing records remain unrecoverable by this command. See [player commands](ATLAS_CONTROLS.md).
+
+## Full-screen saved-center placement and resynchronization
+
+The screen accumulates map availability across its original atlas scan instead of letting the last empty atlas hide earlier filled books. The source accumulator resets each rendered frame, retains inventory/accessory/pouch ordering, and does not suppress any source scan.
+
+The full-screen atlas previously indexed tiles and exploration markers using only the center stored on each map item. A missing component skipped the entry, while a stale component could index it in the wrong grid position even if synchronized `MapItemSavedData` already held the correct center. The separate client adapter now obtains the center from saved map data and preserves upstream dimension/scale filtering and exploration-marker handling. Ctrl plus the configured eject-map key (Ctrl+Q by default) continues using the original screen caches and ejection path, now populated with corrected positions.
+
+`/atlas fix` always forces a fresh atlas/inventory snapshot after saving the selected held/active-pouch atlas, even when no center component changed on the server. A normal change broadcast alone could leave a stale client item unchanged when the server stack compared equal to its previous snapshot. Full item synchronization complements the stored pixel/decorations resend and advertised-channel-gated metadata/cache refresh; it does not generate new maps or alter map records. `/atlas fix check` remains read-only.
 
 ## Same-ID atlas deduplication
 
-`/dedupemaps` selects the same owner’s held/active-pouch atlas as the extraction and repair commands. It keeps one item copy per exact `MAP_ID` and removes additional copies, including extra items within a counted entry. For each removed copy, it returns one `minecraft:map` blank using inventory first and drops overflow. Different IDs remain distinct regardless of matching dimension, center or scale; no pixel-comparison choice or global saved-record deletion is performed. The retained item’s components, atlas identity/options and unrelated contents are preserved, with pouch saveback and active selection refreshed as needed.
+`/atlas dedupe` selects the same owner’s held/active-pouch atlas as the extraction and repair commands. It keeps one item copy per exact `MAP_ID` and removes additional copies, including extra items within a counted entry. For each removed copy, it returns one `minecraft:map` blank using inventory first and drops overflow. Different IDs remain distinct regardless of matching dimension, center or scale; no pixel-comparison choice or global saved-record deletion is performed. The retained item’s components, atlas identity/options and unrelated contents are preserved, with pouch saveback and active selection refreshed as needed.
 
 This operation is appropriate to Shared Region Maps’ shared IDs; it does not merge independent exploration records or choose a most-explored tile. Keep same-ID comparison distinct from regional-grid equivalence when updating the command. See [player command details](ATLAS_CONTROLS.md).
+
+## Atlas copying
+
+The separate mixed-scale module provides a cartography operation for an atlas plus one ordinary `minecraft:book` and the player command `/atlas makecopy`. Both paths copy all stored filled/explorer-map entries at all scales/dimensions with their complete counts. They preserve the source atlas, exclude empty maps/paper from the result, and retain names/options/map IDs/markers while giving the result a fresh atlas identity. Contents remain references to existing map records; copying creates no independent terrain files and does not deduplicate stored entries.
+
+The command uses the common main-hand → offhand → active-pouch target priority, consumes one ordinary inventory book and returns the new atlas to inventory first, dropping overflow. The cartography path consumes one book when its output is taken and keeps the source atlas. Keep preview construction separate from output consumption so repeated previews do not spend books or duplicate output; inventory/quick-move behavior must preserve the same source/ingredient/result contract. Original developer JARs remain unchanged.
+
+`/atlas fix` and `/atlas repair` are equivalent repair/resync forms; both accept `check` for inspection-only diagnostics. `/atlas dedupe` performs the exact-ID cleanup above. `/extractmap` retains its separate scale/dimension/empty filters and spelling.
 
 ## Coordinated banner marking
 

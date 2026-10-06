@@ -30,13 +30,14 @@ public final class MixedScaleClientServerQa implements ModInitializer {
                 if (!seeded) {
                     seeded = true;
                     player.setGameMode(net.minecraft.world.level.GameType.SPECTATOR);
+                    player.teleportTo(server.getLevel(Level.OVERWORLD), -2048, 90, -2048, Set.of(), 0, 0, true);
                     var records = new JsonArray();
                     var contents = new ArrayList<ItemStackTemplate>();
                     int dimensionIndex = 0;
                     for (var dimension : List.of(Level.OVERWORLD, Level.NETHER, Level.END)) {
                         var level = server.getLevel(dimension);
                         for (byte scale = 0; scale < 5; scale++) {
-                            var map = MapItem.create(level, dimensionIndex * 4096, 0, scale, true, false);
+                            var map = MapItem.create(level, dimensionIndex * 4096 - 2048, -2048, scale, true, false);
                             var id = map.get(DataComponents.MAP_ID);
                             var data = MapItem.getSavedData(map, level).locked();
                             level.setMapData(id, data);
@@ -72,6 +73,24 @@ public final class MixedScaleClientServerQa implements ModInitializer {
                     Files.delete(control.resolve("restore-atlas"));
                     player.getInventory().setItem(0, originalAtlas.copy());
                     player.inventoryMenu.broadcastFullState();
+                    for (var item : player.level().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, player.getBoundingBox().inflate(64)))
+                        if (item.getItem().has(DataComponents.MAP_ID)) item.discard();
+                }
+                var eject = control.resolve("eject-request.json");
+                if (Files.exists(eject)) {
+                    var requested = JsonParser.parseString(Files.readString(eject)).getAsJsonObject();
+                    var id = new MapId(requested.get("id").getAsInt());
+                    var drops = player.level().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, player.getBoundingBox().inflate(64),
+                            item -> id.equals(item.getItem().get(DataComponents.MAP_ID)));
+                    if (!drops.isEmpty()) {
+                        boolean removed = player.getInventory().getItem(0).getOrDefault(DataComponents.BUNDLE_CONTENTS, BundleContents.EMPTY)
+                                .items().stream().noneMatch(item -> id.equals(item.get(DataComponents.MAP_ID)));
+                        var data = MapItem.getSavedData(id, player.level());
+                        var report = new JsonObject(); report.addProperty("id", id.id());
+                        report.addProperty("dropped_count", drops.stream().mapToInt(item -> item.getItem().getCount()).sum());
+                        report.addProperty("removed_from_atlas", removed); report.addProperty("saved_map_retained", data != null && data.locked && data.colors[0] == requested.get("color").getAsByte());
+                        Files.delete(eject); Files.writeString(control.resolve("eject-observed.json"), report.toString());
+                    }
                 }
                 var travel = control.resolve("travel.txt");
                 if (Files.exists(travel)) {

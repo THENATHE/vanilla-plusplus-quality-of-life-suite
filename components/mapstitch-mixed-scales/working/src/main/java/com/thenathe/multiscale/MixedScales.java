@@ -16,6 +16,7 @@ public final class MixedScales implements ModInitializer {
         AtlasMapExtraction.register();
         AtlasMapRepair.register();
         AtlasMapCleanup.register();
+        AtlasCartographyCopy.register();
         PayloadTypeRegistry.clientboundPlay().register(MapRefresh.TYPE, MapRefresh.CODEC);
         MapMetadata.register();
         PayloadTypeRegistry.serverboundPlay().register(SelectScale.TYPE, SelectScale.CODEC);

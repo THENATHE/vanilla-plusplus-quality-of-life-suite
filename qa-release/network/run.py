@@ -16,7 +16,7 @@ def save_server(path, port, policy):
     def string(value):
         encoded = value.encode(); return struct.pack('>H', len(encoded)) + encoded
     data = b'\x0a\x00\x00\x09' + string('servers') + b'\x0a' + struct.pack('>i', 1)
-    for key, value in [('name', 'Bannerpoint QA'), ('ip', f'127.0.0.1:{port}')]: data += b'\x08' + string(key) + string(value)
+    for key, value in [('name', 'Atlas Maintenance QA'), ('ip', f'127.0.0.1:{port}')]: data += b'\x08' + string(key) + string(value)
     if policy != 'prompt': data += b'\x01' + string('acceptTextures') + (b'\x01' if policy == 'accept' else b'\x00')
     path.write_bytes(data + b'\x00\x00')
 def main():
@@ -24,6 +24,7 @@ def main():
     parser.add_argument('--jar', type=Path, required=True)
     parser.add_argument('--label', required=True)
     parser.add_argument('--profiles', default='fabric,suite')
+    parser.add_argument('--compile-only', action='store_true', help='Compile/package observation fixtures without launching any runtime')
     args = parser.parse_args()
     if set(args.profiles.split(',')) - {'fabric', 'suite'}: parser.error('Only fabric and suite profiles are supported')
     run = ROOT / 'qa-release/network/runs' / args.label; run.mkdir(parents=True, exist_ok=False)
@@ -58,6 +59,9 @@ def main():
             archive.writestr('fabric.mod.json', json.dumps(metadata))
             if side == 'server': archive.writestr('atlas-network.mixins.json', json.dumps({'required': True, 'package': 'qa.atlasnetwork.mixin', 'compatibilityLevel': 'JAVA_25', 'mixins': ['AtlasPacketTraceMixin'], 'injectors': {'defaultRequire': 1}}))
             for file in classes.rglob('*.class'): archive.write(file, file.relative_to(classes))
+    if args.compile_only:
+        print('PASS observation fixtures compiled; no runtime launched',flush=True); return
+    with zipfile.ZipFile(suite) as archive: version=json.loads(archive.read('fabric.mod.json'))['version']
     children=[]; observations=[]; env=os.environ.copy()
     env.update(DISPLAY=env.get('DISPLAY', ':1'), SDL_VIDEODRIVER='x11', SDL_VIDEO_X11_XINPUT2='0', LP_NUM_THREADS='2')
     def start(directory,command,mods):
@@ -101,18 +105,37 @@ def main():
             before=read(name,'client')['world_ticks'];(control/(name+'-execute')).write_text('run actual commands')
             wait(lambda:read(name,'server').get('dedupe_result')==1,client,name+' commands executed')
             wait(lambda:read(name,'client').get('world_ticks',0)>=before+100 and read(name,'server').get('connected_age_ticks',0)>=read(name,'server').get('executed_at_age',999999)+100,client,name+' remains connected after commands')
+            (control/(name+'-cartography-open')).write_text('open real vanilla cartography menu')
+            wait(lambda:'cartography' in read(name,'client') and 'cartography' in read(name,'server'),client,name+' real cartography menu opened')
+            click_observations=[]
+            for stage,slot,quick in [(0,30,False),(1,0,False),(2,31,False),(3,1,False),(4,2,True)]:
+                (control/(name+'-client-click.json')).write_text(json.dumps({'stage':stage,'slot':slot,'quick':quick}))
+                def settled():
+                    server_menu=read(name,'server').get('cartography',{});client_row=read(name,'client');client_menu=client_row.get('cartography',{})
+                    if not any(c['stage']==stage for c in client_row.get('clicks',[])):return False
+                    if stage==0:return server_menu.get('carried_atlas',False) and client_menu.get('carried_count')==1
+                    if stage==1:return server_menu.get('top_atlas',False) and server_menu.get('carried_count')==0 and client_menu.get('top_count')==1 and client_menu.get('carried_count')==0
+                    if stage==2:return server_menu.get('carried_book',False) and client_menu.get('carried_count')==1
+                    if stage==3:return server_menu.get('output_atlas',False) and server_menu.get('book_count')==1 and client_menu.get('book_count')==1 and client_menu.get('output_count')==1 and client_menu.get('carried_count')==0
+                    return server_menu.get('complete',False) and client_menu.get('top_count')==1 and client_menu.get('book_count')==0 and client_menu.get('output_count')==0 and client_menu.get('carried_count')==0
+                wait(settled,client,name+' authoritative cartography click '+str(stage),60)
+                click_observations.append({'stage':stage,'slot':slot,'quick_move':quick,'client':read(name,'client'),'server_cartography':read(name,'server')['cartography']})
+            clicks=read(name,'client')['clicks'];assert all(c['local_book_may_place']==(profile=='suite') for c in clicks),clicks
+            after_gui=read(name,'client')['world_ticks'];wait(lambda:read(name,'client').get('world_ticks',0)>=after_gui+60,client,name+' remains connected after GUI copy')
             row=read(name,'server');payloads=[e for e in row['events'][row['packet_event_start']:] if e['kind']=='custom-payload']
             refresh=[e for e in payloads if e['channel']=='mapstitch_mixed_scales:refresh_maps_v1']
             assert row['player_still_connected'] and read(name,'client')['connected'],row
             assert all(e['advertised'] for e in payloads if not e['channel'].startswith(('minecraft:','fabric:'))),payloads
             assert row['native_mapstitch']==(profile=='suite'),row
             assert row['refresh_advertised']==(profile=='suite'),row
-            assert len(refresh)==(2 if profile=='suite' else 0),payloads
+            assert len(refresh)==(3 if profile=='suite' else 0),payloads
+            assert row['first_repair_full_snapshots']>=1 and row['repeat_repair_full_snapshots']>=1,row
+            assert row['check_full_snapshots']==0 and row['read_only_check_unchanged'] and row['repeat_repair_unchanged'],row
             assert any(e['kind']=='vanilla-map-data' for e in row['events'][row['packet_event_start']:]),row
-            observations.append({'profile':profile,'commands':['repairmaps','dedupemaps'],'client':read(name,'client'),'server':row,'command_custom_payloads':payloads})
-            stop(client);print('PASS '+profile+': both commands, connected, refresh='+str(len(refresh)),flush=True)
+            observations.append({'profile':profile,'commands':['atlas fix','atlas fix check','atlas repair check','atlas repair','atlas dedupe','atlas makecopy'],'client':read(name,'client'),'server':row,'command_custom_payloads':payloads,'cartography_clicks':click_observations})
+            stop(client);print('PASS '+profile+': initial/repeated repair full snapshots, read-only checks, dedupe, makecopy and real cartography clicks, connected, refresh='+str(len(refresh)),flush=True)
         stop(server,True)
-        (run/'result.json').write_text(json.dumps({'passed':True,'version':'1.1.3+26.3','bundle_sha256':sha(suite),'run_label':args.label,'profiles':args.profiles.split(','),'observations':observations,'scope':'Focused native suite and Fabric API-only atlas maintenance command network safety. No broader gameplay or resource-pack matrix repeated.'},indent=2)+'\n')
+        (run/'result.json').write_text(json.dumps({'passed':True,'version':version,'bundle_sha256':sha(suite),'run_label':args.label,'profiles':args.profiles.split(','),'observations':observations,'scope':'Focused native suite and Fabric API-only atlas maintenance command network safety. No broader gameplay or resource-pack matrix repeated.'},indent=2)+'\n')
         print('PASS focused network checks',flush=True)
     finally:
         for process,log in reversed(children):

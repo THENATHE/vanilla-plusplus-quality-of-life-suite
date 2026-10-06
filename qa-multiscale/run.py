@@ -29,7 +29,7 @@ def nested(p):
     if not dest.exists():dest.write_bytes(data);paths.append(dest);nested(dest)
 for p in [bundle,*mods,polymer]:nested(p)
 patched=next((project_path(WORKSPACE,'SSO-backpack-toolpouch-mapstitch-shim')/'.gradle/loom-cache').rglob('minecraft-merged-*-26.3.jar'));paths.insert(0,patched)
-subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(map(str,dict.fromkeys(paths))),'-d',str(classes),str(ROOT/'qa-multiscale/src/MixedScaleQa.java'),str(ROOT/'qa-multiscale/src/AtlasBannerQa.java'),str(ROOT/'qa-multiscale/src/AtlasRepairQa.java')],check=True)
+subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(map(str,dict.fromkeys(paths))),'-d',str(classes),str(ROOT/'qa-multiscale/src/MixedScaleQa.java'),str(ROOT/'qa-multiscale/src/AtlasBannerQa.java'),str(ROOT/'qa-multiscale/src/AtlasRepairQa.java'),str(ROOT/'qa-multiscale/src/AtlasCartographyQa.java')],check=True)
 fixtures={}
 for kind,entry in [('maps','qa.MixedScaleQa')]:
  jar=RUN/(kind+'.jar');fixtures[kind]=jar
@@ -53,6 +53,7 @@ try:
    resultfile.unlink(missing_ok=True)
    with (directory/('console-'+str(phase)+'.log')).open('w') as log:
     proc=subprocess.Popen(command,cwd=directory,stdout=log,stderr=subprocess.STDOUT)
+    (directory/('pid-'+str(phase)+'.txt')).write_text(str(proc.pid)+'\n')
     try:code=proc.wait(timeout=180)
     except subprocess.TimeoutExpired:proc.kill();proc.wait();raise
    result=resultfile.read_text() if resultfile.exists() else 'FAIL no result'

@@ -1,0 +1,134 @@
+{
+  "bundle_version": "1.1.4+26.3",
+  "bundle_sha256": "96bdb9d63210f1fce11d361a054b590dda2a6d828dfe7d2732b20d1f42e6be84",
+  "passed": true,
+  "run_label": "worldmap-center-1.1.4-final-02",
+  "runner": "qa-multiscale/run-client.py",
+  "fixture_sources": [
+    "qa-multiscale/src/MixedScaleClientQa.java",
+    "qa-multiscale/src/MixedScaleClientServerQa.java",
+    "qa-multiscale/src/MapRenderTraceMixin.java",
+    "qa-multiscale/src/MapEjectTraceMixin.java",
+    "qa-multiscale/src/WorldMapTextTraceMixin.java"
+  ],
+  "minecraft": "26.3",
+  "fabric_loader": "0.19.5",
+  "java_runtime": "OpenJDK 25.0.4.1",
+  "graphics_backend": "Vulkan",
+  "observation_rows": 47,
+  "coverage": {
+    "minimap_center_dimension_cases": 4,
+    "real_repair_command": "/atlas fix",
+    "maps_with_all_pixels_restored": 15,
+    "pixels_per_map": 16384,
+    "fullscreen_missing_stale_center_cases": 12,
+    "actual_ctrl_q_payload_and_server_drop_cases": 12,
+    "negative_grid_cases": 12,
+    "multiple_atlas_pouch_source_priority_cases": 5,
+    "worldmap_render_views": 21,
+    "real_dimension_transfers": 2
+  },
+  "result_text": "PASS four minimap regressions, /atlas fix restores all pixels of 15 maps, 12 full-screen missing/stale-center Ctrl+Q payload and real drop cases including negative grids, five multiple-atlas/pouch source and priority cases, native metadata, old pixels/banners, 21 dimension/scale render views, two real dimension travels\n",
+  "audits": {
+    "client": "client-audit.json",
+    "server": "server-audit.json"
+  },
+  "observations": "observations.json",
+  "seeded_maps": "seeded-maps.json",
+  "screenshots": [
+    {
+      "file": "screenshots/minimap-case-0.png",
+      "sha256": "e437c8a387693ff14d9b348551e1eff3f67bd8eecfb09a5ccba759a75a794268"
+    },
+    {
+      "file": "screenshots/minimap-case-1.png",
+      "sha256": "183c5abb441a30f9af331f539cfe130e85713b034c519647b763d331a4edd9f8"
+    },
+    {
+      "file": "screenshots/minimap-case-2.png",
+      "sha256": "973768eb1edd2540f7d1f373442b2c50b0b2df512b00edffee4ae4b19b18ba22"
+    },
+    {
+      "file": "screenshots/minimap-case-3.png",
+      "sha256": "8c8daebd05ae7e377e9247951402b834d0a6c0b55443974c9cf551888e37d25f"
+    },
+    {
+      "file": "screenshots/minimap-repaired-pixels.png",
+      "sha256": "6e8bb99e9f3c32038cd14f9fc3f4a2e894df91973b2bda4ae123af68829e47bc"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-0.png",
+      "sha256": "afb7fd3ee3ed2cd5c7f0224e1387335b1e06a0e6ebcfcc8e9a538566e7a534e6"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-1.png",
+      "sha256": "10d97e948a5c5541b3482377c65155a5320805759a400fcd0a3e693edc073ea2"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-10.png",
+      "sha256": "e9e0b4079c73dd214dab89cdcd4d448bbe434cb308ef52d32c00569f2dd0eb33"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-11.png",
+      "sha256": "617d74dfb29785c0b40d5aba3006215f801feaa8813e44fb1fbbda88a9667bd0"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-2.png",
+      "sha256": "3ff7fe438826c8a3bb65776ed65fb1231507d030bf51d29a2a67a7235706a7a7"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-3.png",
+      "sha256": "ffcac4ea113fcd8dbaf599eeda5d30bacd0d06b2a560e6786c0197016af534a6"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-4.png",
+      "sha256": "dfdacafd55275ef6fac25f502ba5334902ea091f904d75418f9ac629b966f9e7"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-5.png",
+      "sha256": "26fea1e46de9acac6e8010365d7d0e21fb3535bd6f399745980b16b8791c9c6e"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-6.png",
+      "sha256": "e9621f7a6277452b7fdeedd503443e23888af3e9fcb66af5faad4cb26607417f"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-7.png",
+      "sha256": "5f45d1920bb070adc3284623e5daa799b0240b28ac69e2d5ef988acc16ab6659"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-8.png",
+      "sha256": "cf588a63a33b4843c1fc74597416aeb9c42a8b6ebb221efdb2951887073c8db5"
+    },
+    {
+      "file": "screenshots/worldmap-center-case-9.png",
+      "sha256": "255ed6ff1730bae7b905886b59cd8fb261db6281ec4bf662a22800d6b91eb824"
+    },
+    {
+      "file": "screenshots/worldmap-source-case-0.png",
+      "sha256": "9e05256fa0217b1763a4a5c3001f577b2e8c72cdc0fc34cb5a1ea11405d31573"
+    },
+    {
+      "file": "screenshots/worldmap-source-case-1.png",
+      "sha256": "c7de4904ddd7b5ae91a0f3ce1ed0333a865a284c3e3950d0d68931b4b5df0bd7"
+    },
+    {
+      "file": "screenshots/worldmap-source-case-2.png",
+      "sha256": "5fc9bd3e3b8d40d9515d448454f45a8bc727f3911150650e0bd336de097af2e2"
+    },
+    {
+      "file": "screenshots/worldmap-source-case-3.png",
+      "sha256": "298264c47fd07707d0651a76c3e5b46fea8e4176eb80870c83c634d8d69cefec"
+    },
+    {
+      "file": "screenshots/worldmap-source-case-4.png",
+      "sha256": "792f61a5dafc362804200b95c4b2d88e5b73bdf34d5f49a0252f052838e457bd"
+    }
+  ],
+  "limitations": [
+    "The fixture uses deterministic synthetic locked maps and local client item metadata changes, not the user\u2019s exact world.",
+    "Ctrl+Q uses the original WorldMapScreen.keyPressed with Minecraft26.3 named SDL key/modifier constants; the pointer grid coordinates are set immediately before dispatch. Actual outgoing payloads and real server item entities are independently observed.",
+    "Remapped is not installed in this focused client test.",
+    "Normal chat trust/tutorial notifications may partially cover the native minimap in unmodified screenshots."
+  ]
+}

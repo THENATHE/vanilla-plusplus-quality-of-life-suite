@@ -1,5 +1,18 @@
 # Changes
 
+## 1.1.4+26.3 — 2026-10-06
+
+- Route stored Elytra flight wear through standard durability/enchantment handling, preserving Unbreaking. Extend SSO automatic broken-item repair to the active pouch using its original settings, whetstone/material requirements and costs; regular XP Mending remains controlled by the server’s SSO settings.
+
+- Keep maps visible when a later scanned atlas is empty, while retaining inventory/accessory/pouch source ordering and resetting the source accumulator each rendered frame.
+
+- Use authoritative saved map centers for full-screen atlas placement when item-center metadata is missing or stale. World-map tile/exploration-marker indexing and the existing Ctrl+Q ejection lookup use the same corrected positions.
+- Force atlas/inventory synchronization after `/atlas fix`, including cases where zero center components need repair. Keep the full map-pixel/decorations resend and gated native cache refresh so a stale client representation can be refreshed from correct server data.
+- Group maintenance commands under `/atlas fix` (alias `/atlas repair`), `/atlas dedupe` and `/atlas makecopy`; both fix/repair accept `check` for read-only diagnostics. Existing `/extractmap` commands retain their names.
+- Copy all filled/explorer maps from every scale/dimension/count into a new atlas using one ordinary book in a cartography table, or `/atlas makecopy` with one book from your inventory. Preserve command output when a creative-mode inventory is full. Keep the original atlas; exclude stored empty maps/paper, assign the copy a new identity and preserve its options, names, map IDs and markers. Command output goes to inventory first with overflow dropped.
+- Preserve map IDs, exploration, banner decorations, atlas options, original developer JARs and existing command selection. Diagnostics remain read-only; repair does not regenerate maps or invent missing terrain.
+- Keep the remaining suite components and exact dependencies unchanged, including Shared Region Maps 1.0.5-combo.1+mc26.3 and Defaulted dropfix. See [the 1.1.4 release guide](docs/RELEASE_1_1_4.md) and [validation](docs/VALIDATION.md) for exact scope and verification.
+
 ## 1.1.3+26.3 — 2026-10-05
 
 - Fix a reproduced blank-minimap case where an atlas map item lacked its center component despite valid saved map data. The client falls back to the saved center while preserving current-dimension and selected-scale filtering.

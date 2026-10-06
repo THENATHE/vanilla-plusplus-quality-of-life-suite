@@ -1,0 +1,10 @@
+{
+  "bundle_sha256": "2c1273947279693e5ec3c78b2c39793c3b5fdbc320216476e04d16f79b2a1754",
+  "passed": false,
+  "cases": [],
+  "run_label": "atlas-copy-release-final2",
+  "shutdown_timeout_seconds": 180,
+  "actual_fixture_result": "PASS 1363 mixed-scale insertion, extraction commands, banner edits, map integrity, codec and restart checks",
+  "diagnosis": "A subsequent same-artifact launch captured server CompletableFuture.join in ChunkMap.saveAllChunks while an IO worker actively wrote vanilla RegionFile.writeHeader/write through native pwrite. The final rerun completed all four phases cleanly. No production change or skipped persistence step was used.",
+  "final_retry": "atlas-copy-release-final3"
+}

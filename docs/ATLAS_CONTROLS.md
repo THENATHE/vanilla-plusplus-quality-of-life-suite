@@ -1,6 +1,6 @@
-# Atlas controls — stable 1.1.3
+# Atlas controls — stable 1.1.4
 
-Suite **1.1.3** keeps its MapStitch changes in the separate `components/mapstitch-mixed-scales/working/` addon. The original MapStitch JAR is unchanged.
+Suite **1.1.4** keeps its MapStitch changes in the separate `components/mapstitch-mixed-scales/working/` addon. The original MapStitch JAR is unchanged.
 
 Open the world-map screen. A separate group just beneath the top coordinate numbers contains one aligned row of minimap and generation controls. Its right edge lines up with the original sidebar, with four pixels of margin; the buttons begin 16 GUI pixels from the top. The original right-side buttons retain their original positions and spacing:
 
@@ -19,6 +19,12 @@ Existing atlases start with generation enabled at their prior active scale. Chan
 An atlas can hold maps from multiple dimensions and all five scales together. The world map's selected dimension and **S** scale select only matching stored maps; neither changes the minimap's saved **M** scale or generation choices. The minimap uses maps from your current dimension at its selected scale. Switching dimension or scale clears stale world-map layer caches so another dimension's tiles do not remain on screen.
 
 Vanilla map-update packets omit map dimension and center, so client-side map data could previously inherit the player's current dimension. The addon sends the authoritative map dimension, center, scale and lock state to matching suite clients through `mapstitch_mixed_scales:map_metadata_v1`. These native-only metadata updates correct rendering without replacing stored maps or exploration data. The server checks native MapStitch negotiation and advertised payload support before sending; vanilla, Fabric-only and unsupported clients receive no unknown custom packet.
+
+## Full-screen placement and map ejection
+
+The full-screen atlas positions ordinary tiles and explorer/treasure markers using the synchronized saved map’s center. Missing or stale item-level center components no longer prevent placement or shift a tile into the wrong grid position. Existing dimension and viewing-scale filters still apply.
+
+Use **Ctrl+Q** with the default eject-map binding while pointing at the desired map, or Ctrl plus your configured **Eject Map** key. The original ejection lookup uses the same corrected map positions as rendering. Its normal map/exploration-marker selection behavior is preserved; this change does not replace the original command or key binding.
 
 ## Banner markers across scales
 
@@ -51,20 +57,36 @@ Use the same atlas selection as `/extractmap`: main hand first, then offhand, ot
 
 | Command | Behavior |
 | --- | --- |
-| `/repairmaps check` | Inspect the atlas and report the minimap’s selected scale/current dimension, map coverage, missing saved records, blank/locked maps and duplicate references. It does not change map contents. |
-| `/repairmaps` | Repair stored map-item center components from authoritative server saved data and resend the full stored map pixels and decorations to a matching native client. |
+| `/atlas fix check` | Inspect the atlas and report the minimap’s selected scale/current dimension, map coverage, missing saved records, blank/locked maps and duplicate references. It does not change map contents. |
+| `/atlas repair check` | Alias for `/atlas fix check`; the same read-only report. |
+| `/atlas repair` | Alias for `/atlas fix`; the same repair and resynchronization. |
+| `/atlas fix` | Repair stored map-item center components from authoritative server saved data and resend the full stored map pixels and decorations to a matching native client. |
 
 A reproduced failure involved a map with valid saved pixels whose atlas item lacked `mapstitch:map_center`. The client minimap used that absent item component to choose maps and rendered no map at all. The minimap now falls back to the actual saved map center, checks the current dimension, and preserves the selected scale. This fixes the reproduced metadata-dependent case; a blank selected layer may still mean no covering map, no saved record or unexplored terrain.
 
-Repair applies to stored entries with a map ID, including explorer/treasure maps. It also validates already present center components against server saved data, correcting stale values. Repair preserves map IDs, pixels, banners, atlas options and unrelated contents. It does not explore new terrain, generate replacement maps, delete saved records or fill a genuinely unexplored map. Missing saved records cannot be reconstructed by this command. Native metadata/refresh packets are sent only when the client’s MapStitch support and advertised channels permit them; fallback clients receive no unsupported payload.
+Repair also sends a fresh atlas/inventory snapshot even when the report says **0 centers repaired**, so a stale client copy can receive the correct server representation. `check` remains inspection-only. Repair applies to stored entries with a map ID, including explorer/treasure maps. It also validates already present center components against server saved data, correcting stale values. Repair preserves map IDs, pixels, banners, atlas options and unrelated contents. It does not explore new terrain, generate replacement maps, delete saved records or fill a genuinely unexplored map. Missing saved records cannot be reconstructed by this command. Native metadata/refresh packets are sent only when the client’s MapStitch support and advertised channels permit them; fallback clients receive no unsupported payload.
 
 ## Remove duplicate map copies
 
-Run `/dedupemaps` while holding the atlas, or using its active Tool Pouch location. It uses the same main-hand → offhand → active-pouch priority and requires no operator permission.
+Run `/atlas dedupe` while holding the atlas, or using its active Tool Pouch location. It uses the same main-hand → offhand → active-pouch priority and requires no operator permission.
 
 The command keeps one copy of each **exact map ID** in that atlas. Each removed extra copy returns one empty map to your inventory; overflow drops at your feet. This includes repeated copies represented by a stack count, not just separate entries. The command reports its result and preserves the retained copy’s item data, atlas settings and unrelated contents.
 
 Maps with different IDs stay separate even when their dimension, center and scale match. Exploration, banners and the world’s saved map records are not deleted. Shared Region Maps normally lets copies of one region use the same record, which makes exact-ID duplicate removal appropriate; the command does not choose a “most explored” map or merge independently saved records. Existing `/extractmap` filters remain available when you want to remove an entire scale or dimension instead.
+
+## Copy an atlas
+
+Put an atlas and one **ordinary book** in a cartography table, or run:
+
+```text
+/atlas makecopy
+```
+
+The command selects the atlas in your main hand, then offhand, otherwise your active Tool Pouch. It requires and consumes **one ordinary book from your inventory**, keeps the source atlas, and puts the copy into inventory first; overflow drops at your feet. No operator permission is required.
+
+Both methods copy all stored filled/explorer maps, across every scale and dimension, retaining each entry’s count. The copy preserves the atlas’s name and options, map IDs, item data and markers, but receives a new atlas identity. Empty maps and paper are excluded: supply the new atlas with its own exploration materials if you want it to generate further maps. Copying does not deduplicate its contents. Normal atlas click behavior still applies when taking the result; a primary click can clear the selected map slot without removing its stored maps.
+
+The copied maps reference their original saved map records. Terrain exploration and saved banner-marker changes are therefore shared between matching map IDs; this is another atlas of those maps, not an independent frozen terrain snapshot. The original atlas and its empty maps/paper remain intact. The cartography operation consumes the book when its output is taken, keeping the original atlas as the source.
 
 ## Control networking and source identity
 
@@ -72,4 +94,4 @@ Serverbound requests use `mapstitch_mixed_scales:select_scale_v2` and `mapstitch
 
 Screens remain bound to their original inventory/accessory/pouch source and book identity. The client may refresh the map anchor after first-map generation or ejection within that same book. It does not adopt the identity of a different atlas that replaces the source slot; the controls disable until the appropriate book is reopened. A newly created or legacy book needs its first server tick and inventory synchronization before native controls can edit it. If opened before that synchronization, reopen the screen once the book is synchronized. Matching client/server suite builds are required for native controls. Standard map creation sends one vanilla cartography sound packet to the explorer per generation batch; a batch creating multiple scales still plays one chime. Sound playback remains subject to the player's sound settings.
 
-Use [stable installation and testing steps](RELEASE_1_1_3.md) and [current validation](VALIDATION.md) for the released artifact. Earlier merged-branch records remain [historical evidence](MERGED_TESTING.md). The optional original world-map buttons setting hides all these buttons together with the existing controls.
+Use [stable installation and testing steps](RELEASE_1_1_4.md) and [current validation](VALIDATION.md) for the released artifact. Earlier merged-branch records remain [historical evidence](MERGED_TESTING.md). The optional original world-map buttons setting hides all these buttons together with the existing controls.

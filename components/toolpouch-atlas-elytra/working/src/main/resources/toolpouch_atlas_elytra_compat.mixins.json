@@ -19,7 +19,9 @@
     "PouchSlotQuotaMixin",
     "ClientSortServerSchemaMixin",
     "ClientSortServerSortMixin",
-    "ClientSortServerTransferMixin"
+    "ClientSortServerTransferMixin",
+    "PouchDurabilityMixin",
+    "PouchSsoMendingMixin"
   ],
   "client": [
     "AtlasClientLookupMixin",

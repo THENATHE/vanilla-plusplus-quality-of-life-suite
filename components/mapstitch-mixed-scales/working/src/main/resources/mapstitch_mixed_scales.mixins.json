@@ -8,7 +8,10 @@
     "AtlasDeathRespawnMixin",
     "ModUtilMapMetadataMixin",
     "MapItemSavedDataMetadataMixin",
-    "RemappedMapMetadataMixin"
+    "RemappedMapMetadataMixin",
+    "AtlasCartographyMenuMixin",
+    "AtlasCartographyInputMixin",
+    "AtlasCartographyResultMixin"
   ],
   "client": [
     "AtlasUseClientMixin",

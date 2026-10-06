@@ -1,0 +1,17 @@
+{
+  "bundle_sha256": "0492e88a51fb88cc5dbc0d815022d3d5a39f095fa299c5069f040ad5be63c69b",
+  "passed": false,
+  "cases": [
+    {
+      "profile": "maps-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "FAIL java.lang.AssertionError: zero-center repair resends actual held/offhand/pouch inventory item metadata despite remote equality",
+      "passed": false
+    }
+  ],
+  "expected_failure": true,
+  "run_label": "atlas-resend-baseline-1.1.3",
+  "purpose": "Exact stable 1.1.3 repair sends map pixels but does not resend unchanged atlas item metadata after the real inventory synchronizer already agrees with server contents.",
+  "compiled_fixture_sha256": "ba6445f05f4340943255993b13ec82b1b4cf314bc47230d422f5ee479bee17fa"
+}

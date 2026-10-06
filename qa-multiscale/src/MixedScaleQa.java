@@ -189,6 +189,7 @@ public final class MixedScaleQa implements ModInitializer {
    checks += AtlasBannerQa.run(server,player);
    mapIntegrityChecks(server,player,observedPackets);
    checks += AtlasRepairQa.run(server,player,observedPackets,extractionDrops);
+   checks += AtlasCartographyQa.run(server,player,extractionDrops);
    result="PASS "+checks+" mixed-scale insertion, extraction commands, banner edits, map integrity, codec and restart checks";
   } catch(Throwable error) {error.printStackTrace();result="FAIL "+error;}
   try {Files.writeString(Path.of("mixedscale-qa-result.txt"),result+"\n");}catch(Exception e){throw new RuntimeException(e);}

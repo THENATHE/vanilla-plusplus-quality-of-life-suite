@@ -1,0 +1,102 @@
+[
+  {
+    "case": "minimap normal center",
+    "render_calls": 28
+  },
+  {
+    "case": "minimap missing item center",
+    "render_calls": 28
+  },
+  {
+    "case": "minimap stale item center",
+    "render_calls": 28
+  },
+  {
+    "case": "minimap foreign active dimension",
+    "render_calls": 0
+  },
+  {
+    "case": "real atlas fix network pixel recovery",
+    "maps_restored": 15,
+    "pixels_per_map": 16384,
+    "native_cache_refresh_received": true,
+    "minimap_render_calls": 30
+  },
+  {
+    "case": "worldmap missing item center Ctrl+Q 0",
+    "id": 0,
+    "dimension": "minecraft:overworld",
+    "scale": 0,
+    "center_x": -2048,
+    "center_z": -2048,
+    "render_calls": 27,
+    "actual_ctrl_q_payload_id": 0,
+    "server_drop": {
+      "id": 0,
+      "dropped_count": 1,
+      "removed_from_atlas": true,
+      "saved_map_retained": true
+    }
+  },
+  {
+    "case": "worldmap stale item center Ctrl+Q 11",
+    "id": 8,
+    "dimension": "minecraft:the_nether",
+    "scale": 3,
+    "center_x": 2496,
+    "center_z": -1600,
+    "render_calls": 27,
+    "actual_ctrl_q_payload_id": 8,
+    "server_drop": {
+      "id": 8,
+      "dropped_count": 1,
+      "removed_from_atlas": true,
+      "saved_map_retained": true
+    }
+  },
+  {
+    "case": "filled then empty inventory atlas",
+    "render_calls": 27,
+    "cache_maps": 5,
+    "no_sources_message": false,
+    "pouch_priority_preserved": false
+  },
+  {
+    "case": "empty-only after filled frame",
+    "render_calls": 0,
+    "cache_maps": 0,
+    "no_sources_message": true,
+    "pouch_priority_preserved": false
+  },
+  {
+    "case": "filled inventory then empty pouch atlas",
+    "render_calls": 28,
+    "cache_maps": 5,
+    "no_sources_message": false,
+    "pouch_priority_preserved": false
+  },
+  {
+    "case": "filled pouch with empty inventory atlases",
+    "render_calls": 28,
+    "cache_maps": 5,
+    "no_sources_message": false,
+    "pouch_priority_preserved": true
+  },
+  {
+    "case": "pouch minimap priority with filled inventory atlas",
+    "render_calls": 28,
+    "cache_maps": 5,
+    "no_sources_message": false,
+    "pouch_priority_preserved": true
+  },
+  {
+    "case": "first receipt plus stale map repair",
+    "network_maps": 15,
+    "preserved_pixels_and_banner": true
+  },
+  {
+    "case": "minimap exploration marker dimension filter",
+    "dimension": "minecraft:overworld",
+    "foreign_dimension_markers_excluded": true
+  }
+]
