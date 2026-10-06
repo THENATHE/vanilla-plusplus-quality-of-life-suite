@@ -83,6 +83,13 @@ public final class AtlasNetworkServerQa implements ModInitializer {
                     var row=new JsonObject();
                     row.addProperty("native_mapstitch",com.thenathe.suite.network.SuiteCapabilities.isNative(player.connection.getPacketContext(),"mapstitch"));
                     row.addProperty("refresh_advertised",ServerPlayNetworking.canSend(player,MapRefresh.TYPE));
+                    row.addProperty("native_sso", com.thenathe.suite.network.SuiteCapabilities.isNative(player.connection.getPacketContext(), "simple_smithing_overhaul"));
+                    row.addProperty("native_stackables", com.thenathe.suite.network.SuiteCapabilities.isNative(player.connection.getPacketContext(), "sensible_stackables"));
+                    int configStart=events.getOrDefault(name,new JsonArray()).size();
+                    me.pajic.simple_smithing_overhaul.util.ModUtil.onUpdateConfig(server);
+                    me.pajic.sensible_stackables.SensibleStackables.onUpdateConfig(server);
+                    row.addProperty("config_refresh_event_start", configStart);
+                    row.addProperty("config_refresh_event_end", events.getOrDefault(name,new JsonArray()).size());
                     int start=events.getOrDefault(name,new JsonArray()).size();
                     row.addProperty("packet_event_start",start);
                     int repair=server.getCommands().getDispatcher().execute("atlas fix",player.createCommandSourceStack());

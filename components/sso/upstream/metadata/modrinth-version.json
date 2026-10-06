@@ -1,60 +1,54 @@
 {
   "game_versions": [
-    "26.2"
+    "26.3"
   ],
   "loaders": [
     "fabric"
   ],
   "environment": "client_and_server",
-  "id": "yzzzEFXt",
+  "id": "k5NaPhrq",
   "project_id": "U5TJjZc3",
   "author_id": "Kg6RZEfM",
   "featured": false,
-  "name": "2.9.14 for Fabric 26.2",
-  "version_number": "2.9.14+26.2",
-  "changelog": "2.9.11:\n\n- Added NeoForge 26.2 version.\n- Backported all changes since 2.5.9 to 1.21.1 versions of the mod. This includes a lot of changes, so please refer to old changelogs.\n- Whetstones can now be enchanted using Modest Magic's tablet smithing recipe.\n\n2.9.14:\n\n- Fixed being unable to repair most items.\n- Fixed missing empty slot textures in the smithing table.\n- Fixed enchantment name not being colored when over max level.\n",
+  "name": "2.10.0 for Fabric 26.3",
+  "version_number": "2.10.0+26.3",
+  "changelog": "- Added Fabric 26.3 version.\n- Defaulted is no longer required.\n    - The mod no longer patches item components to add repairs, it now keeps track of repairs on its own and intercepts repair checks instead.\n    - Configuration is unchanged and item tags are still supported in the config.\n    - Changing repairs in the config in-game now applies changes immediately, syncs them to clients, and doesn't require a datapack reload.\n    - Mod compatibility should remain the same, please report any issues if you run into them.\n- Changed how item renames are handled as an attempt to fix a long-standing bug where all text becomes garbled when setting the game to certain languages ([details](https://github.com/pajicadvance/simple-smithing-overhaul/issues/4)).\n",
   "changelog_url": null,
-  "date_published": "2026-09-23T21:50:26.306048Z",
-  "downloads": 66,
+  "date_published": "2026-10-05T20:59:18.101494Z",
+  "downloads": 20,
   "version_type": "release",
   "status": "listed",
   "requested_status": null,
   "files": [
     {
-      "id": "ygxnRnOa",
+      "id": "YhmJybpn",
       "hashes": {
-        "sha512": "844a2b2b0b924bf0cce27f170d01a86db0b5c931bca0bebec8a7736528dc445b7e3cffac565556017083ef2e3afb47fc6969e74c00c6211cf2417d378db2e10a",
-        "sha1": "2c750315c9c098cb2dac186760a9ebd7235e89a1"
+        "sha1": "540d35117cefc2ca1e544b9ea8469b05476892ae",
+        "sha512": "0715efeb054f976ab56fb69fc93510eb49acd978f36e46ca6be22dcc4b8fe7a6ec54b500dd4fac4de2885854cb01f8ff522a25a10e1c7c88a722bf147f8d83d1"
       },
-      "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/yzzzEFXt/simple_smithing_overhaul-fabric-2.9.14%2B26.2.jar",
-      "filename": "simple_smithing_overhaul-fabric-2.9.14+26.2.jar",
+      "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/k5NaPhrq/simple_smithing_overhaul-fabric-2.10.0%2B26.3.jar",
+      "filename": "simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
       "primary": true,
-      "size": 313992,
+      "size": 643723,
       "file_type": null
     },
     {
-      "id": "4xLWIxni",
+      "id": "HDyBVzBi",
       "hashes": {
-        "sha512": "e3246e9edd0beea9716a7de73aa6a37e6dd40b93d48cb873a75f8d4ba359c05f313fbeeff69276d783cc7ffea2ee3d237a0ab638738f3b9396aeb8f178925233",
-        "sha1": "5138e4d95c5c2e36c3c5097fbd230573c7d58231"
+        "sha1": "64d6ab5212b9a2c065f88fbd33a1e5fb6604d26b",
+        "sha512": "4bae6916825b9153b3a3735732bf758972157e5e0f897ff4afe3d9968de4a86b53c0a42a7b219961fa70f9438201207e066c6cd0af01c9d52dc4e90661f5870f"
       },
-      "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/yzzzEFXt/simple_smithing_overhaul-fabric-2.9.14%2B26.2-sources.jar",
-      "filename": "simple_smithing_overhaul-fabric-2.9.14+26.2-sources.jar",
+      "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/k5NaPhrq/simple_smithing_overhaul-fabric-2.10.0%2B26.3-sources.jar",
+      "filename": "simple_smithing_overhaul-fabric-2.10.0+26.3-sources.jar",
       "primary": false,
-      "size": 218865,
+      "size": 546471,
       "file_type": null
     }
   ],
   "dependencies": [
     {
       "version_id": null,
-      "project_id": "LxgPJAAy",
-      "file_name": null,
-      "dependency_type": "required"
-    },
-    {
-      "version_id": null,
-      "project_id": "hYykXjDp",
+      "project_id": "EgugIDm8",
       "file_name": null,
       "dependency_type": "required"
     },
@@ -66,7 +60,7 @@
     },
     {
       "version_id": null,
-      "project_id": "EgugIDm8",
+      "project_id": "hYykXjDp",
       "file_name": null,
       "dependency_type": "required"
     }

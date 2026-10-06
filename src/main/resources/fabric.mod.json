@@ -32,15 +32,14 @@
     "java": ">=25",
     "fabricloader": ">=0.19.5",
     "fabric-api": ">=0.161.0+26.3",
-    "fzzy_config": "=0.7.7+fix2+26.3",
+    "fzzy_config": "=0.7.7+fix3+26.3",
     "cloth-config": ">=26.3.159",
     "fabric-language-kotlin": ">=1.14.1+kotlin.2.4.20",
-    "defaulted": "=1.3.8+26.3.dropfix.1",
     "codecui": ">=26.3-1.4.3",
     "mixson": ">=2.2.1",
-    "mapstitch_mixed_scales": "=1.1.4+26.3",
-    "sensible_stackables": "=3.0.3-port.1+26.3",
-    "sensible_stackables_polymer_compat": "=1.0.0+26.3",
+    "mapstitch_mixed_scales": "=1.1.5+26.3",
+    "sensible_stackables": "=3.1.1",
+    "sensible_stackables_polymer_compat": "=1.0.1+26.3",
     "bannerpoint": "=1.1.2",
     "bannerpoint_polymer_compat": "=1.0.1+26.3"
   },
@@ -61,7 +60,7 @@
       "file": "META-INF/jars/chalk-colorful-addon-2.1.1-port.1+26.3.jar"
     },
     {
-      "file": "META-INF/jars/mapstitch-fabric-1.1.6+26.3.jar"
+      "file": "META-INF/jars/mapstitch-fabric-1.1.7+26.3.jar"
     },
     {
       "file": "META-INF/jars/misctweaks-fabric-1.4.4+26.3.jar"
@@ -70,7 +69,7 @@
       "file": "META-INF/jars/simple_death_improvements-fabric-1.6.0+26.3.jar"
     },
     {
-      "file": "META-INF/jars/simple_smithing_overhaul-fabric-2.9.14+26.3.jar"
+      "file": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar"
     },
     {
       "file": "META-INF/jars/tiered_backpacks-fabric-1.0.20+26.3.jar"
@@ -79,7 +78,7 @@
       "file": "META-INF/jars/toolpouch-fabric-1.1.10+26.3.jar"
     },
     {
-      "file": "META-INF/jars/thenathe-suite-combined-compat-1.1.0+26.3.jar"
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.1.1+26.3.jar"
     },
     {
       "file": "META-INF/jars/thenathe-suite-chalk-compat-1.1.1-suite.1+26.3.jar"
@@ -88,16 +87,16 @@
       "file": "META-INF/jars/shared-region-maps-1.0.5-combo.1+mc26.3.jar"
     },
     {
-      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.8-suite.1+26.3.jar"
+      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.9-suite.1+26.3.jar"
     },
     {
-      "file": "META-INF/jars/sensible_stackables-fabric-3.0.3-port.1+26.3.jar"
+      "file": "META-INF/jars/sensible_stackables-fabric-3.1.1+26.3.jar"
     },
     {
-      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.0+26.3.jar"
+      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.1+26.3.jar"
     },
     {
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.4+26.3.jar"
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.5+26.3.jar"
     },
     {
       "file": "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar"

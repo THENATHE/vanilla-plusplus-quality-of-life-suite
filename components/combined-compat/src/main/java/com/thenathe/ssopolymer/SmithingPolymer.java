@@ -4,15 +4,18 @@ import eu.pb4.polymer.core.api.block.PolymerBlock;
 import eu.pb4.polymer.core.api.item.PolymerItem;
 import eu.pb4.polymer.core.api.item.PolymerItemUtils;
 import eu.pb4.polymer.core.api.other.PolymerComponent;
+import eu.pb4.polymer.core.api.utils.PolymerSyncedObject;
 import eu.pb4.polymer.resourcepack.api.PolymerResourcePackUtils;
 import eu.pb4.polymer.rsm.api.RegistrySyncUtils;
 import me.pajic.simple_smithing_overhaul.blocks.ModBlocks;
 import me.pajic.simple_smithing_overhaul.items.ModItems;
 import me.pajic.simple_smithing_overhaul.recipe.ModRecipeSerializers;
+import me.pajic.simple_smithing_overhaul.repair.RepairableOverrides;
 import me.pajic.simple_smithing_overhaul.util.ModDataComponents;
 import me.pajic.simple_smithing_overhaul.util.ModUtil;
 import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderSet;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -22,6 +25,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.ItemLore;
+import net.minecraft.world.item.enchantment.Repairable;
 import net.minecraft.world.level.block.AnvilBlock;
 import net.minecraft.world.level.block.Blocks;
 
@@ -60,11 +64,19 @@ public final class SmithingPolymer {
         RegistrySyncUtils.setServerEntry(BuiltInRegistries.RECIPE_SERIALIZER, ModRecipeSerializers.PORTABLE_ITEM_REPAIR);
         // Broken vanilla gear also needs a server-computed display name and attributes.
         PolymerItemUtils.CONTEXT_ITEM_CHECK.register((stack, context) ->
-                !com.thenathe.combinedshim.NativeClients.isNative(context, "simple_smithing_overhaul")
-                && (stack.get(ModDataComponents.BROKEN) != null || stack.get(ModDataComponents.PINNACLE_COUNT) != null));
+                stack.count() > 0 && stack.typeHolder().value() != Items.AIR
+                && !com.thenathe.combinedshim.NativeClients.isNative(context, "simple_smithing_overhaul")
+                && (stack.get(ModDataComponents.BROKEN) != null || stack.get(ModDataComponents.PINNACLE_COUNT) != null
+                || RepairableOverrides.get(stack.typeHolder().value()) != null));
         PolymerItemUtils.ITEM_MODIFICATION_EVENT.register((original, client, context) -> {
+            if (original.isEmpty() || client.isEmpty()) return client;
             if (com.thenathe.combinedshim.NativeClients.isNative(context, "simple_smithing_overhaul")) return client;
             client = client.copy();
+            // The new upstream registry changes effective getters rather than item
+            // prototypes. Explicitly carry that value to clients without its table.
+            var repairable = repairableForClient(original.get(DataComponents.REPAIRABLE), context);
+            if (repairable == null) client.remove(DataComponents.REPAIRABLE);
+            else client.set(DataComponents.REPAIRABLE, repairable);
             if (ModUtil.isBroken(original)) {
                 client.set(DataComponents.CUSTOM_NAME, TextFallbacks.withFallback(original.getHoverName()));
                 client.set(DataComponents.ATTRIBUTE_MODIFIERS, ItemAttributeModifiers.EMPTY);
@@ -79,6 +91,20 @@ public final class SmithingPolymer {
             return client;
         });
         MenuGuidance.initialize();
+    }
+
+    private static Repairable repairableForClient(Repairable repairable, PacketContext context) {
+        if (repairable == null) return null;
+        var materials = repairable.items().stream().filter(holder -> {
+            if (com.thenathe.combinedshim.WireRegistries.hasMapping(context)) {
+                return com.thenathe.combinedshim.WireRegistries.isVisible(BuiltInRegistries.ITEM, holder.value(), context);
+            }
+            return !RegistrySyncUtils.isServerEntry(BuiltInRegistries.ITEM, holder.value())
+                    || PolymerSyncedObject.canSyncRawToClient(BuiltInRegistries.ITEM, holder.value(), context);
+        }).toList();
+        if (materials.isEmpty()) return null;
+        return materials.size() == repairable.items().size() ? repairable
+                : new Repairable(HolderSet.direct(materials));
     }
 
     private record ItemOverlay(Item fallback) implements PolymerItem {

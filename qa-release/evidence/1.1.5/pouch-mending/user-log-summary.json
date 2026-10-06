@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-06",
+  "release_target": "1.1.5+26.3",
+  "private_log_input": {
+    "sha256": "e1f4f31c6347c056cec3e6762efd1f7fc73a74fe76562b395b9244cef9af6971",
+    "raw_log_published": false,
+    "input": "User-supplied remote server log, retained privately"
+  },
+  "observed_versions": {
+    "minecraft": "26.3",
+    "suite": "1.1.4+26.3",
+    "simple_smithing_overhaul": "2.9.14",
+    "toolpouch": "1.1.10",
+    "toolpouch_atlas_elytra_compat": "1.0.8-suite.1+26.3",
+    "clumps": "26.3.2",
+    "betterthanmending": "2.3.0",
+    "armored-elytra": "unspecified",
+    "defaulted": "1.3.8+26.3.dropfix.1",
+    "fzzy_config": "0.7.7+fix3+26.3"
+  },
+  "inventory_mending_in_loaded_mod_list": false,
+  "suite_negotiation": {
+    "native_toolpouch": true,
+    "native_pouch_addon": true,
+    "native_sso": true,
+    "polymer_available": true,
+    "conclusion": "The logged client was recognized as native; the suite unsupported-client passive guard does not explain the failure."
+  },
+  "configuration": {
+    "sso_config_id": "simple_smithing_overhaul:config-v2",
+    "sso_load_success": true,
+    "sso_load_failure_logged": false,
+    "values_exposed_in_log": false,
+    "user_reported_regular_mending": true,
+    "user_reported_item": "ordinary Minecraft Elytra",
+    "user_reported_failure": "Stored Elytra fails to repair from XP in a standalone netherite pouch or a pouch attached to Mending leggings; held/worn/ordinary inventory repair works."
+  },
+  "finding": {
+    "confirmed_in_disposable_baseline": true,
+    "cause": "Clumps injects a cancellable early return into ExperienceOrb.repairPlayerItems at mixin priority 1001. That return bypasses the suite lower-priority RETURN injection for stored wings.",
+    "not_dependent_on_inventory_mending": true,
+    "fix": "Wrap the entire XP equipment repair pass and process only returned leftover XP; explicitly preserve optional SSO regular-Mending policy."
+  },
+  "limits": [
+    "No private save or full user server stack was executed.",
+    "The log records config loading but not boolean values or item components.",
+    "The Armored Elytra metadata version unspecified prevents identifying its release solely from this log.",
+    "Fzzy Config fix3 differs from historical suite QA fix2; that drift is not the independently reproduced Clumps root cause."
+  ]
+}

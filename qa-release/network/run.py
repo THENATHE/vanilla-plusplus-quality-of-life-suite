@@ -32,8 +32,8 @@ def main():
     fixtures = run / 'fixtures'; fixtures.mkdir(); classes = fixtures / 'classes'; classes.mkdir()
     launch = mapstitch_launch(WORKSPACE); suite = run / args.jar.name; shutil.copy2(args.jar.resolve(), suite)
     dependencies = [ROOT / 'libs' / name for name in (
-        'codecui-26.3-1.4.3-fabric.jar', 'defaulted-1.3.8+26.3.dropfix.1-fabric.jar',
-        'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'fzzy_config-0.7.7+fix2+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
+        'codecui-26.3-1.4.3-fabric.jar',
+        'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'fzzy_config-0.7.7+fix3+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
     api = launch.artifact('net.fabricmc.fabric-api', 'fabric-api', '0.161.0+26.3')
     dependencies += [api, launch.artifact('me.shedaniel.cloth', 'cloth-config-fabric', '26.3.159')]
     original = ROOT / 'libs/bannerpoint-fabric-1.1.2+26.3.jar'
@@ -127,6 +127,15 @@ def main():
             assert row['player_still_connected'] and read(name,'client')['connected'],row
             assert all(e['advertised'] for e in payloads if not e['channel'].startswith(('minecraft:','fabric:'))),payloads
             assert row['native_mapstitch']==(profile=='suite'),row
+            for channel, module in [('simple_smithing_overhaul:repairables','sso'), ('sensible_stackables:stack_sizes','stackables')]:
+                initial=[e for e in row['events'][:row['config_refresh_event_start']] if e['kind']=='custom-payload' and e['channel']==channel]
+                hot=[e for e in row['events'][row['config_refresh_event_start']:row['config_refresh_event_end']] if e['kind']=='custom-payload' and e['channel']==channel]
+                assert row['native_'+module]==(profile=='suite'),row
+                assert len(initial)==(1 if profile=='suite' else 0),initial
+                assert len(hot)==(1 if profile=='suite' else 0),hot
+                assert all(e['advertised'] for e in initial+hot),initial+hot
+            assert all(e['advertised'] for e in row['events'] if e['kind']=='custom-payload' and e['channel'] in ('simple_smithing_overhaul:repairables','sensible_stackables:stack_sizes')),row
+
             assert row['refresh_advertised']==(profile=='suite'),row
             assert len(refresh)==(3 if profile=='suite' else 0),payloads
             assert row['first_repair_full_snapshots']>=1 and row['repeat_repair_full_snapshots']>=1,row
@@ -135,7 +144,7 @@ def main():
             observations.append({'profile':profile,'commands':['atlas fix','atlas fix check','atlas repair check','atlas repair','atlas dedupe','atlas makecopy'],'client':read(name,'client'),'server':row,'command_custom_payloads':payloads,'cartography_clicks':click_observations})
             stop(client);print('PASS '+profile+': initial/repeated repair full snapshots, read-only checks, dedupe, makecopy and real cartography clicks, connected, refresh='+str(len(refresh)),flush=True)
         stop(server,True)
-        (run/'result.json').write_text(json.dumps({'passed':True,'version':version,'bundle_sha256':sha(suite),'run_label':args.label,'profiles':args.profiles.split(','),'observations':observations,'scope':'Focused native suite and Fabric API-only atlas maintenance command network safety. No broader gameplay or resource-pack matrix repeated.'},indent=2)+'\n')
+        (run/'result.json').write_text(json.dumps({'passed':True,'version':version,'bundle_sha256':sha(suite),'run_label':args.label,'profiles':args.profiles.split(','),'observations':observations,'scope':'Native suite/Fabric API-only connections, new repairables/stack-size initial and config-refresh payload guards, atlas maintenance and cartography network safety. No broader gameplay or resource-pack matrix repeated.'},indent=2)+'\n')
         print('PASS focused network checks',flush=True)
     finally:
         for process,log in reversed(children):

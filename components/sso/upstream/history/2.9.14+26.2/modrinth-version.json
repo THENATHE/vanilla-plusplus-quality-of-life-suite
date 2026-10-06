@@ -1,0 +1,74 @@
+{
+  "game_versions": [
+    "26.2"
+  ],
+  "loaders": [
+    "fabric"
+  ],
+  "environment": "client_and_server",
+  "id": "yzzzEFXt",
+  "project_id": "U5TJjZc3",
+  "author_id": "Kg6RZEfM",
+  "featured": false,
+  "name": "2.9.14 for Fabric 26.2",
+  "version_number": "2.9.14+26.2",
+  "changelog": "2.9.11:\n\n- Added NeoForge 26.2 version.\n- Backported all changes since 2.5.9 to 1.21.1 versions of the mod. This includes a lot of changes, so please refer to old changelogs.\n- Whetstones can now be enchanted using Modest Magic's tablet smithing recipe.\n\n2.9.14:\n\n- Fixed being unable to repair most items.\n- Fixed missing empty slot textures in the smithing table.\n- Fixed enchantment name not being colored when over max level.\n",
+  "changelog_url": null,
+  "date_published": "2026-09-23T21:50:26.306048Z",
+  "downloads": 66,
+  "version_type": "release",
+  "status": "listed",
+  "requested_status": null,
+  "files": [
+    {
+      "id": "ygxnRnOa",
+      "hashes": {
+        "sha512": "844a2b2b0b924bf0cce27f170d01a86db0b5c931bca0bebec8a7736528dc445b7e3cffac565556017083ef2e3afb47fc6969e74c00c6211cf2417d378db2e10a",
+        "sha1": "2c750315c9c098cb2dac186760a9ebd7235e89a1"
+      },
+      "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/yzzzEFXt/simple_smithing_overhaul-fabric-2.9.14%2B26.2.jar",
+      "filename": "simple_smithing_overhaul-fabric-2.9.14+26.2.jar",
+      "primary": true,
+      "size": 313992,
+      "file_type": null
+    },
+    {
+      "id": "4xLWIxni",
+      "hashes": {
+        "sha512": "e3246e9edd0beea9716a7de73aa6a37e6dd40b93d48cb873a75f8d4ba359c05f313fbeeff69276d783cc7ffea2ee3d237a0ab638738f3b9396aeb8f178925233",
+        "sha1": "5138e4d95c5c2e36c3c5097fbd230573c7d58231"
+      },
+      "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/yzzzEFXt/simple_smithing_overhaul-fabric-2.9.14%2B26.2-sources.jar",
+      "filename": "simple_smithing_overhaul-fabric-2.9.14+26.2-sources.jar",
+      "primary": false,
+      "size": 218865,
+      "file_type": null
+    }
+  ],
+  "dependencies": [
+    {
+      "version_id": null,
+      "project_id": "LxgPJAAy",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "hYykXjDp",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "P7dR8mSH",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "EgugIDm8",
+      "file_name": null,
+      "dependency_type": "required"
+    }
+  ]
+}

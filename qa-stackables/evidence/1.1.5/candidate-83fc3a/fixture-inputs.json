@@ -1,0 +1,7 @@
+{
+  "fixture_source": "qa-stackables/src/StackablesQa.java",
+  "fixture_sha256": "d2cdef71c273341e3376dec9d08ec87fff611641bf30f3aa45e810e4bc12437e",
+  "fixture_jar_sha256": "5010167f46c6622bc7d1e4cbc1cddfb4c7d25250587cec0c6c704752b9fb6db7",
+  "runner_source": "qa-stackables/run.py",
+  "runner_sha256": "934362c774bc1e2a0f581ea8cf5a649d1a2b4a870bdd8fd96b7cad42eee9dd9e"
+}

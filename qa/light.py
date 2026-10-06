@@ -10,6 +10,7 @@ STAGE = project_path(WORKSPACE, 'polymer-shim-test-bundle') / 'staging-2026-10-0
 JAVA = '/usr/lib/jvm/java-25-openjdk/bin/java'
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.1+26.3.jar')
+parser.add_argument('--originals-only', action='store_true', help='Original latest SSO/Stackables clients without suite/shims against Polymer server')
 parser.add_argument('--all-profiles',action='store_true',help='Keep all four connection profiles when testing inventory actions')
 parser.add_argument('--stackables-actions',action='store_true',help='Run native and Fabric-only real inventory packet moves')
 parser.add_argument('--stackables-uncapped',action='store_true',help='Configure common stacks at 2048 and verify native/fallback packets')
@@ -34,8 +35,7 @@ def fabric_mod(path):
 external=[p for p in (ROOT/'libs').glob('*.jar') if p.name not in featurefiles and fabric_mod(p)]
 external += [STAGE/'cloth-config-fabric-26.3.159.jar',STAGE/'fabric-api-0.161.0+26.3.jar']
 polymer=STAGE/'polymer-bundled-0.18.2+26.3.jar'
-patched_defaulted=next(p for p in external if p.name.startswith('defaulted-'))
-assert sha(patched_defaulted)=='e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61'
+assert not any(p.name.startswith('defaulted-') for p in external), 'Defaulted must be absent from current runtime QA'
 # Compile only the two bounded observer fixtures, never changing the production bundle.
 fixture=RUN/'fixture';classes=fixture/'classes';classes.mkdir(parents=True)
 paths=[*servercp,*clientcp,bundle,*external,polymer]
@@ -62,7 +62,7 @@ with zipfile.ZipFile(integratedfixture,'w',zipfile.ZIP_DEFLATED) as z:
     z.writestr('fabric.mod.json',json.dumps({'schemaVersion':1,'id':'suite_light_qa_integrated','version':'1','environment':'*','entrypoints':{'main':['suite.qa.SuiteServerQa'],'client':['suite.qa.SuiteClientQa']},'depends':{'fabric-api':'*'}}))
     for p in classes.rglob('*.class'):z.write(p,p.relative_to(classes))
 children=[]
-result={'passed':False,'bundle_sha256':sha(bundle),'scope':('bounded integrated singleplayer native negotiation and client/world ticks; no exhaustive gameplay test' if args.integrated_only else 'bounded connection/capability/resource-pack smoke; no exhaustive gameplay test'),'defaulted_sha256':sha(patched_defaulted),'cases':[]}
+result={'passed':False,'bundle_sha256':sha(bundle),'scope':('bounded integrated singleplayer native negotiation and client/world ticks; no exhaustive gameplay test' if args.integrated_only else 'bounded connection/capability/resource-pack smoke; no exhaustive gameplay test'),'defaulted_runtime_present':False,'cases':[]}
 def wait(predicate,process,reason,seconds=120):
     end=time.monotonic()+seconds
     while not predicate():
@@ -108,9 +108,10 @@ def server(label,with_polymer):
 
 def client(name,kind,sp,serverdir,port,pack,extended=False,mismatch=None):
     directory=RUN/name;(directory/'mods').mkdir(parents=True)
-    if kind.startswith('suite'):stackables_config(directory)
+    if kind.startswith('suite') or kind=='originals':stackables_config(directory)
     mods=[] if kind=='vanilla' else [fixtures['client'],STAGE/'fabric-api-0.161.0+26.3.jar']
     if kind.startswith('suite'):mods=[bundle,*external,fixtures['client']]
+    if kind=='originals':mods=[*external, fixtures['client'], ROOT/'libs/simple_smithing_overhaul-fabric-2.10.0+26.3.jar', ROOT/'libs/sensible_stackables-fabric-3.1.1+26.3.jar']
     if kind=='suite-polymer':mods.append(polymer)
     for mod in mods:shutil.copy2(mod,directory/'mods'/mod.name)
     packopt=''
@@ -120,6 +121,7 @@ def client(name,kind,sp,serverdir,port,pack,extended=False,mismatch=None):
     (directory/'options.txt').write_text('graphicsMode:0\nrenderDistance:2\nsimulationDistance:5\nmaxFps:20\nmaxFpsInactive:20\nsoundCategory_master:0.0\njoinedFirstServer:true\npauseOnLostFocus:false\n'+packopt)
     cp=[p for p in clientcp if kind!='vanilla' or not any(t in str(p) for t in ['/net.fabricmc/','/org.ow2.asm/'])]
     cmd=[JAVA,'-Xmx2G','-XX:ActiveProcessorCount=2','--enable-native-access=ALL-UNNAMED','-XX:StackShadowPages=32','--add-exports','java.base/jdk.internal.misc=ALL-UNNAMED','-Dsuite.qa.control='+str(directory),'-Dsuite.qa.server.address=127.0.0.1:'+str(port),'-Dsuite.qa.native-chalk='+str(kind.startswith('suite') and mismatch!='chalk').lower(),'-Dsuite.qa.native-sso='+str(kind.startswith('suite') and mismatch!='simple_smithing_overhaul').lower()]
+    cmd+=['-Dsuite.qa.native-stackables='+str((kind.startswith('suite') or kind=='originals') and mismatch!='sensible_stackables').lower()]
     if mismatch:cmd+=['-Dsuite.qa.reply-mismatch='+mismatch]
     if args.stackables_actions:cmd+=['-Dsuite.qa.stackables-actions=true']
     for prop,folder in [('java.library.path','java'),('jna.tmpdir','jna'),('org.lwjgl.system.SharedLibraryExtractPath','lwjgl'),('io.netty.native.workdir','netty')]:cmd+=['-D'+prop+'='+str(directory/'natives'/folder)]
@@ -178,7 +180,10 @@ try:
         integrated('SuiteNativeSPP',True)
     else:
         sp,directory,port,pack=server('server-polymer',True)
-        if args.client_polymer_only:
+        if args.originals_only:
+            client('OriginalClient','originals',sp,directory,port,pack)
+            stop(sp,server=True);assert sp.returncode==0
+        elif args.client_polymer_only:
             client('SuiteNativePoly','suite-polymer',sp,directory,port,pack)
             stop(sp,server=True);assert sp.returncode==0
         elif args.stackables_actions and not args.all_profiles:

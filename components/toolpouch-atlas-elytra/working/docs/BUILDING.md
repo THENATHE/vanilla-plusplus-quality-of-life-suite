@@ -2,7 +2,9 @@
 
 When building the combined suite from its root, use `tools/stage-inputs.py` as described in [the suite update guide](../../../../docs/UPDATING.md#rebuilding-inputs). Every suite component uses the verified root inputs. ClientSort is required only to compile the optional sorting integration; staging places it in `libs/compile-only/` so it stays out of the bundled feature JAR and normal QA runtime profiles.
 
-For a standalone component build, obtain the following exact publisher artifacts and place them in this component's `libs/` directory. They are ignored by Git and excluded from its output JAR.
+The standalone dependency table below preserves the original 1.0.4 build inputs. Current suite 1.1.5 compiles against MapStitch 1.1.7 and Fzzy Config 0.7.7+fix3+26.3 via the root build; do not use this historical table as its installation requirements.
+
+For that historical standalone component build, obtain the following exact publisher artifacts and place them in this component's `libs/` directory. They are ignored by Git and excluded from its output JAR.
 
 | Filename | Source |
 | --- | --- |

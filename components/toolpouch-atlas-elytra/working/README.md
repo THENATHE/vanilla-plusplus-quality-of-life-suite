@@ -1,12 +1,14 @@
-# Suite addon: 1.0.8-suite.1+26.3
+# Suite addon: 1.0.9-suite.1+26.3
 
-Stable suite **1.1.4** includes this separate Tool Pouch / MapStitch addon. It shares atlas and ordinary-map minimap placement while keeping Tool Pouch information placement independent, with measured bounds to prevent same-side overlap. It retains the original addon’s gameplay features and integrations. Read [the current HUD guide](../../../docs/HUD.md) and [suite validation](../../../docs/VALIDATION.md) for current behavior and exact verification scope.
+Stable suite **1.1.5** includes this separate Tool Pouch / MapStitch addon. It shares atlas and ordinary-map minimap placement while keeping Tool Pouch information placement independent, with measured bounds to prevent same-side overlap. It retains the original addon’s gameplay features and integrations. Read [the current HUD guide](../../../docs/HUD.md) and [suite validation](../../../docs/VALIDATION.md) for current behavior and exact verification scope.
 
 For a map on the right and text on the left, choose **MapStitch Client Settings → Minimap → Position → Top Right** and **Tool Pouch Client Settings → Info Overlay Settings → Position → Top Left**. Tool Pouch’s **Minimap Overlay Settings → Position** also controls the shared map corner; it never changes the info corner. Text offsets remain independent.
 
-This update routes pouch flight wear through normal enchantment-aware durability so Unbreaking applies. Regular XP Mending remains controlled by server SSO settings; equipped items take priority. Optional SSO automatic repair checks broken active-pouch Elytra using its original whetstone/material requirements and costs. Closed and open pouch contents must retain repairs when the menu closes.
+The suite retains normal enchantment-aware pouch flight wear so Unbreaking applies. This update wraps the whole XP repair operation to preserve pouch repair when Clumps returns early from the original method. Regular XP Mending remains controlled by server SSO settings; equipped items take priority. Optional SSO automatic repair checks broken active-pouch Elytra using its original whetstone/material requirements and costs. Closed and open pouch contents must retain repairs when the menu closes.
 
-The original README below describes inherited features and historical validation. Its old standalone release links are historical references, not the stable suite download.
+Current suite inputs are MapStitch 1.1.7 and Fzzy Config 0.7.7+fix3+26.3; use the suite root build and installation guide.
+
+The original README below describes inherited features and historical standalone installation/validation. Its old standalone release links are historical references, not the stable suite download.
 
 # Tool Pouch Atlas & Elytra Modification
 

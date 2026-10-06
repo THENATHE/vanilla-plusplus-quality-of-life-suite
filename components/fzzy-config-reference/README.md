@@ -1,10 +1,12 @@
 # Fzzy Config public dependency reference
 
-Checked **2026-10-04**. This directory contains release metadata and read-only API/hash comparison, not a bundled library component.
+Current suite **1.1.5+26.3** selects official **0.7.7+fix3+26.3**, [Modrinth YkOumqzV](https://modrinth.com/mod/fzzy-config/version/YkOumqzV), SHA-256 `3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a`. It stays external and download-only. Current runtime acceptance is recorded in [validation](../../docs/VALIDATION.md). The exact previous fix2 input and its audit remain historical records below.
 
-## Existing dependency is already official
+Historical comparison checked **2026-10-04**. This directory contains release metadata and read-only API/hash comparison, not a bundled library component.
 
-The existing `libs/fzzy_config-0.7.7+fix2+26.3.jar` is **byte-identical** to the publisher's public Fabric 26.3 release:
+## Historical fix2 dependency was already official
+
+The historical `fzzy_config-0.7.7+fix2+26.3.jar` input is **byte-identical** to the publisher's public Fabric 26.3 release:
 
 - Version: **0.7.7+fix2+26.3**, published 2026-09-24.
 - Modrinth version ID: **thw1Z19c**.
@@ -16,7 +18,7 @@ Modrinth's SHA-1 and SHA-512 file hashes also match the downloaded reference. Be
 
 ## Latest fix3 reference
 
-[Official fix3](https://modrinth.com/mod/fzzy-config/version/YkOumqzV) was published 2026-10-03. SHA-256: `3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a`. Its publisher changelog describes missed narration implementation fixes. A ZIP-entry comparison found only three changed class files: `ConfigScreen`, `ConfigScreenNarrator`, and its `MessageBuilder`. Configuration registries, manager/update-manager, config API, and codecs are byte-identical. The screen's private/public descriptor listing does change; see `fix3-config-screen-abi.diff`. This optional newer release was **not** installed or runtime tested. Do not infer fully validated GUI compatibility from a descriptor scan.
+[Official fix3](https://modrinth.com/mod/fzzy-config/version/YkOumqzV) was published 2026-10-03. SHA-256: `3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a`. Its publisher changelog describes missed narration implementation fixes. A ZIP-entry comparison found only three changed class files: `ConfigScreen`, `ConfigScreenNarrator`, and its `MessageBuilder`. Configuration registries, manager/update-manager, config API, and codecs are byte-identical. The screen's private/public descriptor listing does change; see `fix3-config-screen-abi.diff`. At the historical 2026-10-04 audit, this newer release was **not** installed or runtime tested. Do not infer fully validated GUI compatibility from a descriptor scan.
 
 Exact factual comparison: `comparison.json`. Raw official API metadata: `upstream/metadata/`.
 

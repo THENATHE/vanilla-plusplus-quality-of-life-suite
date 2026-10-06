@@ -29,12 +29,13 @@
     "source_reference": "components/codecui-reference/README.md"
   },
   {
-    "file": "libs/defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+    "file": "libs/compile-only/defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
     "id": "defaulted",
     "version": "1.3.8+26.3.dropfix.1",
     "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
-    "origin": "Existing local dropfix modification, exact original hash 0f6efc6423902b83da78ce85a119c69536517b1a9af52ed7046858859ff582a0; source components/defaulted-dropfix",
-    "source_reference": "components/defaulted-reference/README.md; exact local fix source components/defaulted-dropfix"
+    "origin": "Existing local dropfix modification, exact original hash 0f6efc6423902b83da78ce85a119c69536517b1a9af52ed7046858859ff582a0; source components/defaulted-dropfix; historical optional integration compile input, not a current runtime dependency.",
+    "source_reference": "components/defaulted-reference/README.md; exact local fix source components/defaulted-dropfix",
+    "scope": "compile-only"
   },
   {
     "file": "libs/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
@@ -44,20 +45,23 @@
     "origin": "Pinned existing runtime library, unchanged archive"
   },
   {
-    "file": "libs/fzzy_config-0.7.7+fix2+26.3.jar",
+    "file": "libs/fzzy_config-0.7.7+fix3+26.3.jar",
     "id": "fzzy_config",
-    "version": "0.7.7+fix2+26.3",
-    "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f",
-    "origin": "Official public Fzzy Config Modrinth Fabric 26.3 release thw1Z19c (2026-09-24); downloaded reference byte-identical to pinned local input, verified 2026-10-04; external dependency only, never bundled",
-    "version_url": "https://modrinth.com/mod/fzzy-config/version/thw1Z19c",
-    "download_url": "https://cdn.modrinth.com/data/hYykXjDp/versions/thw1Z19c/fzzy_config-0.7.7%2Bfix2%2B26.3.jar"
+    "version": "0.7.7+fix3+26.3",
+    "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a",
+    "origin": "Official public Fzzy Config Fabric 26.3 release YkOumqzV; unchanged download-only runtime dependency, verified 2026-10-06.",
+    "version_url": "https://modrinth.com/mod/fzzy-config/version/YkOumqzV",
+    "download_url": "https://cdn.modrinth.com/data/hYykXjDp/versions/YkOumqzV/fzzy_config-0.7.7%2Bfix3%2B26.3.jar"
   },
   {
-    "file": "libs/mapstitch-fabric-1.1.6+26.3.jar",
+    "file": "libs/mapstitch-fabric-1.1.7+26.3.jar",
     "id": "mapstitch",
-    "version": "1.1.6",
-    "sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81",
-    "origin": "Official developer Fabric 26.3 release; components/mapstitch/inputs.lock.json"
+    "version": "1.1.7",
+    "sha256": "d7949f082d365fa4b71ce29b7fdce21ecec3f759ef9f9da9be34b880fc64b5e4",
+    "origin": "Official developer Fabric 26.3 release; components/mapstitch/inputs.lock.json",
+    "track": "developer-release",
+    "version_url": "https://modrinth.com/mod/mapstitch/version/oDB5IJ7O",
+    "download_url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/oDB5IJ7O/mapstitch-fabric-1.1.7%2B26.3.jar"
   },
   {
     "file": "libs/misctweaks-fabric-1.4.4+26.3.jar",
@@ -81,13 +85,14 @@
     "origin": "Official developer Fabric 26.3 release; components/simple-death-improvements/inputs.lock.json"
   },
   {
-    "file": "libs/simple_smithing_overhaul-fabric-2.9.14+26.3.jar",
+    "file": "libs/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
     "id": "simple_smithing_overhaul",
-    "version": "2.9.14",
-    "sha256": "fb6cbf8c13938d68fb19171dac386b5567d71625bce727b22d3380f6b7880126",
-    "origin": "Private official developer Fabric 26.3 release, confirmed by user on 2026-10-04; exact binary retained unchanged. Official public 26.2 baseline separately preserved; private build source revision not independently recorded.",
-    "track": "developer-release-private",
-    "user_provenance_confirmation": "2026-10-04: user confirms official private release; public Modrinth listing is a different 26.2 binary."
+    "version": "2.10.0",
+    "sha256": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
+    "origin": "Official developer Fabric 26.3 release; components/sso/inputs.lock.json",
+    "track": "developer-release",
+    "version_url": "https://modrinth.com/mod/simple-smithing-overhaul/version/k5NaPhrq",
+    "download_url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/k5NaPhrq/simple_smithing_overhaul-fabric-2.10.0%2B26.3.jar"
   },
   {
     "file": "libs/tiered_backpacks-fabric-1.0.20+26.3.jar",
@@ -128,5 +133,15 @@
     "sha256": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
     "origin": "Official developer Fabric26.3 release; components/bannerpoint/inputs.lock.json",
     "download_url": "https://cdn.modrinth.com/data/IfTBNyjQ/versions/Vrns75Ns/bannerpoint-fabric-1.1.2%2B26.3.jar"
+  },
+  {
+    "file": "libs/sensible_stackables-fabric-3.1.1+26.3.jar",
+    "id": "sensible_stackables",
+    "version": "3.1.1",
+    "sha256": "bf750cbe40394caffe3fd7c9bc2b57985d4110c5cae51dc726f948b55a25598a",
+    "origin": "Official developer Fabric 26.3 release; components/sensible-stackables/inputs.lock.json",
+    "track": "developer-release",
+    "version_url": "https://modrinth.com/mod/sensible-stackables/version/oRpBICTz",
+    "download_url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/oRpBICTz/sensible_stackables-fabric-3.1.1%2B26.3.jar"
   }
 ]

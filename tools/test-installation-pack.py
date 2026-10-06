@@ -35,7 +35,7 @@ def main():
     assert len(manifest['files']) == 7
     cases = ['Installation ZIP integrity, safe paths and manifest identity verified']
     jars = {name: data for name, data in contents.items() if name.endswith('.jar')}
-    assert len(jars) == 9
+    assert len(jars) == 8
     for data in jars.values():
         builder.no_fzzy(data)
     for entry in lock['overrides']:
@@ -45,7 +45,7 @@ def main():
             installer.verify(contents['downloads/' + entry['path']], entry)
         else:
             assert entry['slug'] == 'fzzy-config' and 'downloads/' + entry['path'] not in contents
-    cases.append('Nine exact dependency/suite JARs embedded; Fzzy excluded recursively and remains official-manifest-only')
+    cases.append('Eight exact dependency/suite JARs embedded; Fzzy excluded recursively and remains official-manifest-only')
     with zipfile.ZipFile(kit) as archive:
         for line in archive.read('SHA256SUMS.sha256').decode().splitlines():
             digest, name = line.split('  ', 1)
@@ -135,7 +135,7 @@ def main():
     builder.package(args.release)
     assert hashlib.sha256(kit.read_bytes()).hexdigest() == before
     cases.append('Rebuilding installation ZIP produces byte-identical output')
-    report = {'pack_version': lock['pack_version'], 'date': '2026-10-05', 'passed': True,
+    report = {'pack_version': lock['pack_version'], 'date': '2026-10-06', 'passed': True,
               'suite_sha256': lock['overrides'][0]['hashes']['sha256'],
               'archives': {kit.name: before}, 'cases': cases, 'installed_profiles': profiles,
               'launcher_gui_import_tested': False,

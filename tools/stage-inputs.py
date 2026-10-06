@@ -24,7 +24,7 @@ if args.bundle:
                 target = ROOT / record['file']
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.write_bytes(data)
-search = [ROOT / 'libs']
+search = [ROOT / 'libs', ROOT / 'components/sensible-stackables/developer-release/artifacts']
 search += [ROOT / 'components' / name / 'upstream/artifacts' for name in ['sso','mapstitch','toolpouch','tiered-backpacks','misctweaks','simple-death-improvements','bannerpoint']]
 if args.inputs: search.append(args.inputs)
 if args.workspace:

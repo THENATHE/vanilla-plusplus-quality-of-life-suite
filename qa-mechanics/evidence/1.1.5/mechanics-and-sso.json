@@ -1,0 +1,309 @@
+{
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "mechanics-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS all Chalk conversion transitions, 32 calcite recipes, real curse-removal menus, 16 item/drop lifecycle regressions, 3 historical Defaulted-only checks skipped, 33 SSO assertions",
+      "passed": true,
+      "runtime_mods": [
+        {
+          "file": "vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar",
+          "sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5"
+        },
+        {
+          "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+          "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+        },
+        {
+          "file": "kotlin-stdlib-2.4.20.jar",
+          "sha256": "078594f80e214438a35454e3f16f890a68dba6a607aa2c83014065344d13308a"
+        },
+        {
+          "file": "fzzy_config-0.7.7+fix3+26.3.jar",
+          "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+        },
+        {
+          "file": "codecui-26.3-1.4.3-fabric.jar",
+          "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+        },
+        {
+          "file": "mixson-2.2.1-multiloader.jar",
+          "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.3.jar",
+          "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+        },
+        {
+          "file": "cloth-config-fabric-26.3.159.jar",
+          "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+        },
+        {
+          "file": "mechanics.jar",
+          "sha256": "88109d07146ad114c0239f25567809f9cd9f1530783e83f8ec1a2ca16993bdb0"
+        },
+        {
+          "file": "polymer-bundled-0.18.2+26.3.jar",
+          "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+        }
+      ],
+      "defaulted_runtime_present": false,
+      "positive_chalk_conversion_transitions": 752,
+      "calcite_recipes": 32,
+      "sso_assertions": 33,
+      "curse_menu_assertions": 18,
+      "drop_lifecycle_passed": 16,
+      "historical_defaulted_only_skipped": 3,
+      "assertion_labels": [
+        "CLEANSER QA PASS: plain gear rejected",
+        "CLEANSER QA PASS: menu 0 creates result",
+        "CLEANSER QA PASS: data preserved 0",
+        "CLEANSER QA PASS: unbreaking preserved 0",
+        "CLEANSER QA PASS: both curses removed 0",
+        "CLEANSER QA PASS: inputs consumed once 0",
+        "CLEANSER QA PASS: menu 1 creates result",
+        "CLEANSER QA PASS: data preserved 1",
+        "CLEANSER QA PASS: unbreaking preserved 1",
+        "CLEANSER QA PASS: both curses removed 1",
+        "CLEANSER QA PASS: inputs consumed once 1",
+        "CLEANSER QA PASS: menu 2 creates result",
+        "CLEANSER QA PASS: data preserved 2",
+        "CLEANSER QA PASS: unbreaking preserved 2",
+        "CLEANSER QA PASS: both curses removed 2",
+        "CLEANSER QA PASS: inputs consumed once 2",
+        "CLEANSER QA PASS: one echo reward per craft",
+        "CLEANSER QA PASS: source item not mutated",
+        "SSO QA PASS: raw Bow prototype remains unchanged without Defaulted",
+        "SSO QA PASS: original Bow override table populated",
+        "SSO QA PASS: effective Bow getter accepts string",
+        "SSO QA PASS: wrong Bow material rejected",
+        "SSO QA PASS: ordinary Elytra repair material retained",
+        "SSO QA PASS: live custom override applies to existing stack",
+        "SSO QA PASS: live custom override replaces prior material",
+        "SSO QA PASS: live clear removes obsolete override from existing stack",
+        "SSO QA PASS: live reset restores original repair rules",
+        "SSO QA PASS: native decision Bow/string actual anvil repair result",
+        "SSO QA PASS: native decision Bow/string source copy unchanged",
+        "SSO QA PASS: native decision Bow/string output can be taken",
+        "SSO QA PASS: native decision Bow/string gear consumed exactly once",
+        "SSO QA PASS: native decision Bow/string repair material consumed",
+        "SSO QA PASS: native decision Elytra/membrane actual anvil repair result",
+        "SSO QA PASS: native decision Elytra/membrane source copy unchanged",
+        "SSO QA PASS: native decision Elytra/membrane output can be taken",
+        "SSO QA PASS: native decision Elytra/membrane gear consumed exactly once",
+        "SSO QA PASS: native decision Elytra/membrane repair material consumed",
+        "SSO QA PASS: native decision actual anvil rename result",
+        "SSO QA PASS: native decision default free rename has zero XP cost",
+        "SSO QA PASS: fallback decision Bow/string actual anvil repair result",
+        "SSO QA PASS: fallback decision Bow/string source copy unchanged",
+        "SSO QA PASS: fallback decision Bow/string output can be taken",
+        "SSO QA PASS: fallback decision Bow/string gear consumed exactly once",
+        "SSO QA PASS: fallback decision Bow/string repair material consumed",
+        "SSO QA PASS: fallback decision Elytra/membrane actual anvil repair result",
+        "SSO QA PASS: fallback decision Elytra/membrane source copy unchanged",
+        "SSO QA PASS: fallback decision Elytra/membrane output can be taken",
+        "SSO QA PASS: fallback decision Elytra/membrane gear consumed exactly once",
+        "SSO QA PASS: fallback decision Elytra/membrane repair material consumed",
+        "SSO QA PASS: fallback decision actual anvil rename result",
+        "SSO QA PASS: fallback decision default free rename has zero XP cost",
+        "DROP_QA PASS frame-null-name",
+        "DROP_QA PASS cushion-null-name",
+        "DROP_QA PASS frame-name-return-values",
+        "DROP_QA PASS copy-isolation-and-codec-persistence",
+        "SKIP historical Defaulted-only dynamic-prototype-retains-overrides",
+        "SKIP historical Defaulted-only null-first-write-after-prototype-refresh",
+        "DROP_QA PASS repeated-null-setters",
+        "SKIP historical Defaulted-only removed-name-survives-absent-present-absent-prototype",
+        "DROP_QA PASS snapshot-and-copy-ownership",
+        "DROP_QA PASS cushion-player-attack-false",
+        "DROP_QA PASS cushion-support-loss-false",
+        "DROP_QA PASS frame-player-attack-elytra-false",
+        "DROP_QA PASS frame-support-loss-elytra-false",
+        "DROP_QA PASS frame-shulker-bullet-elytra-false",
+        "DROP_QA PASS cushion-player-attack-true",
+        "DROP_QA PASS cushion-support-loss-true",
+        "DROP_QA PASS frame-player-attack-elytra-true",
+        "DROP_QA PASS frame-support-loss-elytra-true",
+        "DROP_QA PASS frame-shulker-bullet-elytra-true"
+      ]
+    },
+    {
+      "profile": "mechanics-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS all Chalk conversion transitions, 32 calcite recipes, real curse-removal menus, 16 item/drop lifecycle regressions, 3 historical Defaulted-only checks skipped, 33 SSO assertions",
+      "passed": true,
+      "runtime_mods": [
+        {
+          "file": "vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar",
+          "sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5"
+        },
+        {
+          "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+          "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+        },
+        {
+          "file": "kotlin-stdlib-2.4.20.jar",
+          "sha256": "078594f80e214438a35454e3f16f890a68dba6a607aa2c83014065344d13308a"
+        },
+        {
+          "file": "fzzy_config-0.7.7+fix3+26.3.jar",
+          "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+        },
+        {
+          "file": "codecui-26.3-1.4.3-fabric.jar",
+          "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+        },
+        {
+          "file": "mixson-2.2.1-multiloader.jar",
+          "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.3.jar",
+          "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+        },
+        {
+          "file": "cloth-config-fabric-26.3.159.jar",
+          "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+        },
+        {
+          "file": "mechanics.jar",
+          "sha256": "88109d07146ad114c0239f25567809f9cd9f1530783e83f8ec1a2ca16993bdb0"
+        }
+      ],
+      "defaulted_runtime_present": false,
+      "positive_chalk_conversion_transitions": 752,
+      "calcite_recipes": 32,
+      "sso_assertions": 33,
+      "curse_menu_assertions": 18,
+      "drop_lifecycle_passed": 16,
+      "historical_defaulted_only_skipped": 3,
+      "assertion_labels": [
+        "CLEANSER QA PASS: plain gear rejected",
+        "CLEANSER QA PASS: menu 0 creates result",
+        "CLEANSER QA PASS: data preserved 0",
+        "CLEANSER QA PASS: unbreaking preserved 0",
+        "CLEANSER QA PASS: both curses removed 0",
+        "CLEANSER QA PASS: inputs consumed once 0",
+        "CLEANSER QA PASS: menu 1 creates result",
+        "CLEANSER QA PASS: data preserved 1",
+        "CLEANSER QA PASS: unbreaking preserved 1",
+        "CLEANSER QA PASS: both curses removed 1",
+        "CLEANSER QA PASS: inputs consumed once 1",
+        "CLEANSER QA PASS: menu 2 creates result",
+        "CLEANSER QA PASS: data preserved 2",
+        "CLEANSER QA PASS: unbreaking preserved 2",
+        "CLEANSER QA PASS: both curses removed 2",
+        "CLEANSER QA PASS: inputs consumed once 2",
+        "CLEANSER QA PASS: one echo reward per craft",
+        "CLEANSER QA PASS: source item not mutated",
+        "SSO QA PASS: raw Bow prototype remains unchanged without Defaulted",
+        "SSO QA PASS: original Bow override table populated",
+        "SSO QA PASS: effective Bow getter accepts string",
+        "SSO QA PASS: wrong Bow material rejected",
+        "SSO QA PASS: ordinary Elytra repair material retained",
+        "SSO QA PASS: live custom override applies to existing stack",
+        "SSO QA PASS: live custom override replaces prior material",
+        "SSO QA PASS: live clear removes obsolete override from existing stack",
+        "SSO QA PASS: live reset restores original repair rules",
+        "SSO QA PASS: native decision Bow/string actual anvil repair result",
+        "SSO QA PASS: native decision Bow/string source copy unchanged",
+        "SSO QA PASS: native decision Bow/string output can be taken",
+        "SSO QA PASS: native decision Bow/string gear consumed exactly once",
+        "SSO QA PASS: native decision Bow/string repair material consumed",
+        "SSO QA PASS: native decision Elytra/membrane actual anvil repair result",
+        "SSO QA PASS: native decision Elytra/membrane source copy unchanged",
+        "SSO QA PASS: native decision Elytra/membrane output can be taken",
+        "SSO QA PASS: native decision Elytra/membrane gear consumed exactly once",
+        "SSO QA PASS: native decision Elytra/membrane repair material consumed",
+        "SSO QA PASS: native decision actual anvil rename result",
+        "SSO QA PASS: native decision default free rename has zero XP cost",
+        "SSO QA PASS: fallback decision Bow/string actual anvil repair result",
+        "SSO QA PASS: fallback decision Bow/string source copy unchanged",
+        "SSO QA PASS: fallback decision Bow/string output can be taken",
+        "SSO QA PASS: fallback decision Bow/string gear consumed exactly once",
+        "SSO QA PASS: fallback decision Bow/string repair material consumed",
+        "SSO QA PASS: fallback decision Elytra/membrane actual anvil repair result",
+        "SSO QA PASS: fallback decision Elytra/membrane source copy unchanged",
+        "SSO QA PASS: fallback decision Elytra/membrane output can be taken",
+        "SSO QA PASS: fallback decision Elytra/membrane gear consumed exactly once",
+        "SSO QA PASS: fallback decision Elytra/membrane repair material consumed",
+        "SSO QA PASS: fallback decision actual anvil rename result",
+        "SSO QA PASS: fallback decision default free rename has zero XP cost",
+        "DROP_QA PASS frame-null-name",
+        "DROP_QA PASS cushion-null-name",
+        "DROP_QA PASS frame-name-return-values",
+        "DROP_QA PASS copy-isolation-and-codec-persistence",
+        "SKIP historical Defaulted-only dynamic-prototype-retains-overrides",
+        "SKIP historical Defaulted-only null-first-write-after-prototype-refresh",
+        "DROP_QA PASS repeated-null-setters",
+        "SKIP historical Defaulted-only removed-name-survives-absent-present-absent-prototype",
+        "DROP_QA PASS snapshot-and-copy-ownership",
+        "DROP_QA PASS cushion-player-attack-false",
+        "DROP_QA PASS cushion-support-loss-false",
+        "DROP_QA PASS frame-player-attack-elytra-false",
+        "DROP_QA PASS frame-support-loss-elytra-false",
+        "DROP_QA PASS frame-shulker-bullet-elytra-false",
+        "DROP_QA PASS cushion-player-attack-true",
+        "DROP_QA PASS cushion-support-loss-true",
+        "DROP_QA PASS frame-player-attack-elytra-true",
+        "DROP_QA PASS frame-support-loss-elytra-true",
+        "DROP_QA PASS frame-shulker-bullet-elytra-true"
+      ]
+    }
+  ],
+  "checked_on": "2026-10-06",
+  "scope": "Dedicated server mechanics using actual game objects and packet-stub players; not actual connections or GUI checks.",
+  "limitations": [
+    "No real connected clients or GUI clicks in this mechanics fixture.",
+    "Native/fallback capability decisions are set on packet-stub players; network negotiation is covered separately.",
+    "Three Defaulted-specific dynamic-prototype cases are skipped because the library is absent.",
+    "Enchantment-upgrade/pinnacle crafting and unrelated full server stack combinations are not verified by these cases.",
+    "Pouch Mending and stack movement are separate QA fixtures; not duplicated here."
+  ],
+  "run_label": "final115-mechanics04",
+  "source_files": [
+    {
+      "file": "qa-mechanics/run.py",
+      "sha256": "4c6e17558aed6dbec8e24b4de0b45e9225bcb366d10802054db138b120c1b1e9"
+    },
+    {
+      "file": "qa-mechanics/src/ChalkRecipeChecks.java",
+      "sha256": "92049c8f58457739c079e3362ebbc323765f8b71609c89a4b546ee6e0b1fef59"
+    },
+    {
+      "file": "qa-mechanics/src/CleanserChecks.java",
+      "sha256": "ed1dff1f49586c8e7a69dadfa3048d7b5439e1936d97fcdb99d287968c8ab376"
+    },
+    {
+      "file": "qa-mechanics/src/DropFixQa.java",
+      "sha256": "93331ff6df76fa9f7e79a4d3edc4a9c2bcd7846072980df6d479f5114911570f"
+    },
+    {
+      "file": "qa-mechanics/src/SsoChecks.java",
+      "sha256": "dd6efff6b3342973e045e5a0567cabbd0c58b6c39843f28c72d9cbb19e908cfa"
+    },
+    {
+      "file": "qa-mechanics/src/SuiteMechanicsQa.java",
+      "sha256": "20cca09b5012fdeb38e5fe5d5c6ce2452638335842160bec323fb316da93a10d"
+    },
+    {
+      "file": "qa-mechanics/src/sharedmaps/Qa.java",
+      "sha256": "810a512016ecb7866f38b10716ce140f6516148bea2ccc5ef2f5c59f2a660a4f"
+    }
+  ],
+  "fixture_jars": [
+    {
+      "file": "mechanics.jar",
+      "sha256": "88109d07146ad114c0239f25567809f9cd9f1530783e83f8ec1a2ca16993bdb0"
+    }
+  ],
+  "prior_candidate": {
+    "bundle_sha256": "83fc3a07291cf9000a3e5a56fa1998ee47001eab3cf091ded152a0bf6e831f9a",
+    "evidence": "candidate-83fc3a/mechanics-and-sso.json",
+    "note": "Prior candidate passed; current results are a fresh rerun against the rebuilt final artifact after coordinator state-proof inference guard changed."
+  }
+}

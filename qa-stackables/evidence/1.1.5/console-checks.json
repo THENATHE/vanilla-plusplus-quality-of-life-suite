@@ -1,0 +1,55 @@
+{
+  "suite_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "checks": [
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 0,
+      "raw_console_sha256": "958d967a08fe01fca7b7fb23986d080c8e0d913e98f5f09a4ee0936b09710637",
+      "error_lines": [],
+      "server_started": true,
+      "server_stopped": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 1,
+      "raw_console_sha256": "948ba241fcc5054d842c69b9c44107e0c409383f4bd590313ab4b20cff8cc500",
+      "error_lines": [],
+      "server_started": true,
+      "server_stopped": true
+    },
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 0,
+      "raw_console_sha256": "a9b8807700288fd836ec9ec0c15540cebd14ccd80b967951af7e1e0806eab23a",
+      "error_lines": [],
+      "server_started": true,
+      "server_stopped": true
+    },
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 1,
+      "raw_console_sha256": "8e983cfbc9170f26a93d53ab4010f3eb6856b08e3ec01828eb1fd8391fe8427c",
+      "error_lines": [],
+      "server_started": true,
+      "server_stopped": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 0,
+      "raw_console_sha256": "031f06190bdfa76fa1df99ace32089cce58a7c922e48848521da4d901b0bead1",
+      "error_lines": [],
+      "server_started": true,
+      "server_stopped": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 1,
+      "raw_console_sha256": "d3b815a4eb4df3ac0f3042a69285a3fc512a449f9b6688b338dcd148a1ef929f",
+      "error_lines": [],
+      "server_started": true,
+      "server_stopped": true
+    }
+  ],
+  "raw_runs": "qa-stackables/runs/developer-overrides-1.1.5-final5-coordinator",
+  "raw_runs_ignored": true
+}

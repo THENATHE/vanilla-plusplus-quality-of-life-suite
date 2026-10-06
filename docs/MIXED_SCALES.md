@@ -1,6 +1,6 @@
 # Mixed-scale atlases
 
-Stable suite **1.1.4** includes mixed-scale MapStitch and Sensible Stackables as separate modules on `main`. The original MapStitch JAR remains unchanged. These features are maintained for modern Minecraft versions; [installation requirements](INSTALLATION_PACK.md) identify the exact supported version and dependencies for this release.
+Stable suite **1.1.5** includes mixed-scale MapStitch and Sensible Stackables as separate modules on `main`. The original MapStitch JAR remains unchanged. These features are maintained for modern Minecraft versions; [installation requirements](INSTALLATION_PACK.md) identify the exact supported version and dependencies for this release.
 
 ## Current behavior
 
@@ -13,23 +13,23 @@ Stable suite **1.1.4** includes mixed-scale MapStitch and Sensible Stackables as
 - The normal Tool Pouch integration selects and saves the owned atlas. A persisted book identity and map anchor reject packets targeting a replacement atlas or stale location.
 - MapStitch's existing **Keep atlases on death** option also handles supported nested containers. The containing item and unrelated contents retain their configured drop behavior.
 
-See [atlas controls](ATLAS_CONTROLS.md), [shared HUD layout](HUD.md), and [container-safe death retention](ATLAS_DEATH_RETENTION.md) for player-facing details. Current release checks and testing steps are in [validation](VALIDATION.md) and [the stable release guide](RELEASE_1_1_4.md); previous branch evidence below remains historical.
+See [atlas controls](ATLAS_CONTROLS.md), [shared HUD layout](HUD.md), and [container-safe death retention](ATLAS_DEATH_RETENTION.md) for player-facing details. Current release checks and testing steps are in [validation](VALIDATION.md) and [the stable release guide](RELEASE_1_1_5.md); previous branch evidence below remains historical.
 
 ## Current implementation and build
 
 | Component | Stable artifact version | Source |
 | --- | --- | --- |
-| Suite root | `1.1.4+26.3` | `src/` |
-| Shared coordinator | `1.1.0+26.3` | `components/combined-compat/` |
-| Mixed-scale addon | `1.1.4+26.3` | `components/mapstitch-mixed-scales/working/` |
+| Suite root | `1.1.5+26.3` | `src/` |
+| Shared coordinator | `1.1.1+26.3` | `components/combined-compat/` |
+| Mixed-scale addon | `1.1.5+26.3` | `components/mapstitch-mixed-scales/working/` |
 | Shared Region Maps | `1.0.5-combo.1+mc26.3` | `components/shared-region-maps/working/` |
-| Original MapStitch | `1.1.6+26.3` | Unchanged developer input pinned in `locks/artifacts.json` |
+| Original MapStitch | `1.1.7+26.3` | Unchanged developer input pinned in `locks/artifacts.json` |
 
 The stable archive includes 18 nested mods. Coordinator protocol v2 negotiates 11 feature capabilities, including Sensible Stackables. The MapStitch fingerprint includes this addon, the atlas/Elytra integration, Shared Region Maps, coordinator and suite versions. An untouched MapStitch client's original channels do not qualify for native mixed-scale behavior; matching suite clients retain native functionality, and a server with Polymer supplies the documented fallback to unsupported clients.
 
 `AtlasOptions` owns the per-book generation mask and identity in vanilla custom data. `MixedScaleMaps` handles exact layer coverage, blank conservation and regional sharing. `AtlasTarget` binds the owned source and saveback. `MixedScales` validates `select_scale_v2` and `select_generation_v2` requests. `MixedScalesClient` and the world-map mixins present independent controls. `AtlasDeathRetention` and the death/respawn mixins preserve atlases from supported nested containers.
 
-Build from `Minecraft/thenathe-mod-suite/` using the pinned inputs and Java/compiler command in [UPDATING.md](UPDATING.md). `tools/verify-bundle.py` verifies the 18 declared modules, exact component versions, preserved input hashes and Defaulted dropfix requirement. The component output is `components/mapstitch-mixed-scales/working/build/libs/mapstitch-mixed-scales-1.1.4+26.3.jar`; it is already nested in the suite and should not be installed again separately.
+Build from `Minecraft/thenathe-mod-suite/` using the pinned inputs and Java/compiler command in [UPDATING.md](UPDATING.md). `tools/verify-bundle.py` verifies the 18 declared modules, exact component versions, preserved input hashes and current runtime/compile dependency roles. The component output is `components/mapstitch-mixed-scales/working/build/libs/mapstitch-mixed-scales-1.1.5+26.3.jar`; it is already nested in the suite and should not be installed again separately.
 
 The original MapStitch source remains update context. Compare new developer source with the exact retained baseline, then adjust these separate adapters rather than merging upstream classes into them. Recheck insertion/ticking, world-map and minimap controls, owned-location resolution, guarded packets, original data components, container/death methods and the optional accessory APIs. Preserve dependency APIs and the paused SSO-port track. Machine-assisted maintenance of this suite proceeds independently of the original author's own updates.
 
@@ -127,6 +127,6 @@ JAVA_HOME=/usr/lib/jvm/java-25-openjdk ./gradlew --offline build -PcompilerVersi
 python3 tools/verify-bundle.py
 ```
 
-The archive verifier checks all 14 nested mod IDs, declared component versions, unchanged upstream input hashes and the exact Defaulted requirement. Build/archive checks establish compilation and packaging only. Focused actual-client/server and persistence evidence is maintained separately under `qa-multiscale/`; inherited 1.0.1 validation records are baseline history, not proof of this feature branch.
+The historical experiment archive verifier checked its 14 nested mod IDs, declared component versions, unchanged upstream input hashes and the then-required exact Defaulted input. Current suite validation uses the current dependency roles; this paragraph describes the preserved experiment. Build/archive checks establish compilation and packaging only. Focused actual-client/server and persistence evidence is maintained separately under `qa-multiscale/`; inherited 1.0.1 validation records are baseline history, not proof of this feature branch.
 
 The frozen candidate `0c590629dd4ba3f3a4cd21f0705430775799e8e096211419db7921910b185ddd` passed the focused dedicated-server run `qa-multiscale/runs/final-source-priority-0c590629/result.json`: 56 initial assertions and 3 restart assertions in each of the Polymer and no-Polymer profiles (118 total). This includes an identical inventory/pouch atlas regression verifying that the pouch remains the selected source and only its scale changes. Actual client controls and network profiles are recorded separately by the release QA.

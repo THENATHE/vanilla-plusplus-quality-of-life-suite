@@ -1,0 +1,33 @@
+{
+  "suite_sha256": "4d0086b3472ea890a9ed6813ef8e32936e4d29b495858c4ca937ede60a16d2f3",
+  "checks": [
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 0,
+      "raw_console_sha256": "29eb79a3dfb66b865a85f64c57f385b5ea2f5587fd39a7b1e7714f992157d7f9",
+      "error_lines": [],
+      "server_started": true,
+      "server_stopped": true
+    },
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 1,
+      "raw_console_sha256": "18b89ae498fd5c6b70dfeb60aee57b58adb0d81af9dda1f615b49932790ca64a",
+      "error_lines": [],
+      "server_started": true,
+      "server_stopped": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 0,
+      "raw_console_sha256": "d65c2e5cf8842e0b7d723254f9eb1ed18edc51a717cdeee8236938a2ba57bb8b",
+      "error_lines": [
+        "[02:45:15] [Server thread/INFO]: [STDERR]: java.lang.AssertionError: Polymer preserves empty slot without constructing transformed air native=false"
+      ],
+      "server_started": true,
+      "server_stopped": true
+    }
+  ],
+  "raw_runs": "qa-stackables/runs/empty-slots-baseline-1.1.5-4d-02",
+  "raw_runs_ignored": true
+}

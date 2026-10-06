@@ -2,7 +2,7 @@
 
 [What it is](#what-it-is) · [Features](#features) · [Vanilla compatibility](#the-shim-vanilla-and-modded-players-together) · [Installation](#installation) · [Technical info](#technical-info) · [Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Dependencies and compatible mods](docs/DEPENDENCIES.md)
 
-Stable release **1.1.4** includes [Bannerpoint](docs/BANNERPOINT.md), the [mixed-scale MapStitch addon](docs/MIXED_SCALES.md), and [Sensible Stackables with Polymer compatibility](components/sensible-stackables/README.md) as separate modules. Banner waypoints can use the server resource pack, and one atlas banner click updates every enabled map scale covering that location. Atlas views use saved map centers for reliable placement and map ejection, and the repair command resynchronizes your atlas even when its server metadata is already correct. See the [1.1.4 release guide](docs/RELEASE_1_1_4.md) for installation and testing notes.
+Stable release **1.1.5** updates Simple Smithing Overhaul, MapStitch and Sensible Stackables to their latest matching developer releases. It fixes XP Mending for an Elytra inside the active Tool Pouch when Clumps is installed, and no longer requires Defaulted. Bannerpoint, mixed-scale atlases, atlas maintenance/copying and the independent minimap/information controls remain available. See the [1.1.5 release guide](docs/RELEASE_1_1_5.md) for installation and testing notes.
 
 ## What it is
 
@@ -21,14 +21,15 @@ This is an unofficial community project. Credit for the original mods belongs to
 Thanks for your hard work, **pajic**!
 
 - Stack potions up to 3, saddles up to 16, and enchanted books up to 64 under the default rules.
-- Configure common stack sizes and per-item or tag overrides.
+- Configure common stack sizes and per-item or tag overrides; in-game changes apply immediately.
+- Stack cushions up to 64 under the updated default rules.
 - Optionally uncap stack sizes beyond the normal limit.
 - Retain the original stacked-item menu fixes and throwable-potion cooldown.
 - Native clients retain count abbreviation and display scaling.
 
 #### My tweaks and changes
 
-The suite includes an unofficial compatibility port and a separate Polymer module, helping keep Sensible Stackables available on modern Minecraft versions. It keeps the original settings and server quantities. Clients without the suite receive **full item counts** with safe stack defaults. When a configured maximum exceeds 99, only their maximum-stack prediction metadata is capped at 99; completed inventory moves are corrected by the server. See [provenance, behavior, and verification](components/sensible-stackables/README.md).
+The suite includes the original developer release and a separate Polymer module for modern Minecraft versions. It keeps the original settings and server quantities. Clients without the suite receive **full item counts** with safe stack defaults. When a configured maximum exceeds 99, only their maximum-stack prediction metadata is capped at 99; completed inventory moves are corrected by the server. See [provenance, behavior, and verification](components/sensible-stackables/README.md).
 
 ### Simple Smithing Overhaul
 
@@ -51,12 +52,13 @@ Thanks for your hard work, **pajic**!
 - Find a Pinnacle template in Ancient Cities to push an eligible, fully enchanted item's enchantment beyond its normal maximum.
 - Use rebalanced enchanting, villager book trades, enchanted loot, and experience bottles to progress through equipment upgrades.
 - Follow a smithing advancement tree and customize the repair, enchanting, and integration rules.
+- Apply repair-rule changes immediately through the settings, without reloading datapacks.
 
 #### My tweaks and additions
 
 - Added the shared compatibility support described below, including preservation of the real broken-anvil appearance for matching suite clients.
 - Connected the original settings to the suite's combined settings screen.
-- Kept SSO's Mending choices authoritative: the pouch Elytra repair addition follows your regular-Mending setting.
+- Kept SSO's Mending choices authoritative: the pouch Elytra repair addition follows your regular-Mending setting and works when Clumps handles XP orbs.
 
 ### MapStitch
 
@@ -324,7 +326,7 @@ The compatibility layer includes:
 
 ## Installation
 
-The [1.1.4 release guide](docs/RELEASE_1_1_4.md) covers the current features, installation and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.4%2B26.3) provides four downloads:
+The [1.1.5 release guide](docs/RELEASE_1_1_5.md) covers the current features, installation and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.5%2B26.3) provides four downloads:
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -336,7 +338,7 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Download `vanilla-plusplus-quality-of-life-suite-1.1.4+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.4%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
+2. Download `vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.5%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
@@ -348,10 +350,9 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 | [Fzzy Config](https://modrinth.com/mod/fzzy-config) |
 | [Cloth Config](https://modrinth.com/mod/cloth-config) |
 | [Mixson](https://modrinth.com/mod/mixson) |
-| [Defaulted](https://modrinth.com/mod/defaulted) |
 | [CodecUI](https://github.com/MehVahdJukaar/codecui) — no Modrinth listing |
 
-For **Defaulted**, use the release installation ZIP; it includes the required **drop fix**. Use the release's selected **CodecUI** build as well. Follow the versions supplied or selected by [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases), rather than substituting each project's latest download. Exact requirements are recorded in the [dependency directory](docs/DEPENDENCIES.md).
+Use the libraries selected by [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases), rather than substituting each project's latest download. Defaulted is no longer required by the suite. Exact requirements are recorded in the [dependency directory](docs/DEPENDENCIES.md).
 
 ### Allow vanilla players to join
 
@@ -372,13 +373,15 @@ For developers, server maintainers, or anyone troubleshooting a problem, the tec
 
 This is a standalone, unofficial repository. One feature JAR contains separate modules with their original mod IDs, assets, configuration identities, and saved-data formats. Original notices remain in the source and production archive; see [credits and licensing](THIRD_PARTY_NOTICES.md).
 
-The suite combines developer releases, local ports, and THENATHE additions. SSO uses the user-confirmed private official Minecraft 26.3 developer release. Its exact bytes and source audit are recorded separately from the public 26.2 baseline. The separate ChatGPT-produced SSO port remains paused. Chalk uses the recorded local 26.3 Fabric port, with the matching Colorful Addon metadata port. See [provenance and compatibility tracks](docs/PROVENANCE.md).
+The suite combines developer releases, local ports, and THENATHE additions. SSO and Sensible Stackables now use public official Minecraft 26.3 developer releases. The previous private official SSO input and Stackables port remain preserved as historical baselines. The separate ChatGPT-produced SSO port remains paused. Chalk uses the recorded local 26.3 Fabric port, with the matching Colorful Addon metadata port. See [provenance and compatibility tracks](docs/PROVENANCE.md).
 
-Defaulted is pinned to `1.3.8+26.3.dropfix.1`, SHA-256 `e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61`. The unpatched release is not interchangeable. Keep CodecUI `26.3-1.4.3` external as documented: Defaulted's older nested dependency remains unchanged. Fzzy Config is an official external dependency; its installation and distribution rules are recorded in [installation instructions](docs/INSTALLATION_PACK.md). Exact artifact versions and hashes are recorded in [the dependency lock](locks/artifacts.json).
+Defaulted is no longer a runtime requirement: the updated original mods synchronize repair rules and stack limits themselves. Historical guarded Defaulted support retains its exact compile input. Fzzy Config remains an official external dependency; its installation and distribution rules are recorded in [installation instructions](docs/INSTALLATION_PACK.md). Exact artifact versions and hashes are recorded in [the dependency lock](locks/artifacts.json).
 
 ### Negotiation and configuration
 
-The connection-scoped capability protocol checks module/addon versions and registry fingerprints. Native Chalk and SSO share confirmed block-state IDs after registry synchronization, preserving their native blocks independently. Without matching support, the affected module uses its Polymer fallback when available. Untouched original Tool Pouch/MapStitch clients can still be recognized through their advertised channels. Bannerpoint’s original `bannerpoint:banner_name` channel separately proves its client-side support; the server sends its custom name packets only to clients advertising that channel. Other clients get Bannerpoint icons only after the compatibility module verifies that the offered Polymer pack contains the original artwork and the client reports successful loading; untouched SSO/backpacks/Chalk clients cannot reliably prove installation without suite negotiation and use fallback.
+The connection-scoped capability protocol checks module/addon versions and registry fingerprints. Native Chalk and SSO share confirmed block-state IDs after registry synchronization, preserving their native blocks independently. Without matching support, the affected module uses its Polymer fallback when available. Untouched original Tool Pouch and the new Stackables release can be recognized through their advertised channels. Native SSO additionally needs the suite’s block-state confirmation receiver; its new repair-table channel alone cannot establish that capability. Original MapStitch clients use that path only when the mixed-scale addon is absent. Bannerpoint’s original `bannerpoint:banner_name` channel separately proves its client-side support; the server sends its custom name packets only to clients advertising that channel. Other clients get Bannerpoint icons only after the compatibility module verifies that the offered Polymer pack contains the original artwork and the client reports successful loading; untouched backpacks/Chalk clients still cannot reliably prove installation without suite negotiation and use fallback.
+
+SSO's `simple_smithing_overhaul:repairables` and Sensible Stackables' `sensible_stackables:stack_sizes` payloads are sent only to supported native clients. Fallback clients receive projected effective stack limits, capped at 99 when needed, while retaining actual item counts.
 
 The settings screen uses the original Fzzy configuration IDs, validation, permissions, and saving. Chalk's particle control saves to its original configuration. Settings managers preserve proposals within a connection, restore routing after invalidation, and clear connection-specific state on disconnect.
 
@@ -392,7 +395,7 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.1.4+26.3.jar`.
+The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 

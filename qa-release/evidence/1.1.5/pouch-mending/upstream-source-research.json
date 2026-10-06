@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-06",
+  "finding": "Clumps 26.3.2 cancels repairPlayerItems and returns before the suite RETURN injection. A whole-method wrapper sees Clumps and vanilla returns and repairs only leftover XP.",
+  "baseline_suite_sha256": "2c1273947279693e5ec3c78b2c39793c3b5fdbc320216476e04d16f79b2a1754",
+  "optional_mods": [
+    {
+      "modrinth_project": "clumps",
+      "release_id": "J4I1wxJZ",
+      "version": "26.3.2",
+      "file": "Clumps-fabric-26.3-26.3.2.jar",
+      "url": "https://cdn.modrinth.com/data/Wnxd13zP/versions/J4I1wxJZ/Clumps-fabric-26.3-26.3.2.jar",
+      "sha256": "8c72b1505a11ad93ed19b5a914eb6a036da92eb323d58da288bef36c19ed7624",
+      "official_hashes": {
+        "sha512": "8c166ae97e1999d0f213d0a181d6ef87b99648016c92c9aa1414d2c2e24364b12549569cd7e247a3d675df703ae6a8a88fc175d3f527818c710578408508c8ab",
+        "sha1": "86d6618f772320bb5e66b4696396a450d5cb845e"
+      }
+    },
+    {
+      "modrinth_project": "inventory-mending",
+      "release_id": "CDeW1GJ4",
+      "version": "26.3.0-1.3-fabric+forge+neo",
+      "file": "inventorymending-26.3.0-1.3.jar",
+      "url": "https://cdn.modrinth.com/data/y6Ryy40D/versions/CDeW1GJ4/inventorymending-26.3.0-1.3.jar",
+      "sha256": "218ba2d90118caff6816e6b331ab56a66bda1da9eeb34c7c8eb0f6efd7acd2b2",
+      "official_hashes": {
+        "sha1": "ebc95604a5733b5672e107d3328f8f4572d45f0d",
+        "sha512": "70e206053d180d37750a0bf69c8e7e71384dff6685bd10c2991eb40ad220cfea8e28bb48bbc3f3cf905534c715ec5d3ea4e5fc05424ddfb917489b099ef6ceec"
+      }
+    },
+    {
+      "modrinth_project": "better-than-mending",
+      "release_id": "SydvTww2",
+      "version": "2.3.0",
+      "file": "BetterThanMending-2.3.0-merged.jar",
+      "url": "https://cdn.modrinth.com/data/Lvv4SHrK/versions/SydvTww2/BetterThanMending-2.3.0-merged.jar",
+      "sha256": "244d948b24c88e33330db7622a33d3228e73f122a60243add3c68a61a9ed6fb8",
+      "official_hashes": {
+        "sha1": "de0c2e98e8ebb907bede012679c7b3c024e848d6",
+        "sha512": "cd540aa7a436186e669cd733b46b6ae2e3403dc1978577d479bbaa654a8c71233eba17f1bcf9510a2fcd1991d708273f77dec61b2b2c2d94064863f15392fb36"
+      }
+    },
+    {
+      "modrinth_project": "elytra-armor",
+      "release_id": "Oe6DS1BQ",
+      "version": "1.16.0",
+      "file": "armored-elytra-1.16.0.jar",
+      "url": "https://cdn.modrinth.com/data/AuFCCYMx/versions/Oe6DS1BQ/armored-elytra-1.16.0.jar",
+      "sha256": "c139e1e7aeebeb5ab0b09a591f9c12c79685ea2ca2f4f805ee7ac33557b530dc",
+      "official_hashes": {
+        "sha512": "d6309fe5e2aa1a03e275b2f14d2cbdb1b85315f916ccd5f9f6ea2539f0fb6bd90b80657cac6836d0018926abdad1b24151232e9daa207a357220a150fa9a5ea2",
+        "sha1": "c61ce228a4e332a41805488ee7c8db54cd807e4a"
+      }
+    },
+    {
+      "modrinth_project": "collective",
+      "release_id": "S1V3Trc7",
+      "version": "26.3.0-8.42-fabric+forge+neo",
+      "file": "collective-26.3.0-8.42.jar",
+      "url": "https://cdn.modrinth.com/data/e0M1UDsY/versions/S1V3Trc7/collective-26.3.0-8.42.jar",
+      "sha256": "cbb64a5bc772f715045074b116b66279eccc1b3f05cb0f452442dd51d8aff10d",
+      "official_hashes": {
+        "sha512": "15c11e3271250b6ec21eed38c61bb044f907c7affdc4e506d97e2b840599cfcb08735521dc558801e0e7820da3079b8e773cc55389210f1d01277054178ac5aa",
+        "sha1": "8bdd75360aea25b00038ff8d6e7844d9c8aa31bf"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "repo": "jaredlll08/Clumps",
+      "commit": "43dfc0cdad83f1f6b179812e7918b27264093a5e",
+      "source_url": "https://github.com/jaredlll08/Clumps/blob/43dfc0cdad83f1f6b179812e7918b27264093a5e/common/src/main/java/com/blamejared/clumps/mixin/MixinExperienceOrb.java",
+      "sha256": "1d47a058abf235cf649d19d3a2d6c44e684fb7816390d4c0e082c67fb99b7c04"
+    },
+    {
+      "repo": "DorkixAzIgazi/armored-elytra",
+      "commit": "dcb6a76d967a8d406ddb9301dc539410f738a6c8",
+      "source_url": "https://github.com/DorkixAzIgazi/armored-elytra/blob/dcb6a76d967a8d406ddb9301dc539410f738a6c8/src/main/java/dorkix/armored/elytra/ArmoredElytra.java",
+      "sha256": "eff7d85f98888e30f0f639404f18e65352797174cb5ced1e367c458480e520b6"
+    },
+    {
+      "repo": "legobmw99/BetterThanMending",
+      "commit": "975cd15a31bcd2f68f8d5b1ab1abc9977ba10401",
+      "source_url": "https://github.com/legobmw99/BetterThanMending/blob/975cd15a31bcd2f68f8d5b1ab1abc9977ba10401/fabric/src/main/java/com/legobmw99/BetterThanMending/BetterThanMending.java",
+      "sha256": "7bf5bab4b471a61d3217b8ffe082b7fcd6b7712f9ea30eb9b758d7df345e187d"
+    },
+    {
+      "repo": "Serilum/Inventory-Mending",
+      "commit": "d9d34bd0c1f66b00a49bddf7ed165dfd4c0f18d1",
+      "source_url": "https://github.com/Serilum/Inventory-Mending/blob/d9d34bd0c1f66b00a49bddf7ed165dfd4c0f18d1/Common/src/main/java/com/serilum/inventorymending/mixin/ExperienceOrbMixin.java",
+      "sha256": "056c18f605c32bcae55fd169ee314ea4be8b980474fc44621151c60dbc6dff1d"
+    }
+  ],
+  "limits": [
+    "Disposable mechanic fixtures are not the user world or full server mod stack.",
+    "Candidate tests override only one nested addon; final updated suite requires a separate frozen-artifact run."
+  ],
+  "baseline_result": "baseline-observation.json"
+}

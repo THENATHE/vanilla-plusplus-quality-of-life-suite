@@ -5,7 +5,7 @@ import java.util.WeakHashMap;
 import com.thenathe.combinedshim.NativeClients;
 import me.pajic.simple_smithing_overhaul.SSO;
 import me.pajic.simple_smithing_overhaul.items.ModItems;
-import me.pajic.simple_smithing_overhaul.util.CostAccess;
+import me.pajic.simple_smithing_overhaul.extension.CostAccess;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;

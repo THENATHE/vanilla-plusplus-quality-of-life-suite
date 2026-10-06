@@ -1,0 +1,70 @@
+{
+  "component": "mapstitch",
+  "track": "developer-release",
+  "mod_id": "mapstitch",
+  "artifact_version": "1.1.6",
+  "release_version": "1.1.6+26.3",
+  "minecraft": "26.3",
+  "upstream_minecraft": "26.3",
+  "advertised_game_versions": [
+    "26.3"
+  ],
+  "loader": "fabric",
+  "modrinth_version_id": "kRE6nsB7",
+  "modrinth_version_url": "https://modrinth.com/mod/mapstitch/version/kRE6nsB7",
+  "github": {
+    "repository": "https://github.com/pajicadvance/mapstitch",
+    "branch": "multicutter-v3",
+    "commit": "6a10ed9ca26ffce49ab8cee03871a6e56d1eceb0"
+  },
+  "binary": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.6+26.3.jar",
+  "binary_sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81",
+  "published_sources": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.6+26.3-sources.jar",
+  "repository_snapshot": "components/mapstitch/upstream/repository",
+  "published_source_tree": "components/mapstitch/upstream/source",
+  "dependencies": {
+    "minecraft": "~26.3",
+    "fabricloader": ">=0.19.5",
+    "java": ">=25",
+    "fabric-api": ">=0.160.5",
+    "fzzy_config": ">=0.7.7"
+  },
+  "suggests": {
+    "modmenu": ">=21.0.0",
+    "ohmega": ">=1.5.21 <1.6",
+    "remapped": ">=2.0.2",
+    "sodium": ">=0.9.2",
+    "trinkets": ">=4.2.0"
+  },
+  "nested_jars": [
+    {
+      "file": "META-INF/jars/mixinconstraints-1.1.0.jar"
+    }
+  ],
+  "config_ids": [
+    "mapstitch:client_config",
+    "mapstitch:config"
+  ],
+  "license": "MIT",
+  "copyright_file": "components/mapstitch/upstream/repository/LICENSE",
+  "artifacts": [
+    {
+      "path": "components/mapstitch/upstream/artifacts/mapstitch-6a10ed9ca26ffce49ab8cee03871a6e56d1eceb0-source.zip",
+      "sha256": "69c3178a8ffc6cc08c174270e7a4f17b1e1541b640f407161ef0659a15f73363",
+      "size": 1103608
+    },
+    {
+      "path": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.6+26.3-sources.jar",
+      "sha256": "dfc21f03f2b07ba659604088abf12ef64e3a48c6803d4abe1146a45b9675b4a9",
+      "size": 793018
+    },
+    {
+      "path": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.6+26.3.jar",
+      "sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81",
+      "size": 896682
+    }
+  ],
+  "modifications": [],
+  "port_counterpart": null,
+  "port_counterpart_reason": "Official developer release supports26.3; no additional port created."
+}

@@ -25,7 +25,7 @@ if args.upstream_baseline:
  cache=Path.home()/'.gradle/caches/modules-2/files-2.1'
  patterns=['net.fabricmc.fabric-api/fabric-api/0.161.0+26.2/*/*.jar','me.fzzyhmstrs/fzzy_config/0.7.6+26.2-pre-3/*/*.jar','maven.modrinth/defaulted/1.3.8-26.1.2-Fabric/*/*.jar','maven.modrinth/mixson/2.2.0/*/*.jar']
  mods=[next(cache.glob(p)) for p in patterns]+list((ROOT/'libs').glob('fabric-language-kotlin*.jar'))
-else:assert sha(next(p for p in mods if p.name.startswith('defaulted-')))=='e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61'
+else:assert not any(p.name.startswith('defaulted-') for p in mods), 'Active developer-release suite must boot without Defaulted'
 classes=RUN/'classes';classes.mkdir();paths=[*servercp,*clientcp,bundle,*mods]+([] if args.upstream_baseline else [polymer])
 def nested(p):
  with zipfile.ZipFile(p) as z:
@@ -42,7 +42,7 @@ for kind,entry in [('stackables','qa.StackablesQa')]:
  with zipfile.ZipFile(jar,'w',zipfile.ZIP_DEFLATED) as z:
   z.writestr('fabric.mod.json',json.dumps({'schemaVersion':1,'id':'suite_'+kind+'_qa','version':'1','environment':'server','entrypoints':{'main':[entry]},'depends':{'sensible_stackables':'*','fabric-api':'*'}}))
   for p in classes.rglob('*.class'):z.write(p,p.relative_to(classes))
-results={'bundle_sha256':sha(bundle),'minecraft':target_mc,'track':'developer-release' if args.upstream_baseline else 'ported-suite','passed':False,'cases':[]}
+results={'bundle_sha256':sha(bundle),'minecraft':target_mc,'track':'developer-release' if args.upstream_baseline else 'developer-release-suite','passed':False,'cases':[]}
 try:
  for with_polymer,uncap in ([(False,False),(False,True)] if args.upstream_baseline else [(True,False),(True,True),(False,True)]):
   kind='stackables'

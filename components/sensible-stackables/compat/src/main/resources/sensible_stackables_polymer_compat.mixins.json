@@ -3,7 +3,8 @@
   "package": "com.thenathe.stackablescompat.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "ContainerResyncMixin"
+    "ContainerResyncMixin",
+    "StackablesNetworkingMixin"
   ],
   "injectors": {
     "defaultRequire": 1

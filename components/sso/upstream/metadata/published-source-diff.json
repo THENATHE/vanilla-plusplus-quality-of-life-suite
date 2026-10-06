@@ -1,0 +1,53 @@
+{
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "assets/simple_smithing_overhaul/lang/en_us.json",
+    "me/pajic/simple_smithing_overhaul/SSO.java",
+    "me/pajic/simple_smithing_overhaul/config/ModConfig.java",
+    "me/pajic/simple_smithing_overhaul/criterion/ModCriterion.java",
+    "me/pajic/simple_smithing_overhaul/mixin/ItemCombinerMenuMixin.java",
+    "me/pajic/simple_smithing_overhaul/mixin/ItemMixin.java",
+    "me/pajic/simple_smithing_overhaul/mixin/ItemStackMixin.java",
+    "me/pajic/simple_smithing_overhaul/mixin/SmithingMenuMixin.java",
+    "me/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin.java",
+    "me/pajic/simple_smithing_overhaul/mixson/DataPatches.java",
+    "me/pajic/simple_smithing_overhaul/platform/MultiLoaderUtil.java",
+    "me/pajic/simple_smithing_overhaul/platform/fabric/FabricClientEntrypoint.java",
+    "me/pajic/simple_smithing_overhaul/platform/fabric/FabricEntrypoint.java",
+    "me/pajic/simple_smithing_overhaul/platform/fabric/FabricLoaderUtil.java",
+    "me/pajic/simple_smithing_overhaul/platform/neoforge/NeoforgeClientEventSubscriber.java",
+    "me/pajic/simple_smithing_overhaul/platform/neoforge/NeoforgeEntrypoint.java",
+    "me/pajic/simple_smithing_overhaul/platform/neoforge/NeoforgeLoaderUtil.java",
+    "me/pajic/simple_smithing_overhaul/recipe/UpgradeRecipeHandler.java",
+    "me/pajic/simple_smithing_overhaul/util/ModUtil.java"
+  ],
+  "added": [
+    "me/pajic/simple_smithing_overhaul/assets/ModAssetPacks.java",
+    "me/pajic/simple_smithing_overhaul/backport/Repairable.java",
+    "me/pajic/simple_smithing_overhaul/extension/ComponentMapOwner.java",
+    "me/pajic/simple_smithing_overhaul/extension/CostAccess.java",
+    "me/pajic/simple_smithing_overhaul/extension/SmithingMenuExtension.java",
+    "me/pajic/simple_smithing_overhaul/mixin/PatchedDataComponentMapMixin.java",
+    "me/pajic/simple_smithing_overhaul/repair/RepairableOverrides.java",
+    "me/pajic/simple_smithing_overhaul/repair/RepairableSyncPayload.java",
+    "me/pajic/simple_smithing_overhaul/util/ModClientUtil.java",
+    "resourcepacks/rename_mending_description/assets/simple_smithing_overhaul/lang/en_us.json",
+    "resourcepacks/rename_mending_description/pack.mcmeta",
+    "resourcepacks/rename_mending_description/pack.png",
+    "resourcepacks/rename_xp_bottle/assets/simple_smithing_overhaul/lang/en_us.json",
+    "resourcepacks/rename_xp_bottle/pack.mcmeta",
+    "resourcepacks/rename_xp_bottle/pack.png",
+    "resourcepacks/required/assets/simple_smithing_overhaul/lang/en_us.json",
+    "resourcepacks/required/pack.mcmeta",
+    "resourcepacks/required/pack.png"
+  ],
+  "deleted": [
+    "me/pajic/simple_smithing_overhaul/defaulted/RepairablePatchEvent.java",
+    "me/pajic/simple_smithing_overhaul/mixin/DefaultedItemMixin.java",
+    "me/pajic/simple_smithing_overhaul/mixin/DefaultedRepairableMixin.java",
+    "me/pajic/simple_smithing_overhaul/mixson/AssetPatches.java",
+    "me/pajic/simple_smithing_overhaul/mixson/Constants.java",
+    "me/pajic/simple_smithing_overhaul/util/CostAccess.java",
+    "me/pajic/simple_smithing_overhaul/util/SmithingMenuExtension.java"
+  ]
+}

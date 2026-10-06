@@ -5,8 +5,11 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
 import net.fabricmc.loader.api.FabricLoader;
+import me.pajic.sensible_stackables.handler.StackSizeOverrides;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.world.item.Items;
 
-/** Preserve upstream quantities and rules; Polymer carries the changed vanilla component defaults. */
+/** Carry effective upstream limits without changing quantities or server inventory rules. */
 public final class StackablesCompat implements ModInitializer {
     public static boolean nativeClient(PacketContext context) {
         return SuiteCapabilities.isNative(context, "sensible_stackables");
@@ -20,20 +23,24 @@ public final class StackablesCompat implements ModInitializer {
     }
     private static final class PolymerDefaults {
         static void registerFallbackTransform() {
-            // Forced-default synchronization alone does not run item modification events.
-            // Opt ordinary vanilla items into transformation when their limit needs a cap.
+            // Defaults now live in a separate upstream table. Opt every overridden
+            // item into transformation, including limits below 99 and native clients.
             eu.pb4.polymer.core.api.item.PolymerItemUtils.CONTEXT_ITEM_CHECK.register((stack, context) ->
-                    !nativeClient(context)
-                            && stack.getOrDefault(net.minecraft.core.component.DataComponents.MAX_STACK_SIZE, 1) > 99);
+                    stack.count() > 0 && stack.typeHolder().value() != Items.AIR
+                            && (StackSizeOverrides.get(stack.typeHolder().value()) > 0
+                            || (!nativeClient(context) && stack.getOrDefault(DataComponents.MAX_STACK_SIZE, 1) > 99)));
             eu.pb4.polymer.core.api.item.PolymerItemUtils.ITEM_MODIFICATION_EVENT.register((original, client, context) -> {
+                // copy() of an empty stack can return the shared EMPTY singleton.
+                // Never turn empty inventory slots into transformed air or mutate it.
+                if (original.isEmpty() || client.isEmpty()) return client;
                 // Vanilla hashes a clicked stack with the persistent component codec, whose
                 // MAX_STACK_SIZE range ends at 99 even though its network codec accepts any
                 // positive int. Keep the real count and server rules; only constrain the
                 // fallback client's prediction metadata. Completed clicks are resynchronized.
-                if (!nativeClient(context) && client.getMaxStackSize() > 99) {
-                    client = client.copy();
-                    client.set(net.minecraft.core.component.DataComponents.MAX_STACK_SIZE, 99);
-                }
+                int effective = original.getMaxStackSize();
+                int advertised = nativeClient(context) ? effective : Math.min(effective, 99);
+                client = client.copy();
+                client.set(DataComponents.MAX_STACK_SIZE, advertised);
                 return client;
             });
         }
@@ -42,7 +49,7 @@ public final class StackablesCompat implements ModInitializer {
                 // The public API inserts defaults directly into the wire patch. Calling set()
                 // on a copy would elide values equal to the patched server prototype.
                 eu.pb4.polymer.core.api.item.PolymerItemUtils.syncDefaultComponent(item,
-                        net.minecraft.core.component.DataComponents.MAX_STACK_SIZE);
+                        DataComponents.MAX_STACK_SIZE);
             }
         }
     }

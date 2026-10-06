@@ -76,7 +76,7 @@ def package(release):
         verify(blob, entry)
         no_fzzy(blob)
         entries['overrides/' + entry['path']] = blob
-    assert {entry['id'] for entry in lock['overrides']} == {'suite', 'defaulted', 'codecui'}
+    assert {entry['id'] for entry in lock['overrides']} == {'suite', 'codecui'}
     suite = next(entry for entry in lock['overrides'] if entry['id'] == 'suite')
     report = json.loads((ROOT / 'docs/build-verification.json').read_text())
     assert version == report['version'] and suite['hashes']['sha256'] == report['sha256'] and report['runtime_tested']
@@ -131,7 +131,7 @@ def main():
     lock = json.loads(LOCK.read_text())
     release = args.output or ROOT.parents[1] / 'Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin' / lock['pack_version']
     kit = package(release)
-    print(json.dumps({'archive': str(kit), 'sha256': sha(kit.read_bytes()), 'embedded_jars': 9,
+    print(json.dumps({'archive': str(kit), 'sha256': sha(kit.read_bytes()), 'embedded_jars': 8,
                       'manifest_only_downloads': ['Fzzy Config'], 'suite_sha256': lock['overrides'][0]['hashes']['sha256']}, indent=2))
 
 

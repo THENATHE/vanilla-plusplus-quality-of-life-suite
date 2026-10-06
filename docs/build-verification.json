@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "thenathe_mod_suite",
-  "version": "1.1.4+26.3",
-  "sha256": "2c1273947279693e5ec3c78b2c39793c3b5fdbc320216476e04d16f79b2a1754",
+  "version": "1.1.5+26.3",
+  "sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -24,9 +24,9 @@
     },
     {
       "id": "mapstitch",
-      "version": "1.1.6",
-      "sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81",
-      "file": "META-INF/jars/mapstitch-fabric-1.1.6+26.3.jar"
+      "version": "1.1.7",
+      "sha256": "d7949f082d365fa4b71ce29b7fdce21ecec3f759ef9f9da9be34b880fc64b5e4",
+      "file": "META-INF/jars/mapstitch-fabric-1.1.7+26.3.jar"
     },
     {
       "id": "misctweaks",
@@ -42,9 +42,9 @@
     },
     {
       "id": "simple_smithing_overhaul",
-      "version": "2.9.14",
-      "sha256": "fb6cbf8c13938d68fb19171dac386b5567d71625bce727b22d3380f6b7880126",
-      "file": "META-INF/jars/simple_smithing_overhaul-fabric-2.9.14+26.3.jar"
+      "version": "2.10.0",
+      "sha256": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
+      "file": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar"
     },
     {
       "id": "tiered_backpacks",
@@ -60,9 +60,9 @@
     },
     {
       "id": "sso_backpack_toolpouch_mapstitch_shim",
-      "version": "1.1.0+26.3",
-      "sha256": "8f0731d337d5ea0789631b5264f01039acd94f3bd6dcae822712be3ad798b38a",
-      "file": "META-INF/jars/thenathe-suite-combined-compat-1.1.0+26.3.jar"
+      "version": "1.1.1+26.3",
+      "sha256": "96f8219a07cae7ddf65d8eb19bbac7d5e730cac5436c5965f3f353ed5d6da852",
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.1.1+26.3.jar"
     },
     {
       "id": "chalk_polymer_compat",
@@ -78,27 +78,27 @@
     },
     {
       "id": "toolpouch_atlas_elytra_compat",
-      "version": "1.0.8-suite.1+26.3",
-      "sha256": "a70fede6139090bbaa21d598130c1886654d16c2995682f62c3fd7317ad7f445",
-      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.8-suite.1+26.3.jar"
+      "version": "1.0.9-suite.1+26.3",
+      "sha256": "91735f856ee1ca91aa3edc23c4d3273b8ab2f78b4fb83c603bc9d5a2ffc53d54",
+      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.9-suite.1+26.3.jar"
     },
     {
       "id": "sensible_stackables",
-      "version": "3.0.3-port.1+26.3",
-      "sha256": "d3c20a42a4d288a0a7a1e7d4e5d6e8ef48fcfd4cc24b7a126ddd4840ca92543e",
-      "file": "META-INF/jars/sensible_stackables-fabric-3.0.3-port.1+26.3.jar"
+      "version": "3.1.1",
+      "sha256": "bf750cbe40394caffe3fd7c9bc2b57985d4110c5cae51dc726f948b55a25598a",
+      "file": "META-INF/jars/sensible_stackables-fabric-3.1.1+26.3.jar"
     },
     {
       "id": "sensible_stackables_polymer_compat",
-      "version": "1.0.0+26.3",
-      "sha256": "34b268d7d8f4959fb039c6a6eac7f8d76c35ccbc1ee65c3d89d01a399ed96039",
-      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.0+26.3.jar"
+      "version": "1.0.1+26.3",
+      "sha256": "8e373d8da7eee676dee9f4868b4dadb40ddccd5ca211e5aa85909dd2670bd88a",
+      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.1+26.3.jar"
     },
     {
       "id": "mapstitch_mixed_scales",
-      "version": "1.1.4+26.3",
-      "sha256": "aaa9bb55aecfee49198d7c0c90b0de26b75dbab87b30e393fc3e1d194d0312ac",
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.4+26.3.jar"
+      "version": "1.1.5+26.3",
+      "sha256": "e16187bdc281881bb51bdc6dde8bb78f80cfc1493cbb3fc07bba71630268baa9",
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.5+26.3.jar"
     },
     {
       "id": "bannerpoint",
@@ -114,19 +114,21 @@
     }
   ],
   "original_inputs_unchanged": true,
-  "defaulted_exact_dropfix_requirement": true,
+  "nested_exact_dependencies_verified": true,
+  "defaulted_runtime_required": false,
   "licenses_retained": true,
   "runtime_tested": true,
   "verified_on": "2026-10-06",
-  "runtime_scope": "Final-SHA: 5314 dedicated atlas/repair/copy/banner/generation/extraction assertions across Polymer/no-Polymer restarts; bounded actual graphical atlas smoke (four minimap,15 full pixel buffers,two Ctrl+Q,five source/pouch cases); actual native/Fabric API-only command and cartography connections;162 stored-Elytra assertions/58 observations including no-SSO;13 fresh installer checks. Broader unchanged gameplay and pure-vanilla/pack/optional Remapped matrices not repeated.",
+  "runtime_scope": "Actual native Polymer/Fabric API-only/vanilla/native-without-Polymer connections and2048-itemmoves; originalSSO+Stackables withoutsuite safe/native modes;519Stackablesoverride/restartassertions;370pouchMendingchecks includingClumps/InventoryMending/ArmoredElytra;SSO/Chalk/curseremoval/dropmechanics. AllcurrentprofileswithoutDefaulted. Focused packetrefreshandinstallationchecks recorded separately beforepublication. Final connected native/Fabric-only clients also pass both new payload initial+live-refresh native-only guards and actual atlas commands/cartography clicks; 13 fresh installation/checksum/negative/rebuild checks pass.",
   "evidence": [
-    "qa-multiscale/evidence/1.1.4/server/result.json",
-    "qa-multiscale/evidence/1.1.4/client/result.json",
-    "qa-multiscale/evidence/1.1.4/client/atlas-class-comparison.json",
-    "qa-release/evidence/1.1.4/network/result.json",
-    "qa-release/evidence/1.1.4/pouch-mending/result.json",
-    "qa-release/evidence/1.1.4/clean-build.json",
-    "qa-release/evidence/1.1.4/previous-build-comparison.json",
+    "qa-release/evidence/1.1.5/clean-build.json",
+    "qa-release/evidence/1.1.5/previous-build-comparison.json",
+    "qa-release/evidence/1.1.5/connections/result.json",
+    "qa-release/evidence/1.1.5/originals/result.json",
+    "qa-release/evidence/1.1.5/pouch-mending/result.json",
+    "qa-stackables/evidence/1.1.5/result.json",
+    "qa-mechanics/evidence/1.1.5/mechanics-and-sso.json",
+    "qa-release/evidence/1.1.5/network/result.json",
     "docs/installation-pack-verification.json"
   ]
 }

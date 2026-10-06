@@ -17,8 +17,9 @@ import zipfile
 SUITE = Path(__file__).resolve().parents[1]
 COMPONENTS = {
     'bannerpoint': ('bannerpoint', '1.1.2+26.3', 'pajicadvance/bannerpoint'),
-    'sso': ('simple-smithing-overhaul', '2.9.14+26.2', 'pajicadvance/simple-smithing-overhaul'),
-    'mapstitch': ('mapstitch', '1.1.6+26.3', 'pajicadvance/mapstitch'),
+    'sso': ('simple-smithing-overhaul', '2.10.0+26.3', 'pajicadvance/simple-smithing-overhaul'),
+    'mapstitch': ('mapstitch', '1.1.7+26.3', 'pajicadvance/mapstitch'),
+    'sensible-stackables': ('sensible-stackables', '3.1.1+26.3', 'pajicadvance/sensible-stackables'),
     'toolpouch': ('tool-pouch', '1.1.10+26.3', 'pajicadvance/toolpouch'),
     'tiered-backpacks': ('tiered-backpacks', '1.0.20+26.3', 'pajicadvance/tiered_backpacks'),
     'misctweaks': ('misctweaks', '1.4.4+26.3', 'pajicadvance/misctweaks'),
@@ -55,10 +56,19 @@ def extract(data, destination, prefix=''):
 def fetch(component):
     slug, version, repository = COMPONENTS[component]
     root = SUITE / 'components' / component
-    upstream = root / 'upstream'
+    # Preserve Stackables' original 26.2 baseline and its independent port tree.
+    upstream = root / ('developer-release' if component == 'sensible-stackables' else 'upstream')
     artifacts = upstream / 'artifacts'
     metadata = upstream / 'metadata'
     artifacts.mkdir(parents=True, exist_ok=True)
+    previous_lock = root / 'inputs.lock.json'
+    if previous_lock.exists():
+        previous = json.loads(previous_lock.read_text())
+        if previous['release_version'] != version:
+            history = upstream / 'history' / previous['release_version']
+            save_json(history / 'inputs.lock.json', previous)
+            for previous_metadata in metadata.glob('*.json'):
+                shutil.copy2(previous_metadata, history / previous_metadata.name)
     project = json_get('https://api.modrinth.com/v2/project/' + slug)
     versions = json_get('https://api.modrinth.com/v2/project/' + slug + '/version')
     upstream_minecraft = version.split('+', 1)[1]
@@ -113,14 +123,14 @@ def fetch(component):
             for config in re.findall(r'super\(\w+\.id\("([^"]+)"\)\)', text):
                 configs.append(fabric['id'] + ':' + config)
     license_files = [p for p in (upstream / 'repository').glob('LICENSE*') if p.is_file()]
-    record = dict(component=component, track='developer-release', mod_id=fabric['id'], artifact_version=fabric['version'], release_version=release['version_number'], minecraft=upstream_minecraft, suite_minecraft='26.3', upstream_minecraft=upstream_minecraft, advertised_game_versions=release['game_versions'], loader='fabric', modrinth_version_id=release['id'], modrinth_version_url=f"https://modrinth.com/mod/{slug}/version/{release['id']}", github=git_ref, binary=str(binary.relative_to(SUITE)), binary_sha256=hashlib.sha256(binary.read_bytes()).hexdigest(), published_sources=str(source.relative_to(SUITE)) if source else None, repository_snapshot=str((upstream / 'repository').relative_to(SUITE)), published_source_tree=str(source_tree.relative_to(SUITE)) if source else None, dependencies=fabric['depends'], suggests=fabric.get('suggests', {}), nested_jars=fabric.get('jars', []), config_ids=sorted(set(configs)), license=fabric['license'], copyright_file=str(license_files[0].relative_to(SUITE)) if license_files else None, artifacts=artifacts_lock, modifications=[], port_counterpart=None, port_counterpart_reason='Official developer release requires~26.2 and cannot be declared a26.3 runtime input. Existing local26.3 binary provenance must be independently resolved. Existing paused SSO-port is not updated or tested by this source-capture work.' if component == 'sso' else 'Official developer release supports26.3; no additional port created.')
-    previous_lock = root / 'inputs.lock.json'
-    if component == 'sso' and previous_lock.exists():
-        previous = json.loads(previous_lock.read_text())
-        if 'runtime_input' in previous:
-            record['runtime_input'] = previous['runtime_input']
-            record['suite_compatibility'] = previous.get('suite_compatibility')
-            record['port_counterpart_reason'] = previous.get('port_counterpart_reason')
+    record = dict(component=component, track='developer-release', mod_id=fabric['id'], artifact_version=fabric['version'], release_version=release['version_number'], minecraft=upstream_minecraft, suite_minecraft='26.3', upstream_minecraft=upstream_minecraft, advertised_game_versions=release['game_versions'], loader='fabric', modrinth_version_id=release['id'], modrinth_version_url=f"https://modrinth.com/mod/{slug}/version/{release['id']}", github=git_ref, binary=str(binary.relative_to(SUITE)), binary_sha256=hashlib.sha256(binary.read_bytes()).hexdigest(), published_sources=str(source.relative_to(SUITE)) if source else None, repository_snapshot=str((upstream / 'repository').relative_to(SUITE)), published_source_tree=str(source_tree.relative_to(SUITE)) if source else None, dependencies=fabric['depends'], suggests=fabric.get('suggests', {}), nested_jars=fabric.get('jars', []), config_ids=sorted(set(configs)), license=fabric['license'], copyright_file=str(license_files[0].relative_to(SUITE)) if license_files else None, artifacts=artifacts_lock, modifications=[], port_counterpart=None, port_counterpart_reason='Official developer release supports 26.3; no additional port created.')
+    record['recorded_date'] = '2026-10-06'
+    if component == 'sso':
+        record['port_counterpart_reason'] = 'Historical ChatGPT SSO 2.9.14-port.1 remains paused and untouched; suite uses the official public Fabric 26.3 developer release.'
+        record['historical_tracks'] = ['components/sso/upstream/history/2.9.14+26.2', 'components/sso/private-developer-release']
+    elif component == 'sensible-stackables':
+        record['port_counterpart_reason'] = 'Historical 3.0.3-port.1 source and 26.2 baseline remain preserved independently; suite uses the official public 26.3 developer release.'
+        record['historical_tracks'] = ['components/sensible-stackables/upstream', 'components/sensible-stackables/ported']
     save_json(root / 'inputs.lock.json', record)
     print(f"{component}: {version} {record['binary_sha256']}")
     return record

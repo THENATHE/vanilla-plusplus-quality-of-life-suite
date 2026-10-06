@@ -13,7 +13,7 @@ Update README, CHANGELOG, the current release guide, installation instructions, 
 ## Build and validation
 
 1. Merge the desired, reviewed modules into main without flattening their source boundaries. Synchronize the suite, coordinator, addon metadata and build versions wherever an exact dependency requires it.
-2. Build with the exact locked inputs. Keep the requested Defaulted dropfix and external CodecUI; keep the SSO-port track paused. Run the archive verifier and focused runtime regressions appropriate to the changes. Record the final artifact hash and test scope.
+2. Build with the exact locked inputs. Retain the exact historical Defaulted dropfix as compile-only input for its guarded optional hook; exclude it from current runtime/install profiles following upstream removal. Keep external CodecUI and the separately paused SSO-port track. Run the archive verifier and focused runtime regressions appropriate to the changes. Record the final artifact hash and test scope.
 3. Run `python3 tools/stage-installation.py` to stage allowed publisher dependency binaries under ignored `libs/installation/`, and corresponding source archives/licenses as recorded in `docs/dependency-distribution.lock.json`. Their hashes must match the installation lock. Do not stage Fzzy for redistribution: its official manifest download is required by its license.
 4. Build the installation ZIP, run actual client/server installation checks in disposable directories and run archive/installer regressions. Confirm side selection, hashes, no Fzzy binary, idempotency and preservation of existing files. Store the resulting report under docs.
 5. Commit final source, documentation and evidence. `tools/package-release.py` requires a clean committed checkout and a runtime-verified final JAR. It creates the four public assets and local release records/checksums under the workspace family/component/version folder.
@@ -29,7 +29,7 @@ Publish exactly these four uploaded assets:
 | `README.md` | Accessible feature/installation overview, with resolvable repository links. |
 | `vanilla-plusplus-quality-of-life-suite-<version>.jar` | Verified combined feature mod. |
 | `docs.zip` | All tracked project documentation, technical locks/reports, evidence, notices and release checksums. |
-| `vanilla-plusplus-installation-pack-<version>.zip` | Suite, exact Defaulted/CodecUI, permitted publisher binaries, licenses/corresponding sources, manifest and `install.py`. |
+| `vanilla-plusplus-installation-pack-<version>.zip` | Suite, exact required local libraries, permitted publisher binaries, licenses/corresponding sources, manifest and `install.py`. |
 
 The installation helper selects client/server files, including optional Mod Menu only when requested on the client and Polymer on the server. Fzzy downloads directly from its official publisher URL; disclose that internet is needed. Minecraft, Fabric Loader, Java and server pack hosting remain prerequisites rather than redistributed installables. GitHub generates source ZIP/tar downloads itself; those do not count as uploaded release assets.
 

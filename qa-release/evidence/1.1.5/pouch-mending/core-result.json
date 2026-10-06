@@ -1,0 +1,676 @@
+{
+  "fixture_inputs": {
+    "qa-release/pouch-mending/src/PouchMendingQa.java": "e8fc263b97f409c05783408cc6030004ed255016813d65549c653563700bf30f",
+    "qa-release/pouch-mending/run.py": "21fc06fff9ce77b789c0c84c3750dc0359b6a37e2f5e1e1a1e01b541a95efb02"
+  },
+  "observe_only": false,
+  "passed": true,
+  "original_bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "tested_bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "addon_override_sha256": null,
+  "profiles": [
+    {
+      "profile": "polymer",
+      "exit_code": 0,
+      "result": {
+        "passed": true,
+        "loaded_modules": {
+          "thenathe_mod_suite": "1.1.5+26.3",
+          "simple_smithing_overhaul": "2.10.0",
+          "toolpouch": "1.1.10",
+          "toolpouch_atlas_elytra_compat": "1.0.9-suite.1+26.3",
+          "mapstitch": "1.1.7",
+          "sensible_stackables": "3.1.1",
+          "fzzy_config": "0.7.7+fix3+26.3"
+        },
+        "defaulted_loaded": false,
+        "original_sso_present": true,
+        "checks": 65,
+        "cases": [
+          {
+            "case": "inventory-XP-all-SSO-enabled",
+            "actual_attachment_recipe": false,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 26,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 26,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "standalone-netherite-XP-all-SSO-enabled",
+            "actual_attachment_recipe": false,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 26,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 26,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "netherite-attached-repaired-Mending-legs",
+            "actual_attachment_recipe": true,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 26,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 26,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "netherite-attached-damaged-Mending-legs-first",
+            "actual_attachment_recipe": true,
+            "active_owner_same_reference": true,
+            "armor_damage": 26,
+            "elytra_damage": 40,
+            "player_xp": 0,
+            "expected_armor_damage": 26,
+            "expected_elytra_damage": 40,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "netherite-attached-partial-Mending-legs-leftover",
+            "actual_attachment_recipe": true,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 30,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 30,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "netherite-attached-flight-disabled-XP",
+            "actual_attachment_recipe": true,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 26,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 26,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "no-Mending-XP-unchanged",
+            "actual_attachment_recipe": false,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 40,
+            "player_xp": 7,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 40,
+            "expected_player_xp": 7
+          },
+          {
+            "case": "SSO-regular-XP-disabled",
+            "actual_attachment_recipe": false,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 40,
+            "player_xp": 7,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 40,
+            "expected_player_xp": 7
+          },
+          {
+            "case": "netherite-attached-open-menu-XP-saveback",
+            "elytra_damage": 26,
+            "live_then_saved": true
+          },
+          {
+            "case": "actual-flight-unenchanted-oracle",
+            "wear_intervals": 128,
+            "damage_after": 168,
+            "standard_damage_oracle": 168,
+            "interval_mismatches": 0
+          },
+          {
+            "case": "actual-flight-Unbreaking-III-oracle",
+            "wear_intervals": 128,
+            "damage_after": 66,
+            "standard_damage_oracle": 66,
+            "interval_mismatches": 0
+          },
+          {
+            "case": "flight-broken-first-correct-eligible-slot",
+            "first_exhausted_damage": 431,
+            "second_eligible_damage": 41
+          },
+          {
+            "case": "flight-live-menu-correct-eligible-slot",
+            "first_exhausted_damage": 431,
+            "second_eligible_damage": 41
+          },
+          {
+            "case": "flight-toggle-disabled-no-wear",
+            "elytra_damage": 40
+          },
+          {
+            "case": "SSO-auto-inventory-enabled",
+            "actual_attachment_recipe": false,
+            "damage_before": 431,
+            "damage_after": 359,
+            "repair_material_remaining": 2,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": true
+          },
+          {
+            "case": "SSO-auto-netherite-attached-enabled",
+            "actual_attachment_recipe": true,
+            "damage_before": 431,
+            "damage_after": 359,
+            "repair_material_remaining": 2,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": true
+          },
+          {
+            "case": "SSO-auto-netherite-attached-live-saveback",
+            "actual_attachment_recipe": true,
+            "damage_before": 431,
+            "damage_after": 359,
+            "repair_material_remaining": 2,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": true,
+            "expected_repaired": true
+          },
+          {
+            "case": "SSO-auto-flight-disabled-still-repairs",
+            "actual_attachment_recipe": true,
+            "damage_before": 431,
+            "damage_after": 359,
+            "repair_material_remaining": 2,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": false,
+            "open_menu": false,
+            "expected_repaired": true
+          },
+          {
+            "case": "SSO-auto-disabled-keeps-resources",
+            "actual_attachment_recipe": false,
+            "damage_before": 431,
+            "damage_after": 431,
+            "repair_material_remaining": 3,
+            "automatic_enabled": false,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": false
+          },
+          {
+            "case": "SSO-auto-no-materials",
+            "actual_attachment_recipe": false,
+            "damage_before": 431,
+            "damage_after": 431,
+            "repair_material_remaining": 0,
+            "automatic_enabled": true,
+            "resources": false,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": false
+          },
+          {
+            "case": "SSO-auto-no-Mending",
+            "actual_attachment_recipe": false,
+            "damage_before": 431,
+            "damage_after": 431,
+            "repair_material_remaining": 3,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": false,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": false
+          },
+          {
+            "case": "SSO-auto-known-BROKEN-flag",
+            "actual_attachment_recipe": false,
+            "damage_before": 40,
+            "damage_after": 0,
+            "repair_material_remaining": 2,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": true
+          },
+          {
+            "case": "SSO-auto-rework-off",
+            "actual_attachment_recipe": false,
+            "damage_before": 431,
+            "damage_after": 431,
+            "repair_material_remaining": 3,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": false
+          },
+          {
+            "case": "unsupported-Polymer-client-passive-guard",
+            "elytra_damage": 40,
+            "player_xp": 7
+          },
+          {
+            "case": "SSO-auto-unsupported-client-guard",
+            "actual_attachment_recipe": false,
+            "damage_before": 431,
+            "damage_after": 431,
+            "repair_material_remaining": 3,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": false
+          }
+        ]
+      }
+    },
+    {
+      "profile": "native",
+      "exit_code": 0,
+      "result": {
+        "passed": true,
+        "loaded_modules": {
+          "thenathe_mod_suite": "1.1.5+26.3",
+          "simple_smithing_overhaul": "2.10.0",
+          "toolpouch": "1.1.10",
+          "toolpouch_atlas_elytra_compat": "1.0.9-suite.1+26.3",
+          "mapstitch": "1.1.7",
+          "sensible_stackables": "3.1.1",
+          "fzzy_config": "0.7.7+fix3+26.3"
+        },
+        "defaulted_loaded": false,
+        "original_sso_present": true,
+        "checks": 62,
+        "cases": [
+          {
+            "case": "inventory-XP-all-SSO-enabled",
+            "actual_attachment_recipe": false,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 26,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 26,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "standalone-netherite-XP-all-SSO-enabled",
+            "actual_attachment_recipe": false,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 26,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 26,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "netherite-attached-repaired-Mending-legs",
+            "actual_attachment_recipe": true,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 26,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 26,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "netherite-attached-damaged-Mending-legs-first",
+            "actual_attachment_recipe": true,
+            "active_owner_same_reference": true,
+            "armor_damage": 26,
+            "elytra_damage": 40,
+            "player_xp": 0,
+            "expected_armor_damage": 26,
+            "expected_elytra_damage": 40,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "netherite-attached-partial-Mending-legs-leftover",
+            "actual_attachment_recipe": true,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 30,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 30,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "netherite-attached-flight-disabled-XP",
+            "actual_attachment_recipe": true,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 26,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 26,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "no-Mending-XP-unchanged",
+            "actual_attachment_recipe": false,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 40,
+            "player_xp": 7,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 40,
+            "expected_player_xp": 7
+          },
+          {
+            "case": "SSO-regular-XP-disabled",
+            "actual_attachment_recipe": false,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 40,
+            "player_xp": 7,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 40,
+            "expected_player_xp": 7
+          },
+          {
+            "case": "netherite-attached-open-menu-XP-saveback",
+            "elytra_damage": 26,
+            "live_then_saved": true
+          },
+          {
+            "case": "actual-flight-unenchanted-oracle",
+            "wear_intervals": 128,
+            "damage_after": 168,
+            "standard_damage_oracle": 168,
+            "interval_mismatches": 0
+          },
+          {
+            "case": "actual-flight-Unbreaking-III-oracle",
+            "wear_intervals": 128,
+            "damage_after": 66,
+            "standard_damage_oracle": 66,
+            "interval_mismatches": 0
+          },
+          {
+            "case": "flight-broken-first-correct-eligible-slot",
+            "first_exhausted_damage": 431,
+            "second_eligible_damage": 41
+          },
+          {
+            "case": "flight-live-menu-correct-eligible-slot",
+            "first_exhausted_damage": 431,
+            "second_eligible_damage": 41
+          },
+          {
+            "case": "flight-toggle-disabled-no-wear",
+            "elytra_damage": 40
+          },
+          {
+            "case": "SSO-auto-inventory-enabled",
+            "actual_attachment_recipe": false,
+            "damage_before": 431,
+            "damage_after": 359,
+            "repair_material_remaining": 2,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": true
+          },
+          {
+            "case": "SSO-auto-netherite-attached-enabled",
+            "actual_attachment_recipe": true,
+            "damage_before": 431,
+            "damage_after": 359,
+            "repair_material_remaining": 2,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": true
+          },
+          {
+            "case": "SSO-auto-netherite-attached-live-saveback",
+            "actual_attachment_recipe": true,
+            "damage_before": 431,
+            "damage_after": 359,
+            "repair_material_remaining": 2,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": true,
+            "expected_repaired": true
+          },
+          {
+            "case": "SSO-auto-flight-disabled-still-repairs",
+            "actual_attachment_recipe": true,
+            "damage_before": 431,
+            "damage_after": 359,
+            "repair_material_remaining": 2,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": false,
+            "open_menu": false,
+            "expected_repaired": true
+          },
+          {
+            "case": "SSO-auto-disabled-keeps-resources",
+            "actual_attachment_recipe": false,
+            "damage_before": 431,
+            "damage_after": 431,
+            "repair_material_remaining": 3,
+            "automatic_enabled": false,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": false
+          },
+          {
+            "case": "SSO-auto-no-materials",
+            "actual_attachment_recipe": false,
+            "damage_before": 431,
+            "damage_after": 431,
+            "repair_material_remaining": 0,
+            "automatic_enabled": true,
+            "resources": false,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": false
+          },
+          {
+            "case": "SSO-auto-no-Mending",
+            "actual_attachment_recipe": false,
+            "damage_before": 431,
+            "damage_after": 431,
+            "repair_material_remaining": 3,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": false,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": false
+          },
+          {
+            "case": "SSO-auto-known-BROKEN-flag",
+            "actual_attachment_recipe": false,
+            "damage_before": 40,
+            "damage_after": 0,
+            "repair_material_remaining": 2,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": true
+          },
+          {
+            "case": "SSO-auto-rework-off",
+            "actual_attachment_recipe": false,
+            "damage_before": 431,
+            "damage_after": 431,
+            "repair_material_remaining": 3,
+            "automatic_enabled": true,
+            "resources": true,
+            "mending": true,
+            "flight_toggle": true,
+            "open_menu": false,
+            "expected_repaired": false
+          }
+        ]
+      }
+    },
+    {
+      "profile": "nosso",
+      "exit_code": 0,
+      "result": {
+        "passed": true,
+        "loaded_modules": {
+          "toolpouch": "1.1.10",
+          "toolpouch_atlas_elytra_compat": "1.0.9-suite.1+26.3",
+          "fzzy_config": "0.7.7+fix3+26.3"
+        },
+        "defaulted_loaded": false,
+        "original_sso_present": false,
+        "checks": 44,
+        "cases": [
+          {
+            "case": "inventory-XP-all-SSO-enabled",
+            "actual_attachment_recipe": false,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 26,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 26,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "standalone-netherite-XP-all-SSO-enabled",
+            "actual_attachment_recipe": false,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 26,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 26,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "netherite-attached-repaired-Mending-legs",
+            "actual_attachment_recipe": true,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 26,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 26,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "netherite-attached-damaged-Mending-legs-first",
+            "actual_attachment_recipe": true,
+            "active_owner_same_reference": true,
+            "armor_damage": 26,
+            "elytra_damage": 40,
+            "player_xp": 0,
+            "expected_armor_damage": 26,
+            "expected_elytra_damage": 40,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "netherite-attached-partial-Mending-legs-leftover",
+            "actual_attachment_recipe": true,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 30,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 30,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "netherite-attached-flight-disabled-XP",
+            "actual_attachment_recipe": true,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 26,
+            "player_xp": 0,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 26,
+            "expected_player_xp": 0
+          },
+          {
+            "case": "no-Mending-XP-unchanged",
+            "actual_attachment_recipe": false,
+            "active_owner_same_reference": true,
+            "armor_damage": 0,
+            "elytra_damage": 40,
+            "player_xp": 7,
+            "expected_armor_damage": 0,
+            "expected_elytra_damage": 40,
+            "expected_player_xp": 7
+          },
+          {
+            "case": "netherite-attached-open-menu-XP-saveback",
+            "elytra_damage": 26,
+            "live_then_saved": true
+          },
+          {
+            "case": "actual-flight-unenchanted-oracle",
+            "wear_intervals": 128,
+            "damage_after": 168,
+            "standard_damage_oracle": 168,
+            "interval_mismatches": 0
+          },
+          {
+            "case": "actual-flight-Unbreaking-III-oracle",
+            "wear_intervals": 128,
+            "damage_after": 66,
+            "standard_damage_oracle": 66,
+            "interval_mismatches": 0
+          },
+          {
+            "case": "flight-broken-first-correct-eligible-slot",
+            "first_exhausted_damage": 431,
+            "second_eligible_damage": 41
+          },
+          {
+            "case": "flight-live-menu-correct-eligible-slot",
+            "first_exhausted_damage": 431,
+            "second_eligible_damage": 41
+          },
+          {
+            "case": "flight-toggle-disabled-no-wear",
+            "elytra_damage": 40
+          }
+        ]
+      }
+    }
+  ]
+}

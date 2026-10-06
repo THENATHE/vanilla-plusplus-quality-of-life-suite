@@ -1,0 +1,96 @@
+{
+  "AtlasNetSuite": {
+    "java": "java",
+    "classpath_sha256": "5e47e0fcb10fab71fce895ad846f6a92d5f7718a354b20f4b702ddc097f46c5f",
+    "mods": [
+      {
+        "file": "vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar",
+        "sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5"
+      },
+      {
+        "file": "codecui-26.3-1.4.3-fabric.jar",
+        "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+      },
+      {
+        "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+        "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+      },
+      {
+        "file": "fzzy_config-0.7.7+fix3+26.3.jar",
+        "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+      },
+      {
+        "file": "mixson-2.2.1-multiloader.jar",
+        "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+      },
+      {
+        "file": "fabric-api-0.161.0+26.3.jar",
+        "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+      },
+      {
+        "file": "cloth-config-fabric-26.3.159.jar",
+        "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+      },
+      {
+        "file": "client.jar",
+        "sha256": "83afff81191c5f85f0c32d727f76bb91f3887238301009f859142c8e9fd4c920"
+      }
+    ]
+  },
+  "server": {
+    "java": "java",
+    "classpath_sha256": "b33038f0be409adf30e510a1dbdb7b32106435b107ab89f7863e9ed6e27409d2",
+    "mods": [
+      {
+        "file": "vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar",
+        "sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5"
+      },
+      {
+        "file": "codecui-26.3-1.4.3-fabric.jar",
+        "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+      },
+      {
+        "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+        "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+      },
+      {
+        "file": "fzzy_config-0.7.7+fix3+26.3.jar",
+        "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+      },
+      {
+        "file": "mixson-2.2.1-multiloader.jar",
+        "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+      },
+      {
+        "file": "fabric-api-0.161.0+26.3.jar",
+        "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+      },
+      {
+        "file": "cloth-config-fabric-26.3.159.jar",
+        "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+      },
+      {
+        "file": "polymer-bundled-0.18.2+26.3.jar",
+        "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+      },
+      {
+        "file": "server.jar",
+        "sha256": "d44969fcbac68cc8a6902e5339ca6e3beff6a2d2a92b5db1bd46301143e87da0"
+      }
+    ]
+  },
+  "AtlasNetFabric": {
+    "java": "java",
+    "classpath_sha256": "5e47e0fcb10fab71fce895ad846f6a92d5f7718a354b20f4b702ddc097f46c5f",
+    "mods": [
+      {
+        "file": "fabric-api-0.161.0+26.3.jar",
+        "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+      },
+      {
+        "file": "client.jar",
+        "sha256": "83afff81191c5f85f0c32d727f76bb91f3887238301009f859142c8e9fd4c920"
+      }
+    ]
+  }
+}

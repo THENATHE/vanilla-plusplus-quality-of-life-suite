@@ -26,9 +26,10 @@ public final class SuiteMechanicsQa implements ModInitializer {
     if(!result.is(glow?variant.glowChalkItem:variant.chalkItem))throw new AssertionError("Calcite recipe "+color+" glow="+glow);
    }
    CleanserChecks.runChecks(server);
+   int ssoChecks=SsoChecks.runChecks(server);
    var drops=new DropFixQa();drops.run(server);
    if(drops.failed!=0)throw new AssertionError("Drop fix failed "+drops.failed);
-   Files.writeString(Path.of("suite-mechanics-result.txt"),"PASS all Chalk conversion transitions, 32 calcite recipes, real curse-removal menus, "+drops.passed+" Defaulted drop regressions\n");
+   Files.writeString(Path.of("suite-mechanics-result.txt"),"PASS all Chalk conversion transitions, 32 calcite recipes, real curse-removal menus, "+drops.passed+" item/drop lifecycle regressions, "+drops.skipped+" historical Defaulted-only checks skipped, "+ssoChecks+" SSO assertions\n");
    System.out.println("SUITE_MECHANICS_PASS");
   } catch(Throwable error) {
    error.printStackTrace();

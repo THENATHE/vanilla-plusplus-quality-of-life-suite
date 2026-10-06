@@ -1,0 +1,55 @@
+{
+  "bundle_sha256": "4d0086b3472ea890a9ed6813ef8e32936e4d29b495858c4ca937ede60a16d2f3",
+  "minecraft": "26.3",
+  "track": "developer-release-suite",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":false,\"common_stack_size\":64,\"restart\":false,\"assertions\":79}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":false,\"common_stack_size\":64,\"restart\":true,\"assertions\":80}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":false,\"assertions\":79}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":true,\"assertions\":80}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":false,\"assertions\":70}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":true,\"assertions\":71}",
+      "passed": true
+    }
+  ],
+  "verified_on": "2026-10-06",
+  "suite_version": "1.1.5+26.3",
+  "run_label": "developer-overrides-1.1.5-final3",
+  "total_assertions": 459,
+  "defaulted_installed": false
+}

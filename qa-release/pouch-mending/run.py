@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Focused connected atlas command network compatibility QA."""
 from pathlib import Path
-import argparse, hashlib, json, os, shutil, socket, struct, subprocess, sys, time, zipfile
+import argparse, hashlib, io, json, os, shutil, socket, struct, subprocess, sys, time, zipfile
 
 ROOT = Path(__file__).resolve().parents[2]
 WORKSPACE = ROOT.parents[1]
@@ -25,6 +25,7 @@ def main():
     parser.add_argument('--label', required=True)
     parser.add_argument('--profiles', default='polymer,native,nosso')
     parser.add_argument('--observe', action='store_true')
+    parser.add_argument('--extra-mod', type=Path, action='append', default=[], help='Official optional mod included in every disposable server profile')
     parser.add_argument('--addon',type=Path,help='Replace only nested addon in copied candidate; production/root artifact unchanged')
     parser.add_argument('--compile-only', action='store_true', help='Compile/package observation fixtures without launching any runtime')
     args = parser.parse_args()
@@ -45,8 +46,16 @@ def main():
         with zipfile.ZipFile(suite,'w',zipfile.ZIP_DEFLATED) as archive:
             for n,data in members.items():archive.writestr(n,data)
     dependencies = [ROOT / 'libs' / name for name in (
-        'codecui-26.3-1.4.3-fabric.jar', 'defaulted-1.3.8+26.3.dropfix.1-fabric.jar',
-        'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'fzzy_config-0.7.7+fix2+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
+        'codecui-26.3-1.4.3-fabric.jar',
+        'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'mixson-2.2.1-multiloader.jar')]
+    fzzy = list((ROOT / 'libs').glob('fzzy_config-*.jar'))
+    if len(fzzy) != 1: raise AssertionError(f'Expected exactly one locked Fzzy Config library, found {fzzy}')
+    dependencies += fzzy
+    def requires_defaulted(content):
+        with zipfile.ZipFile(io.BytesIO(content)) as archive:
+            if 'fabric.mod.json' in archive.namelist() and 'defaulted' in json.loads(archive.read('fabric.mod.json')).get('depends', {}): return True
+            return any(requires_defaulted(archive.read(n)) for n in archive.namelist() if n.endswith('.jar'))
+    if requires_defaulted(suite.read_bytes()): dependencies.append(ROOT / 'libs/defaulted-1.3.8+26.3.dropfix.1-fabric.jar')
     api = launch.artifact('net.fabricmc.fabric-api', 'fabric-api', '0.161.0+26.3')
     dependencies += [api, launch.artifact('me.shedaniel.cloth', 'cloth-config-fabric', '26.3.159')]
     original = ROOT / 'libs/bannerpoint-fabric-1.1.2+26.3.jar'
@@ -75,7 +84,7 @@ def main():
         for profile in args.profiles.split(','):
             directory=run/profile;directory.mkdir();launch.copy_accepted_eula(directory)
             (directory/'mods').mkdir()
-            selected=[suite,*dependencies,fixture]+([polymer] if profile=='polymer' else [])
+            selected=[suite,*dependencies,fixture,*args.extra_mod]+([polymer] if profile=='polymer' else [])
             if profile=='nosso':
                 originals=[]
                 for path in fixtures.glob('*.jar'):
@@ -84,7 +93,7 @@ def main():
                         metadata=json.loads(archive.read('fabric.mod.json'))
                         if metadata.get('id') in {'toolpouch','toolpouch_atlas_elytra_compat'}:originals.append(path)
                 assert len(originals)==2,originals
-                selected=[*originals,*dependencies,fixture]
+                selected=[*originals,*dependencies,fixture,*args.extra_mod]
             for jar in selected:shutil.copy2(jar,directory/'mods'/jar.name)
             (directory/'server.properties').write_text('server-ip=127.0.0.1\nserver-port=0\nonline-mode=false\nwhite-list=false\nenforce-secure-profile=false\nview-distance=2\nsimulation-distance=2\nlevel-type=minecraft:flat\ngenerator-settings={"layers":[{"block":"minecraft:bedrock","height":1}],"biome":"minecraft:plains"}\ngenerate-structures=false\n')
             command=launch.base_command('server',directory,0);command[0]='/usr/lib/jvm/java-25-openjdk/bin/java';command.insert(1,'-Dmixin.debug.export=true')

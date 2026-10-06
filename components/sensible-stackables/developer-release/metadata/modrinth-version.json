@@ -1,0 +1,62 @@
+{
+  "game_versions": [
+    "26.3"
+  ],
+  "loaders": [
+    "fabric"
+  ],
+  "environment": "client_and_server",
+  "id": "oRpBICTz",
+  "project_id": "5lQcMjaC",
+  "author_id": "Kg6RZEfM",
+  "featured": false,
+  "name": "3.1.1 for Fabric 26.3",
+  "version_number": "3.1.1+26.3",
+  "changelog": "3.1.0:\n\n- Added Fabric 26.3 version.\n- Defaulted is no longer required.\n  - The mod no longer patches item components to change stack sizes, it now keeps track of stack sizes on its own and intercepts stack size calls instead.\n  - Configuration is unchanged, item tags are still supported in the config, and stack size changes are still synced to clients.\n  - Changing stack sizes in the config in-game now applies changes immediately and doesn't require a datapack reload.\n  - Mod compatibility should remain the same, please report any issues if you run into them.\n- Mixson is no longer required.\n  - It can still be installed for the \"All blocks\" and \"Minecarts\" dynamic item tags.\n- Added cushions to the default configuration, increasing their stack size from 16 to 64.\n\n3.1.1:\n\n- Fixed stack sizes not clearing properly on config update.\n",
+  "changelog_url": null,
+  "date_published": "2026-10-05T19:10:18.526267Z",
+  "downloads": 90,
+  "version_type": "release",
+  "status": "listed",
+  "requested_status": null,
+  "files": [
+    {
+      "id": "fxg28ArH",
+      "hashes": {
+        "sha512": "13138e9ac50ef58cc5a720d3c1f82934f8149f172307a03ee1719fd30ef7df794b317c3795c15508946823bf04dabda9f823f1b4c9f6f0fe36749cfb66b60fd3",
+        "sha1": "08a61e9e83ac3eaaf1c1390b237cbbdf296a3f4f"
+      },
+      "url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/oRpBICTz/sensible_stackables-fabric-3.1.1%2B26.3.jar",
+      "filename": "sensible_stackables-fabric-3.1.1+26.3.jar",
+      "primary": true,
+      "size": 64323,
+      "file_type": null
+    },
+    {
+      "id": "2jmnK9St",
+      "hashes": {
+        "sha512": "1498170406f8b141c95aa33322d9e539e7a20ed1d70580bdc284e2c5458b1acec55c7909f0ab0bfeba5bd4857f268ea37e0f921cbe2907ff18068bf6d517560c",
+        "sha1": "176862a264017f87ba396ee484e0aef76310985c"
+      },
+      "url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/oRpBICTz/sensible_stackables-fabric-3.1.1%2B26.3-sources.jar",
+      "filename": "sensible_stackables-fabric-3.1.1+26.3-sources.jar",
+      "primary": false,
+      "size": 48384,
+      "file_type": null
+    }
+  ],
+  "dependencies": [
+    {
+      "version_id": null,
+      "project_id": "hYykXjDp",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "P7dR8mSH",
+      "file_name": null,
+      "dependency_type": "required"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 plugins { id 'net.fabricmc.fabric-loom' version '1.17.20' }
 group = 'com.thenathe'
-version = '1.0.0+26.3'
+version = '1.0.1+26.3'
 base { archivesName = 'thenathe-suite-stackables-compat' }
 dependencies {
  minecraft 'com.mojang:minecraft:26.3'

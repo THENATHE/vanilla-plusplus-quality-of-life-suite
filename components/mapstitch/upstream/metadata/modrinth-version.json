@@ -6,42 +6,42 @@
     "fabric"
   ],
   "environment": "client_and_server",
-  "id": "kRE6nsB7",
+  "id": "oDB5IJ7O",
   "project_id": "etdHQJ0B",
   "author_id": "Kg6RZEfM",
   "featured": false,
-  "name": "1.1.6 for Fabric 26.3",
-  "version_number": "1.1.6+26.3",
-  "changelog": "- Fixed a dedicated server crash introduced in 1.1.5.\n",
+  "name": "1.1.7 for Fabric 26.3",
+  "version_number": "1.1.7+26.3",
+  "changelog": "- Fixed broken Russian translation.\n",
   "changelog_url": null,
-  "date_published": "2026-09-22T12:17:03.471937Z",
-  "downloads": 110,
+  "date_published": "2026-10-05T21:34:10.453133Z",
+  "downloads": 26,
   "version_type": "release",
   "status": "listed",
   "requested_status": null,
   "files": [
     {
-      "id": "f4ziBuxZ",
+      "id": "UjRT9QSU",
       "hashes": {
-        "sha512": "988e85d2f24a1a72cc6b65cbb043c708edf5109f156be2e6c2b8772aca286ed0990efbc48454cdbb60040b31c6eda2acfb89ea6072f34f7974c1a190a50140f3",
-        "sha1": "c9af70a41425298cb60278cdc766bc86cf622d92"
+        "sha512": "8d488ffa8f052959c2f6a56c0acaa9927380521a5fb0a81157c50df01b2cda57fa30aedc0f50cd7fcf0db6a4e536079a3c9ee5a5aa9c72b690fa4019867929ff",
+        "sha1": "864576cf54d8c844be08ea51efb2ad989b934bb3"
       },
-      "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/kRE6nsB7/mapstitch-fabric-1.1.6%2B26.3.jar",
-      "filename": "mapstitch-fabric-1.1.6+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/oDB5IJ7O/mapstitch-fabric-1.1.7%2B26.3.jar",
+      "filename": "mapstitch-fabric-1.1.7+26.3.jar",
       "primary": true,
-      "size": 896682,
+      "size": 896683,
       "file_type": null
     },
     {
-      "id": "9WSKIZDF",
+      "id": "PMViMW87",
       "hashes": {
-        "sha1": "faebf3cef026090b9a46775c8524b88e430877d5",
-        "sha512": "ee6eefae79837327def39af4ce1d3961fdf3670550417c67cab6d3a511defdb5dbeeb19e46b26b51f9080af629bcba14362cb95f0e9d1aa86f68faa4456009e2"
+        "sha512": "662672b38229bbfe405cee1e28f37232658b641e7e1ed823040c98904e194b8584f290a1ecfe592cc93b54a61c2adc0e7b97807bd871879c9a4fc2bf6c4f14ba",
+        "sha1": "e0add452f8cdf81f68d382944c344d28f3ee2568"
       },
-      "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/kRE6nsB7/mapstitch-fabric-1.1.6%2B26.3-sources.jar",
-      "filename": "mapstitch-fabric-1.1.6+26.3-sources.jar",
+      "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/oDB5IJ7O/mapstitch-fabric-1.1.7%2B26.3-sources.jar",
+      "filename": "mapstitch-fabric-1.1.7+26.3-sources.jar",
       "primary": false,
-      "size": 793018,
+      "size": 793017,
       "file_type": null
     }
   ],

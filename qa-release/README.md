@@ -1,6 +1,6 @@
 # Release evidence
 
-Current release **1.1.4+26.3** records focused atlas command/cartography connections, clean-build inputs and previous-build comparisons under `evidence/1.1.4/`. Dedicated atlas/repair/copy and graphical lookup checks are in `../qa-multiscale/evidence/1.1.4/`; Elytra durability/repair checks are recorded separately. Read [validation](../docs/VALIDATION.md) for the precise accepted artifact, candidate-versus-final results and historical limits. Development QA mods are never packaged into the production suite.
+Current release **1.1.5+26.3** records native/fallback payload synchronization, real inventory moves, original-module clients, Clumps Mending and clean-build/previous-input comparisons under `evidence/1.1.5/`. Dedicated Stackables override/restart checks and SSO/recipe/drop mechanics are in `../qa-stackables/evidence/1.1.5/` and `../qa-mechanics/evidence/1.1.5/`. Prior atlas graphical and detailed repair/copy acceptance remains identified by its original 1.1.4 artifact under `../qa-multiscale/evidence/1.1.4/`. Read [validation](../docs/VALIDATION.md) for the precise accepted artifact, candidate-versus-final results and historical limits. Development QA mods are never packaged into the production suite.
 
 ## Historical 1.1.1 HUD verification
 

@@ -1,5 +1,14 @@
 # Changes
 
+## 1.1.5+26.3 — 2026-10-06
+
+- Update unchanged official developer inputs to Simple Smithing Overhaul 2.10.0, MapStitch 1.1.7 and Sensible Stackables 3.1.1. MapStitch changes only its Russian translation; all 90 Java classes match the previous release. Preserve the previous inputs and the separately paused SSO port.
+- Retain upstream live repair/stack configuration updates, SSO rename handling fixes, Stackables cushion stacks of 64 and its stale override-clearing fix. Stackables makes Mixson optional; the suite retains it for other modules and dynamic tags.
+- Guard the new SSO repairables and Stackables stack-size synchronization payloads for native clients. Project effective Stackables limits into fallback metadata, preserving full counts and the agreed maximum prediction value of 99. Exclude empty inputs/outputs so uncapped overrides cannot turn empty slots into encoded air.
+- Retire Defaulted as a runtime/install requirement following upstream removal, retaining the exact historical dropfix input for optional guarded compile compatibility. Audit remaining libraries separately.
+- Fix the reproduced Clumps XP-orb early-return bypass of stored Elytra Mending. Wrap the whole repair method so the active pouch receives eligible remaining XP while preserving SSO settings, equipped-item priority and other repair integrations.
+- Keep original configuration identities, saved items/maps, modular sources and the four-asset release format. See [the 1.1.5 guide](docs/RELEASE_1_1_5.md) and [validation](docs/VALIDATION.md) for final artifact checks and limits.
+
 ## 1.1.4+26.3 — 2026-10-06
 
 - Route stored Elytra flight wear through standard durability/enchantment handling, preserving Unbreaking. Extend SSO automatic broken-item repair to the active pouch using its original settings, whetstone/material requirements and costs; regular XP Mending remains controlled by the server’s SSO settings.

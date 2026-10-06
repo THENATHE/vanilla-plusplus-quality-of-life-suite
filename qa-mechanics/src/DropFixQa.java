@@ -20,9 +20,9 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 
 public final class DropFixQa implements ModInitializer {
- int passed,failed; final List<String> results=new ArrayList<>();
+ int passed,failed,skipped; final List<String> results=new ArrayList<>();
  interface Check {void run() throws Exception;}
- void test(String name,Check action) {try {action.run();passed++;results.add("PASS "+name);}catch(Throwable t){failed++;results.add("FAIL "+name+" "+t);t.printStackTrace();}System.out.println("DROP_QA "+results.getLast());}
+ void test(String name,Check action) {if(!net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("defaulted") && Set.of("dynamic-prototype-retains-overrides","null-first-write-after-prototype-refresh","removed-name-survives-absent-present-absent-prototype").contains(name)){skipped++;results.add("SKIP historical Defaulted-only "+name);System.out.println(results.getLast());return;}try {action.run();passed++;results.add("PASS "+name);}catch(Throwable t){failed++;results.add("FAIL "+name+" "+t);t.printStackTrace();}System.out.println("DROP_QA "+results.getLast());}
  static void require(boolean ok,String why){if(!ok)throw new AssertionError(why);}
  static String name(ItemStack s){var n=s.get(DataComponents.CUSTOM_NAME);return n==null?null:n.getString();}
  public void onInitialize(){ServerLifecycleEvents.SERVER_STARTED.register(this::run);}
@@ -61,7 +61,7 @@ public final class DropFixQa implements ModInitializer {
    test("frame-support-loss-elytra-"+named,()->frame(level,player,named,true));
    test("frame-shulker-bullet-elytra-"+named,()->projectileFrame(level,named));
   }
-  results.add("SUMMARY passed="+passed+" failed="+failed);
+  results.add("SUMMARY passed="+passed+" failed="+failed+" skipped="+skipped);
   try {Files.write(Path.of("result.txt"),results);}catch(Exception e){e.printStackTrace();}
   System.out.println(results.getLast());
  }

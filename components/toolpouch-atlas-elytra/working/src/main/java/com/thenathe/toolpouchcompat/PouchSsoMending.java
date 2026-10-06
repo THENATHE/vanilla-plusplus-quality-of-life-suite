@@ -8,6 +8,9 @@ import net.minecraft.world.item.Items;
 /** Optional original SSO material repair for exhausted Elytra in the active pouch. */
 public final class PouchSsoMending {
     private PouchSsoMending() {}
+    public static boolean regularXpEnabled() {
+        return !SSO.CONFIG.mendingRework.enabled.get() || SSO.CONFIG.mendingRework.enableRegularMendingBehavior.get();
+    }
     public static void tick(ServerPlayer player) {
         if (!SSO.CONFIG.mendingRework.enabled.get() || !SSO.CONFIG.mendingRework.autoRepairOnBreak.get()) return;
         var pouch = PouchItems.active(player);

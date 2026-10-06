@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-06",
+  "version": "1.1.5+26.3",
+  "suite_sha256": "83fc3a07291cf9000a3e5a56fa1998ee47001eab3cf091ded152a0bf6e831f9a",
+  "passed": true,
+  "checks": 370,
+  "case_count": 133,
+  "defaulted_loaded": false,
+  "matrices": [
+    {
+      "matrix": "core",
+      "result_file": "core-result.json",
+      "profiles": [
+        {
+          "profile": "polymer",
+          "checks": 65,
+          "cases": 25,
+          "defaulted_loaded": false,
+          "loaded_modules": {
+            "thenathe_mod_suite": "1.1.5+26.3",
+            "simple_smithing_overhaul": "2.10.0",
+            "toolpouch": "1.1.10",
+            "toolpouch_atlas_elytra_compat": "1.0.9-suite.1+26.3",
+            "mapstitch": "1.1.7",
+            "sensible_stackables": "3.1.1",
+            "fzzy_config": "0.7.7+fix3+26.3"
+          }
+        },
+        {
+          "profile": "native",
+          "checks": 62,
+          "cases": 23,
+          "defaulted_loaded": false,
+          "loaded_modules": {
+            "thenathe_mod_suite": "1.1.5+26.3",
+            "simple_smithing_overhaul": "2.10.0",
+            "toolpouch": "1.1.10",
+            "toolpouch_atlas_elytra_compat": "1.0.9-suite.1+26.3",
+            "mapstitch": "1.1.7",
+            "sensible_stackables": "3.1.1",
+            "fzzy_config": "0.7.7+fix3+26.3"
+          }
+        },
+        {
+          "profile": "nosso",
+          "checks": 44,
+          "cases": 13,
+          "defaulted_loaded": false,
+          "loaded_modules": {
+            "toolpouch": "1.1.10",
+            "toolpouch_atlas_elytra_compat": "1.0.9-suite.1+26.3",
+            "fzzy_config": "0.7.7+fix3+26.3"
+          }
+        }
+      ]
+    },
+    {
+      "matrix": "mending-stack",
+      "result_file": "stack-result.json",
+      "profiles": [
+        {
+          "profile": "polymer",
+          "checks": 75,
+          "cases": 29,
+          "defaulted_loaded": false,
+          "loaded_modules": {
+            "thenathe_mod_suite": "1.1.5+26.3",
+            "simple_smithing_overhaul": "2.10.0",
+            "toolpouch": "1.1.10",
+            "toolpouch_atlas_elytra_compat": "1.0.9-suite.1+26.3",
+            "mapstitch": "1.1.7",
+            "sensible_stackables": "3.1.1",
+            "clumps": "26.3.2",
+            "inventorymending": "1.3",
+            "betterthanmending": "2.3.0",
+            "armored-elytra": "unspecified",
+            "collective": "8.42",
+            "fzzy_config": "0.7.7+fix3+26.3"
+          }
+        },
+        {
+          "profile": "native",
+          "checks": 72,
+          "cases": 27,
+          "defaulted_loaded": false,
+          "loaded_modules": {
+            "thenathe_mod_suite": "1.1.5+26.3",
+            "simple_smithing_overhaul": "2.10.0",
+            "toolpouch": "1.1.10",
+            "toolpouch_atlas_elytra_compat": "1.0.9-suite.1+26.3",
+            "mapstitch": "1.1.7",
+            "sensible_stackables": "3.1.1",
+            "clumps": "26.3.2",
+            "inventorymending": "1.3",
+            "betterthanmending": "2.3.0",
+            "armored-elytra": "unspecified",
+            "collective": "8.42",
+            "fzzy_config": "0.7.7+fix3+26.3"
+          }
+        },
+        {
+          "profile": "nosso",
+          "checks": 52,
+          "cases": 16,
+          "defaulted_loaded": false,
+          "loaded_modules": {
+            "toolpouch": "1.1.10",
+            "toolpouch_atlas_elytra_compat": "1.0.9-suite.1+26.3",
+            "clumps": "26.3.2",
+            "inventorymending": "1.3",
+            "betterthanmending": "2.3.0",
+            "armored-elytra": "unspecified",
+            "collective": "8.42",
+            "fzzy_config": "0.7.7+fix3+26.3"
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Dedicated-server mechanics using actual XP orb pickups, real Clumps merged-orb entries, Inventory.tick, LivingEntity.updateFallFlying and live ToolPouchMenu saveback; native client capability is explicitly set by the fixture, not a real connected client.",
+  "limits": [
+    "Disposable worlds and isolated mechanics players; the complete private server stack and user save were not run.",
+    "Connected client capability negotiation is outside this fixture; private user log confirms native negotiation on the reported failing server.",
+    "Armored Elytra was actually forged by its mod API; Better Than Mending was loaded but its independent sneak-right-click feature was not exercised.",
+    "Earlier addon-override candidates, the rejected initial dependency-resolution build and the preceding 4d0086 candidate are not final acceptance."
+  ]
+}

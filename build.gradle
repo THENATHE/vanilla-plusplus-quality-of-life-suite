@@ -17,7 +17,7 @@ tasks.withType(JavaCompile).configureEach {
 java { withSourcesJar(); sourceCompatibility = JavaVersion.VERSION_25; targetCompatibility = JavaVersion.VERSION_25 }
 jar { from('LICENSE') }
 
-version = '1.1.4+26.3'
+version = '1.1.5+26.3'
 base { archivesName = 'vanilla-plusplus-quality-of-life-suite' }
 sourceSets.main.java.exclude('com/thenathe/suite/network/**')
 dependencies {
@@ -27,7 +27,7 @@ dependencies {
 }
 repositories { maven { url = 'https://maven.terraformersmc.com/releases/' }; maven { url = 'https://maven.shedaniel.me/' } }
 def bundled = fileTree('libs') {
- include 'bannerpoint-fabric-*.jar', 'simple_smithing_overhaul-*.jar', 'tiered_backpacks-*.jar', 'toolpouch-fabric-*.jar', 'mapstitch-fabric-*.jar', 'misctweaks-*.jar', 'simple_death_improvements-*.jar', 'chalk-*.jar', 'chalk-colorful-addon-*.jar', 'amethyst-curse-cleanser-*.jar'
+ include 'sensible_stackables-fabric-*.jar', 'bannerpoint-fabric-*.jar', 'simple_smithing_overhaul-*.jar', 'tiered_backpacks-*.jar', 'toolpouch-fabric-*.jar', 'mapstitch-fabric-*.jar', 'misctweaks-*.jar', 'simple_death_improvements-*.jar', 'chalk-*.jar', 'chalk-colorful-addon-*.jar', 'amethyst-curse-cleanser-*.jar'
 }
 tasks.register('verifyInputs') {
  doLast {
@@ -38,11 +38,11 @@ tasks.register('verifyInputs') {
  }
 }
 tasks.named('compileJava') { dependsOn 'verifyInputs' }
-['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra', 'mapstitch-mixed-scales', 'sensible-stackables-port', 'sensible-stackables-compat', 'bannerpoint-compat'].each { evaluationDependsOn(":${it}") }
+['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra', 'mapstitch-mixed-scales', 'sensible-stackables-compat', 'bannerpoint-compat'].each { evaluationDependsOn(":${it}") }
 subprojects { tasks.withType(JavaCompile).configureEach { dependsOn rootProject.tasks.named('verifyInputs') } }
-def componentJars = ['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra', 'mapstitch-mixed-scales', 'sensible-stackables-port', 'sensible-stackables-compat', 'bannerpoint-compat'].collect { rootProject.project(":${it}").tasks.named('jar').flatMap { it.archiveFile } }
+def componentJars = ['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra', 'mapstitch-mixed-scales', 'sensible-stackables-compat', 'bannerpoint-compat'].collect { rootProject.project(":${it}").tasks.named('jar').flatMap { it.archiveFile } }
 jar {
- dependsOn ':combined-compat:jar', ':chalk-compat:jar', ':shared-region-maps:jar', ':toolpouch-atlas-elytra:jar', ':mapstitch-mixed-scales:jar', ':sensible-stackables-port:jar', ':sensible-stackables-compat:jar', ':bannerpoint-compat:jar'
+ dependsOn ':combined-compat:jar', ':chalk-compat:jar', ':shared-region-maps:jar', ':toolpouch-atlas-elytra:jar', ':mapstitch-mixed-scales:jar', ':sensible-stackables-compat:jar', ':bannerpoint-compat:jar'
  from(bundled) { into 'META-INF/jars' }
  from(componentJars) { into 'META-INF/jars' }
  from('licenses') { into 'META-INF/licenses' }

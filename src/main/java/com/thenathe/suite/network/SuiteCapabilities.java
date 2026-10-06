@@ -167,6 +167,10 @@ public final class SuiteCapabilities {
                 if (connection instanceof ChannelInfoHolder holder) {
                     var channels = holder.fabric_getPendingChannelsNames(ConnectionProtocol.PLAY);
                     if (loaded("toolpouch") && channels.containsAll(TOOLPOUCH_CHANNELS)) selected.add("toolpouch");
+                    if (loaded("simple_smithing_overhaul")
+                            && ServerConfigurationNetworking.canSend(listener, Identifier.parse("chalk_polymer_compat:state_request_v1"))
+                            && channels.contains(Identifier.parse("simple_smithing_overhaul:repairables"))) selected.add("simple_smithing_overhaul");
+                    if (loaded("sensible_stackables") && channels.contains(Identifier.parse("sensible_stackables:stack_sizes"))) selected.add("sensible_stackables");
                     if (loaded("mapstitch") && !loaded("mapstitch_mixed_scales") && channels.containsAll(MAPSTITCH_CHANNELS)) selected.add("mapstitch");
                 }
             }
@@ -178,7 +182,7 @@ public final class SuiteCapabilities {
 
     private static List<String> dependencies(String mod) {
         if (mod.equals("mapstitch")) return List.of(mod, "mapstitch_mixed_scales", "toolpouch_atlas_elytra_compat", "shared_region_maps", "sso_backpack_toolpouch_mapstitch_shim", "thenathe_mod_suite");
-        if (mod.equals("sensible_stackables")) return List.of(mod, "sensible_stackables_polymer_compat", "defaulted", "fzzy_config", "thenathe_mod_suite");
+        if (mod.equals("sensible_stackables")) return List.of(mod, "sensible_stackables_polymer_compat", "fzzy_config", "thenathe_mod_suite");
         if (mod.equals("chalk")) return List.of(mod, "chalk-colorful-addon", "chalk_polymer_compat", "thenathe_mod_suite");
         if (mod.equals("toolpouch")) return List.of(mod, "toolpouch_atlas_elytra_compat", "sso_backpack_toolpouch_mapstitch_shim", "thenathe_mod_suite");
         return List.of(mod, "sso_backpack_toolpouch_mapstitch_shim", "thenathe_mod_suite");

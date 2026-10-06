@@ -19,8 +19,10 @@ for p in (ROOT/'libs').glob('*.jar'):
   if 'fabric.mod.json' not in z.namelist():continue
  mods.append(p)
 stage=project_path(WORKSPACE,'polymer-shim-test-bundle')/'staging-2026-10-01/mods';mods += [stage/'fabric-api-0.161.0+26.3.jar',stage/'cloth-config-fabric-26.3.159.jar'];polymer=stage/'polymer-bundled-0.18.2+26.3.jar'
-assert sha(next(p for p in mods if p.name.startswith('defaulted-')))=='e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61'
-classes=RUN/'classes';classes.mkdir();paths=[*servercp,*clientcp,bundle,*mods,polymer]
+assert not any(p.name.startswith('defaulted-') for p in mods), 'Defaulted must be absent from current runtime'
+compile_defaulted=ROOT/'libs/compile-only/defaulted-1.3.8+26.3.dropfix.1-fabric.jar'
+assert sha(compile_defaulted)=='e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61'
+classes=RUN/'classes';classes.mkdir();paths=[*servercp,*clientcp,bundle,*mods,polymer,compile_defaulted]
 def nested(p):
  with zipfile.ZipFile(p) as z:
   for n in z.namelist():

@@ -1,0 +1,16 @@
+{
+  "candidate_sha256": "5ced4e0d8c277f2f9f681250f0272420238f9d724669fae0ce027081bf7d3864",
+  "accepted": false,
+  "stage": "Fabric loader dependency resolution before startup",
+  "failure": "Mixed-scale metadata still pinned MapStitch1.1.6/coordinator1.1.0; updated to1.1.7/1.1.1 and module1.1.5 before final acceptance.",
+  "world_or_gameplay_tested": false,
+  "later_candidate": {
+    "sha256": "4d0086b3472ea890a9ed6813ef8e32936e4d29b495858c4ca937ede60a16d2f3",
+    "accepted": false,
+    "failure": "Actual connected native2048-itemclick crashes EmptyItemStacknotallowed; Polymer transformedemptyAIRslot. NewoverrideincludesAIR, compatibilitymustskipempty input/output. Dedicatedmechanicsandfocusedatlasnetworkpassed separately,do notestablishfullacceptance."
+  },
+  "last_review": {
+    "previous_sha256": "83fc3a07291cf9000a3e5a56fa1998ee47001eab3cf091ded152a0bf6e831f9a",
+    "scope": "Coordinator now requires actual block-state confirmation receiver before inferring native SSO from its new repair-table channel. Suite handshake behavior unchanged. Original Stackables can be automatically native from its own channel."
+  }
+}

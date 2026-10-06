@@ -8,14 +8,14 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Optional;
 
 //? >=26.3 {
-/*import net.minecraft.advancements.triggers.SimpleCriterionTrigger;
+import net.minecraft.advancements.triggers.SimpleCriterionTrigger;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-*///?} else >=26.2 {
-import net.minecraft.advancements.predicates.ContextAwarePredicate;
+//?} else >=26.2 {
+/*import net.minecraft.advancements.predicates.ContextAwarePredicate;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.advancements.triggers.SimpleCriterionTrigger;
-//?} else {
+*///?} else {
 /*//~ if <26.1 'criterion' -> 'critereon' {
 import net.minecraft.advancements.criterion.ContextAwarePredicate;
 import net.minecraft.advancements.criterion.EntityPredicate;
@@ -35,11 +35,11 @@ public class ModCriterion extends SimpleCriterionTrigger<ModCriterion.TriggerIns
     }
 
     //~ if >26.2 'ContextAwarePredicate' -> 'Holder<LootItemCondition>'
-    public record TriggerInstance(Optional<ContextAwarePredicate> player) implements SimpleInstance {
+    public record TriggerInstance(Optional<Holder<LootItemCondition>> player) implements SimpleInstance {
         public static final Codec<TriggerInstance> CODEC = RecordCodecBuilder.create(
                 instance -> instance.group(
                         //~ if >26.2 'EntityPredicate.ADVANCEMENT_CODEC' -> 'LootItemCondition.CODEC'
-                        EntityPredicate.ADVANCEMENT_CODEC.optionalFieldOf("player").forGetter(TriggerInstance::player)
+                        LootItemCondition.CODEC.optionalFieldOf("player").forGetter(TriggerInstance::player)
                 ).apply(instance, TriggerInstance::new)
         );
 

@@ -17,7 +17,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 /** Attempts the original repair before its broken-item guard and subclass-specific item use. */
 @Mixin(value = FabricEntrypoint.class, remap = false)
 public abstract class MendingUseMixin {
-    @Inject(method = "lambda$initEvents$4", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "lambda$initEvents$7(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;Lnet/minecraft/world/InteractionHand;)Lnet/minecraft/world/InteractionResult;",
+            at = @At("HEAD"), cancellable = true)
     private static void ssoPolymer$manualMending(Player player, Level level, InteractionHand hand,
                                                CallbackInfoReturnable<InteractionResult> cir) {
         if (!(player instanceof ServerPlayer serverPlayer) || player.isSpectator()

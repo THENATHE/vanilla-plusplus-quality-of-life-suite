@@ -1,9 +1,10 @@
 {
-  "file": "libs/simple_smithing_overhaul-fabric-2.9.14+26.3.jar",
+  "file": "libs/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
   "id": "simple_smithing_overhaul",
-  "version": "2.9.14",
-  "sha256": "fb6cbf8c13938d68fb19171dac386b5567d71625bce727b22d3380f6b7880126",
-  "origin": "Private official developer Fabric 26.3 release, confirmed by user on 2026-10-04; exact binary retained unchanged. Official public 26.2 baseline separately preserved; private build source revision not independently recorded.",
-  "track": "developer-release-private",
-  "user_provenance_confirmation": "2026-10-04: user confirms official private release; public Modrinth listing is a different 26.2 binary."
+  "version": "2.10.0",
+  "sha256": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
+  "origin": "Official public developer Fabric 26.3 release; components/sso/inputs.lock.json",
+  "track": "developer-release",
+  "version_url": "https://modrinth.com/mod/simple-smithing-overhaul/version/k5NaPhrq",
+  "download_url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/k5NaPhrq/simple_smithing_overhaul-fabric-2.10.0%2B26.3.jar"
 }

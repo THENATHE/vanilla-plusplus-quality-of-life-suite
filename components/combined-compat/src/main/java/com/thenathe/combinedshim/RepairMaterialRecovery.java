@@ -3,6 +3,7 @@ package com.thenathe.combinedshim;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.component.PatchedDataComponentMap;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.permissions.Permissions;
 import net.minecraft.world.item.ItemStack;
@@ -39,8 +40,10 @@ public final class RepairMaterialRecovery {
         if (!onlyCalcite(explicit)) return false;
         var canonical = new ItemStack(stack.getItem()).get(DataComponents.REPAIRABLE);
         if (onlyCalcite(canonical)) return false;
-        if (canonical == null) stack.remove(DataComponents.REPAIRABLE);
-        else stack.set(DataComponents.REPAIRABLE, canonical);
+        // Forget the explicit patch instead of pinning today's effective repair
+        // table entry. Future upstream config updates must still affect this item.
+        ((PatchedDataComponentMap) stack.getComponents()).restorePatch(
+                stack.getComponentsPatch().forget(type -> type == DataComponents.REPAIRABLE));
         return true;
     }
 

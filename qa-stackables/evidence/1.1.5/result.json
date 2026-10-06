@@ -1,0 +1,56 @@
+{
+  "bundle_sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+  "minecraft": "26.3",
+  "track": "developer-release-suite",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":false,\"common_stack_size\":64,\"restart\":false,\"assertions\":94}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":false,\"common_stack_size\":64,\"restart\":true,\"assertions\":95}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":false,\"assertions\":94}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":true,\"assertions\":95}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":false,\"assertions\":70}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":true,\"assertions\":71}",
+      "passed": true
+    }
+  ],
+  "verified_on": "2026-10-06",
+  "suite_version": "1.1.5+26.3",
+  "run_label": "developer-overrides-1.1.5-final5-coordinator",
+  "evidence_kind": "final-candidate",
+  "total_assertions": 519,
+  "defaulted_installed": false
+}

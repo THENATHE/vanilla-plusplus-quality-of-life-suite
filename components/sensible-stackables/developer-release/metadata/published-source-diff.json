@@ -1,0 +1,27 @@
+{
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "me/pajic/sensible_stackables/SensibleStackables.java",
+    "me/pajic/sensible_stackables/SensibleStackablesClient.java",
+    "me/pajic/sensible_stackables/config/ModConfig.java",
+    "me/pajic/sensible_stackables/mixin/stack_uncapper/ItemMixin.java",
+    "me/pajic/sensible_stackables/mixin/stack_uncapper/ItemStackMixin.java",
+    "me/pajic/sensible_stackables/mixson/DynamicTagEvent.java",
+    "me/pajic/sensible_stackables/platform/MultiLoaderUtil.java",
+    "me/pajic/sensible_stackables/platform/fabric/FabricClientEntrypoint.java",
+    "me/pajic/sensible_stackables/platform/fabric/FabricEntrypoint.java",
+    "me/pajic/sensible_stackables/platform/fabric/FabricLoaderUtil.java",
+    "me/pajic/sensible_stackables/platform/neoforge/NeoforgeClientEventSubscriber.java",
+    "me/pajic/sensible_stackables/platform/neoforge/NeoforgeEntrypoint.java",
+    "me/pajic/sensible_stackables/platform/neoforge/NeoforgeLoaderUtil.java"
+  ],
+  "added": [
+    "me/pajic/sensible_stackables/extension/ComponentMapOwner.java",
+    "me/pajic/sensible_stackables/handler/StackSizeOverrides.java",
+    "me/pajic/sensible_stackables/handler/StackSizeSyncPayload.java",
+    "me/pajic/sensible_stackables/mixin/stack_uncapper/PatchedDataComponentMapMixin.java"
+  ],
+  "deleted": [
+    "me/pajic/sensible_stackables/defaulted/MaxStackSizePatchEvent.java"
+  ]
+}

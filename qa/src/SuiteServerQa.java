@@ -39,6 +39,7 @@ public final class SuiteServerQa implements ModInitializer {
                 selected.addProperty(mod, actual);
                 boolean moduleExpected = expected && !(name.equals("SuiteMismatch") && mod.equals("simple_smithing_overhaul"))
                         && !(name.equals("SuiteChalkMiss") && mod.equals("chalk"));
+                if (name.equals("OriginalClient")) moduleExpected = mod.equals("sensible_stackables");
                 passed &= actual == moduleExpected;
             }
             var position = handler.player.blockPosition().offset(2, 0, 0);
@@ -112,7 +113,7 @@ public final class SuiteServerQa implements ModInitializer {
             result.add("native_modules", selected);
             result.addProperty("chalk_conversion_registered", BuiltInRegistries.RECIPE_SERIALIZER.containsKey(Identifier.parse("chalk_polymer_compat:chalk_conversion")));
             passed &= BuiltInRegistries.RECIPE_SERIALIZER.containsKey(Identifier.parse("chalk_polymer_compat:chalk_conversion"));
-            result.addProperty("defaulted_version", loader.getModContainer("defaulted").orElseThrow().getMetadata().getVersion().getFriendlyString());
+            result.addProperty("defaulted_version", loader.getModContainer("defaulted").map(c -> c.getMetadata().getVersion().getFriendlyString()).orElse("absent"));
             result.addProperty("passed", passed);
             try { Files.writeString(Path.of(System.getProperty("suite.qa.control"), handler.player.getGameProfile().name() + "-join.json"), result.toString()); }
             catch (Exception error) { throw new RuntimeException(error); }

@@ -73,7 +73,7 @@ public final class SuiteClientQa implements ClientModInitializer {
                     for(var pair:new String[]{"stone","potion"}) {
                         var received=client.player.getInventory().getItem(pair.equals("stone")?5:6);
                         int count=marker.get(pair+"_count").getAsInt(), max=marker.get(pair+"_max").getAsInt();
-                        if(!nativeChalk)max=Math.min(99,max);
+                        if(!Boolean.getBoolean("suite.qa.native-stackables"))max=Math.min(99,max);
                         if(received.getCount()!=count||received.getMaxStackSize()!=max) {
                             if(ticks<200)return;
                             throw new IllegalStateException(pair+" packet count="+received.getCount()+" max="+received.getMaxStackSize()+" expected "+count+"/"+max);

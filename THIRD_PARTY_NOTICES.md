@@ -10,11 +10,11 @@ New suite, negotiation, compatibility and addon code uses the MIT license in LIC
 | Chalk | mortuusars; Fabric port by DaFuqs and contributors | MIT; original and Fabric-port notices retained |
 | Chalk Colorful Addon | Original uploaded addon authors listed in its preserved metadata | MIT; its original license and icon are unchanged |
 | Shared Region Maps | THENATHE | All rights reserved, retained; redistributed here by its owner |
-| Installation ZIP: Defaulted dropfix | Alexandra / Defaulted; Pajic fork reference; THENATHE dropfix | MIT; original notice retained |
+| Historical compile input: Defaulted dropfix | Alexandra / Defaulted; Pajic fork reference; THENATHE dropfix | MIT; original notice retained |
 | Installation ZIP: retained CodecUI build | MehVahdJukaar / CodecUI; Pajic fork API reference | MIT declaration and full terms retained; no invented source revision |
 | Amethyst Curse Cleanser, atlas/Elytra addon, compatibility components | THENATHE | MIT |
 
-Original nested dependency JARs, including MixinConstraints, are kept intact with their own metadata and licenses. This is not a claim that every library used by the suite is MIT. Shared runtime libraries are installed separately and retain their own terms: Fabric API and Fabric Language Kotlin, Fzzy Config, Cloth Config, Defaulted, CodecUI, Mixson, and optional Polymer/Mod Menu. Library versions and hashes are pinned separately in locks/; no library API has been replaced with local code.
+Original nested dependency JARs, including MixinConstraints, are kept intact with their own metadata and licenses. This is not a claim that every library used by the suite is MIT. Shared runtime libraries are installed separately and retain their own terms: Fabric API and Fabric Language Kotlin, Fzzy Config, Cloth Config, CodecUI, Mixson, and optional Polymer/Mod Menu. Defaulted is retained only as an exact historical compile input for guarded optional support, with its source and notices preserved; it is no longer installed by the suite. Library versions and hashes are pinned separately in locks/; no library API has been replaced with local code.
 
 [ClientSort](https://modrinth.com/mod/clientsort) is an optional runtime integration and pinned compile-only dependency; its binary is excluded from the suite and installation ZIP. Full dependency and integration download links are in [docs/DEPENDENCIES.md](docs/DEPENDENCIES.md).
 

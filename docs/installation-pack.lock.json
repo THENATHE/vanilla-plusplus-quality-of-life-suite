@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "name": "Vanilla++ Quality of Life Suite",
-  "pack_version": "1.1.4+26.3",
+  "pack_version": "1.1.5+26.3",
   "verified_on": "2026-10-06",
   "dependencies": {
     "minecraft": "26.3",
@@ -85,12 +85,12 @@
     {
       "slug": "fzzy-config",
       "name": "Fzzy Config",
-      "version": "0.7.7+fix2+26.3",
-      "version_id": "thw1Z19c",
+      "version": "0.7.7+fix3+26.3",
+      "version_id": "YkOumqzV",
       "project_id": "hYykXjDp",
       "project_url": "https://modrinth.com/mod/fzzy-config",
-      "version_url": "https://modrinth.com/mod/fzzy-config/version/thw1Z19c",
-      "metadata_url": "https://api.modrinth.com/v2/version/thw1Z19c",
+      "version_url": "https://modrinth.com/mod/fzzy-config/version/YkOumqzV",
+      "metadata_url": "https://api.modrinth.com/v2/version/YkOumqzV",
       "project_metadata_url": "https://api.modrinth.com/v2/project/fzzy-config",
       "source_url": "https://github.com/fzzyhmstrs/fconfig",
       "license": {
@@ -114,20 +114,20 @@
           "dependency_type": "required"
         }
       ],
-      "path": "mods/fzzy_config-0.7.7+fix2+26.3.jar",
+      "path": "mods/fzzy_config-0.7.7+fix3+26.3.jar",
       "hashes": {
-        "sha512": "c33e0464b6bcda00a7bdb7b84f7390ed1b168b1ce9e553226bef2bbfc0608f127665040ba7cb3701d30cb34f70e2cae72d4847da0d2994092d3af15fb7a3ccd4",
-        "sha1": "ff4a284dee01f08ae1a9cb07fcfa8e98b2391bf1",
-        "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+        "sha512": "bbf47ab921fec1215d6e59ab0d875b565c22bbf039ae985b6e64313412b66835c443006c428ac9b8ef7ba396a4e0aa2bb0d65126c95a595bc56376655cb1c9ee",
+        "sha1": "373b6365bb9f447d2810c151ec2f698ee789366f",
+        "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
       },
       "env": {
         "client": "required",
         "server": "required"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/hYykXjDp/versions/thw1Z19c/fzzy_config-0.7.7%2Bfix2%2B26.3.jar"
+        "https://cdn.modrinth.com/data/hYykXjDp/versions/YkOumqzV/fzzy_config-0.7.7%2Bfix3%2B26.3.jar"
       ],
-      "fileSize": 2375140,
+      "fileSize": 2375413,
       "distribution": "manifest-download"
     },
     {
@@ -294,30 +294,17 @@
   "overrides": [
     {
       "id": "suite",
-      "source": "build/libs/vanilla-plusplus-quality-of-life-suite-1.1.4+26.3.jar",
-      "path": "mods/vanilla-plusplus-quality-of-life-suite-1.1.4+26.3.jar",
+      "source": "build/libs/vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar",
+      "path": "mods/vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar",
       "hashes": {
-        "sha1": "cd0e7ffaaa90e5161cbfc57a0f4ad3067adae2d9",
-        "sha256": "2c1273947279693e5ec3c78b2c39793c3b5fdbc320216476e04d16f79b2a1754",
-        "sha512": "8ec34a8ea41216d3d679d824aba7fd06d1390259847566fe65697d04b9903d6fcbb210ae9379d95cebaec8cbf2bd1c6e5b30ec55de867db55bfc371175fd49ac"
+        "sha1": "576c31e9b9f94101a79ab1a8d130f57bb2aa97a1",
+        "sha256": "67be52fd07c2d3dcfda4045dff5463e45bc0d91d37d3f759f4ebb3be043cd8f5",
+        "sha512": "e6c2bb225981c2186bb640fc88ab8d45443c3d8a5c8cec616a2ec3ad48a5f27116a91002fdc98e098062252cdd63258a1c7e34809287371a3f05446bef96bc0d"
       },
-      "fileSize": 2711906,
+      "fileSize": 3049879,
       "license": "Suite licenses and retained upstream notices",
       "source_url": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/",
-      "version": "1.1.4+26.3"
-    },
-    {
-      "id": "defaulted",
-      "source": "libs/defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
-      "path": "mods/defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
-      "hashes": {
-        "sha1": "0211552810095e213354532cc06c93472f2aab17",
-        "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61",
-        "sha512": "d0cc08a7a91b6678ce96ccfaba299bc637f209ea02e481f77948cc84c8cda9dc025234a81fbb88c81b19e63a56b22669b8c5a198f5aa9bd099b62a6222e5244a"
-      },
-      "fileSize": 1002125,
-      "license": "MIT",
-      "source_url": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/defaulted-dropfix"
+      "version": "1.1.5+26.3"
     },
     {
       "id": "codecui",
@@ -333,5 +320,5 @@
       "source_url": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference"
     }
   ],
-  "checked_on": "2026-10-05"
+  "checked_on": "2026-10-06"
 }

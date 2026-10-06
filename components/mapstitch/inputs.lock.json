@@ -2,24 +2,25 @@
   "component": "mapstitch",
   "track": "developer-release",
   "mod_id": "mapstitch",
-  "artifact_version": "1.1.6",
-  "release_version": "1.1.6+26.3",
+  "artifact_version": "1.1.7",
+  "release_version": "1.1.7+26.3",
   "minecraft": "26.3",
+  "suite_minecraft": "26.3",
   "upstream_minecraft": "26.3",
   "advertised_game_versions": [
     "26.3"
   ],
   "loader": "fabric",
-  "modrinth_version_id": "kRE6nsB7",
-  "modrinth_version_url": "https://modrinth.com/mod/mapstitch/version/kRE6nsB7",
+  "modrinth_version_id": "oDB5IJ7O",
+  "modrinth_version_url": "https://modrinth.com/mod/mapstitch/version/oDB5IJ7O",
   "github": {
     "repository": "https://github.com/pajicadvance/mapstitch",
     "branch": "multicutter-v3",
-    "commit": "6a10ed9ca26ffce49ab8cee03871a6e56d1eceb0"
+    "commit": "84e0aef625f1abc95e617acf23a0635227f5cf82"
   },
-  "binary": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.6+26.3.jar",
-  "binary_sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81",
-  "published_sources": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.6+26.3-sources.jar",
+  "binary": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.7+26.3.jar",
+  "binary_sha256": "d7949f082d365fa4b71ce29b7fdce21ecec3f759ef9f9da9be34b880fc64b5e4",
+  "published_sources": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.7+26.3-sources.jar",
   "repository_snapshot": "components/mapstitch/upstream/repository",
   "published_source_tree": "components/mapstitch/upstream/source",
   "dependencies": {
@@ -49,22 +50,24 @@
   "copyright_file": "components/mapstitch/upstream/repository/LICENSE",
   "artifacts": [
     {
-      "path": "components/mapstitch/upstream/artifacts/mapstitch-6a10ed9ca26ffce49ab8cee03871a6e56d1eceb0-source.zip",
-      "sha256": "69c3178a8ffc6cc08c174270e7a4f17b1e1541b640f407161ef0659a15f73363",
-      "size": 1103608
+      "path": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.7+26.3.jar",
+      "sha256": "d7949f082d365fa4b71ce29b7fdce21ecec3f759ef9f9da9be34b880fc64b5e4",
+      "size": 896683
     },
     {
-      "path": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.6+26.3-sources.jar",
-      "sha256": "dfc21f03f2b07ba659604088abf12ef64e3a48c6803d4abe1146a45b9675b4a9",
-      "size": 793018
+      "path": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.7+26.3-sources.jar",
+      "sha256": "5ef6199ad3c119701be54aca31c4858cc2b07b3920309797a2eef2fe58c66612",
+      "size": 793017
     },
     {
-      "path": "components/mapstitch/upstream/artifacts/mapstitch-fabric-1.1.6+26.3.jar",
-      "sha256": "e1b768bbd1ae06f83305eeba3ab19bfe4eb99bf21de12d57364d04ce9a1cde81",
-      "size": 896682
+      "path": "components/mapstitch/upstream/artifacts/mapstitch-84e0aef625f1abc95e617acf23a0635227f5cf82-source.zip",
+      "sha256": "b58af7e1a2e34299b6f326b8d63628077be07831c6e432f6dd00358c88aabb7d",
+      "size": 1118831
     }
   ],
   "modifications": [],
   "port_counterpart": null,
-  "port_counterpart_reason": "Official developer release supports26.3; no additional port created."
+  "port_counterpart_reason": "Official developer release supports 26.3; no additional port created.",
+  "recorded_date": "2026-10-06",
+  "artifact_verification": "Publisher SHA-512 and SHA-1 verified; local SHA-256 recorded. Published source JAR is exact release authority; GitHub revision is separate history reference."
 }

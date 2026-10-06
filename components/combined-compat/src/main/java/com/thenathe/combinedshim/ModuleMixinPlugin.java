@@ -10,6 +10,7 @@ public final class ModuleMixinPlugin implements IMixinConfigPlugin {
     private static final Map<String, String> MODULES = Map.of("ssopolymer", "simple_smithing_overhaul",
             "backpackcompat", "tiered_backpacks", "toolpouchcompat", "toolpouch", "mapstitchcompat", "mapstitch");
     private static final Set<String> ALWAYS = Set.of(
+            "com.thenathe.ssopolymer.mixin.SmithingNetworkingMixin",
             "com.thenathe.ssopolymer.mixin.AnvilMenuMixin",
             "com.thenathe.ssopolymer.mixin.DataPatchesMixin",
             "com.thenathe.ssopolymer.mixin.MendingUseMixin",

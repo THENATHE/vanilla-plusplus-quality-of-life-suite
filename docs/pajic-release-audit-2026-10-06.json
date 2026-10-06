@@ -1,0 +1,1142 @@
+{
+  "checked_on": "2026-10-06",
+  "target": "26.3",
+  "loader": "fabric",
+  "source": "https://api.modrinth.com/v2/user/pajic/projects and project/{slug}/version",
+  "projects": [
+    {
+      "slug": "simple-smithing-overhaul",
+      "project_url": "https://modrinth.com/mod/simple-smithing-overhaul",
+      "latest_fabric_26_3": {
+        "game_versions": [
+          "26.3"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "client_and_server",
+        "id": "k5NaPhrq",
+        "project_id": "U5TJjZc3",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "2.10.0 for Fabric 26.3",
+        "version_number": "2.10.0+26.3",
+        "changelog": "- Added Fabric 26.3 version.\n- Defaulted is no longer required.\n    - The mod no longer patches item components to add repairs, it now keeps track of repairs on its own and intercepts repair checks instead.\n    - Configuration is unchanged and item tags are still supported in the config.\n    - Changing repairs in the config in-game now applies changes immediately, syncs them to clients, and doesn't require a datapack reload.\n    - Mod compatibility should remain the same, please report any issues if you run into them.\n- Changed how item renames are handled as an attempt to fix a long-standing bug where all text becomes garbled when setting the game to certain languages ([details](https://github.com/pajicadvance/simple-smithing-overhaul/issues/4)).\n",
+        "changelog_url": null,
+        "date_published": "2026-10-05T20:59:18.101494Z",
+        "downloads": 20,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "YhmJybpn",
+            "hashes": {
+              "sha1": "540d35117cefc2ca1e544b9ea8469b05476892ae",
+              "sha512": "0715efeb054f976ab56fb69fc93510eb49acd978f36e46ca6be22dcc4b8fe7a6ec54b500dd4fac4de2885854cb01f8ff522a25a10e1c7c88a722bf147f8d83d1"
+            },
+            "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/k5NaPhrq/simple_smithing_overhaul-fabric-2.10.0%2B26.3.jar",
+            "filename": "simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+            "primary": true,
+            "size": 643723,
+            "file_type": null
+          },
+          {
+            "id": "HDyBVzBi",
+            "hashes": {
+              "sha1": "64d6ab5212b9a2c065f88fbd33a1e5fb6604d26b",
+              "sha512": "4bae6916825b9153b3a3735732bf758972157e5e0f897ff4afe3d9968de4a86b53c0a42a7b219961fa70f9438201207e066c6cd0af01c9d52dc4e90661f5870f"
+            },
+            "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/k5NaPhrq/simple_smithing_overhaul-fabric-2.10.0%2B26.3-sources.jar",
+            "filename": "simple_smithing_overhaul-fabric-2.10.0+26.3-sources.jar",
+            "primary": false,
+            "size": 546471,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "EgugIDm8",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      },
+      "latest_fabric_other_target": {
+        "game_versions": [
+          "26.1",
+          "26.1.1",
+          "26.1.2"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "client_and_server",
+        "id": "7VeDfxEO",
+        "project_id": "U5TJjZc3",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "2.10.0 for Fabric 26.1.2",
+        "version_number": "2.10.0+26.1.2",
+        "changelog": "- Added Fabric 26.3 version.\n- Defaulted is no longer required.\n    - The mod no longer patches item components to add repairs, it now keeps track of repairs on its own and intercepts repair checks instead.\n    - Configuration is unchanged and item tags are still supported in the config.\n    - Changing repairs in the config in-game now applies changes immediately, syncs them to clients, and doesn't require a datapack reload.\n    - Mod compatibility should remain the same, please report any issues if you run into them.\n- Changed how item renames are handled as an attempt to fix a long-standing bug where all text becomes garbled when setting the game to certain languages ([details](https://github.com/pajicadvance/simple-smithing-overhaul/issues/4)).\n",
+        "changelog_url": null,
+        "date_published": "2026-10-05T20:59:20.479129Z",
+        "downloads": 8,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "bjk9TVBS",
+            "hashes": {
+              "sha512": "9ad8830630ded5de0acbe8dc11c08f09d0942f755ac167e1ae885a1a7eeebc3a1087c9e8005c1162bc596949af78ea42df7c43504e67f5dedbc16350a81fa380",
+              "sha1": "6d2b4e5a99c3fddc12c425bbb27d983afc359419"
+            },
+            "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/7VeDfxEO/simple_smithing_overhaul-fabric-2.10.0%2B26.1.2.jar",
+            "filename": "simple_smithing_overhaul-fabric-2.10.0+26.1.2.jar",
+            "primary": true,
+            "size": 643720,
+            "file_type": null
+          },
+          {
+            "id": "ViP1psyg",
+            "hashes": {
+              "sha1": "912e068b9e53ac4f4bdc06b4668a9d7fcb4fa18a",
+              "sha512": "12c4fd95100a83fae1ffabaa37e5af97143eb66d113a8e58d5e93b51e7325d5e314af48c3752c3d51f4497adc79b5c086b6566e1d0678eb7ead910a3cb728cc6"
+            },
+            "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/7VeDfxEO/simple_smithing_overhaul-fabric-2.10.0%2B26.1.2-sources.jar",
+            "filename": "simple_smithing_overhaul-fabric-2.10.0+26.1.2-sources.jar",
+            "primary": false,
+            "size": 546483,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "EgugIDm8",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "mapstitch",
+      "project_url": "https://modrinth.com/mod/mapstitch",
+      "latest_fabric_26_3": {
+        "game_versions": [
+          "26.3"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "client_and_server",
+        "id": "oDB5IJ7O",
+        "project_id": "etdHQJ0B",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "1.1.7 for Fabric 26.3",
+        "version_number": "1.1.7+26.3",
+        "changelog": "- Fixed broken Russian translation.\n",
+        "changelog_url": null,
+        "date_published": "2026-10-05T21:34:10.453133Z",
+        "downloads": 26,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "UjRT9QSU",
+            "hashes": {
+              "sha512": "8d488ffa8f052959c2f6a56c0acaa9927380521a5fb0a81157c50df01b2cda57fa30aedc0f50cd7fcf0db6a4e536079a3c9ee5a5aa9c72b690fa4019867929ff",
+              "sha1": "864576cf54d8c844be08ea51efb2ad989b934bb3"
+            },
+            "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/oDB5IJ7O/mapstitch-fabric-1.1.7%2B26.3.jar",
+            "filename": "mapstitch-fabric-1.1.7+26.3.jar",
+            "primary": true,
+            "size": 896683,
+            "file_type": null
+          },
+          {
+            "id": "PMViMW87",
+            "hashes": {
+              "sha512": "662672b38229bbfe405cee1e28f37232658b641e7e1ed823040c98904e194b8584f290a1ecfe592cc93b54a61c2adc0e7b97807bd871879c9a4fc2bf6c4f14ba",
+              "sha1": "e0add452f8cdf81f68d382944c344d28f3ee2568"
+            },
+            "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/oDB5IJ7O/mapstitch-fabric-1.1.7%2B26.3-sources.jar",
+            "filename": "mapstitch-fabric-1.1.7+26.3-sources.jar",
+            "primary": false,
+            "size": 793017,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      },
+      "latest_fabric_other_target": {
+        "game_versions": [
+          "26.2"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "client_and_server",
+        "id": "fjluFJJH",
+        "project_id": "etdHQJ0B",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "1.1.7 for Fabric 26.2",
+        "version_number": "1.1.7+26.2",
+        "changelog": "- Fixed broken Russian translation.\n",
+        "changelog_url": null,
+        "date_published": "2026-10-05T21:34:11.217306Z",
+        "downloads": 20,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "KBqNTdSc",
+            "hashes": {
+              "sha1": "ced9cd9c6ec7c369459a6c68dc4a418e9259176a",
+              "sha512": "dd6117a2a72b4264a8289aa0c4f47e350a090828c56e1084f7d2a4c103ad33e5373ebd0e2ff577df9cedcd493f78b846cee7e3ff59e533aaa5dc8eee159195fe"
+            },
+            "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/fjluFJJH/mapstitch-fabric-1.1.7%2B26.2.jar",
+            "filename": "mapstitch-fabric-1.1.7+26.2.jar",
+            "primary": true,
+            "size": 896446,
+            "file_type": null
+          },
+          {
+            "id": "xaYDBDxs",
+            "hashes": {
+              "sha1": "167e55b0257c8d9023d9c28079749f643ea0e91c",
+              "sha512": "49e07bc96a5b6bbc2f9eb50503032776886da5d857633f968dba6460967de99540636eda266e5cbcc4dabfd5446d86635c511f79cee64b8ae773fa3f37422bcc"
+            },
+            "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/fjluFJJH/mapstitch-fabric-1.1.7%2B26.2-sources.jar",
+            "filename": "mapstitch-fabric-1.1.7+26.2-sources.jar",
+            "primary": false,
+            "size": 793013,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "sensible-stackables",
+      "project_url": "https://modrinth.com/mod/sensible-stackables",
+      "latest_fabric_26_3": {
+        "game_versions": [
+          "26.3"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "client_and_server",
+        "id": "oRpBICTz",
+        "project_id": "5lQcMjaC",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "3.1.1 for Fabric 26.3",
+        "version_number": "3.1.1+26.3",
+        "changelog": "3.1.0:\n\n- Added Fabric 26.3 version.\n- Defaulted is no longer required.\n  - The mod no longer patches item components to change stack sizes, it now keeps track of stack sizes on its own and intercepts stack size calls instead.\n  - Configuration is unchanged, item tags are still supported in the config, and stack size changes are still synced to clients.\n  - Changing stack sizes in the config in-game now applies changes immediately and doesn't require a datapack reload.\n  - Mod compatibility should remain the same, please report any issues if you run into them.\n- Mixson is no longer required.\n  - It can still be installed for the \"All blocks\" and \"Minecarts\" dynamic item tags.\n- Added cushions to the default configuration, increasing their stack size from 16 to 64.\n\n3.1.1:\n\n- Fixed stack sizes not clearing properly on config update.\n",
+        "changelog_url": null,
+        "date_published": "2026-10-05T19:10:18.526267Z",
+        "downloads": 90,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "fxg28ArH",
+            "hashes": {
+              "sha512": "13138e9ac50ef58cc5a720d3c1f82934f8149f172307a03ee1719fd30ef7df794b317c3795c15508946823bf04dabda9f823f1b4c9f6f0fe36749cfb66b60fd3",
+              "sha1": "08a61e9e83ac3eaaf1c1390b237cbbdf296a3f4f"
+            },
+            "url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/oRpBICTz/sensible_stackables-fabric-3.1.1%2B26.3.jar",
+            "filename": "sensible_stackables-fabric-3.1.1+26.3.jar",
+            "primary": true,
+            "size": 64323,
+            "file_type": null
+          },
+          {
+            "id": "2jmnK9St",
+            "hashes": {
+              "sha512": "1498170406f8b141c95aa33322d9e539e7a20ed1d70580bdc284e2c5458b1acec55c7909f0ab0bfeba5bd4857f268ea37e0f921cbe2907ff18068bf6d517560c",
+              "sha1": "176862a264017f87ba396ee484e0aef76310985c"
+            },
+            "url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/oRpBICTz/sensible_stackables-fabric-3.1.1%2B26.3-sources.jar",
+            "filename": "sensible_stackables-fabric-3.1.1+26.3-sources.jar",
+            "primary": false,
+            "size": 48384,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      },
+      "latest_fabric_other_target": {
+        "game_versions": [
+          "1.21",
+          "1.21.1"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "client_and_server",
+        "id": "b2D7q7lB",
+        "project_id": "5lQcMjaC",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "3.1.1 for Fabric 1.21.1",
+        "version_number": "3.1.1+1.21.1",
+        "changelog": "3.1.0:\n\n- Added Fabric 26.3 version.\n- Defaulted is no longer required.\n  - The mod no longer patches item components to change stack sizes, it now keeps track of stack sizes on its own and intercepts stack size calls instead.\n  - Configuration is unchanged, item tags are still supported in the config, and stack size changes are still synced to clients.\n  - Changing stack sizes in the config in-game now applies changes immediately and doesn't require a datapack reload.\n  - Mod compatibility should remain the same, please report any issues if you run into them.\n- Mixson is no longer required.\n  - It can still be installed for the \"All blocks\" and \"Minecarts\" dynamic item tags.\n- Added cushions to the default configuration, increasing their stack size from 16 to 64.\n\n3.1.1:\n\n- Fixed stack sizes not clearing properly on config update.\n",
+        "changelog_url": null,
+        "date_published": "2026-10-05T19:10:19.220425Z",
+        "downloads": 25,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "SrUliPP5",
+            "hashes": {
+              "sha1": "2ee125123df75a1b6d16b03868644079ee46cfe4",
+              "sha512": "1989a87262037c5947c1b3dfd1864c826bae16533d3af1fad964227483b5cd0812352af904c25ec860dac4d37e981fc64476bf25184bca8c41ecdfd19dd0b374"
+            },
+            "url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/b2D7q7lB/sensible_stackables-fabric-3.1.1%2B1.21.1.jar",
+            "filename": "sensible_stackables-fabric-3.1.1+1.21.1.jar",
+            "primary": true,
+            "size": 118660,
+            "file_type": null
+          },
+          {
+            "id": "APhekk3D",
+            "hashes": {
+              "sha1": "ccd06d150e8bef1a32b305520ccf85c84b7616cc",
+              "sha512": "854d64506476a6f210e3932dfd496b75e0674f6e660a4a59eadc0f8cfed7dda69b330adb51b55af670c9b7fb286ae558e639d4b85028593d1270cbff8dcb8c9e"
+            },
+            "url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/b2D7q7lB/sensible_stackables-fabric-3.1.1%2B1.21.1-sources.jar",
+            "filename": "sensible_stackables-fabric-3.1.1+1.21.1-sources.jar",
+            "primary": false,
+            "size": 49350,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "tool-pouch",
+      "project_url": "https://modrinth.com/mod/tool-pouch",
+      "latest_fabric_26_3": {
+        "game_versions": [
+          "26.3"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "client_and_server",
+        "id": "6Z3zMyN8",
+        "project_id": "ZY6C1rJ4",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "1.1.10 for Fabric 26.3",
+        "version_number": "1.1.10+26.3",
+        "changelog": "- Fixed LambDynamicLights and Shulker Box Tooltip compatibility.\n",
+        "changelog_url": null,
+        "date_published": "2026-09-26T10:27:09.544169Z",
+        "downloads": 37,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "8lWqHwDC",
+            "hashes": {
+              "sha512": "b4284c31c649b548a636bcc1298ed2b8c695c2cf0b8efd5a7fbf1ea84fd180cc9883b074cdc87ca8d04440e5d2b69b2ba7b609b7ace5f876febc36f6b27bb7e4",
+              "sha1": "aee59ade66ce878179b11af75256f9149298e6d2"
+            },
+            "url": "https://cdn.modrinth.com/data/ZY6C1rJ4/versions/6Z3zMyN8/toolpouch-fabric-1.1.10%2B26.3.jar",
+            "filename": "toolpouch-fabric-1.1.10+26.3.jar",
+            "primary": true,
+            "size": 326095,
+            "file_type": null
+          },
+          {
+            "id": "ouhoiv3J",
+            "hashes": {
+              "sha1": "37db5ec39fde26240f6257de8a7f436a5a2511a6",
+              "sha512": "4b8fbf911aa123e01f30afd70521f4f8e0333c38da33b432c826ca8496d30e768a26c342c9cbc14274dd6331e6481025119e655f47c44b28149f0c5a5b019587"
+            },
+            "url": "https://cdn.modrinth.com/data/ZY6C1rJ4/versions/6Z3zMyN8/toolpouch-fabric-1.1.10%2B26.3-sources.jar",
+            "filename": "toolpouch-fabric-1.1.10+26.3-sources.jar",
+            "primary": false,
+            "size": 211348,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      },
+      "latest_fabric_other_target": null
+    },
+    {
+      "slug": "tiered-backpacks",
+      "project_url": "https://modrinth.com/mod/tiered-backpacks",
+      "latest_fabric_26_3": {
+        "game_versions": [
+          "26.3"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "client_and_server",
+        "id": "GHnqX59p",
+        "project_id": "IhNtYNEF",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "1.0.20 for Fabric 26.3",
+        "version_number": "1.0.20+26.3",
+        "changelog": "- Backpack GUI now uses parts of the vanilla container sprite, making it compatible with GUI resource packs.\n",
+        "changelog_url": null,
+        "date_published": "2026-10-02T13:47:56.280259Z",
+        "downloads": 512,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "X3aMOYqs",
+            "hashes": {
+              "sha512": "ba1d4d0e4ac57b5baa26511219f8df66b7d60ab1f901cb139c3e905bddf354ff48e4b5390fc856cd059c408748fed94e5da9dc0272976820da7c9aec86d3e947",
+              "sha1": "f79aba8a60dd5ead9667d6387205bdf0d268dcb9"
+            },
+            "url": "https://cdn.modrinth.com/data/IhNtYNEF/versions/GHnqX59p/tiered_backpacks-fabric-1.0.20%2B26.3.jar",
+            "filename": "tiered_backpacks-fabric-1.0.20+26.3.jar",
+            "primary": true,
+            "size": 210613,
+            "file_type": null
+          },
+          {
+            "id": "BkkjN0q5",
+            "hashes": {
+              "sha1": "62986df1829b4135bdcaca3816bb2e69b33cd000",
+              "sha512": "b8a552c92ef10c02403b1e337092a69deed62233076f65ea7d9bbb908201f29f672a35dbdf188c839f5169003b2d2688ca13384bf6f3b0be74525fcd3a8d6aaa"
+            },
+            "url": "https://cdn.modrinth.com/data/IhNtYNEF/versions/GHnqX59p/tiered_backpacks-fabric-1.0.20%2B26.3-sources.jar",
+            "filename": "tiered_backpacks-fabric-1.0.20+26.3-sources.jar",
+            "primary": false,
+            "size": 183816,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      },
+      "latest_fabric_other_target": {
+        "game_versions": [
+          "26.2"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "client_and_server",
+        "id": "aUG2quzD",
+        "project_id": "IhNtYNEF",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "1.0.20 for Fabric 26.2",
+        "version_number": "1.0.20+26.2",
+        "changelog": "- Backpack GUI now uses parts of the vanilla container sprite, making it compatible with GUI resource packs.\n",
+        "changelog_url": null,
+        "date_published": "2026-10-02T13:47:56.496476Z",
+        "downloads": 223,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "LoGmvg00",
+            "hashes": {
+              "sha1": "3a5e99d2505187ee5af6e3368c3a80fc7c5ba643",
+              "sha512": "177876263629dda79fc7a6e02ad3916877f4bf47bc105f24f561b20e76dce6feb8c4860aabf46dc28fddb564a0b87da67e69613edb842ffff5e232b6328ef466"
+            },
+            "url": "https://cdn.modrinth.com/data/IhNtYNEF/versions/aUG2quzD/tiered_backpacks-fabric-1.0.20%2B26.2.jar",
+            "filename": "tiered_backpacks-fabric-1.0.20+26.2.jar",
+            "primary": true,
+            "size": 210601,
+            "file_type": null
+          },
+          {
+            "id": "fdcaBYz4",
+            "hashes": {
+              "sha512": "6f4187c7105eabd6de334b13e8294d9e022eb472ac091c7b750ab98fc86399e7da21955d18e52e06fd336b6b813ca591df0f4b70530fdf3d3a741f265e47a48f",
+              "sha1": "ccd3a53a23f8c9edcac8c227d30984815701c03d"
+            },
+            "url": "https://cdn.modrinth.com/data/IhNtYNEF/versions/aUG2quzD/tiered_backpacks-fabric-1.0.20%2B26.2-sources.jar",
+            "filename": "tiered_backpacks-fabric-1.0.20+26.2-sources.jar",
+            "primary": false,
+            "size": 183806,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "misctweaks",
+      "project_url": "https://modrinth.com/mod/misctweaks",
+      "latest_fabric_26_3": {
+        "game_versions": [
+          "26.3"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "client_or_server_prefers_both",
+        "id": "c2JwxbVC",
+        "project_id": "9sMkzzYU",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "1.4.4 for Fabric 26.3",
+        "version_number": "1.4.4+26.3",
+        "changelog": "- Added Fabric 26.3 version.\n",
+        "changelog_url": null,
+        "date_published": "2026-09-16T00:34:29.141564Z",
+        "downloads": 407,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "DUQUDI7w",
+            "hashes": {
+              "sha512": "a648b40b484add4e63ec9119805d21871f3b2c9b0ab7745e225a81ed1191cb397f0a47faa67fa0f726e7cf348802ba583edf4c76945d799fa44820dc79886945",
+              "sha1": "b1b78b453c80852ec0149e1c6e760f18d322b767"
+            },
+            "url": "https://cdn.modrinth.com/data/9sMkzzYU/versions/c2JwxbVC/misctweaks-fabric-1.4.4%2B26.3.jar",
+            "filename": "misctweaks-fabric-1.4.4+26.3.jar",
+            "primary": true,
+            "size": 198410,
+            "file_type": null
+          },
+          {
+            "id": "WnOGXojI",
+            "hashes": {
+              "sha512": "99f5bae92eb848eb36e65a0df95e48144bec3da9a806962d8aca3ccc8a5e24fda4337a2f6fe1d406d64f83831de072c79878ad02dc3dc5c268ed2a7bc0bcaebf",
+              "sha1": "3b23706441a3a8084e11f30d1a3fa646a2f1cbb3"
+            },
+            "url": "https://cdn.modrinth.com/data/9sMkzzYU/versions/c2JwxbVC/misctweaks-fabric-1.4.4%2B26.3-sources.jar",
+            "filename": "misctweaks-fabric-1.4.4+26.3-sources.jar",
+            "primary": false,
+            "size": 151498,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "EgugIDm8",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      },
+      "latest_fabric_other_target": {
+        "game_versions": [
+          "1.21",
+          "1.21.1"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "client_or_server_prefers_both",
+        "id": "JZUg3WG4",
+        "project_id": "9sMkzzYU",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "1.4.5 for Fabric 1.21.1",
+        "version_number": "1.4.5+1.21.1",
+        "changelog": "- Lodestone changes and craftable saddle backports now exist in 1.21.1 versions again (I definitely didn't remove them by accident).\n",
+        "changelog_url": null,
+        "date_published": "2026-09-24T10:51:21.723647Z",
+        "downloads": 136,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "L0JXyH68",
+            "hashes": {
+              "sha1": "1c32dc3accffecda8e67e14d0fe58c58064856dc",
+              "sha512": "7fe82bf57a1c0e72675005ac3e72e7ffabcdce6188ed9d2377762fa557c95f6fa4d0807f5132a6514162fab38126dbf897824886ff5415c083502780bcf37da4"
+            },
+            "url": "https://cdn.modrinth.com/data/9sMkzzYU/versions/JZUg3WG4/misctweaks-fabric-1.4.5%2B1.21.1.jar",
+            "filename": "misctweaks-fabric-1.4.5+1.21.1.jar",
+            "primary": true,
+            "size": 317617,
+            "file_type": null
+          },
+          {
+            "id": "yC20PfPX",
+            "hashes": {
+              "sha512": "0bfbec185a8a73aa6c2806992afec0750814f112877b28cafed5ea1ee294e1dfe8e92637d9840b51dd87bf88f577703697fa056d831b305c32325b7f00f137fd",
+              "sha1": "e45a686364d3dc83590f4fe809e78f56620e42d5"
+            },
+            "url": "https://cdn.modrinth.com/data/9sMkzzYU/versions/JZUg3WG4/misctweaks-fabric-1.4.5%2B1.21.1-sources.jar",
+            "filename": "misctweaks-fabric-1.4.5+1.21.1-sources.jar",
+            "primary": false,
+            "size": 215160,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "simple-death-improvements",
+      "project_url": "https://modrinth.com/mod/simple-death-improvements",
+      "latest_fabric_26_3": {
+        "game_versions": [
+          "26.3"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "server_only",
+        "id": "AYTsBnki",
+        "project_id": "2JFsuD70",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "1.6.0 for Fabric 26.3",
+        "version_number": "1.6.0+26.3",
+        "changelog": "- Added Fabric 26.3 version.\n- Added NeoForge 26.2 version.\n- Re-added option to keep items in accessory slots, with support for slots from Trinkets Updated, Trinkets, Curios, and Ohmega.\n- Added option to edit the item despawn timer when item despawning isn't disabled.\n",
+        "changelog_url": null,
+        "date_published": "2026-09-18T09:42:05.106116Z",
+        "downloads": 544,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "a2wOJTOu",
+            "hashes": {
+              "sha1": "e652ca360728853832cc8c65520c72e97a22d0c8",
+              "sha512": "2713cb0596d29d9e54300ed0b9e263d71b92927b0256d4689740e1b8ddb5803959c6763c5408c1f85a9fa469bdc783c96b15445ca33b2fcce059393b3513c7c6"
+            },
+            "url": "https://cdn.modrinth.com/data/2JFsuD70/versions/AYTsBnki/simple_death_improvements-fabric-1.6.0%2B26.3.jar",
+            "filename": "simple_death_improvements-fabric-1.6.0+26.3.jar",
+            "primary": true,
+            "size": 64906,
+            "file_type": null
+          },
+          {
+            "id": "zYr7IXOW",
+            "hashes": {
+              "sha512": "116a73a074150862d0987e9b682f393e2fe654f90efd5cd40f89da25381b27cfdc5a992c361b8fe074dd54b655d254eebcb868ab88b3130844bb7e7c9c44f327",
+              "sha1": "99ac21d78d216d9cf2e0bfd5b807963d2c67dd27"
+            },
+            "url": "https://cdn.modrinth.com/data/2JFsuD70/versions/AYTsBnki/simple_death_improvements-fabric-1.6.0%2B26.3-sources.jar",
+            "filename": "simple_death_improvements-fabric-1.6.0+26.3-sources.jar",
+            "primary": false,
+            "size": 32446,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      },
+      "latest_fabric_other_target": null
+    },
+    {
+      "slug": "bannerpoint",
+      "project_url": "https://modrinth.com/mod/bannerpoint",
+      "latest_fabric_26_3": {
+        "game_versions": [
+          "26.3"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "server_only_client_optional",
+        "id": "Vrns75Ns",
+        "project_id": "IfTBNyjQ",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "1.1.2 for Fabric 26.3",
+        "version_number": "1.1.2+26.3",
+        "changelog": "- Added Fabric 26.3 version.\n",
+        "changelog_url": null,
+        "date_published": "2026-09-18T15:42:26.858531Z",
+        "downloads": 1028,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "uUMNpzW9",
+            "hashes": {
+              "sha1": "a6180f1541089f5c2c95f13d19dc70e66885a314",
+              "sha512": "6257569d0a927312e9af06ba7ef726bd5bd85c2ab9c1e56169cca22ae991dcf67b5940042cf0d89b79adb7567905ee3e9d14dd0f1ced32411690813678214537"
+            },
+            "url": "https://cdn.modrinth.com/data/IfTBNyjQ/versions/Vrns75Ns/bannerpoint-fabric-1.1.2%2B26.3.jar",
+            "filename": "bannerpoint-fabric-1.1.2+26.3.jar",
+            "primary": true,
+            "size": 127889,
+            "file_type": null
+          },
+          {
+            "id": "GUQ0wDb4",
+            "hashes": {
+              "sha512": "04e39f3d5917f5d2fe633d44e14e57bd28c6f60b11b668206e367e7281c3869b6bd48bc7a078c0ce2f66cdb2c0766b4c4f2cd6d9ffe030f25c44e9ab318864f6",
+              "sha1": "114f3857fe9320313b9990ce287c3b5873f089b9"
+            },
+            "url": "https://cdn.modrinth.com/data/IfTBNyjQ/versions/Vrns75Ns/bannerpoint-fabric-1.1.2%2B26.3-sources.jar",
+            "filename": "bannerpoint-fabric-1.1.2+26.3-sources.jar",
+            "primary": false,
+            "size": 114015,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "hYykXjDp",
+            "file_name": null,
+            "dependency_type": "required"
+          },
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      },
+      "latest_fabric_other_target": null
+    },
+    {
+      "slug": "depillage",
+      "project_url": "https://modrinth.com/mod/depillage",
+      "latest_fabric_26_3": {
+        "game_versions": [
+          "26.1",
+          "26.1.1",
+          "26.1.2",
+          "26.2",
+          "26.3"
+        ],
+        "loaders": [
+          "fabric"
+        ],
+        "environment": "server_only",
+        "id": "QvFcjL1P",
+        "project_id": "3kSqA1Re",
+        "author_id": "Kg6RZEfM",
+        "featured": false,
+        "name": "1.0.2 for Fabric 26.1.2",
+        "version_number": "1.0.2+26.1.2",
+        "changelog": "- Fixed pillagers still spawning in adjacent chunks near a cleared outpost ([#2](https://github.com/pajicadvance/depillage/issues/2)).\n- Flagged as 26.3 compatible.\n",
+        "changelog_url": null,
+        "date_published": "2026-09-24T19:01:35.498716Z",
+        "downloads": 98,
+        "version_type": "release",
+        "status": "listed",
+        "requested_status": null,
+        "files": [
+          {
+            "id": "RhU08kDK",
+            "hashes": {
+              "sha1": "a2f3ab7a80853525bb5ac5f27a6f1956eb10b96f",
+              "sha512": "935037a36963c6da63d3b6af486e1fe51b6a5b1237df54a6723cbd45d96e536e7017e4b1740f68110165585fc8485c8b97fad4050085c12e8691d22189518248"
+            },
+            "url": "https://cdn.modrinth.com/data/3kSqA1Re/versions/QvFcjL1P/depillage-fabric-1.0.2%2B26.1.2.jar",
+            "filename": "depillage-fabric-1.0.2+26.1.2.jar",
+            "primary": true,
+            "size": 259677,
+            "file_type": null
+          },
+          {
+            "id": "1SCnJz2o",
+            "hashes": {
+              "sha512": "1a361f6103e31bcafeb5897ee1bb3d2da8a02dbfadbf79ffada7d20969b10c8687c6a7fb173b8b7047381a57facc4df791acceb459760c6229a0191e665b0d2b",
+              "sha1": "8aab818ead8f115c45e1657f96512a4dce4d81b1"
+            },
+            "url": "https://cdn.modrinth.com/data/3kSqA1Re/versions/QvFcjL1P/depillage-fabric-1.0.2%2B26.1.2-sources.jar",
+            "filename": "depillage-fabric-1.0.2+26.1.2-sources.jar",
+            "primary": false,
+            "size": 250683,
+            "file_type": null
+          }
+        ],
+        "dependencies": [
+          {
+            "version_id": null,
+            "project_id": "P7dR8mSH",
+            "file_name": null,
+            "dependency_type": "required"
+          }
+        ]
+      },
+      "latest_fabric_other_target": null
+    }
+  ],
+  "all_author_projects_summary": [
+    {
+      "slug": "soaring-phantoms",
+      "latest_fabric_26_3": "1.2.9+26.3",
+      "latest_fabric": "1.2.9+26.3"
+    },
+    {
+      "slug": "misctweaks",
+      "latest_fabric_26_3": "1.4.4+26.3",
+      "latest_fabric": "1.4.5+1.21.1"
+    },
+    {
+      "slug": "cave-fog-stabilizer",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "1.2.2+26.1-fabric"
+    },
+    {
+      "slug": "simple-fishing-overhaul",
+      "latest_fabric_26_3": "1.0.3+26.3",
+      "latest_fabric": "1.0.3+26.3"
+    },
+    {
+      "slug": "simple-smithing-overhaul",
+      "latest_fabric_26_3": "2.10.0+26.3",
+      "latest_fabric": "2.10.0+26.1.2"
+    },
+    {
+      "slug": "mod-glue",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "1.2.3"
+    },
+    {
+      "slug": "experimentalist",
+      "latest_fabric_26_3": "2.0.5+26.1-fabric",
+      "latest_fabric": "2.0.5+26.1-fabric"
+    },
+    {
+      "slug": "configurable-mining-delay",
+      "latest_fabric_26_3": "1.0.3",
+      "latest_fabric": "1.0.3"
+    },
+    {
+      "slug": "mapstitch",
+      "latest_fabric_26_3": "1.1.7+26.3",
+      "latest_fabric": "1.1.7+26.2"
+    },
+    {
+      "slug": "simple-death-improvements",
+      "latest_fabric_26_3": "1.6.0+26.3",
+      "latest_fabric": "1.6.0+26.3"
+    },
+    {
+      "slug": "pick-tool",
+      "latest_fabric_26_3": "1.1.2+26.1-fabric",
+      "latest_fabric": "1.1.2+26.1-fabric"
+    },
+    {
+      "slug": "depillage",
+      "latest_fabric_26_3": "1.0.2+26.1.2",
+      "latest_fabric": "1.0.2+26.1.2"
+    },
+    {
+      "slug": "affogato-core",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "26.1.16"
+    },
+    {
+      "slug": "tool-pouch",
+      "latest_fabric_26_3": "1.1.10+26.3",
+      "latest_fabric": "1.1.10+26.3"
+    },
+    {
+      "slug": "affogato",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "26.1.0-beta.4"
+    },
+    {
+      "slug": "svo",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "26.1.6"
+    },
+    {
+      "slug": "accessorify",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "2.4.0-beta.5+1.21.10-fabric"
+    },
+    {
+      "slug": "golden-potions",
+      "latest_fabric_26_3": "1.0.9+26.3",
+      "latest_fabric": "1.0.9+26.3"
+    },
+    {
+      "slug": "smbs",
+      "latest_fabric_26_3": "1.1.2+26.3",
+      "latest_fabric": "1.1.2+26.1.2"
+    },
+    {
+      "slug": "simple-music-control",
+      "latest_fabric_26_3": "1.5.4+26.3",
+      "latest_fabric": "1.5.4+26.3"
+    },
+    {
+      "slug": "borderless-mining-updated",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "1.2.3+1.21.11-fabric"
+    },
+    {
+      "slug": "thgw",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "1.2.1+26.1-fabric"
+    },
+    {
+      "slug": "enchantment-disabler",
+      "latest_fabric_26_3": "3.4.9+26.3",
+      "latest_fabric": "3.4.9+26.3"
+    },
+    {
+      "slug": "disable-double-tap-to-sprint",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "1.0.1"
+    },
+    {
+      "slug": "power-damage-fix",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "1.0.0"
+    },
+    {
+      "slug": "tiered-backpacks",
+      "latest_fabric_26_3": "1.0.20+26.3",
+      "latest_fabric": "1.0.20+26.2"
+    },
+    {
+      "slug": "default-dark-mode-additional-compat",
+      "latest_fabric_26_3": null,
+      "latest_fabric": null
+    },
+    {
+      "slug": "bannerpoint",
+      "latest_fabric_26_3": "1.1.2+26.3",
+      "latest_fabric": "1.1.2+26.3"
+    },
+    {
+      "slug": "monogram-font",
+      "latest_fabric_26_3": null,
+      "latest_fabric": null
+    },
+    {
+      "slug": "simple-ender-backpack",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "1.1.0+1.21.11-fabric"
+    },
+    {
+      "slug": "rearm",
+      "latest_fabric_26_3": "2.5.6+26.3",
+      "latest_fabric": "2.5.6+26.3"
+    },
+    {
+      "slug": "ender-potions",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "1.1.0+1.21.4"
+    },
+    {
+      "slug": "coal-nuggets",
+      "latest_fabric_26_3": "1.1.0+26.3",
+      "latest_fabric": "1.1.0+26.3"
+    },
+    {
+      "slug": "simple-trash-slot",
+      "latest_fabric_26_3": "1.0.5+26.3",
+      "latest_fabric": "1.0.5+26.1.2"
+    },
+    {
+      "slug": "svocore",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "26.1.2"
+    },
+    {
+      "slug": "till-it-breaks-updated",
+      "latest_fabric_26_3": "1.1.5+26.3",
+      "latest_fabric": "1.1.5+26.3"
+    },
+    {
+      "slug": "oxidizable-copper-gear",
+      "latest_fabric_26_3": null,
+      "latest_fabric": "1.2.0+1.21.11-fabric"
+    },
+    {
+      "slug": "sensible-stackables",
+      "latest_fabric_26_3": "3.1.1+26.3",
+      "latest_fabric": "3.1.1+1.21.1"
+    },
+    {
+      "slug": "rewithered",
+      "latest_fabric_26_3": "1.0.15+26.3",
+      "latest_fabric": "1.0.15+1.21.1"
+    },
+    {
+      "slug": "zombieimprovements",
+      "latest_fabric_26_3": "1.2.2+26.3",
+      "latest_fabric": "1.2.2+26.3"
+    }
+  ],
+  "notes": [
+    "Not all latest chronological releases target 26.3; target-filtered exact binaries selected.",
+    "Depillage is in the supplied server stack but is not integrated into the suite."
+  ]
+}

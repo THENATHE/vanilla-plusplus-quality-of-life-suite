@@ -6,8 +6,7 @@ project(':chalk-compat').projectDir = file('components/chalk-compat')
 project(':shared-region-maps').projectDir = file('components/shared-region-maps/working')
 project(':toolpouch-atlas-elytra').projectDir = file('components/toolpouch-atlas-elytra/working')
 
-include 'sensible-stackables-port'
-project(':sensible-stackables-port').projectDir = file('components/sensible-stackables/ported')
+// Historical port retained under components/sensible-stackables/ported; active suite bundles official developer release.
 include 'sensible-stackables-compat'
 project(':sensible-stackables-compat').projectDir = file('components/sensible-stackables/compat')
 

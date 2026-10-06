@@ -31,7 +31,7 @@ public class VillagerTradeMixin {
 			at = @At(
 					value = "INVOKE",
                     //~ if >26.2 'NumberProvider' -> 'ints/ContextIntProvider'
-                    target = "Lnet/minecraft/world/level/storage/loot/providers/number/NumberProvider;getInt(Lnet/minecraft/world/level/storage/loot/LootContext;)I",
+                    target = "Lnet/minecraft/world/level/storage/loot/providers/number/ints/ContextIntProvider;getInt(Lnet/minecraft/world/level/storage/loot/LootContext;)I",
 					ordinal = 0
 			)
 	)

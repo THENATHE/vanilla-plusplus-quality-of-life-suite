@@ -1,13 +1,13 @@
-# Installation pack — Vanilla++ Quality of Life Suite 1.1.4+26.3
+# Installation pack — Vanilla++ Quality of Life Suite 1.1.5+26.3
 
 The installation ZIP supplies the suite and its exact libraries for a native Fabric client or a dedicated server that also accepts vanilla players. Its helper selects the appropriate files for each side. **Internet access is required to obtain Fzzy Config from its official publisher.** Minecraft, Java, Fabric Loader and the server’s resource-pack hosting must be set up separately.
 
-The [stable 1.1.4+26.3 release](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.4%2B26.3) has four public assets:
+The [stable 1.1.5+26.3 release](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.5%2B26.3) has four public assets:
 
 - `README.md` — the accessible feature overview and installation entry point.
-- `vanilla-plusplus-quality-of-life-suite-1.1.4+26.3.jar` — the combined mod, for an instance whose exact dependencies are already installed.
+- `vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar` — the combined mod, for an instance whose exact dependencies are already installed.
 - `docs.zip` — documentation, technical records and release verification information.
-- `vanilla-plusplus-installation-pack-1.1.4+26.3.zip` — the suite, permitted dependency binaries, licenses and installer described below.
+- `vanilla-plusplus-installation-pack-1.1.5+26.3.zip` — the suite, permitted dependency binaries, licenses and installer described below.
 
 There is one installation ZIP; no separate `.mrpack`, manual ZIP or library ZIP is published. The final suite digest is recorded in the [installation lock](installation-pack.lock.json) and [build verification](build-verification.json).
 
@@ -26,7 +26,7 @@ There is one installation ZIP; no separate `.mrpack`, manual ZIP or library ZIP 
 
 4. Launch the instance. Keep separate copies of the original feature mods and older suite shims out of its `mods/` folder to avoid duplicates.
 
-Bannerpoint and its compatibility component are already inside the suite JAR; do not add separate copies. Stable suite 1.1.4 includes both modules on `main`.
+Bannerpoint and its compatibility component are already inside the suite JAR; do not add separate copies. Stable suite 1.1.5 includes both modules on `main`.
 
 The client selection excludes Polymer. Native suite clients use the mod interfaces when joining a matching server. Vanilla players joining a Polymer-enabled server install none of these client files.
 
@@ -45,22 +45,23 @@ Use a new server directory, or stop and back up an existing instance before deli
 
    On Windows, use `py -3 install.py --side server --instance "C:\Minecraft\suite-server"`.
 
-4. The helper verifies the selected binaries and installs the suite, Defaulted, CodecUI and required external libraries, including **Polymer Bundled 0.18.2+26.3**. It excludes Mod Menu. Fzzy Config is fetched from its official Modrinth CDN URL.
+4. The helper verifies the selected binaries and installs the suite, CodecUI and required external libraries, including **Polymer Bundled 0.18.2+26.3**. It excludes Mod Menu. Fzzy Config is fetched from its official Modrinth CDN URL.
 5. Review and accept Minecraft’s EULA yourself, then start the Fabric server normally. The helper neither accepts the EULA nor starts the server.
 6. Generate and host Polymer’s server resource pack using the [Polymer hosting guide](https://polymer.pb4.eu/latest/user/resource-pack-hosting/). Players should accept that pack for Chalk’s vanilla-visible items and marks and Bannerpoint’s locator-bar icons. Bannerpoint icons stay hidden until the pack successfully loads; custom banner-name labels require Bannerpoint on the client. The installation ZIP cannot supply the resource pack for your particular server configuration or hosting address.
 
 The installer copies mod files; it does not install a launcher, Minecraft, Fabric Loader or Java. Vanilla clients still do not get custom backpack/pouch screens, MapStitch’s world map/minimap or client HUD features. See the [suite’s compatibility overview](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main#the-shim-vanilla-and-modded-players-together).
 
+Defaulted is no longer required or supplied by this kit. When upgrading, remove the old Defaulted JAR only if no other installed mod still requires it. Keep existing world/configuration files and do not remove CodecUI: it remains a separate retained suite input.
+
 ## Exact contents and permissions
 
 Cloth Config and Polymer corresponding upstream source archives and license texts are included under `overrides/suite-installation/dependency-sources/` and `licenses/`; their pinned records are in [dependency-distribution.lock.json](dependency-distribution.lock.json). The installer also copies these records into `suite-installation/` for reference.
 
-The ZIP includes these three local files under `overrides/mods/`:
+The ZIP includes these two local files under `overrides/mods/`:
 
 | Included file | SHA-256 | License/source context |
 | --- | --- | --- |
-| Suite 1.1.4+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
-| Defaulted 1.3.8+26.3.dropfix.1 | `e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61` | MIT; exact local repair. [Patch source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/defaulted-dropfix). |
+| Suite 1.1.5+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
 | CodecUI 26.3-1.4.3 | `4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898` | MIT declaration and retained notices; precise private build revision is unrecorded. [Source-family record](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference). |
 
 Six public publisher binaries are cached under `downloads/mods/`, with licenses and hashes retained. Fzzy Config has only its official download entry:
@@ -69,7 +70,7 @@ Six public publisher binaries are cached under `downloads/mods/`, with licenses 
 | --- | --- | --- | --- |
 | [Fabric API 0.161.0+26.3](https://modrinth.com/mod/fabric-api/version/bNnaTiuM) | Required | Required | Included; Apache-2.0 |
 | [Fabric Language Kotlin 1.14.1+kotlin.2.4.20](https://modrinth.com/mod/fabric-language-kotlin/version/eRRZzGMc) | Required | Required | Included; Apache-2.0 |
-| [Fzzy Config 0.7.7+fix2+26.3](https://modrinth.com/mod/fzzy-config/version/thw1Z19c) | Required | Required | Official download only; TDL-M 1.3 |
+| [Fzzy Config 0.7.7+fix3+26.3](https://modrinth.com/mod/fzzy-config/version/YkOumqzV) | Required | Required | Official download only; TDL-M 1.3 |
 | [Cloth Config 26.3.159+fabric](https://modrinth.com/mod/cloth-config/version/fg2uyxOW) | Required | Required | Included; LGPL-3.0-only |
 | [Mixson 2.2.1](https://modrinth.com/mod/mixson/version/yWpBBcpq) | Required | Required | Included; MIT |
 | [Mod Menu 21.0.0](https://modrinth.com/mod/modmenu/version/kyy7dbrZ) | Optional | Excluded | Included; MIT |
