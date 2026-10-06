@@ -2,7 +2,7 @@
 
 [What it is](#what-it-is) · [Features](#features) · [Vanilla compatibility](#the-shim-vanilla-and-modded-players-together) · [Installation](#installation) · [Technical info](#technical-info) · [Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Dependencies and compatible mods](docs/DEPENDENCIES.md)
 
-Stable release **1.1.2** includes [Bannerpoint](docs/BANNERPOINT.md), the [mixed-scale MapStitch addon](docs/MIXED_SCALES.md), and [Sensible Stackables with Polymer compatibility](components/sensible-stackables/README.md) as separate modules. Banner waypoints can use the server resource pack, and one atlas banner click updates every enabled map scale covering that location. See the [1.1.2 release guide](docs/RELEASE_1_1_2.md) for installation and testing notes.
+Stable release **1.1.3** includes [Bannerpoint](docs/BANNERPOINT.md), the [mixed-scale MapStitch addon](docs/MIXED_SCALES.md), and [Sensible Stackables with Polymer compatibility](components/sensible-stackables/README.md) as separate modules. Banner waypoints can use the server resource pack, and one atlas banner click updates every enabled map scale covering that location. A minimap fix and atlas repair tools address missing map-center metadata without recreating stored maps. See the [1.1.3 release guide](docs/RELEASE_1_1_3.md) for installation and testing notes.
 
 ## What it is
 
@@ -84,6 +84,8 @@ Thanks for your hard work, **pajic**!
 - Store every vanilla map scale in one atlas. **S** selects the world-map view, **M1–M16** selects the minimap, and **1, 2, 4, 8, 16** independently toggle generation at each scale. These choices are saved per atlas.
 - Keep maps separated by dimension and scale in the world map and minimap, including an atlas containing Overworld, Nether and End maps together.
 - Use an atlas on a banner to mark it on every enabled generation scale whose existing map covers the banner in the current dimension. Click again to remove it from those eligible maps. Disabled scales and other dimensions stay unchanged; this action does not create maps or spend blanks.
+- Recover minimap rendering when a stored map has saved terrain but lacks its item-level center metadata. Run `/repairmaps` to repair those center components and resend stored pixels/markers; `/repairmaps check` reports the selected layer, coverage and missing map records without changing contents. These tools do not regenerate maps or claim to fix every possible cause of a blank minimap.
+- Remove repeated copies of the same map ID from an atlas with `/dedupemaps`, keeping one and returning one empty map per removed copy to your inventory, with overflow dropped at your feet. Maps with different IDs remain separate even when they cover the same region.
 - Extract stored maps with `/extractmap`, filtering by scale, dimension, or both. For example, `/extractmap 1:1 minecraft:the_end` extracts only matching End maps; `/extractmap empty` extracts all blank maps and paper. Items go to your inventory first, with overflow dropped at your feet. Hold the atlas in either hand or keep it in the active Tool Pouch; see [atlas controls](docs/ATLAS_CONTROLS.md#extract-maps-from-an-atlas) for all command forms.
 - Show enabled generation buttons in green and list selected generation scales in the hover text and atlas tooltip. Each enabled missing layer consumes one blank; existing maps keep their data. See [atlas controls](docs/ATLAS_CONTROLS.md).
 - Keep only the atlas on death when the original retention setting is enabled, even from nested pouches, backpacks, shulkers or bundles; the containing item and its other contents drop normally.
@@ -318,7 +320,7 @@ The compatibility layer includes:
 
 ## Installation
 
-The [1.1.2 release guide](docs/RELEASE_1_1_2.md) covers the current features, installation and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.2%2B26.3) provides four downloads:
+The [1.1.3 release guide](docs/RELEASE_1_1_3.md) covers the current features, installation and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.3%2B26.3) provides four downloads:
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -330,7 +332,7 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Download `vanilla-plusplus-quality-of-life-suite-1.1.2+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.2%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
+2. Download `vanilla-plusplus-quality-of-life-suite-1.1.3+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.3%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
@@ -386,7 +388,7 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.1.2+26.3.jar`.
+The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.1.3+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 

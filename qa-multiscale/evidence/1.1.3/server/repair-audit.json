@@ -1,0 +1,16 @@
+{
+  "run_label": "minimap-server-repair-final4",
+  "bundle_sha256": "0492e88a51fb88cc5dbc0d815022d3d5a39f095fa299c5069f040ad5be63c69b",
+  "total_assertions": 4278,
+  "source_sha256": {
+    "qa-multiscale/src/MixedScaleQa.java": "3e9545425ec2b88b95dfaf7fb0def0a7aefc8d000ce9a213759b7643c44daa36",
+    "qa-multiscale/src/AtlasRepairQa.java": "b177ad3c6df0b29acb4e2ae98d2dd250e158463d2b3903c2dacd4f0bbc6cc482",
+    "qa-multiscale/src/AtlasBannerQa.java": "7baebed013970515bcdb65e0051aceebd3fa18e77b36a58ac63c8d3c7a76953e",
+    "qa-multiscale/run.py": "13bb7fc3853c4b37e193b9369e1d31d71987242bd1e3f2662e71d409ac41172f",
+    "components/shared-region-maps/working/src/main/java/org/sharedregionmaps/MapstitchMaps.java": "899e5de0e3fa44e76326315cd5b5c324d671d9e1dd4aed84b9b399130b6cc451",
+    "components/mapstitch-mixed-scales/working/src/main/java/com/thenathe/multiscale/AtlasMapRepair.java": "3e8a533a802f28cfe2d1fa8637d9e0f258249c23ff8f25d281d64cb92cfb6560",
+    "components/mapstitch-mixed-scales/working/src/main/java/com/thenathe/multiscale/AtlasMapCleanup.java": "658ac07f1af4634824910a99c0b9d31d5758ab51f49746c8819f2ae781f81d27",
+    "components/mapstitch-mixed-scales/working/src/main/java/com/thenathe/multiscale/MapRefresh.java": "7ecf30f87208b0ef160ade52a257e521f2980a1fe40b243871df3d4f26a8aeac"
+  },
+  "native_refresh_gating": "Source guard is SuiteCapabilities native mapstitch AND ServerPlayNetworking.canSend(MapRefresh.TYPE). This mock-connection mechanics fixture does not advertise native receiver channels; real network/graphics evidence is recorded separately."
+}

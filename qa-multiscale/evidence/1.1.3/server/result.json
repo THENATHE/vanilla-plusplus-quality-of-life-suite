@@ -1,0 +1,34 @@
+{
+  "bundle_sha256": "0492e88a51fb88cc5dbc0d815022d3d5a39f095fa299c5069f040ad5be63c69b",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "maps-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 1104 mixed-scale insertion, extraction commands, banner edits, map integrity, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-polymer",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "PASS 1035 mixed-scale insertion, extraction commands, banner edits, map integrity, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 1104 mixed-scale insertion, extraction commands, banner edits, map integrity, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-native",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "PASS 1035 mixed-scale insertion, extraction commands, banner edits, map integrity, codec and restart checks",
+      "passed": true
+    }
+  ]
+}

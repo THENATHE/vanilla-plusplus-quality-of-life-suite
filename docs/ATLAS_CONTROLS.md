@@ -1,6 +1,6 @@
-# Atlas controls — stable 1.1.2
+# Atlas controls — stable 1.1.3
 
-Suite **1.1.2** keeps its MapStitch changes in the separate `components/mapstitch-mixed-scales/working/` addon. The original MapStitch JAR is unchanged.
+Suite **1.1.3** keeps its MapStitch changes in the separate `components/mapstitch-mixed-scales/working/` addon. The original MapStitch JAR is unchanged.
 
 Open the world-map screen. A separate group just beneath the top coordinate numbers contains one aligned row of minimap and generation controls. Its right edge lines up with the original sidebar, with four pixels of margin; the buttons begin 16 GUI pixels from the top. The original right-side buttons retain their original positions and spacing:
 
@@ -45,10 +45,31 @@ Replace `1:1` with `1:2`, `1:4`, `1:8` or `1:16` as needed. Dimension IDs includ
 
 Extracted items go to your inventory first. Any overflow drops at your feet; the command reports how many items were added and dropped. Nonmatching contents remain stored, and the atlas's active-map selection refreshes after extraction. Scale/generation choices, names and other unrelated item data stay with the atlas. If nothing matches, the command reports that without removing contents. When both scale and dimension are specified, both must match; invalid arguments are rejected rather than broadening the selection.
 
+## Check or repair a blank minimap
+
+Use the same atlas selection as `/extractmap`: main hand first, then offhand, otherwise the active Tool Pouch atlas. A loose atlas elsewhere in your inventory is not automatically selected. These commands edit or inspect only your own selected atlas and require no operator permission.
+
+| Command | Behavior |
+| --- | --- |
+| `/repairmaps check` | Inspect the atlas and report the minimap’s selected scale/current dimension, map coverage, missing saved records, blank/locked maps and duplicate references. It does not change map contents. |
+| `/repairmaps` | Repair stored map-item center components from authoritative server saved data and resend the full stored map pixels and decorations to a matching native client. |
+
+A reproduced failure involved a map with valid saved pixels whose atlas item lacked `mapstitch:map_center`. The client minimap used that absent item component to choose maps and rendered no map at all. The minimap now falls back to the actual saved map center, checks the current dimension, and preserves the selected scale. This fixes the reproduced metadata-dependent case; a blank selected layer may still mean no covering map, no saved record or unexplored terrain.
+
+Repair applies to stored entries with a map ID, including explorer/treasure maps. It also validates already present center components against server saved data, correcting stale values. Repair preserves map IDs, pixels, banners, atlas options and unrelated contents. It does not explore new terrain, generate replacement maps, delete saved records or fill a genuinely unexplored map. Missing saved records cannot be reconstructed by this command. Native metadata/refresh packets are sent only when the client’s MapStitch support and advertised channels permit them; fallback clients receive no unsupported payload.
+
+## Remove duplicate map copies
+
+Run `/dedupemaps` while holding the atlas, or using its active Tool Pouch location. It uses the same main-hand → offhand → active-pouch priority and requires no operator permission.
+
+The command keeps one copy of each **exact map ID** in that atlas. Each removed extra copy returns one empty map to your inventory; overflow drops at your feet. This includes repeated copies represented by a stack count, not just separate entries. The command reports its result and preserves the retained copy’s item data, atlas settings and unrelated contents.
+
+Maps with different IDs stay separate even when their dimension, center and scale match. Exploration, banners and the world’s saved map records are not deleted. Shared Region Maps normally lets copies of one region use the same record, which makes exact-ID duplicate removal appropriate; the command does not choose a “most explored” map or merge independently saved records. Existing `/extractmap` filters remain available when you want to remove an entire scale or dimension instead.
+
 ## Control networking and source identity
 
 Serverbound requests use `mapstitch_mixed_scales:select_scale_v2` and `mapstitch_mixed_scales:select_generation_v2`. Each carries the owned source location/index, current map anchor, and persisted book identity before its scale or generation mask. The server validates native MapStitch negotiation, nonempty matching identity, owned location, map anchor, living player state, and bounds. Empty identity, stale anchor, replaced slot, invalid scale/mask, and unsupported client requests are rejected.
 
 Screens remain bound to their original inventory/accessory/pouch source and book identity. The client may refresh the map anchor after first-map generation or ejection within that same book. It does not adopt the identity of a different atlas that replaces the source slot; the controls disable until the appropriate book is reopened. A newly created or legacy book needs its first server tick and inventory synchronization before native controls can edit it. If opened before that synchronization, reopen the screen once the book is synchronized. Matching client/server suite builds are required for native controls. Standard map creation sends one vanilla cartography sound packet to the explorer per generation batch; a batch creating multiple scales still plays one chime. Sound playback remains subject to the player's sound settings.
 
-Use [stable installation and testing steps](RELEASE_1_1_2.md) and [current validation](VALIDATION.md) for the released artifact. Earlier merged-branch records remain [historical evidence](MERGED_TESTING.md). The optional original world-map buttons setting hides all these buttons together with the existing controls.
+Use [stable installation and testing steps](RELEASE_1_1_3.md) and [current validation](VALIDATION.md) for the released artifact. Earlier merged-branch records remain [historical evidence](MERGED_TESTING.md). The optional original world-map buttons setting hides all these buttons together with the existing controls.

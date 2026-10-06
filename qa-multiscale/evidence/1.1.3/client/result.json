@@ -1,0 +1,59 @@
+{
+  "bundle_version": "1.1.3+26.3",
+  "bundle_sha256": "0492e88a51fb88cc5dbc0d815022d3d5a39f095fa299c5069f040ad5be63c69b",
+  "passed": true,
+  "run_label": "minimap-repair-1.1.3-final",
+  "runner": "qa-multiscale/run-client.py",
+  "fixture_sources": [
+    "qa-multiscale/src/MixedScaleClientQa.java",
+    "qa-multiscale/src/MixedScaleClientServerQa.java",
+    "qa-multiscale/src/MapRenderTraceMixin.java"
+  ],
+  "minecraft": "26.3",
+  "fabric_loader": "0.19.5",
+  "java_runtime": "OpenJDK 25.0.4.1",
+  "observation_rows": 30,
+  "coverage": {
+    "minimap_center_dimension_cases": 4,
+    "real_repair_command": "/repairmaps",
+    "maps_with_all_pixels_restored": 15,
+    "pixels_per_map": 16384,
+    "worldmap_render_views": 21,
+    "real_dimension_transfers": 2
+  },
+  "result_text": "PASS four actual minimap center/dimension regressions, real repairmaps restores all pixels of 15 maps, native metadata, old pixels/banners, 21 dimension/scale render views, two real dimension travels\n",
+  "audits": {
+    "client": "client-audit.json",
+    "server": "server-audit.json"
+  },
+  "observations": "observations.json",
+  "seeded_maps": "seeded-maps.json",
+  "screenshots": [
+    {
+      "file": "screenshots/minimap-case-0.png",
+      "sha256": "025d4a1a0022c0be71dd45aa3a34fb05950fa3725b41f0a91245b5356fda024b"
+    },
+    {
+      "file": "screenshots/minimap-case-1.png",
+      "sha256": "8d0c3f4fd64d2e9a0a6f582934e7e471274c0e701935ea5ca4b3511b3c2dc531"
+    },
+    {
+      "file": "screenshots/minimap-case-2.png",
+      "sha256": "37d1f2665b8b4e93aaa673c1a72d87199c478261f25ffc423ca13e37e9c33bce"
+    },
+    {
+      "file": "screenshots/minimap-case-3.png",
+      "sha256": "cd2bf8394ef3fa515c3095544c917e737ba269d3a53a7f44cfa85013e8fe9ad4"
+    },
+    {
+      "file": "screenshots/minimap-repaired-pixels.png",
+      "sha256": "69a2374ffae0e23e5e39ba1ae7cadeb8b927034cc932fb89e0db428fd2ce99bf"
+    }
+  ],
+  "limitations": [
+    "Synthetic locked maps provide deterministic pixel buffers; this is not a reproduction of the user\u2019s exact world.",
+    "The missing-center renderer defect was reproduced; ordinary server inventory ticking already repairs missing centers, so this alone does not prove the cause of the user\u2019s persistent failure.",
+    "Remapped is not installed in this focused client test.",
+    "Normal chat trust/tutorial notifications partially cover the top-right minimap in unmodified screenshots."
+  ]
+}

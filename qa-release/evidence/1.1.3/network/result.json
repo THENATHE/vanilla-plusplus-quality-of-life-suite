@@ -1,0 +1,250 @@
+{
+  "passed": true,
+  "version": "1.1.3+26.3",
+  "bundle_sha256": "0492e88a51fb88cc5dbc0d815022d3d5a39f095fa299c5069f040ad5be63c69b",
+  "run_label": "atlas-maintenance-frozen113-local",
+  "profiles": [
+    "fabric",
+    "suite"
+  ],
+  "observations": [
+    {
+      "profile": "fabric",
+      "commands": [
+        "repairmaps",
+        "dedupemaps"
+      ],
+      "client": {
+        "world_ticks": 150,
+        "connected": true
+      },
+      "server": {
+        "native_mapstitch": false,
+        "refresh_advertised": false,
+        "packet_event_start": 0,
+        "repair_result": 1,
+        "dedupe_result": 1,
+        "atlas_retained_entries": 1,
+        "repaired_center_present": true,
+        "executed_at_age": 50,
+        "connected_age_ticks": 150,
+        "player_still_connected": true,
+        "events": [
+          {
+            "kind": "vanilla-map-data",
+            "map_id": 0
+          },
+          {
+            "kind": "vanilla-map-data",
+            "map_id": 0
+          },
+          {
+            "kind": "vanilla-map-data",
+            "map_id": 0
+          },
+          {
+            "kind": "vanilla-map-data",
+            "map_id": 0
+          }
+        ]
+      },
+      "command_custom_payloads": [],
+      "unadvertised_mod_payloads": 0,
+      "connected_server_ticks_after_commands": 100
+    },
+    {
+      "profile": "suite",
+      "commands": [
+        "repairmaps",
+        "dedupemaps"
+      ],
+      "client": {
+        "world_ticks": 150,
+        "connected": true
+      },
+      "server": {
+        "native_mapstitch": true,
+        "refresh_advertised": true,
+        "packet_event_start": 14,
+        "repair_result": 1,
+        "dedupe_result": 1,
+        "atlas_retained_entries": 1,
+        "repaired_center_present": true,
+        "executed_at_age": 43,
+        "connected_age_ticks": 150,
+        "player_still_connected": true,
+        "events": [
+          {
+            "kind": "custom-payload",
+            "channel": "toolpouch:s2c_sync_shulker_slot",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "toolpouch:s2c_sync_arrow_slot",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "fzzy_config:config_perms_s2c",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "fzzy_config:config_perms_s2c",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "fzzy_config:config_perms_s2c",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "fzzy_config:config_perms_s2c",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "fzzy_config:config_perms_s2c",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "fzzy_config:config_perms_s2c",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "fzzy_config:config_perms_s2c",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "fzzy_config:config_perms_s2c",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "defaulted:update_enchantments",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "defaulted:update_status",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "mapstitch:dimension_ids",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "toolpouch_atlas_elytra_compat:state",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "mapstitch_mixed_scales:map_metadata_v1",
+            "advertised": true
+          },
+          {
+            "kind": "vanilla-map-data",
+            "map_id": 1
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "mapstitch_mixed_scales:refresh_maps_v1",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "mapstitch_mixed_scales:refresh_maps_v1",
+            "advertised": true
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "mapstitch_mixed_scales:map_metadata_v1",
+            "advertised": true
+          },
+          {
+            "kind": "vanilla-map-data",
+            "map_id": 1
+          },
+          {
+            "kind": "custom-payload",
+            "channel": "mapstitch_mixed_scales:map_metadata_v1",
+            "advertised": true
+          },
+          {
+            "kind": "vanilla-map-data",
+            "map_id": 1
+          }
+        ]
+      },
+      "command_custom_payloads": [
+        {
+          "kind": "custom-payload",
+          "channel": "mapstitch_mixed_scales:map_metadata_v1",
+          "advertised": true
+        },
+        {
+          "kind": "custom-payload",
+          "channel": "mapstitch_mixed_scales:refresh_maps_v1",
+          "advertised": true
+        },
+        {
+          "kind": "custom-payload",
+          "channel": "mapstitch_mixed_scales:refresh_maps_v1",
+          "advertised": true
+        },
+        {
+          "kind": "custom-payload",
+          "channel": "mapstitch_mixed_scales:map_metadata_v1",
+          "advertised": true
+        },
+        {
+          "kind": "custom-payload",
+          "channel": "mapstitch_mixed_scales:map_metadata_v1",
+          "advertised": true
+        }
+      ],
+      "unadvertised_mod_payloads": 0,
+      "connected_server_ticks_after_commands": 107
+    }
+  ],
+  "scope": "Focused native suite and Fabric API-only atlas maintenance command network safety. No broader gameplay or resource-pack matrix repeated.",
+  "limitations": [
+    "Focused command network safety; no repeat of pure vanilla, resource-pack lifecycle, full GUI, multiplayer gameplay, original-mod-only, or no-Polymer profiles.",
+    "QA commands run on real connected players through the registered server dispatcher; client inputs are not synthesized. Native graphical refresh has separate release evidence."
+  ],
+  "setup_history": [
+    {
+      "label": "atlas-maintenance-final113",
+      "outcome": "Stopped before commands because root replaced the frozen candidate."
+    },
+    {
+      "label": "atlas-maintenance-frozen113",
+      "outcome": "Fixture omitted explicit white-list=false; connection rejected before commands. Corrected disposable server setting and completed final run."
+    }
+  ],
+  "checks": [
+    {
+      "profile": "fabric",
+      "repairmaps": true,
+      "dedupemaps": true,
+      "continued_connection": true,
+      "no_unadvertised_mod_payloads": true,
+      "native_refresh_payloads": 0
+    },
+    {
+      "profile": "suite",
+      "repairmaps": true,
+      "dedupemaps": true,
+      "continued_connection": true,
+      "no_unadvertised_mod_payloads": true,
+      "native_refresh_payloads": 2
+    }
+  ]
+}

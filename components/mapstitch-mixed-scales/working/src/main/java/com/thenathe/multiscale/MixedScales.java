@@ -14,6 +14,9 @@ import net.minecraft.server.level.ServerPlayer;
 public final class MixedScales implements ModInitializer {
     @Override public void onInitialize() {
         AtlasMapExtraction.register();
+        AtlasMapRepair.register();
+        AtlasMapCleanup.register();
+        PayloadTypeRegistry.clientboundPlay().register(MapRefresh.TYPE, MapRefresh.CODEC);
         MapMetadata.register();
         PayloadTypeRegistry.serverboundPlay().register(SelectScale.TYPE, SelectScale.CODEC);
         PayloadTypeRegistry.serverboundPlay().register(SelectGeneration.TYPE, SelectGeneration.CODEC);

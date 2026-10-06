@@ -1,0 +1,69 @@
+{
+  "minecraft": "26.3",
+  "fabric_loader": "0.19.5",
+  "java_runtime": "OpenJDK 25.0.4.1",
+  "main_class": "net.fabricmc.loader.impl.launch.knot.KnotServer",
+  "jvm_options": [
+    "-Dmaps.qa.control=<isolated-run-path>",
+    "-XX:ActiveProcessorCount=4",
+    "-Xms256M",
+    "-Xmx1G",
+    "-XX:ActiveProcessorCount=2"
+  ],
+  "game_arguments": [
+    "nogui"
+  ],
+  "runtime_artifacts": [
+    {
+      "file": "fabric-loader-0.19.5.jar",
+      "sha256": "93044e4dd46de5d8136701292f05e868da096d2c9fddb4793e4fdbcc63efc695"
+    },
+    {
+      "file": "server-26.3.jar",
+      "sha256": "a362163eec5d1612d520772bc16e5b39c09e3b234fdc045f56bf544284ee8ae6"
+    }
+  ],
+  "mods": [
+    {
+      "file": "vanilla-plusplus-quality-of-life-suite-1.1.2+26.3.jar",
+      "sha256": "c21a103fc19be5121ab3c21bf50c02133dff2719812985010767e3c28cc7c3dd"
+    },
+    {
+      "file": "codecui-26.3-1.4.3-fabric.jar",
+      "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+    },
+    {
+      "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+      "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+    },
+    {
+      "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+      "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+    },
+    {
+      "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+      "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+    },
+    {
+      "file": "mixson-2.2.1-multiloader.jar",
+      "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+    },
+    {
+      "file": "fabric-api-0.161.0+26.3.jar",
+      "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+    },
+    {
+      "file": "cloth-config-fabric-26.3.159.jar",
+      "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+    },
+    {
+      "file": "server.jar",
+      "sha256": "a1751ed33d66813dd761e194622e3715368730c68e4ba70c90fae9a8b88348e3"
+    },
+    {
+      "file": "polymer-bundled-0.18.2+26.3.jar",
+      "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+    }
+  ],
+  "sanitization": "Machine-specific paths and classpaths omitted; synthetic offline identifiers and local ephemeral port redacted. Exact loaded mod hashes preserved."
+}

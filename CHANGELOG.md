@@ -1,5 +1,15 @@
 # Changes
 
+## 1.1.3+26.3 — 2026-10-05
+
+- Fix a reproduced blank-minimap case where an atlas map item lacked its center component despite valid saved map data. The client falls back to the saved center while preserving current-dimension and selected-scale filtering.
+- Correct stale stored map-center components from authoritative saved data on servers without Polymer as well as with it. This separately reproduced stale-center bug could misplace maps; it is not assumed to explain every blank-minimap symptom.
+- Add `/dedupemaps` to keep one atlas copy per exact map ID and return one empty map per removed copy, inventory first with overflow dropped. Different map IDs are not merged, and no world map record is deleted.
+- Add `/repairmaps check` diagnostics for the selected held/active-pouch atlas, including layer coverage, missing records, blank/locked maps and duplicate references.
+- Add `/repairmaps` to repair item-center components and refresh native map pixels/decorations without regenerating maps, changing IDs or deleting exploration/banner data. Normal map resends include the full 128×128 pixel snapshot; the optional Remapped path is retained separately.
+- Keep repair refresh/metadata payloads gated to negotiated native support and advertised channels; clients without that support receive no unknown packet.
+- Preserve separate feature modules, original developer inputs, exact dependencies, Defaulted dropfix and existing settings. See [the 1.1.3 release guide](docs/RELEASE_1_1_3.md) and [validation](docs/VALIDATION.md) for exact scope and verification; other blank-map causes are not assumed fixed.
+
 ## 1.1.2+26.3 — 2026-10-05
 
 - Promote Bannerpoint and its separate compatibility module to stable `main`, preserving the original developer JAR, config identities, assets and saved banner data.

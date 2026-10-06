@@ -54,8 +54,10 @@ public final class MixedScaleQa implements ModInitializer {
     }
    };
    var creationSounds=new java.util.concurrent.atomic.AtomicInteger();
+   var observedPackets=new ArrayList<Packet<?>>();
    player.connection=new ServerGamePacketListenerImpl(server,new Connection(PacketFlow.SERVERBOUND),player,CommonListenerCookie.createInitial(profile,false)) {
     @Override public void send(Packet<?> packet) {
+     observedPackets.add(packet);
      if(packet instanceof net.minecraft.network.protocol.game.ClientboundSoundPacket sound && sound.getSound().value()==net.minecraft.sounds.SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT)creationSounds.incrementAndGet();
     }
    };
@@ -185,7 +187,9 @@ public final class MixedScaleQa implements ModInitializer {
    }
    extractionChecks(server,player,extractionDrops);
    checks += AtlasBannerQa.run(server,player);
-   result="PASS "+checks+" mixed-scale insertion, extraction commands, banner edits, codec and restart checks";
+   mapIntegrityChecks(server,player,observedPackets);
+   checks += AtlasRepairQa.run(server,player,observedPackets,extractionDrops);
+   result="PASS "+checks+" mixed-scale insertion, extraction commands, banner edits, map integrity, codec and restart checks";
   } catch(Throwable error) {error.printStackTrace();result="FAIL "+error;}
   try {Files.writeString(Path.of("mixedscale-qa-result.txt"),result+"\n");}catch(Exception e){throw new RuntimeException(e);}
   finally {server.halt(false);}
@@ -257,6 +261,88 @@ public final class MixedScaleQa implements ModInitializer {
   }
   player.getInventory().clearContent();
   check(server.getCommands().getDispatcher().execute("extractmap empty",player.createCommandSourceStack())==0,"no atlas reports failure without extracting another inventory");
+ }
+
+ private void mapIntegrityChecks(net.minecraft.server.MinecraftServer server, ServerPlayer player,
+                                 ArrayList<Packet<?>> packets) {
+  // Saved coordinates are authoritative. A stale or absent item center must not
+  // strand a persisted region after reconnect, switching scale, or ticking in a pouch.
+  player.getInventory().clearContent();
+  player.setPos(-65,100,-65);
+  var book=new ItemStack(me.pajic.mapstitch.item.ModItems.ATLAS);
+  com.thenathe.multiscale.AtlasOptions.setGenerationMask(book,0);
+  var maps=new ArrayList<ItemStackTemplate>();
+  var originals=new HashMap<Integer,byte[]>();
+  var dimensions=java.util.List.of(net.minecraft.world.level.Level.OVERWORLD,
+          net.minecraft.world.level.Level.NETHER,net.minecraft.world.level.Level.END);
+  for(var dimension:dimensions) {
+   var level=server.getLevel(dimension);
+   for(byte scale=0;scale<5;scale++) {
+    var map=MapItem.create(level,-65,-65,scale,true,false);
+    var id=map.get(DataComponents.MAP_ID);
+    var data=MapItem.getSavedData(map,level).locked();
+    java.util.Arrays.fill(data.colors,(byte)(4+scale));
+    level.setMapData(id,data);originals.put(id.id(),data.colors.clone());
+    // Deliberately preserve a wrong existing value as well as one missing value.
+    if(scale!=0)map.set(ModDataComponents.MAP_CENTER,new org.joml.Vector2i(999999,-999999));
+    map.set(DataComponents.CUSTOM_NAME,net.minecraft.network.chat.Component.literal("Integrity "+dimension.identifier()+" "+scale));
+    maps.add(ItemStackTemplate.fromNonEmptyStack(map));
+    int radius=64<<scale;
+    check(com.thenathe.multiscale.MixedScaleMaps.covers(data,data.centerX-radius,data.centerZ-radius),"coverage includes low corner "+dimension+"/"+scale);
+    check(com.thenathe.multiscale.MixedScaleMaps.covers(data,data.centerX+radius-1,data.centerZ+radius-1),"coverage includes last high pixel "+dimension+"/"+scale);
+    check(!com.thenathe.multiscale.MixedScaleMaps.covers(data,data.centerX+radius,data.centerZ),"coverage excludes next east cell "+dimension+"/"+scale);
+    check(!com.thenathe.multiscale.MixedScaleMaps.covers(data,data.centerX,data.centerZ+radius),"coverage excludes next south cell "+dimension+"/"+scale);
+    check(!com.thenathe.multiscale.MixedScaleMaps.covers(data,data.centerX-radius-1,data.centerZ),"coverage excludes previous west cell "+dimension+"/"+scale);
+   }
+  }
+  var treasureSource=MapItem.create(server.overworld(),-65,-65,(byte)0,true,false);
+  var treasureId=treasureSource.get(DataComponents.MAP_ID);
+  var treasureData=MapItem.getSavedData(treasureId,server.overworld()).locked();
+  java.util.Arrays.fill(treasureData.colors,(byte)32);server.overworld().setMapData(treasureId,treasureData);
+  originals.put(treasureId.id(),treasureData.colors.clone());
+  var treasure=new ItemStack(Items.BURIED_TREASURE_MAP);treasure.set(DataComponents.MAP_ID,treasureId);
+  treasure.set(ModDataComponents.MAP_CENTER,new org.joml.Vector2i(999999,-999999));
+  treasure.set(DataComponents.CUSTOM_NAME,net.minecraft.network.chat.Component.literal("Integrity explorer"));
+  maps.add(ItemStackTemplate.fromNonEmptyStack(treasure));
+  var unavailable=new ItemStack(Items.FILLED_MAP);unavailable.set(DataComponents.MAP_ID,new MapId(Integer.MAX_VALUE));
+  maps.add(ItemStackTemplate.fromNonEmptyStack(unavailable));
+  maps.add(ItemStackTemplate.fromNonEmptyStack(new ItemStack(Items.MAP,3)));
+  maps.add(ItemStackTemplate.fromNonEmptyStack(new ItemStack(Items.PAPER,4)));
+  var contents=new BundleContents(maps).asMutable();contents.toggleSelectedItem(7);book.set(DataComponents.BUNDLE_CONTENTS,contents.toImmutable());
+  player.getInventory().setItem(0,book);
+  var expectedIds=ids(book);
+  int count=book.get(DataComponents.BUNDLE_CONTENTS).items().stream().mapToInt(ItemStackTemplate::count).sum();
+  for(var dimension:dimensions)for(int scale=0;scale<5;scale++) {
+   var level=server.getLevel(dimension);book.set(ModDataComponents.ATLAS_SCALE,scale);
+   ((AtlasItem)book.getItem()).inventoryTick(book,level,player,null);
+   var id=new MapId(book.get(ModDataComponents.ATLAS_ACTIVE_MAP_ID));
+   var active=MapItem.getSavedData(id,level);
+   check(active!=null&&active.scale==scale&&active.dimension.equals(dimension),"real tick selects requested region/dimension/scale "+dimension+"/"+scale);
+   check(active.locked&&java.util.Arrays.equals(active.colors,originals.get(id.id())),"tick preserves locked artwork "+dimension+"/"+scale);
+   check(ids(book).equals(expectedIds),"tick preserves map IDs including unavailable saved record "+dimension+"/"+scale);
+   check(book.get(DataComponents.BUNDLE_CONTENTS).items().stream().mapToInt(ItemStackTemplate::count).sum()==count,"all-off tick consumes no blank maps or paper "+dimension+"/"+scale);
+   check(book.get(DataComponents.BUNDLE_CONTENTS).getSelectedItemIndex()==7,"tick preserves selected bundle item "+dimension+"/"+scale);
+  }
+  for(var template:book.get(DataComponents.BUNDLE_CONTENTS).items()) {
+   var id=template.get(DataComponents.MAP_ID);if(id==null||id.id()==Integer.MAX_VALUE)continue;
+   var data=MapItem.getSavedData(id,server.overworld());
+   var center=template.get(ModDataComponents.MAP_CENTER);
+   check(center!=null&&center.x==data.centerX&&center.y==data.centerZ,"real tick reconciles absent and stale MAP_CENTER "+id.id());
+   check(java.util.Arrays.equals(data.colors,originals.get(id.id())),"center repair never changes saved pixels "+id.id());
+   check(template.get(DataComponents.CUSTOM_NAME).getString().startsWith("Integrity "),"center repair preserves custom names "+id.id());
+  }
+  // Upstream's force=true uses the last dirty rectangle, not a guaranteed full
+  // snapshot. This proves why repair must explicitly send all 128 x 128 pixels.
+  var id=maps.getFirst().get(DataComponents.MAP_ID);
+  var data=MapItem.getSavedData(id,server.overworld());
+  data.getHoldingPlayer(player);data.getUpdatePacket(id,player);
+  data.setColor(3,4,(byte)40);
+  var incremental=(net.minecraft.network.protocol.game.ClientboundMapItemDataPacket)data.getUpdatePacket(id,player);
+  check(incremental!=null&&incremental.colorPatch().orElseThrow().width()==1&&incremental.colorPatch().orElseThrow().height()==1,"ordinary update consumes a one-pixel dirty rectangle");
+  packets.clear();me.pajic.mapstitch.util.ModUtil.sendVanillaMapPacket(id,data,player,true);
+  var forced=packets.stream().filter(p->p instanceof net.minecraft.network.protocol.game.ClientboundMapItemDataPacket).map(p->(net.minecraft.network.protocol.game.ClientboundMapItemDataPacket)p).findFirst().orElseThrow();
+  check(forced.colorPatch().orElseThrow().width()==1&&forced.colorPatch().orElseThrow().height()==1,"upstream force retains one-pixel patch rather than restoring a cold client cache");
+  player.getInventory().clearContent();
  }
 
 }

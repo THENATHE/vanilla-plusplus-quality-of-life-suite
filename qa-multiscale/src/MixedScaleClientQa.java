@@ -17,11 +17,18 @@ import net.minecraft.world.level.saveddata.maps.*;
 
 public final class MixedScaleClientQa implements ClientModInitializer {
     public static final List<String> rendered = new ArrayList<>();
+    public static final List<String> minimapRendered = new ArrayList<>();
     private final Path control = Path.of(System.getProperty("maps.qa.control"));
     private final JsonArray observations = new JsonArray();
     private JsonArray records;
     private int ticks, phase;
     private boolean opened, done;
+    private int minimapCase;
+    private boolean minimapSetup, minimapComplete;
+    private net.minecraft.world.item.ItemStack minimapAtlas;
+    private boolean repairRequested, repairComplete;
+    private long preRepairRevision;
+    private int repairTicks;
     private static Object read(String name, Object screen) throws Exception {
         var field = WorldMapScreen.class.getDeclaredField(name); field.setAccessible(true); return field.get(screen);
     }
@@ -90,6 +97,82 @@ public final class MixedScaleClientQa implements ClientModInitializer {
         write("follow", screen, false); write("zoomLevel", null, 0); opened = true; ticks = 0; rendered.clear();
         center(screen);
     }
+    private boolean minimapRegression(Minecraft mc) throws Exception {
+        if (minimapComplete) return true;
+        if (!minimapSetup) {
+            minimapSetup = true; ticks = 0; minimapRendered.clear();
+            var record = records.get(minimapCase == 3 ? 10 : 0).getAsJsonObject();
+            var map = new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.FILLED_MAP);
+            map.set(net.minecraft.core.component.DataComponents.MAP_ID, new MapId(record.get("id").getAsInt()));
+            if (minimapCase != 1) map.set(me.pajic.mapstitch.component.ModDataComponents.MAP_CENTER,
+                    minimapCase == 2 ? new org.joml.Vector2i(765432, -765432)
+                            : new org.joml.Vector2i(record.get("x").getAsInt(), record.get("z").getAsInt()));
+            minimapAtlas = new net.minecraft.world.item.ItemStack(me.pajic.mapstitch.item.ModItems.ATLAS);
+            minimapAtlas.set(net.minecraft.core.component.DataComponents.BUNDLE_CONTENTS,
+                    new net.minecraft.world.item.component.BundleContents(List.of(net.minecraft.world.item.ItemStackTemplate.fromNonEmptyStack(map))));
+            minimapAtlas.set(me.pajic.mapstitch.component.ModDataComponents.ATLAS_ACTIVE_MAP_ID, record.get("id").getAsInt());
+            minimapAtlas.set(me.pajic.mapstitch.component.ModDataComponents.ATLAS_SCALE, 0);
+        }
+        // Test the real upstream HUD against a legacy/corrupt item component without
+        // changing saved map data or replacing any renderer implementation.
+        mc.player.getInventory().setItem(0, minimapAtlas);
+        if (++ticks < 20) return false;
+        var record = records.get(minimapCase == 3 ? 10 : 0).getAsJsonObject();
+        if (minimapCase == 3) check(minimapRendered.isEmpty(), "Foreign-dimension active map rendered in minimap");
+        else {
+            check(!minimapRendered.isEmpty(), "Minimap blank for case " + minimapCase + " (0 normal, 1 missing center, 2 stale center)");
+            var field = me.pajic.mapstitch.minimap.MinimapOverlay.class.getDeclaredField("CACHED_CENTERS");
+            field.setAccessible(true);
+            var center = (org.joml.Vector2i) ((Map<?, ?>) field.get(null)).get(new MapId(record.get("id").getAsInt()));
+            check(center != null && center.x == record.get("x").getAsInt() && center.y == record.get("z").getAsInt(),
+                    "Minimap used stale item center: " + center);
+        }
+        var row = new JsonObject(); row.addProperty("case", List.of("minimap normal center", "minimap missing item center",
+                "minimap stale item center", "minimap foreign active dimension").get(minimapCase));
+        row.addProperty("render_calls", minimapRendered.size()); observations.add(row);
+        Files.writeString(control.resolve("observations.json"), new GsonBuilder().setPrettyPrinting().create().toJson(observations));
+        net.minecraft.client.Screenshot.grab(mc.gameDirectory, "minimap-case-" + minimapCase + ".png",
+                mc.gameRenderer.mainRenderTarget(), 1, message -> {});
+        if (++minimapCase == 4) { minimapComplete = true; Files.writeString(control.resolve("restore-atlas"), "restore"); }
+        minimapSetup = false; ticks = 0;
+        return false;
+    }
+    private boolean repairNetworkRegression(Minecraft mc) throws Exception {
+        if (repairComplete) return true;
+        if (!repairRequested) {
+            verifyMetadata(mc);
+            repairRequested = true; repairTicks = 0;
+            preRepairRevision = MixedScalesClient.mapMetadataRevision();
+            minimapRendered.clear();
+            for (var element : records) {
+                var id = new MapId(element.getAsJsonObject().get("id").getAsInt());
+                var data = mc.level.getMapData(id);
+                Arrays.fill(data.colors, (byte) 0);
+                mc.getMapTextureManager().update(id, data);
+            }
+            mc.getConnection().sendCommand("repairmaps");
+            return false;
+        }
+        if (++repairTicks < 20) return false;
+        if (MixedScalesClient.mapMetadataRevision() <= preRepairRevision) {
+            check(repairTicks < 120, "Repair command did not send native cache refresh"); return false;
+        }
+        for (var element : records) {
+            var record = element.getAsJsonObject();
+            var data = mc.level.getMapData(new MapId(record.get("id").getAsInt()));
+            check(data != null, "Repair deleted client map " + record);
+            byte expected = record.get("color").getAsByte();
+            for (byte pixel : data.colors) check(pixel == expected, "Repair did not restore full client pixel buffer for " + record);
+        }
+        check(!minimapRendered.isEmpty(), "Minimap failed to resume drawing after full packet repair");
+        var row = new JsonObject(); row.addProperty("case", "real repairmaps network pixel recovery");
+        row.addProperty("maps_restored", records.size()); row.addProperty("pixels_per_map", 128 * 128);
+        row.addProperty("native_cache_refresh_received", true); row.addProperty("minimap_render_calls", minimapRendered.size());
+        observations.add(row);
+        net.minecraft.client.Screenshot.grab(mc.gameDirectory, "minimap-repaired-pixels.png",
+                mc.gameRenderer.mainRenderTarget(), 1, message -> {});
+        repairComplete = true; return true;
+    }
     private void center(Object screen) throws Exception {
         String dimension = read("dimensionId", null).toString(); int scale = (int) read("scale", screen);
         for (var element : records) {
@@ -108,7 +191,13 @@ public final class MixedScaleClientQa implements ClientModInitializer {
                 if (!Files.exists(control.resolve("seeded.json"))) return;
                 if (records == null) records = JsonParser.parseString(Files.readString(control.resolve("seeded.json"))).getAsJsonArray();
                 if (phase == 0 && !opened) {
+                    if (!minimapComplete) {
+                        if (minimapCase == 0 && !minimapSetup && ++ticks < 30) return;
+                        verifyMetadata(mc);
+                        if (!minimapRegression(mc)) return;
+                    }
                     if (++ticks < 30) return;
+                    if (!repairNetworkRegression(mc)) return;
                     verifyMetadata(mc); repairRegression(mc); verifyMinimapMarkers(mc); open(mc); return;
                 }
                 if (phase == 15 || phase == 21) {
@@ -140,7 +229,7 @@ public final class MixedScaleClientQa implements ClientModInitializer {
                 if (phase == 23) {
                     mc.gui.setScreen(null); done = true;
                     Files.writeString(control.resolve("observations.json"), new GsonBuilder().setPrettyPrinting().create().toJson(observations));
-                    Files.writeString(control.resolve("result.txt"), "PASS native metadata, old pixels/banners, 21 dimension/scale render views, two real dimension travels\n"); return;
+                    Files.writeString(control.resolve("result.txt"), "PASS four actual minimap center/dimension regressions, real repairmaps restores all pixels of 15 maps, native metadata, old pixels/banners, 21 dimension/scale render views, two real dimension travels\n"); return;
                 }
                 // Real native S/D buttons: not a replacement renderer or hand-built cache.
                 int buttonIndex = phase < 15 && phase % 5 == 0 ? 2 : 3;

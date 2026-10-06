@@ -1,13 +1,13 @@
-# Installation pack — Vanilla++ Quality of Life Suite 1.1.2+26.3
+# Installation pack — Vanilla++ Quality of Life Suite 1.1.3+26.3
 
 The installation ZIP supplies the suite and its exact libraries for a native Fabric client or a dedicated server that also accepts vanilla players. Its helper selects the appropriate files for each side. **Internet access is required to obtain Fzzy Config from its official publisher.** Minecraft, Java, Fabric Loader and the server’s resource-pack hosting must be set up separately.
 
-The [stable 1.1.2+26.3 release](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.2%2B26.3) has four public assets:
+The [stable 1.1.3+26.3 release](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.3%2B26.3) has four public assets:
 
 - `README.md` — the accessible feature overview and installation entry point.
-- `vanilla-plusplus-quality-of-life-suite-1.1.2+26.3.jar` — the combined mod, for an instance whose exact dependencies are already installed.
+- `vanilla-plusplus-quality-of-life-suite-1.1.3+26.3.jar` — the combined mod, for an instance whose exact dependencies are already installed.
 - `docs.zip` — documentation, technical records and release verification information.
-- `vanilla-plusplus-installation-pack-1.1.2+26.3.zip` — the suite, permitted dependency binaries, licenses and installer described below.
+- `vanilla-plusplus-installation-pack-1.1.3+26.3.zip` — the suite, permitted dependency binaries, licenses and installer described below.
 
 There is one installation ZIP; no separate `.mrpack`, manual ZIP or library ZIP is published. The final suite digest is recorded in the [installation lock](installation-pack.lock.json) and [build verification](build-verification.json).
 
@@ -26,7 +26,7 @@ There is one installation ZIP; no separate `.mrpack`, manual ZIP or library ZIP 
 
 4. Launch the instance. Keep separate copies of the original feature mods and older suite shims out of its `mods/` folder to avoid duplicates.
 
-Bannerpoint and its compatibility component are already inside the suite JAR; do not add separate copies. Stable suite 1.1.2 includes both modules on `main`.
+Bannerpoint and its compatibility component are already inside the suite JAR; do not add separate copies. Stable suite 1.1.3 includes both modules on `main`.
 
 The client selection excludes Polymer. Native suite clients use the mod interfaces when joining a matching server. Vanilla players joining a Polymer-enabled server install none of these client files.
 
@@ -59,7 +59,7 @@ The ZIP includes these three local files under `overrides/mods/`:
 
 | Included file | SHA-256 | License/source context |
 | --- | --- | --- |
-| Suite 1.1.2+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
+| Suite 1.1.3+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
 | Defaulted 1.3.8+26.3.dropfix.1 | `e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61` | MIT; exact local repair. [Patch source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/defaulted-dropfix). |
 | CodecUI 26.3-1.4.3 | `4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898` | MIT declaration and retained notices; precise private build revision is unrecorded. [Source-family record](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference). |
 

@@ -1,6 +1,6 @@
 # Provenance and compatibility tracks
 
-Stable suite **1.1.2+26.3**, on `main`, targets Minecraft 26.3, Fabric Loader 0.19.5 and Java 25. The archive contains 18 nested modules, including the untouched official Bannerpoint 1.1.2+26.3 JAR and separate compatibility component. The shared coordinator remains **1.1.0+26.3**; the mixed-scale addon is **1.1.2+26.3**, adding coherent banner markers across enabled generation scales. The experimental Bannerpoint release remains preserved under its original tag.
+Stable suite **1.1.3+26.3**, on `main`, targets Minecraft 26.3, Fabric Loader 0.19.5 and Java 25. The archive contains 18 nested modules, including the untouched official Bannerpoint 1.1.2+26.3 JAR and separate compatibility component. The shared coordinator remains **1.1.0+26.3**; the mixed-scale addon is **1.1.3+26.3**, retaining coordinated banner marking and adding authoritative-center rendering, repair diagnostics and exact-ID duplicate cleanup. The experimental Bannerpoint release remains preserved under its original tag.
 
 This distribution combines original developer releases, existing ports/additions and suite compatibility code. It does not relabel original mods as official releases of the suite. Bannerpoint's developer-release compatibility track is supported here; no ChatGPT Bannerpoint port exists or is created. Other existing compatibility tracks and the paused SSO port remain preserved.
 
@@ -31,13 +31,13 @@ This distribution combines original developer releases, existing ports/additions
 | --- | --- | --- |
 | Combined compatibility | 1.1.0+26.3 | Original standalone Multi-Shim 1.0.5+26.3; components/combined-compat/ORIGIN.json |
 | Chalk compatibility | 1.1.1-suite.1+26.3 | Original standalone Chalk shim 1.1.0+26.3; components/chalk-compat/ORIGIN.json |
-| Shared Region Maps | 1.0.4-combo.1+mc26.3 | Original local 1.0.3, commit 338270a70c14be19ba79b535b40fac980e414470; components/shared-region-maps/upstream-manifest.json |
+| Shared Region Maps | 1.0.5-combo.1+mc26.3 | Original local 1.0.3, commit 338270a70c14be19ba79b535b40fac980e414470; components/shared-region-maps/upstream-manifest.json |
 | Tool Pouch atlas/Elytra addon | 1.0.7-suite.1+26.3 | Original local 1.0.4; components/toolpouch-atlas-elytra/upstream-manifest.json |
-| Mixed-scale MapStitch addon | 1.1.2+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
+| Mixed-scale MapStitch addon | 1.1.3+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
 | Sensible Stackables port | 3.0.3-port.1+26.3 | Published 3.0.3+26.2 baseline and per-track source/dependency records in components/sensible-stackables/ |
 | Sensible Stackables Polymer compatibility | 1.0.0+26.3 | Separate components/sensible-stackables/compat module |
 | Bannerpoint compatibility | 1.0.1+26.3 | Separate components/bannerpoint-compat module; original artwork notices and client/pack detection retained. Reconciles map-linked tracking after multiscale atlas edits through the internal addon event. |
-| Suite root / settings | 1.1.2+26.3 | Newly authored source in src/ |
+| Suite root / settings | 1.1.3+26.3 | Newly authored source in src/ |
 
 The production archive retains these original module IDs and embeds each module separately. Original standalone repositories and versioned releases remain available; the suite variants do not overwrite them.
 

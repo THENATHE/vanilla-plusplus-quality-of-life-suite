@@ -1,0 +1,16 @@
+{
+  "bundle_version": "1.1.2+26.3",
+  "bundle_sha256": "c21a103fc19be5121ab3c21bf50c02133dff2719812985010767e3c28cc7c3dd",
+  "run_label": "minimap-blank-baseline",
+  "expected_reproducer_failure": true,
+  "acceptance_passed": false,
+  "failure": "java.lang.AssertionError: Minimap blank for case 1 (0 normal, 1 missing center, 2 stale center)",
+  "observation": [
+    {
+      "case": "minimap normal center",
+      "render_calls": 29
+    }
+  ],
+  "method": "Use the actual MapStitch minimap renderer with a valid client map and pixel buffer, then remove only MAP_CENTER from its atlas item entry. The initial normal case renders 29 times; the missing-center case renders zero times and fails.",
+  "scope": "Proves a client-renderer vulnerability, not the exact cause in the user\u2019s world; server inventory ticking already repairs this component in normal paths."
+}

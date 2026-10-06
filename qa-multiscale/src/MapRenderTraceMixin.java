@@ -19,5 +19,6 @@ public abstract class MapRenderTraceMixin {
     private void observe(Minecraft mc, GuiGraphicsExtractor graphics, MapId id, MapItemSavedData data,
                          WorldMapScreen.GridPos gridPos, boolean minimap, CallbackInfo ci) {
         if (!minimap) MixedScaleClientQa.rendered.add(data.dimension.identifier() + "/" + data.scale);
+        else MixedScaleClientQa.minimapRendered.add(id.id() + "/" + data.dimension.identifier() + "/" + data.scale);
     }
 }

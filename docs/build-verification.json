@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "thenathe_mod_suite",
-  "version": "1.1.2+26.3",
-  "sha256": "c21a103fc19be5121ab3c21bf50c02133dff2719812985010767e3c28cc7c3dd",
+  "version": "1.1.3+26.3",
+  "sha256": "0492e88a51fb88cc5dbc0d815022d3d5a39f095fa299c5069f040ad5be63c69b",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -72,9 +72,9 @@
     },
     {
       "id": "shared_region_maps",
-      "version": "1.0.4-combo.1+mc26.3",
-      "sha256": "6c202b7d3eb3f574f87a51087c7efd9b2bd7bd17dd0be6a8fc9480249a2533de",
-      "file": "META-INF/jars/shared-region-maps-1.0.4-combo.1+mc26.3.jar"
+      "version": "1.0.5-combo.1+mc26.3",
+      "sha256": "e49a046d76764a823792f3da611c94a3353d5630bcb966af695157912fcb49b5",
+      "file": "META-INF/jars/shared-region-maps-1.0.5-combo.1+mc26.3.jar"
     },
     {
       "id": "toolpouch_atlas_elytra_compat",
@@ -96,9 +96,9 @@
     },
     {
       "id": "mapstitch_mixed_scales",
-      "version": "1.1.2+26.3",
-      "sha256": "f5f4ce1df13955ca6d8ebb1dde396b5d63a78e9e30c90211cb8e9a9873b65b81",
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.2+26.3.jar"
+      "version": "1.1.3+26.3",
+      "sha256": "b916c2bbc21225092d6e016d85fcea72f064498bd5da27eb72204f0b1eca7083",
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.3+26.3.jar"
     },
     {
       "id": "bannerpoint",
@@ -118,13 +118,15 @@
   "licenses_retained": true,
   "runtime_tested": true,
   "verified_on": "2026-10-05",
-  "runtime_scope": "Fresh final-SHA1050 dedicated atlas/banner assertions with/without Polymer across restarts; five real Bannerpoint client profiles plus world restart/banner removal, native names and fallback sprite/lifecycle/stale checks;14settings pages.13installer checks. Unchanged broad gameplay/HUD not rerun; no vanilla UI capture.",
+  "runtime_scope": "Final-SHA: 4278 dedicated atlas/repair/deduplication/banner/generation/extraction assertions with/without Polymer across restarts; four actual graphical minimap regressions, full15x16384 pixel recovery via real repairmaps,21world-map views,two dimension transfers; native/Fabric API-only command network safety;13 fresh installer/archive checks. Broader unchanged gameplay/settings and pure-vanilla/optional Remapped matrices not repeated.",
   "evidence": [
-    "qa-multiscale/evidence/1.1.2/server/result.json",
-    "qa-multiscale/evidence/1.1.2/server/banner-audit.json",
-    "qa-bannerpoint/evidence/1.1.2/result.json",
-    "qa-bannerpoint/evidence/1.1.2/settings/evidence.json",
-    "qa-bannerpoint/evidence/1.1.2/settings/observations.json",
-    "qa-release/evidence/1.1.2/previous-build-comparison.json"
+    "qa-multiscale/evidence/1.1.3/server/result.json",
+    "qa-multiscale/evidence/1.1.3/server/repair-audit.json",
+    "qa-multiscale/evidence/1.1.3/client/result.json",
+    "qa-multiscale/evidence/1.1.3/client/observations.json",
+    "qa-release/evidence/1.1.3/network/result.json",
+    "qa-release/evidence/1.1.3/clean-build.json",
+    "qa-release/evidence/1.1.3/previous-build-comparison.json",
+    "docs/installation-pack-verification.json"
   ]
 }

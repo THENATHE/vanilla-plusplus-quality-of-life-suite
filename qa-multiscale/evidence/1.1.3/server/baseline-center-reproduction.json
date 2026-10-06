@@ -1,0 +1,31 @@
+{
+  "bundle_sha256": "c21a103fc19be5121ab3c21bf50c02133dff2719812985010767e3c28cc7c3dd",
+  "passed": false,
+  "cases": [
+    {
+      "profile": "maps-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 494 mixed-scale insertion, extraction commands, banner edits, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-polymer",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "PASS 425 mixed-scale insertion, extraction commands, banner edits, codec and restart checks",
+      "passed": true
+    },
+    {
+      "profile": "maps-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "FAIL java.lang.AssertionError: real tick reconciles absent and stale MAP_CENTER 111",
+      "passed": false
+    }
+  ],
+  "expected_failure": true,
+  "purpose": "Stable 1.1.2 baseline reproduction: existing wrong MAP_CENTER survives real atlas tick without Polymer; native/Polymer center repair works. This does not claim this is the sole cause of the user report.",
+  "run_label": "minimap-server-investigate-baseline",
+  "compiled_fixture_sha256": "a6e421d0726896b5ec84c6e7c6291e3bd7e1f13dbecc2d4dac60116fc4c5fa60"
+}

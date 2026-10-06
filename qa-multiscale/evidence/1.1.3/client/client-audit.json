@@ -1,0 +1,91 @@
+{
+  "minecraft": "26.3",
+  "fabric_loader": "0.19.5",
+  "java_runtime": "OpenJDK 25.0.4.1",
+  "main_class": "net.fabricmc.loader.impl.launch.knot.KnotClient",
+  "jvm_options": [
+    "-Dmaps.qa.control=<isolated-run-path>",
+    "-XX:ActiveProcessorCount=4",
+    "-Xms512M",
+    "-Xmx2G",
+    "-XX:StackShadowPages=32",
+    "--enable-native-access=ALL-UNNAMED",
+    "--add-exports",
+    "java.base/jdk.internal.misc=ALL-UNNAMED",
+    "-Djava.library.path=<isolated-run-path>",
+    "-Djna.tmpdir=<isolated-run-path>",
+    "-Dorg.lwjgl.system.SharedLibraryExtractPath=<isolated-run-path>",
+    "-Dio.netty.native.workdir=<isolated-run-path>",
+    "-Dminecraft.launcher.brand=map-atlases-vanilla-qa",
+    "-Dminecraft.launcher.version=1"
+  ],
+  "game_arguments": [
+    "--username",
+    "StitchNativeQA",
+    "--version",
+    "26.3",
+    "--gameDir",
+    "<isolated-run-path>",
+    "--assetsDir",
+    "<isolated-run-path>",
+    "--assetIndex",
+    "34",
+    "--uuid",
+    "<offline-qa-value>",
+    "--accessToken",
+    "<offline-qa-value>",
+    "--versionType",
+    "release",
+    "--width",
+    "1280",
+    "--height",
+    "800",
+    "--quickPlayMultiplayer",
+    "127.0.0.1:<ephemeral-port>"
+  ],
+  "runtime_artifacts": [
+    {
+      "file": "fabric-loader-0.19.5.jar",
+      "sha256": "93044e4dd46de5d8136701292f05e868da096d2c9fddb4793e4fdbcc63efc695"
+    }
+  ],
+  "mods": [
+    {
+      "file": "vanilla-plusplus-quality-of-life-suite-1.1.3+26.3.jar",
+      "sha256": "0492e88a51fb88cc5dbc0d815022d3d5a39f095fa299c5069f040ad5be63c69b"
+    },
+    {
+      "file": "codecui-26.3-1.4.3-fabric.jar",
+      "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+    },
+    {
+      "file": "defaulted-1.3.8+26.3.dropfix.1-fabric.jar",
+      "sha256": "e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61"
+    },
+    {
+      "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+      "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+    },
+    {
+      "file": "fzzy_config-0.7.7+fix2+26.3.jar",
+      "sha256": "138e377563a8ca536a9af00d8eeefb7fe160903392df8e4ca7cd4b5da6f0bb5f"
+    },
+    {
+      "file": "mixson-2.2.1-multiloader.jar",
+      "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+    },
+    {
+      "file": "fabric-api-0.161.0+26.3.jar",
+      "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+    },
+    {
+      "file": "cloth-config-fabric-26.3.159.jar",
+      "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+    },
+    {
+      "file": "client.jar",
+      "sha256": "a47c7665a84cba33bd0ccf8945728976e72615e5fc3d07c2cca3d734f394d4db"
+    }
+  ],
+  "sanitization": "Machine-specific paths and classpaths omitted; synthetic offline identifiers and local ephemeral port redacted. Exact loaded mod hashes preserved."
+}

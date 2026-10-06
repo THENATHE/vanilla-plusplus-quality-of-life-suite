@@ -68,7 +68,7 @@ public final class AtlasMapExtraction {
         return 0;
     }
 
-    private static AtlasTarget.Handle selectedAtlas(ServerPlayer player) {
+    public static AtlasTarget.Handle selectedAtlas(ServerPlayer player) {
         for (var held : new ItemStack[]{player.getMainHandItem(), player.getOffhandItem()}) {
             if (!held.is(ModItems.ATLAS)) continue;
             var target = AtlasTarget.find(player, held);

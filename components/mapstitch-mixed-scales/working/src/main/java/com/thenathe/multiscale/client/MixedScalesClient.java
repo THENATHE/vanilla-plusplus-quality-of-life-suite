@@ -3,6 +3,7 @@ package com.thenathe.multiscale.client;
 import com.thenathe.multiscale.AtlasTarget;
 import com.thenathe.multiscale.MixedScales;
 import com.thenathe.multiscale.MapMetadata;
+import com.thenathe.multiscale.MapRefresh;
 import com.thenathe.multiscale.mixin.MapMetadataAccess;
 import com.thenathe.suite.network.SuiteCapabilities;
 import me.pajic.mapstitch.MapStitch;
@@ -24,9 +25,16 @@ public final class MixedScalesClient implements ClientModInitializer {
 
     @Override public void onInitializeClient() {
         ClientPlayNetworking.registerGlobalReceiver(MapMetadata.TYPE, (payload, context) -> applyMetadata(payload));
+        ClientPlayNetworking.registerGlobalReceiver(MapRefresh.TYPE, (payload, context) -> refreshMaps());
     }
 
     public static long mapMetadataRevision() { return mapMetadataRevision; }
+
+    /** Invalidate rendered atlas caches while retaining existing map objects and pixels. */
+    public static void refreshMaps() {
+        mapMetadataRevision++;
+        WorldMapScreen.clearMaps();
+    }
 
     public static void applyMetadata(MapMetadata metadata) {
         var mc = Minecraft.getInstance();

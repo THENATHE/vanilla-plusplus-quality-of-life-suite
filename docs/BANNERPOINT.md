@@ -1,6 +1,6 @@
 # Bannerpoint support
 
-Stable suite **1.1.2** includes [Pajic’s Bannerpoint](https://modrinth.com/mod/bannerpoint) as a separate module on `main`. It supports modern Minecraft versions using the exact platform listed below. The earlier Bannerpoint testing release remains a historical record; its features are now part of the main suite.
+Stable suite **1.1.3** includes [Pajic’s Bannerpoint](https://modrinth.com/mod/bannerpoint) as a separate module on `main`. It supports modern Minecraft versions using the exact platform listed below. The earlier Bannerpoint testing release remains a historical record; its features are now part of the main suite.
 
 Bannerpoint creates **locator-bar waypoints** for banners. These are separate from MapStitch’s atlas-map banner decorations. The original style and its four image files can be delivered through Polymer’s resource pack: a vanilla client already understands Minecraft’s waypoint-style resources and locator-bar packets. Bannerpoint’s custom name renderer is Java client code, so a pack supplies icons but cannot supply that name overlay.
 
@@ -18,7 +18,7 @@ Ordinary player waypoints remain available under Minecraft’s normal rules. Ori
 
 ## Installation and use
 
-Use stable release **1.1.2+26.3** on the server and participating suite clients. Do not additionally install the original Bannerpoint JAR: it is already nested in the suite. [Installation instructions](INSTALLATION_PACK.md) cover the client/server kit and all external libraries.
+Use stable release **1.1.3+26.3** on the server and participating suite clients. Do not additionally install the original Bannerpoint JAR: it is already nested in the suite. [Installation instructions](INSTALLATION_PACK.md) cover the client/server kit and all external libraries.
 
 For vanilla clients, install the release-selected Polymer Bundled on the server. Generate and host the server pack through [Polymer’s hosting workflow](https://polymer.pb4.eu/latest/user/resource-pack-hosting/), and have players accept it. The suite contributes Bannerpoint’s original assets automatically. A player who declines or fails to load the pack receives no Bannerpoint waypoint icons. Pack acceptance alone is insufficient: the server waits for successful loading.
 
@@ -34,7 +34,7 @@ If all eligible maps already contain the same banner mark, the operation removes
 
 | Component | Version / requirement |
 | --- | --- |
-| Stable suite | `1.1.2+26.3`, branch `main` |
+| Stable suite | `1.1.3+26.3`, branch `main` |
 | Unchanged official Bannerpoint | `1.1.2+26.3`; Fabric metadata declares `1.1.2` |
 | Separate Bannerpoint compatibility component | `1.0.1+26.3` |
 | Minecraft / runtime / loader | `26.3` / Java `25+` / Fabric Loader `0.19.5` |

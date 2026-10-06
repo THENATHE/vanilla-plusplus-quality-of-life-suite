@@ -1,0 +1,1 @@
+PASS four actual minimap center/dimension regressions, real repairmaps restores all pixels of 15 maps, native metadata, old pixels/banners, 21 dimension/scale render views, two real dimension travels

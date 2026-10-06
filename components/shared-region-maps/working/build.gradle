@@ -1,5 +1,5 @@
 plugins { id 'net.fabricmc.fabric-loom' version '1.17.20' }
-version = '1.0.4-combo.1+mc26.3'
+version = '1.0.5-combo.1+mc26.3'
 group = 'org.sharedregionmaps'
 base { archivesName = 'shared-region-maps' }
 repositories { mavenCentral() }

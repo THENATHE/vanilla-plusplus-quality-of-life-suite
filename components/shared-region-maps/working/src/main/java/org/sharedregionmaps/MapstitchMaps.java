@@ -22,7 +22,7 @@ public final class MapstitchMaps {
 
     @SuppressWarnings("unchecked")
     public static boolean refreshCenter(ItemStack stack, ServerLevel level) {
-        if (!stack.is(Items.FILLED_MAP)) return false;
+        if (stack.get(DataComponents.MAP_ID) == null) return false;
         DataComponentType<?> registered = BuiltInRegistries.DATA_COMPONENT_TYPE.getValue(MAP_CENTER);
         if (registered == null) return false;
         // A newly created map can enter an atlas before MapStitch's loose-item
@@ -45,9 +45,10 @@ public final class MapstitchMaps {
         ArrayList<ItemStackTemplate> repaired = null;
         for (int i = 0; i < contents.size(); i++) {
             var template = contents.items().get(i);
-            // Existing valid entries need no saved-map lookup on each tick.
-            // Scaling and insertion refresh stale values separately.
-            if (!template.is(Items.FILLED_MAP) || template.get(centerType) != null) continue;
+            // Persisted maps may already have a center from a previous ID or scale.
+            // Validate present values too; a wrong center survives reconnect and
+            // can place a real map in the wrong atlas grid cell without Polymer.
+            if (template.get(DataComponents.MAP_ID) == null) continue;
             var map = template.create();
             if (refreshCenter(map, level)) {
                 if (repaired == null) repaired = new ArrayList<>(contents.items());

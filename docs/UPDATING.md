@@ -1,6 +1,6 @@
 # Source map and updating upstream modules
 
-The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, suite **1.1.2+26.3**. The earlier Bannerpoint and atlas/stackables testing releases remain historical references. Stable release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.1.2+26.3/`; preserve earlier testing-component release folders rather than relabeling their artifacts. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
+The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, suite **1.1.3+26.3**. The earlier Bannerpoint and atlas/stackables testing releases remain historical references. Stable release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.1.3+26.3/`; preserve earlier testing-component release folders rather than relabeling their artifacts. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
 
 ## Where things live
 
@@ -34,7 +34,7 @@ The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, s
 | qa/ | Connection/capability smoke, final native/fallback packet checks and disposable runs |
 | qa-settings/, qa-hud/, qa-mechanics/ | Unified settings/permissions screenshots, actual HUD observations, recipe/menu/drop/map persistence regressions |
 | tools/package-release.py | Package a committed, verified version into the required release hierarchy |
-| components/mapstitch-mixed-scales/working/ | Separate mixed-scale atlas addon: world-map UI, independent minimap/generation, location selection, guarded packets and coordinated banner marking across existing enabled layers in the current dimension. AtlasDeathRetention and death/respawn mixins add container-safe retention. |
+| components/mapstitch-mixed-scales/working/ | Separate mixed-scale atlas addon: world-map UI, independent minimap/generation, location selection, guarded packets, server-authoritative center repair/diagnostics, same-ID atlas deduplication and coordinated banner marking across existing enabled layers in the current dimension. AtlasDeathRetention and death/respawn mixins add container-safe retention. |
 | components/sensible-stackables/upstream/ | Untouched 26.2 publisher source/binary records and independently tested baseline |
 | components/sensible-stackables/ported/ | Independent 26.3 port retaining upstream mixins, settings and dependencies |
 | components/sensible-stackables/compat/ | Separate Polymer stack defaults, safe metadata and authoritative menu correction |
@@ -53,10 +53,11 @@ The historical projects outside this suite remain preserved. Consolidated local 
 4. Review all affected mixins and networking payloads in both compatibility components. Check new items, components, recipe serializers, menus and block states; new registry entries may need Polymer mappings. A version fingerprint change selects fallback until both clients and server match, but does not implement compatibility for newly added content.
 5. Preserve external libraries and optional integrations. Update versions within the same library, pin hashes and document the change. Do not bypass Defaulted, Fzzy, Cloth, Mixson or another dependency to make compilation pass. Reapply or retire the Defaulted drop fix only after confirming the upstream implementation handles the same regression.
 6. Update unified settings registration and translations only where upstream configuration IDs/layouts change. Keep original paths, validation and Fzzy permissions/synchronization. The settings adapter uses pinned Fzzy internals; check it against a changed Fzzy release. Refresh the complete English language copies in `src/main/resources/resourcepacks/settings_titles/assets/` from the exact matching original artifacts before applying title overrides; verify all original entries survive.
-7. Recheck atlas banner interaction against the original MapStitch `tryMarkBanner`/map toggle path and Bannerpoint’s map-linked transmission hook. Keep the all-enabled-layer operation in the separate mixed-scale addon; preserve current-dimension/coverage filtering, add/remove consistency, original map data and the rule that marking spends no blanks.
-8. For Bannerpoint, compare its published waypoint connection and naming code, original channel ID, style JSON/sprites and saved-banner lifecycle against `components/bannerpoint-compat/`. Preserve player waypoints and native clients; test Polymer pack success, decline, failure and removal separately. Refresh the original Bannerpoint resources included in the generated pack without modifying the official JAR.
-9. Update the nested JAR metadata list, locks/artifacts.json, attribution, source manifests and version. Build, verify archive integrity/nested IDs/dependencies, then run the focused profiles against the final hash. Perform the manual feature checks in docs/VALIDATION.md.
-10. Package the release under the required versioned build hierarchy, record checksums, and publish the standalone repository/release after actual compatibility verification. Older Minecraft releases are retained.
+7. When updating MapStitch, recheck minimap template selection with absent `mapstitch:map_center`, authoritative saved centers and current-dimension filtering. Validate already-present stored centers against saved data with Polymer both present and absent. Keep deduplication scoped to exact map IDs, return one blank per removed copy and never delete global map records or silently merge same-region maps with different IDs. Keep maintenance commands separate from upstream code, preserve item components/pixels/decorations, and verify full native resends plus client cache refresh without generating replacement maps.
+8. Recheck atlas banner interaction against the original MapStitch `tryMarkBanner`/map toggle path and Bannerpoint’s map-linked transmission hook. Keep the all-enabled-layer operation in the separate mixed-scale addon; preserve current-dimension/coverage filtering, add/remove consistency, original map data and the rule that marking spends no blanks.
+9. For Bannerpoint, compare its published waypoint connection and naming code, original channel ID, style JSON/sprites and saved-banner lifecycle against `components/bannerpoint-compat/`. Preserve player waypoints and native clients; test Polymer pack success, decline, failure and removal separately. Refresh the original Bannerpoint resources included in the generated pack without modifying the official JAR.
+10. Update the nested JAR metadata list, locks/artifacts.json, attribution, source manifests and version. Build, verify archive integrity/nested IDs/dependencies, then run the focused profiles against the final hash. Perform the manual feature checks in docs/VALIDATION.md.
+11. Package the release under the required versioned build hierarchy, record checksums, and publish the standalone repository/release after actual compatibility verification. Older Minecraft releases are retained.
 
 ## Compatibility tracks
 
@@ -76,10 +77,10 @@ The atlas/Elytra component uses the same staged root inputs as the other suite p
 
 ## Rebuilding a public checkout from release inputs
 
-Download the suite JAR and `vanilla-plusplus-installation-pack-1.1.2+26.3.zip` from the public release, and extract the installation ZIP into an input directory. The kit includes the exact Defaulted/CodecUI files under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Run:
+Download the suite JAR and `vanilla-plusplus-installation-pack-1.1.3+26.3.zip` from the public release, and extract the installation ZIP into an input directory. The kit includes the exact Defaulted/CodecUI files under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Run:
 
 ```sh
-python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.1.2+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
+python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.1.3+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
 ```
 
 The script verifies the outer release hash and recursively stages only original inputs matching the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It rejects unavailable or mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs. The release has no separate local-library ZIP or uploaded tracked-source archive; use the repository or GitHub’s generated source download for the working checkout.

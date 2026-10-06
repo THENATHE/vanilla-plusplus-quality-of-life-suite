@@ -19,6 +19,7 @@ import org.joml.Vector2i;
 /** Deliberately first-send maps from all dimensions while the player is in the overworld. */
 public final class MixedScaleClientServerQa implements ModInitializer {
     private boolean seeded;
+    private ItemStack originalAtlas;
     private final Path control = Path.of(System.getProperty("maps.qa.control"));
     public void onInitialize() {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
@@ -60,11 +61,17 @@ public final class MixedScaleClientServerQa implements ModInitializer {
                     atlas.set(DataComponents.BUNDLE_CONTENTS, new BundleContents(contents));
                     atlas.set(ModDataComponents.ATLAS_SCALE, 0);
                     AtlasOptions.setGenerationMask(atlas, 0);
+                    originalAtlas = atlas.copy();
                     player.getInventory().setItem(0, atlas);
                     player.getInventory().setItem(1, new ItemStack(Items.COMPASS));
                     player.getInventory().setItem(2, ItemStack.EMPTY);
                     player.inventoryMenu.broadcastFullState();
                     Files.writeString(control.resolve("seeded.json"), new GsonBuilder().setPrettyPrinting().create().toJson(records));
+                }
+                if (Files.exists(control.resolve("restore-atlas"))) {
+                    Files.delete(control.resolve("restore-atlas"));
+                    player.getInventory().setItem(0, originalAtlas.copy());
+                    player.inventoryMenu.broadcastFullState();
                 }
                 var travel = control.resolve("travel.txt");
                 if (Files.exists(travel)) {

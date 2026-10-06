@@ -8,7 +8,7 @@
 - Exact clean source copy: `components/shared-region-maps/upstream/`.
 - Per-file SHA-256 baseline: `components/shared-region-maps/upstream-manifest.json`.
 - Modified source: `components/shared-region-maps/working/`.
-- Declared component version: `1.0.4-combo.1+mc26.3`.
+- Declared component version: `1.0.5-combo.1+mc26.3`.
 
 This component was written locally, rather than being a Pajic repository. Its existing All-Rights-Reserved declaration is retained. The task owner authorized combining it; no license for unrelated work has been inferred.
 
@@ -31,7 +31,13 @@ No new settings were introduced: the original component has no configuration ent
 
 The component keeps the `shared_region_maps` ID, Java package names, regional-key codec, `regions` SavedData identifier, and existing map-ID handling. Its metadata now allows both physical sides (`environment: "*"`). The common mixins operate through existing server-only methods taking `ServerLevel`; clients gain no independent map-ID allocation or custom synchronization. This also allows singleplayer/integrated-server map sharing in the bundle. Integrated-server runtime testing is listed separately from dedicated-server evidence.
 
-The Gradle version was updated and an optional explicit compiler path was added for the installed Java 25 Gradle runtime / Java 27 compiler with `--release 25`. Dependencies remain Minecraft 26.3, Fabric Loader 0.19.5, and compile/QA Fabric API 0.161.0+26.3. No runtime library was added. The working build uses Loom 1.17.20, matching the suite; the original snapshot uses 1.17.21. The final manifest-only normalization was built without recompiling unchanged classes. Dedicated fixture evidence predates this manifest normalization, with both hashes recorded in verification.json.
+The Gradle version was updated and an optional explicit compiler path was added for the installed Java 25 Gradle runtime / Java 27 compiler with `--release 25`. Dependencies remain Minecraft 26.3, Fabric Loader 0.19.5, and compile/QA Fabric API 0.161.0+26.3. No runtime library was added. The working build uses Loom 1.17.20, matching the suite; the original snapshot uses 1.17.21. The initial combo release had a manifest-only normalization built without recompiling its unchanged classes; that historical fixture evidence and both hashes remain in verification.json. The current suite has separate final-artifact verification linked below.
+
+## Atlas center repair in suite 1.1.3
+
+The MapStitch helper now validates an existing center against the authoritative saved map record instead of trusting any present center component. This corrects persisted stale values on servers without Polymer as well as with it. Map-ID-bearing entries include the distinct vanilla explorer/treasure map items; their centers can be repaired without replacing their item type, explored pixels, markers or IDs. Atlas item order, counts and selected entry remain intact. No saved-data format, regional index, map allocation or dependency changes are involved.
+
+The separate mixed-scale addon owns `/repairmaps`, read-only `/repairmaps check` and `/dedupemaps`; the shared-map helper supplies center correction only. Duplicate cleanup compares exact IDs rather than merging different records for the same region. See [atlas controls](ATLAS_CONTROLS.md) and [mixed-scale source guide](MIXED_SCALES.md).
 
 ## Persistence and upgrades
 
@@ -43,7 +49,7 @@ Save identifier and index format are unchanged. Back up `<world>/dimensions/mine
 2. Compare old `upstream/` to new upstream, then merge that change into `working/`.
 3. Retain the five explicit removals above and the bundle's `environment: "*"` change.
 4. Treat any changes to `Region.java`, `RegionIndex.java`, SavedData codecs, allocation, or lock behavior as persistence-sensitive. Check existing worlds on a copy.
-5. Confirm the MapStitch adapter's target signatures against the exact MapStitch source bundled by the suite.
+5. Confirm the MapStitch adapter's target signatures against the exact MapStitch source bundled by the suite. Preserve authoritative validation for present/missing centers and all map-ID-bearing atlas entries; keep original selected-slot/order/count semantics.
 6. Build, run the focused checks below, and record the new revision/artifact hashes.
 
 ## Manual checks
@@ -53,3 +59,5 @@ In a disposable world, create ordinary maps twice for the same region/scale (inc
 ## Verification
 
 Focused build/static/dedicated-server evidence is recorded in `components/shared-region-maps/verification.json`. Historical upstream `VALIDATION.md` remains part of the pristine snapshot and is not proof of a fresh combo test. The modified working copy will contain a brief current validation document.
+
+Current suite 1.1.3 acceptance is recorded independently in [validation](VALIDATION.md), including the no-Polymer stale-center reproduction, explorer-map cases and final repair/deduplication results. Earlier standalone results are historical evidence for their own artifacts.
