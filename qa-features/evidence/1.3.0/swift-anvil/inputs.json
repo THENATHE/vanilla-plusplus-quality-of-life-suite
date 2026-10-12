@@ -1,0 +1,17 @@
+{
+  "final_suite_sha256": "e57862d94d4b4331ddd5245e916793a16fa9258d3cceca0d2b3ac891b77aea72",
+  "baseline_suite_sha256": "f4a73c3a93c57f9d09e414da21dc79cd2e8eaa927aff73e58121705aa2a04e6a",
+  "anvil_classes_unchanged": true,
+  "classes": {
+    "sensible_stackables-fabric-3.1.1/me/pajic/sensible_stackables/mixin/menu_fixes/AnvilMenuMixin.class": "cfb6d470bb93ed157328e7d58f9ae3dc6aa33ef254aad48f39673fc840832f16",
+    "simple_smithing_overhaul-fabric-2.10.0/me/pajic/simple_smithing_overhaul/config/ModConfig$AnvilImprovements.class": "798e5eab0d35808f484b467c26e3b0f814ba9ce6c4820a556bd97f3b2dd91dbf",
+    "simple_smithing_overhaul-fabric-2.10.0/me/pajic/simple_smithing_overhaul/mixin/AnvilBlockMixin.class": "e6e3e8c85bb6f7523adf57c2eea970fabe976a2a8fe534e4cb56dea70e167937",
+    "simple_smithing_overhaul-fabric-2.10.0/me/pajic/simple_smithing_overhaul/mixin/AnvilMenuMixin.class": "4e9d6e1e68eef192e1315e99174d6cba4d78d0b1d5b557f162c98d8028a084d5",
+    "simple_smithing_overhaul-fabric-2.10.0/me/pajic/simple_smithing_overhaul/mixin/client/AnvilScreenMixin.class": "674e22c4b9a33b8bd143d85be4178e1c565519ef84ca0f85360b090340900f0f",
+    "thenathe-suite-combined-compat/com/thenathe/ssopolymer/mixin/AnvilMenuMixin.class": "26bce637fd9ed462462ed2d47902ff5752abcd199c315a6244ea207aaa8ce4a1"
+  },
+  "fixture_sha256": {
+    "run.py": "8ee244518e2cb31b5eaaf6f17f8598e0ffb9747bfea2dcdd76b35b56964d0a1d",
+    "SwiftAnvilProbe.java": "9ec0cddd133e00cd6109e9ce3dcb634fa09fa8d6d297b6660b5b493d3053869f"
+  }
+}

@@ -27,3 +27,9 @@ MapStitch Mixed Scales is a separately authored THENATHE suite addon under the r
 The installation ZIP includes unchanged Fabric API and Fabric Language Kotlin (Apache-2.0), Mixson and optional Mod Menu (MIT), and Cloth Config and server Polymer (LGPL-3.0-only). These remain external libraries rather than nested suite modules. Publisher and nested-library notices are retained in the ZIP. Cloth Config and Polymer corresponding upstream source archives, GPL/LGPL text and immutable source/hash records accompany the binaries; see [distribution records](docs/dependency-distribution.lock.json) and [installation instructions](docs/INSTALLATION_PACK.md).
 
 Fzzy Config remains an official manifest download, never a redistributed binary or copied source module. Its TDL-M modpack exception permits official publisher downloads. All exact dependency versions, official URLs, hashes, side selections and permissions are recorded in [the installation lock](docs/installation-pack.lock.json).
+
+## Native additions in 1.3.0
+
+Thanks to **1bacon (onebacon)** and **Meshiest** for Drops into Shulker, **Serilum** for Better Beacon Placement and Better Conduit Placement, **mschae23** for Grind Enchantments, **TheLokin** for Netherite Instamine, and **Jodek** for No Enderman Grief, Swift Flight, Transfer Pet Owner, the six Call Your animal packs, and Trident All Weather Channeling.
+
+These features are maintained natively in the suite. Original Drops into Shulker, Serilum and Grind Enchantments source/JARs and Collective are not bundled. Their published licenses remain their own; independent implementation does not change those terms. Retained/adapted MIT data carries its original notices. See [feature source boundaries](docs/NATIVE_FEATURES.md) and [verified author metadata](docs/native-features-attribution-2026-10-12.json).

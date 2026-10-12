@@ -18,6 +18,8 @@ Update README, CHANGELOG, the current release guide, installation instructions, 
 4. Build the installation ZIP, run actual client/server installation checks in disposable directories and run archive/installer regressions. Confirm side selection, hashes, no Fzzy binary, idempotency and preservation of existing files. Store the resulting report under docs.
 5. Commit final source, documentation and evidence. `tools/package-release.py` requires a clean committed checkout and a runtime-verified final JAR. It creates the four public assets and local release records/checksums under the workspace family/component/version folder.
 
+Every suite build released from this workspace must verify the current supported **Hotkey Wheel** against the exact candidate suite JAR. Record both versions and hashes, wheel activation/selection, registered unbound/conflicting controls, and suite menu/configuration navigation in relevant native and Polymer profiles. Keep this compatibility check in the release validation record; compilation or a previous release's result is insufficient.
+
 ## Public assets and title
 
 The release title is only `<declared release number>+<Minecraft target>` — for example **1.1.0+26.3**. Do not add the product name, “testing”, marketing text or other labels to the title. The tag is `v` followed by the same declared version; GitHub's prerelease status communicates whether it is experimental.

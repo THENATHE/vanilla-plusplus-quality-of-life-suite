@@ -2,6 +2,14 @@
 
 Open **Vanilla++ Quality of Life Suite** from Mod Menu, or run the client command `/suite-settings` while connected. You can also bind **Open Suite Settings** under **Options → Controls → Vanilla++ Quality of Life Suite**; its default is **Not Bound** to avoid collisions. The binding opens settings from gameplay and leaves other open screens alone. The screen uses the existing Fzzy Config interface with one shared navigation page and sidebar. Each original gameplay/client configuration remains its own category, with the original fields, descriptions, validation, reset defaults, list/map editors, restart/resource-reload notices and server permission checks.
 
+## Native modules in 1.3.0
+
+The suite parent opens all registered original configuration screens plus **Native Features** (`vpp_mod_suite:features`). The new screen contains separate enable switches and relevant settings for shulker pickup, beacon/conduit construction, grindstone extraction, instamining, enderman pickup, Swift Flight, ownership transfer, animal calls and Channeling. Server options use Fzzy's existing synchronization and permission handling. Swift Flight and its End City loot switch carry restart notices so existing equipped attributes and loaded loot tables refresh consistently.
+
+Mod Menu nests the original feature mods and authored feature additions individually beneath Vanilla++. Compatibility modules share one **Compatibility + Shims** display entry; their Fabric loader identities remain intact. Presentation grouping does not rewrite original config IDs or stored items.
+
+All three current native/Polymer operator/guest configuration and Hotkey Wheel profiles pass on the final 1.3.0 JAR; [exact evidence and automated input scope](../qa-settings/evidence/1.3.0/README.md) are preserved. Earlier settings counts/results below retain their historical release scope.
+
 ## Configuration identities
 
 | Component | Original identifiers | Persistence and synchronization |

@@ -1,6 +1,8 @@
 package com.thenathe.suite.pickup.mixin;
 
 import com.thenathe.suite.pickup.PickupUpgrades;
+import com.thenathe.suite.features.FeatureConfig;
+import com.thenathe.suite.features.ShulkerPickup;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -27,7 +29,10 @@ public abstract class CollectorPickupMixin {
         ItemStack stack = entity.getItem();
         Item item = stack.getItem();
         int initialCount = stack.getCount();
-        if (PickupUpgrades.collectIntoBackpack(serverPlayer, stack) == 0) return;
+        if (FeatureConfig.CONFIG.shulkerBeforeBackpack.get()) ShulkerPickup.collect(serverPlayer, stack);
+        PickupUpgrades.collectIntoBackpack(serverPlayer, stack);
+        if (!FeatureConfig.CONFIG.shulkerBeforeBackpack.get()) ShulkerPickup.collect(serverPlayer, stack);
+        if (stack.getCount() == initialCount) return;
 
         int pickedUp = initialCount - stack.getCount();
         player.take(entity, pickedUp);

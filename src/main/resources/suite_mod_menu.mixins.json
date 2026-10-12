@@ -6,7 +6,8 @@
   "client": [
     "ModMenuPresentationMixin",
     "ChalkModMenuMixin",
-    "SettingsNavigationButtonMixin"
+    "SettingsNavigationButtonMixin",
+    "ModMenuFeatureEntriesMixin"
   ],
   "injectors": {
     "defaultRequire": 1

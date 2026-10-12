@@ -1,16 +1,21 @@
 # Source map and updating upstream modules
 
-The active source is at `Minecraft/thenathe-mod-suite/`, branch `main`, with local update **1.2.1+26.3**. Local release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.2.1+26.3/`. This update has not been published. Preserve older release files and their evidence.
+The current **1.3.0+26.3** update adds suite-owned native modules and consolidated Mod Menu presentation. The original nested inputs and runtime library set remain unchanged; Collective is not added. See [current release scope](RELEASE_1_3_0.md), [native feature attribution](NATIVE_FEATURES.md) and [validation](VALIDATION.md).
 
-The repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. From 1.2.1 onward, the authored root mod ID and item/protocol/config namespace use `vpp_mod_suite`. No conversion or migration is included, as requested for the testing setup. Original feature mod IDs, original mod configuration files and the Debug Wrench ID remain unchanged.
+The active source is at `Minecraft/thenathe-mod-suite/`, branch `main`, with current update **1.3.0+26.3**. Local release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.3.0+26.3/`. Preserve older release files and their evidence.
+
+The repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. From 1.2.1 onward, the authored root mod ID and item/protocol/config namespace use `vpp_mod_suite`. Original feature mod IDs, original mod configuration files and the Debug Wrench ID remain unchanged. Swift Flight preserves its original enchantment identifier; legacy animal-call bindings are not migrated.
 
 ## Where things live
 
-Local update **1.2.1+26.3** enlarges the collector sprite and separates native hotkey help from fallback command help. Combined compatibility is **1.2.1+26.3**, the mixed-scale addon is **1.1.7+26.3**, and Stackables compatibility remains **1.0.2+26.3**. Exact publisher inputs and external dependencies remain unchanged. See the [release guide](RELEASE_1_2_1.md) for current verification status and [validation](VALIDATION.md) for historical evidence.
+Current suite and combined compatibility are **1.3.0+26.3**; the mixed-scale addon is **1.1.8+26.3** to retain its exact coordinator dependency, and Stackables compatibility remains **1.0.2+26.3**. The 1.2.1 collector sprite and native/fallback tooltip improvements remain intact. Exact publisher inputs and external dependencies are unchanged. See the [current guide](RELEASE_1_3_0.md) and [validation](VALIDATION.md).
 
 | Path | Purpose |
 | --- | --- |
 | src/main/java/com/thenathe/suite/Suite.java | Root common entrypoint |
+| src/main/java/com/thenathe/suite/features/ | Native pickup/placement/grindstone/mining mechanics; independent feature implementations |
+| src/main/java/com/thenathe/suite/pets/ | Native ownership transfer, horn bindings, entity index and Swift Flight modules |
+| qa-features/ | Dedicated native feature mechanics and restart checks on frozen exact artifacts |
 | src/main/java/com/thenathe/suite/pickup/ | Active-pouch upgrades, server item routing, persistent collector commands/hotkey and pickup mixin |
 | src/main/java/com/thenathe/suite/wrench/ | Integrated Debug Wrench; original saved item namespace and recipe retained, fixed 16×16 presentation |
 | src/main/java/com/thenathe/suite/network/ | Shared capability protocol; compiled into combined-compat only |
@@ -87,10 +92,10 @@ The atlas/Elytra component uses the same staged root inputs as the other suite p
 
 ## Rebuilding a checkout from release inputs
 
-Use the local suite JAR and `vanilla-plusplus-installation-pack-1.2.1+26.3.zip`, or the published 1.2.0 baseline when supplying unchanged original inputs, and extract the installation ZIP into an input directory. The kit includes the suite and exact CodecUI file under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Compile-only Defaulted remains a separate historical input: retrieve the exact locked dropfix from retained prior-release inputs when building its optional compatibility hook; do not install it merely to build current runtime profiles. Run:
+Use the local suite JAR and `vanilla-plusplus-installation-pack-1.3.0+26.3.zip`, or a retained published baseline when supplying unchanged original inputs, and extract the installation ZIP into an input directory. The kit includes the suite and exact CodecUI file under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Compile-only Defaulted remains a separate historical input: retrieve the exact locked dropfix from retained prior-release inputs when building its optional compatibility hook; do not install it merely to build current runtime profiles. Run:
 
 ```sh
-python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.2.1+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
+python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.3.0+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
 ```
 
 The script verifies the outer release hash and recursively stages only original inputs matching the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It rejects unavailable or mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs. The release has no separate local-library ZIP or uploaded tracked-source archive; use the repository or GitHub’s generated source download for the working checkout.

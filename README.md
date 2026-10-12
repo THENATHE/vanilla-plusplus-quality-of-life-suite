@@ -4,13 +4,13 @@
 
 ![Vanilla++ modpack artwork](artwork/vanilla-plusplus-modpack.png)
 
-The local **1.2.1** update enlarges the backpack collector’s basket artwork and shows the appropriate toggle help for each client: the pickup hotkey with the suite installed, or `/suite-pickup` without it. Pouch magnet, collector and Debug Wrench features remain available. Item artwork uses fixed 16×16 Minecraft-style sprites. See the [1.2.1 release guide](docs/RELEASE_1_2_1.md).
+The **1.3.0** update adds native shulker pickup, beacon/conduit construction, grindstone enchantment extraction, netherite instamining, pet ownership and goat-horn calling, Swift Flight and all-weather Channeling. Mod Menu groups the feature entries beneath Vanilla++ and combines compatibility entries. See the [1.3.0 release guide](docs/RELEASE_1_3_0.md) for setup, credits and verification.
 
 ## What it is
 
 A collection of Minecraft quality-of-life mods brought together into one feature-packed **Fabric mod for modern Minecraft versions**, maintained by **THENATHE**. It combines better equipment repair and enchanting, useful storage, maps that work together, less punishing deaths, colorful cave markings, and everyday gameplay improvements.
 
-The suite includes the original mods listed below, plus my own additions to help them work together. It also includes a compatibility layer that lets players without the suite join a server when Polymer is installed. Those players can use the supported vanilla-friendly features; custom backpack, pouch, and atlas screens still need the suite on the client.
+The suite includes original mods, independently maintained native features inspired by the projects linked below, and my own additions to help them work together. It also includes a compatibility layer that lets players without the suite join a server when Polymer is installed. Those players can use the supported vanilla-friendly features; custom backpack, pouch, and atlas screens still need the suite on the client.
 
 This is an unofficial community project. Credit for the original mods belongs to their creators, thanked below. When needed, machine-assisted porting helps keep features available on newer Minecraft releases while original authors update independently. Use the Minecraft version supported by your chosen release, listed under [Installation](#installation). Many features are configurable, so your server's settings may differ from the defaults described here.
 
@@ -310,9 +310,105 @@ The formerly separate **Polymer Debug Wrench**, authored by THENATHE, is include
 - Keep the six-tick selection cooldown and responsive value changes. The action bar reports the selected property/value.
 - Render the same fixed 16×16 wrench sprite on native and Polymer clients, without resource-pack resolution detection or alternate sprite sizes.
 
+### Drops into Shulker
+
+[Original mod on Modrinth](https://modrinth.com/mod/drops-into-shulker)
+
+Thanks for your hard work, **1bacon (onebacon)**, and **Meshiest** for the original modded-shulker support!
+
+- Route collected items into an offhand shulker box, respecting its capacity and normal item restrictions.
+- Keep ordinary inventory handling for anything that does not fit.
+- Coordinate its destination priority with the backpack collector.
+- Suite-owned native functionality; no separate Drops into Shulker installation is required.
+
+### Better Beacon Placement
+
+[Original mod on Modrinth](https://modrinth.com/mod/better-beacon-placement)
+
+Thanks for your hard work, **Serilum**!
+
+- Use mineral blocks on a beacon to construct its base; crouch to place from the held stack.
+- Configure base dismantling and replaced-block drops.
+- Independently implemented native behavior with no Collective dependency.
+
+### Better Conduit Placement
+
+[Original mod on Modrinth](https://modrinth.com/mod/better-conduit-placement)
+
+Thanks for your hard work, **Serilum**!
+
+- Place a conduit in front of you underwater, then use frame blocks on it to construct its surrounding frame.
+- Crouch for bulk construction; configure frame dismantling and replaced-block drops.
+- Independently implemented native behavior with no Collective dependency.
+
+### Grind Enchantments
+
+[Original mod on Modrinth](https://modrinth.com/mod/grind-enchantments)
+
+Thanks for your hard work, **mschae23**!
+
+- Extract equipment enchantments into a book while returning the equipment.
+- Move an enchantment between books through the grindstone.
+- Preserve the suite's existing repair-penalty reduction and amethyst curse cleansing.
+- Suite-owned implementation; the original Grind Enchantments mod is not bundled.
+
+### Netherite Instamine
+
+[Original datapack on Modrinth](https://modrinth.com/datapack/netherite-instamine)
+
+Thanks for your hard work, **TheLokin**!
+
+Use a main-hand netherite pickaxe or axe with Efficiency V and Haste II to mine eligible harder blocks faster. The suite applies its own temporary modifier instead of repeatedly overwriting your mining-efficiency base attribute. Other mining modifiers remain intact.
+
+### No Enderman Grief
+
+[Original datapack on Modrinth](https://modrinth.com/datapack/no-enderman-grief)
+
+Thanks for your hard work, **Jodek**!
+
+Prevent endermen from picking up blocks through native behavior, without changing the world's general mob-griefing rule.
+
+### Swift Flight
+
+[Original datapack on Modrinth](https://modrinth.com/datapack/swift-flight)
+
+Thanks for your hard work, **Jodek**!
+
+- Enchant happy-ghast harnesses to improve flight speed: 40%, 60%, or 80% for levels I–III.
+- Find Swift Flight books in End City chests with the original 8% loot chance.
+- Preserve existing books and enchanted harnesses using the original `swift_flight:swift_flight` identifier.
+
+### Transfer Pet Owner
+
+[Original datapack on Modrinth](https://modrinth.com/datapack/transfer-pet-owner)
+
+Thanks for your hard work, **Jodek**!
+
+Write the online recipient's name on the first page of a Book & Quill, then crouch and look at your pet to transfer it. The existing animal retains its identity and other saved data.
+
+### Call Your Parrot, Nautilus, Horse, Happy Ghast, Dog and Cat
+
+[Parrot](https://modrinth.com/datapack/call-your-parrot) · [Nautilus](https://modrinth.com/datapack/call-your-nautilus) · [Horse](https://modrinth.com/datapack/call-your-horse) · [Happy Ghast](https://modrinth.com/datapack/call-your-happy-ghast) · [Dog](https://modrinth.com/datapack/call-your-dog) · [Cat](https://modrinth.com/datapack/call-your-cat)
+
+Thanks for your hard work, **Jodek**!
+
+- Name the animal, hold a goat horn, then crouch and look at it for four seconds to bind the horn.
+- Use the bound horn to call that original animal, including from tracked unloaded chunks.
+- Crouch and look straight up to reset a bound horn.
+- Configure each animal's calling rules in the suite settings. Horns retain their normal instruments.
+- Native entity tracking replaces command/scoreboard calling logic. Existing datapack-bound horns are not imported; rebind them after removing the old packs.
+
+### Trident All Weather Channeling
+
+[Original datapack on Modrinth](https://modrinth.com/datapack/trident-all-weather-channeling)
+
+Thanks for your hard work, **Jodek**!
+
+Let Channeling summon lightning in any weather on a surviving entity hit. This is a separate suite feature, not part of the included MiscTweaks release.
+
 ### One place for settings
 
-Mod Menu shows original feature mods individually and groups additions beneath **Vanilla++ Quality of Life Suite**. The combined settings screen lists actual settings with consistent gameplay/client titles. Bind **Open Suite Settings** under the suite category in Minecraft Controls to open it from gameplay.
+Mod Menu groups original mods and feature additions individually beneath **Vanilla++ Quality of Life Suite**, with one **Compatibility + Shims** entry for the compatibility modules. The suite parent opens settings for all configured modules, including the native additions. The combined settings screen lists actual settings with consistent gameplay/client titles. Bind **Open Suite Settings** under the suite category in Minecraft Controls to open it from gameplay.
 
 - Open **Vanilla++ Quality of Life Suite** through [Mod Menu](https://modrinth.com/mod/modmenu), or use `/suite-settings` on the client.
 - Browse the original mod settings together in one screen, grouped by module.
@@ -350,7 +446,7 @@ The compatibility layer includes:
 
 ## Installation
 
-The [1.2.1 release guide](docs/RELEASE_1_2_1.md) covers the current local update, installation and verification status. Local release packages use these four files. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) retains the published 1.2.0 baseline; 1.2.1 has not been published:
+The [1.3.0 release guide](docs/RELEASE_1_3_0.md) covers this update, installation and verification. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) provides these four files:
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -362,10 +458,11 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Put the local `vanilla-plusplus-quality-of-life-suite-1.2.1+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
+2. Put `vanilla-plusplus-quality-of-life-suite-1.3.0+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, the standalone Polymer Debug Wrench, and the old compatibility shims from that instance. Keep your world and configuration files.
-5. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
+5. Remove the replaced standalone mods/datapacks when enabling their suite features. Swift Flight keeps existing enchantment data; legacy pet-call bindings are not migrated and must be rebound.
+6. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
 
 | Required library |
 | --- |
@@ -387,7 +484,7 @@ Use the libraries selected by [Releases](https://github.com/THENATHE/vanilla-plu
 
 ### Optional extras
 
-[Mod Menu](https://modrinth.com/mod/modmenu), [ClientSort](https://modrinth.com/mod/clientsort), [Trinkets Updated](https://modrinth.com/mod/trinkets-updated), [Shulker Box Tooltip](https://modrinth.com/mod/shulkerboxtooltip), and [LambDynamicLights](https://modrinth.com/mod/lambdynamiclights) add settings access or supported integrations. They are not included in the suite. See [all dependencies and compatible mods](docs/DEPENDENCIES.md) for version requirements, installation roles, and testing limits.
+[Mod Menu](https://modrinth.com/mod/modmenu), [Hotkey Wheel](https://github.com/THENATHE/hotkey-wheel), [ClientSort](https://modrinth.com/mod/clientsort), [Trinkets Updated](https://modrinth.com/mod/trinkets-updated), [Shulker Box Tooltip](https://modrinth.com/mod/shulkerboxtooltip), and [LambDynamicLights](https://modrinth.com/mod/lambdynamiclights) add settings access or supported integrations. They are not included in the suite. See [all dependencies and compatible mods](docs/DEPENDENCIES.md) for version requirements, installation roles, and testing limits.
 
 For developers, server maintainers, or anyone troubleshooting a problem, the technical section below links the source layout, dependency records, update process, and test results. You do not need to build the mod yourself to use the downloads above.
 
@@ -419,13 +516,13 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.2.1+26.3.jar`.
+The build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.3.0+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 
 ### Changes and testing
 
-The local 1.2.1 JAR passes compilation/archive checks, 1,344 pickup and 272 wrench assertions, four physical connection profiles, singleplayer with/without Polymer, and the settings-only fixture. Native/Fabric clients verify full collector tooltips and record inventory screenshots; unmodified vanilla uses an actual connection and server-side projected-lore evidence without automated vanilla screenshots. All 13 final installation ZIP checks pass. The [1.2.1 guide](docs/RELEASE_1_2_1.md) links the exact fresh evidence.
+The final 1.3.0 JAR passes dedicated native/Polymer mechanics and actual restart checks, real grindstone client interactions, four connection and two singleplayer profiles, three settings/Hotkey Wheel profiles, and all thirteen installer checks. The [release guide](docs/RELEASE_1_3_0.md) and [validation report](docs/VALIDATION.md) record exact hashes, scope and the existing SSO shift-click anvil XP behavior. Historical results keep their original artifacts.
 
 The [release procedure](docs/RELEASE_WORKFLOW.md) records the standing documentation, four-asset packaging, version-only titles and branch-cleanup conventions.
 

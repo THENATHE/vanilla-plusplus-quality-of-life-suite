@@ -1,5 +1,15 @@
 # Provenance and compatibility tracks
 
+The current **1.3.0+26.3** update adds suite-owned native modules and consolidated Mod Menu presentation. The original nested inputs and runtime library set remain unchanged; Collective is not added. See [current release scope](RELEASE_1_3_0.md), [native feature attribution](NATIVE_FEATURES.md) and [validation](VALIDATION.md). Existing 1.2.1 details below are historical baseline records.
+
+## Native 1.3.0 source record
+
+The new functions are owned by the suite under `src/main/java/com/thenathe/suite/features/` and `pets/`, with a server-authoritative `vpp_mod_suite:features` configuration. The original Drops into Shulker, Serilum placement and Grind Enchantments JARs/source are not bundled. Native animal calls use a location index and UUID bindings rather than copied entities or command storage. Swift Flight retains `swift_flight:swift_flight`; its adapted MIT definition data includes the exact Jodek notice in `licenses/swift-flight-LICENSE.txt` and the production archive. [Verified author/source records](native-features-attribution-2026-10-12.json).
+
+Mod Menu's integrated feature entries are presentation objects, not invented Fabric loader identities. Original feature entries, original config namespaces and nested source boundaries remain intact. Combined compatibility is **1.3.0+26.3**, the mixed-scale addon is **1.1.8+26.3**, and the external publisher/dependency inputs are unchanged. No new upstream port counterpart is created; the separate SSO port remains paused.
+
+## Historical 1.2.1 source record
+
 The local **1.2.1+26.3** update changes the collector artwork and toggle tooltip, and renames the authored root mod ID and item/protocol/config namespace to `vpp_mod_suite`. The items are `vpp_mod_suite:pouch_magnet` and `vpp_mod_suite:pouch_collector`; the wrench retains `debugwrench:debug_wrench` and its original crafting/advancement namespace. No conversion or migration from the old root namespace is included, at the user's request for this testing setup.
 
 Combined compatibility advances to **1.2.1+26.3** for the root capability change. The mixed-scale addon advances to **1.1.7+26.3** to synchronize its exact coordinator dependency; existing atlas features remain intact. The original developer inputs and exact external runtime library set remain unchanged. The new basket output is preserved as `artwork/generated/pouch_collector-1.2.1.png`; its nearest-neighbor runtime texture occupies 14×14 pixels inside a fixed 16×16 canvas. Matching native clients see hotkey help, and unsupported clients receive command help through the existing Polymer projection.

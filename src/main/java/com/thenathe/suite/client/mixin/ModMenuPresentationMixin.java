@@ -17,9 +17,6 @@ public abstract class ModMenuPresentationMixin {
         String id = getId();
         if (SuiteModPresentation.isSuiteChild(id)) {
             callback.setReturnValue(SuiteModPresentation.SUITE_ID);
-        } else if (SuiteModPresentation.isOriginalFeature(id)) {
-            // Some original jars have generated nested-library parents. Keep real features visible.
-            callback.setReturnValue(null);
         }
     }
 

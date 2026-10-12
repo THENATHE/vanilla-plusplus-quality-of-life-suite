@@ -1,5 +1,15 @@
 # Changes
 
+## 1.3.0+26.3 — 2026-10-12
+
+- Add suite-owned offhand-shulker insertion coordinated with the backpack collector and native beacon/conduit placement helpers without Collective.
+- Add grindstone enchantment extraction/book splitting alongside SSO penalty reduction and amethyst curse cleansing; add temporary-modifier netherite instamining.
+- Add native enderman grief prevention, pet ownership transfer, six independently configurable goat-horn animal calls, Swift Flight and all-weather Channeling.
+- Preserve `swift_flight:swift_flight` and existing enchanted books/harnesses. Legacy pet-call data/horns are not migrated, as requested; bind horns again through the new interaction.
+- Group original and authored feature entries under Vanilla++; present compatibility modules as one Compatibility + Shims entry while retaining their loader IDs and implementation boundaries. The suite parent opens all registered configurations.
+- Credit 1bacon, Serilum, mschae23, TheLokin and Jodek directly in the README and attribution record. Original bundled mods, libraries, saved namespaces and the paused SSO-port track remain separately preserved.
+- Record final-binary native/Polymer mechanics, client menus/settings, Hotkey Wheel compatibility and installer verification in the release guide.
+
 ## 1.2.1+26.3 - 2026-10-12 (local update)
 
 - Enlarge the collector basket to 14×14 visible pixels within its fixed 16×16 texture, using fresh built-in image generation and nearest-neighbor resizing.

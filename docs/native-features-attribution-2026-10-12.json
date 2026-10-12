@@ -1,0 +1,246 @@
+{
+  "checked_on": "2026-10-12",
+  "source": "https://api.modrinth.com/v2/project/{slug} and /team/{team}/members",
+  "projects": [
+    {
+      "slug": "drops-into-shulker",
+      "title": "Drops into Shulker",
+      "license": {
+        "id": "CC0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "url": null
+      },
+      "source": "https://github.com/1bacon/drops-into-shulker",
+      "creators": [
+        {
+          "username": "1bacon",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "better-beacon-placement",
+      "title": "Better Beacon Placement",
+      "license": {
+        "id": "LicenseRef-All-Rights-Reserved",
+        "name": "",
+        "url": null
+      },
+      "source": "https://github.com/Serilum/Better-Beacon-Placement",
+      "creators": [
+        {
+          "username": "Serilum",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "better-conduit-placement",
+      "title": "Better Conduit Placement",
+      "license": {
+        "id": "LicenseRef-All-Rights-Reserved",
+        "name": "",
+        "url": null
+      },
+      "source": "https://github.com/Serilum/Better-Conduit-Placement",
+      "creators": [
+        {
+          "username": "Serilum",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "grind-enchantments",
+      "title": "Grind enchantments",
+      "license": {
+        "id": "GPL-3.0-or-later",
+        "name": "GNU General Public License v3.0 or later",
+        "url": "https://www.gnu.org/licenses/gpl-3.0.html"
+      },
+      "source": "https://code.mschae23.de/mschae23/grind-enchantments",
+      "creators": [
+        {
+          "username": "mschae23",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "netherite-instamine",
+      "title": "Netherite Instamine",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": null
+      },
+      "source": "https://github.com/TheLokin/mc-packs",
+      "creators": [
+        {
+          "username": "TheLokin",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "no-enderman-grief",
+      "title": "No Enderman Grief",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": null
+      },
+      "source": "https://codeberg.org/jodeks-datapacks/No-Enderman-Grief",
+      "creators": [
+        {
+          "username": "Jodek",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "swift-flight",
+      "title": "Swift Flight",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": null
+      },
+      "source": "https://codeberg.org/jodeks-datapacks/Swift-Flight",
+      "creators": [
+        {
+          "username": "Jodek",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "transfer-pet-owner",
+      "title": "Transfer Pet Owner",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": null
+      },
+      "source": "https://codeberg.org/jodeks-datapacks/Transfer-Pet-Owner",
+      "creators": [
+        {
+          "username": "Jodek",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "call-your-parrot",
+      "title": "Call Your Parrot",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": null
+      },
+      "source": "https://codeberg.org/jodeks-datapacks/Call-Your-Parrot",
+      "creators": [
+        {
+          "username": "Jodek",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "call-your-nautilus",
+      "title": "Call Your Nautilus",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": null
+      },
+      "source": "https://codeberg.org/jodeks-datapacks/Call-Your-Nautilus",
+      "creators": [
+        {
+          "username": "Jodek",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "call-your-horse",
+      "title": "Call Your Horse",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": null
+      },
+      "source": "https://codeberg.org/jodeks-datapacks/Call-Your-Horse",
+      "creators": [
+        {
+          "username": "Jodek",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "call-your-happy-ghast",
+      "title": "Call Your Happy Ghast",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": null
+      },
+      "source": "https://codeberg.org/jodeks-datapacks/Call-Your-Happy-Ghast",
+      "creators": [
+        {
+          "username": "Jodek",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "call-your-dog",
+      "title": "Call Your Dog",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": null
+      },
+      "source": "https://codeberg.org/jodeks-datapacks/Call-Your-Dog",
+      "creators": [
+        {
+          "username": "Jodek",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "call-your-cat",
+      "title": "Call Your Cat",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": null
+      },
+      "source": "https://codeberg.org/jodeks-datapacks/Call-Your-Cat",
+      "creators": [
+        {
+          "username": "Jodek",
+          "role": "Owner"
+        }
+      ]
+    },
+    {
+      "slug": "trident-all-weather-channeling",
+      "title": "Trident All Weather Channeling",
+      "license": {
+        "id": "MIT",
+        "name": "MIT License",
+        "url": null
+      },
+      "source": "https://codeberg.org/jodeks-datapacks/Trident-All-Weather-Channeling",
+      "creators": [
+        {
+          "username": "Jodek",
+          "role": "Owner"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "qa-settings/run.py": "e50a45acd8598a721bb067939c8e09ddf1ada8bff59cfef90748c2762a354a0f",
+  "qa-settings/src/SettingsClientQa.java": "c978fca3cfd9ad2355ffc28da2294c40492ab0068a82167bb0a0d2f3f234c0dd",
+  "qa-settings/src/SettingsServerQa.java": "27b731be2359349b6ef7f11a45d2461408ad89e979dfb39d7763325dfdc464d2",
+  "qa-settings/src/WheelFocusQaMixin.java": "ec3ae94c65e01dc367fc8b09c12c537bddafd2c0a4f8f28d0913bdc4dbbbde16"
+}

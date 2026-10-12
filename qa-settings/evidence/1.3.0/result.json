@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "suite_version": "1.3.0+26.3",
+  "wheel_version": "1.0.3+26.3",
+  "scope": "Rendered native configuration/Mod Menu factories and registered wheel controls using development-only native keyboard/mouse/SDL focus events; no hardware key automation. Original native permission, runtime/file persistence and manager lifecycle checks preserved.",
+  "profiles": {
+    "polymer-admin": {
+      "passed": true,
+      "suite_sha256": "e57862d94d4b4331ddd5245e916793a16fa9258d3cceca0d2b3ac891b77aea72",
+      "observations": 63,
+      "config_screens": 15,
+      "screenshots": 18,
+      "wheel_sha256": "5057ded646ea3c9d97b444c572f515c3914bcfd12d0bb1dec1edfb1523e2527b",
+      "record": "qa-settings/evidence/1.3.0/polymer-admin/evidence.json"
+    },
+    "native-admin": {
+      "passed": true,
+      "suite_sha256": "e57862d94d4b4331ddd5245e916793a16fa9258d3cceca0d2b3ac891b77aea72",
+      "observations": 63,
+      "config_screens": 15,
+      "screenshots": 18,
+      "wheel_sha256": "5057ded646ea3c9d97b444c572f515c3914bcfd12d0bb1dec1edfb1523e2527b",
+      "record": "qa-settings/evidence/1.3.0/native-admin/evidence.json"
+    },
+    "polymer-guest": {
+      "passed": true,
+      "suite_sha256": "e57862d94d4b4331ddd5245e916793a16fa9258d3cceca0d2b3ac891b77aea72",
+      "observations": 63,
+      "config_screens": 15,
+      "screenshots": 18,
+      "wheel_sha256": "5057ded646ea3c9d97b444c572f515c3914bcfd12d0bb1dec1edfb1523e2527b",
+      "record": "qa-settings/evidence/1.3.0/polymer-guest/evidence.json"
+    }
+  }
+}

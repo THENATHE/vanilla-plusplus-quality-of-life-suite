@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "polymer": true,
+  "restart": true,
+  "async_server_ticks": 32
+}

@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "vpp_mod_suite",
-  "version": "1.2.1+26.3",
-  "sha256": "f4a73c3a93c57f9d09e414da21dc79cd2e8eaa927aff73e58121705aa2a04e6a",
+  "version": "1.3.0+26.3",
+  "sha256": "e57862d94d4b4331ddd5245e916793a16fa9258d3cceca0d2b3ac891b77aea72",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -60,9 +60,9 @@
     },
     {
       "id": "sso_backpack_toolpouch_mapstitch_shim",
-      "version": "1.2.1+26.3",
-      "sha256": "9a4cbba8ea1b1480079a23e8da0132a97a00ca453cb8bef6a5087454d2aa6a87",
-      "file": "META-INF/jars/thenathe-suite-combined-compat-1.2.1+26.3.jar"
+      "version": "1.3.0+26.3",
+      "sha256": "c688b9815750c05a36185f770769abe5f8ce015cae703ae4dc2e001323873843",
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.3.0+26.3.jar"
     },
     {
       "id": "chalk_polymer_compat",
@@ -96,9 +96,9 @@
     },
     {
       "id": "mapstitch_mixed_scales",
-      "version": "1.1.7+26.3",
-      "sha256": "43e44f4b5ae0d59517856a39173cdb40dbeaf3355726b921329d2a54dfb1e494",
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.7+26.3.jar"
+      "version": "1.1.8+26.3",
+      "sha256": "b21f84efff920ee46e062e5f4eab0783db4e5f46574c8488355c0cccd60c94d4",
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.8+26.3.jar"
     },
     {
       "id": "bannerpoint",
@@ -119,98 +119,46 @@
   "licenses_retained": true,
   "runtime_tested": true,
   "date": "2026-10-12",
+  "release_channel": "stable main release",
+  "build_command": "JAVA_HOME=/usr/lib/jvm/java-25-openjdk bash gradlew build -PcompilerVersion=27 -Pjavac=/usr/lib/jvm/java-27-openjdk/bin/javac --offline",
+  "compiler_override": "Java 27 javac emits Java 25 classes; Gradle and Minecraft run on Java 25.",
   "evidence": {
-    "dedicated": "qa-pickup/evidence/1.2.1/dedicated/result.json",
-    "physical": "qa-pickup/evidence/1.2.1/physical/result.json",
-    "integrated": "qa-pickup/evidence/1.2.1/integrated/result.json",
-    "settings": "qa-settings/evidence/1.2.1/evidence.json",
-    "installation": "docs/installation-pack-verification.json"
+    "mechanics": "qa-features/evidence/1.3.0/result.json",
+    "network_native": "qa-features/evidence/1.3.0/network/native/result.json",
+    "network_polymer": "qa-features/evidence/1.3.0/network/polymer/result.json",
+    "connections": "qa/evidence/1.3.0/connections.json",
+    "singleplayer": "qa/evidence/1.3.0/singleplayer.json",
+    "installation": "docs/installation-pack-verification.json",
+    "swift_anvil": "qa-features/evidence/1.3.0/swift-anvil/result.json",
+    "settings_wheel": "qa-settings/evidence/1.3.0/result.json"
   },
-  "build_command": "JAVA_HOME=/usr/lib/jvm/java-25-openjdk bash gradlew build -PcompilerVersion=27 -I /tmp/vpp-compiler.gradle --offline",
-  "compiler_override": "JavaCompile tasks use installed Java 27 javac with --release 25; Gradle runtime Java 25.",
-  "release_channel": "local only; no public upload",
   "limitations": [
-    "Pure vanilla has real connection, pickup, command and server projection evidence; no vanilla screenshot automation.",
-    "Older suite migration was intentionally omitted at user request.",
-    "Independent ChatGPT SSO-port track remains paused."
+    "Legacy horn bindings are intentionally not migrated; rebind existing horns. Swift Flight enchantment identity is retained.",
+    "Occupied player passenger recall and pets in offline player shoulder data were not independently exercised.",
+    "Pure vanilla has unmodified-client connection evidence; new grindstone packet gameplay uses a Fabric API-only observer with no suite/client gameplay code.",
+    "Independent ChatGPT SSO port remains paused.",
+    "Existing SSO/general anvil shift-click can display an XP cost while charging zero; normal pickup charges correctly. Unchanged anvil classes and a vanilla-enchantment control establish the existing behavior.",
+    "Wheel/settings integration uses native event fixtures with synthetic SDL focus; no hardware key automation or launcher GUI import is claimed."
   ],
   "evidence_sha256": {
-    "dedicated": "f2f6aa997524df932fda378b1ca384a7d29de319bee45ffb4def764d73d75776",
-    "physical": "9b76380553240d89047cbcac4f8b288d2a796076a5fbb623cca210059e466696",
-    "integrated": "7dcf5109c9618fc35b421832ccc68c5043a877783659481a08c661a8316c0770",
-    "settings": "89b8d25d80ac956438e12d4e536fa344f7294b547f00b11854dfe3c6a90dc535",
-    "installation": "c241910a5809c886671d3eb43a150e52633f9116ba91352a7c667adb96a8f9fc"
+    "mechanics": "f34e206f99618979ca352c0e9dfa39fb42e4c960e6a260406b5fbaaa3ee31517",
+    "network_native": "cecfa066e0b92ee39ef2a8806968aeeb4dbbbc0598fd925a97e2fe33fa3906e1",
+    "network_polymer": "fa9b0c0bb801b450989522b145dbd09b1cef8e1fa577e6d844115eefebd7f9b9",
+    "connections": "ef0c7618df16e9d505167d5f298839327ad887c9129b5bdbb9ac20d39781cb99",
+    "singleplayer": "c1c29caa4bacdbb7c81b0b0b698250f861c96dda0b6189fc55344bf8c3223b99",
+    "installation": "58630269441069842f03142164027a7626be7874b64ed480292485129609b039",
+    "swift_anvil": "e1dd21bbcb6de6f57bce9ac968c3accef113712cac1107c06cfaf2f957dd6da0",
+    "settings_wheel": "16f0b2f1c759e87dfb140134869a944b8c39a6d1531b18c595f0599b0211d0ac"
   },
-  "source_base_revision": "51e48c1",
-  "runtime_assertions": {
-    "pickup": 1344,
-    "wrench": 272,
-    "settings": 52,
-    "physical_profiles": 4,
-    "integrated_profiles": 2
-  },
-  "source_files_sha256": {
-    "build.gradle": "387426b447570b62b9dc23a5cf76a4972919e99bddb631b2c65b8b497457d210",
-    "src/main/resources/suite_mod_menu.mixins.json": "7f411e13371176e4309d15ff8568565fa818983ef48229546083bd18d41572a3",
-    "src/main/resources/fabric.mod.json": "8408be92b97e9e389862f0f5c0803d723aefd7933295b0467d126f9cf1915622",
-    "src/main/resources/suite_pickup.mixins.json": "e1dd3c957cf262046eeac87dd82590406124b21dcb9b2ca25f5b82555484df89",
-    "src/main/java/com/thenathe/suite/Suite.java": "614dc362a2acfed43347164d2a86a6b0177ecc14dff14f5f2c54e533fb7fb5e7",
-    "src/main/java/com/thenathe/suite/SuiteItems.java": "6b5a59ba38e6ac40c9d508bf986a3715068df9c053d4df52ac8ec6e76d9b7447",
-    "src/main/java/com/thenathe/suite/SuiteItemPolymer.java": "9238f8ada8cac1e919ab469a80ffc97d715ede9499fe6a739ff41efc63c140ee",
-    "src/main/java/com/thenathe/suite/wrench/DebugWrench.java": "17c8848b7bb90434a78d3c14bcc640a4eb750380859899f0c597b1f522836a3e",
-    "src/main/java/com/thenathe/suite/wrench/DebugWrenchItem.java": "85d272d0e240421ae1a0275de1a160eebfe3cc95c591baad08f62f8eaf32a490",
-    "src/main/java/com/thenathe/suite/wrench/DebugWrenchPolymer.java": "ab8dc0a310b60b8eade3c917841ea41e821d135fe8438a4c4548fc2a37d8e83a",
-    "src/main/java/com/thenathe/suite/client/SuiteResources.java": "9133fbc28109db2768f8bc10419a3aa2ce1394553aa81bb4bf4963c15bd87a40",
-    "src/main/java/com/thenathe/suite/client/SuiteModMenu.java": "d5b1adb2d7e607c2edba3ed05641b67f174a1e0ce511c149c06d9f7f535942d9",
-    "src/main/java/com/thenathe/suite/client/SuiteModPresentation.java": "ba2cf840089273cdb16c1bf934093858e9faa049a14262e4fc41b03af5465a92",
-    "src/main/java/com/thenathe/suite/client/SuiteClient.java": "a86779629880bf28968b17d315f08ecfedc7a68d7e3856ff723bc3ffe250ee9d",
-    "src/main/java/com/thenathe/suite/client/SuiteKeybindings.java": "59719164869956147f0365eb4f220fabda52f791f0f4677d29111171d6272060",
-    "src/main/java/com/thenathe/suite/client/ChalkSettings.java": "f81ad213521fb5c2ac1e3b49f30157ba48070e2b1da16a9c0061c750724d641b",
-    "src/main/java/com/thenathe/suite/client/SuiteSettings.java": "f410c24b642296da933218325ccee6585b1212a9a1c6cd502e8caf6f4ea48f22",
-    "src/main/java/com/thenathe/suite/pickup/PickupUpgradeClient.java": "a61a816d852655e4dcb79fed0078da3b260b765468878808cbbf9f6a8f1c279a",
-    "src/main/java/com/thenathe/suite/pickup/PickupUpgrades.java": "f159c95287dcca1524963441b32baf0645389e00aeccb22794407abb346f9f9c",
-    "src/main/java/com/thenathe/suite/pickup/PickupTogglePayload.java": "3a74fbc85345ff230e8e7d46429b3c4494c90ab79d476080e3b22ac362f4d08a",
-    "src/main/java/com/thenathe/suite/network/SuiteCapabilities.java": "60de1784c0f2f26eaa1d3682ba28d31be757c85cb07cac8679c52e61f335d217",
-    "src/main/java/com/thenathe/suite/pickup/mixin/CollectorPickupMixin.java": "f0d234d76e068eb0ec0ec1f1d53efaa70000f800af89de6002bab06d01d1e062",
-    "src/main/java/com/thenathe/suite/client/mixin/SettingsNavigationButtonMixin.java": "e9cf26511b85ce5facb1083f2bd2f866146228dc617246f199defd628804e3bd",
-    "src/main/java/com/thenathe/suite/client/mixin/ModMenuPresentationMixin.java": "d8963e98bd123e75bc7e17ff6815032d39fb12effe2d2ecc921c2d14ee51bbf9",
-    "src/main/java/com/thenathe/suite/client/mixin/ChalkModMenuMixin.java": "e79e45c45278e48396a5b08f00725450f3b928a133d5bc30f0f86afab5feba93",
-    "src/main/java/com/thenathe/suite/client/mixin/ModMenuMixinPlugin.java": "d0e47b5882f549df28f6bf7d3c713769c10b21af7568ff7753bbe2be75dfaf71",
-    "src/main/resources/data/vpp_mod_suite/recipe/pouch_collector.json": "a94b4dcc1963d1ccee6ee21e495f6932dcc7c3ce761ef3ee7760ab7ba29b02e4",
-    "src/main/resources/data/vpp_mod_suite/recipe/pouch_magnet.json": "4afe11214b5cafba1da1fad88e5f6d9f0169183653d804b04eab6367906d7f48",
-    "src/main/resources/data/vpp_mod_suite/advancement/recipes/tools/pouch_collector.json": "8053521d3674033855b967b6cf2fb3fa430ce342f615ae470f423e28ec55ba63",
-    "src/main/resources/data/vpp_mod_suite/advancement/recipes/tools/pouch_magnet.json": "301ace4fd381b48ad249ddd68c64ff9d7b7929a3c3b9128e7ab129067138d700",
-    "src/main/resources/data/debugwrench/recipe/debug_wrench.json": "7617883b4aff8fb635d6b3685f727806cb258a18aaa86444789c6c0bfe60bea9",
-    "src/main/resources/data/debugwrench/advancement/recipes/tools/debug_wrench.json": "6371a66bdeab7af7993af40cfd4d0eccd9787b9292f062bced233488f808190f",
-    "src/main/resources/assets/vpp_mod_suite/icon.png": "4bf39f7e787d6b4f6b744caa5d1128c97a7729fd37841623052800b3968f2ef8",
-    "src/main/resources/assets/vpp_mod_suite/lang/en_us.json": "8a753fd8c4a9ebe4a47ced003944be832edcd35f961a47605671c8e261f31b10",
-    "src/main/resources/assets/vpp_mod_suite/items/pouch_collector.json": "2b062aef86619e80d9eeb59672ba96708908c3a58b8ffae0330347acd84f6120",
-    "src/main/resources/assets/vpp_mod_suite/items/pouch_magnet.json": "212bd90cc0f9e8bcd257586d5eb8738d17c230e9e34a4df536364a243f4e7a02",
-    "src/main/resources/assets/vpp_mod_suite/textures/item/pouch_collector.png": "31014a7324074e1ff7bf02fa8787407c3521271d39347db85c7f9114f0a94bf3",
-    "src/main/resources/assets/vpp_mod_suite/textures/item/pouch_collector.png.mcmeta": "b7e0a427205bfd66824f6fc35ab059aebf29c58517515251ae534e283546ab61",
-    "src/main/resources/assets/vpp_mod_suite/textures/item/pouch_magnet.png": "4f75077b358d1b77c690e464fbacd5260171e3661e9874ec2663b3414b875e48",
-    "src/main/resources/assets/vpp_mod_suite/textures/item/pouch_magnet.png.mcmeta": "b7e0a427205bfd66824f6fc35ab059aebf29c58517515251ae534e283546ab61",
-    "src/main/resources/assets/vpp_mod_suite/models/item/pouch_collector.json": "57d896c02da425c19a4b8495f387a7fa3f8e9d3a20ff336c4592a4ee1483fbae",
-    "src/main/resources/assets/vpp_mod_suite/models/item/pouch_magnet.json": "424b855fa7cf2960b72a6969c53a37bc8082192eb13d83fffc58086e956bca8d",
-    "src/main/resources/assets/debugwrench/lang/en_us.json": "e7afd43e9bdbb8ffb05bcbb106f4d42ec8ffa2c3d9048d118254299b03b409dd",
-    "src/main/resources/assets/debugwrench/items/debug_wrench.json": "5ce6a28f3f220f5b436e341e50684a276bcef6cade6230bee0377c6ec9390f15",
-    "src/main/resources/assets/debugwrench/textures/item/debug_wrench.png": "942a4c3599f6443162344b817d2be352340073b7e6e468fc133ec1ff84d1033d",
-    "src/main/resources/assets/debugwrench/textures/item/debug_wrench.png.mcmeta": "c1ce77c528cda05dc13d6335eafdd326b445763c9ce94525d69797a1433eea2c",
-    "src/main/resources/assets/debugwrench/models/item/debug_wrench.json": "121fd36b60e75336a6931c86e182572661620f228598c2e37a53108476b1b1c4",
-    "src/main/resources/resourcepacks/settings_titles/pack.mcmeta": "091120b4b1cdc4200d78f08bcfb51ed39fe912bb90eb5e6fc20f4924930fcd84",
-    "src/main/resources/resourcepacks/settings_titles/assets/simple_smithing_overhaul/lang/en_us.json": "be4607209430826d639774cd1c950604833c5dbf7829b5eff20cc02d215c8742",
-    "src/main/resources/resourcepacks/settings_titles/assets/mapstitch/lang/en_us.json": "5232cd7a784e792dd1643a77c95e1b7c5e8b68a23e40ebeb28e6a6de4e70dccd",
-    "src/main/resources/resourcepacks/settings_titles/assets/sensible_stackables/lang/en_us.json": "217ba7ca53efc0b4b4470037a54153e892503f599f643d9844f9d8b8dc411a41",
-    "src/main/resources/resourcepacks/settings_titles/assets/bannerpoint/lang/en_us.json": "83aa89a7a31e73282e2862f8a057e2c893f36c26294fc668edae27774c4cd650",
-    "src/main/resources/resourcepacks/settings_titles/assets/misctweaks/lang/en_us.json": "ed3c58af09d724ba82c1755d3b5039aaf04482800549df2f5ba787a7f3811424",
-    "src/main/resources/resourcepacks/settings_titles/assets/simple_death_improvements/lang/en_us.json": "22d99d1352dfa57c9c6f0aa6bae8651a95415ca80dfa203d53fad9d1d51d2816",
-    "src/main/resources/resourcepacks/settings_titles/assets/toolpouch/lang/en_us.json": "61c08019ca58a47769777fc1dbe4b26fa224ac24ff03b39132564f2d14968c54",
-    "src/main/resources/resourcepacks/settings_titles/assets/tiered_backpacks/lang/en_us.json": "1f72e833a946f4b87af30a15592933410f4a8bff2fc0e4964342a1911ff03c0d",
-    "components/chalk-compat/src/main/resources/fabric.mod.json": "2f1b6e6416044f6a8ec04f4d322fa51c8cc0093a4020d7c042be534e073b5b7d",
-    "components/bannerpoint-compat/src/main/resources/fabric.mod.json": "cf894e22c867fd9ed321e43e7402f2bad34abc2d19c0bee27efae3e0dd899ac7",
-    "components/combined-compat/src/main/resources/fabric.mod.json": "532a942d5ed8edfd9df7df8f01473ce42da56d84b14f3ba7c5ee17ca6e1d1d64",
-    "components/shared-region-maps/working/src/main/resources/fabric.mod.json": "5ce108ca7a167c8258768ca8060c3ddf114134f383b9b0f2483f7f2181b395af",
-    "components/mapstitch-mixed-scales/working/src/main/resources/fabric.mod.json": "cb652028dd6fdbc43624f86113ad5930835c20257df79701500af1c992a297a6",
-    "components/toolpouch-atlas-elytra/working/src/main/resources/fabric.mod.json": "04909b392334bd48dd864fa1e8b1ab6aca3f03b99d0f16f3e56f68fc714a3355"
+  "hotkey_wheel": {
+    "version": "1.0.3+26.3",
+    "sha256": "5057ded646ea3c9d97b444c572f515c3914bcfd12d0bb1dec1edfb1523e2527b",
+    "profiles": [
+      "native-admin",
+      "polymer-admin",
+      "polymer-guest"
+    ],
+    "passed": true,
+    "input_scope": "Native keyboard/mouse handlers and development-only SDL focus events; no hardware key automation."
   }
 }

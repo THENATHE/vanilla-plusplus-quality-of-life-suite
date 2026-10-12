@@ -13,6 +13,8 @@ Apply these conventions to every future update and release. User instructions ta
 
 ## Releases and branches
 
+- For every Vanilla++ release build, verify the current Hotkey Wheel integration with the exact candidate suite JAR and supported wheel JAR. Record wheel activation/selection, keybinding interactions and suite settings/menu behavior with the tested versions. Keep this check in the build validation record.
+
 - Release titles contain only the declared release number and version target, for example `1.1.0+26.3`. Git tags retain the `v` prefix.
 - Publish four downloadable assets: `README.md`, the versioned suite `.jar`, `docs.zip`, and one versioned installation `.zip`. GitHub-generated source archives are separate platform features.
 - `docs.zip` contains all tracked project documentation, technical dependency/build records, release checksums and recorded evidence. The installation ZIP contains the suite, exact required local libraries, permitted public dependencies, notices, appropriate corresponding sources and a side-aware installer.

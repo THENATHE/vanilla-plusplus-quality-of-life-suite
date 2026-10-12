@@ -29,6 +29,10 @@ public final class SettingsClientQa implements ClientModInitializer {
     boolean hotkeyQueued;
     net.minecraft.client.gui.screens.Screen hotkeyParent;
     String opened;
+    int wheelPhase;
+    boolean wheelDone;
+    int featurePhase;
+    boolean featureDone;
     ConfigScreenManager beforeInvalidation;
     public void onInitializeClient() {
         ClientTickEvents.END_CLIENT_TICK.register(c -> {
@@ -38,6 +42,10 @@ public final class SettingsClientQa implements ClientModInitializer {
             if(++ticks<20) return;
             ticks=0;
             try {
+                if(Boolean.getBoolean("settings.qa.wheel") && !wheelDone && c.player!=null && c.level!=null) {
+                    verifyWheel(c);
+                    return;
+                }
                 if(configs==null) {
                     if(!hotkeyQueued) {
                         verifyModMenuPresentation();
@@ -63,7 +71,7 @@ public final class SettingsClientQa implements ClientModInitializer {
                     c.gui.setScreen(SuiteSettings.create(null));
                     configs=SuiteSettings.collectConfigs();
                     ids=new ArrayList<>(configs.keySet());
-                    var expected=new java.util.HashSet<>(Set.of("simple_smithing_overhaul.config-v2","mapstitch.config","mapstitch.client_config","toolpouch.config","toolpouch.client_config","tiered_backpacks.config","misctweaks.config","misctweaks.client_config","simple_death_improvements.config","vpp_mod_suite.chalk"));
+                    var expected=new java.util.HashSet<>(Set.of("simple_smithing_overhaul.config-v2","mapstitch.config","mapstitch.client_config","toolpouch.config","toolpouch.client_config","tiered_backpacks.config","misctweaks.config","misctweaks.client_config","simple_death_improvements.config","vpp_mod_suite.chalk","vpp_mod_suite.features"));
                     if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("sensible_stackables")){expected.add("sensible_stackables.config");expected.add("sensible_stackables.client_config");}
                     if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("bannerpoint")){expected.add("bannerpoint.config");expected.add("bannerpoint.client_config");}
                     if(!configs.keySet().equals(expected)) throw new AssertionError("unexpected config keys="+configs.keySet());
@@ -84,7 +92,8 @@ public final class SettingsClientQa implements ClientModInitializer {
                         Map.entry("sensible_stackables.client_config","Sensible Stackables Client Settings"),
                         Map.entry("bannerpoint.config","Bannerpoint Gameplay Settings"),
                         Map.entry("bannerpoint.client_config","Bannerpoint Client Settings"),
-                        Map.entry("vpp_mod_suite.chalk","Chalk Settings"));
+                        Map.entry("vpp_mod_suite.chalk","Chalk Settings"),
+                        Map.entry("vpp_mod_suite.features","Native Features"));
                     for(var entry:configs.entrySet()) {
                         String actual=entry.getValue().getActive().translation(null).getString();
                         if(!expectedLabels.get(entry.getKey()).equals(actual))throw new AssertionError("native configuration title "+entry.getKey()+"="+actual);
@@ -118,6 +127,10 @@ public final class SettingsClientQa implements ClientModInitializer {
                     }
                     verifyConfigureButtons(c);
                     if(Boolean.getBoolean("settings.qa.lifecycleOnly"))phase=ids.size()*2+10;
+                    return;
+                }
+                if(!featureDone && !Boolean.getBoolean("settings.qa.standalone") && !Boolean.getBoolean("settings.qa.visual")) {
+                    verifyFeatureReadback(c);
                     return;
                 }
                 if(Boolean.getBoolean("settings.qa.visual")) {
@@ -276,31 +289,131 @@ public final class SettingsClientQa implements ClientModInitializer {
         var roots=com.terraformersmc.modmenu.ModMenu.ROOT_MODS;
         var parent=mods.get("vpp_mod_suite");
         if(parent==null || roots.get(parent.getId())!=parent)throw new AssertionError("suite is not a visible Mod Menu root");
-        var originals=new java.util.HashSet<>(Set.of("simple_smithing_overhaul","mapstitch","toolpouch","tiered_backpacks","misctweaks","simple_death_improvements","sensible_stackables","chalk"));
-        if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("bannerpoint"))originals.add("bannerpoint");
+        var originals=Set.of("simple_smithing_overhaul","mapstitch","toolpouch","tiered_backpacks","misctweaks","simple_death_improvements","sensible_stackables","chalk","bannerpoint");
         for(String id:originals) {
             var mod=mods.get(id);
-            if(mod==null || roots.get(id)!=mod || mod.getParent()!=null || mod.isHidden())throw new AssertionError("original feature is not individually visible in Mod Menu: "+id);
+            if(mod==null || roots.containsKey(id) || !"vpp_mod_suite".equals(mod.getParent()) || mod.isHidden())throw new AssertionError("original feature not visible beneath suite: "+id);
         }
-        row("Mod Menu keeps all original Pajic/Chalk feature entries individually visible");
-        var expectedChildren=new java.util.HashSet<>(Set.of("sso_backpack_toolpouch_mapstitch_shim","chalk_polymer_compat","shared_region_maps","toolpouch_atlas_elytra_compat","mapstitch_mixed_scales","sensible_stackables_polymer_compat","amethyst_curse_cleanser","chalk-colorful-addon"));
-        if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("bannerpoint_polymer_compat"))expectedChildren.add("bannerpoint_polymer_compat");
-        var actualChildren=new HashSet<String>();
-        for(var child:com.terraformersmc.modmenu.ModMenu.PARENT_MAP.get(parent))actualChildren.add(child.getId());
-        if(!actualChildren.equals(expectedChildren))throw new AssertionError("Mod Menu suite children mismatch: "+actualChildren);
-        for(String id:expectedChildren) {
+        row("all original feature entries remain individually visible beneath Vanilla++");
+        var compatibility=Set.of("sso_backpack_toolpouch_mapstitch_shim","chalk_polymer_compat","sensible_stackables_polymer_compat","bannerpoint_polymer_compat");
+        int visible=0;
+        for(String id:compatibility) {
             var mod=mods.get(id);
-            if(mod==null || roots.containsKey(id) || !"vpp_mod_suite".equals(mod.getParent()))throw new AssertionError("suite component is not nested in Mod Menu: "+id);
+            if(mod==null || !net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded(id))throw new AssertionError("compatibility loader identity missing: "+id);
+            if(!mod.isHidden()) {
+                visible++;
+                if(!"vpp_mod_suite".equals(mod.getParent()) || !"Compatibility + Shims".equals(mod.getTranslatedName()))throw new AssertionError("combined compatibility presentation missing: "+id);
+            }
         }
-        row("Mod Menu nests all eight suite addon/shim entries beneath Vanilla++ Quality of Life Suite");
-        if(!mods.get("chalk-colorful-addon").isHidden())throw new AssertionError("Colorful Chalk still shows a separate Mod Menu icon");
-        for(String id:expectedChildren)if(!id.equals("chalk-colorful-addon") && mods.get(id).isHidden())throw new AssertionError("suite component should be visible under parent: "+id);
-        if(!"Vanilla / Polymer Shim".equals(mods.get("sso_backpack_toolpouch_mapstitch_shim").getTranslatedName()))throw new AssertionError("coordinator Mod Menu label was not renamed");
-        row("Mod Menu hides only Colorful Chalk and displays coordinator as Vanilla / Polymer Shim");
-        var screen=com.terraformersmc.modmenu.ModMenu.getConfigScreen("chalk",new net.minecraft.client.gui.screens.TitleScreen());
-        if(!(screen instanceof ConfigScreen chalkScreen) || !"vpp_mod_suite.chalk".equals(chalkScreen.getScope()))throw new AssertionError("Chalk Mod Menu config button does not open its real grouped settings");
-        row("actual Chalk Mod Menu factory opens the functional vpp_mod_suite.chalk settings screen");
+        if(visible!=1)throw new AssertionError("expected one visible compatibility entry, got "+visible);
+        row("one Compatibility + Shims entry with all original compatibility loader identities retained");
+        for(String id:List.of("shared_region_maps","toolpouch_atlas_elytra_compat","mapstitch_mixed_scales","amethyst_curse_cleanser")) {
+            var mod=mods.get(id);
+            if(mod==null || mod.isHidden() || !"vpp_mod_suite".equals(mod.getParent()))throw new AssertionError("authored feature hidden or detached: "+id);
+        }
+        var labels=new HashSet<String>();
+        for(var child:com.terraformersmc.modmenu.ModMenu.PARENT_MAP.get(parent))if(!child.isHidden())labels.add(child.getTranslatedName());
+        for(String name:List.of("Drops into Shulker","Better Beacon Placement","Better Conduit Placement","Grind Enchantments","Netherite Instamine","No Enderman Grief","Swift Flight","Transfer Pet Owner","Call Your Parrot","Call Your Nautilus","Call Your Horse","Call Your Happy Ghast","Call Your Dog","Call Your Cat","Trident All Weather Channeling")) {
+            if(!labels.contains(name))throw new AssertionError("native feature missing from Mod Menu: "+name+" visible="+labels);
+        }
+        row("all fifteen new feature entries appear individually beneath suite");
+        for(var feature:com.thenathe.suite.client.SuiteFeatureEntries.FEATURES) {
+            if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded(feature.id()))throw new AssertionError("presentation entry invented a loader identity: "+feature.id());
+            var configured=com.terraformersmc.modmenu.ModMenu.getConfigScreen(feature.id(),new net.minecraft.client.gui.screens.TitleScreen());
+            String scope=feature.nativeSettings()?"vpp_mod_suite.features":"vpp_mod_suite";
+            if(!(configured instanceof ConfigScreen featureScreen) || !scope.equals(featureScreen.getScope()))throw new AssertionError("feature configuration action does not reach real settings: "+feature.id());
+        }
+        row("all integrated feature configuration actions open real settings without inventing loader identities");
+        var screen=com.terraformersmc.modmenu.ModMenu.getConfigScreen("vpp_mod_suite",new net.minecraft.client.gui.screens.TitleScreen());
+        if(!(screen instanceof ConfigScreen suiteScreen) || !"vpp_mod_suite".equals(suiteScreen.getScope()))throw new AssertionError("suite Mod Menu parent does not open combined settings");
+        var chalk=com.terraformersmc.modmenu.ModMenu.getConfigScreen("chalk",new net.minecraft.client.gui.screens.TitleScreen());
+        if(!(chalk instanceof ConfigScreen chalkScreen) || !"vpp_mod_suite.chalk".equals(chalkScreen.getScope()))throw new AssertionError("Chalk factory no longer opens its real grouped config");
+        row("suite parent and original Chalk configuration factories open their real grouped screens");
     }
+
+    void verifyWheel(Minecraft client) throws Exception {
+        var key=com.mojang.blaze3d.platform.InputConstants.Type.KEYBOARD.getOrCreate(com.mojang.blaze3d.platform.InputConstants.KEY_G);
+        if(wheelPhase==0) {
+            if(!client.isWindowActive()) {
+                org.lwjgl.sdl.SDLVideo.SDL_RaiseWindow(client.getWindow().handle());
+                row("raised real SDL window for wheel input; focused="+client.isWindowActive());
+                return;
+            }
+            if(!net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("hotkey_wheel"))throw new AssertionError("requested Hotkey Wheel missing");
+            if(com.thenathe.hotkeywheel.HotkeyWheelClient.findControl(SuiteKeybindings.OPEN_SETTINGS.getName())!=SuiteKeybindings.OPEN_SETTINGS)throw new AssertionError("wheel cannot discover suite binding");
+            var config=com.thenathe.hotkeywheel.WheelConfig.get().copy();
+            config.wheelCount=1;
+            config.wheels.get(0).toggleOpen=false;
+            config.wheels.get(0).entries.get(0).control=SuiteKeybindings.OPEN_SETTINGS.getName();
+            if(!com.thenathe.hotkeywheel.WheelConfig.save(config))throw new AssertionError("wheel config did not save");
+            SuiteKeybindings.OPEN_SETTINGS.setKey(com.mojang.blaze3d.platform.InputConstants.UNKNOWN);
+            com.thenathe.hotkeywheel.HotkeyWheelClient.WHEEL_KEYS[0].setKey(key);
+            net.minecraft.client.KeyMapping.resetMapping();
+            client.gui.setScreen(null);
+            row("wheel activation context focused="+client.isWindowActive()+" key="+key+" mapping="+com.thenathe.hotkeywheel.HotkeyWheelClient.WHEEL_KEYS[0].saveString()+" matches="+com.thenathe.hotkeywheel.HotkeyWheelClient.WHEEL_KEYS[0].matches(key));
+            dispatchWheelKey(client,com.mojang.blaze3d.platform.InputConstants.PRESS);
+            if(!(client.gui.screen() instanceof com.thenathe.hotkeywheel.WheelScreen))throw new AssertionError("wheel did not open");
+            wheelPhase++;
+            return;
+        }
+        if(wheelPhase==1) {
+            if(!(client.gui.screen() instanceof com.thenathe.hotkeywheel.WheelScreen screen))throw new AssertionError("wheel closed before selection; focused="+client.isWindowActive());
+            Screenshot.grab(client.gameDirectory,"hotkey-wheel-suite-control.png",client.gameRenderer.mainRenderTarget(),1,m->{});
+            double angle=com.thenathe.hotkeywheel.RadialGeometry.angle(0,com.thenathe.hotkeywheel.WheelConfig.get().wheels.get(0).entries.size());
+            double x=screen.centerX()+Math.cos(angle)*screen.radius()*.76;
+            double y=screen.centerY()+Math.sin(angle)*screen.radius()*.76;
+            double windowX=x*client.getWindow().getScreenWidth()/screen.width;
+            double windowY=y*client.getWindow().getScreenHeight()/screen.height;
+            org.lwjgl.sdl.SDLMouse.SDL_WarpMouseInWindow(client.getWindow().handle(),(float)windowX,(float)windowY);
+            client.mouseHandler.onMove(client.getWindow().handle(),windowX,windowY,0,0);
+            if(screen.selection(client.mouseHandler.getScaledXPos(client.getWindow()),client.mouseHandler.getScaledYPos(client.getWindow()))!=0)throw new AssertionError("wheel cursor did not select suite control");
+            SuiteKeybindings.OPEN_SETTINGS.setKey(key);
+            net.minecraft.client.KeyMapping.resetMapping();
+            dispatchWheelKey(client,com.mojang.blaze3d.platform.InputConstants.RELEASE);
+            wheelPhase++;
+            return;
+        }
+        if(!(client.gui.screen() instanceof ConfigScreen))throw new AssertionError("wheel selection did not open suite settings through registered control");
+        SuiteKeybindings.OPEN_SETTINGS.setKey(com.mojang.blaze3d.platform.InputConstants.UNKNOWN);
+        net.minecraft.client.KeyMapping.resetMapping();
+        row("isolated input fixture dispatches SDL focus, native keyboard and mouse events: Hotkey Wheel selects the unbound suite control; overlapping release key opens combined settings once");
+        Screenshot.grab(client.gameDirectory,"hotkey-wheel-opened-suite-settings.png",client.gameRenderer.mainRenderTarget(),1,m->{});
+        client.gui.setScreen(null);
+        wheelDone=true;
+    }
+
+    void dispatchWheelKey(Minecraft client, int action) throws Exception {
+        Method handler=net.minecraft.client.KeyboardHandler.class.getDeclaredMethod("keyPress",long.class,int.class,net.minecraft.client.input.KeyEvent.class);
+        handler.setAccessible(true);
+        handler.invoke(client.keyboardHandler,client.getWindow().handle(),action,new net.minecraft.client.input.KeyEvent(com.mojang.blaze3d.platform.InputConstants.KEY_G,0,0));
+    }
+
+    void verifyFeatureReadback(Minecraft client) throws Exception {
+        boolean guest=Boolean.getBoolean("settings.qa.guest");
+        if(featurePhase==0 || featurePhase==2) {
+            configs=SuiteSettings.collectConfigs();
+            client.gui.setScreen(manager().provideScreen$fzzy_config("vpp_mod_suite.features"));
+            if(guest) {
+                var button=nativeButton("vpp_mod_suite.features.dropsIntoShulker");
+                if(!button.getMessage().getString().equals("Can't Edit"))throw new AssertionError("new module field lacks native permission protection");
+                button.onPress();
+            } else toggle("vpp_mod_suite.features","dropsIntoShulker",featurePhase==2);
+            manager().provideUpdateManager$fzzy_config("vpp_mod_suite.features").apply(false);
+            featurePhase++;
+            return;
+        }
+        var state=JsonParser.parseString(Files.readString(control.resolve("server-config.json"))).getAsJsonObject();
+        boolean expected=guest || featurePhase==3;
+        if(state.get("dropsIntoShulker").getAsBoolean()!=expected || state.get("savedDropsIntoShulker").getAsBoolean()!=expected)throw new AssertionError("native feature toggle not reflected in server runtime and saved config: "+state);
+        row("new shulker module native checkbox server/runtime/file readback="+expected+" guest="+guest);
+        featurePhase++;
+        if(featurePhase>=4) {
+            featureDone=true;
+            client.gui.setScreen(SuiteSettings.create(null));
+            configs=SuiteSettings.collectConfigs();
+        }
+    }
+
     void row(String text){JsonObject row=new JsonObject();row.addProperty("case",text);row.addProperty("passed",true);observations.add(row);}
     void verifyConfigureButtons(Minecraft client)throws Exception {
         var found=new HashSet<String>();

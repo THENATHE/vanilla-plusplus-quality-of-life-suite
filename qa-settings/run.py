@@ -11,8 +11,8 @@ launch=mapstitch_launch(ROOT)
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--visual-only',action='store_true');p.add_argument('--lifecycle-only',action='store_true');p.add_argument('--guest',action='store_true');p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar')
-    p.add_argument('--label',required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--settings-only',action='store_true');p.add_argument('--port',type=int,default=25976);p.add_argument('--reconnect',action='store_true',help='Reconnect to a second isolated server with opposite operator permissions')
+    p.add_argument('--visual-only',action='store_true');p.add_argument('--lifecycle-only',action='store_true');p.add_argument('--guest',action='store_true');p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.3.0+26.3.jar')
+    p.add_argument('--wheel',type=Path);p.add_argument('--without-polymer',action='store_true');p.add_argument('--label',required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--settings-only',action='store_true');p.add_argument('--port',type=int,default=25976);p.add_argument('--reconnect',action='store_true',help='Reconnect to a second isolated server with opposite operator permissions')
     args=p.parse_args();suite=args.suite.resolve();assert suite.is_file();suiteHash=sha(suite)
     run=HERE/'runs'/args.label;run.mkdir(parents=True,exist_ok=False);control=run/'control';control.mkdir();fixtures=run/'fixtures';fixtures.mkdir();classes=fixtures/'classes';classes.mkdir()
     frozen=run/suite.name;shutil.copy2(suite,frozen);assert sha(frozen)==suiteHash;suite=frozen
@@ -20,7 +20,9 @@ def main():
     deps=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar','fzzy_config-0.7.7+fix3+26.3.jar','mixson-2.2.1-multiloader.jar']]
     deps+=[launch.artifact('net.fabricmc.fabric-api','fabric-api','0.161.0+26.3'),launch.artifact('me.shedaniel.cloth','cloth-config-fabric','26.3.159'),launch.artifact('com.terraformersmc','modmenu','21.0.0')]
     selected=[suite]+deps
-    serverAudit,clientAudit=launch.audits();paths=launch.cp(serverAudit['command'])+launch.cp(clientAudit['command'])+[str(p) for p in selected]+[str(launch.artifact('io.github.llamalad7','mixinextras-fabric','0.5.5'))]
+    wheel_compile=ROOT/'Builds/Minecraft/Hotkey Wheel/Main Plugin/1.0.3+26.3/hotkey-wheel-1.0.3+26.3.jar'
+    if args.wheel: selected.append(args.wheel.resolve())
+    serverAudit,clientAudit=launch.audits();paths=launch.cp(serverAudit['command'])+launch.cp(clientAudit['command'])+[str(p) for p in selected]+[str(launch.artifact('io.github.llamalad7','mixinextras-fabric','0.5.5')),str(wheel_compile)]
     def extract(jar):
         with zipfile.ZipFile(jar) as z:
             for n in z.namelist():
@@ -45,6 +47,9 @@ def main():
     for side in ['client','server']:
         with zipfile.ZipFile(fixtures/f'{side}.jar','w') as z:
             meta={'schemaVersion':1,'id':'suite_settings_qa_'+side,'version':'1','environment':side,'entrypoints':{'client' if side=='client' else 'main':['suitesettingsqa.Settings'+side.title()+'Qa']},'depends':{'fabric-api':'*','vpp_mod_suite':'*'}}
+            if side=='client' and args.wheel:
+                meta['mixins']=['settings-wheel-qa.mixins.json']
+                z.writestr('settings-wheel-qa.mixins.json',json.dumps({'required':True,'package':'suitesettingsqa.mixin','compatibilityLevel':'JAVA_25','client':['WheelFocusQaMixin'],'injectors':{'defaultRequire':1}}))
             z.writestr('fabric.mod.json',json.dumps(meta))
             z.writestr('settings-original-language-keys.json',json.dumps(original_language_keys))
             for file in classes.rglob('*.class'):z.write(file,file.relative_to(classes))
@@ -58,8 +63,8 @@ def main():
         for side in sides:
             isServer=side.startswith('server');runtimeSide='server' if isServer else 'client';port=args.port+(1 if side=='server2' else 0)
             directory=run/side;mods=directory/'mods';mods.mkdir(parents=True)
-            chosen=selected+[fixtures/f'{runtimeSide}.jar']
-            if isServer:chosen+=[ROOT/'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar']
+            chosen=[jar for jar in selected if not(isServer and args.wheel and jar==args.wheel.resolve())]+[fixtures/f'{runtimeSide}.jar']
+            if isServer and not args.without_polymer:chosen+=[ROOT/'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar']
             for jar in chosen:shutil.copy2(jar,mods/jar.name)
             if isServer:
                 launch.copy_accepted_eula(directory)
@@ -76,6 +81,7 @@ def main():
             if side=='client' and args.reconnect:command.insert(1,'-Dsettings.qa.reconnectPort='+str(args.port+1))
             command.insert(1,'-Djava.awt.headless=true')
             if args.guest:command.insert(1,'-Dsettings.qa.guest=true')
+            if args.wheel and side=='client':command.insert(1,'-Dsettings.qa.wheel=true')
             if args.visual_only:command.insert(1,'-Dsettings.qa.visual=true')
             if args.lifecycle_only:command.insert(1,'-Dsettings.qa.lifecycleOnly=true')
             if args.settings_only:

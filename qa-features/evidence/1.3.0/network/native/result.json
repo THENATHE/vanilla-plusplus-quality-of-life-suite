@@ -1,0 +1,276 @@
+{
+  "passed": true,
+  "version": "1.3.0+26.3",
+  "bundle_sha256": "e57862d94d4b4331ddd5245e916793a16fa9258d3cceca0d2b3ac891b77aea72",
+  "polymer": false,
+  "profiles": [
+    "suite"
+  ],
+  "observations": [
+    {
+      "profile": "suite",
+      "clicks": [
+        {
+          "stage": 0,
+          "slot": 3,
+          "quick": false,
+          "client": {
+            "connected": true,
+            "ticks": 65,
+            "clicks": [
+              {
+                "stage": 0,
+                "slot": 3,
+                "quick": false
+              }
+            ],
+            "top_count": 0,
+            "bottom_count": 0,
+            "output_count": 0,
+            "carried_count": 1,
+            "book_slot_accepts_locally": true
+          },
+          "server": {
+            "age": 71,
+            "seeded": true,
+            "xp_levels": 100,
+            "top_count": 0,
+            "bottom_count": 0,
+            "output_count": 0,
+            "carried_count": 1,
+            "completed_once": false
+          }
+        },
+        {
+          "stage": 1,
+          "slot": 0,
+          "quick": false,
+          "client": {
+            "connected": true,
+            "ticks": 75,
+            "clicks": [
+              {
+                "stage": 0,
+                "slot": 3,
+                "quick": false
+              },
+              {
+                "stage": 1,
+                "slot": 0,
+                "quick": false
+              }
+            ],
+            "top_count": 1,
+            "bottom_count": 0,
+            "output_count": 1,
+            "carried_count": 0,
+            "book_slot_accepts_locally": true
+          },
+          "server": {
+            "age": 81,
+            "seeded": true,
+            "xp_levels": 100,
+            "top_count": 1,
+            "bottom_count": 0,
+            "output_count": 1,
+            "carried_count": 0,
+            "completed_once": false
+          }
+        },
+        {
+          "stage": 2,
+          "slot": 4,
+          "quick": false,
+          "client": {
+            "connected": true,
+            "ticks": 85,
+            "clicks": [
+              {
+                "stage": 0,
+                "slot": 3,
+                "quick": false
+              },
+              {
+                "stage": 1,
+                "slot": 0,
+                "quick": false
+              },
+              {
+                "stage": 2,
+                "slot": 4,
+                "quick": false
+              }
+            ],
+            "top_count": 1,
+            "bottom_count": 0,
+            "output_count": 1,
+            "carried_count": 1,
+            "book_slot_accepts_locally": true
+          },
+          "server": {
+            "age": 91,
+            "seeded": true,
+            "xp_levels": 100,
+            "top_count": 1,
+            "bottom_count": 0,
+            "output_count": 1,
+            "carried_count": 1,
+            "completed_once": false
+          }
+        },
+        {
+          "stage": 3,
+          "slot": 1,
+          "quick": false,
+          "client": {
+            "connected": true,
+            "ticks": 95,
+            "clicks": [
+              {
+                "stage": 0,
+                "slot": 3,
+                "quick": false
+              },
+              {
+                "stage": 1,
+                "slot": 0,
+                "quick": false
+              },
+              {
+                "stage": 2,
+                "slot": 4,
+                "quick": false
+              },
+              {
+                "stage": 3,
+                "slot": 1,
+                "quick": false
+              }
+            ],
+            "top_count": 1,
+            "bottom_count": 1,
+            "output_count": 1,
+            "carried_count": 0,
+            "book_slot_accepts_locally": true
+          },
+          "server": {
+            "age": 101,
+            "seeded": true,
+            "xp_levels": 100,
+            "top_count": 1,
+            "bottom_count": 1,
+            "output_count": 1,
+            "carried_count": 0,
+            "completed_once": false
+          }
+        },
+        {
+          "stage": 4,
+          "slot": 2,
+          "quick": true,
+          "client": {
+            "connected": true,
+            "ticks": 105,
+            "clicks": [
+              {
+                "stage": 0,
+                "slot": 3,
+                "quick": false
+              },
+              {
+                "stage": 1,
+                "slot": 0,
+                "quick": false
+              },
+              {
+                "stage": 2,
+                "slot": 4,
+                "quick": false
+              },
+              {
+                "stage": 3,
+                "slot": 1,
+                "quick": false
+              },
+              {
+                "stage": 4,
+                "slot": 2,
+                "quick": true
+              }
+            ],
+            "top_count": 1,
+            "bottom_count": 0,
+            "output_count": 0,
+            "carried_count": 0,
+            "book_slot_accepts_locally": true
+          },
+          "server": {
+            "age": 111,
+            "seeded": true,
+            "xp_levels": 78,
+            "top_count": 1,
+            "bottom_count": 0,
+            "output_count": 0,
+            "carried_count": 0,
+            "complete": true,
+            "sword_preserved": true,
+            "book_sharpness_level": 5,
+            "plain_book_consumed": true,
+            "completed_once": true
+          }
+        }
+      ],
+      "client": {
+        "connected": true,
+        "ticks": 165,
+        "clicks": [
+          {
+            "stage": 0,
+            "slot": 3,
+            "quick": false
+          },
+          {
+            "stage": 1,
+            "slot": 0,
+            "quick": false
+          },
+          {
+            "stage": 2,
+            "slot": 4,
+            "quick": false
+          },
+          {
+            "stage": 3,
+            "slot": 1,
+            "quick": false
+          },
+          {
+            "stage": 4,
+            "slot": 2,
+            "quick": true
+          }
+        ],
+        "top_count": 1,
+        "bottom_count": 0,
+        "output_count": 0,
+        "carried_count": 0,
+        "book_slot_accepts_locally": true
+      },
+      "server": {
+        "age": 171,
+        "seeded": true,
+        "xp_levels": 78,
+        "top_count": 1,
+        "bottom_count": 0,
+        "output_count": 0,
+        "carried_count": 0,
+        "complete": true,
+        "sword_preserved": true,
+        "book_sharpness_level": 5,
+        "plain_book_consumed": true,
+        "completed_once": true
+      }
+    }
+  ],
+  "scope": "Actual native-suite/Fabric API-only connections and ordinary grindstone packet clicks. Other gameplay and pure vanilla connectivity are recorded separately."
+}

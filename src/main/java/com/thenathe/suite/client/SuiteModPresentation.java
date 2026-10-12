@@ -16,7 +16,10 @@ public final class SuiteModPresentation {
 
     private SuiteModPresentation() {}
 
-    public static boolean isSuiteChild(String id) { return CHILDREN.contains(id); }
+    public static boolean isSuiteChild(String id) { return CHILDREN.contains(id) || ORIGINAL_FEATURES.contains(id); }
     public static boolean isOriginalFeature(String id) { return ORIGINAL_FEATURES.contains(id); }
-    public static boolean isHiddenAddon(String id) { return "chalk-colorful-addon".equals(id); }
+    public static boolean isHiddenAddon(String id) {
+        return Set.of("chalk-colorful-addon", "chalk_polymer_compat", "sensible_stackables_polymer_compat",
+                "bannerpoint_polymer_compat").contains(id);
+    }
 }
