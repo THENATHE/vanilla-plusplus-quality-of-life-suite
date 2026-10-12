@@ -1,17 +1,19 @@
-# Installation pack — Vanilla++ Quality of Life Suite 1.2.0+26.3
+# Installation pack — Vanilla++ Quality of Life Suite 1.2.1+26.3
 
-The **1.2.0+26.3** release adds pouch pickup upgrades and integrates the Debug Wrench with the same external dependencies as 1.1.6. Replace the suite JAR on the server and matching native clients, remove the standalone Polymer Debug Wrench JAR, and regenerate the server Polymer resource pack for the new 16×16 artwork. Keep existing settings and worlds; [release instructions](RELEASE_1_2_0.md) explain the upgrade.
+The local **1.2.1+26.3** update enlarges the collector basket and chooses toggle help from client support. Matching suite clients see their pickup hotkey; vanilla and unsupported clients see `/suite-pickup`. Replace the suite JAR on the server and matching native clients, and regenerate the Polymer pack for the updated 16×16 artwork. Exact external dependencies and original developer inputs are unchanged.
+
+The authored root mod ID and item/protocol/config namespace are now `vpp_mod_suite`. No conversion or migration is included, as requested for this testing setup. Keep original feature mod configuration files and the integrated Debug Wrench identity. [Local release instructions](RELEASE_1_2_1.md) describe the change and current verification status.
 
 The installation ZIP supplies the suite and its exact libraries for a native Fabric client or a dedicated server that also accepts vanilla players. Its helper selects the appropriate files for each side. **Internet access is required to obtain Fzzy Config from its official publisher.** Minecraft, Java, Fabric Loader and the server’s resource-pack hosting must be set up separately.
 
-The [stable 1.2.0+26.3 release](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.2.0%2B26.3) has four public assets:
+The local 1.2.1+26.3 package uses four release files. This update has not been publicly published; [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) retains the published baseline:
 
 - `README.md` — the accessible feature overview and installation entry point.
-- `vanilla-plusplus-quality-of-life-suite-1.2.0+26.3.jar` — the combined mod, for an instance whose exact dependencies are already installed.
+- `vanilla-plusplus-quality-of-life-suite-1.2.1+26.3.jar` — the combined mod, for an instance whose exact dependencies are already installed.
 - `docs.zip` — documentation, technical records and release verification information.
-- `vanilla-plusplus-installation-pack-1.2.0+26.3.zip` — the suite, permitted dependency binaries, licenses and installer described below.
+- `vanilla-plusplus-installation-pack-1.2.1+26.3.zip` — the suite, permitted dependency binaries, licenses and installer described below.
 
-There is one installation ZIP; no separate `.mrpack`, manual ZIP or library ZIP is published. The final suite digest is recorded in the [installation lock](installation-pack.lock.json) and [build verification](build-verification.json).
+There is one installation ZIP; no separate `.mrpack`, manual ZIP or library ZIP is supplied. The JAR passes compilation/archive and focused runtime checks; the final installation ZIP passes all 13 archive/installer checks, including actual disposable client/server installs using the exact cached official Fzzy file. Final records belong in the [installation lock](installation-pack.lock.json) and [build verification](build-verification.json); earlier hashes remain historical.
 
 ## Native client installation
 
@@ -28,7 +30,7 @@ There is one installation ZIP; no separate `.mrpack`, manual ZIP or library ZIP 
 
 4. Launch the instance. Keep separate copies of the original feature mods and older suite shims out of its `mods/` folder to avoid duplicates.
 
-Bannerpoint and its compatibility component are already inside the suite JAR; do not add separate copies. Suite 1.2.0 includes both modules on `main`.
+Bannerpoint and its compatibility component are already inside the suite JAR; do not add separate copies. Suite 1.2.1 includes both modules on `main`.
 
 The client selection excludes Polymer. Native suite clients use the mod interfaces when joining a matching server. Vanilla players joining a Polymer-enabled server install none of these client files.
 
@@ -63,7 +65,7 @@ The ZIP includes these two local files under `overrides/mods/`:
 
 | Included file | SHA-256 | License/source context |
 | --- | --- | --- |
-| Suite 1.2.0+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
+| Suite 1.2.1+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
 | CodecUI 26.3-1.4.3 | `4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898` | MIT declaration and retained notices; precise private build revision is unrecorded. [Source-family record](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference). |
 
 Six public publisher binaries are cached under `downloads/mods/`, with licenses and hashes retained. Fzzy Config has only its official download entry:

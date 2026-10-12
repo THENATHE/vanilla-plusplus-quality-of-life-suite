@@ -9,7 +9,7 @@ import net.minecraft.client.KeyMapping;
 
 public final class PickupUpgradeClient {
     public static final KeyMapping TOGGLE_COLLECTOR = new KeyMapping(
-            "key.thenathe_mod_suite.toggle_collector", InputConstants.Type.KEYBOARD,
+            "key.vpp_mod_suite.toggle_collector", InputConstants.Type.KEYBOARD,
             InputConstants.UNKNOWN.getValue(), ModKeybinds.MOD_KEYS);
 
     private PickupUpgradeClient() {}

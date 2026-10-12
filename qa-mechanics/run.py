@@ -36,7 +36,7 @@ fixtures={}
 for kind,entry in [('mechanics','qa.SuiteMechanicsQa'),('maps','org.sharedregionmaps.qa.Qa')]:
  jar=RUN/(kind+'.jar');fixtures[kind]=jar
  with zipfile.ZipFile(jar,'w',zipfile.ZIP_DEFLATED) as z:
-  z.writestr('fabric.mod.json',json.dumps({'schemaVersion':1,'id':'suite_'+kind+'_qa','version':'1','environment':'server','entrypoints':{'main':[entry]},'depends':{'thenathe_mod_suite':'*','fabric-api':'*'}}))
+  z.writestr('fabric.mod.json',json.dumps({'schemaVersion':1,'id':'suite_'+kind+'_qa','version':'1','environment':'server','entrypoints':{'main':[entry]},'depends':{'vpp_mod_suite':'*','fabric-api':'*'}}))
   for p in classes.rglob('*.class'):z.write(p,p.relative_to(classes))
 results={'bundle_sha256':sha(bundle),'passed':False,'cases':[]}
 try:

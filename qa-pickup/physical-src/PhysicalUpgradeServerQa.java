@@ -8,6 +8,7 @@ import com.thenathe.suite.wrench.DebugWrench;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -48,7 +49,10 @@ public final class PhysicalUpgradeServerQa implements ModInitializer {
             var drop = new ItemEntity(player.level(), player.getX() + 4, player.getY(), player.getZ(), new ItemStack(Items.DIAMOND, 17));
             drop.setNoPickUpDelay();
             player.level().addFreshEntity(drop);
-            boolean nativeClient = SuiteCapabilities.isNative(handler.getPacketContext(), "thenathe_mod_suite");
+            boolean nativeClient = SuiteCapabilities.isNative(handler.getPacketContext(), "vpp_mod_suite");
+            if (FabricLoader.getInstance().isModLoaded("polymer-core")) {
+                ProjectionChecks.collectorTooltip(player, nativeClient);
+            }
             players.put(name, new State(player, backpack, drop, nativeClient, server.getTickCount()));
             stages.put(name, 0);
             player.inventoryMenu.broadcastFullState();
@@ -81,6 +85,8 @@ public final class PhysicalUpgradeServerQa implements ModInitializer {
                     row.addProperty("passed", stage == 3 && age >= 100);
                     row.addProperty("stage", stage);
                     row.addProperty("native_upgrades", state.nativeClient());
+                    row.addProperty("collector_projected_lore", !FabricLoader.getInstance().isModLoaded("polymer-core")
+                            || ProjectionChecks.collectorTooltip(player, state.nativeClient()));
                     row.addProperty("collector_enabled", PickupUpgrades.enabled(player));
                     row.addProperty("real_magnet_collector_pickup", stage > 0);
                     row.addProperty("collected_diamonds", state.backpack().getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY).itemCopies()
@@ -94,5 +100,27 @@ public final class PhysicalUpgradeServerQa implements ModInitializer {
                 }
             }
         });
+    }
+
+    private static final class ProjectionChecks {
+        private static boolean collectorTooltip(ServerPlayer player, boolean nativeClient) {
+            var original = player.getInventory().getItem(21);
+            var before = original.copy();
+            var projected = eu.pb4.polymer.core.api.item.PolymerItemUtils.getPolymerItemStack(
+                    original, player.connection.getPacketContext(), player.level().registryAccess());
+            String lore = projected.get(DataComponents.LORE).lines().stream()
+                    .map(component -> component.getString()).collect(java.util.stream.Collectors.joining("\n"));
+            if (nativeClient) {
+                if (lore.contains("/suite-pickup") || !lore.contains("hotkey")) {
+                    throw new AssertionError("Native collector projection must retain hotkey guidance: " + lore);
+                }
+            } else if (!lore.contains("/suite-pickup") || lore.contains("hotkey")) {
+                throw new AssertionError("Fallback collector projection must use command guidance: " + lore);
+            }
+            if (!ItemStack.matches(original, before)) {
+                throw new AssertionError("Collector tooltip projection mutated the saved item");
+            }
+            return true;
+        }
     }
 }

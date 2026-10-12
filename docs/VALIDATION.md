@@ -1,5 +1,17 @@
 # Validation
 
+## 1.2.1 — basket size, client tooltip and suite namespace
+
+The local **1.2.1+26.3** JAR, SHA-256 `f4a73c3a93c57f9d09e414da21dc79cd2e8eaa927aff73e58121705aa2a04e6a`, uses root ID `vpp_mod_suite` and pickup item IDs in that namespace. The user requested no migration from the testing namespace. Original developer inputs are unchanged; the independent SSO-port track remains paused. [Release guide](RELEASE_1_2_1.md).
+
+- [Dedicated mechanics/restart regression](../qa-pickup/evidence/1.2.1/dedicated/result.json) passes **1,344 pickup and 272 wrench assertions** across native/Polymer initial and restart phases. Generated Polymer pack checks confirm a 16×16 collector texture with at least 12×12 occupied bounds; the final asset occupies 14×14. Server item identity and Polymer round trips remain intact.
+- [Four physical connection profiles](../qa-pickup/evidence/1.2.1/physical/result.json) pass matching native, Fabric API-only fallback, unmodified vanilla and matching native against a server without Polymer. Native received lore and full tooltip contain hotkey guidance without `/suite-pickup`; fallback lore and tooltip contain only the command guidance. Native toggles use the real registered keybinding/payload; fallback clients use the registered command. Every profile collects 17 distant diamonds into its backpack. Actual vanilla has server projection/command/pickup evidence, without a client observer or automated screenshot.
+- [Two integrated singleplayer profiles](../qa-pickup/evidence/1.2.1/integrated/result.json) pass with and without Polymer, including native negotiation, pickup, actual hotkey toggles and command-free full tooltips. Five saved inventory screenshots across physical/integrated observed clients were inspected, confirming a normal-sized basket on native and resource-pack fallback clients.
+- [Native settings regression](../qa-settings/evidence/1.2.1/control/observations.json) passes **52 assertions**, including Mod Menu nesting, suite configuration identity, translations, native feature settings and hotkey guards after the rename.
+- [Archive report](build-verification.json) confirms all 18 nested modules, exact unchanged developer input bytes, synchronized metadata/dependencies and retained licenses. [Installer report](installation-pack-verification.json) passes **13 checks**, including real disposable client/server installs using the cached exact official Fzzy file, correct side selection, corruption/path guards, idempotency and reproducible ZIP output. Fresh network download and launcher GUI import were not retested.
+
+This is a focused update verification. Earlier broad results below remain tied to their original artifacts. Local runtime worlds/logs remain under ignored `runs/`; selected executed fixture sources, launch/dependency audits, results and screenshots are preserved with this release evidence.
+
 ## 1.2.0 — pouch upgrades and integrated Debug Wrench
 
 Suite artifact **1.2.0+26.3**, SHA-256 `69c2b7f7d345282143e4c7d1da8a9b4ea97032c61ff804348d50613a60349b75`, adds independent/combined pouch pickup upgrades, a persistent collector toggle, the integrated Debug Wrench and fixed16 artwork. [Release guide](RELEASE_1_2_0.md), [dedicated verification record](pouch-utilities-verification-1.2.0.json).

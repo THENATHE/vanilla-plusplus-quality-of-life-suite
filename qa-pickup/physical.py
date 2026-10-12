@@ -9,7 +9,7 @@ from workspace_paths import load_helper, project_path
 STAGE = project_path(WORKSPACE, 'polymer-shim-test-bundle') / 'staging-2026-10-01/mods'
 JAVA = '/usr/lib/jvm/java-25-openjdk/bin/java'
 parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.6+26.3.jar')
+parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.2.1+26.3.jar')
 parser.add_argument('--compile-only', action='store_true')
 parser.add_argument('--legacy-suite', type=Path, help='Previous suite artifact for actual backward-compatibility connection')
 parser.add_argument('--originals-only', action='store_true', help='Original latest SSO/Stackables clients without suite/shims against Polymer server')

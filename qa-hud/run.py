@@ -31,7 +31,7 @@ def main():
     subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(dict.fromkeys(paths)),'-d',str(classes),*map(str,(HERE/'src').rglob('*.java'))],check=True)
     for side in ['client','server']:
         with zipfile.ZipFile(fixtures/f'{side}.jar','w') as z:
-            meta={'schemaVersion':1,'id':'suite_hud_qa_'+side,'version':'1','environment':side,'entrypoints':{'client' if side=='client' else 'main':['suitehudqa.Hud'+side.title()+'Qa']},'depends':{'fabric-api':'*','thenathe_mod_suite':'*'}}
+            meta={'schemaVersion':1,'id':'suite_hud_qa_'+side,'version':'1','environment':side,'entrypoints':{'client' if side=='client' else 'main':['suitehudqa.Hud'+side.title()+'Qa']},'depends':{'fabric-api':'*','vpp_mod_suite':'*'}}
             if side=='client':
                 meta['mixins']=['suite-hud-qa.mixins.json'];z.writestr('suite-hud-qa.mixins.json',json.dumps({'required':True,'package':'suitehudqa.mixin','compatibilityLevel':'JAVA_25','client':['InfoTraceMixin','GraphicsTraceMixin'],'injectors':{'defaultRequire':1}}))
             z.writestr('fabric.mod.json',json.dumps(meta))

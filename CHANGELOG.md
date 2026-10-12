@@ -1,5 +1,13 @@
 # Changes
 
+## 1.2.1+26.3 - 2026-10-12 (local update)
+
+- Enlarge the collector basket to 14×14 visible pixels within its fixed 16×16 texture, using fresh built-in image generation and nearest-neighbor resizing.
+- Show pickup-hotkey guidance on matching suite clients and `/suite-pickup` guidance on vanilla or unsupported clients; preserve the actual toggle controls.
+- Rename the root mod ID, authored item IDs and suite protocol/config namespace to `vpp_mod_suite`. No conversion or migration is included, as requested for this testing setup. Original feature mod IDs and the Debug Wrench ID remain unchanged.
+- Advance combined compatibility to 1.2.1+26.3 and the mixed-scale addon to 1.1.7+26.3 to keep exact dependencies and capability fingerprints aligned. Preserve the exact external libraries and developer inputs; the separate SSO-port track remains paused.
+- Prepare a local release only. Compilation/archive, dedicated pickup/wrench, four physical connection profiles, two singleplayer profiles and settings-only checks pass for the new JAR. Installation ZIP verification is pending; historical passes remain attributed to their original versions.
+
 ## 1.2.0+26.3 — 2026-10-12
 
 - Add a nether-star Pouch Magnet that extends dropped-item pickup to a six-block spherical range using the active Tool Pouch.

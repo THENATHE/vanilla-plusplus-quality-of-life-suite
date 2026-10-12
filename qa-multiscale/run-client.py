@@ -50,7 +50,7 @@ def main():
         entry = 'qa.MixedScaleClientServerQa' if side == 'server' else 'qa.MixedScaleClientQa'
         metadata = {'schemaVersion': 1, 'id': 'suite_maps_client_qa_' + side, 'version': '1', 'environment': side,
                     'entrypoints': {'main' if side == 'server' else 'client': [entry]},
-                    'depends': {'fabric-api': '*', 'thenathe_mod_suite': '*'}}
+                    'depends': {'fabric-api': '*', 'vpp_mod_suite': '*'}}
         with zipfile.ZipFile(fixtures / (side + '.jar'), 'w') as archive:
             if side == 'client':
                 metadata['mixins'] = ['suite-map-render-qa.mixins.json']

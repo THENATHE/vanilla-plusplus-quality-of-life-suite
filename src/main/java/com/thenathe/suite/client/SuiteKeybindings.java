@@ -10,7 +10,7 @@ import net.minecraft.resources.Identifier;
 public final class SuiteKeybindings {
     private static final Identifier CATEGORY_ID = Identifier.fromNamespaceAndPath(SuiteSettings.SCOPE, "settings");
     public static final KeyMapping OPEN_SETTINGS = new KeyMapping(
-            "key.thenathe_mod_suite.open_settings", InputConstants.Type.KEYBOARD,
+            "key.vpp_mod_suite.open_settings", InputConstants.Type.KEYBOARD,
             InputConstants.UNKNOWN.getValue(), new KeyMapping.Category(CATEGORY_ID));
     private static boolean initialized;
     private SuiteKeybindings() {}

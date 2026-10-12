@@ -423,18 +423,29 @@ public final class PickupQa implements ModInitializer {
             }
             try (var zip = new java.util.zip.ZipFile("qa-wrench-resource-pack.zip")) {
                 for (String name : List.of("pouch_magnet", "pouch_collector")) {
-                    String texture = "assets/thenathe_mod_suite/textures/item/" + name + ".png";
+                    String texture = "assets/vpp_mod_suite/textures/item/" + name + ".png";
                     qa.check(zip.getEntry(texture) != null, "Generated pack contains upgrade sprite " + name);
                     try (var input = zip.getInputStream(zip.getEntry(texture))) {
                         var image = javax.imageio.ImageIO.read(input);
                         qa.check(image.getWidth() == 16 && image.getHeight() == 16, "Generated upgrade sprite exactly16x16");
+                        int minX = 16, minY = 16, maxX = -1, maxY = -1;
                         for (int y = 0; y < 16; y++) for (int x = 0; x < 16; x++) {
                             int alpha = image.getRGB(x, y) >>> 24;
                             qa.check(alpha == 0 || alpha == 255, "Sprite pixels are locked opaque/transparent");
+                            if (alpha != 0) {
+                                minX = Math.min(minX, x);
+                                minY = Math.min(minY, y);
+                                maxX = Math.max(maxX, x);
+                                maxY = Math.max(maxY, y);
+                            }
+                        }
+                        if (name.equals("pouch_collector")) {
+                            qa.check(maxX - minX + 1 >= 12 && maxY - minY + 1 >= 12,
+                                    "Collector artwork fills at least12x12 of its16x16 item sprite");
                         }
                     }
-                    qa.check(zip.getEntry("assets/thenathe_mod_suite/items/" + name + ".json") != null, "Pack contains upgrade item definition");
-                    qa.check(zip.getEntry("assets/thenathe_mod_suite/models/item/" + name + ".json") != null, "Pack contains upgrade model");
+                    qa.check(zip.getEntry("assets/vpp_mod_suite/items/" + name + ".json") != null, "Pack contains upgrade item definition");
+                    qa.check(zip.getEntry("assets/vpp_mod_suite/models/item/" + name + ".json") != null, "Pack contains upgrade model");
                 }
             }
             qa.record("fallback-upgrade-models-roundtrip-and-fixed16-pack");

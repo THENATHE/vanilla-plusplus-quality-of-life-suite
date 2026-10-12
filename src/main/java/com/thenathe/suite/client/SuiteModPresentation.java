@@ -4,7 +4,7 @@ import java.util.Set;
 
 /** Display-only grouping; Fabric identities and gameplay registrations stay intact. */
 public final class SuiteModPresentation {
-    public static final String SUITE_ID = "thenathe_mod_suite";
+    public static final String SUITE_ID = "vpp_mod_suite";
 
     private static final Set<String> CHILDREN = Set.of(
             "sso_backpack_toolpouch_mapstitch_shim", "chalk_polymer_compat",

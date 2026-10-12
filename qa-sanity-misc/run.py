@@ -34,7 +34,7 @@ fixtures={}
 for kind,entry in [('misc','qa.MiscSdiQa')]:
  jar=RUN/(kind+'.jar');fixtures[kind]=jar
  with zipfile.ZipFile(jar,'w',zipfile.ZIP_DEFLATED) as z:
-  z.writestr('fabric.mod.json',json.dumps({'schemaVersion':1,'id':'suite_'+kind+'_qa','version':'1','environment':'server','entrypoints':{'main':[entry]},'depends':{'thenathe_mod_suite':'*','fabric-api':'*'}}))
+  z.writestr('fabric.mod.json',json.dumps({'schemaVersion':1,'id':'suite_'+kind+'_qa','version':'1','environment':'server','entrypoints':{'main':[entry]},'depends':{'vpp_mod_suite':'*','fabric-api':'*'}}))
   for p in classes.rglob('*.class'):z.write(p,p.relative_to(classes))
 if args.prepare_only:
  print('Prepared miscellaneous gameplay fixture successfully');sys.exit(0)

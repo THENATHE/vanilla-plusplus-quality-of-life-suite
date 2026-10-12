@@ -68,7 +68,7 @@ def main():
     subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac', '--release', '25', '-proc:none', '-implicit:none', '-cp', os.pathsep.join(map(str, dict.fromkeys(paths))), '-d', str(classes), *map(str, sources)], check=True)
     observer = fixture / 'pouch-utilities-qa.jar'
     with zipfile.ZipFile(observer, 'w', zipfile.ZIP_DEFLATED) as archive:
-        archive.writestr('fabric.mod.json', json.dumps({'schemaVersion': 1, 'id': 'suite_pouch_utilities_qa', 'version': '1', 'environment': 'server', 'entrypoints': {'main': ['qa.pickup.PickupQa']}, 'depends': {'fabric-api': '*', 'thenathe_mod_suite': '*'}}))
+        archive.writestr('fabric.mod.json', json.dumps({'schemaVersion': 1, 'id': 'suite_pouch_utilities_qa', 'version': '1', 'environment': 'server', 'entrypoints': {'main': ['qa.pickup.PickupQa']}, 'depends': {'fabric-api': '*', 'vpp_mod_suite': '*'}}))
         for path in classes.rglob('*.class'):
             archive.write(path, path.relative_to(classes))
     if args.compile_only:

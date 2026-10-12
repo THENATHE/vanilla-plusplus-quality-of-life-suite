@@ -22,7 +22,7 @@
     "java": ">=25",
     "fabricloader": ">=0.19.5",
     "fabric-api": ">=0.161.0+26.3",
-    "thenathe_mod_suite": "*",
+    "vpp_mod_suite": "*",
     "sensible_stackables": "=3.1.1"
   },
   "suggests": {
@@ -30,7 +30,7 @@
   },
   "custom": {
     "modmenu": {
-      "parent": "thenathe_mod_suite"
+      "parent": "vpp_mod_suite"
     }
   }
 }

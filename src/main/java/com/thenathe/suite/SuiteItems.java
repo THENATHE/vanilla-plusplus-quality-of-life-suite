@@ -23,20 +23,20 @@ public final class SuiteItems {
     private SuiteItems() {}
 
     private static Item create(String path, String name) {
-        var id = Identifier.fromNamespaceAndPath("thenathe_mod_suite", path);
+        var id = Identifier.fromNamespaceAndPath("vpp_mod_suite", path);
         List<Component> help = path.equals("pouch_magnet")
-                ? List.of(Component.translatableWithFallback("tooltip.thenathe_mod_suite.magnet", "Put in your Tool Pouch: 6-block pickup range."))
-                : List.of(Component.translatableWithFallback("tooltip.thenathe_mod_suite.collector", "Put in your Tool Pouch: collect into your backpack."),
-                        Component.translatableWithFallback("tooltip.thenathe_mod_suite.toggle", "Toggle with your pickup hotkey or /suite-pickup."));
+                ? List.of(Component.translatableWithFallback("tooltip.vpp_mod_suite.magnet", "Put in your Tool Pouch: 6-block pickup range."))
+                : List.of(Component.translatableWithFallback("tooltip.vpp_mod_suite.collector", "Put in your Tool Pouch: collect into your backpack."),
+                        Component.translatableWithFallback("tooltip.vpp_mod_suite.toggle", "Toggle with your backpack pickup hotkey."));
         return new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id))
                 .stacksTo(1).component(DataComponents.ITEM_NAME,
-                        Component.translatableWithFallback("item.thenathe_mod_suite." + path, name))
+                        Component.translatableWithFallback("item.vpp_mod_suite." + path, name))
                 .component(DataComponents.LORE, new ItemLore(help)));
     }
 
     public static void initialize() {
-        Registry.register(BuiltInRegistries.ITEM, Identifier.parse("thenathe_mod_suite:pouch_magnet"), POUCH_MAGNET);
-        Registry.register(BuiltInRegistries.ITEM, Identifier.parse("thenathe_mod_suite:pouch_collector"), POUCH_COLLECTOR);
+        Registry.register(BuiltInRegistries.ITEM, Identifier.parse("vpp_mod_suite:pouch_magnet"), POUCH_MAGNET);
+        Registry.register(BuiltInRegistries.ITEM, Identifier.parse("vpp_mod_suite:pouch_collector"), POUCH_COLLECTOR);
         if (FabricLoader.getInstance().isModLoaded("polymer-core")
                 && FabricLoader.getInstance().isModLoaded("polymer-resource-pack")) {
             SuiteItemPolymer.initialize();

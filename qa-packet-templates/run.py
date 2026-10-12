@@ -41,7 +41,7 @@ patched=next((project_path(WORKSPACE,'SSO-backpack-toolpouch-mapstitch-shim')/'.
 subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(map(str,dict.fromkeys(paths))),'-d',str(classes),*map(str,sourcefiles)],check=True)
 fixture=RUN/'packet-templates-qa.jar'
 with zipfile.ZipFile(fixture,'w',zipfile.ZIP_DEFLATED) as z:
- z.writestr('fabric.mod.json',json.dumps({'schemaVersion':1,'id':'suite_packet_templates_qa','version':'1','environment':'server','entrypoints':{'main':['qa.PacketTemplatesQa']},'depends':{'thenathe_mod_suite':'*','fabric-api':'*'}}))
+ z.writestr('fabric.mod.json',json.dumps({'schemaVersion':1,'id':'suite_packet_templates_qa','version':'1','environment':'server','entrypoints':{'main':['qa.PacketTemplatesQa']},'depends':{'vpp_mod_suite':'*','fabric-api':'*'}}))
  for file in classes.rglob('*.class'):z.write(file,file.relative_to(classes))
 results={'bundle_sha256':sha(bundle),'fixture_sha256':sha(fixture),'qa_sources':{str(x.relative_to(RUN)):sha(x) for x in sourcefiles},'runner_sha256':sha(RUN/'runner-snapshot.py'),'passed':False,'cases':[]}
 try:

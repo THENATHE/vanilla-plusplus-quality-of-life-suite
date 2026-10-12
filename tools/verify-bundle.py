@@ -3,7 +3,7 @@
 import hashlib,io,json,re,sys,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-path=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.2.0+26.3.jar'
+path=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.2.1+26.3.jar'
 locks=json.loads((ROOT/'locks/artifacts.json').read_text())
 def declared_version(build):
     versions=re.findall(r"^version\s*=\s*['\"]([^'\"]+)['\"]", build.read_text(), re.MULTILINE)
@@ -16,7 +16,7 @@ component_versions={
 with zipfile.ZipFile(path) as archive:
     assert archive.testzip() is None
     meta=json.loads(archive.read('fabric.mod.json'))
-    assert meta['id']=='thenathe_mod_suite' and meta['version']==declared_version(ROOT/'build.gradle')
+    assert meta['id']=='vpp_mod_suite' and meta['version']==declared_version(ROOT/'build.gradle')
     assert 'defaulted' not in meta['depends']
     component_versions['sensible_stackables'] = next(x['version'] for x in locks if x['id']=='sensible_stackables')
     for required in ['mapstitch_mixed_scales','sensible_stackables','sensible_stackables_polymer_compat','bannerpoint_polymer_compat']:

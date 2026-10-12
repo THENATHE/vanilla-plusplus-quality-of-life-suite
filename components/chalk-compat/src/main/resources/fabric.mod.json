@@ -17,7 +17,7 @@
     "java": ">=25",
     "fabricloader": ">=0.19.5",
     "fabric-api": "*",
-    "thenathe_mod_suite": "*"
+    "vpp_mod_suite": "*"
   },
   "entrypoints": {
     "main": [
@@ -35,7 +35,7 @@
   },
   "custom": {
     "modmenu": {
-      "parent": "thenathe_mod_suite"
+      "parent": "vpp_mod_suite"
     }
   }
 }

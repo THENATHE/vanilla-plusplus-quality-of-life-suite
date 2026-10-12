@@ -1,10 +1,12 @@
 # Provenance and compatibility tracks
 
-Release **1.2.0+26.3** adds root-authored pouch upgrades and integrates THENATHE’s existing Debug Wrench while preserving all 18 nested original/compatibility modules and the exact external runtime library set. Combined compatibility advances to **1.2.0+26.3** to share the updated suite/root-wrench capability fingerprints. The mixed-scale addon advances to **1.1.6+26.3** to synchronize its exact coordinator dependency; its existing atlas features remain intact. New pickup items use `thenathe_mod_suite:pouch_magnet` and `thenathe_mod_suite:pouch_collector`; the wrench retains `debugwrench:debug_wrench` and its original crafting/advancement namespace.
+The local **1.2.1+26.3** update changes the collector artwork and toggle tooltip, and renames the authored root mod ID and item/protocol/config namespace to `vpp_mod_suite`. The items are `vpp_mod_suite:pouch_magnet` and `vpp_mod_suite:pouch_collector`; the wrench retains `debugwrench:debug_wrench` and its original crafting/advancement namespace. No conversion or migration from the old root namespace is included, at the user's request for this testing setup.
+
+Combined compatibility advances to **1.2.1+26.3** for the root capability change. The mixed-scale addon advances to **1.1.7+26.3** to synchronize its exact coordinator dependency; existing atlas features remain intact. The original developer inputs and exact external runtime library set remain unchanged. The new basket output is preserved as `artwork/generated/pouch_collector-1.2.1.png`; its nearest-neighbor runtime texture occupies 14×14 pixels inside a fixed 16×16 canvas. Matching native clients see hotkey help, and unsupported clients receive command help through the existing Polymer projection.
 
 The Debug Wrench gameplay source is adapted from the local standalone **1.0.4+26.3** source under `Minecraft/polymer-debug-wrench/`. Its original recipe and advancement are retained; its adaptive-resolution cosmetic implementation is replaced with a single fixed 16×16 sprite. The standalone source and historical JARs remain preserved and the standalone installation is retired. Source lives in `src/main/java/com/thenathe/suite/wrench/`; upgrade logic lives in `src/main/java/com/thenathe/suite/pickup/`. Artwork generation provenance is retained under `artwork/`.
 
-The target remains Minecraft **26.3**, Fabric Loader **0.19.5** and Java **25+**. Official SSO **2.10.0**, MapStitch **1.1.7**, Tool Pouch **1.1.10**, Tiered Backpacks **1.0.20**, Sensible Stackables **3.1.1** and Bannerpoint **1.1.2** remain the developer-release inputs. No additional upstream port is created. The independent ChatGPT SSO-port track remains paused and is neither built nor tested. [Release instructions](RELEASE_1_2_0.md), [executed validation](VALIDATION.md).
+The target remains Minecraft **26.3**, Fabric Loader **0.19.5** and Java **25+**. Official SSO **2.10.0**, MapStitch **1.1.7**, Tool Pouch **1.1.10**, Tiered Backpacks **1.0.20**, Sensible Stackables **3.1.1** and Bannerpoint **1.1.2** remain the developer-release inputs. No additional upstream port is created. The independent ChatGPT SSO-port track remains paused and is neither built nor tested. [Local release instructions](RELEASE_1_2_1.md). Compilation/archive and focused dedicated, physical-client, singleplayer and settings checks pass for the new JAR; installation ZIP verification passes all 13 checks. [Validation](VALIDATION.md) preserves executed historical evidence.
 
 ## Historical 1.1.6 source record
 
@@ -42,17 +44,17 @@ The [2026-10-06 publisher audit](pajic-release-audit-2026-10-06.json) distinguis
 
 | Component | Suite version | Baseline / record |
 | --- | --- | --- |
-| Combined compatibility | 1.1.1+26.3 | Original standalone Multi-Shim 1.0.5+26.3; components/combined-compat/ORIGIN.json |
+| Combined compatibility | 1.2.1+26.3 | Original standalone Multi-Shim 1.0.5+26.3; components/combined-compat/ORIGIN.json |
 | Chalk compatibility | 1.1.1-suite.1+26.3 | Original standalone Chalk shim 1.1.0+26.3; components/chalk-compat/ORIGIN.json |
 | Shared Region Maps | 1.0.5-combo.1+mc26.3 | Original local 1.0.3, commit 338270a70c14be19ba79b535b40fac980e414470; components/shared-region-maps/upstream-manifest.json |
 | Tool Pouch atlas/Elytra addon | 1.0.9-suite.1+26.3 | Original local 1.0.4; components/toolpouch-atlas-elytra/upstream-manifest.json |
-| Mixed-scale MapStitch addon | 1.1.5+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
+| Mixed-scale MapStitch addon | 1.1.7+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
 | Sensible Stackables historical port (not nested) | 3.0.3-port.1+26.3 | Preserved published 3.0.3+26.2 baseline and independent port source/dependency records in components/sensible-stackables/ |
 | Sensible Stackables Polymer compatibility | 1.0.2+26.3 | Separate components/sensible-stackables/compat module |
 | Bannerpoint compatibility | 1.0.1+26.3 | Separate components/bannerpoint-compat module; original artwork notices and client/pack detection retained. Reconciles map-linked tracking after multiscale atlas edits through the internal addon event. |
-| Suite root / settings | 1.1.6+26.3 | Newly authored source in src/ |
+| Suite root / settings | 1.2.1+26.3 | Newly authored source in src/ |
 
-The production archive retains these original module IDs and embeds each module separately. Original standalone repositories and versioned releases remain available; the suite variants do not overwrite them.
+The archive retains original feature module IDs and embeds each module separately. The authored root ID is `vpp_mod_suite` from 1.2.1 onward. Original standalone repositories and versioned releases remain available; the suite variants do not overwrite them.
 
 ## Private official SSO release and paused port track
 

@@ -1,10 +1,12 @@
 # Source map and updating upstream modules
 
-The active stable source is at `Minecraft/thenathe-mod-suite/`, branch `main`, suite **1.2.0+26.3**. The earlier Bannerpoint and atlas/stackables testing releases remain historical references. Stable release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.2.0+26.3/`; preserve earlier testing-component release folders rather than relabeling their artifacts. The public repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. The internal suite mod ID and protocol/config namespace remain `thenathe_mod_suite`; branding does not rename original mod IDs or saved configuration keys.
+The active source is at `Minecraft/thenathe-mod-suite/`, branch `main`, with local update **1.2.1+26.3**. Local release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.2.1+26.3/`. This update has not been published. Preserve older release files and their evidence.
+
+The repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. From 1.2.1 onward, the authored root mod ID and item/protocol/config namespace use `vpp_mod_suite`. No conversion or migration is included, as requested for the testing setup. Original feature mod IDs, original mod configuration files and the Debug Wrench ID remain unchanged.
 
 ## Where things live
 
-Release **1.2.0+26.3** keeps Stackables compatibility **1.0.2+26.3** and adds root pickup utilities and an integrated Debug Wrench. Original publisher inputs and external dependencies remain unchanged. See the [release guide](RELEASE_1_2_0.md) and [validation](VALIDATION.md) for exact evidence.
+Local update **1.2.1+26.3** enlarges the collector sprite and separates native hotkey help from fallback command help. Combined compatibility is **1.2.1+26.3**, the mixed-scale addon is **1.1.7+26.3**, and Stackables compatibility remains **1.0.2+26.3**. Exact publisher inputs and external dependencies remain unchanged. See the [release guide](RELEASE_1_2_1.md) for current verification status and [validation](VALIDATION.md) for historical evidence.
 
 | Path | Purpose |
 | --- | --- |
@@ -65,7 +67,7 @@ The historical projects outside this suite remain preserved. Consolidated local 
 8. Recheck atlas banner interaction against the original MapStitch `tryMarkBanner`/map toggle path and Bannerpoint’s map-linked transmission hook. Keep the all-enabled-layer operation in the separate mixed-scale addon; preserve current-dimension/coverage filtering, add/remove consistency, original map data and the rule that marking spends no blanks.
 9. For Bannerpoint, compare its published waypoint connection and naming code, original channel ID, style JSON/sprites and saved-banner lifecycle against `components/bannerpoint-compat/`. Preserve player waypoints and native clients; test Polymer pack success, decline, failure and removal separately. Refresh the original Bannerpoint resources included in the generated pack without modifying the official JAR.
 10. Update the nested JAR metadata list, locks/artifacts.json, attribution, source manifests and version. Build, verify archive integrity/nested IDs/dependencies, then run the focused profiles against the final hash. Perform the manual feature checks in docs/VALIDATION.md.
-11. Package the release under the required versioned build hierarchy, record checksums, and publish the standalone repository/release after actual compatibility verification. Older Minecraft releases are retained.
+11. Package the release under the required versioned build hierarchy, record checksums, and publish the standalone repository/release only when authorized and after actual compatibility verification. Older Minecraft releases are retained.
 
 ## Compatibility tracks
 
@@ -83,19 +85,19 @@ Root `locks/artifacts.json` is the authority for staged input bytes, including t
 
 The atlas/Elytra component uses the same staged root inputs as the other suite projects. Its optional ClientSort integration also requires the exact ClientSort 3.104.1+26.3 JAR at compile time. The lock records its SHA-256 and [official version](https://modrinth.com/mod/clientsort/version/UWMryUad). Supply it in `--inputs`, or add `--download-public` to staging to fetch missing publicly downloadable inputs with recorded URLs and verify their hashes. ClientSort is staged under `libs/compile-only/`; it is neither bundled nor installed by the suite QA runtime profiles. ClientSort remains an optional separately installed runtime integration. No component-local `libs` directory is needed for a suite build.
 
-## Rebuilding a public checkout from release inputs
+## Rebuilding a checkout from release inputs
 
-Download the suite JAR and `vanilla-plusplus-installation-pack-1.2.0+26.3.zip` from the public release, and extract the installation ZIP into an input directory. The kit includes the suite and exact CodecUI file under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Compile-only Defaulted remains a separate historical input: retrieve the exact locked dropfix from retained prior-release inputs when building its optional compatibility hook; do not install it merely to build current runtime profiles. Run:
+Use the local suite JAR and `vanilla-plusplus-installation-pack-1.2.1+26.3.zip`, or the published 1.2.0 baseline when supplying unchanged original inputs, and extract the installation ZIP into an input directory. The kit includes the suite and exact CodecUI file under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Compile-only Defaulted remains a separate historical input: retrieve the exact locked dropfix from retained prior-release inputs when building its optional compatibility hook; do not install it merely to build current runtime profiles. Run:
 
 ```sh
-python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.2.0+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
+python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.2.1+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
 ```
 
 The script verifies the outer release hash and recursively stages only original inputs matching the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It rejects unavailable or mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs. The release has no separate local-library ZIP or uploaded tracked-source archive; use the repository or GitHub’s generated source download for the working checkout.
 
 For installation-kit packaging, run `python3 tools/stage-installation.py`. It stages permitted publisher binaries under ignored `libs/installation/` and corresponding source/license inputs from `docs/dependency-distribution.lock.json`, verifying their locked sizes and hashes. Fzzy remains an official manifest download and must never be staged into the distribution. This installation cache is separate from normal compile/runtime inputs.
 
-After changing source, build and run the applicable checks. Update the build and validation records with the exact tested hash, rebuild and test the installation ZIP, then commit source/docs/evidence. Run `python3 tools/package-release.py` from a clean committed checkout. It creates exactly four public assets: `README.md`, the installable suite JAR, `docs.zip` and the installation ZIP, with local checksums/publication records alongside them. A new version requires updated metadata/locks/verification and a new tag; preserve older releases. Follow [RELEASE_WORKFLOW.md](RELEASE_WORKFLOW.md) for exact staging, installation checks and publication requirements.
+After changing source, build and run the applicable checks. Update the build and validation records with the exact tested hash, rebuild and test the installation ZIP, then commit source/docs/evidence. Run `python3 tools/package-release.py` from a clean committed checkout. It creates exactly four public assets: `README.md`, the installable suite JAR, `docs.zip` and the installation ZIP, with local checksums/publication records alongside them. A new version requires updated metadata/locks/verification; add its release tag when publication is authorized. Preserve older releases. Follow [RELEASE_WORKFLOW.md](RELEASE_WORKFLOW.md) for exact staging, installation checks and publication requirements.
 
 ### Pouch Elytra durability and repair
 

@@ -31,7 +31,7 @@ import java.util.function.Consumer;
 
 /** One connection-local capability decision, independent of optional original mod classes. */
 public final class SuiteCapabilities {
-    public static final List<String> MODULES = List.of("mapstitch", "simple_smithing_overhaul", "tiered_backpacks", "toolpouch", "chalk", "misctweaks", "simple_death_improvements", "shared_region_maps", "amethyst_curse_cleanser", "toolpouch_atlas_elytra_compat", "sensible_stackables", "thenathe_mod_suite", "debugwrench");
+    public static final List<String> MODULES = List.of("mapstitch", "simple_smithing_overhaul", "tiered_backpacks", "toolpouch", "chalk", "misctweaks", "simple_death_improvements", "shared_region_maps", "amethyst_curse_cleanser", "toolpouch_atlas_elytra_compat", "sensible_stackables", "vpp_mod_suite", "debugwrench");
     private static final List<java.util.function.Consumer<PacketContext>> RESETS = new java.util.ArrayList<>();
     private static boolean initialized, clientInitialized;
     public static void onConnectionReset(java.util.function.Consumer<PacketContext> reset) { RESETS.add(reset); }
@@ -52,9 +52,9 @@ public final class SuiteCapabilities {
         net.fabricmc.fabric.api.client.networking.v1.ClientConfigurationNetworking.registerGlobalReceiver(Decision.TYPE, (decision, context) -> context.packetContext().set(MODULES_KEY, Set.copyOf(decision.modules())));
     }
     private static final PacketContext.Key<Set<String>> MODULES_KEY = PacketContext.key(
-            Identifier.parse("thenathe_mod_suite:native_modules"));
+            Identifier.parse("vpp_mod_suite:native_modules"));
     private static final PacketContext.Key<Boolean> QUERY_PENDING = PacketContext.key(
-            Identifier.parse("thenathe_mod_suite:querying_play_channels"));
+            Identifier.parse("vpp_mod_suite:querying_play_channels"));
     private static final Set<Identifier> TOOLPOUCH_CHANNELS = Set.of(
             Identifier.parse("toolpouch:s2c_sync_shulker_slot"),
             Identifier.parse("toolpouch:s2c_sync_arrow_slot"));
@@ -65,10 +65,10 @@ public final class SuiteCapabilities {
             Identifier.parse("mapstitch:s2c_play_sound"));
 
     private static final PacketContext.Key<List<String>> FINGERPRINTS = PacketContext.key(
-            Identifier.parse("thenathe_mod_suite:module_fingerprints"));
+            Identifier.parse("vpp_mod_suite:module_fingerprints"));
     private static final PacketContext.Key<String> NONCE = PacketContext.key(
-            Identifier.parse("thenathe_mod_suite:negotiation_nonce"));
-    private static final ConfigurationTask.Type NEGOTIATE = new ConfigurationTask.Type("thenathe_mod_suite:negotiate");
+            Identifier.parse("vpp_mod_suite:negotiation_nonce"));
+    private static final ConfigurationTask.Type NEGOTIATE = new ConfigurationTask.Type("vpp_mod_suite:negotiate");
     private SuiteCapabilities() {}
 
     /** Payload codecs are neutral: client loading needs neither originals nor Polymer. */
@@ -123,14 +123,14 @@ public final class SuiteCapabilities {
     }
 
     public record Offer(String nonce) implements CustomPacketPayload {
-        public static final Type<Offer> TYPE = new Type<>(Identifier.parse("thenathe_mod_suite:offer_v3"));
+        public static final Type<Offer> TYPE = new Type<>(Identifier.parse("vpp_mod_suite:offer_v3"));
         public static final StreamCodec<FriendlyByteBuf, Offer> CODEC = StreamCodec.of(
                 (buf, value) -> buf.writeUtf(value.nonce(), 36), buf -> new Offer(buf.readUtf(36)));
         public Type<Offer> type() { return TYPE; }
     }
 
     public record Reply(String nonce, List<String> fingerprints) implements CustomPacketPayload {
-        public static final Type<Reply> TYPE = new Type<>(Identifier.parse("thenathe_mod_suite:reply_v3"));
+        public static final Type<Reply> TYPE = new Type<>(Identifier.parse("vpp_mod_suite:reply_v3"));
         public static final StreamCodec<FriendlyByteBuf, Reply> CODEC = StreamCodec.of((buf, value) -> {
             buf.writeUtf(value.nonce(), 36);
             for (String fingerprint : value.fingerprints()) buf.writeUtf(fingerprint, 64);
@@ -182,18 +182,18 @@ public final class SuiteCapabilities {
     }
 
     private static List<String> dependencies(String mod) {
-        if (mod.equals("debugwrench") || mod.equals("thenathe_mod_suite")) return List.of("thenathe_mod_suite");
-        if (mod.equals("mapstitch")) return List.of(mod, "mapstitch_mixed_scales", "toolpouch_atlas_elytra_compat", "shared_region_maps", "sso_backpack_toolpouch_mapstitch_shim", "thenathe_mod_suite");
-        if (mod.equals("sensible_stackables")) return List.of(mod, "sensible_stackables_polymer_compat", "fzzy_config", "thenathe_mod_suite");
-        if (mod.equals("chalk")) return List.of(mod, "chalk-colorful-addon", "chalk_polymer_compat", "thenathe_mod_suite");
-        if (mod.equals("toolpouch")) return List.of(mod, "toolpouch_atlas_elytra_compat", "sso_backpack_toolpouch_mapstitch_shim", "thenathe_mod_suite");
-        return List.of(mod, "sso_backpack_toolpouch_mapstitch_shim", "thenathe_mod_suite");
+        if (mod.equals("debugwrench") || mod.equals("vpp_mod_suite")) return List.of("vpp_mod_suite");
+        if (mod.equals("mapstitch")) return List.of(mod, "mapstitch_mixed_scales", "toolpouch_atlas_elytra_compat", "shared_region_maps", "sso_backpack_toolpouch_mapstitch_shim", "vpp_mod_suite");
+        if (mod.equals("sensible_stackables")) return List.of(mod, "sensible_stackables_polymer_compat", "fzzy_config", "vpp_mod_suite");
+        if (mod.equals("chalk")) return List.of(mod, "chalk-colorful-addon", "chalk_polymer_compat", "vpp_mod_suite");
+        if (mod.equals("toolpouch")) return List.of(mod, "toolpouch_atlas_elytra_compat", "sso_backpack_toolpouch_mapstitch_shim", "vpp_mod_suite");
+        return List.of(mod, "sso_backpack_toolpouch_mapstitch_shim", "vpp_mod_suite");
     }
     private static boolean owns(String mod, Identifier id) {
         return id.getNamespace().equals(mod) || (mod.equals("chalk") && id.getNamespace().equals("chalk_polymer_compat"));
     }
     public record Decision(List<String> modules) implements CustomPacketPayload {
-        public static final Type<Decision> TYPE = new Type<>(Identifier.parse("thenathe_mod_suite:decision_v3"));
+        public static final Type<Decision> TYPE = new Type<>(Identifier.parse("vpp_mod_suite:decision_v3"));
         public static final StreamCodec<FriendlyByteBuf, Decision> CODEC = StreamCodec.of((buf, value) -> {
             for (String mod : MODULES) buf.writeBoolean(value.modules().contains(mod));
         }, buf -> {
@@ -205,7 +205,7 @@ public final class SuiteCapabilities {
     }
 
     private static boolean loaded(String modId) {
-        return FabricLoader.getInstance().isModLoaded(modId.equals("debugwrench") ? "thenathe_mod_suite" : modId);
+        return FabricLoader.getInstance().isModLoaded(modId.equals("debugwrench") ? "vpp_mod_suite" : modId);
     }
 
     /** Reuse Fabric's existing common protocol once, before native registry selection. */
@@ -252,7 +252,7 @@ public final class SuiteCapabilities {
     }
 
     private record DeferredRegistryTask(ServerConfigurationPacketListenerImpl listener, Runnable configure) implements ConfigurationTask {
-        private static final Type TYPE = new Type("thenathe_mod_suite:prepare_registry_sync");
+        private static final Type TYPE = new Type("vpp_mod_suite:prepare_registry_sync");
         @Override public void start(Consumer<Packet<?>> sender) {
             classify(listener);
             configure.run();

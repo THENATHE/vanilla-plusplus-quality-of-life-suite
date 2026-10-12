@@ -7,7 +7,7 @@ import net.minecraft.resources.Identifier;
 
 public record PickupTogglePayload() implements CustomPacketPayload {
     public static final Type<PickupTogglePayload> TYPE = new Type<>(
-            Identifier.fromNamespaceAndPath("thenathe_mod_suite", "toggle_collector"));
+            Identifier.fromNamespaceAndPath("vpp_mod_suite", "toggle_collector"));
     public static final StreamCodec<RegistryFriendlyByteBuf, PickupTogglePayload> CODEC =
             StreamCodec.unit(new PickupTogglePayload());
 

@@ -4,7 +4,7 @@
 
 ![Vanilla++ modpack artwork](artwork/vanilla-plusplus-modpack.png)
 
-Release **1.2.0** adds a craftable pouch magnet and backpack collector, and includes the Debug Wrench. The upgrades work separately or together with the suite’s existing Tool Pouch and Tiered Backpacks. New item artwork uses fixed 16×16 Minecraft-style sprites. See the [1.2.0 release guide](docs/RELEASE_1_2_0.md).
+The local **1.2.1** update enlarges the backpack collector’s basket artwork and shows the appropriate toggle help for each client: the pickup hotkey with the suite installed, or `/suite-pickup` without it. Pouch magnet, collector and Debug Wrench features remain available. Item artwork uses fixed 16×16 Minecraft-style sprites. See the [1.2.1 release guide](docs/RELEASE_1_2_1.md).
 
 ## What it is
 
@@ -297,7 +297,7 @@ Two suite-authored upgrades use the Tool Pouch and Tiered Backpacks already incl
 - Combine them to collect distant drops straight into the backpack. The magnet works alone with your ordinary inventory, and the collector works alone at normal pickup distance.
 - Bind **Toggle Backpack Collector** in Controls, or use `/suite-pickup`, `/suite-pickup on` and `/suite-pickup off`. Your preference survives reconnects, restarts and respawns. Turning the collector off leaves the magnet active.
 - Preserve pickup delay and item ownership. Full, missing or restricted backpack storage falls back to normal pickup; leftovers stay in inventory or the world. Open pouch/backpack screens suspend the relevant upgrade while they edit their live contents.
-- Use the same server-side behavior with matching suite clients and vanilla clients. The hotkey needs the suite client; vanilla players can use the commands.
+- Use the same server-side behavior with matching suite clients and vanilla clients. The basket tooltip shows the pickup hotkey for matching suite clients and `/suite-pickup` for clients without collector support. Fabric alone does not provide that support.
 
 ### Debug Wrench
 
@@ -350,7 +350,7 @@ The compatibility layer includes:
 
 ## Installation
 
-The [1.2.0 release guide](docs/RELEASE_1_2_0.md) covers the current features, installation and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.2.0%2B26.3) provides four downloads:
+The [1.2.1 release guide](docs/RELEASE_1_2_1.md) covers the current local update, installation and verification status. Local release packages use these four files. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) retains the published 1.2.0 baseline; 1.2.1 has not been published:
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -362,7 +362,7 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Download `vanilla-plusplus-quality-of-life-suite-1.2.0+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.2.0%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
+2. Put the local `vanilla-plusplus-quality-of-life-suite-1.2.1+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, the standalone Polymer Debug Wrench, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
@@ -419,11 +419,13 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.2.0+26.3.jar`.
+The build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.2.1+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 
 ### Changes and testing
+
+The local 1.2.1 JAR passes compilation/archive checks, 1,344 pickup and 272 wrench assertions, four physical connection profiles, singleplayer with/without Polymer, and the settings-only fixture. Native/Fabric clients verify full collector tooltips and record inventory screenshots; unmodified vanilla uses an actual connection and server-side projected-lore evidence without automated vanilla screenshots. All 13 final installation ZIP checks pass. The [1.2.1 guide](docs/RELEASE_1_2_1.md) links the exact fresh evidence.
 
 The [release procedure](docs/RELEASE_WORKFLOW.md) records the standing documentation, four-asset packaging, version-only titles and branch-cleanup conventions.
 

@@ -16,6 +16,6 @@ public abstract class SettingsNavigationButtonMixin {
             target = "Lme/fzzyhmstrs/fzzy_config/screen/widget/custom/CustomButtonWidget$Companion;builder(Lnet/minecraft/network/chat/Component;Ljava/util/function/Consumer;)Lme/fzzyhmstrs/fzzy_config/screen/widget/custom/CustomButtonWidget$Builder;"), index = 0)
     private static Component suite$configureLabel(Component original, @Local(argsOnly = true) EntryCreator.CreatorContext context) {
         return SuiteSettings.isGroupedConfigScope(context.getScope())
-                ? Component.translatable("thenathe_mod_suite.configure") : original;
+                ? Component.translatable("vpp_mod_suite.configure") : original;
     }
 }

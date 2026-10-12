@@ -34,10 +34,10 @@ import java.util.LinkedHashSet;
 
 /** Server-authoritative upgrades use the existing pouch selector and backpack storage. */
 public final class PickupUpgrades {
-    public static final Identifier MAGNET_ID = Identifier.fromNamespaceAndPath("thenathe_mod_suite", "pouch_magnet");
-    public static final Identifier COLLECTOR_ID = Identifier.fromNamespaceAndPath("thenathe_mod_suite", "pouch_collector");
+    public static final Identifier MAGNET_ID = Identifier.fromNamespaceAndPath("vpp_mod_suite", "pouch_magnet");
+    public static final Identifier COLLECTOR_ID = Identifier.fromNamespaceAndPath("vpp_mod_suite", "pouch_collector");
     public static final double MAGNET_RADIUS = 6.0;
-    public static final String DISABLED_TAG = "thenathe_mod_suite:collector_disabled";
+    public static final String DISABLED_TAG = "vpp_mod_suite:collector_disabled";
 
     private static Item magnet;
     private static Item collector;
@@ -97,8 +97,8 @@ public final class PickupUpgrades {
         if (value) player.removeTag(DISABLED_TAG);
         else player.addTag(DISABLED_TAG);
         player.sendOverlayMessage(Component.translatable(value
-                ? "message.thenathe_mod_suite.collector_enabled"
-                : "message.thenathe_mod_suite.collector_disabled"));
+                ? "message.vpp_mod_suite.collector_enabled"
+                : "message.vpp_mod_suite.collector_disabled"));
     }
 
     public static boolean hasMagnet(Player player) {

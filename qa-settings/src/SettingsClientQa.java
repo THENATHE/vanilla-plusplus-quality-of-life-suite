@@ -63,7 +63,7 @@ public final class SettingsClientQa implements ClientModInitializer {
                     c.gui.setScreen(SuiteSettings.create(null));
                     configs=SuiteSettings.collectConfigs();
                     ids=new ArrayList<>(configs.keySet());
-                    var expected=new java.util.HashSet<>(Set.of("simple_smithing_overhaul.config-v2","mapstitch.config","mapstitch.client_config","toolpouch.config","toolpouch.client_config","tiered_backpacks.config","misctweaks.config","misctweaks.client_config","simple_death_improvements.config","thenathe_mod_suite.chalk"));
+                    var expected=new java.util.HashSet<>(Set.of("simple_smithing_overhaul.config-v2","mapstitch.config","mapstitch.client_config","toolpouch.config","toolpouch.client_config","tiered_backpacks.config","misctweaks.config","misctweaks.client_config","simple_death_improvements.config","vpp_mod_suite.chalk"));
                     if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("sensible_stackables")){expected.add("sensible_stackables.config");expected.add("sensible_stackables.client_config");}
                     if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("bannerpoint")){expected.add("bannerpoint.config");expected.add("bannerpoint.client_config");}
                     if(!configs.keySet().equals(expected)) throw new AssertionError("unexpected config keys="+configs.keySet());
@@ -84,13 +84,13 @@ public final class SettingsClientQa implements ClientModInitializer {
                         Map.entry("sensible_stackables.client_config","Sensible Stackables Client Settings"),
                         Map.entry("bannerpoint.config","Bannerpoint Gameplay Settings"),
                         Map.entry("bannerpoint.client_config","Bannerpoint Client Settings"),
-                        Map.entry("thenathe_mod_suite.chalk","Chalk Settings"));
+                        Map.entry("vpp_mod_suite.chalk","Chalk Settings"));
                     for(var entry:configs.entrySet()) {
                         String actual=entry.getValue().getActive().translation(null).getString();
                         if(!expectedLabels.get(entry.getKey()).equals(actual))throw new AssertionError("native configuration title "+entry.getKey()+"="+actual);
                         row("effective native title "+entry.getKey()+"="+actual);
                     }
-                    if(configs.containsKey("thenathe_mod_suite.overview"))throw new AssertionError("fake overview config remains visible");
+                    if(configs.containsKey("vpp_mod_suite.overview"))throw new AssertionError("fake overview config remains visible");
                     row("only functional original configurations and Chalk bridge appear in native root navigation");
                     String packId=SuiteResources.SETTINGS_TITLES.toString();
                     var resourcePack=c.getResourcePackRepository().getPack(packId);
@@ -123,7 +123,7 @@ public final class SettingsClientQa implements ClientModInitializer {
                 if(Boolean.getBoolean("settings.qa.visual")) {
                     if(phase==0) {
                         Screenshot.grab(c.gameDirectory,"suite-settings-overview.png",c.gameRenderer.mainRenderTarget(),1,m->{});
-                        var expectedLabels=Map.of("thenathe_mod_suite","Vanilla++ Quality of Life Suite","misctweaks.config","MiscTweaks Gameplay Settings","misctweaks.client_config","MiscTweaks Client Settings","tiered_backpacks.config","Tiered Backpacks Settings","toolpouch.config","Tool Pouch Gameplay Settings","toolpouch.client_config","Tool Pouch Client Settings");
+                        var expectedLabels=Map.of("vpp_mod_suite","Vanilla++ Quality of Life Suite","misctweaks.config","MiscTweaks Gameplay Settings","misctweaks.client_config","MiscTweaks Client Settings","tiered_backpacks.config","Tiered Backpacks Settings","toolpouch.config","Tool Pouch Gameplay Settings","toolpouch.client_config","Tool Pouch Client Settings");
                         for(var label:expectedLabels.entrySet()) {
                             String actual=net.minecraft.network.chat.Component.translatable(label.getKey()).getString();
                             if(!actual.equals(label.getValue()))throw new AssertionError("effective language label "+label.getKey()+"="+actual);
@@ -156,16 +156,16 @@ public final class SettingsClientQa implements ClientModInitializer {
                 }
                 int action=phase-ids.size()*2;
                 if(action==0 || action==2) {
-                    c.gui.setScreen(manager().provideScreen$fzzy_config("thenathe_mod_suite.chalk"));
-                    toggle("thenathe_mod_suite.chalk","emitParticles",action==2);
-                    manager().provideUpdateManager$fzzy_config("thenathe_mod_suite.chalk").apply(false);
+                    c.gui.setScreen(manager().provideScreen$fzzy_config("vpp_mod_suite.chalk"));
+                    toggle("vpp_mod_suite.chalk","emitParticles",action==2);
+                    manager().provideUpdateManager$fzzy_config("vpp_mod_suite.chalk").apply(false);
                 } else if(action==1 || action==3) {
                     boolean expected=action==3;
                     var holder=AutoConfig.getConfigHolder(ChalkConfig.class);
                     if(holder.getConfig().EmitParticles!=expected)throw new AssertionError("Chalk holder not updated");
                     if(!holder.load() || holder.getConfig().EmitParticles!=expected)throw new AssertionError("original Chalk file did not persist");
                     c.gui.setScreen(SuiteSettings.create(null));configs=SuiteSettings.collectConfigs();
-                    ChalkSettings value=(ChalkSettings)configs.get("thenathe_mod_suite.chalk").getActive();
+                    ChalkSettings value=(ChalkSettings)configs.get("vpp_mod_suite.chalk").getActive();
                     if(value.emitParticles.get()!=expected)throw new AssertionError("Chalk bridge reopen mismatch");
                     if(de.dafuqs.chalk.common.Chalk.CONFIG!=holder.getConfig() || de.dafuqs.chalk.common.Chalk.CONFIG.EmitParticles!=expected)throw new AssertionError("Chalk particle runtime is not the canonical saved object");
                     row("Chalk original AutoConfig saved/reloaded/reopened="+expected);
@@ -274,7 +274,7 @@ public final class SettingsClientQa implements ClientModInitializer {
     void verifyModMenuPresentation() {
         var mods=com.terraformersmc.modmenu.ModMenu.MODS;
         var roots=com.terraformersmc.modmenu.ModMenu.ROOT_MODS;
-        var parent=mods.get("thenathe_mod_suite");
+        var parent=mods.get("vpp_mod_suite");
         if(parent==null || roots.get(parent.getId())!=parent)throw new AssertionError("suite is not a visible Mod Menu root");
         var originals=new java.util.HashSet<>(Set.of("simple_smithing_overhaul","mapstitch","toolpouch","tiered_backpacks","misctweaks","simple_death_improvements","sensible_stackables","chalk"));
         if(net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("bannerpoint"))originals.add("bannerpoint");
@@ -290,7 +290,7 @@ public final class SettingsClientQa implements ClientModInitializer {
         if(!actualChildren.equals(expectedChildren))throw new AssertionError("Mod Menu suite children mismatch: "+actualChildren);
         for(String id:expectedChildren) {
             var mod=mods.get(id);
-            if(mod==null || roots.containsKey(id) || !"thenathe_mod_suite".equals(mod.getParent()))throw new AssertionError("suite component is not nested in Mod Menu: "+id);
+            if(mod==null || roots.containsKey(id) || !"vpp_mod_suite".equals(mod.getParent()))throw new AssertionError("suite component is not nested in Mod Menu: "+id);
         }
         row("Mod Menu nests all eight suite addon/shim entries beneath Vanilla++ Quality of Life Suite");
         if(!mods.get("chalk-colorful-addon").isHidden())throw new AssertionError("Colorful Chalk still shows a separate Mod Menu icon");
@@ -298,8 +298,8 @@ public final class SettingsClientQa implements ClientModInitializer {
         if(!"Vanilla / Polymer Shim".equals(mods.get("sso_backpack_toolpouch_mapstitch_shim").getTranslatedName()))throw new AssertionError("coordinator Mod Menu label was not renamed");
         row("Mod Menu hides only Colorful Chalk and displays coordinator as Vanilla / Polymer Shim");
         var screen=com.terraformersmc.modmenu.ModMenu.getConfigScreen("chalk",new net.minecraft.client.gui.screens.TitleScreen());
-        if(!(screen instanceof ConfigScreen chalkScreen) || !"thenathe_mod_suite.chalk".equals(chalkScreen.getScope()))throw new AssertionError("Chalk Mod Menu config button does not open its real grouped settings");
-        row("actual Chalk Mod Menu factory opens the functional thenathe_mod_suite.chalk settings screen");
+        if(!(screen instanceof ConfigScreen chalkScreen) || !"vpp_mod_suite.chalk".equals(chalkScreen.getScope()))throw new AssertionError("Chalk Mod Menu config button does not open its real grouped settings");
+        row("actual Chalk Mod Menu factory opens the functional vpp_mod_suite.chalk settings screen");
     }
     void row(String text){JsonObject row=new JsonObject();row.addProperty("case",text);row.addProperty("passed",true);observations.add(row);}
     void verifyConfigureButtons(Minecraft client)throws Exception {
@@ -311,13 +311,13 @@ public final class SettingsClientQa implements ClientModInitializer {
             for(var child:entry.children())if(child instanceof CustomButtonWidget button) {
                 if(!button.getMessage().getString().equals("Configure..."))throw new AssertionError("root navigation button label "+key+"="+button.getMessage().getString());
                 found.add(key);
-                if(key.equals("thenathe_mod_suite.chalk"))chalkButton=button;
+                if(key.equals("vpp_mod_suite.chalk"))chalkButton=button;
             }
         }
         if(!found.equals(configs.keySet()))throw new AssertionError("root config buttons missing: "+found);
         if(chalkButton==null || !chalkButton.active)throw new AssertionError("Chalk Configure button unavailable");
         chalkButton.onPress();
-        if(!(client.gui.screen() instanceof ConfigScreen screen) || !screen.getScope().equals("thenathe_mod_suite.chalk"))throw new AssertionError("Configure button changed its original navigation target");
+        if(!(client.gui.screen() instanceof ConfigScreen screen) || !screen.getScope().equals("vpp_mod_suite.chalk"))throw new AssertionError("Configure button changed its original navigation target");
         row("all "+found.size()+" root buttons say Configure... while native titles remain named; original Chalk button opens its correct category");
         client.gui.setScreen(SuiteSettings.create(null));
     }

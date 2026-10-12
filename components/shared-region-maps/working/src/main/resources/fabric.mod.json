@@ -16,7 +16,7 @@
   },
   "custom": {
     "modmenu": {
-      "parent": "thenathe_mod_suite"
+      "parent": "vpp_mod_suite"
     }
   }
 }

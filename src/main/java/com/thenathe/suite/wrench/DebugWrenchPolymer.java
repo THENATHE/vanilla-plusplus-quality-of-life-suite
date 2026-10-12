@@ -23,7 +23,7 @@ final class DebugWrenchPolymer {
     private DebugWrenchPolymer() {}
 
     static void initialize() {
-        PolymerResourcePackUtils.addModAssets("thenathe_mod_suite");
+        PolymerResourcePackUtils.addModAssets("vpp_mod_suite");
         PolymerResourcePackUtils.markAsRequired();
         PolymerItem.registerOverlay(DebugWrench.WRENCH, new WrenchOverlay());
     }

@@ -44,7 +44,7 @@ def main():
         original_language_keys.extend(json.loads(z.read('assets/sensible_stackables/lang/en_us.json')))
     for side in ['client','server']:
         with zipfile.ZipFile(fixtures/f'{side}.jar','w') as z:
-            meta={'schemaVersion':1,'id':'suite_settings_qa_'+side,'version':'1','environment':side,'entrypoints':{'client' if side=='client' else 'main':['suitesettingsqa.Settings'+side.title()+'Qa']},'depends':{'fabric-api':'*','thenathe_mod_suite':'*'}}
+            meta={'schemaVersion':1,'id':'suite_settings_qa_'+side,'version':'1','environment':side,'entrypoints':{'client' if side=='client' else 'main':['suitesettingsqa.Settings'+side.title()+'Qa']},'depends':{'fabric-api':'*','vpp_mod_suite':'*'}}
             z.writestr('fabric.mod.json',json.dumps(meta))
             z.writestr('settings-original-language-keys.json',json.dumps(original_language_keys))
             for file in classes.rglob('*.class'):z.write(file,file.relative_to(classes))
