@@ -1,0 +1,415 @@
+[14:22:58] [main/INFO]: Loading Minecraft 26.3 with Fabric Loader 0.19.5
+[14:22:58] [main/INFO]: Mappings not present!
+[14:22:58] [main/INFO]: Loading 96 mods:
+	- cloth-config 26.3.159
+	   \-- cloth-basic-math 0.6.1
+	- codecui 26.3-1.4.3
+	- fabric-api 0.161.0+26.3
+	   |-- fabric-advancement-api-v1 1.0.0+38c7a2d55d
+	   |-- fabric-api-base 2.0.6+fcdff87f5d
+	   |-- fabric-api-lookup-api-v1 2.0.24+3434d6d95d
+	   |-- fabric-biome-api-v1 20.0.9+74ed1ea55d
+	   |-- fabric-block-api-v1 3.1.0+0ae6f9115d
+	   |-- fabric-block-getter-api-v2 2.0.9+3434d6d95d
+	   |-- fabric-command-api-v2 3.1.2+fcdff87f5d
+	   |-- fabric-content-registries-v0 15.0.4+74ed1ea55d
+	   |-- fabric-convention-tags-v2 4.10.3+6b5b47fd5d
+	   |-- fabric-crash-report-info-v1 1.0.7+fcdff87f5d
+	   |-- fabric-creative-tab-api-v1 5.0.21+fcdff87f5d
+	   |-- fabric-data-attachment-api-v1 2.2.30+3434d6d95d
+	   |-- fabric-data-generation-api-v1 27.2.4+427eab975d
+	   |-- fabric-debug-api-v1 1.0.4+3434d6d95d
+	   |-- fabric-dimensions-v1 5.1.19+47f74c985d
+	   |-- fabric-entity-events-v1 6.0.4+3434d6d95d
+	   |-- fabric-events-interaction-v0 5.3.6+3434d6d95d
+	   |-- fabric-game-rule-api-v1 4.0.10+3434d6d95d
+	   |-- fabric-item-api-v1 14.7.0+cf6bc2db5d
+	   |-- fabric-lifecycle-events-v1 4.1.9+ffef5f675d
+	   |-- fabric-loot-api-v3 4.0.8+4068fd645d
+	   |-- fabric-menu-api-v1 2.0.27+ed66f0a35d
+	   |-- fabric-message-api-v1 7.0.10+3434d6d95d
+	   |-- fabric-networking-api-v1 6.3.8+fcdff87f5d
+	   |-- fabric-object-builder-api-v1 24.1.9+3434d6d95d
+	   |-- fabric-particles-v1 5.0.24+3434d6d95d
+	   |-- fabric-permission-api-v1 1.0.8+fcdff87f5d
+	   |-- fabric-recipe-api-v1 10.0.8+fcdff87f5d
+	   |-- fabric-registry-sync-v0 8.0.1+fcdff87f5d
+	   |-- fabric-rendering-fluids-v1 6.0.6+3434d6d95d
+	   |-- fabric-resource-conditions-api-v1 6.1.5+3434d6d95d
+	   |-- fabric-resource-loader-v0 3.3.26+4fc5413f5d
+	   |-- fabric-resource-loader-v1 3.0.4+fcdff87f5d
+	   |-- fabric-serialization-api-v1 2.0.7+74ed1ea55d
+	   |-- fabric-tag-api-v1 2.1.10+fcdff87f5d
+	   |-- fabric-transfer-api-v1 8.0.25+fcdff87f5d
+	   \-- fabric-transitive-access-wideners-v1 8.1.16+52268a0e5d
+	- fabric-language-kotlin 1.14.1+kotlin.2.4.20
+	   |-- org_jetbrains_kotlin_kotlin-reflect 2.4.20
+	   |-- org_jetbrains_kotlin_kotlin-stdlib-jdk7 2.4.20
+	   |-- org_jetbrains_kotlin_kotlin-stdlib-jdk8 2.4.20
+	   |-- org_jetbrains_kotlinx_atomicfu-jvm 0.33.0
+	   |-- org_jetbrains_kotlinx_kotlinx-coroutines-core-jvm 1.11.0
+	   |-- org_jetbrains_kotlinx_kotlinx-coroutines-jdk8 1.11.0
+	   |-- org_jetbrains_kotlinx_kotlinx-datetime-jvm 0.8.0
+	   |-- org_jetbrains_kotlinx_kotlinx-io-bytestring-jvm 0.9.1
+	   |-- org_jetbrains_kotlinx_kotlinx-io-core-jvm 0.9.1
+	   |-- org_jetbrains_kotlinx_kotlinx-serialization-cbor-jvm 1.11.0
+	   |-- org_jetbrains_kotlinx_kotlinx-serialization-core-jvm 1.11.0
+	   \-- org_jetbrains_kotlinx_kotlinx-serialization-json-jvm 1.11.0
+	- fabricloader 0.19.5
+	   \-- mixinextras 0.5.5
+	- fzzy_config 0.7.7+fix3+26.3
+	   |-- blue_endless_jankson 1.2.3
+	   |-- fabric-permissions-api-v0 0.7.0
+	   \-- net_peanuuutz_tomlkt_tomlkt-jvm 0.3.7
+	- java 25
+	- minecraft 26.3
+	- mixson 2.2.1
+	- org_jetbrains_kotlin_kotlin-stdlib 2.4.20
+	- polymer-bundled 0.18.2+26.3
+	   |-- polymer-autohost 0.18.2+26.3
+	   |-- polymer-blocks 0.18.2+26.3
+	   |-- polymer-common 0.18.2+26.3
+	   |-- polymer-core 0.18.2+26.3
+	   |    |-- polymer-networking 0.18.2+26.3
+	   |    |    \-- polymer-common 0.18.2+26.3
+	   |    \-- polymer-registry-sync-manipulator 0.18.2+26.3
+	   |-- polymer-resource-pack 0.18.2+26.3
+	   |    \-- polymer-common 0.18.2+26.3
+	   |-- polymer-resource-pack-extras 0.18.2+26.3
+	   |-- polymer-sound-patcher 0.18.2+26.3
+	   \-- polymer-virtual-entity 0.18.2+26.3
+	        \-- polymer-common 0.18.2+26.3
+	- suite_native_features_qa 1
+	- vpp_mod_suite 1.3.1+26.3
+	   |-- amethyst_curse_cleanser 1.0.1+26.3
+	   |-- bannerpoint 1.1.2
+	   |-- bannerpoint_polymer_compat 1.0.1+26.3
+	   |-- chalk 3.2.1+26.3
+	   |-- chalk-colorful-addon 2.1.1-port.1+26.3
+	   |-- chalk_polymer_compat 1.1.1-suite.1+26.3
+	   |-- mapstitch 1.1.7
+	   |    \-- com_moulberry_mixinconstraints 1.1.0
+	   |-- mapstitch_mixed_scales 1.1.8+26.3
+	   |-- misctweaks 1.4.4
+	   |    \-- com_moulberry_mixinconstraints 1.1.0
+	   |-- sensible_stackables 3.1.1
+	   |-- sensible_stackables_polymer_compat 1.0.2+26.3
+	   |-- shared_region_maps 1.0.5-combo.1+mc26.3
+	   |-- simple_death_improvements 1.6.0
+	   |    \-- com_moulberry_mixinconstraints 1.1.0
+	   |-- simple_smithing_overhaul 2.10.0
+	   |    \-- com_moulberry_mixinconstraints 1.1.0
+	   |-- sso_backpack_toolpouch_mapstitch_shim 1.3.0+26.3
+	   |-- tiered_backpacks 1.0.20
+	   |-- toolpouch 1.1.10
+	   |    \-- com_moulberry_mixinconstraints 1.1.0
+	   \-- toolpouch_atlas_elytra_compat 1.0.9-suite.1+26.3
+[14:22:58] [main/INFO]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:<GRADLE_USER_HOME>/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.17.4+mixin.0.8.7/5f66cc9f59b8efaa942155a3d5a30599bf6640dd/sponge-mixin-0.17.4+mixin.0.8.7.jar Service=Knot/Fabric Env=SERVER
+[14:22:59] [main/INFO]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.5.5).
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by com.sun.jna.Native in an unnamed module (file:<PROJECT>/qa-features/runs/review-fixes-131-05/libraries/jna-5.17.0.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.joml.MemUtil$MemUtilUnsafe (file:<PROJECT>/qa-features/runs/review-fixes-131-05/libraries/joml-1.10.9.jar)
+WARNING: Please consider reporting this to the maintainers of class org.joml.MemUtil$MemUtilUnsafe
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[14:23:02] [main/INFO]: Loaded config sensible_stackables:config in 369ms
+[14:23:03] [main/INFO]: Loaded config simple_smithing_overhaul:config-v2 in 135ms
+[14:23:04] [main/INFO]: Amethyst Curse Cleanser is ready.
+[14:23:04] [main/INFO]: Loaded config bannerpoint:config in 4ms
+[14:23:05] [main/INFO]: Loaded config mapstitch:config in 32ms
+[14:23:05] [main/INFO]: Loaded config misctweaks:config in 30ms
+[14:23:05] [main/INFO]: Loaded config simple_death_improvements:config in 11ms
+[14:23:05] [main/INFO]: Loaded config tiered_backpacks:config in 12ms
+[14:23:05] [main/INFO]: Loaded config toolpouch:config in 23ms
+[14:23:05] [main/INFO]: Loaded config vpp_mod_suite:features in 27ms
+[14:23:05] [main/INFO]: Environment: Environment[discoveryUrl=https://discovery.minecraftservices.com/minecraft/client, name=PROD]
+[14:23:07] [Worker-Main-1/INFO]: Loaded 1895 advancements
+[14:23:07] [main/INFO]: Applied 0 biome modifications to 0 of 67 new biomes in 758.1 μs
+[14:23:07] [Server thread/INFO]: Starting minecraft server version 26.3
+[14:23:07] [Server thread/INFO]: Loading properties
+[14:23:07] [Server thread/INFO]: Default game type: SURVIVAL
+[14:23:07] [Server thread/INFO]: Generating keypair
+[14:23:07] [Server thread/INFO]: Starting Minecraft server on 127.0.0.1:0
+[14:23:07] [Server thread/WARN]: **** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!
+[14:23:07] [Server thread/WARN]: The server will make no attempt to authenticate usernames. Beware.
+[14:23:07] [Server thread/WARN]: While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.
+[14:23:07] [Server thread/WARN]: To change this, set "online-mode" to "true" in the server.properties file.
+[14:23:07] [Server thread/INFO]: Preparing level "world"
+[14:23:08] [Server thread/INFO]: Loading 105 persistent chunks...
+[14:23:08] [Server thread/INFO]: Preparing spawn area: 8%
+[14:23:08] [Server thread/INFO]: Time elapsed: 262 ms
+[14:23:08] [Server thread/INFO]: Done (0.523s)! For help, type "help"
+[14:23:08] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[14:23:08] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[14:23:08] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS shulker insertion conserves oversized incoming count
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS shulker nesting rejected
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS stacked receiver rejected without mutation
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS partial shulker insertion preserves remainder
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS full shulker falls back to normal inventory
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS shulker disable switch
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS actual Inventory.add hook inserts into offhand
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS actual pickup routing honors shulker priority
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS actual pickup routing honors backpack priority
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS beacon has four layers and 164 unique positions
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS beacon one-block placement charges one supplied block
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS beacon placement preserves bedrock and protected targets
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS beacon bulk consumes exact stack
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS adventure mode refuses unpermitted placement
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS beacon dismantling removes placed base only
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS beacon dismantling retains unrelated blocks
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS conduit frame has 42 vanilla positions
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS conduit bulk builds full frame without material loss
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS complete conduit geometry preserved
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS completed conduit clears interior to water
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS conduit frame dismantling
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS actual conduit item use places in targeted water
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS ordinary beacon menu interaction remains available
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS grindstone accepts plain book 0
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS grindstone creates one enchanted book 0
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS grindstone preview displays cost 0
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS grindstone default extraction cost 0
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS insufficient XP blocks all extraction routes 0
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS taken book has no preview-only lore 0
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS XP charged once 0
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS original equipment returned with damage and curse 0
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS exactly one blank book consumed 0
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS grindstone accepts plain book 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS grindstone creates one enchanted book 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS grindstone preview displays cost 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS grindstone default extraction cost 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS insufficient XP blocks all extraction routes 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS taken book has no preview-only lore 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS XP charged once 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS original equipment returned with damage and curse 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS exactly one blank book consumed 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS book transfer preview available
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS shift-click transfer uses clean output
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS book transfer leaves remaining enchantment in source
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS book transfer conserves both inputs
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS amethyst curse-cleanser recipe retained
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS curse cleanser result and consumption retained
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS SSO repair-cost equipment accepts ordinary cursor insertion
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS SSO netherite scrap accepts ordinary cursor insertion
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS SSO scrap repair-cost reduction retained
+[14:23:09] [Server thread/INFO]: System chat: FeatureQa has made the advancement [Hyperinflation]
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS SSO ordinary cursor pickup consumes one equipment item and one scrap
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS grindstone module disable switch
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS SSO scrap remains accepted with extraction disabled
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS disabled SSO scrap recipe rejects scrap
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS SSO scrap is accepted only in the additional slot
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS instamine pickaxe modifier preserves foreign base
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS instamine axe uses correct amount
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS instamine cleans only owned modifier after Haste ends
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS enderman pickup goal disabled
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS existing enderman carried block preserved
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS channeling ownership suppresses duplicate vanilla effect only
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS all-weather channeling strikes surviving entity
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS all-weather channeling ignores lethal hits
+[14:23:09] [Server thread/INFO]: System chat: Set the weather to clear
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS channeling indoor fixture has blocked sky
+[14:23:09] [Server thread/INFO]: System chat: FeatureQa has made the advancement [A Throwaway Joke]
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS actual clear-weather indoor trident hit creates exactly one lightning
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS actual lethal trident hit creates no lightning
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS unaccepted trident damage creates no lightning
+[14:23:09] [Server thread/INFO]: [STDOUT]: CORE_FEATURE_PASS total=67
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS native horn UUID schema
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS horn instrument preserved when binding
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS AudioPlayer reference preserved
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS bound horn reset
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS original styled name restored
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS original glint restored
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS unrelated custom data restored exactly
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS reset clears only suite binding
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS malformed binding fails closed
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS horse adapter horse
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS horse adapter donkey
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS horse adapter mule
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS horse adapter llama
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS horse adapter trader_llama
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS horse adapter skeleton_horse
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS horse adapter zombie_horse
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS horse adapter camel
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS horse adapter camel_husk
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS zombie nautilus adapter
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS untamed animal cannot bind
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS disabled module refuses binding
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS horn does not bind before four-second gesture
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS four-second crouch and look gesture binds horn
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS reset waits full two-second gesture
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS crouch and look sky resets horn
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS solid wall blocks binding raycast
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS soul fire fixture survives on soul soil
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS recall refuses soul fire despite its empty collision shape
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS low ceiling still allows an unoccupied happy ghast
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS occupied recall fixture mounted
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS occupied recall fixture bound
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS recall refuses a ceiling intersecting the rider rather than the ghast
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS rejected occupied recall preserves mount location and rider
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS occupied happy ghast recall succeeds with clear headroom
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS successful occupied recall retains rider in clear space
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS one-block clearance permits a lone wolf
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS recall validates taller leashed animals before moving the group
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS unsafe group recall preserves leash connection
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS large pet safe destination baseline
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS large pet avoids adjacent lava across its full bounding box
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS test pet added CAT
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS bind named owner-authorized CAT
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS native call CAT
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS same-dimension call preserves original entity CAT
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS index tracks native call CAT
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS test pet added DOG
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS bind named owner-authorized DOG
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS native call DOG
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS same-dimension call preserves original entity DOG
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS index tracks native call DOG
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS test pet added PARROT
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS bind named owner-authorized PARROT
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS native call PARROT
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS same-dimension call preserves original entity PARROT
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS index tracks native call PARROT
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS test pet added HORSE
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS bind named owner-authorized HORSE
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS native call HORSE
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS same-dimension call preserves original entity HORSE
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS index tracks native call HORSE
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS test pet added HAPPY_GHAST
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS bind named owner-authorized HAPPY_GHAST
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS native call HAPPY_GHAST
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS same-dimension call preserves original entity HAPPY_GHAST
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS index tracks native call HAPPY_GHAST
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS test pet added NAUTILUS
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS bind named owner-authorized NAUTILUS
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS nautilus refuses dry destination
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS native call NAUTILUS
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS same-dimension call preserves original entity NAUTILUS
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS index tracks native call NAUTILUS
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS armored wolf binding
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS armored wolf relocation
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS body equipment retained
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS shoulder parrot horn binding
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS native parrot shoulder storage
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS horn releases recently shouldered parrot
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS shoulder release retains pet UUID
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS shoulder record removed after successful native release
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS cross-dimension bound wolf
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS disabled cross-dimension call leaves original pet in place
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS refused cross-dimension call preserves location
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS cross-dimension native call
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS cross-dimension entity UUID preserved
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS cross-dimension body equipment retained
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS happy ghast horn binding
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS happy ghast attached leash group call
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS attached leash holder and entity preserved
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS pre-transfer horn binding
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS offline recipient rejected
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS native book transfer to online recipient
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS native transfer preserves animal with new owner UUID
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS transfer preserves animal name
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS old owner's horn rejected after owner change
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS Swift Flight original registry identity and three levels
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS equipped happy ghast native flight attribute level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS equipped happy ghast native flight attribute level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS equipped happy ghast native flight attribute level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS disabled Swift Flight does not apply worn harness speed
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS Swift Flight III native attribute equals original effect
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS Swift Flight disabled without deleting saved enchantment
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS disabled Swift Flight harness level retained
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 3
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 1
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City Swift Flight book level 2
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS End City 8 percent Swift Flight loot observed 76/1000
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS saved pet index read back after real restart
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS fixture chest read back after real restart
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS saved bound horn UUID read back after real restart
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS existing enchanted harness level read back after real restart
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS existing enchantment book read back after real restart
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS saved pet starts in genuinely unloaded distant chunk
+[14:23:09] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS unloaded pet queues native temporary chunk ticket
+[14:23:10] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS unloaded persisted pet restored with original UUID
+[14:23:10] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS unloaded native call preserves saved animal name
+[14:23:10] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS unloaded native call preserves saved owner UUID
+[14:23:10] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS pet call does not change persistent forced chunk set
+[14:23:10] [Server thread/INFO]: [STDOUT]: PET_FEATURE_PASS unloaded call updates persisted chunk index
+[14:23:12] [Server thread/INFO]: Stopping server
+[14:23:12] [Server thread/INFO]: Saving players
+[14:23:12] [Server thread/INFO]: Saving worlds
+[14:23:12] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[14:23:15] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_end
+[14:23:15] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:the_nether
