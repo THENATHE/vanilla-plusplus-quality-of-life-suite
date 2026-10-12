@@ -1,0 +1,6 @@
+{
+  "item.debugwrench.debug_wrench": "Debug Wrench",
+  "item.debugwrench.debug_wrench.select": "Left-click: select block property",
+  "item.debugwrench.debug_wrench.change": "Right-click: change value",
+  "item.debugwrench.debug_wrench.reverse": "Sneak to cycle backward"
+}

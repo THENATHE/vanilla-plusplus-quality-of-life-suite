@@ -1,0 +1,102 @@
+{
+  "passed": false,
+  "bundle_sha256": "09f5e21c46b1ddfb835ad8f9f49f6b4a3545b6c21cb63490e142e672a2e6cc49",
+  "scope": "bounded connection/capability/resource-pack smoke; no exhaustive gameplay test",
+  "defaulted_runtime_present": false,
+  "cases": [
+    {
+      "profile": "SuiteNative",
+      "client_kind": "suite",
+      "client_polymer": false,
+      "server_polymer": true,
+      "passed": true,
+      "observed": {
+        "marker": {
+          "x": 6,
+          "y": -63,
+          "z": 7,
+          "orientation": 3,
+          "facing": "up",
+          "damage": 13,
+          "custom_name": "Suite QA Chalk",
+          "server_block": "chalk:red_glow_chalk_mark",
+          "server_item": "chalk:red_glow_chalk",
+          "anvil_x": 6,
+          "anvil_y": -63,
+          "anvil_z": 9,
+          "server_anvil": "simple_smithing_overhaul:broken_anvil",
+          "anvil_facing": "east",
+          "stone_count": 2048,
+          "stone_max": 2048,
+          "potion_count": 3,
+          "potion_max": 3
+        },
+        "player": "SuiteNative",
+        "expected_native": true,
+        "join_count": 1,
+        "intentional_sso_mismatch": false,
+        "polymer": true,
+        "local_memory_connection": false,
+        "chalk_state_bits": 16,
+        "native_modules": {
+          "mapstitch": true,
+          "simple_smithing_overhaul": true,
+          "tiered_backpacks": true,
+          "toolpouch": true,
+          "chalk": true,
+          "misctweaks": true,
+          "simple_death_improvements": true,
+          "shared_region_maps": true,
+          "amethyst_curse_cleanser": true,
+          "toolpouch_atlas_elytra_compat": true,
+          "sensible_stackables": true,
+          "thenathe_mod_suite": true,
+          "debugwrench": true
+        },
+        "chalk_conversion_registered": true,
+        "defaulted_version": "absent",
+        "passed": true
+      },
+      "fallback_pack_loaded": false,
+      "upgrade_server": {
+        "passed": true,
+        "stage": 3,
+        "native_upgrades": true,
+        "collector_enabled": true,
+        "real_magnet_collector_pickup": true,
+        "collected_diamonds": 17,
+        "tick_age": 289
+      },
+      "upgrade_client": {
+        "passed": true,
+        "native_upgrades": true,
+        "new_item_packet_ids_and_fixed_models": true,
+        "real_collected_diamonds": 17,
+        "hotkey_off_on_roundtrip": true,
+        "fallback_command_off_on": false,
+        "inventory_screenshot": "screenshots/pickup-upgrades-inventory.png"
+      },
+      "client_marker": {
+        "stone_count": 2048,
+        "inventory_packet_moves": true,
+        "stone_max": 2048,
+        "potion_count": 3,
+        "potion_max": 3,
+        "mixed_scale_ui_roundtrip": true,
+        "join_count": 1,
+        "passed": true,
+        "native_chalk": true,
+        "actual_block": "chalk:red_glow_chalk_mark",
+        "actual_item": "chalk:red_glow_chalk",
+        "damage": 13,
+        "custom_name": "Suite QA Chalk",
+        "virtual_mark_displays": 0,
+        "native_sso": true,
+        "actual_anvil": "simple_smithing_overhaul:broken_anvil",
+        "actual_anvil_item": "simple_smithing_overhaul:broken_anvil",
+        "anvil_facing": "east"
+      }
+    }
+  ],
+  "failure": "upgrade physical checks FabricOnly"
+}

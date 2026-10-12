@@ -17,5 +17,13 @@
   "sensible_stackables.client_config": "Sensible Stackables Client Settings",
   "key.thenathe_mod_suite.open_settings": "Open Suite Settings",
   "key.category.thenathe_mod_suite.settings": "Vanilla++ Quality of Life Suite",
-  "thenathe_mod_suite.configure": "Configure..."
+  "thenathe_mod_suite.configure": "Configure...",
+  "item.thenathe_mod_suite.pouch_magnet": "Pouch Magnet",
+  "item.thenathe_mod_suite.pouch_collector": "Pouch Collector",
+  "key.thenathe_mod_suite.toggle_collector": "Toggle Backpack Pickup",
+  "message.thenathe_mod_suite.collector_enabled": "Backpack pickup: ON",
+  "message.thenathe_mod_suite.collector_disabled": "Backpack pickup: OFF",
+  "tooltip.thenathe_mod_suite.magnet": "Put in your Tool Pouch: 6-block pickup range.",
+  "tooltip.thenathe_mod_suite.collector": "Put in your Tool Pouch: collect into your backpack.",
+  "tooltip.thenathe_mod_suite.toggle": "Toggle with your pickup hotkey or /suite-pickup."
 }

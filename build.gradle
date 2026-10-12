@@ -17,11 +17,13 @@ tasks.withType(JavaCompile).configureEach {
 java { withSourcesJar(); sourceCompatibility = JavaVersion.VERSION_25; targetCompatibility = JavaVersion.VERSION_25 }
 jar { from('LICENSE') }
 
-version = '1.1.6+26.3'
+version = '1.2.0+26.3'
 base { archivesName = 'vanilla-plusplus-quality-of-life-suite' }
 sourceSets.main.java.exclude('com/thenathe/suite/network/**')
 dependencies {
  implementation project(':combined-compat')
+ compileOnly 'eu.pb4:polymer-core:0.18.2+26.3'
+ compileOnly 'eu.pb4:polymer-resource-pack:0.18.2+26.3'
  implementation 'com.terraformersmc:modmenu:21.0.0'
  implementation 'me.shedaniel.cloth:cloth-config-fabric:26.3.159'
 }

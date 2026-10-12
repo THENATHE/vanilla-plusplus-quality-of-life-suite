@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "suite_version": "1.2.0+26.3",
+  "bundle_sha256": "69c2b7f7d345282143e4c7d1da8a9b4ea97032c61ff804348d50613a60349b75",
+  "run_label": "final120-pickup04",
+  "dedicated_profiles": 4,
+  "pickup_assertions": 1342,
+  "wrench_assertions": 272,
+  "evidence": "qa-pickup/evidence/1.2.0/dedicated/result.json",
+  "scope": "real crafting, item/entity pickup and magnet scan, active pouch/backpack selection, vanilla-scoped guard, full/partial/oversized/config-reduced content conservation, player codec/respawn/restart, original wrench mechanics/protections and actual fixed16 Polymer pack; packet-stub players, separate physical evidence",
+  "prior_candidate": "qa-pickup/evidence/1.2.0/dedicated-candidates/09f5e21c/result.json",
+  "prior_fixture_setup": "earlier synthetic chunk queries ran before entity tracking; final fixture uses established tracked-chunk setup. First un-escalated disposable server attempt was blocked by sandbox socket permissions; corrected launch uses authorized escalation."
+}

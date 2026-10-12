@@ -1,0 +1,11 @@
+# Final dedicated pouch utilities acceptance
+
+Suite **1.2.0+26.3**, SHA-256 `69c2b7f7d345282143e4c7d1da8a9b4ea97032c61ff804348d50613a60349b75`, passes all four initial/restart phases on native and Polymer dedicated servers: **1,342 pickup assertions** and **272 wrench assertions**. All processes stop cleanly. The exact executed source, runtime input hashes, sanitized launch commands and console logs are retained here.
+
+The pickup fixture uses real dropped-item touch and the same server magnet scan entry, native crafting and attachment recipes, real menus, live Stackables configuration, player NBT file serialization and Fabric respawn callbacks. It checks separate/combined upgrades; spherical range; delay/ownership; commands; attached/inventory priority; loose/absent upgrades; live-menu guards; shulker/nesting rules; full/partial storage; saved overflow; oversized 150-item transfers and existing 150-item stacks; hot reduced limits; spectator mode; save/load/restart preferences and contents. Unsupported Polymer players gain the new scoped effects while the old generic pouch gameplay guard remains intact before and after the lookup.
+
+The wrench fixture checks the original recipe, survival/creative controls, forward/reverse selection and values, six-tick selection cooldown, per-item/block remembered selections, container inventory, ordinary-nugget pass-through, game-mode/world-border/spawn protections, fallback round trips and offhand suppression. Polymer really builds the combined resource pack; the wrench and both upgrade item/model definitions and fixed16 texture dimensions are checked. Every upgrade texture pixel has alpha 0 or 255. No pack-resolution detection or 32px alternate wrench appears.
+
+These dedicated players use stub packet listeners. Physical clients, GUI images and real hotkey/network checks have separate evidence. Third-party accessory/claim integrations and the user’s remote world are outside this fixture.
+
+The earlier 09f5e21c candidate passed native mechanics but positively exposed the unsupported-client passive lookup guard blocking the upgrades on Polymer. That failing source/result is preserved under `../dedicated-candidates/09f5e21c/`; the final scoped fix is tested here without changing old passive features.

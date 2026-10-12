@@ -1,0 +1,7 @@
+{
+  "qa-pickup/physical.py": "44d4171f912865e05154cdcf010e726dc5d3e14950bbc7ca5eabec43b67e9e2d",
+  "qa-pickup/physical-src/PhysicalUpgradeServerQa.java": "46a90603c44a232b8935a2b1d2d444a8251fefc970f5970d15f93226e8ac2702",
+  "qa-pickup/physical-src/PhysicalUpgradeClientQa.java": "35b76fb97c2249daefc6f1ef71c67b0cb386330fd5b2f5c124f72f788d47f991",
+  "qa-pickup/physical-src/SuiteServerQa.java": "8bfc693bdd6cb0e2843ae5d809f9b69312400c9468aaadeaa5e0cb32de6096f2",
+  "qa-pickup/physical-src/SuiteClientQa.java": "965b13453a681824826ab231800a6ca0a6ee6a5cbab1251245079148b3ed5066"
+}

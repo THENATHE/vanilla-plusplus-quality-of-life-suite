@@ -14,7 +14,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class ToolpouchGameplayMixin {
     @Inject(method = "getToolPouch", at = @At("HEAD"), cancellable = true)
     private static void toolpouchcompat$nativeOnly(Player player, CallbackInfoReturnable<ItemStack> cir) {
-        if (player instanceof ServerPlayer serverPlayer && !ToolpouchCompat.nativeClient(serverPlayer.connection.getPacketContext())) {
+        if (player instanceof ServerPlayer serverPlayer
+                && !com.thenathe.toolpouchcompat.PouchUpgradeAccess.readingUpgrades()
+                && !ToolpouchCompat.nativeClient(serverPlayer.connection.getPacketContext())) {
             cir.setReturnValue(ItemStack.EMPTY);
         }
     }

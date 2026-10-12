@@ -1,0 +1,1 @@
+java.lang.AssertionError: Physical upgrade check timed out at stage 0

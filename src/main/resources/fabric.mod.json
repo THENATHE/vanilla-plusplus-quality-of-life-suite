@@ -37,7 +37,7 @@
     "fabric-language-kotlin": ">=1.14.1+kotlin.2.4.20",
     "codecui": ">=26.3-1.4.3",
     "mixson": ">=2.2.1",
-    "mapstitch_mixed_scales": "=1.1.5+26.3",
+    "mapstitch_mixed_scales": "=1.1.6+26.3",
     "sensible_stackables": "=3.1.1",
     "sensible_stackables_polymer_compat": "=1.0.2+26.3",
     "bannerpoint": "=1.1.2",
@@ -78,7 +78,7 @@
       "file": "META-INF/jars/toolpouch-fabric-1.1.10+26.3.jar"
     },
     {
-      "file": "META-INF/jars/thenathe-suite-combined-compat-1.1.1+26.3.jar"
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.2.0+26.3.jar"
     },
     {
       "file": "META-INF/jars/thenathe-suite-chalk-compat-1.1.1-suite.1+26.3.jar"
@@ -96,7 +96,7 @@
       "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.2+26.3.jar"
     },
     {
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.5+26.3.jar"
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.6+26.3.jar"
     },
     {
       "file": "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar"
@@ -109,6 +109,11 @@
     {
       "config": "suite_mod_menu.mixins.json",
       "environment": "client"
-    }
-  ]
+    },
+    "suite_pickup.mixins.json"
+  ],
+  "breaks": {
+    "debugwrench": "*"
+  },
+  "icon": "assets/thenathe_mod_suite/icon.png"
 }

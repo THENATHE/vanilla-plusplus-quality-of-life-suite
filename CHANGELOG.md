@@ -1,5 +1,13 @@
 # Changes
 
+## 1.2.0+26.3 — 2026-10-12
+
+- Add a nether-star Pouch Magnet that extends dropped-item pickup to a six-block spherical range using the active Tool Pouch.
+- Add a separate nether-star Backpack Collector that routes pickups into the active Tiered Backpack. Combine it with the magnet or use it independently; preserve capacity, nesting restrictions, pickup ownership/delay and ordinary overflow behavior.
+- Add a configurable collector hotkey and `/suite-pickup [on|off]` command, with a per-player preference preserved across saved sessions and respawns. The magnet remains active when collection is disabled.
+- Integrate THENATHE’s Debug Wrench with its original item ID, saved selections, recipe, property controls, selection cooldown and world/game-mode protections. Retire the separate installation and use one fixed 16×16 sprite without resolution detection.
+- Add fixed 16×16 magnet/collector/wrench artwork and a combined suite modpack image. Preserve native negotiation, Polymer fallback, original module IDs and exact external dependencies.
+
 ## 1.1.6+26.3 — 2026-10-06
 
 - Fix immutable stored-item templates ignoring Sensible Stackables' effective override table. This reproduces the `container_set_content` / `Stack must be non-empty` disconnect for a netherite Tool Pouch containing a shulker with potion stacks of three, saddles of sixteen or enchanted books of sixty-four.

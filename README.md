@@ -2,7 +2,9 @@
 
 [What it is](#what-it-is) · [Features](#features) · [Vanilla compatibility](#the-shim-vanilla-and-modded-players-together) · [Installation](#installation) · [Technical info](#technical-info) · [Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Dependencies and compatible mods](docs/DEPENDENCIES.md)
 
-Stable release **1.1.6** fixes disconnects when a shulker inside a Tool Pouch contains stacked items. It preserves all stored items and counts, the updated original mods, Elytra Mending with Clumps, mixed-scale atlases and independent minimap/information controls. Defaulted remains unnecessary. See the [1.1.6 release guide](docs/RELEASE_1_1_6.md) for installation and testing notes.
+![Vanilla++ modpack artwork](artwork/vanilla-plusplus-modpack.png)
+
+Release **1.2.0** adds a craftable pouch magnet and backpack collector, and includes the Debug Wrench. The upgrades work separately or together with the suite’s existing Tool Pouch and Tiered Backpacks. New item artwork uses fixed 16×16 Minecraft-style sprites. See the [1.2.0 release guide](docs/RELEASE_1_2_0.md).
 
 ## What it is
 
@@ -286,6 +288,28 @@ The same rules apply to the other dye colors. Converting existing chalk does not
 - Included my standalone curse-removal mod in the suite, retaining both grindstone and smithing use.
 - Kept it usable by vanilla players on a server running the suite's vanilla-compatibility setup.
 
+### Pouch Magnet and Backpack Collector
+
+Two suite-authored upgrades use the Tool Pouch and Tiered Backpacks already included here:
+
+- Craft a **Pouch Magnet** with one nether star, four iron ingots and two redstone dust. Place it in your active pouch to collect dropped items within six blocks.
+- Craft a **Backpack Collector** with one nether star, five leather and two hoppers. Place it in your active pouch to send normal pickups into the active backpack.
+- Combine them to collect distant drops straight into the backpack. The magnet works alone with your ordinary inventory, and the collector works alone at normal pickup distance.
+- Bind **Toggle Backpack Collector** in Controls, or use `/suite-pickup`, `/suite-pickup on` and `/suite-pickup off`. Your preference survives reconnects, restarts and respawns. Turning the collector off leaves the magnet active.
+- Preserve pickup delay and item ownership. Full, missing or restricted backpack storage falls back to normal pickup; leftovers stay in inventory or the world. Open pouch/backpack screens suspend the relevant upgrade while they edit their live contents.
+- Use the same server-side behavior with matching suite clients and vanilla clients. The hotkey needs the suite client; vanilla players can use the commands.
+
+### Debug Wrench
+
+The formerly separate **Polymer Debug Wrench**, authored by THENATHE, is included in the suite. Existing `debugwrench:debug_wrench` items and saved property selections keep working. Remove the standalone wrench JAR when updating.
+
+- Keep the original recipe: three iron ingots and one copper ingot produce one nonstacking, reusable wrench.
+- Left-click a block to select its next property; right-click to cycle the selected value. Sneak to reverse either direction.
+- Keep separate property selections for each block type on each wrench. Container block entities and inventories survive state changes.
+- Use it in survival or creative without operator permission. Adventure/spectator restrictions, spawn protection, world borders and build bounds still apply.
+- Keep the six-tick selection cooldown and responsive value changes. The action bar reports the selected property/value.
+- Render the same fixed 16×16 wrench sprite on native and Polymer clients, without resource-pack resolution detection or alternate sprite sizes.
+
 ### One place for settings
 
 Mod Menu shows original feature mods individually and groups additions beneath **Vanilla++ Quality of Life Suite**. The combined settings screen lists actual settings with consistent gameplay/client titles. Bind **Open Suite Settings** under the suite category in Minecraft Controls to open it from gameplay.
@@ -322,11 +346,11 @@ The compatibility layer includes:
 
 **Vanilla players do not get custom backpack or pouch screens, MapStitch's world map/minimap, or the client-side HUD additions.** Install the matching suite on the client for those features. The compatibility layer does not turn every client-only feature into a vanilla one.
 
-**Accept the server's generated resource pack for Chalk's vanilla-visible items and marks, and Bannerpoint’s locator-bar icons.** Bannerpoint’s custom name labels require its client code. Server owners need to generate and host that pack through Polymer. Optional integration mods remain separate downloads; their presence does not mean every combination has been runtime-tested.
+**Accept the server's generated resource pack for Chalk's vanilla-visible items and marks, Bannerpoint’s locator-bar icons, and the new magnet, collector and wrench sprites.** Bannerpoint’s custom name labels require its client code. Server owners need to generate and host that pack through Polymer. Optional integration mods remain separate downloads; their presence does not mean every combination has been runtime-tested.
 
 ## Installation
 
-The [1.1.6 release guide](docs/RELEASE_1_1_6.md) covers the current features, installation and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.6%2B26.3) provides four downloads:
+The [1.2.0 release guide](docs/RELEASE_1_2_0.md) covers the current features, installation and testing steps. [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.2.0%2B26.3) provides four downloads:
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -338,9 +362,9 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Download `vanilla-plusplus-quality-of-life-suite-1.1.6+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.6%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
+2. Download `vanilla-plusplus-quality-of-life-suite-1.2.0+26.3.jar` from [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.2.0%2B26.3) and put it in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients.
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
-4. Remove separate copies of the included feature mods, their addons, and the old compatibility shims from that instance. Keep your world and configuration files.
+4. Remove separate copies of the included feature mods, their addons, the standalone Polymer Debug Wrench, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Launch the game. Optional **Mod Menu** adds a convenient settings entry; `/suite-settings` also opens the settings screen.
 
 | Required library |
@@ -395,7 +419,7 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.1.6+26.3.jar`.
+The validated build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.2.0+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 

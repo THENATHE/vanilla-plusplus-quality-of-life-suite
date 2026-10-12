@@ -1,15 +1,15 @@
-# Installation pack — Vanilla++ Quality of Life Suite 1.1.6+26.3
+# Installation pack — Vanilla++ Quality of Life Suite 1.2.0+26.3
 
-The **1.1.6+26.3** release fixes stored-item packet encoding and keeps the same external dependencies as 1.1.5. Replace the suite JAR on the server and matching native clients; [release instructions](RELEASE_1_1_6.md) and [packet verification](PACKET_FIX_1_1_6.md) explain the change. It does not require a settings reset or new resource pack.
+The **1.2.0+26.3** release adds pouch pickup upgrades and integrates the Debug Wrench with the same external dependencies as 1.1.6. Replace the suite JAR on the server and matching native clients, remove the standalone Polymer Debug Wrench JAR, and regenerate the server Polymer resource pack for the new 16×16 artwork. Keep existing settings and worlds; [release instructions](RELEASE_1_2_0.md) explain the upgrade.
 
 The installation ZIP supplies the suite and its exact libraries for a native Fabric client or a dedicated server that also accepts vanilla players. Its helper selects the appropriate files for each side. **Internet access is required to obtain Fzzy Config from its official publisher.** Minecraft, Java, Fabric Loader and the server’s resource-pack hosting must be set up separately.
 
-The [stable 1.1.6+26.3 release](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.1.6%2B26.3) has four public assets:
+The [stable 1.2.0+26.3 release](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases/tag/v1.2.0%2B26.3) has four public assets:
 
 - `README.md` — the accessible feature overview and installation entry point.
-- `vanilla-plusplus-quality-of-life-suite-1.1.6+26.3.jar` — the combined mod, for an instance whose exact dependencies are already installed.
+- `vanilla-plusplus-quality-of-life-suite-1.2.0+26.3.jar` — the combined mod, for an instance whose exact dependencies are already installed.
 - `docs.zip` — documentation, technical records and release verification information.
-- `vanilla-plusplus-installation-pack-1.1.6+26.3.zip` — the suite, permitted dependency binaries, licenses and installer described below.
+- `vanilla-plusplus-installation-pack-1.2.0+26.3.zip` — the suite, permitted dependency binaries, licenses and installer described below.
 
 There is one installation ZIP; no separate `.mrpack`, manual ZIP or library ZIP is published. The final suite digest is recorded in the [installation lock](installation-pack.lock.json) and [build verification](build-verification.json).
 
@@ -28,7 +28,7 @@ There is one installation ZIP; no separate `.mrpack`, manual ZIP or library ZIP 
 
 4. Launch the instance. Keep separate copies of the original feature mods and older suite shims out of its `mods/` folder to avoid duplicates.
 
-Bannerpoint and its compatibility component are already inside the suite JAR; do not add separate copies. Stable suite 1.1.6 includes both modules on `main`.
+Bannerpoint and its compatibility component are already inside the suite JAR; do not add separate copies. Suite 1.2.0 includes both modules on `main`.
 
 The client selection excludes Polymer. Native suite clients use the mod interfaces when joining a matching server. Vanilla players joining a Polymer-enabled server install none of these client files.
 
@@ -49,7 +49,7 @@ Use a new server directory, or stop and back up an existing instance before deli
 
 4. The helper verifies the selected binaries and installs the suite, CodecUI and required external libraries, including **Polymer Bundled 0.18.2+26.3**. It excludes Mod Menu. Fzzy Config is fetched from its official Modrinth CDN URL.
 5. Review and accept Minecraft’s EULA yourself, then start the Fabric server normally. The helper neither accepts the EULA nor starts the server.
-6. Generate and host Polymer’s server resource pack using the [Polymer hosting guide](https://polymer.pb4.eu/latest/user/resource-pack-hosting/). Players should accept that pack for Chalk’s vanilla-visible items and marks and Bannerpoint’s locator-bar icons. Bannerpoint icons stay hidden until the pack successfully loads; custom banner-name labels require Bannerpoint on the client. The installation ZIP cannot supply the resource pack for your particular server configuration or hosting address.
+6. Generate and host Polymer’s server resource pack using the [Polymer hosting guide](https://polymer.pb4.eu/latest/user/resource-pack-hosting/). Players should accept that pack for Chalk’s vanilla-visible items and marks, Bannerpoint’s locator-bar icons, and the new magnet, collector and wrench sprites. Bannerpoint icons stay hidden until the pack successfully loads; custom banner-name labels require Bannerpoint on the client. The installation ZIP cannot supply the resource pack for your particular server configuration or hosting address.
 
 The installer copies mod files; it does not install a launcher, Minecraft, Fabric Loader or Java. Vanilla clients still do not get custom backpack/pouch screens, MapStitch’s world map/minimap or client HUD features. See the [suite’s compatibility overview](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main#the-shim-vanilla-and-modded-players-together).
 
@@ -63,7 +63,7 @@ The ZIP includes these two local files under `overrides/mods/`:
 
 | Included file | SHA-256 | License/source context |
 | --- | --- | --- |
-| Suite 1.1.6+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
+| Suite 1.2.0+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
 | CodecUI 26.3-1.4.3 | `4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898` | MIT declaration and retained notices; precise private build revision is unrecorded. [Source-family record](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference). |
 
 Six public publisher binaries are cached under `downloads/mods/`, with licenses and hashes retained. Fzzy Config has only its official download entry:

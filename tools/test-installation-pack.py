@@ -135,7 +135,7 @@ def main():
     builder.package(args.release)
     assert hashlib.sha256(kit.read_bytes()).hexdigest() == before
     cases.append('Rebuilding installation ZIP produces byte-identical output')
-    report = {'pack_version': lock['pack_version'], 'date': '2026-10-06', 'passed': True,
+    report = {'pack_version': lock['pack_version'], 'date': lock['checked_on'], 'passed': True,
               'suite_sha256': lock['overrides'][0]['hashes']['sha256'],
               'archives': {kit.name: before}, 'cases': cases, 'installed_profiles': profiles,
               'launcher_gui_import_tested': False,

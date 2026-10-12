@@ -12,6 +12,7 @@ public final class SuiteClient implements ClientModInitializer {
         SuiteCapabilities.initializeClient();
         SuiteSettings.initialize();
         SuiteKeybindings.initialize();
+        com.thenathe.suite.pickup.PickupUpgradeClient.initialize();
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, context) -> dispatcher.register(
             ClientCommands.literal("suite-settings").executes(command -> {
                 Minecraft client = Minecraft.getInstance();

@@ -1,0 +1,107 @@
+{
+  "passed": true,
+  "bundle_sha256": "69c2b7f7d345282143e4c7d1da8a9b4ea97032c61ff804348d50613a60349b75",
+  "profile_count": 8,
+  "profiles": [
+    {
+      "profile": "SuiteNative",
+      "passed": true,
+      "report": "qa-pickup/evidence/1.2.0/physical-matrix/result.json",
+      "report_sha256": "675349706432d07b824db4ab145d68b43058ab4fb012acf81a8449e3d7104aba",
+      "real_collected_diamonds": 17,
+      "client_item_ids_and_models_asserted": true,
+      "native_key_binding_off_on": true,
+      "inventory_screenshot_saved": false,
+      "inventory_screenshot_inspected": false,
+      "inventory_screenshot": null
+    },
+    {
+      "profile": "FabricOnly",
+      "passed": true,
+      "report": "qa-pickup/evidence/1.2.0/physical-matrix/result.json",
+      "report_sha256": "675349706432d07b824db4ab145d68b43058ab4fb012acf81a8449e3d7104aba",
+      "real_collected_diamonds": 17,
+      "client_item_ids_and_models_asserted": true,
+      "native_key_binding_off_on": false,
+      "inventory_screenshot_saved": true,
+      "inventory_screenshot_inspected": true,
+      "inventory_screenshot": "qa-pickup/evidence/1.2.0/physical-matrix/FabricOnly/screenshots/pickup-upgrades-inventory.png"
+    },
+    {
+      "profile": "SuiteVanilla",
+      "passed": true,
+      "report": "qa-pickup/evidence/1.2.0/physical-matrix/result.json",
+      "report_sha256": "675349706432d07b824db4ab145d68b43058ab4fb012acf81a8449e3d7104aba",
+      "real_collected_diamonds": 17,
+      "client_item_ids_and_models_asserted": false,
+      "native_key_binding_off_on": false,
+      "inventory_screenshot_saved": false,
+      "inventory_screenshot_inspected": false,
+      "inventory_screenshot": null
+    },
+    {
+      "profile": "SuiteNativeNP",
+      "passed": true,
+      "report": "qa-pickup/evidence/1.2.0/physical-matrix/result.json",
+      "report_sha256": "675349706432d07b824db4ab145d68b43058ab4fb012acf81a8449e3d7104aba",
+      "real_collected_diamonds": 17,
+      "client_item_ids_and_models_asserted": true,
+      "native_key_binding_off_on": true,
+      "inventory_screenshot_saved": true,
+      "inventory_screenshot_inspected": true,
+      "inventory_screenshot": "qa-pickup/evidence/1.2.0/physical-matrix/SuiteNativeNP/screenshots/pickup-upgrades-inventory.png"
+    },
+    {
+      "profile": "LegacySuite",
+      "passed": true,
+      "report": "qa-pickup/evidence/1.2.0/physical-legacy/result.json",
+      "report_sha256": "31dc7ca165681a40e53b21496125f176d67d342c19d9b10d0a087765d1230733",
+      "real_collected_diamonds": 17,
+      "client_item_ids_and_models_asserted": true,
+      "native_key_binding_off_on": false,
+      "inventory_screenshot_saved": true,
+      "inventory_screenshot_inspected": true,
+      "inventory_screenshot": "qa-pickup/evidence/1.2.0/physical-legacy/LegacySuite/screenshots/pickup-upgrades-inventory.png"
+    },
+    {
+      "profile": "SuiteNativeSP",
+      "passed": true,
+      "report": "qa-pickup/evidence/1.2.0/physical-integrated/result.json",
+      "report_sha256": "b07371e4cece719e18d977cef1964e54e60ee0cfb276816ccb7e236b61b6820c",
+      "real_collected_diamonds": 17,
+      "client_item_ids_and_models_asserted": true,
+      "native_key_binding_off_on": true,
+      "inventory_screenshot_saved": true,
+      "inventory_screenshot_inspected": true,
+      "inventory_screenshot": "qa-pickup/evidence/1.2.0/physical-integrated/SuiteNativeSP/screenshots/pickup-upgrades-inventory.png"
+    },
+    {
+      "profile": "SuiteNativeSPP",
+      "passed": true,
+      "report": "qa-pickup/evidence/1.2.0/physical-integrated/result.json",
+      "report_sha256": "b07371e4cece719e18d977cef1964e54e60ee0cfb276816ccb7e236b61b6820c",
+      "real_collected_diamonds": 17,
+      "client_item_ids_and_models_asserted": true,
+      "native_key_binding_off_on": true,
+      "inventory_screenshot_saved": true,
+      "inventory_screenshot_inspected": true,
+      "inventory_screenshot": "qa-pickup/evidence/1.2.0/physical-integrated/SuiteNativeSPP/screenshots/pickup-upgrades-inventory.png"
+    },
+    {
+      "profile": "SuiteNativePoly",
+      "passed": true,
+      "report": "qa-pickup/evidence/1.2.0/physical-both-polymer/result.json",
+      "report_sha256": "d37a8b175d32c5ceffcab8ae44061ef9aabb61e16d5709920122c7f2a5870572",
+      "real_collected_diamonds": 17,
+      "client_item_ids_and_models_asserted": true,
+      "native_key_binding_off_on": true,
+      "inventory_screenshot_saved": true,
+      "inventory_screenshot_inspected": true,
+      "inventory_screenshot": "qa-pickup/evidence/1.2.0/physical-both-polymer/SuiteNativePoly/screenshots/pickup-upgrades-inventory.png"
+    }
+  ],
+  "limits": [
+    "Unmodified vanilla has no injected client-side model assertion or inventory screenshot.",
+    "The first matrix dedicated native screenshot did not finish writing; its raw report is preserved and supplemented here. Native rendering is covered by other physical profiles."
+  ]
+}

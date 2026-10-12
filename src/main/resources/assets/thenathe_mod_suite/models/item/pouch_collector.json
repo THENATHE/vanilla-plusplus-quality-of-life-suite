@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "thenathe_mod_suite:item/pouch_collector"
+  }
+}
