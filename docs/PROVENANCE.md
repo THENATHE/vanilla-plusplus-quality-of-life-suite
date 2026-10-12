@@ -4,6 +4,8 @@ The current **1.3.0+26.3** update adds suite-owned native modules and consolidat
 
 ## Native 1.3.0 source record
 
+Thanks for the idea, **Serilum**! The beacon and conduit placement modules use the concepts described by Better Beacon Placement and Better Conduit Placement. Their implementations were written independently using vanilla Minecraft APIs/geometry, without copying or adapting Serilum's implementation code or assets. These credits acknowledge concept inspiration.
+
 The new functions are owned by the suite under `src/main/java/com/thenathe/suite/features/` and `pets/`, with a server-authoritative `vpp_mod_suite:features` configuration. The original Drops into Shulker, Serilum placement and Grind Enchantments JARs/source are not bundled. Native animal calls use a location index and UUID bindings rather than copied entities or command storage. Swift Flight retains `swift_flight:swift_flight`; its adapted MIT definition data includes the exact Jodek notice in `licenses/swift-flight-LICENSE.txt` and the production archive. [Verified author/source records](native-features-attribution-2026-10-12.json).
 
 Mod Menu's integrated feature entries are presentation objects, not invented Fabric loader identities. Original feature entries, original config namespaces and nested source boundaries remain intact. Combined compatibility is **1.3.0+26.3**, the mixed-scale addon is **1.1.8+26.3**, and the external publisher/dependency inputs are unchanged. No new upstream port counterpart is created; the separate SSO port remains paused.

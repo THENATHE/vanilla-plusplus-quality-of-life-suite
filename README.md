@@ -325,7 +325,7 @@ Thanks for your hard work, **1bacon (onebacon)**, and **Meshiest** for the origi
 
 [Original mod on Modrinth](https://modrinth.com/mod/better-beacon-placement)
 
-Thanks for your hard work, **Serilum**!
+Thanks for the idea, **Serilum**! Vanilla++ implements this gameplay concept independently using vanilla Minecraft APIs. No code or assets from Better Beacon Placement were copied into this implementation.
 
 - Use mineral blocks on a beacon to construct its base; crouch to place from the held stack.
 - Configure base dismantling and replaced-block drops.
@@ -335,7 +335,7 @@ Thanks for your hard work, **Serilum**!
 
 [Original mod on Modrinth](https://modrinth.com/mod/better-conduit-placement)
 
-Thanks for your hard work, **Serilum**!
+Thanks for the idea, **Serilum**! Vanilla++ implements this gameplay concept independently using vanilla Minecraft APIs and geometry. No code or assets from Better Conduit Placement were copied into this implementation.
 
 - Place a conduit in front of you underwater, then use frame blocks on it to construct its surrounding frame.
 - Crouch for bulk construction; configure frame dismantling and replaced-block drops.

@@ -6,6 +6,8 @@ The 1.3.0 suite additions are maintained in this repository independently of the
 
 Original project authors were verified against the public Modrinth project and team APIs on 2026-10-12. The exact records, source URLs and published license declarations are in [the attribution audit](native-features-attribution-2026-10-12.json). A project's license in that audit describes the original project; it does not relicense the independently authored suite code.
 
+Thanks for the idea, **Serilum**! Better Beacon Placement and Better Conduit Placement inspired the gameplay concepts. Their suite implementations were written independently using vanilla Minecraft APIs/geometry and the public feature descriptions. No Serilum source code or assets were copied or adapted; the original ARR mods and Collective are not bundled.
+
 | Suite functionality | Original project / author | Suite relationship |
 | --- | --- | --- |
 | Offhand shulker insertion | [Drops into Shulker](https://modrinth.com/mod/drops-into-shulker), 1bacon / onebacon; original modded-container contribution by Meshiest | Independent native implementation. Original CC0 mod JAR is not bundled. |

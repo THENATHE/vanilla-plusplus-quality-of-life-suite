@@ -30,6 +30,8 @@ Fzzy Config remains an official manifest download, never a redistributed binary 
 
 ## Native additions in 1.3.0
 
-Thanks to **1bacon (onebacon)** and **Meshiest** for Drops into Shulker, **Serilum** for Better Beacon Placement and Better Conduit Placement, **mschae23** for Grind Enchantments, **TheLokin** for Netherite Instamine, and **Jodek** for No Enderman Grief, Swift Flight, Transfer Pet Owner, the six Call Your animal packs, and Trident All Weather Channeling.
+Thanks to **1bacon (onebacon)** and **Meshiest** for Drops into Shulker, **Serilum** for the ideas behind Better Beacon Placement and Better Conduit Placement, **mschae23** for Grind Enchantments, **TheLokin** for Netherite Instamine, and **Jodek** for No Enderman Grief, Swift Flight, Transfer Pet Owner, the six Call Your animal packs, and Trident All Weather Channeling.
+
+Thanks for the idea, **Serilum**! The suite's beacon and conduit placement features were independently written from the publicly described gameplay concepts and vanilla Minecraft APIs/geometry. No Serilum implementation code or assets were copied or adapted into these features; credit here acknowledges the concepts.
 
 These features are maintained natively in the suite. Original Drops into Shulker, Serilum and Grind Enchantments source/JARs and Collective are not bundled. Their published licenses remain their own; independent implementation does not change those terms. Retained/adapted MIT data carries its original notices. See [feature source boundaries](docs/NATIVE_FEATURES.md) and [verified author metadata](docs/native-features-attribution-2026-10-12.json).
