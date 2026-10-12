@@ -1,6 +1,6 @@
 # Vanilla++ Quality of Life Suite
 
-[What it is](#what-it-is) · [Features](#features) · [Vanilla compatibility](#the-shim-vanilla-and-modded-players-together) · [Installation](#installation) · [Technical info](#technical-info) · [Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Dependencies and compatible mods](docs/DEPENDENCIES.md)
+[What it is](#what-it-is) · [Purpose](#purpose) · [Features](#features) · [Vanilla compatibility](#the-shim-vanilla-and-modded-players-together) · [Installation](#installation) · [Technical info](#technical-info) · [Downloads](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) · [Dependencies and compatible mods](docs/DEPENDENCIES.md)
 
 ![Vanilla++ modpack artwork](artwork/vanilla-plusplus-modpack.png)
 
@@ -13,6 +13,12 @@ A collection of Minecraft quality-of-life mods brought together into one feature
 The suite includes original mods, independently maintained native features inspired by the projects linked below, and my own additions to help them work together. It also includes a compatibility layer that lets players without the suite join a server when Polymer is installed. Those players can use the supported vanilla-friendly features; custom backpack, pouch, and atlas screens still need the suite on the client.
 
 This is an unofficial community project. Credit for the original mods belongs to their creators, thanked below. When needed, machine-assisted porting helps keep features available on newer Minecraft releases while original authors update independently. Use the Minecraft version supported by your chosen release, listed under [Installation](#installation). Many features are configurable, so your server's settings may differ from the defaults described here.
+
+### Purpose
+
+I brought these mods together to add **authoritative client handshakes and shared Polymer compatibility**. The handshakes let the server confirm which supported modules a client has before sending mod-specific data or enabling native interactions. Polymer provides the supported compatibility path for players without those client mods, while matching modded clients retain their native features. Combining the mods gives me a consistent place to maintain and test those connections together.
+
+This is not an attempt to take attribution or credit from the respective authors. **The original mods are their work, and credit for them remains with their creators.** My contributions are the compatibility layers, integration work, maintenance, and additions identified in this README. Original project links, creator credits, and license notices are retained so you can find and support the people whose work makes the suite possible.
 
 ## Features
 
