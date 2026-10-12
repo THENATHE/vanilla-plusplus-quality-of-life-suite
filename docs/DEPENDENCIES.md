@@ -1,6 +1,6 @@
 # Dependencies and optional integrations
 
-Applies to **Vanilla++ Quality of Life Suite 1.3.0+26.3**. The new native feature modules use the existing Fabric/Fzzy dependencies; the original Drops into Shulker, placement, grindstone and datapack JARs are not required. No Collective library is added. Remove replaced standalone implementations when their corresponding suite features are enabled. [Current installation and verification](RELEASE_1_3_0.md).
+Applies to **Vanilla++ Quality of Life Suite 1.3.1+26.3**. The new native feature modules use the existing Fabric/Fzzy dependencies; the original Drops into Shulker, placement, grindstone and datapack JARs are not required. No Collective library is added. Remove replaced standalone implementations when their corresponding suite features are enabled. [Current installation and verification](RELEASE_1_3_1.md).
 
 The publisher input checks below retain their original dates. Pajic inputs were verified on 2026-10-06, Bannerpoint on 2026-10-05, and other original dependencies/integrations on 2026-10-04. Their locked versions are unchanged; original links/source records are retained. Original author/project metadata for the native additions was checked on 2026-10-12 in [the attribution record](native-features-attribution-2026-10-12.json). A listed optional integration is not a claim of fresh gameplay acceptance; see [validation](VALIDATION.md).
 
@@ -19,7 +19,7 @@ Install these separately on the server and on clients using the suite. Vanilla c
 
 **Platform:** Minecraft 26.3, Java 25+, and [Fabric Loader 0.19.5](https://fabricmc.net/use/installer/). Fabric Loader is installed through the launcher/installer; it is not a dependency mod downloaded from a Modrinth project. Java and Minecraft are platform prerequisites.
 
-The release’s `vanilla-plusplus-installation-pack-1.3.0+26.3.zip` supplies the suite, its required local libraries, six permitted public dependencies, their notices and a side-aware Python installer. Fzzy Config remains an official manifest download. Follow [installation instructions](INSTALLATION_PACK.md); no separate library ZIP is published.
+The release’s `vanilla-plusplus-installation-pack-1.3.1+26.3.zip` supplies the suite, its required local libraries, six permitted public dependencies, their notices and a side-aware Python installer. Fzzy Config remains an official manifest download. Follow [installation instructions](INSTALLATION_PACK.md); no separate library ZIP is published.
 
 Defaulted is no longer installed by this release. The exact `1.3.8+26.3.dropfix.1` input and guarded compatibility hook are retained for compiling historical optional support; this does not make it a suite runtime dependency.
 

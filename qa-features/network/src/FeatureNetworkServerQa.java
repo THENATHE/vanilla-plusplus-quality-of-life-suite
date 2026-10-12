@@ -28,6 +28,7 @@ public final class FeatureNetworkServerQa implements ModInitializer {
     private final HashMap<UUID, Integer> ages = new HashMap<>();
     private final Set<UUID> seeded = new HashSet<>();
     private final Set<UUID> completed = new HashSet<>();
+    private final boolean scrapRecipe = "scrap".equals(System.getProperty("features.qa.recipe", "extraction"));
 
     @Override
     public void onInitialize() {
@@ -45,9 +46,10 @@ public final class FeatureNetworkServerQa implements ModInitializer {
                         sword.enchant(server.registryAccess().lookupOrThrow(Registries.ENCHANTMENT)
                                 .getOrThrow(Enchantments.SHARPNESS), 5);
                         sword.setDamageValue(120);
+                        if (scrapRecipe) sword.set(DataComponents.REPAIR_COST, 10);
                         sword.set(DataComponents.CUSTOM_NAME, Component.literal("Network extraction sword"));
                         player.getInventory().setItem(9, sword);
-                        player.getInventory().setItem(10, new ItemStack(Items.BOOK));
+                        player.getInventory().setItem(10, new ItemStack(scrapRecipe ? Items.NETHERITE_SCRAP : Items.BOOK));
                         var pos = player.blockPosition().offset(2, 0, 0);
                         player.level().setBlock(pos, Blocks.GRINDSTONE.defaultBlockState(), 3);
                         var access = ContainerLevelAccess.create(player.level(), pos);
@@ -63,7 +65,32 @@ public final class FeatureNetworkServerQa implements ModInitializer {
                         result.addProperty("bottom_count", menu.getSlot(1).getItem().getCount());
                         result.addProperty("output_count", menu.getSlot(2).getItem().getCount());
                         result.addProperty("carried_count", menu.getCarried().getCount());
-                        if (seeded.contains(player.getUUID()) && player.getInventory().getNonEquipmentItems().stream()
+                        if (scrapRecipe && seeded.contains(player.getUUID()) && menu.getSlot(0).getItem().isEmpty()) {
+                            var swords = player.getInventory().getNonEquipmentItems().stream()
+                                    .filter(stack -> stack.is(Items.DIAMOND_SWORD)
+                                            && stack.getOrDefault(DataComponents.REPAIR_COST, 0) == 5).toList();
+                            if (!swords.isEmpty()) {
+                                var sword = swords.getFirst();
+                                var sharpness = server.registryAccess().lookupOrThrow(Registries.ENCHANTMENT)
+                                        .getOrThrow(Enchantments.SHARPNESS);
+                                if (swords.stream().mapToInt(ItemStack::getCount).sum() != 1
+                                        || !menu.getSlot(1).getItem().isEmpty() || !menu.getCarried().isEmpty()
+                                        || player.getInventory().countItem(Items.NETHERITE_SCRAP) != 0
+                                        || player.getInventory().countItem(Items.DIAMOND_SWORD) != 1
+                                        || sword.getDamageValue() != 120
+                                        || !sword.getHoverName().getString().equals("Network extraction sword")
+                                        || sword.getOrDefault(DataComponents.ENCHANTMENTS,
+                                        net.minecraft.world.item.enchantment.ItemEnchantments.EMPTY).getLevel(sharpness) != 5) {
+                                    throw new AssertionError("Real SSO scrap recipe did not conserve equipment and ingredients");
+                                }
+                                completed.add(player.getUUID());
+                                result.addProperty("complete", true);
+                                result.addProperty("repair_cost", 5);
+                                result.addProperty("scrap_consumed", true);
+                                result.addProperty("sword_preserved", true);
+                            }
+                        }
+                        if (!scrapRecipe && seeded.contains(player.getUUID()) && player.getInventory().getNonEquipmentItems().stream()
                                 .anyMatch(stack -> stack.is(Items.ENCHANTED_BOOK))) {
                             var books = player.getInventory().getNonEquipmentItems().stream()
                                     .filter(stack -> stack.is(Items.ENCHANTED_BOOK)).toList();

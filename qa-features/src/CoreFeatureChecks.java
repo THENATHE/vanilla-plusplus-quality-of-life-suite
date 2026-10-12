@@ -21,6 +21,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.projectile.arrow.ThrownTrident;
 import net.minecraft.world.inventory.GrindstoneMenu;
+import net.minecraft.world.inventory.ContainerInput;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.component.ItemContainerContents;
@@ -272,11 +273,34 @@ public final class CoreFeatureChecks {
         var scrapGear = gear.copy();
         scrapGear.set(DataComponents.REPAIR_COST, 10);
         menu = new GrindstoneMenu(17, player.getInventory());
-        menu.getSlot(0).set(scrapGear);
-        menu.getSlot(1).set(new ItemStack(Items.NETHERITE_SCRAP));
+        menu.setCarried(scrapGear);
+        menu.clicked(0, 0, ContainerInput.PICKUP, player);
+        check(menu.getCarried().isEmpty(), "SSO repair-cost equipment accepts ordinary cursor insertion");
+        menu.setCarried(new ItemStack(Items.NETHERITE_SCRAP));
+        menu.clicked(1, 0, ContainerInput.PICKUP, player);
+        check(menu.getCarried().isEmpty() && menu.getSlot(1).getItem().is(Items.NETHERITE_SCRAP),
+                "SSO netherite scrap accepts ordinary cursor insertion");
         check(menu.getSlot(2).getItem().getOrDefault(DataComponents.REPAIR_COST, 0) == 5, "SSO scrap repair-cost reduction retained");
+        menu.clicked(2, 0, ContainerInput.PICKUP, player);
+        check(menu.getCarried().getOrDefault(DataComponents.REPAIR_COST, 0) == 5
+                && menu.getSlot(0).getItem().isEmpty() && menu.getSlot(1).getItem().isEmpty(),
+                "SSO ordinary cursor pickup consumes one equipment item and one scrap");
         config.grindEnchantments.accept(false);
         check(GrindExtraction.match(player, gear, new ItemStack(Items.BOOK)) == null, "grindstone module disable switch");
+        check(menu.getSlot(1).mayPlace(new ItemStack(Items.NETHERITE_SCRAP)),
+                "SSO scrap remains accepted with extraction disabled");
+        var scrapRecipe = me.pajic.simple_smithing_overhaul.SSO.CONFIG.grindstoneImprovements.repairCostReductionRecipe;
+        boolean originalScrapRecipe = scrapRecipe.get();
+        try {
+            scrapRecipe.accept(false);
+            check(!menu.getSlot(1).mayPlace(new ItemStack(Items.NETHERITE_SCRAP)),
+                    "disabled SSO scrap recipe rejects scrap");
+            scrapRecipe.accept(true);
+            check(!menu.getSlot(0).mayPlace(new ItemStack(Items.NETHERITE_SCRAP)),
+                    "SSO scrap is accepted only in the additional slot");
+        } finally {
+            scrapRecipe.accept(originalScrapRecipe);
+        }
         config.grindEnchantments.accept(true);
     }
 

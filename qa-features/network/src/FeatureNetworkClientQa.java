@@ -37,6 +37,7 @@ public final class FeatureNetworkClientQa implements ClientModInitializer {
                     result.addProperty("output_count", menu.getSlot(2).getItem().getCount());
                     result.addProperty("carried_count", menu.getCarried().getCount());
                     result.addProperty("book_slot_accepts_locally", menu.getSlot(1).mayPlace(new ItemStack(Items.BOOK)));
+                    result.addProperty("scrap_slot_accepts_locally", menu.getSlot(1).mayPlace(new ItemStack(Items.NETHERITE_SCRAP)));
                     if (Files.exists(requestPath)) {
                         var request = JsonParser.parseString(Files.readString(requestPath)).getAsJsonObject();
                         Files.delete(requestPath);

@@ -20,6 +20,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.TicketType;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Leashable;
@@ -281,15 +283,15 @@ public final class PetFeatures {
             feedback(player, "Someone is riding this pet.");
             return false;
         }
-        Vec3 destination = safeDestination(player, pet, kind);
-        if (destination == null) {
-            feedback(player, kind == PetKind.NAUTILUS ? "There is no safe water nearby for your nautilus."
-                : "There is no safe space nearby for your pet.");
-            return false;
-        }
         List<LeashConnection> leashes = new ArrayList<>();
         if (!collectLeashes(pet, player, leashes, 0)) {
             feedback(player, "The attached leash group cannot be moved safely. Release its leash first.");
+            return false;
+        }
+        Vec3 destination = safeDestination(player, pet, kind, leashes);
+        if (destination == null) {
+            feedback(player, kind == PetKind.NAUTILUS ? "There is no safe water nearby for your nautilus."
+                : "There is no safe space nearby for your pet and its passengers or leash group.");
             return false;
         }
         if (!FeatureConfig.CONFIG.preservePetLeashes.get()) {
@@ -343,6 +345,13 @@ public final class PetFeatures {
     }
 
     public static Vec3 safeDestination(ServerPlayer player, Entity pet, PetKind kind) {
+        List<LeashConnection> leashes = new ArrayList<>();
+        if (!collectLeashes(pet, player, leashes, 0)) return null;
+        return safeDestination(player, pet, kind, leashes);
+    }
+
+    private static Vec3 safeDestination(ServerPlayer player, Entity pet, PetKind kind,
+                                        List<LeashConnection> leashes) {
         ServerLevel level = player.level();
         BlockPos center = player.blockPosition();
         for (int radius = 1; radius <= 6; radius++) {
@@ -352,22 +361,56 @@ public final class PetFeatures {
                     BlockPos pos = center.offset(dx, dy, dz);
                     if (!level.getWorldBorder().isWithinBounds(pos) || !level.isInWorldBounds(pos)) continue;
                     Vec3 next = Vec3.atBottomCenterOf(pos);
-                    AABB box = pet.getBoundingBox().move(next.subtract(pet.position()));
-                    if (!level.noCollision(pet, box)) continue;
+                    if (!safeGroupAt(level, pet, next)) continue;
+                    if (FeatureConfig.CONFIG.preservePetLeashes.get() && leashes.stream().anyMatch(
+                        leash -> !safeGroupAt(level, leash.animal(), next))) continue;
+                    if (FeatureConfig.CONFIG.mountCalledPets.get() && (kind == PetKind.HORSE
+                        || kind == PetKind.NAUTILUS || kind == PetKind.HAPPY_GHAST)
+                        && !safeEntityAt(level, player, passengerDestination(pet, player, next))) continue;
                     if (kind == PetKind.NAUTILUS && FeatureConfig.CONFIG.nautilusRequiresWater.get()) {
                         if (!level.getFluidState(pos).is(FluidTags.WATER)
                             || !level.getFluidState(pos.above()).is(FluidTags.WATER)) continue;
                     } else if (!kind.flies() && !level.getBlockState(pos.below()).isFaceSturdy(level,
                         pos.below(), net.minecraft.core.Direction.UP)) continue;
-                    if (level.getFluidState(pos).is(FluidTags.LAVA) || level.getBlockState(pos).is(
-                        net.minecraft.world.level.block.Blocks.FIRE)
-                        || level.getBlockState(pos.below()).is(net.minecraft.world.level.block.Blocks.MAGMA_BLOCK)
-                        || level.getBlockState(pos.below()).is(net.minecraft.world.level.block.Blocks.CAMPFIRE)) continue;
                     return next;
                 }
             }
         }
         return null;
+    }
+
+    private static boolean safeGroupAt(ServerLevel level, Entity entity, Vec3 destination) {
+        if (!safeEntityAt(level, entity, destination)) return false;
+        for (Entity passenger : entity.getPassengers()) {
+            if (!safeGroupAt(level, passenger, passengerDestination(entity, passenger, destination))) return false;
+        }
+        return true;
+    }
+
+    private static Vec3 passengerDestination(Entity vehicle, Entity passenger, Vec3 destination) {
+        // Match vanilla's riding attachments instead of trusting a passenger's possibly stale position.
+        return vehicle.getPassengerRidingPosition(passenger).subtract(vehicle.position())
+            .subtract(passenger.getVehicleAttachmentPoint(vehicle)).add(destination);
+    }
+
+    private static boolean safeEntityAt(ServerLevel level, Entity entity, Vec3 destination) {
+        AABB box = entity.getBoundingBox().move(destination.subtract(entity.position()));
+        BlockPos minimum = BlockPos.containing(box.minX + 1.0E-7, box.minY, box.minZ + 1.0E-7);
+        BlockPos maximum = BlockPos.containing(box.maxX - 1.0E-7, box.maxY - 1.0E-7, box.maxZ - 1.0E-7);
+        if (!level.isInWorldBounds(minimum) || !level.isInWorldBounds(maximum)
+            || !level.getWorldBorder().isWithinBounds(minimum) || !level.getWorldBorder().isWithinBounds(maximum)
+            || !level.noCollision(entity, box)) return false;
+        // Include the supporting surface and every occupied block, including non-solid fire and fluids.
+        BlockPos support = BlockPos.containing(box.minX + 1.0E-7, box.minY - .01, box.minZ + 1.0E-7);
+        for (BlockPos pos : BlockPos.betweenClosed(support, maximum)) {
+            var state = level.getBlockState(pos);
+            if (level.getFluidState(pos).is(FluidTags.LAVA) || state.is(BlockTags.FIRE)
+                || state.is(Blocks.MAGMA_BLOCK) || state.is(Blocks.CAMPFIRE) || state.is(Blocks.SOUL_CAMPFIRE)
+                || state.is(Blocks.CACTUS) || state.is(Blocks.SWEET_BERRY_BUSH) || state.is(Blocks.WITHER_ROSE)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static void feedback(ServerPlayer player, String message) {

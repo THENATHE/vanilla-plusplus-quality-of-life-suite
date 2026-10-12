@@ -25,6 +25,7 @@ def main():
     parser.add_argument('--label', required=True)
     parser.add_argument('--profiles', default='fabric,suite')
     parser.add_argument('--without-polymer', action='store_true')
+    parser.add_argument('--recipe', choices=('extraction', 'scrap'), default='extraction')
     parser.add_argument('--compile-only', action='store_true', help='Compile/package observation fixtures without launching any runtime')
     args = parser.parse_args()
     if set(args.profiles.split(',')) - {'fabric', 'suite'}: parser.error('Only fabric and suite profiles are supported')
@@ -90,6 +91,7 @@ def main():
         directory=run/'server';directory.mkdir();port=freeport();launch.copy_accepted_eula(directory)
         (directory/'server.properties').write_text(f'server-ip=127.0.0.1\nserver-port={port}\nonline-mode=false\nwhite-list=false\nenforce-secure-profile=false\nspawn-protection=0\nview-distance=2\nsimulation-distance=2\ndifficulty=peaceful\nlevel-type=minecraft:flat\ngenerator-settings={{"layers":[{{"block":"minecraft:bedrock","height":1}}],"biome":"minecraft:plains"}}\ngenerate-structures=false\n')
         command=launch.base_command('server',directory,port);command[0]='/usr/lib/jvm/java-25-openjdk/bin/java';command.insert(1,'-Dfeatures.qa.control='+str(control))
+        command.insert(1, '-Dfeatures.qa.recipe=' + args.recipe)
         server=start(directory,command,[suite,*dependencies,fixtures/'server.jar'] + ([] if args.without_polymer else [polymer]))
         wait(lambda:'Done (' in (directory/'console.log').read_text(),server,'server startup')
         for profile in args.profiles.split(','):
@@ -120,9 +122,9 @@ def main():
             wait(lambda:read(name,'client').get('ticks',0)>=after+60,client,name+' remains connected after extraction')
             observations.append({'profile':profile,'clicks':click_observations,'client':read(name,'client'),'server':read(name,'server')})
             stop(client)
-            print('PASS '+profile+': ordinary grindstone clicks conserve original sword, book and Sharpness V',flush=True)
+            print('PASS '+profile+': ordinary grindstone clicks conserve equipment and ingredients for '+args.recipe,flush=True)
         stop(server,True)
-        (run/'result.json').write_text(json.dumps({'passed':True,'version':version,'bundle_sha256':sha(suite),'polymer':not args.without_polymer,'profiles':args.profiles.split(','),'observations':observations,'scope':'Actual native-suite/Fabric API-only connections and ordinary grindstone packet clicks. Other gameplay and pure vanilla connectivity are recorded separately.'},indent=2)+'\n')
+        (run/'result.json').write_text(json.dumps({'passed':True,'version':version,'bundle_sha256':sha(suite),'recipe':args.recipe,'polymer':not args.without_polymer,'profiles':args.profiles.split(','),'observations':observations,'scope':'Actual native-suite/Fabric API-only connections and ordinary grindstone packet clicks. Other gameplay and pure vanilla connectivity are recorded separately.'},indent=2)+'\n')
         print('PASS focused feature network checks',flush=True)
     finally:
         for process,log in reversed(children):

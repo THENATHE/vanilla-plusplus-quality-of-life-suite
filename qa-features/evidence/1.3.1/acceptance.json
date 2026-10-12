@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "bundle_sha256": "7becece0f4bbe9ff85ad4cad8474c6b9a8b9dcbdf9940abeb5a31e0d0786db2f",
+  "mechanics_assertions": 1014,
+  "cases": [
+    {
+      "profile": "native",
+      "phase": "initial",
+      "assertions": 249,
+      "passed": true
+    },
+    {
+      "profile": "native",
+      "phase": "restart",
+      "assertions": 258,
+      "passed": true
+    },
+    {
+      "profile": "polymer",
+      "phase": "initial",
+      "assertions": 249,
+      "passed": true
+    },
+    {
+      "profile": "polymer",
+      "phase": "restart",
+      "assertions": 258,
+      "passed": true
+    }
+  ],
+  "sanitization": "Local project and home paths replaced with placeholders in JSON and logs; frozen source files unchanged."
+}

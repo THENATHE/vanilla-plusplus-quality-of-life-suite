@@ -1,6 +1,6 @@
 # Provenance and compatibility tracks
 
-The current **1.3.0+26.3** update adds suite-owned native modules and consolidated Mod Menu presentation. The original nested inputs and runtime library set remain unchanged; Collective is not added. See [current release scope](RELEASE_1_3_0.md), [native feature attribution](NATIVE_FEATURES.md) and [validation](VALIDATION.md). Existing 1.2.1 details below are historical baseline records.
+The current **1.3.1+26.3** update adds suite-owned corrections for anvil shift-click XP, grindstone input acceptance and pet recall safety. No original dependency JAR is modified. The original nested inputs and runtime library set remain unchanged; Collective is not added. See [current release scope](RELEASE_1_3_1.md), [native feature attribution](NATIVE_FEATURES.md) and [validation](VALIDATION.md). Existing 1.2.1 details below are historical baseline records.
 
 ## Native 1.3.0 source record
 

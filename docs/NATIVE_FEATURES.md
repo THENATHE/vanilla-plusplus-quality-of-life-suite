@@ -1,6 +1,6 @@
 # Native feature additions
 
-The 1.3.0 suite additions are maintained in this repository independently of the original projects. They use the existing Fabric/Fzzy infrastructure and vanilla items, menus and entities. Collective and the original feature JARs/datapack command systems are not installation requirements.
+The 1.3.0 suite additions, with 1.3.1 safety and compatibility fixes, are maintained in this repository independently of the original projects. They use the existing Fabric/Fzzy infrastructure and vanilla items, menus and entities. Collective and the original feature JARs/datapack command systems are not installation requirements.
 
 ## Credits and source boundaries
 
@@ -42,3 +42,9 @@ The result preview displays cost in lore for native and fallback clients. Taken 
 The Vanilla++ parent opens the combined settings hub. Each original feature and authored addition stays visible beneath it; compatibility modules share one Compatibility + Shims display entry. Fabric IDs, nested modules, packet negotiation and per-module support checks are unchanged by this presentation grouping.
 
 The native additions use ordinary items/screens and require no new sprites or resource-pack detection. Optional Polymer continues serving the existing suite compatibility path. Native-only servers retain normal modded operation without Polymer.
+
+## 1.3.1 review corrections
+
+The suite restores SSO netherite scrap acceptance in the grindstone additional slot while respecting SSO's recipe setting. Its anvil compatibility passes the original result stack to output-taking logic after a full shift-click transfer, so enchantments remain available when SSO decides whether the repair should be free. Original SSO and curse-cleanser JARs remain unchanged.
+
+Pet recalls check translated bounds for the pet, existing passengers, preserved leash companions and the optional automatic rider before moving anything. Hazard checks cover the occupied volume and supporting surface, including soul fire and nearby lava. A rejected recall leaves the group in place.

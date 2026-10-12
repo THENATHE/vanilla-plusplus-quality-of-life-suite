@@ -1,5 +1,7 @@
 # Suite settings and original configuration ownership
 
+The current 1.3.1 native and Polymer operator settings/Hotkey Wheel profiles passed against the exact release candidate. See [current evidence](../qa-settings/evidence/1.3.1/result.json); the detailed 1.3.0 records below remain historical.
+
 Open **Vanilla++ Quality of Life Suite** from Mod Menu, or run the client command `/suite-settings` while connected. You can also bind **Open Suite Settings** under **Options → Controls → Vanilla++ Quality of Life Suite**; its default is **Not Bound** to avoid collisions. The binding opens settings from gameplay and leaves other open screens alone. The screen uses the existing Fzzy Config interface with one shared navigation page and sidebar. Each original gameplay/client configuration remains its own category, with the original fields, descriptions, validation, reset defaults, list/map editors, restart/resource-reload notices and server permission checks.
 
 ## Native modules in 1.3.0
@@ -8,7 +10,7 @@ The suite parent opens all registered original configuration screens plus **Nati
 
 Mod Menu nests the original feature mods and authored feature additions individually beneath Vanilla++. Compatibility modules share one **Compatibility + Shims** display entry; their Fabric loader identities remain intact. Presentation grouping does not rewrite original config IDs or stored items.
 
-All three current native/Polymer operator/guest configuration and Hotkey Wheel profiles pass on the final 1.3.0 JAR; [exact evidence and automated input scope](../qa-settings/evidence/1.3.0/README.md) are preserved. Earlier settings counts/results below retain their historical release scope.
+The historical native/Polymer operator/guest configuration and Hotkey Wheel profiles passed on the final 1.3.0 JAR; [exact evidence and automated input scope](../qa-settings/evidence/1.3.0/README.md) are preserved. Earlier settings counts/results below retain their historical release scope.
 
 ## Configuration identities
 

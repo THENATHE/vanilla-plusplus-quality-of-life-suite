@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "polymer": true,
+  "swift_1_normal_preview_cost": 4,
+  "swift_1_normal_charged_levels": 4,
+  "swift_1_shift_preview_cost": 4,
+  "swift_1_shift_charged_levels": 4,
+  "swift_2_normal_preview_cost": 8,
+  "swift_2_normal_charged_levels": 8,
+  "swift_2_shift_preview_cost": 8,
+  "swift_2_shift_charged_levels": 8,
+  "swift_3_normal_preview_cost": 12,
+  "swift_3_normal_charged_levels": 12,
+  "swift_3_shift_preview_cost": 12,
+  "swift_3_shift_charged_levels": 12,
+  "vanilla_unbreaking_normal_preview_cost": 1,
+  "vanilla_unbreaking_normal_charged_levels": 1,
+  "vanilla_unbreaking_shift_preview_cost": 1,
+  "vanilla_unbreaking_shift_charged_levels": 1,
+  "unenchanted_repair_normal_charged_levels": 0,
+  "unenchanted_repair_shift_charged_levels": 0
+}

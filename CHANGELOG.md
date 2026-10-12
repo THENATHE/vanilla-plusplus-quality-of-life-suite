@@ -1,5 +1,13 @@
 # Changes
 
+## 1.3.1+26.3
+
+- Charge the displayed anvil XP cost on enchanted shift-click outputs while preserving configured free unenchanted repairs.
+- Restore ordinary netherite scrap insertion for SSO's grindstone repair-cost reduction recipe, including when enchantment extraction is disabled.
+- Validate pet recall destinations for passengers, attached animals and damaging blocks.
+- Keep all pinned original mod JARs, dependencies, identities and author credits unchanged.
+- Add regression coverage for real menu insertion and recall safety; see [release validation](docs/RELEASE_1_3_1.md).
+
 ## 1.3.0+26.3 — 2026-10-12
 
 - Add suite-owned offhand-shulker insertion coordinated with the backpack collector and native beacon/conduit placement helpers without Collective.

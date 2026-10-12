@@ -70,6 +70,7 @@ public final class PetFeatureChecks {
         hornComponents(player);
         adapterRules(level, player);
         gestureTiming(level, player);
+        destinationSafety(server, player);
         nativeRelocation(level, player);
         shoulderParrot(server, player);
         crossDimensionAndLeashes(server, player);
@@ -124,6 +125,97 @@ public final class PetFeatureChecks {
         FeatureConfig.CONFIG.callDog.validateAndSet(false);
         check(!PetFeatures.authorized(player, untamed, PetKind.DOG), "disabled module refuses binding");
         FeatureConfig.CONFIG.callDog.validateAndSet(true);
+    }
+
+    private static void destinationSafety(MinecraftServer server, ServerPlayer player) {
+        ServerLevel level = player.level();
+        var wolf = EntityTypes.WOLF.create(level, EntitySpawnReason.COMMAND);
+        wolf.setTame(true, false);
+        wolf.setOwner(player);
+        wolf.setCustomName(Component.literal("Safe recall"));
+        wolf.setPos(Vec3.atBottomCenterOf(CENTER.offset(18, 0, 0)));
+        level.addFreshEntity(wolf);
+        var ghast = EntityTypes.HAPPY_GHAST.create(level, EntitySpawnReason.COMMAND);
+        ghast.setCustomName(Component.literal("Occupied recall"));
+        ghast.setPos(Vec3.atBottomCenterOf(CENTER.offset(18, 5, 0)));
+        level.addFreshEntity(ghast);
+        var horse = EntityTypes.HORSE.create(level, EntitySpawnReason.COMMAND);
+        horse.setPos(wolf.position());
+        level.addFreshEntity(horse);
+        var rider = new ServerPlayer(server, level,
+            new GameProfile(UUID.randomUUID(), "RecallRider"),
+            net.minecraft.server.level.ClientInformation.createDefault());
+        rider.connection = new net.minecraft.server.network.ServerGamePacketListenerImpl(server,
+            new net.minecraft.network.Connection(net.minecraft.network.protocol.PacketFlow.SERVERBOUND), rider,
+            net.minecraft.server.network.CommonListenerCookie.createInitial(rider.getGameProfile(), false)) {
+            @Override
+            public void send(net.minecraft.network.protocol.Packet<?> packet) {}
+        };
+        try {
+            for (int x = -9; x <= 9; x++) for (int z = -9; z <= 9; z++) {
+                level.setBlock(CENTER.offset(x, -1, z), Blocks.SOUL_SOIL.defaultBlockState(), 2);
+                level.setBlock(CENTER.offset(x, 0, z), Blocks.SOUL_FIRE.defaultBlockState(), 2);
+            }
+            check(level.getBlockState(CENTER.offset(-1, 0, -1)).is(Blocks.SOUL_FIRE),
+                "soul fire fixture survives on soul soil");
+            check(PetFeatures.safeDestination(player, wolf, PetKind.DOG) == null,
+                "recall refuses soul fire despite its empty collision shape");
+            for (int x = -9; x <= 9; x++) for (int z = -9; z <= 9; z++) {
+                level.setBlock(CENTER.offset(x, 0, z), Blocks.AIR.defaultBlockState(), 2);
+                level.setBlock(CENTER.offset(x, 5, z), Blocks.STONE.defaultBlockState(), 2);
+            }
+            check(PetFeatures.safeDestination(player, ghast, PetKind.HAPPY_GHAST) != null,
+                "low ceiling still allows an unoccupied happy ghast");
+            check(rider.startRiding(ghast, true, false), "occupied recall fixture mounted");
+            var horn = new ItemStack(Items.GOAT_HORN);
+            check(PetFeatures.bind(player, ghast, horn), "occupied recall fixture bound");
+            Vec3 original = ghast.position();
+            check(!PetFeatures.summon(player, ghast, PetHorn.binding(horn)),
+                "recall refuses a ceiling intersecting the rider rather than the ghast");
+            check(ghast.position().equals(original) && rider.getVehicle() == ghast,
+                "rejected occupied recall preserves mount location and rider");
+            for (int x = -9; x <= 9; x++) for (int z = -9; z <= 9; z++) {
+                level.setBlock(CENTER.offset(x, 5, z), Blocks.AIR.defaultBlockState(), 2);
+            }
+            check(PetFeatures.summon(player, ghast, PetHorn.binding(horn)),
+                "occupied happy ghast recall succeeds with clear headroom");
+            check(rider.getVehicle() == ghast && level.noCollision(rider, rider.getBoundingBox()),
+                "successful occupied recall retains rider in clear space");
+            rider.stopRiding();
+            ghast.setPos(original);
+            for (int x = -9; x <= 9; x++) for (int z = -9; z <= 9; z++) {
+                for (int y = 1; y <= 7; y++) level.setBlock(CENTER.offset(x, y, z), Blocks.STONE.defaultBlockState(), 2);
+            }
+            check(PetFeatures.safeDestination(player, wolf, PetKind.DOG) != null,
+                "one-block clearance permits a lone wolf");
+            ((Leashable) horse).setLeashedTo(wolf, true);
+            check(PetFeatures.safeDestination(player, wolf, PetKind.DOG) == null,
+                "recall validates taller leashed animals before moving the group");
+            check(((Leashable) horse).getLeashHolder() == wolf,
+                "unsafe group recall preserves leash connection");
+            ((Leashable) horse).removeLeash();
+            for (int x = -9; x <= 9; x++) for (int z = -9; z <= 9; z++) {
+                for (int y = 1; y <= 7; y++) level.setBlock(CENTER.offset(x, y, z), Blocks.AIR.defaultBlockState(), 2);
+            }
+            Vec3 clear = PetFeatures.safeDestination(player, ghast, PetKind.HAPPY_GHAST);
+            check(clear != null, "large pet safe destination baseline");
+            BlockPos lava = BlockPos.containing(clear).offset(1, 1, 0);
+            level.setBlock(lava, Blocks.LAVA.defaultBlockState(), 2);
+            Vec3 safe = PetFeatures.safeDestination(player, ghast, PetKind.HAPPY_GHAST);
+            check(safe != null && !ghast.getBoundingBox().move(safe.subtract(ghast.position()))
+                .intersects(new net.minecraft.world.phys.AABB(lava)),
+                "large pet avoids adjacent lava across its full bounding box");
+            level.setBlock(lava, Blocks.AIR.defaultBlockState(), 2);
+        } finally {
+            rider.stopRiding();
+            wolf.discard();
+            ghast.discard();
+            horse.discard();
+            for (int x = -9; x <= 9; x++) for (int z = -9; z <= 9; z++) {
+                for (int y = 0; y <= 7; y++) level.setBlock(CENTER.offset(x, y, z), Blocks.AIR.defaultBlockState(), 2);
+                level.setBlock(CENTER.offset(x, -1, z), Blocks.STONE.defaultBlockState(), 2);
+            }
+        }
     }
 
     private static void nativeRelocation(ServerLevel level, ServerPlayer player) {

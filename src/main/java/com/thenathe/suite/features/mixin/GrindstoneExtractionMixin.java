@@ -2,6 +2,7 @@ package com.thenathe.suite.features.mixin;
 
 import com.thenathe.suite.features.FeatureConfig;
 import com.thenathe.suite.features.GrindExtraction;
+import me.pajic.simple_smithing_overhaul.SSO;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -40,9 +41,14 @@ public abstract class GrindstoneExtractionMixin extends AbstractContainerMenu {
         suite$owner = inventory.player;
         for (int index = 0; index < 2; index++) {
             Slot installed = slots.get(index);
+            boolean additionalInput = index == 1;
             Slot input = new Slot(repairSlots, index, installed.x, installed.y) {
                 @Override public boolean mayPlace(ItemStack stack) {
-                    return FeatureConfig.CONFIG.grindEnchantments.get() && stack.is(Items.BOOK) || installed.mayPlace(stack);
+                    // The bundled curse-cleanser replaces SSO's additional-slot predicate.
+                    return FeatureConfig.CONFIG.grindEnchantments.get() && stack.is(Items.BOOK)
+                            || additionalInput && stack.is(Items.NETHERITE_SCRAP)
+                            && SSO.CONFIG.grindstoneImprovements.repairCostReductionRecipe.get()
+                            || installed.mayPlace(stack);
                 }
             };
             input.index = index;

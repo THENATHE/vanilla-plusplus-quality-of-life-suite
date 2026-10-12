@@ -1,0 +1,37 @@
+{
+  "connected": true,
+  "ticks": 160,
+  "clicks": [
+    {
+      "stage": 0,
+      "slot": 3,
+      "quick": false
+    },
+    {
+      "stage": 1,
+      "slot": 0,
+      "quick": false
+    },
+    {
+      "stage": 2,
+      "slot": 4,
+      "quick": false
+    },
+    {
+      "stage": 3,
+      "slot": 1,
+      "quick": false
+    },
+    {
+      "stage": 4,
+      "slot": 2,
+      "quick": true
+    }
+  ],
+  "top_count": 0,
+  "bottom_count": 0,
+  "output_count": 0,
+  "carried_count": 0,
+  "book_slot_accepts_locally": true,
+  "scrap_slot_accepts_locally": true
+}
