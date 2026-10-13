@@ -1,0 +1,73 @@
+{
+  "suite_version": "1.4.2+26.3",
+  "suite_sha256": "7c85a7ae934917cb1c5427e18fa00e68b3943064c12c1b74b7c8a3d31511c24b",
+  "passed": true,
+  "runs": [
+    {
+      "profile": "server",
+      "passed": true,
+      "assertions": 396,
+      "screenshots": 0
+    },
+    {
+      "profile": "rules/sorted26-native",
+      "passed": true,
+      "assertions": 146,
+      "screenshots": 6
+    },
+    {
+      "profile": "rules/sorted26-polymer",
+      "passed": true,
+      "assertions": 146,
+      "screenshots": 6
+    },
+    {
+      "profile": "rules/sorted25-native",
+      "passed": true,
+      "assertions": 146,
+      "screenshots": 6
+    },
+    {
+      "profile": "layout/sorted26-native",
+      "passed": true,
+      "assertions": 590,
+      "screenshots": 5
+    },
+    {
+      "profile": "recipes/native",
+      "passed": true,
+      "assertions": 0,
+      "screenshots": 10
+    },
+    {
+      "profile": "recipes/polymer",
+      "passed": true,
+      "assertions": 0,
+      "screenshots": 10
+    },
+    {
+      "profile": "recipes/no-sorted",
+      "passed": true,
+      "assertions": 0,
+      "screenshots": 10
+    },
+    {
+      "profile": "wheel/native",
+      "passed": true,
+      "assertions": 62,
+      "screenshots": 18
+    },
+    {
+      "profile": "wheel/polymer",
+      "passed": true,
+      "assertions": 62,
+      "screenshots": 18
+    }
+  ],
+  "collector_sha256": "ef0952304fa55de605ce6330bcdf5e3f59513839238ca221a75cfffd539a70b4",
+  "raw_report_sha256": {
+    "reports/independent-build.json": "2480bd83758f83b6bdc64f3f7bfa8aa5e91531af095ed0269a3fa9d70a0f60f4",
+    "reports/standard-build.txt": "17486352552ce8f4bcb959cddd1c1b69d655c23fb6228813fe4bde8fbe901ada",
+    "reports/archive-verification.json": "35f2d3803fcfe2f5f2ab9044ecef572aa62b16ae4e42dada4783830517726fe9"
+  }
+}

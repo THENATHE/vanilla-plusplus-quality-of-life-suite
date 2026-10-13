@@ -18,7 +18,7 @@ public final class CraftingNetworkServer implements ModInitializer {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             try {
                 Path control = Path.of(System.getProperty("crafting.qa.control"));
-                if (Boolean.getBoolean("crafting.qa.layoutSorted")) {
+                if (Boolean.getBoolean("crafting.qa.layoutSorted") || Boolean.getBoolean("crafting.qa.rulesSorted")) {
                     CraftingNetworkLayoutServer.tick(server, control);
                     return;
                 }

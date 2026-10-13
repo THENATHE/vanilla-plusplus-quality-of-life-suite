@@ -1,6 +1,6 @@
 # Backpack Crafting
 
-Main suite: `1.4.1+26.3`. Addon: `vpp_backpack_crafting` `1.0.1+26.3`. The authored Tool Pouch atlas/Elytra addon remains `1.0.10+26.3`. Combined compatibility advances to `1.4.1+26.3`; mixed-scale MapStitch becomes `1.1.10+26.3` only to retain its exact coordinator dependency.
+Main suite: `1.4.2+26.3`. Addon: `vpp_backpack_crafting` `1.0.2+26.3`. The authored Tool Pouch atlas/Elytra addon remains `1.0.10+26.3`. Combined compatibility advances to `1.4.2+26.3`; mixed-scale MapStitch becomes `1.1.11+26.3` only to retain its exact coordinator dependency.
 
 ## Using it
 
@@ -34,11 +34,15 @@ Optional [Better Recipe Book Rebetterered](https://github.com/THENATHE/better-re
 
 Current optional integration checks select BRBR **1.11.7+26.3** with the exact final suite candidate. Earlier tests used GitHub main/release 1.11.1+26.3, commit `8485b2f8c19acf58f51f97d964d7d1e871f2b1e3`, and local 1.11.2+26.3; their hashes and results remain historical below. The separate SSO port remains paused; the normal developer-release suite track is used.
 
-The optional [Sorted](https://modrinth.com/mod/sorted) bridge covers the 2×2/3×3 crafting menu. The original backpack uses Sorted's own built-in support and stays in regression coverage. Storage classification and the transfer/filter/cache data view use actual backpack slots and exclude crafting input, result and player slots. Global Alt keep rules retain Sorted's separate behavior. Its storage and player buttons anchor to their respective slot regions. Sorted 0.1.26 is the current installed input; retained 0.1.25 has a compatible API. Both stay unchanged and external, with compile-only linkage and guarded optional loading. Neither is bundled. ClientSort remains a separate optional integration.
+The optional [Sorted](https://modrinth.com/mod/sorted) bridge covers the 2×2/3×3 crafting menu. The original backpack uses Sorted's own built-in support and stays in regression coverage. Storage classification and the transfer/filter/cache data view use actual backpack slots and exclude crafting input, result and player slots. Sorted's global Alt keep-rule suggestions and markers exclude crafting inputs/output. Alt-click and Alt-scroll on those temporary slots use normal crafting handling without creating or editing a global keep rule. Existing global rules, settings and behavior on backpack storage, player inventory and ordinary menus remain intact. Its storage and player buttons anchor to their respective slot regions. Sorted 0.1.26 is the current installed input; retained 0.1.25 has a compatible API. Both stay unchanged and external, with compile-only linkage and guarded optional loading. Neither is bundled. ClientSort remains a separate optional integration.
 
 A local read-only comparison of Sophisticated Backpacks/Core informed the panel-region and storage-identity design. No Sophisticated source or assets are copied or bundled.
 
-## Current 1.4.1 verification
+## Current 1.4.2 verification
+
+The final JAR `7c85a7ae934917cb1c5427e18fa00e68b3943064c12c1b74b7c8a3d31511c24b` passed the clean 55-task build, archive checks and 198 server assertions each for native and Polymer. Its independent exported-source build matches all 130 non-directory ZIP entries, with four differing empty directory entries. Sorted 0.1.26 native/Polymer and 0.1.25 native without BRBR rule checks each passed 146 assertions across six menus, preserving protected-slot configuration/rules and positive storage/player edits. Fresh native layout passed 590 assertions across 20 states, 128 cursor clicks and eight Pins checks; Polymer layout remains historical 1.4.1 evidence. Native and Polymer BRBR with Sorted each passed eight recipe cases, four ordinary and four actual maximum. Standard native recipes without Sorted or BRBR passed four cases using backpack ingredients. Hotkey Wheel 1.0.6 native and Polymer profiles passed 62 assertions plus one context observation each. [All recorded runtime profiles passed](../qa-backpack-crafting/evidence/1.4.2/verification.json). See [the 1.4.2 guide](RELEASE_1_4_2.md) for the separate installation-package status; no 1.4.1 result is presented as acceptance of the new rule context.
+
+## 1.4.1 verification (historical)
 
 See [the release guide](RELEASE_1_4_1.md) for final verification results and installation status. Native and Polymer checks use actual Sorted controls across plain, 2×2 and 3×3 screens, standard recipe-book profiles without BRBR, plus BRBR 1.11.7 and Hotkey Wheel 1.0.6 on the exact final suite JAR. The final native and Polymer server regressions passed 198 checks each; actual Sorted 0.1.26 connected profiles passed 590 assertions each. Sorted 0.1.25 without BRBR passed 550 assertions; native and Polymer Hotkey Wheel profiles passed 62 assertions plus one context observation each. BRBR 1.11.7 with Sorted 0.1.26 passed eight recipe cases each for native and Polymer, four ordinary and four actual maximum, using backpack ingredients. All seven connected runtime profiles passed. See the release guide for installation-package status.
 

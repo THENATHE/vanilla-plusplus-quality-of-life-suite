@@ -1,0 +1,13 @@
+{
+  "file": "server.jar",
+  "sha256": "0f5ad650ad4d503597b8905c443df08ddc0303ba2e6900ac95a278e89968aa2a",
+  "classes": {
+    "CraftingNetworkClient.class": "2d5bb5e2aca767c65e61b89abecabdcbdb29244e11165f5ac44b6c5fa6fe0045",
+    "CraftingNetworkLayoutClient.class": "732ad7d4d39a8b61697478ae1263ccc7971b7daea4be5033d7fb6370af64f385",
+    "CraftingNetworkLayoutServer.class": "410dc876889723d5547044c16dc522b9acaf248fb58a6a8e494496f301688fcb",
+    "CraftingNetworkRulesClient$MarkerGraphics.class": "d6104d8f33be8cfec00120fab94376dbe3881fcefc304f328b1173d22f3ca2b3",
+    "CraftingNetworkRulesClient.class": "3fbbae5fda87b86a28121f575d10113d9d396557e605f89e1444be115f54fbeb",
+    "CraftingNetworkServer.class": "3e73aa352974eff728d61d89190738a89e652a21246c2eec7c33c0c5a7d021d9",
+    "qa/backpackcrafting/mixin/CraftingNetworkBrbrTrace.class": "e8296094baf8e115fa7008a242a449f18b30700fa35ff0822ef733b958dbb59d"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "vpp_mod_suite",
-  "version": "1.4.1+26.3",
-  "sha256": "2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b",
+  "version": "1.4.2+26.3",
+  "sha256": "7c85a7ae934917cb1c5427e18fa00e68b3943064c12c1b74b7c8a3d31511c24b",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -60,9 +60,9 @@
     },
     {
       "id": "sso_backpack_toolpouch_mapstitch_shim",
-      "version": "1.4.1+26.3",
-      "sha256": "2b464a7a9a7189f1e9540187fac70440d4b303b643b4099736658dc8fa0d8c24",
-      "file": "META-INF/jars/thenathe-suite-combined-compat-1.4.1+26.3.jar"
+      "version": "1.4.2+26.3",
+      "sha256": "652a12dbb9dc54dae55ad9c8af49ff93b5853835389ec495b70718bc0a1c8f8b",
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.4.2+26.3.jar"
     },
     {
       "id": "chalk_polymer_compat",
@@ -96,9 +96,9 @@
     },
     {
       "id": "mapstitch_mixed_scales",
-      "version": "1.1.10+26.3",
-      "sha256": "1c73e4a873a5d328c98b354796a15a078ed6fe2a69171edb3cdfcbfafb59bfb1",
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.10+26.3.jar"
+      "version": "1.1.11+26.3",
+      "sha256": "5de99be404cfa76d5dd15041fae9a6ec26b57b1e92499f31862d6aa49be80687",
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.11+26.3.jar"
     },
     {
       "id": "bannerpoint",
@@ -114,9 +114,9 @@
     },
     {
       "id": "vpp_backpack_crafting",
-      "version": "1.0.1+26.3",
-      "sha256": "181faeb192d846c05cf8f1afc457aa95b6ff2486210a9f0e8e145f98eda754ff",
-      "file": "META-INF/jars/thenathe-suite-backpack-crafting-1.0.1+26.3.jar"
+      "version": "1.0.2+26.3",
+      "sha256": "5fde38de40571f89a44153878a092917636c1c46b123826b3a2132cfbdb0a5d9",
+      "file": "META-INF/jars/thenathe-suite-backpack-crafting-1.0.2+26.3.jar"
     }
   ],
   "original_inputs_unchanged": true,
@@ -124,14 +124,40 @@
   "defaulted_runtime_required": false,
   "licenses_retained": true,
   "runtime_tested": true,
-  "evidence": [
-    "qa-backpack-crafting/evidence/1.4.1/server/verification.json",
-    "qa-backpack-crafting/evidence/1.4.1/layout/verification.json",
-    "qa-backpack-crafting/evidence/1.4.1/gui/verification.json",
-    "qa-backpack-crafting/evidence/1.4.1/wheel/verification.json",
-    "qa-backpack-crafting/evidence/1.4.1/independent-build.json",
-    "qa-backpack-crafting/evidence/1.4.1/code-review.json",
-    "docs/installation-pack-verification.json"
-  ],
-  "scope": "Exact final artifact:198checks each native/Polymer server; Sorted26native/Polymer590each andSorted25withoutBRBR550 (60states376cursorclicks), eight GUI crafting cases each native/Polymer with BRBR1.11.7+Sorted26, currentHotkeyWheel1.0.6 native/Polymer62each; independent sourcebuild has identical non-directory ZIP entries. Installer acceptance recorded separately. All13installation/archive/actualclient-serverinstallchecks passed."
+  "scope": "Exact candidate passed focused native/Polymer server regressions, original Sorted rules and native layout, ordinary/maximum BRBR crafting, standard recipes with optional mods absent, and Hotkey Wheel integration. Installer has a separate verification record.",
+  "evidence": "qa-backpack-crafting/evidence/1.4.2/verification.json",
+  "fresh_checks": {
+    "server_assertions": {
+      "native": 198,
+      "polymer": 198
+    },
+    "sorted_rule_assertions": {
+      "0.1.26_native": 146,
+      "0.1.26_polymer": 146,
+      "0.1.25_native_without_brbr": 146
+    },
+    "native_layout": {
+      "assertions": 590,
+      "states": 20,
+      "cursor_clicks": 128,
+      "pins_checks": 8
+    },
+    "recipe_cases": {
+      "brbr_native": 8,
+      "brbr_polymer": 8,
+      "standard_without_sorted_or_brbr": 4
+    },
+    "hotkey_wheel": {
+      "version": "1.0.6+26.3",
+      "native_assertions": 62,
+      "polymer_assertions": 62,
+      "context_observations_each": 1
+    },
+    "independent_build": {
+      "non_directory_entries": 130,
+      "all_file_entries_byte_identical": true,
+      "whole_archive_byte_identical": false,
+      "empty_directory_differences": 4
+    }
+  }
 }

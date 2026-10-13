@@ -1,5 +1,12 @@
 # Changes
 
+## 1.4.2+26.3
+
+- Keep Sorted's global keep-rule suggestions, markers, Alt-click and Alt-scroll edits off backpack crafting inputs and output. Preserve normal crafting clicks/scroll handling and existing rules for backpack storage, player inventory and ordinary menus.
+- Scope rule suppression to the actual temporary slot and operation; keep saved global rules and Sorted settings intact. The prior storage/control and panel/drop fixes remain included.
+- Advance Backpack Crafting to 1.0.2+26.3 and combined compatibility to 1.4.2+26.3. Mixed-scale MapStitch 1.1.11+26.3 changes only its exact coordinator constraint. Original mod binaries and runtime dependencies remain unchanged.
+- Record the clean 55-task build/archive, independent source-entry comparison and native/Polymer server regressions in [the release guide](docs/RELEASE_1_4_2.md). All recorded rule, native layout, recipe, wheel and server runtime profiles passed on the final JAR. Installation-package status is recorded separately; 1.4.1 evidence retains its original artifact and scope.
+
 ## 1.4.1+26.3
 
 - Correct toolbox crafting outside-click handling so the visible storage and crafting panels protect held items, while their gap and blank space above/below the crafting panel retain normal drop behavior unless a visible book region or control overlaps. Retain native recipe-book outside-click protection and add visible body/tab bounds for side and narrow overlay layouts. Preserve standard hover without BRBR, optional BRBR hover and its separate Pins controls.

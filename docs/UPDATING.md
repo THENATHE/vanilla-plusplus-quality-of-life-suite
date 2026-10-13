@@ -1,14 +1,18 @@
 # Source map and updating upstream modules
 
-The current **1.4.1+26.3** update corrects the floating toolbox crafting screen's outside-drop regions and adds a guarded optional Sorted storage/layout bridge. The original nested inputs and runtime library set remain unchanged; Collective is not added. See [current release scope](RELEASE_1_4_1.md), [native feature attribution](NATIVE_FEATURES.md) and [validation](VALIDATION.md).
+The current **1.4.2+26.3** update adds scoped exclusions for Sorted keep-rule suggestions and Alt edits on temporary backpack crafting input/output slots. Prior outside-drop and storage/layout integration remain included. The final exact-artifact rule, native layout, recipe, wheel and server profiles passed in [the 1.4.2 runtime record](../qa-backpack-crafting/evidence/1.4.2/verification.json). The original nested inputs and runtime library set remain unchanged; Collective is not added. See [current release scope](RELEASE_1_4_2.md), [native feature attribution](NATIVE_FEATURES.md) and [validation](VALIDATION.md).
 
-The active source is at `Minecraft/thenathe-mod-suite/`, branch `main`, with current update **1.4.1+26.3**. Local release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.4.1+26.3/`. Preserve older release files and their evidence.
+The active source is at `Minecraft/thenathe-mod-suite/`, branch `main`, with current update **1.4.2+26.3**. Local release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.4.2+26.3/`. Preserve older release files and their evidence.
 
 The repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. From 1.2.1 onward, the authored root mod ID and item/protocol/config namespace use `vpp_mod_suite`. Original feature mod IDs, original mod configuration files and the Debug Wrench ID remain unchanged. Swift Flight preserves its original enchantment identifier; legacy animal-call bindings are not migrated.
 
+## Maintaining optional Sorted support
+
+Keep Sorted as an unchanged external compile-only input. The addon identifies crafting slots by the owned menu and actual slot instance, then limits suppression to slot rendering or the relevant click/scroll callback. Preserve storage/player/plain-menu rule markers, global saved rules and ordinary crafting behavior. New verification must exercise Alt markers, clicks and scrolls across both crafting sizes, side/narrow recipe-book states and native/Polymer profiles, plus existing sort/quick-stack, recipe and wheel regressions. Do not reuse a prior artifact's passing results as new candidate acceptance.
+
 ## Where things live
 
-Current suite is **1.4.1+26.3** and combined compatibility is **1.4.1+26.3**; the mixed-scale addon is **1.1.10+26.3** to retain its exact coordinator dependency, and Stackables compatibility remains **1.0.2+26.3**. The 1.2.1 collector sprite and native/fallback tooltip improvements remain intact. Existing publisher inputs and runtime dependencies are unchanged; an unchanged optional Sorted 0.1.25 JAR is a new compile-only input. See the [current guide](RELEASE_1_4_1.md) and [validation](VALIDATION.md).
+Current suite is **1.4.2+26.3** and combined compatibility is **1.4.2+26.3**; the mixed-scale addon is **1.1.11+26.3** to retain its exact coordinator dependency, and Stackables compatibility remains **1.0.2+26.3**. The 1.2.1 collector sprite and native/fallback tooltip improvements remain intact. Existing publisher inputs and runtime dependencies are unchanged; unchanged optional Sorted 0.1.25 remains a compile-only input. Backpack Crafting advances to **1.0.2+26.3** for the scoped rule bridge. See the [current guide](RELEASE_1_4_2.md) and [validation](VALIDATION.md).
 
 | Path | Purpose |
 | --- | --- |
@@ -93,10 +97,10 @@ The atlas/Elytra component uses the same staged root inputs as the other suite p
 
 ## Rebuilding a checkout from release inputs
 
-Use the local suite JAR and `vanilla-plusplus-installation-pack-1.4.1+26.3.zip`, or a retained published baseline when supplying unchanged original inputs, and extract the installation ZIP into an input directory. The kit includes the suite and exact CodecUI file under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Compile-only Defaulted remains a separate historical input: retrieve the exact locked dropfix from retained prior-release inputs when building its optional compatibility hook; do not install it merely to build current runtime profiles. The optional Sorted build API is pinned in `locks/artifacts.json` and can be staged from its official URL using `--download-public`; it is not a runtime requirement or installation-kit payload. Run:
+Use the local suite JAR and `vanilla-plusplus-installation-pack-1.4.2+26.3.zip`, or a retained published baseline when supplying unchanged original inputs, and extract the installation ZIP into an input directory. The kit includes the suite and exact CodecUI file under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Compile-only Defaulted remains a separate historical input: retrieve the exact locked dropfix from retained prior-release inputs when building its optional compatibility hook; do not install it merely to build current runtime profiles. The optional Sorted build API is pinned in `locks/artifacts.json` and can be staged from its official URL using `--download-public`; it is not a runtime requirement or installation-kit payload. Run:
 
 ```sh
-python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.4.1+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
+python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.4.2+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
 ```
 
 The script verifies the outer release hash and recursively stages only original inputs matching the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It rejects unavailable or mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs. The release has no separate local-library ZIP or uploaded tracked-source archive; use the repository or GitHub’s generated source download for the working checkout.

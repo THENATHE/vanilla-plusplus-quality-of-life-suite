@@ -11,10 +11,14 @@ launch=mapstitch_launch(ROOT)
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--visual-only',action='store_true');p.add_argument('--lifecycle-only',action='store_true');p.add_argument('--guest',action='store_true');p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.4.1+26.3.jar')
+    p.add_argument('--visual-only',action='store_true');p.add_argument('--lifecycle-only',action='store_true');p.add_argument('--guest',action='store_true');p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.4.2+26.3.jar')
     p.add_argument('--wheel',type=Path);p.add_argument('--without-polymer',action='store_true');p.add_argument('--label',required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--settings-only',action='store_true');p.add_argument('--port',type=int,default=25976);p.add_argument('--reconnect',action='store_true',help='Reconnect to a second isolated server with opposite operator permissions')
     args=p.parse_args();suite=args.suite.resolve();assert suite.is_file();suiteHash=sha(suite)
     run=HERE/'runs'/args.label;run.mkdir(parents=True,exist_ok=False);control=run/'control';control.mkdir();fixtures=run/'fixtures';fixtures.mkdir();classes=fixtures/'classes';classes.mkdir()
+    executed=run/'executed-source';executed.mkdir()
+    shutil.copy2(Path(__file__),executed/'run.py')
+    for source in (HERE/'src').glob('*.java'):
+        shutil.copy2(source,executed/source.name)
     frozen=run/suite.name;shutil.copy2(suite,frozen);assert sha(frozen)==suiteHash;suite=frozen
     # Original runtime dependencies remain separate; component mods are nested in suite.
     deps=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar','fzzy_config-0.7.7+fix3+26.3.jar','mixson-2.2.1-multiloader.jar']]
@@ -30,7 +34,7 @@ def main():
                     blob=z.read(n);dest=fixtures/(hashlib.sha256(blob).hexdigest()[:12]+'-'+Path(n).name)
                     if not dest.exists():dest.write_bytes(blob);paths.append(str(dest));extract(dest)
     for jar in selected:extract(jar)
-    subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(dict.fromkeys(paths)),'-d',str(classes),*map(str,(HERE/'src').glob('*.java'))],check=True)
+    subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(dict.fromkeys(paths)),'-d',str(classes),*map(str,executed.glob('*.java'))],check=True)
     original_language_keys=[]
     for namespace,filename in {
         'mapstitch':'mapstitch-fabric-1.1.7+26.3.jar',

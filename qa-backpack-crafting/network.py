@@ -30,12 +30,14 @@ def main():
     parser.add_argument('--delay-grid', action='store_true')
     parser.add_argument('--baseline', action='store_true')
     parser.add_argument('--cycles', type=int, default=1)
+    parser.add_argument('--rules-sorted', action='store_true', help='Test original Sorted Alt keep-rule callbacks and slot markers')
     parser.add_argument('--with-sorted', action='store_true', help='Install the preserved Sorted and YACL client dependencies for standard recipe/BRBR checks')
     parser.add_argument('--layout-sorted', action='store_true', help='Test actual Sorted storage registration, controls, conservation and outside-click geometry')
     parser.add_argument('--sorted', type=Path, default=Path.home() / '.local/share/ModrinthApp/profiles/Vanilla Fast/mods/sorted-fabric-0.1.26-mc26.x.jar', help='Preserved original Sorted client JAR for --layout-sorted')
     parser.add_argument('--compile-only', action='store_true', help='Compile/package observation fixtures without launching any runtime')
     args = parser.parse_args()
     if args.profiles != 'suite': parser.error('This fixture requires the native suite client; vanilla boundary is tested separately')
+    if args.rules_sorted and args.layout_sorted: parser.error('Choose one isolated Sorted QA mode')
     if args.without_polymer and args.profiles != 'suite': parser.error('Without Polymer requires the suite-only profile')
     run = ROOT / 'qa-backpack-crafting/runs' / args.label; run.mkdir(parents=True, exist_ok=False)
     control = run / 'control'; control.mkdir()
@@ -44,6 +46,7 @@ def main():
     for source in (ROOT / 'qa-backpack-crafting').glob('CraftingNetwork*.java'): shutil.copy2(source, executed / source.name)
     shutil.copy2(Path(__file__), executed / 'network.py')
     if args.layout_sorted: shutil.copy2(ROOT / 'qa-backpack-crafting/layout_sorted.py', executed / 'layout_sorted.py')
+    if args.rules_sorted: shutil.copy2(ROOT / 'qa-backpack-crafting/rules_sorted.py', executed / 'rules_sorted.py')
     launch = mapstitch_launch(WORKSPACE); suite = run / args.jar.name; shutil.copy2(args.jar.resolve(), suite)
     dependencies = [ROOT / 'libs' / name for name in (
         'codecui-26.3-1.4.3-fabric.jar',
@@ -52,7 +55,7 @@ def main():
     dependencies += [api, launch.artifact('me.shedaniel.cloth', 'cloth-config-fabric', '26.3.159')]
     polymer = WORKSPACE / 'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar'
     optional_client = []
-    if args.layout_sorted or args.with_sorted:
+    if args.layout_sorted or args.with_sorted or args.rules_sorted:
         if not args.sorted.is_file(): parser.error('Sorted original JAR does not exist: ' + str(args.sorted))
         yacl = next((Path.home() / '.gradle/caches/modules-2/files-2.1/maven.modrinth/yacl/3.9.7+26.3-fabric').rglob('yacl-3.9.7+26.3-fabric.jar'))
         optional_client = [args.sorted.resolve(), yacl]
@@ -111,6 +114,7 @@ def main():
         (directory/'server.properties').write_text(f'server-ip=127.0.0.1\nserver-port={port}\nonline-mode=false\nwhite-list=false\nenforce-secure-profile=false\nspawn-protection=0\nview-distance=2\nsimulation-distance=2\ndifficulty=peaceful\nlevel-type=minecraft:flat\ngenerator-settings={{"layers":[{{"block":"minecraft:bedrock","height":1}}],"biome":"minecraft:plains"}}\ngenerate-structures=false\n')
         command=launch.base_command('server',directory,port);command[0]='/usr/lib/jvm/java-25-openjdk/bin/java';command.insert(1,'-Dcrafting.qa.control='+str(control))
         if args.layout_sorted: command.insert(1, '-Dcrafting.qa.layoutSorted=true')
+        if args.rules_sorted: command.insert(1, '-Dcrafting.qa.rulesSorted=true')
         server=start(directory,command,[suite,*dependencies,fixtures/'server.jar'] + ([] if args.without_polymer else [polymer]))
         wait(lambda:'Done (' in (directory/'console.log').read_text(),server,'server startup')
         for profile in args.profiles.split(','):
@@ -123,9 +127,17 @@ def main():
             if args.brbr: mods.append(args.brbr.resolve())
             mods += optional_client
             if args.layout_sorted: command.insert(1, '-Dcrafting.qa.layoutSorted=true')
+            if args.rules_sorted: command.insert(1, '-Dcrafting.qa.rulesSorted=true')
             if args.delay_grid: command.insert(1, '-Dcrafting.qa.delayGrid=true')
             client=start(clientdir,command,mods)
             wait(lambda:read(name,'client').get('ticks',0)>=40,client,name+' connected')
+            if args.rules_sorted:
+                from rules_sorted import run_rules_checks
+                observation = run_rules_checks(name, client, read, wait, control)
+                observations.append(observation)
+                stop(client)
+                print('PASS actual Sorted keep-rule and marker checks: ' + str(observation['assertion_count']) + ' assertions', flush=True)
+                continue
             if args.layout_sorted:
                 from layout_sorted import run_layout_checks
                 observation = run_layout_checks(name, client, read, wait, control)
@@ -174,7 +186,7 @@ def main():
         stop(server,True)
         delayed_checks=sum((run/('FeatureNet'+profile.title())/'console.log').read_text().count('CRAFTING_QA_DELAYED_GRID') for profile in args.profiles.split(','))
         if args.delay_grid: assert delayed_checks >= 3, 'synthetic unsettled-grid mode did not execute'
-        (run/'result.json').write_text(json.dumps({'passed':True,'version':version,'bundle_sha256':sha(suite),'backpack_ingredients':args.backpack,'delayed_grid':args.delay_grid,'delayed_predicate_checks':delayed_checks,'baseline':args.baseline,'cycles':args.cycles,'brbr_sha256':sha(args.brbr) if args.brbr else None,'polymer':not args.without_polymer,'profiles':args.profiles.split(','),'observations':observations,'layout_sorted':args.layout_sorted,'sorted_sha256':sha(args.sorted) if optional_client else None,'optional_client_dependencies':[{'file':jar.name,'sha256':sha(jar)} for jar in optional_client],'scope':('Actual Sorted registered client commands, storage classification/filtering, sort and quick-stack callbacks, protected panel clicks, deadspace drops, narrow/wide book states and server item conservation.' if args.layout_sorted else 'Connected screen callbacks, recipe-book autofill, normal output clicks, optional BRBR ordinary/maximum instant crafting, ghost recipes, viewport bounds and authoritative ingredient conservation.')},indent=2)+'\n')
+        (run/'result.json').write_text(json.dumps({'passed':True,'version':version,'bundle_sha256':sha(suite),'backpack_ingredients':args.backpack,'delayed_grid':args.delay_grid,'delayed_predicate_checks':delayed_checks,'baseline':args.baseline,'cycles':args.cycles,'brbr_sha256':sha(args.brbr) if args.brbr else None,'polymer':not args.without_polymer,'profiles':args.profiles.split(','),'observations':observations,'rules_sorted':args.rules_sorted,'layout_sorted':args.layout_sorted,'sorted_sha256':sha(args.sorted) if optional_client else None,'optional_client_dependencies':[{'file':jar.name,'sha256':sha(jar)} for jar in optional_client],'scope':('Actual Sorted Alt-rule callbacks, memory/persisted global-rule preservation, storage/player positive edits and original marker render eligibility.' if args.rules_sorted else 'Actual Sorted registered client commands, storage classification/filtering, sort and quick-stack callbacks, protected panel clicks, deadspace drops, narrow/wide book states and server item conservation.' if args.layout_sorted else 'Connected screen callbacks, recipe-book autofill, normal output clicks, optional BRBR ordinary/maximum instant crafting, ghost recipes, viewport bounds and authoritative ingredient conservation.')},indent=2)+'\n')
         print('PASS backpack crafting GUI checks',flush=True)
     finally:
         for process,log in reversed(children):

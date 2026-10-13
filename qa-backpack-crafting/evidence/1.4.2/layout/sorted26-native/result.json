@@ -1,0 +1,2413 @@
+{
+  "passed": true,
+  "version": "1.4.2+26.3",
+  "bundle_sha256": "7c85a7ae934917cb1c5427e18fa00e68b3943064c12c1b74b7c8a3d31511c24b",
+  "backpack_ingredients": false,
+  "delayed_grid": false,
+  "delayed_predicate_checks": 0,
+  "baseline": false,
+  "cycles": 1,
+  "brbr_sha256": "28868f38950057d850d634364881855503093dcd8e70064faf7febcecb81621f",
+  "polymer": false,
+  "profiles": [
+    "suite"
+  ],
+  "observations": [
+    {
+      "profile": "suite",
+      "assertion_count": 590,
+      "checks": [
+        "leather plain: actual /sorted storage and /sorted storage add use the real menu ID",
+        "leather plain: Sorted storage classifier and filtering view exclude grid and result",
+        "leather plain: container sort conserves authoritative inventory and storage",
+        "leather plain: container sort leaves player inventory unchanged",
+        "leather plain: quick stack conserves authoritative inventory and storage",
+        "leather plain: quick stack preserves unrelated player items",
+        "leather plain: menu close preserves exact stored contents",
+        "leather plain width=640 book=False: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "leather plain width=640 book=False: storage preserves all stored and player items",
+        "leather plain width=640 book=False: storage preserves the exact cursor count",
+        "leather plain width=640 book=False: storage protects a painted panel or visible book region",
+        "leather plain width=640 book=False: outside preserves all stored and player items",
+        "leather plain width=640 book=False: outside preserves the exact cursor count",
+        "leather plain width=640 book=False: outside drops outside both panels",
+        "leather plain width=427 book=False: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "leather plain width=427 book=False: storage preserves all stored and player items",
+        "leather plain width=427 book=False: storage preserves the exact cursor count",
+        "leather plain width=427 book=False: storage protects a painted panel or visible book region",
+        "leather plain width=427 book=False: outside preserves all stored and player items",
+        "leather plain width=427 book=False: outside preserves the exact cursor count",
+        "leather plain width=427 book=False: outside drops outside both panels",
+        "leather 2: actual /sorted storage and /sorted storage add use the real menu ID",
+        "leather 2: Sorted storage classifier and filtering view exclude grid and result",
+        "leather 2: container sort conserves authoritative inventory and storage",
+        "leather 2: container sort leaves player inventory unchanged",
+        "leather 2: sort leaves named grid sentinel and craftable output unchanged",
+        "leather 2: sort synchronizes the exact backpack holder",
+        "leather 2: quick stack conserves authoritative inventory and storage",
+        "leather 2: quick stack preserves unrelated player items",
+        "leather 2: quick stack excludes named grid and output even when storage contains matching wood",
+        "leather 2: quick stack synchronizes holder components",
+        "leather 2: menu close preserves exact stored contents",
+        "leather 2 width=640 book=False: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "leather 2 width=640 book=False: storage preserves all stored and player items",
+        "leather 2 width=640 book=False: storage leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=False: storage preserves the exact cursor count",
+        "leather 2 width=640 book=False: storage protects a painted panel or visible book region",
+        "leather 2 width=640 book=False: outside preserves all stored and player items",
+        "leather 2 width=640 book=False: outside leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=False: outside preserves the exact cursor count",
+        "leather 2 width=640 book=False: outside drops outside both panels",
+        "leather 2 width=640 book=False: crafting preserves all stored and player items",
+        "leather 2 width=640 book=False: crafting leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=False: crafting preserves the exact cursor count",
+        "leather 2 width=640 book=False: crafting protects a painted panel or visible book region",
+        "leather 2 width=640 book=False: gap preserves all stored and player items",
+        "leather 2 width=640 book=False: gap leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=False: gap preserves the exact cursor count",
+        "leather 2 width=640 book=False: gap drops outside both panels",
+        "leather 2 width=640 book=False: above preserves all stored and player items",
+        "leather 2 width=640 book=False: above leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=False: above preserves the exact cursor count",
+        "leather 2 width=640 book=False: above drops outside both panels",
+        "leather 2 width=640 book=False: below preserves all stored and player items",
+        "leather 2 width=640 book=False: below leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=False: below preserves the exact cursor count",
+        "leather 2 width=640 book=False: below drops outside both panels",
+        "leather 2 width=640 book=True: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "leather 2 width=640 book=True: storage preserves all stored and player items",
+        "leather 2 width=640 book=True: storage leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=True: storage preserves the exact cursor count",
+        "leather 2 width=640 book=True: storage protects a painted panel or visible book region",
+        "leather 2 width=640 book=True: outside preserves all stored and player items",
+        "leather 2 width=640 book=True: outside leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=True: outside preserves the exact cursor count",
+        "leather 2 width=640 book=True: outside drops outside both panels",
+        "leather 2 width=640 book=True: crafting preserves all stored and player items",
+        "leather 2 width=640 book=True: crafting leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=True: crafting preserves the exact cursor count",
+        "leather 2 width=640 book=True: crafting protects a painted panel or visible book region",
+        "leather 2 width=640 book=True: gap preserves all stored and player items",
+        "leather 2 width=640 book=True: gap leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=True: gap preserves the exact cursor count",
+        "leather 2 width=640 book=True: gap drops outside both panels",
+        "leather 2 width=640 book=True: above preserves all stored and player items",
+        "leather 2 width=640 book=True: above leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=True: above preserves the exact cursor count",
+        "leather 2 width=640 book=True: above drops outside both panels",
+        "leather 2 width=640 book=True: below preserves all stored and player items",
+        "leather 2 width=640 book=True: below leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=True: below preserves the exact cursor count",
+        "leather 2 width=640 book=True: below drops outside both panels",
+        "leather 2 width=640 book=True: book preserves all stored and player items",
+        "leather 2 width=640 book=True: book leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=True: book preserves the exact cursor count",
+        "leather 2 width=640 book=True: book protects a painted panel or visible book region",
+        "leather 2 width=640 book=True: book-tab preserves all stored and player items",
+        "leather 2 width=640 book=True: book-tab leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=True: book-tab preserves the exact cursor count",
+        "leather 2 width=640 book=True: book-tab protects a painted panel or visible book region",
+        "leather 2 width=640 book=True: actual BRBR pinned-tab callback selects the pinned recipe view",
+        "leather 2 width=640 book=True: pins preserves all stored and player items",
+        "leather 2 width=640 book=True: pins leaves crafting inputs/result untouched",
+        "leather 2 width=640 book=True: pins preserves the exact cursor count",
+        "leather 2 width=640 book=True: pins protects a painted panel or visible book region",
+        "leather 2 width=427 book=False: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "leather 2 width=427 book=False: storage preserves all stored and player items",
+        "leather 2 width=427 book=False: storage leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=False: storage preserves the exact cursor count",
+        "leather 2 width=427 book=False: storage protects a painted panel or visible book region",
+        "leather 2 width=427 book=False: outside preserves all stored and player items",
+        "leather 2 width=427 book=False: outside leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=False: outside preserves the exact cursor count",
+        "leather 2 width=427 book=False: outside drops outside both panels",
+        "leather 2 width=427 book=False: crafting preserves all stored and player items",
+        "leather 2 width=427 book=False: crafting leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=False: crafting preserves the exact cursor count",
+        "leather 2 width=427 book=False: crafting protects a painted panel or visible book region",
+        "leather 2 width=427 book=False: gap preserves all stored and player items",
+        "leather 2 width=427 book=False: gap leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=False: gap preserves the exact cursor count",
+        "leather 2 width=427 book=False: gap drops outside both panels",
+        "leather 2 width=427 book=False: above preserves all stored and player items",
+        "leather 2 width=427 book=False: above leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=False: above preserves the exact cursor count",
+        "leather 2 width=427 book=False: above drops outside both panels",
+        "leather 2 width=427 book=False: below preserves all stored and player items",
+        "leather 2 width=427 book=False: below leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=False: below preserves the exact cursor count",
+        "leather 2 width=427 book=False: below drops outside both panels",
+        "leather 2 width=427 book=True: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "leather 2 width=427 book=True: storage preserves all stored and player items",
+        "leather 2 width=427 book=True: storage leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=True: storage preserves the exact cursor count",
+        "leather 2 width=427 book=True: storage protects a painted panel or visible book region",
+        "leather 2 width=427 book=True: outside preserves all stored and player items",
+        "leather 2 width=427 book=True: outside leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=True: outside preserves the exact cursor count",
+        "leather 2 width=427 book=True: outside drops outside both panels",
+        "leather 2 width=427 book=True: crafting preserves all stored and player items",
+        "leather 2 width=427 book=True: crafting leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=True: crafting preserves the exact cursor count",
+        "leather 2 width=427 book=True: crafting protects a painted panel or visible book region",
+        "leather 2 width=427 book=True: gap preserves all stored and player items",
+        "leather 2 width=427 book=True: gap leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=True: gap preserves the exact cursor count",
+        "leather 2 width=427 book=True: gap protects a painted panel or visible book region",
+        "leather 2 width=427 book=True: above preserves all stored and player items",
+        "leather 2 width=427 book=True: above leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=True: above preserves the exact cursor count",
+        "leather 2 width=427 book=True: above drops outside both panels",
+        "leather 2 width=427 book=True: below preserves all stored and player items",
+        "leather 2 width=427 book=True: below leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=True: below preserves the exact cursor count",
+        "leather 2 width=427 book=True: below drops outside both panels",
+        "leather 2 width=427 book=True: book preserves all stored and player items",
+        "leather 2 width=427 book=True: book leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=True: book preserves the exact cursor count",
+        "leather 2 width=427 book=True: book protects a painted panel or visible book region",
+        "leather 2 width=427 book=True: book-tab preserves all stored and player items",
+        "leather 2 width=427 book=True: book-tab leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=True: book-tab preserves the exact cursor count",
+        "leather 2 width=427 book=True: book-tab protects a painted panel or visible book region",
+        "leather 2 width=427 book=True: actual BRBR pinned-tab callback selects the pinned recipe view",
+        "leather 2 width=427 book=True: pins preserves all stored and player items",
+        "leather 2 width=427 book=True: pins leaves crafting inputs/result untouched",
+        "leather 2 width=427 book=True: pins preserves the exact cursor count",
+        "leather 2 width=427 book=True: pins protects a painted panel or visible book region",
+        "leather 3: actual /sorted storage and /sorted storage add use the real menu ID",
+        "leather 3: Sorted storage classifier and filtering view exclude grid and result",
+        "leather 3: container sort conserves authoritative inventory and storage",
+        "leather 3: container sort leaves player inventory unchanged",
+        "leather 3: sort leaves named grid sentinel and craftable output unchanged",
+        "leather 3: sort synchronizes the exact backpack holder",
+        "leather 3: quick stack conserves authoritative inventory and storage",
+        "leather 3: quick stack preserves unrelated player items",
+        "leather 3: quick stack excludes named grid and output even when storage contains matching wood",
+        "leather 3: quick stack synchronizes holder components",
+        "leather 3: menu close preserves exact stored contents",
+        "leather 3 width=640 book=False: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "leather 3 width=640 book=False: storage preserves all stored and player items",
+        "leather 3 width=640 book=False: storage leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=False: storage preserves the exact cursor count",
+        "leather 3 width=640 book=False: storage protects a painted panel or visible book region",
+        "leather 3 width=640 book=False: outside preserves all stored and player items",
+        "leather 3 width=640 book=False: outside leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=False: outside preserves the exact cursor count",
+        "leather 3 width=640 book=False: outside drops outside both panels",
+        "leather 3 width=640 book=False: crafting preserves all stored and player items",
+        "leather 3 width=640 book=False: crafting leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=False: crafting preserves the exact cursor count",
+        "leather 3 width=640 book=False: crafting protects a painted panel or visible book region",
+        "leather 3 width=640 book=False: gap preserves all stored and player items",
+        "leather 3 width=640 book=False: gap leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=False: gap preserves the exact cursor count",
+        "leather 3 width=640 book=False: gap drops outside both panels",
+        "leather 3 width=640 book=False: above preserves all stored and player items",
+        "leather 3 width=640 book=False: above leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=False: above preserves the exact cursor count",
+        "leather 3 width=640 book=False: above drops outside both panels",
+        "leather 3 width=640 book=False: below preserves all stored and player items",
+        "leather 3 width=640 book=False: below leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=False: below preserves the exact cursor count",
+        "leather 3 width=640 book=False: below drops outside both panels",
+        "leather 3 width=640 book=True: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "leather 3 width=640 book=True: storage preserves all stored and player items",
+        "leather 3 width=640 book=True: storage leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=True: storage preserves the exact cursor count",
+        "leather 3 width=640 book=True: storage protects a painted panel or visible book region",
+        "leather 3 width=640 book=True: outside preserves all stored and player items",
+        "leather 3 width=640 book=True: outside leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=True: outside preserves the exact cursor count",
+        "leather 3 width=640 book=True: outside drops outside both panels",
+        "leather 3 width=640 book=True: crafting preserves all stored and player items",
+        "leather 3 width=640 book=True: crafting leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=True: crafting preserves the exact cursor count",
+        "leather 3 width=640 book=True: crafting protects a painted panel or visible book region",
+        "leather 3 width=640 book=True: gap preserves all stored and player items",
+        "leather 3 width=640 book=True: gap leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=True: gap preserves the exact cursor count",
+        "leather 3 width=640 book=True: gap drops outside both panels",
+        "leather 3 width=640 book=True: above preserves all stored and player items",
+        "leather 3 width=640 book=True: above leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=True: above preserves the exact cursor count",
+        "leather 3 width=640 book=True: above drops outside both panels",
+        "leather 3 width=640 book=True: below preserves all stored and player items",
+        "leather 3 width=640 book=True: below leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=True: below preserves the exact cursor count",
+        "leather 3 width=640 book=True: below drops outside both panels",
+        "leather 3 width=640 book=True: book preserves all stored and player items",
+        "leather 3 width=640 book=True: book leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=True: book preserves the exact cursor count",
+        "leather 3 width=640 book=True: book protects a painted panel or visible book region",
+        "leather 3 width=640 book=True: book-tab preserves all stored and player items",
+        "leather 3 width=640 book=True: book-tab leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=True: book-tab preserves the exact cursor count",
+        "leather 3 width=640 book=True: book-tab protects a painted panel or visible book region",
+        "leather 3 width=640 book=True: actual BRBR pinned-tab callback selects the pinned recipe view",
+        "leather 3 width=640 book=True: pins preserves all stored and player items",
+        "leather 3 width=640 book=True: pins leaves crafting inputs/result untouched",
+        "leather 3 width=640 book=True: pins preserves the exact cursor count",
+        "leather 3 width=640 book=True: pins protects a painted panel or visible book region",
+        "leather 3 width=427 book=False: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "leather 3 width=427 book=False: storage preserves all stored and player items",
+        "leather 3 width=427 book=False: storage leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=False: storage preserves the exact cursor count",
+        "leather 3 width=427 book=False: storage protects a painted panel or visible book region",
+        "leather 3 width=427 book=False: outside preserves all stored and player items",
+        "leather 3 width=427 book=False: outside leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=False: outside preserves the exact cursor count",
+        "leather 3 width=427 book=False: outside drops outside both panels",
+        "leather 3 width=427 book=False: crafting preserves all stored and player items",
+        "leather 3 width=427 book=False: crafting leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=False: crafting preserves the exact cursor count",
+        "leather 3 width=427 book=False: crafting protects a painted panel or visible book region",
+        "leather 3 width=427 book=False: gap preserves all stored and player items",
+        "leather 3 width=427 book=False: gap leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=False: gap preserves the exact cursor count",
+        "leather 3 width=427 book=False: gap drops outside both panels",
+        "leather 3 width=427 book=False: above preserves all stored and player items",
+        "leather 3 width=427 book=False: above leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=False: above preserves the exact cursor count",
+        "leather 3 width=427 book=False: above drops outside both panels",
+        "leather 3 width=427 book=False: below preserves all stored and player items",
+        "leather 3 width=427 book=False: below leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=False: below preserves the exact cursor count",
+        "leather 3 width=427 book=False: below drops outside both panels",
+        "leather 3 width=427 book=True: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "leather 3 width=427 book=True: storage preserves all stored and player items",
+        "leather 3 width=427 book=True: storage leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=True: storage preserves the exact cursor count",
+        "leather 3 width=427 book=True: storage protects a painted panel or visible book region",
+        "leather 3 width=427 book=True: outside preserves all stored and player items",
+        "leather 3 width=427 book=True: outside leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=True: outside preserves the exact cursor count",
+        "leather 3 width=427 book=True: outside drops outside both panels",
+        "leather 3 width=427 book=True: crafting preserves all stored and player items",
+        "leather 3 width=427 book=True: crafting leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=True: crafting preserves the exact cursor count",
+        "leather 3 width=427 book=True: crafting protects a painted panel or visible book region",
+        "leather 3 width=427 book=True: gap preserves all stored and player items",
+        "leather 3 width=427 book=True: gap leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=True: gap preserves the exact cursor count",
+        "leather 3 width=427 book=True: gap protects a painted panel or visible book region",
+        "leather 3 width=427 book=True: above preserves all stored and player items",
+        "leather 3 width=427 book=True: above leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=True: above preserves the exact cursor count",
+        "leather 3 width=427 book=True: above drops outside both panels",
+        "leather 3 width=427 book=True: below preserves all stored and player items",
+        "leather 3 width=427 book=True: below leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=True: below preserves the exact cursor count",
+        "leather 3 width=427 book=True: below drops outside both panels",
+        "leather 3 width=427 book=True: book preserves all stored and player items",
+        "leather 3 width=427 book=True: book leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=True: book preserves the exact cursor count",
+        "leather 3 width=427 book=True: book protects a painted panel or visible book region",
+        "leather 3 width=427 book=True: book-tab preserves all stored and player items",
+        "leather 3 width=427 book=True: book-tab leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=True: book-tab preserves the exact cursor count",
+        "leather 3 width=427 book=True: book-tab protects a painted panel or visible book region",
+        "leather 3 width=427 book=True: actual BRBR pinned-tab callback selects the pinned recipe view",
+        "leather 3 width=427 book=True: pins preserves all stored and player items",
+        "leather 3 width=427 book=True: pins leaves crafting inputs/result untouched",
+        "leather 3 width=427 book=True: pins preserves the exact cursor count",
+        "leather 3 width=427 book=True: pins protects a painted panel or visible book region",
+        "netherite plain: actual /sorted storage and /sorted storage add use the real menu ID",
+        "netherite plain: Sorted storage classifier and filtering view exclude grid and result",
+        "netherite plain: container sort conserves authoritative inventory and storage",
+        "netherite plain: container sort leaves player inventory unchanged",
+        "netherite plain: quick stack conserves authoritative inventory and storage",
+        "netherite plain: quick stack preserves unrelated player items",
+        "netherite plain: menu close preserves exact stored contents",
+        "netherite plain width=640 book=False: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "netherite plain width=640 book=False: storage preserves all stored and player items",
+        "netherite plain width=640 book=False: storage preserves the exact cursor count",
+        "netherite plain width=640 book=False: storage protects a painted panel or visible book region",
+        "netherite plain width=640 book=False: outside preserves all stored and player items",
+        "netherite plain width=640 book=False: outside preserves the exact cursor count",
+        "netherite plain width=640 book=False: outside drops outside both panels",
+        "netherite plain width=427 book=False: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "netherite plain width=427 book=False: storage preserves all stored and player items",
+        "netherite plain width=427 book=False: storage preserves the exact cursor count",
+        "netherite plain width=427 book=False: storage protects a painted panel or visible book region",
+        "netherite plain width=427 book=False: outside preserves all stored and player items",
+        "netherite plain width=427 book=False: outside preserves the exact cursor count",
+        "netherite plain width=427 book=False: outside drops outside both panels",
+        "netherite 2: actual /sorted storage and /sorted storage add use the real menu ID",
+        "netherite 2: Sorted storage classifier and filtering view exclude grid and result",
+        "netherite 2: container sort conserves authoritative inventory and storage",
+        "netherite 2: container sort leaves player inventory unchanged",
+        "netherite 2: sort leaves named grid sentinel and craftable output unchanged",
+        "netherite 2: sort synchronizes the exact backpack holder",
+        "netherite 2: quick stack conserves authoritative inventory and storage",
+        "netherite 2: quick stack preserves unrelated player items",
+        "netherite 2: quick stack excludes named grid and output even when storage contains matching wood",
+        "netherite 2: quick stack synchronizes holder components",
+        "netherite 2: menu close preserves exact stored contents",
+        "netherite 2 width=640 book=False: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "netherite 2 width=640 book=False: storage preserves all stored and player items",
+        "netherite 2 width=640 book=False: storage leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=False: storage preserves the exact cursor count",
+        "netherite 2 width=640 book=False: storage protects a painted panel or visible book region",
+        "netherite 2 width=640 book=False: outside preserves all stored and player items",
+        "netherite 2 width=640 book=False: outside leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=False: outside preserves the exact cursor count",
+        "netherite 2 width=640 book=False: outside drops outside both panels",
+        "netherite 2 width=640 book=False: crafting preserves all stored and player items",
+        "netherite 2 width=640 book=False: crafting leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=False: crafting preserves the exact cursor count",
+        "netherite 2 width=640 book=False: crafting protects a painted panel or visible book region",
+        "netherite 2 width=640 book=False: gap preserves all stored and player items",
+        "netherite 2 width=640 book=False: gap leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=False: gap preserves the exact cursor count",
+        "netherite 2 width=640 book=False: gap drops outside both panels",
+        "netherite 2 width=640 book=False: above preserves all stored and player items",
+        "netherite 2 width=640 book=False: above leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=False: above preserves the exact cursor count",
+        "netherite 2 width=640 book=False: above drops outside both panels",
+        "netherite 2 width=640 book=False: below preserves all stored and player items",
+        "netherite 2 width=640 book=False: below leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=False: below preserves the exact cursor count",
+        "netherite 2 width=640 book=False: below drops outside both panels",
+        "netherite 2 width=640 book=True: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "netherite 2 width=640 book=True: storage preserves all stored and player items",
+        "netherite 2 width=640 book=True: storage leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=True: storage preserves the exact cursor count",
+        "netherite 2 width=640 book=True: storage protects a painted panel or visible book region",
+        "netherite 2 width=640 book=True: outside preserves all stored and player items",
+        "netherite 2 width=640 book=True: outside leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=True: outside preserves the exact cursor count",
+        "netherite 2 width=640 book=True: outside drops outside both panels",
+        "netherite 2 width=640 book=True: crafting preserves all stored and player items",
+        "netherite 2 width=640 book=True: crafting leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=True: crafting preserves the exact cursor count",
+        "netherite 2 width=640 book=True: crafting protects a painted panel or visible book region",
+        "netherite 2 width=640 book=True: gap preserves all stored and player items",
+        "netherite 2 width=640 book=True: gap leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=True: gap preserves the exact cursor count",
+        "netherite 2 width=640 book=True: gap drops outside both panels",
+        "netherite 2 width=640 book=True: above preserves all stored and player items",
+        "netherite 2 width=640 book=True: above leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=True: above preserves the exact cursor count",
+        "netherite 2 width=640 book=True: above drops outside both panels",
+        "netherite 2 width=640 book=True: below preserves all stored and player items",
+        "netherite 2 width=640 book=True: below leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=True: below preserves the exact cursor count",
+        "netherite 2 width=640 book=True: below drops outside both panels",
+        "netherite 2 width=640 book=True: book preserves all stored and player items",
+        "netherite 2 width=640 book=True: book leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=True: book preserves the exact cursor count",
+        "netherite 2 width=640 book=True: book protects a painted panel or visible book region",
+        "netherite 2 width=640 book=True: book-tab preserves all stored and player items",
+        "netherite 2 width=640 book=True: book-tab leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=True: book-tab preserves the exact cursor count",
+        "netherite 2 width=640 book=True: book-tab protects a painted panel or visible book region",
+        "netherite 2 width=640 book=True: actual BRBR pinned-tab callback selects the pinned recipe view",
+        "netherite 2 width=640 book=True: pins preserves all stored and player items",
+        "netherite 2 width=640 book=True: pins leaves crafting inputs/result untouched",
+        "netherite 2 width=640 book=True: pins preserves the exact cursor count",
+        "netherite 2 width=640 book=True: pins protects a painted panel or visible book region",
+        "netherite 2 width=427 book=False: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "netherite 2 width=427 book=False: storage preserves all stored and player items",
+        "netherite 2 width=427 book=False: storage leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=False: storage preserves the exact cursor count",
+        "netherite 2 width=427 book=False: storage protects a painted panel or visible book region",
+        "netherite 2 width=427 book=False: outside preserves all stored and player items",
+        "netherite 2 width=427 book=False: outside leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=False: outside preserves the exact cursor count",
+        "netherite 2 width=427 book=False: outside drops outside both panels",
+        "netherite 2 width=427 book=False: crafting preserves all stored and player items",
+        "netherite 2 width=427 book=False: crafting leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=False: crafting preserves the exact cursor count",
+        "netherite 2 width=427 book=False: crafting protects a painted panel or visible book region",
+        "netherite 2 width=427 book=False: gap preserves all stored and player items",
+        "netherite 2 width=427 book=False: gap leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=False: gap preserves the exact cursor count",
+        "netherite 2 width=427 book=False: gap drops outside both panels",
+        "netherite 2 width=427 book=False: above preserves all stored and player items",
+        "netherite 2 width=427 book=False: above leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=False: above preserves the exact cursor count",
+        "netherite 2 width=427 book=False: above drops outside both panels",
+        "netherite 2 width=427 book=False: below preserves all stored and player items",
+        "netherite 2 width=427 book=False: below leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=False: below preserves the exact cursor count",
+        "netherite 2 width=427 book=False: below drops outside both panels",
+        "netherite 2 width=427 book=True: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "netherite 2 width=427 book=True: storage preserves all stored and player items",
+        "netherite 2 width=427 book=True: storage leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=True: storage preserves the exact cursor count",
+        "netherite 2 width=427 book=True: storage protects a painted panel or visible book region",
+        "netherite 2 width=427 book=True: outside preserves all stored and player items",
+        "netherite 2 width=427 book=True: outside leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=True: outside preserves the exact cursor count",
+        "netherite 2 width=427 book=True: outside drops outside both panels",
+        "netherite 2 width=427 book=True: crafting preserves all stored and player items",
+        "netherite 2 width=427 book=True: crafting leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=True: crafting preserves the exact cursor count",
+        "netherite 2 width=427 book=True: crafting protects a painted panel or visible book region",
+        "netherite 2 width=427 book=True: gap preserves all stored and player items",
+        "netherite 2 width=427 book=True: gap leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=True: gap preserves the exact cursor count",
+        "netherite 2 width=427 book=True: gap drops outside both panels",
+        "netherite 2 width=427 book=True: above preserves all stored and player items",
+        "netherite 2 width=427 book=True: above leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=True: above preserves the exact cursor count",
+        "netherite 2 width=427 book=True: above drops outside both panels",
+        "netherite 2 width=427 book=True: below preserves all stored and player items",
+        "netherite 2 width=427 book=True: below leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=True: below preserves the exact cursor count",
+        "netherite 2 width=427 book=True: below drops outside both panels",
+        "netherite 2 width=427 book=True: book preserves all stored and player items",
+        "netherite 2 width=427 book=True: book leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=True: book preserves the exact cursor count",
+        "netherite 2 width=427 book=True: book protects a painted panel or visible book region",
+        "netherite 2 width=427 book=True: book-tab preserves all stored and player items",
+        "netherite 2 width=427 book=True: book-tab leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=True: book-tab preserves the exact cursor count",
+        "netherite 2 width=427 book=True: book-tab protects a painted panel or visible book region",
+        "netherite 2 width=427 book=True: actual BRBR pinned-tab callback selects the pinned recipe view",
+        "netherite 2 width=427 book=True: pins preserves all stored and player items",
+        "netherite 2 width=427 book=True: pins leaves crafting inputs/result untouched",
+        "netherite 2 width=427 book=True: pins preserves the exact cursor count",
+        "netherite 2 width=427 book=True: pins protects a painted panel or visible book region",
+        "netherite 3: actual /sorted storage and /sorted storage add use the real menu ID",
+        "netherite 3: Sorted storage classifier and filtering view exclude grid and result",
+        "netherite 3: container sort conserves authoritative inventory and storage",
+        "netherite 3: container sort leaves player inventory unchanged",
+        "netherite 3: sort leaves named grid sentinel and craftable output unchanged",
+        "netherite 3: sort synchronizes the exact backpack holder",
+        "netherite 3: quick stack conserves authoritative inventory and storage",
+        "netherite 3: quick stack preserves unrelated player items",
+        "netherite 3: quick stack excludes named grid and output even when storage contains matching wood",
+        "netherite 3: quick stack synchronizes holder components",
+        "netherite 3: menu close preserves exact stored contents",
+        "netherite 3 width=640 book=False: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "netherite 3 width=640 book=False: storage preserves all stored and player items",
+        "netherite 3 width=640 book=False: storage leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=False: storage preserves the exact cursor count",
+        "netherite 3 width=640 book=False: storage protects a painted panel or visible book region",
+        "netherite 3 width=640 book=False: outside preserves all stored and player items",
+        "netherite 3 width=640 book=False: outside leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=False: outside preserves the exact cursor count",
+        "netherite 3 width=640 book=False: outside drops outside both panels",
+        "netherite 3 width=640 book=False: crafting preserves all stored and player items",
+        "netherite 3 width=640 book=False: crafting leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=False: crafting preserves the exact cursor count",
+        "netherite 3 width=640 book=False: crafting protects a painted panel or visible book region",
+        "netherite 3 width=640 book=False: gap preserves all stored and player items",
+        "netherite 3 width=640 book=False: gap leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=False: gap preserves the exact cursor count",
+        "netherite 3 width=640 book=False: gap drops outside both panels",
+        "netherite 3 width=640 book=False: above preserves all stored and player items",
+        "netherite 3 width=640 book=False: above leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=False: above preserves the exact cursor count",
+        "netherite 3 width=640 book=False: above drops outside both panels",
+        "netherite 3 width=640 book=False: below preserves all stored and player items",
+        "netherite 3 width=640 book=False: below leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=False: below preserves the exact cursor count",
+        "netherite 3 width=640 book=False: below drops outside both panels",
+        "netherite 3 width=640 book=True: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "netherite 3 width=640 book=True: storage preserves all stored and player items",
+        "netherite 3 width=640 book=True: storage leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=True: storage preserves the exact cursor count",
+        "netherite 3 width=640 book=True: storage protects a painted panel or visible book region",
+        "netherite 3 width=640 book=True: outside preserves all stored and player items",
+        "netherite 3 width=640 book=True: outside leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=True: outside preserves the exact cursor count",
+        "netherite 3 width=640 book=True: outside drops outside both panels",
+        "netherite 3 width=640 book=True: crafting preserves all stored and player items",
+        "netherite 3 width=640 book=True: crafting leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=True: crafting preserves the exact cursor count",
+        "netherite 3 width=640 book=True: crafting protects a painted panel or visible book region",
+        "netherite 3 width=640 book=True: gap preserves all stored and player items",
+        "netherite 3 width=640 book=True: gap leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=True: gap preserves the exact cursor count",
+        "netherite 3 width=640 book=True: gap drops outside both panels",
+        "netherite 3 width=640 book=True: above preserves all stored and player items",
+        "netherite 3 width=640 book=True: above leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=True: above preserves the exact cursor count",
+        "netherite 3 width=640 book=True: above drops outside both panels",
+        "netherite 3 width=640 book=True: below preserves all stored and player items",
+        "netherite 3 width=640 book=True: below leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=True: below preserves the exact cursor count",
+        "netherite 3 width=640 book=True: below drops outside both panels",
+        "netherite 3 width=640 book=True: book preserves all stored and player items",
+        "netherite 3 width=640 book=True: book leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=True: book preserves the exact cursor count",
+        "netherite 3 width=640 book=True: book protects a painted panel or visible book region",
+        "netherite 3 width=640 book=True: book-tab preserves all stored and player items",
+        "netherite 3 width=640 book=True: book-tab leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=True: book-tab preserves the exact cursor count",
+        "netherite 3 width=640 book=True: book-tab protects a painted panel or visible book region",
+        "netherite 3 width=640 book=True: actual BRBR pinned-tab callback selects the pinned recipe view",
+        "netherite 3 width=640 book=True: pins preserves all stored and player items",
+        "netherite 3 width=640 book=True: pins leaves crafting inputs/result untouched",
+        "netherite 3 width=640 book=True: pins preserves the exact cursor count",
+        "netherite 3 width=640 book=True: pins protects a painted panel or visible book region",
+        "netherite 3 width=427 book=False: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "netherite 3 width=427 book=False: storage preserves all stored and player items",
+        "netherite 3 width=427 book=False: storage leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=False: storage preserves the exact cursor count",
+        "netherite 3 width=427 book=False: storage protects a painted panel or visible book region",
+        "netherite 3 width=427 book=False: outside preserves all stored and player items",
+        "netherite 3 width=427 book=False: outside leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=False: outside preserves the exact cursor count",
+        "netherite 3 width=427 book=False: outside drops outside both panels",
+        "netherite 3 width=427 book=False: crafting preserves all stored and player items",
+        "netherite 3 width=427 book=False: crafting leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=False: crafting preserves the exact cursor count",
+        "netherite 3 width=427 book=False: crafting protects a painted panel or visible book region",
+        "netherite 3 width=427 book=False: gap preserves all stored and player items",
+        "netherite 3 width=427 book=False: gap leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=False: gap preserves the exact cursor count",
+        "netherite 3 width=427 book=False: gap drops outside both panels",
+        "netherite 3 width=427 book=False: above preserves all stored and player items",
+        "netherite 3 width=427 book=False: above leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=False: above preserves the exact cursor count",
+        "netherite 3 width=427 book=False: above drops outside both panels",
+        "netherite 3 width=427 book=False: below preserves all stored and player items",
+        "netherite 3 width=427 book=False: below leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=False: below preserves the exact cursor count",
+        "netherite 3 width=427 book=False: below drops outside both panels",
+        "netherite 3 width=427 book=True: all Sorted controls follow actual storage/player anchors and fit the viewport",
+        "netherite 3 width=427 book=True: storage preserves all stored and player items",
+        "netherite 3 width=427 book=True: storage leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=True: storage preserves the exact cursor count",
+        "netherite 3 width=427 book=True: storage protects a painted panel or visible book region",
+        "netherite 3 width=427 book=True: outside preserves all stored and player items",
+        "netherite 3 width=427 book=True: outside leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=True: outside preserves the exact cursor count",
+        "netherite 3 width=427 book=True: outside drops outside both panels",
+        "netherite 3 width=427 book=True: crafting preserves all stored and player items",
+        "netherite 3 width=427 book=True: crafting leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=True: crafting preserves the exact cursor count",
+        "netherite 3 width=427 book=True: crafting protects a painted panel or visible book region",
+        "netherite 3 width=427 book=True: gap preserves all stored and player items",
+        "netherite 3 width=427 book=True: gap leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=True: gap preserves the exact cursor count",
+        "netherite 3 width=427 book=True: gap protects a painted panel or visible book region",
+        "netherite 3 width=427 book=True: above preserves all stored and player items",
+        "netherite 3 width=427 book=True: above leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=True: above preserves the exact cursor count",
+        "netherite 3 width=427 book=True: above drops outside both panels",
+        "netherite 3 width=427 book=True: below preserves all stored and player items",
+        "netherite 3 width=427 book=True: below leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=True: below preserves the exact cursor count",
+        "netherite 3 width=427 book=True: below drops outside both panels",
+        "netherite 3 width=427 book=True: book preserves all stored and player items",
+        "netherite 3 width=427 book=True: book leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=True: book preserves the exact cursor count",
+        "netherite 3 width=427 book=True: book protects a painted panel or visible book region",
+        "netherite 3 width=427 book=True: book-tab preserves all stored and player items",
+        "netherite 3 width=427 book=True: book-tab leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=True: book-tab preserves the exact cursor count",
+        "netherite 3 width=427 book=True: book-tab protects a painted panel or visible book region",
+        "netherite 3 width=427 book=True: actual BRBR pinned-tab callback selects the pinned recipe view",
+        "netherite 3 width=427 book=True: pins preserves all stored and player items",
+        "netherite 3 width=427 book=True: pins leaves crafting inputs/result untouched",
+        "netherite 3 width=427 book=True: pins preserves the exact cursor count",
+        "netherite 3 width=427 book=True: pins protects a painted panel or visible book region"
+      ],
+      "scenarios": [
+        {
+          "tier": "leather",
+          "grid": 0,
+          "width": 640,
+          "book_open": false,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 8,
+            "storage_slots_verified": 27,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 178,
+            "book_visible": false,
+            "pinned_tab_visible": false,
+            "narrow": false
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 235.0,
+              "y": 73.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 219.0,
+              "y": 59.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            }
+          ]
+        },
+        {
+          "tier": "leather",
+          "grid": 0,
+          "width": 427,
+          "book_open": false,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 12,
+            "storage_slots_verified": 27,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 178,
+            "book_visible": false,
+            "pinned_tab_visible": false,
+            "narrow": false
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 128.0,
+              "y": 73.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 112.0,
+              "y": 59.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            }
+          ]
+        },
+        {
+          "tier": "leather",
+          "grid": 2,
+          "width": 640,
+          "book_open": false,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 25,
+            "storage_slots_verified": 27,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 178,
+            "book_visible": false,
+            "pinned_tab_visible": false,
+            "narrow": false
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 181.0,
+              "y": 72.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 165.0,
+              "y": 58.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 459.0,
+              "y": 112.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 359.0,
+              "y": 112.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 455.0,
+              "y": 100.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 455.0,
+              "y": 200.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            }
+          ]
+        },
+        {
+          "tier": "leather",
+          "grid": 2,
+          "width": 640,
+          "book_open": true,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 34,
+            "storage_slots_verified": 27,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 178,
+            "book_visible": true,
+            "pinned_tab_visible": true,
+            "narrow": false
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 258.0,
+              "y": 72.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 105,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 242.0,
+              "y": 58.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 105,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 536.0,
+              "y": 112.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 105,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 436.0,
+              "y": 112.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 105,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 532.0,
+              "y": 100.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 105,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 532.0,
+              "y": 200.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 105,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book",
+              "dropped": false,
+              "x": 108.0,
+              "y": 112.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 105,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book-tab",
+              "dropped": false,
+              "x": 85.0,
+              "y": 80.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 105,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "pins",
+              "dropped": false,
+              "x": 85.0,
+              "y": 215.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 105,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            }
+          ]
+        },
+        {
+          "tier": "leather",
+          "grid": 2,
+          "width": 427,
+          "book_open": false,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 46,
+            "storage_slots_verified": 27,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 178,
+            "book_visible": false,
+            "pinned_tab_visible": false,
+            "narrow": true
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 74.0,
+              "y": 72.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 58.0,
+              "y": 58.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 352.0,
+              "y": 112.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 252.0,
+              "y": 112.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 348.0,
+              "y": 100.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 348.0,
+              "y": 200.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            }
+          ]
+        },
+        {
+          "tier": "leather",
+          "grid": 2,
+          "width": 427,
+          "book_open": true,
+          "native_narrow_overlay": true,
+          "validation": {
+            "type": "validate",
+            "id": 55,
+            "storage_slots_verified": 27,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 178,
+            "book_visible": true,
+            "pinned_tab_visible": true,
+            "narrow": true
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 74.0,
+              "y": 72.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 58.0,
+              "y": 58.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 352.0,
+              "y": 112.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "gap",
+              "dropped": false,
+              "x": 252.0,
+              "y": 70.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 348.0,
+              "y": 100.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 348.0,
+              "y": 200.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book",
+              "dropped": false,
+              "x": 143.0,
+              "y": 112.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book-tab",
+              "dropped": false,
+              "x": 120.0,
+              "y": 80.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "pins",
+              "dropped": false,
+              "x": 120.0,
+              "y": 215.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            }
+          ]
+        },
+        {
+          "tier": "leather",
+          "grid": 3,
+          "width": 640,
+          "book_open": false,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 75,
+            "storage_slots_verified": 27,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 178,
+            "book_visible": false,
+            "pinned_tab_visible": false,
+            "narrow": false
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 172.0,
+              "y": 72.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 156.0,
+              "y": 58.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 468.0,
+              "y": 103.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 350.0,
+              "y": 103.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 464.0,
+              "y": 91.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 464.0,
+              "y": 209.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            }
+          ]
+        },
+        {
+          "tier": "leather",
+          "grid": 3,
+          "width": 640,
+          "book_open": true,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 85,
+            "storage_slots_verified": 27,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 178,
+            "book_visible": true,
+            "pinned_tab_visible": true,
+            "narrow": false
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 249.0,
+              "y": 72.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 96,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 233.0,
+              "y": 58.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 96,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 545.0,
+              "y": 103.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 96,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 427.0,
+              "y": 103.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 96,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 541.0,
+              "y": 91.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 96,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 541.0,
+              "y": 209.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 96,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book",
+              "dropped": false,
+              "x": 99.0,
+              "y": 112.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 96,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book-tab",
+              "dropped": false,
+              "x": 76.0,
+              "y": 80.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 96,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "pins",
+              "dropped": false,
+              "x": 76.0,
+              "y": 215.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 96,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            }
+          ]
+        },
+        {
+          "tier": "leather",
+          "grid": 3,
+          "width": 427,
+          "book_open": false,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 98,
+            "storage_slots_verified": 27,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 178,
+            "book_visible": false,
+            "pinned_tab_visible": false,
+            "narrow": true
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 65.0,
+              "y": 72.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 49.0,
+              "y": 58.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 361.0,
+              "y": 103.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 243.0,
+              "y": 103.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 357.0,
+              "y": 91.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 357.0,
+              "y": 209.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            }
+          ]
+        },
+        {
+          "tier": "leather",
+          "grid": 3,
+          "width": 427,
+          "book_open": true,
+          "native_narrow_overlay": true,
+          "validation": {
+            "type": "validate",
+            "id": 107,
+            "storage_slots_verified": 27,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 178,
+            "book_visible": true,
+            "pinned_tab_visible": true,
+            "narrow": true
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 65.0,
+              "y": 72.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 49.0,
+              "y": 58.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 361.0,
+              "y": 103.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "gap",
+              "dropped": false,
+              "x": 243.0,
+              "y": 70.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 357.0,
+              "y": 91.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 357.0,
+              "y": 209.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book",
+              "dropped": false,
+              "x": 143.0,
+              "y": 112.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book-tab",
+              "dropped": false,
+              "x": 120.0,
+              "y": 80.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "pins",
+              "dropped": false,
+              "x": 120.0,
+              "y": 215.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 67,
+                "width": 147,
+                "height": 166
+              }
+            }
+          ]
+        },
+        {
+          "tier": "netherite",
+          "grid": 0,
+          "width": 640,
+          "book_open": false,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 125,
+            "storage_slots_verified": 78,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 250,
+            "book_visible": false,
+            "pinned_tab_visible": false,
+            "narrow": false
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 199.0,
+              "y": 46.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 183.0,
+              "y": 32.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            }
+          ]
+        },
+        {
+          "tier": "netherite",
+          "grid": 0,
+          "width": 427,
+          "book_open": false,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 129,
+            "storage_slots_verified": 78,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 250,
+            "book_visible": false,
+            "pinned_tab_visible": false,
+            "narrow": false
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 92.0,
+              "y": 46.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 76.0,
+              "y": 32.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            }
+          ]
+        },
+        {
+          "tier": "netherite",
+          "grid": 2,
+          "width": 640,
+          "book_open": false,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 142,
+            "storage_slots_verified": 78,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 250,
+            "book_visible": false,
+            "pinned_tab_visible": false,
+            "narrow": false
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 145.0,
+              "y": 15.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 129.0,
+              "y": 1.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 495.0,
+              "y": 82.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 395.0,
+              "y": 82.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 491.0,
+              "y": 70.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 491.0,
+              "y": 170.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            }
+          ]
+        },
+        {
+          "tier": "netherite",
+          "grid": 2,
+          "width": 640,
+          "book_open": true,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 151,
+            "storage_slots_verified": 78,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 250,
+            "book_visible": true,
+            "pinned_tab_visible": true,
+            "narrow": false
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 222.0,
+              "y": 15.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 69,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 206.0,
+              "y": 1.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 69,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 572.0,
+              "y": 82.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 69,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 472.0,
+              "y": 82.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 69,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 568.0,
+              "y": 70.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 69,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 568.0,
+              "y": 170.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 69,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book",
+              "dropped": false,
+              "x": 72.0,
+              "y": 82.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 69,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book-tab",
+              "dropped": false,
+              "x": 49.0,
+              "y": 50.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 69,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "pins",
+              "dropped": false,
+              "x": 49.0,
+              "y": 185.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 69,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            }
+          ]
+        },
+        {
+          "tier": "netherite",
+          "grid": 2,
+          "width": 427,
+          "book_open": false,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 163,
+            "storage_slots_verified": 78,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 250,
+            "book_visible": false,
+            "pinned_tab_visible": false,
+            "narrow": true
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 38.0,
+              "y": 15.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 22.0,
+              "y": 1.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 388.0,
+              "y": 82.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 288.0,
+              "y": 82.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 384.0,
+              "y": 70.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 384.0,
+              "y": 170.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            }
+          ]
+        },
+        {
+          "tier": "netherite",
+          "grid": 2,
+          "width": 427,
+          "book_open": true,
+          "native_narrow_overlay": true,
+          "validation": {
+            "type": "validate",
+            "id": 172,
+            "storage_slots_verified": 78,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 250,
+            "book_visible": true,
+            "pinned_tab_visible": true,
+            "narrow": true
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 38.0,
+              "y": 15.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 22.0,
+              "y": 1.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 388.0,
+              "y": 82.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 288.0,
+              "y": 82.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 384.0,
+              "y": 70.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 384.0,
+              "y": 170.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book",
+              "dropped": false,
+              "x": 143.0,
+              "y": 82.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book-tab",
+              "dropped": false,
+              "x": 120.0,
+              "y": 50.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "pins",
+              "dropped": false,
+              "x": 120.0,
+              "y": 185.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            }
+          ]
+        },
+        {
+          "tier": "netherite",
+          "grid": 3,
+          "width": 640,
+          "book_open": false,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 192,
+            "storage_slots_verified": 78,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 250,
+            "book_visible": false,
+            "pinned_tab_visible": false,
+            "narrow": false
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 136.0,
+              "y": 15.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 120.0,
+              "y": 1.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 504.0,
+              "y": 73.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 386.0,
+              "y": 73.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 500.0,
+              "y": 61.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 500.0,
+              "y": 179.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            }
+          ]
+        },
+        {
+          "tier": "netherite",
+          "grid": 3,
+          "width": 640,
+          "book_open": true,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 202,
+            "storage_slots_verified": 78,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 250,
+            "book_visible": true,
+            "pinned_tab_visible": true,
+            "narrow": false
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 213.0,
+              "y": 15.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 60,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 197.0,
+              "y": 1.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 60,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 581.0,
+              "y": 73.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 60,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 463.0,
+              "y": 73.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 60,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 577.0,
+              "y": 61.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 60,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 577.0,
+              "y": 179.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 60,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book",
+              "dropped": false,
+              "x": 63.0,
+              "y": 82.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 60,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book-tab",
+              "dropped": false,
+              "x": 40.0,
+              "y": 50.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 60,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "pins",
+              "dropped": false,
+              "x": 40.0,
+              "y": 185.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 60,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            }
+          ]
+        },
+        {
+          "tier": "netherite",
+          "grid": 3,
+          "width": 427,
+          "book_open": false,
+          "native_narrow_overlay": false,
+          "validation": {
+            "type": "validate",
+            "id": 215,
+            "storage_slots_verified": 78,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 250,
+            "book_visible": false,
+            "pinned_tab_visible": false,
+            "narrow": true
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 29.0,
+              "y": 15.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 13.0,
+              "y": 1.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 397.0,
+              "y": 73.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "gap",
+              "dropped": true,
+              "x": 279.0,
+              "y": 73.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 393.0,
+              "y": 61.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 393.0,
+              "y": 179.0,
+              "book_intersects_point": false,
+              "book_bounds": null
+            }
+          ]
+        },
+        {
+          "tier": "netherite",
+          "grid": 3,
+          "width": 427,
+          "book_open": true,
+          "native_narrow_overlay": true,
+          "validation": {
+            "type": "validate",
+            "id": 224,
+            "storage_slots_verified": 78,
+            "filtered_grid_and_result_excluded": true,
+            "sorted_buttons_verified": 7,
+            "storage_panel_width": 250,
+            "book_visible": true,
+            "pinned_tab_visible": true,
+            "narrow": true
+          },
+          "cursor_clicks": [
+            {
+              "point": "storage",
+              "dropped": false,
+              "x": 29.0,
+              "y": 15.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "outside",
+              "dropped": true,
+              "x": 13.0,
+              "y": 1.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "crafting",
+              "dropped": false,
+              "x": 397.0,
+              "y": 73.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "gap",
+              "dropped": false,
+              "x": 279.0,
+              "y": 40.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "above",
+              "dropped": true,
+              "x": 393.0,
+              "y": 61.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "below",
+              "dropped": true,
+              "x": 393.0,
+              "y": 179.0,
+              "book_intersects_point": false,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book",
+              "dropped": false,
+              "x": 143.0,
+              "y": 82.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "book-tab",
+              "dropped": false,
+              "x": 120.0,
+              "y": 50.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            },
+            {
+              "point": "pins",
+              "dropped": false,
+              "x": 120.0,
+              "y": 185.0,
+              "book_intersects_point": true,
+              "book_bounds": {
+                "x": 140,
+                "y": 37,
+                "width": 147,
+                "height": 166
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules_sorted": false,
+  "layout_sorted": true,
+  "sorted_sha256": "df080bab56e7f6c6f836533f403fe192a04019d9004e1c8d3acac5b6fe77edd5",
+  "optional_client_dependencies": [
+    {
+      "file": "sorted-fabric-0.1.26-mc26.x.jar",
+      "sha256": "df080bab56e7f6c6f836533f403fe192a04019d9004e1c8d3acac5b6fe77edd5"
+    },
+    {
+      "file": "yacl-3.9.7+26.3-fabric.jar",
+      "sha256": "c52d41d444522d9abba994cd4c4ee2e71a065d7c31010f92a9959b80ccb4b0f5"
+    }
+  ],
+  "scope": "Actual Sorted registered client commands, storage classification/filtering, sort and quick-stack callbacks, protected panel clicks, deadspace drops, narrow/wide book states and server item conservation."
+}

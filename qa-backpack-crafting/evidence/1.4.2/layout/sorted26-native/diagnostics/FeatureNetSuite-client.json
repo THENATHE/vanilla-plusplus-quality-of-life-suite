@@ -1,0 +1,2378 @@
+{
+  "ticks": 2490,
+  "menu_id": 0,
+  "screen": "none",
+  "cursor": 0,
+  "actions": [
+    {
+      "type": "register",
+      "id": 1,
+      "registered_menu_id": "tiered_backpacks:backpack_menu"
+    },
+    {
+      "type": "resize",
+      "id": 2,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "validate",
+      "id": 3,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "sort",
+      "id": 4,
+      "clicked_icon": "sorted:widget/sort_container"
+    },
+    {
+      "type": "stack",
+      "id": 5,
+      "clicked_icon": "sorted:widget/quick_stack"
+    },
+    {
+      "type": "close",
+      "id": 6
+    },
+    {
+      "type": "resize",
+      "id": 7,
+      "width": 640,
+      "height": 300
+    },
+    {
+      "type": "validate",
+      "id": 8,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "point",
+      "id": 9,
+      "point": "storage",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 235.0,
+      "y": 73.0
+    },
+    {
+      "type": "point",
+      "id": 10,
+      "point": "outside",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 219.0,
+      "y": 59.0
+    },
+    {
+      "type": "resize",
+      "id": 11,
+      "width": 427,
+      "height": 300
+    },
+    {
+      "type": "validate",
+      "id": 12,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "point",
+      "id": 13,
+      "point": "storage",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 128.0,
+      "y": 73.0
+    },
+    {
+      "type": "point",
+      "id": 14,
+      "point": "outside",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 112.0,
+      "y": 59.0
+    },
+    {
+      "type": "close",
+      "id": 15
+    },
+    {
+      "type": "register",
+      "id": 16,
+      "registered_menu_id": "vpp_backpack_crafting:crafting"
+    },
+    {
+      "type": "resize",
+      "id": 17,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "book-state",
+      "id": 18,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 19,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "sort",
+      "id": 20,
+      "clicked_icon": "sorted:widget/sort_container"
+    },
+    {
+      "type": "stack",
+      "id": 21,
+      "clicked_icon": "sorted:widget/quick_stack"
+    },
+    {
+      "type": "close",
+      "id": 22
+    },
+    {
+      "type": "resize",
+      "id": 23,
+      "width": 640,
+      "height": 300
+    },
+    {
+      "type": "book-state",
+      "id": 24,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 25,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "point",
+      "id": 26,
+      "point": "storage",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 181.0,
+      "y": 72.0
+    },
+    {
+      "type": "point",
+      "id": 27,
+      "point": "outside",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 165.0,
+      "y": 58.0
+    },
+    {
+      "type": "point",
+      "id": 28,
+      "point": "crafting",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 459.0,
+      "y": 112.0
+    },
+    {
+      "type": "point",
+      "id": 29,
+      "point": "gap",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 359.0,
+      "y": 112.0
+    },
+    {
+      "type": "point",
+      "id": 30,
+      "point": "above",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 455.0,
+      "y": 100.0
+    },
+    {
+      "type": "point",
+      "id": 31,
+      "point": "below",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 455.0,
+      "y": 200.0
+    },
+    {
+      "type": "resize",
+      "id": 32,
+      "width": 640,
+      "height": 300
+    },
+    {
+      "type": "book-state",
+      "id": 33,
+      "open": true
+    },
+    {
+      "type": "validate",
+      "id": 34,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": true,
+      "pinned_tab_visible": true,
+      "narrow": false
+    },
+    {
+      "type": "point",
+      "id": 35,
+      "point": "storage",
+      "book_bounds": {
+        "x": 105,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 258.0,
+      "y": 72.0
+    },
+    {
+      "type": "point",
+      "id": 36,
+      "point": "outside",
+      "book_bounds": {
+        "x": 105,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 242.0,
+      "y": 58.0
+    },
+    {
+      "type": "point",
+      "id": 37,
+      "point": "crafting",
+      "book_bounds": {
+        "x": 105,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 536.0,
+      "y": 112.0
+    },
+    {
+      "type": "point",
+      "id": 38,
+      "point": "gap",
+      "book_bounds": {
+        "x": 105,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 436.0,
+      "y": 112.0
+    },
+    {
+      "type": "point",
+      "id": 39,
+      "point": "above",
+      "book_bounds": {
+        "x": 105,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 532.0,
+      "y": 100.0
+    },
+    {
+      "type": "point",
+      "id": 40,
+      "point": "below",
+      "book_bounds": {
+        "x": 105,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 532.0,
+      "y": 200.0
+    },
+    {
+      "type": "point",
+      "id": 41,
+      "point": "book",
+      "book_bounds": {
+        "x": 105,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 108.0,
+      "y": 112.0
+    },
+    {
+      "type": "point",
+      "id": 42,
+      "point": "book-tab",
+      "book_bounds": {
+        "x": 105,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "native_tab_hovered": true,
+      "click_consumed": true,
+      "x": 85.0,
+      "y": 80.0
+    },
+    {
+      "type": "point",
+      "id": 43,
+      "point": "pins",
+      "book_bounds": {
+        "x": 105,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "pinned_tab_hovered": true,
+      "click_consumed": true,
+      "x": 85.0,
+      "y": 215.0,
+      "pinned_tab_selected": true
+    },
+    {
+      "type": "resize",
+      "id": 44,
+      "width": 427,
+      "height": 300
+    },
+    {
+      "type": "book-state",
+      "id": 45,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 46,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": true
+    },
+    {
+      "type": "point",
+      "id": 47,
+      "point": "storage",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 74.0,
+      "y": 72.0
+    },
+    {
+      "type": "point",
+      "id": 48,
+      "point": "outside",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 58.0,
+      "y": 58.0
+    },
+    {
+      "type": "point",
+      "id": 49,
+      "point": "crafting",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 352.0,
+      "y": 112.0
+    },
+    {
+      "type": "point",
+      "id": 50,
+      "point": "gap",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 252.0,
+      "y": 112.0
+    },
+    {
+      "type": "point",
+      "id": 51,
+      "point": "above",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 348.0,
+      "y": 100.0
+    },
+    {
+      "type": "point",
+      "id": 52,
+      "point": "below",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 348.0,
+      "y": 200.0
+    },
+    {
+      "type": "resize",
+      "id": 53,
+      "width": 427,
+      "height": 300
+    },
+    {
+      "type": "book-state",
+      "id": 54,
+      "open": true
+    },
+    {
+      "type": "validate",
+      "id": 55,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": true,
+      "pinned_tab_visible": true,
+      "narrow": true
+    },
+    {
+      "type": "point",
+      "id": 56,
+      "point": "storage",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 74.0,
+      "y": 72.0
+    },
+    {
+      "type": "point",
+      "id": 57,
+      "point": "outside",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 58.0,
+      "y": 58.0
+    },
+    {
+      "type": "point",
+      "id": 58,
+      "point": "crafting",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 352.0,
+      "y": 112.0
+    },
+    {
+      "type": "point",
+      "id": 59,
+      "point": "gap",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 252.0,
+      "y": 70.0
+    },
+    {
+      "type": "point",
+      "id": 60,
+      "point": "above",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 348.0,
+      "y": 100.0
+    },
+    {
+      "type": "point",
+      "id": 61,
+      "point": "below",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 348.0,
+      "y": 200.0
+    },
+    {
+      "type": "point",
+      "id": 62,
+      "point": "book",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 143.0,
+      "y": 112.0
+    },
+    {
+      "type": "point",
+      "id": 63,
+      "point": "book-tab",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "native_tab_hovered": true,
+      "click_consumed": true,
+      "x": 120.0,
+      "y": 80.0
+    },
+    {
+      "type": "point",
+      "id": 64,
+      "point": "pins",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "pinned_tab_hovered": true,
+      "click_consumed": true,
+      "x": 120.0,
+      "y": 215.0,
+      "pinned_tab_selected": true
+    },
+    {
+      "type": "close",
+      "id": 65
+    },
+    {
+      "type": "register",
+      "id": 66,
+      "registered_menu_id": "vpp_backpack_crafting:crafting"
+    },
+    {
+      "type": "resize",
+      "id": 67,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "book-state",
+      "id": 68,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 69,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "sort",
+      "id": 70,
+      "clicked_icon": "sorted:widget/sort_container"
+    },
+    {
+      "type": "stack",
+      "id": 71,
+      "clicked_icon": "sorted:widget/quick_stack"
+    },
+    {
+      "type": "close",
+      "id": 72
+    },
+    {
+      "type": "resize",
+      "id": 73,
+      "width": 640,
+      "height": 300
+    },
+    {
+      "type": "book-state",
+      "id": 74,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 75,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "point",
+      "id": 76,
+      "point": "storage",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 172.0,
+      "y": 72.0
+    },
+    {
+      "type": "point",
+      "id": 77,
+      "point": "outside",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 156.0,
+      "y": 58.0
+    },
+    {
+      "type": "point",
+      "id": 78,
+      "point": "crafting",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 468.0,
+      "y": 103.0
+    },
+    {
+      "type": "point",
+      "id": 79,
+      "point": "gap",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 350.0,
+      "y": 103.0
+    },
+    {
+      "type": "point",
+      "id": 80,
+      "point": "above",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 464.0,
+      "y": 91.0
+    },
+    {
+      "type": "point",
+      "id": 81,
+      "point": "below",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 464.0,
+      "y": 209.0
+    },
+    {
+      "type": "screenshot",
+      "id": 82,
+      "name": "layout-leather-3-640-book-false"
+    },
+    {
+      "type": "resize",
+      "id": 83,
+      "width": 640,
+      "height": 300
+    },
+    {
+      "type": "book-state",
+      "id": 84,
+      "open": true
+    },
+    {
+      "type": "validate",
+      "id": 85,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": true,
+      "pinned_tab_visible": true,
+      "narrow": false
+    },
+    {
+      "type": "point",
+      "id": 86,
+      "point": "storage",
+      "book_bounds": {
+        "x": 96,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 249.0,
+      "y": 72.0
+    },
+    {
+      "type": "point",
+      "id": 87,
+      "point": "outside",
+      "book_bounds": {
+        "x": 96,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 233.0,
+      "y": 58.0
+    },
+    {
+      "type": "point",
+      "id": 88,
+      "point": "crafting",
+      "book_bounds": {
+        "x": 96,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 545.0,
+      "y": 103.0
+    },
+    {
+      "type": "point",
+      "id": 89,
+      "point": "gap",
+      "book_bounds": {
+        "x": 96,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 427.0,
+      "y": 103.0
+    },
+    {
+      "type": "point",
+      "id": 90,
+      "point": "above",
+      "book_bounds": {
+        "x": 96,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 541.0,
+      "y": 91.0
+    },
+    {
+      "type": "point",
+      "id": 91,
+      "point": "below",
+      "book_bounds": {
+        "x": 96,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 541.0,
+      "y": 209.0
+    },
+    {
+      "type": "point",
+      "id": 92,
+      "point": "book",
+      "book_bounds": {
+        "x": 96,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 99.0,
+      "y": 112.0
+    },
+    {
+      "type": "point",
+      "id": 93,
+      "point": "book-tab",
+      "book_bounds": {
+        "x": 96,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "native_tab_hovered": true,
+      "click_consumed": true,
+      "x": 76.0,
+      "y": 80.0
+    },
+    {
+      "type": "point",
+      "id": 94,
+      "point": "pins",
+      "book_bounds": {
+        "x": 96,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "pinned_tab_hovered": true,
+      "click_consumed": true,
+      "x": 76.0,
+      "y": 215.0,
+      "pinned_tab_selected": true
+    },
+    {
+      "type": "screenshot",
+      "id": 95,
+      "name": "layout-leather-3-640-book-true"
+    },
+    {
+      "type": "resize",
+      "id": 96,
+      "width": 427,
+      "height": 300
+    },
+    {
+      "type": "book-state",
+      "id": 97,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 98,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": true
+    },
+    {
+      "type": "point",
+      "id": 99,
+      "point": "storage",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 65.0,
+      "y": 72.0
+    },
+    {
+      "type": "point",
+      "id": 100,
+      "point": "outside",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 49.0,
+      "y": 58.0
+    },
+    {
+      "type": "point",
+      "id": 101,
+      "point": "crafting",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 361.0,
+      "y": 103.0
+    },
+    {
+      "type": "point",
+      "id": 102,
+      "point": "gap",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 243.0,
+      "y": 103.0
+    },
+    {
+      "type": "point",
+      "id": 103,
+      "point": "above",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 357.0,
+      "y": 91.0
+    },
+    {
+      "type": "point",
+      "id": 104,
+      "point": "below",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 357.0,
+      "y": 209.0
+    },
+    {
+      "type": "resize",
+      "id": 105,
+      "width": 427,
+      "height": 300
+    },
+    {
+      "type": "book-state",
+      "id": 106,
+      "open": true
+    },
+    {
+      "type": "validate",
+      "id": 107,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": true,
+      "pinned_tab_visible": true,
+      "narrow": true
+    },
+    {
+      "type": "point",
+      "id": 108,
+      "point": "storage",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 65.0,
+      "y": 72.0
+    },
+    {
+      "type": "point",
+      "id": 109,
+      "point": "outside",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 49.0,
+      "y": 58.0
+    },
+    {
+      "type": "point",
+      "id": 110,
+      "point": "crafting",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 361.0,
+      "y": 103.0
+    },
+    {
+      "type": "point",
+      "id": 111,
+      "point": "gap",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 243.0,
+      "y": 70.0
+    },
+    {
+      "type": "point",
+      "id": 112,
+      "point": "above",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 357.0,
+      "y": 91.0
+    },
+    {
+      "type": "point",
+      "id": 113,
+      "point": "below",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 357.0,
+      "y": 209.0
+    },
+    {
+      "type": "point",
+      "id": 114,
+      "point": "book",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 143.0,
+      "y": 112.0
+    },
+    {
+      "type": "point",
+      "id": 115,
+      "point": "book-tab",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "native_tab_hovered": true,
+      "click_consumed": true,
+      "x": 120.0,
+      "y": 80.0
+    },
+    {
+      "type": "point",
+      "id": 116,
+      "point": "pins",
+      "book_bounds": {
+        "x": 140,
+        "y": 67,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "pinned_tab_hovered": true,
+      "click_consumed": true,
+      "x": 120.0,
+      "y": 215.0,
+      "pinned_tab_selected": true
+    },
+    {
+      "type": "close",
+      "id": 117
+    },
+    {
+      "type": "register",
+      "id": 118,
+      "registered_menu_id": "tiered_backpacks:backpack_menu"
+    },
+    {
+      "type": "resize",
+      "id": 119,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "validate",
+      "id": 120,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "sort",
+      "id": 121,
+      "clicked_icon": "sorted:widget/sort_container"
+    },
+    {
+      "type": "stack",
+      "id": 122,
+      "clicked_icon": "sorted:widget/quick_stack"
+    },
+    {
+      "type": "close",
+      "id": 123
+    },
+    {
+      "type": "resize",
+      "id": 124,
+      "width": 640,
+      "height": 300
+    },
+    {
+      "type": "validate",
+      "id": 125,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "point",
+      "id": 126,
+      "point": "storage",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 199.0,
+      "y": 46.0
+    },
+    {
+      "type": "point",
+      "id": 127,
+      "point": "outside",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 183.0,
+      "y": 32.0
+    },
+    {
+      "type": "resize",
+      "id": 128,
+      "width": 427,
+      "height": 300
+    },
+    {
+      "type": "validate",
+      "id": 129,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "point",
+      "id": 130,
+      "point": "storage",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 92.0,
+      "y": 46.0
+    },
+    {
+      "type": "point",
+      "id": 131,
+      "point": "outside",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 76.0,
+      "y": 32.0
+    },
+    {
+      "type": "close",
+      "id": 132
+    },
+    {
+      "type": "register",
+      "id": 133,
+      "registered_menu_id": "vpp_backpack_crafting:crafting"
+    },
+    {
+      "type": "resize",
+      "id": 134,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "book-state",
+      "id": 135,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 136,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "sort",
+      "id": 137,
+      "clicked_icon": "sorted:widget/sort_container"
+    },
+    {
+      "type": "stack",
+      "id": 138,
+      "clicked_icon": "sorted:widget/quick_stack"
+    },
+    {
+      "type": "close",
+      "id": 139
+    },
+    {
+      "type": "resize",
+      "id": 140,
+      "width": 640,
+      "height": 240
+    },
+    {
+      "type": "book-state",
+      "id": 141,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 142,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "point",
+      "id": 143,
+      "point": "storage",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 145.0,
+      "y": 15.0
+    },
+    {
+      "type": "point",
+      "id": 144,
+      "point": "outside",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 129.0,
+      "y": 1.0
+    },
+    {
+      "type": "point",
+      "id": 145,
+      "point": "crafting",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 495.0,
+      "y": 82.0
+    },
+    {
+      "type": "point",
+      "id": 146,
+      "point": "gap",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 395.0,
+      "y": 82.0
+    },
+    {
+      "type": "point",
+      "id": 147,
+      "point": "above",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 491.0,
+      "y": 70.0
+    },
+    {
+      "type": "point",
+      "id": 148,
+      "point": "below",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 491.0,
+      "y": 170.0
+    },
+    {
+      "type": "resize",
+      "id": 149,
+      "width": 640,
+      "height": 240
+    },
+    {
+      "type": "book-state",
+      "id": 150,
+      "open": true
+    },
+    {
+      "type": "validate",
+      "id": 151,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": true,
+      "pinned_tab_visible": true,
+      "narrow": false
+    },
+    {
+      "type": "point",
+      "id": 152,
+      "point": "storage",
+      "book_bounds": {
+        "x": 69,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 222.0,
+      "y": 15.0
+    },
+    {
+      "type": "point",
+      "id": 153,
+      "point": "outside",
+      "book_bounds": {
+        "x": 69,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 206.0,
+      "y": 1.0
+    },
+    {
+      "type": "point",
+      "id": 154,
+      "point": "crafting",
+      "book_bounds": {
+        "x": 69,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 572.0,
+      "y": 82.0
+    },
+    {
+      "type": "point",
+      "id": 155,
+      "point": "gap",
+      "book_bounds": {
+        "x": 69,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 472.0,
+      "y": 82.0
+    },
+    {
+      "type": "point",
+      "id": 156,
+      "point": "above",
+      "book_bounds": {
+        "x": 69,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 568.0,
+      "y": 70.0
+    },
+    {
+      "type": "point",
+      "id": 157,
+      "point": "below",
+      "book_bounds": {
+        "x": 69,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 568.0,
+      "y": 170.0
+    },
+    {
+      "type": "point",
+      "id": 158,
+      "point": "book",
+      "book_bounds": {
+        "x": 69,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 72.0,
+      "y": 82.0
+    },
+    {
+      "type": "point",
+      "id": 159,
+      "point": "book-tab",
+      "book_bounds": {
+        "x": 69,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "native_tab_hovered": true,
+      "click_consumed": true,
+      "x": 49.0,
+      "y": 50.0
+    },
+    {
+      "type": "point",
+      "id": 160,
+      "point": "pins",
+      "book_bounds": {
+        "x": 69,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "pinned_tab_hovered": true,
+      "click_consumed": true,
+      "x": 49.0,
+      "y": 185.0,
+      "pinned_tab_selected": true
+    },
+    {
+      "type": "resize",
+      "id": 161,
+      "width": 427,
+      "height": 240
+    },
+    {
+      "type": "book-state",
+      "id": 162,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 163,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": true
+    },
+    {
+      "type": "point",
+      "id": 164,
+      "point": "storage",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 38.0,
+      "y": 15.0
+    },
+    {
+      "type": "point",
+      "id": 165,
+      "point": "outside",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 22.0,
+      "y": 1.0
+    },
+    {
+      "type": "point",
+      "id": 166,
+      "point": "crafting",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 388.0,
+      "y": 82.0
+    },
+    {
+      "type": "point",
+      "id": 167,
+      "point": "gap",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 288.0,
+      "y": 82.0
+    },
+    {
+      "type": "point",
+      "id": 168,
+      "point": "above",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 384.0,
+      "y": 70.0
+    },
+    {
+      "type": "point",
+      "id": 169,
+      "point": "below",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 384.0,
+      "y": 170.0
+    },
+    {
+      "type": "resize",
+      "id": 170,
+      "width": 427,
+      "height": 240
+    },
+    {
+      "type": "book-state",
+      "id": 171,
+      "open": true
+    },
+    {
+      "type": "validate",
+      "id": 172,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": true,
+      "pinned_tab_visible": true,
+      "narrow": true
+    },
+    {
+      "type": "point",
+      "id": 173,
+      "point": "storage",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 38.0,
+      "y": 15.0
+    },
+    {
+      "type": "point",
+      "id": 174,
+      "point": "outside",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 22.0,
+      "y": 1.0
+    },
+    {
+      "type": "point",
+      "id": 175,
+      "point": "crafting",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 388.0,
+      "y": 82.0
+    },
+    {
+      "type": "point",
+      "id": 176,
+      "point": "gap",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 288.0,
+      "y": 82.0
+    },
+    {
+      "type": "point",
+      "id": 177,
+      "point": "above",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 384.0,
+      "y": 70.0
+    },
+    {
+      "type": "point",
+      "id": 178,
+      "point": "below",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 384.0,
+      "y": 170.0
+    },
+    {
+      "type": "point",
+      "id": 179,
+      "point": "book",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 143.0,
+      "y": 82.0
+    },
+    {
+      "type": "point",
+      "id": 180,
+      "point": "book-tab",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "native_tab_hovered": true,
+      "click_consumed": true,
+      "x": 120.0,
+      "y": 50.0
+    },
+    {
+      "type": "point",
+      "id": 181,
+      "point": "pins",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "pinned_tab_hovered": true,
+      "click_consumed": true,
+      "x": 120.0,
+      "y": 185.0,
+      "pinned_tab_selected": true
+    },
+    {
+      "type": "close",
+      "id": 182
+    },
+    {
+      "type": "register",
+      "id": 183,
+      "registered_menu_id": "vpp_backpack_crafting:crafting"
+    },
+    {
+      "type": "resize",
+      "id": 184,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "book-state",
+      "id": 185,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 186,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "sort",
+      "id": 187,
+      "clicked_icon": "sorted:widget/sort_container"
+    },
+    {
+      "type": "stack",
+      "id": 188,
+      "clicked_icon": "sorted:widget/quick_stack"
+    },
+    {
+      "type": "close",
+      "id": 189
+    },
+    {
+      "type": "resize",
+      "id": 190,
+      "width": 640,
+      "height": 240
+    },
+    {
+      "type": "book-state",
+      "id": 191,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 192,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "point",
+      "id": 193,
+      "point": "storage",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 136.0,
+      "y": 15.0
+    },
+    {
+      "type": "point",
+      "id": 194,
+      "point": "outside",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 120.0,
+      "y": 1.0
+    },
+    {
+      "type": "point",
+      "id": 195,
+      "point": "crafting",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 504.0,
+      "y": 73.0
+    },
+    {
+      "type": "point",
+      "id": 196,
+      "point": "gap",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 386.0,
+      "y": 73.0
+    },
+    {
+      "type": "point",
+      "id": 197,
+      "point": "above",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 500.0,
+      "y": 61.0
+    },
+    {
+      "type": "point",
+      "id": 198,
+      "point": "below",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 500.0,
+      "y": 179.0
+    },
+    {
+      "type": "screenshot",
+      "id": 199,
+      "name": "layout-netherite-3-640-book-false"
+    },
+    {
+      "type": "resize",
+      "id": 200,
+      "width": 640,
+      "height": 240
+    },
+    {
+      "type": "book-state",
+      "id": 201,
+      "open": true
+    },
+    {
+      "type": "validate",
+      "id": 202,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": true,
+      "pinned_tab_visible": true,
+      "narrow": false
+    },
+    {
+      "type": "point",
+      "id": 203,
+      "point": "storage",
+      "book_bounds": {
+        "x": 60,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 213.0,
+      "y": 15.0
+    },
+    {
+      "type": "point",
+      "id": 204,
+      "point": "outside",
+      "book_bounds": {
+        "x": 60,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 197.0,
+      "y": 1.0
+    },
+    {
+      "type": "point",
+      "id": 205,
+      "point": "crafting",
+      "book_bounds": {
+        "x": 60,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 581.0,
+      "y": 73.0
+    },
+    {
+      "type": "point",
+      "id": 206,
+      "point": "gap",
+      "book_bounds": {
+        "x": 60,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 463.0,
+      "y": 73.0
+    },
+    {
+      "type": "point",
+      "id": 207,
+      "point": "above",
+      "book_bounds": {
+        "x": 60,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 577.0,
+      "y": 61.0
+    },
+    {
+      "type": "point",
+      "id": 208,
+      "point": "below",
+      "book_bounds": {
+        "x": 60,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 577.0,
+      "y": 179.0
+    },
+    {
+      "type": "point",
+      "id": 209,
+      "point": "book",
+      "book_bounds": {
+        "x": 60,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 63.0,
+      "y": 82.0
+    },
+    {
+      "type": "point",
+      "id": 210,
+      "point": "book-tab",
+      "book_bounds": {
+        "x": 60,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "native_tab_hovered": true,
+      "click_consumed": true,
+      "x": 40.0,
+      "y": 50.0
+    },
+    {
+      "type": "point",
+      "id": 211,
+      "point": "pins",
+      "book_bounds": {
+        "x": 60,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "pinned_tab_hovered": true,
+      "click_consumed": true,
+      "x": 40.0,
+      "y": 185.0,
+      "pinned_tab_selected": true
+    },
+    {
+      "type": "screenshot",
+      "id": 212,
+      "name": "layout-netherite-3-640-book-true"
+    },
+    {
+      "type": "resize",
+      "id": 213,
+      "width": 427,
+      "height": 240
+    },
+    {
+      "type": "book-state",
+      "id": 214,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 215,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": true
+    },
+    {
+      "type": "point",
+      "id": 216,
+      "point": "storage",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 29.0,
+      "y": 15.0
+    },
+    {
+      "type": "point",
+      "id": 217,
+      "point": "outside",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 13.0,
+      "y": 1.0
+    },
+    {
+      "type": "point",
+      "id": 218,
+      "point": "crafting",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 397.0,
+      "y": 73.0
+    },
+    {
+      "type": "point",
+      "id": 219,
+      "point": "gap",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 279.0,
+      "y": 73.0
+    },
+    {
+      "type": "point",
+      "id": 220,
+      "point": "above",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 393.0,
+      "y": 61.0
+    },
+    {
+      "type": "point",
+      "id": 221,
+      "point": "below",
+      "book_intersects_point": false,
+      "click_consumed": true,
+      "x": 393.0,
+      "y": 179.0
+    },
+    {
+      "type": "resize",
+      "id": 222,
+      "width": 427,
+      "height": 240
+    },
+    {
+      "type": "book-state",
+      "id": 223,
+      "open": true
+    },
+    {
+      "type": "validate",
+      "id": 224,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": true,
+      "pinned_tab_visible": true,
+      "narrow": true
+    },
+    {
+      "type": "point",
+      "id": 225,
+      "point": "storage",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 29.0,
+      "y": 15.0
+    },
+    {
+      "type": "point",
+      "id": 226,
+      "point": "outside",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 13.0,
+      "y": 1.0
+    },
+    {
+      "type": "point",
+      "id": 227,
+      "point": "crafting",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 397.0,
+      "y": 73.0
+    },
+    {
+      "type": "point",
+      "id": 228,
+      "point": "gap",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 279.0,
+      "y": 40.0
+    },
+    {
+      "type": "point",
+      "id": 229,
+      "point": "above",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 393.0,
+      "y": 61.0
+    },
+    {
+      "type": "point",
+      "id": 230,
+      "point": "below",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": false,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 393.0,
+      "y": 179.0
+    },
+    {
+      "type": "point",
+      "id": 231,
+      "point": "book",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "neutral_book_point_verified": true,
+      "click_consumed": true,
+      "x": 143.0,
+      "y": 82.0
+    },
+    {
+      "type": "point",
+      "id": 232,
+      "point": "book-tab",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "native_tab_hovered": true,
+      "click_consumed": true,
+      "x": 120.0,
+      "y": 50.0
+    },
+    {
+      "type": "point",
+      "id": 233,
+      "point": "pins",
+      "book_bounds": {
+        "x": 140,
+        "y": 37,
+        "width": 147,
+        "height": 166
+      },
+      "book_intersects_point": true,
+      "pinned_tab_hovered": true,
+      "click_consumed": true,
+      "x": 120.0,
+      "y": 185.0,
+      "pinned_tab_selected": true
+    },
+    {
+      "type": "screenshot",
+      "id": 234,
+      "name": "layout-netherite-3-427-book-true"
+    },
+    {
+      "type": "close",
+      "id": 235
+    }
+  ],
+  "sort_running": false
+}

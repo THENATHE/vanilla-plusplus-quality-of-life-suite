@@ -1,0 +1,14 @@
+{
+  "candidate_sha256": "7c85a7ae934917cb1c5427e18fa00e68b3943064c12c1b74b7c8a3d31511c24b",
+  "independent_sha256": "0d6b0080b3388cba7aa7f0968bb596614a554e6ac9bcafaab1c9329f781910ed",
+  "non_directory_entries": 130,
+  "missing_entries": [],
+  "extra_entries": [],
+  "different_entries": [],
+  "directory_only_differences": [
+    "assets/tiered_backpacks/",
+    "assets/tiered_backpacks/lang/",
+    "data/swift_flight/loot_table/",
+    "data/swift_flight/loot_table/chests/"
+  ]
+}

@@ -4,7 +4,7 @@
 
 ![Vanilla++ modpack artwork](artwork/vanilla-plusplus-modpack.png)
 
-The **1.4.1** update corrects toolbox crafting panel drop boundaries and adds optional Sorted support for storage controls. Crafting inputs and output stay separate from sorted storage. See the [1.4.1 release guide](docs/RELEASE_1_4_1.md) for setup and verified runtime results.
+The **1.4.2** update keeps Sorted's Alt keep-rule suggestions and edits off the temporary crafting grid and result. Backpack storage and player inventory retain their normal rules. See the [1.4.2 release guide](docs/RELEASE_1_4_2.md) for setup and verified runtime results.
 
 
 ## What it is
@@ -182,7 +182,7 @@ Thanks for your hard work, **pajic**, and contributor **Moonkey**!
 
 #### My tweaks and additions
 
-- Carry an iron toolbox in your active Tool Pouch for a compact floating 2×2 crafting panel and recipe book. A netherite toolbox, upgraded in a smithing table, enables 3×3. Recipes use both backpack and player ingredients, with optional BRBR support. This is a separate addon; original developer source stays untouched. Clicks in the gap or empty space above/below the crafting panel can drop a held stack unless a visible book region or control overlaps; the crafting panel and recipe book stay protected, with or without BRBR. Optional Sorted controls target backpack storage and player inventory separately. See [recipes and testing](docs/BACKPACK_CRAFTING.md).
+- Carry an iron toolbox in your active Tool Pouch for a compact floating 2×2 crafting panel and recipe book. A netherite toolbox, upgraded in a smithing table, enables 3×3. Recipes use both backpack and player ingredients, with optional BRBR support. This is a separate addon; original developer source stays untouched. Clicks in the gap or empty space above/below the crafting panel can drop a held stack unless a visible book region or control overlaps; the crafting panel and recipe book stay protected, with or without BRBR. Optional Sorted controls target backpack storage and player inventory separately; keep-rule markers and Alt edits exclude the crafting grid and output. See [recipes and testing](docs/BACKPACK_CRAFTING.md).
 - Added optional ClientSort controls for sorting, refilling, and transferring items while preserving backpack nesting restrictions.
 - Brought the original backpack settings into the combined suite settings screen.
 - Included safe display and connection support for players without the suite; opening the custom backpack screen still needs the client mod.
@@ -454,7 +454,7 @@ The compatibility layer includes:
 
 ## Installation
 
-The [1.4.1 release guide](docs/RELEASE_1_4_1.md) covers this update, installation and verification. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) provides these four files:
+The [1.4.2 release guide](docs/RELEASE_1_4_2.md) covers this update, installation and verification. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) provides these four files:
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -466,7 +466,7 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Put `vanilla-plusplus-quality-of-life-suite-1.4.1+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
+2. Put `vanilla-plusplus-quality-of-life-suite-1.4.2+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, the standalone Polymer Debug Wrench, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Remove the replaced standalone mods/datapacks when enabling their suite features. Swift Flight keeps existing enchantment data; legacy pet-call bindings are not migrated and must be rebound.
@@ -524,13 +524,13 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/complete-jdk25 ./gradlew build
 ```
 
-Use a complete Java 25 or newer JDK, including `javac`; the build targets Java 25. The current clean candidate build uses the complete Microsoft Java 25 JDK. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.4.1+26.3.jar`.
+Use a complete Java 25 or newer JDK, including `javac`; the build targets Java 25. The current clean build uses the complete Microsoft Java 25 JDK. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.4.2+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 
 ### Changes and testing
 
-The [release guide](docs/RELEASE_1_4_1.md) and [validation report](docs/VALIDATION.md) record the final 1.4.1 JAR, focused native/Polymer regressions, actual Sorted controls, ordinary/maximum BRBR crafting, Hotkey Wheel integration and separate installation verification status. Historical results keep their original artifacts and test scope.
+The [release guide](docs/RELEASE_1_4_2.md) and [validation report](docs/VALIDATION.md) record the final 1.4.2 JAR, verified scoped Sorted rule changes, native/Polymer server and recipe checks, fresh native layout and current Hotkey Wheel acceptance, and separate installation verification status. Historical results keep their original artifacts and test scope.
 
 The [release procedure](docs/RELEASE_WORKFLOW.md) records the standing documentation, four-asset packaging, version-only titles and branch-cleanup conventions.
 

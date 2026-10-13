@@ -1,0 +1,22 @@
+{
+  "profile": "server",
+  "passed": true,
+  "suite_version": "1.4.2+26.3",
+  "suite_sha256": "7c85a7ae934917cb1c5427e18fa00e68b3943064c12c1b74b7c8a3d31511c24b",
+  "assertions": 396,
+  "screenshots": [],
+  "raw_input_sha256": {
+    "result.json": "07e38cc8b33e0fcab09830ee1d1d9ccbb0ba25906c0d0e7a1e8b0bd4046b0def",
+    "executed-source/BackpackClientSortChecks.java": "05f479e2f795d646d945fb1513b04d7a458b9d114cd3ae22b277b832fb9bf3ef",
+    "executed-source/BackpackCraftingProbe.java": "69a6bf9d91f5fcb2b8aaee66bfaa9b9f4a46c5f3427ed4df647f7adc3ab52556",
+    "executed-source/executed-run.py": "1198721e10962d9a7f279f29a3fe1327fe8ee709147118f8c87027b6b7d47a83",
+    "native-launch-audit.json": "6c95e16bb542797820f3b1909e1843ee3ee178c467f13fd2ae3721a390c80f65",
+    "polymer-launch-audit.json": "00ec276363bf5e8d2f23ed3618b87409656d1ad43a071c1d2c27e78535442375"
+  },
+  "published_source_sha256": {
+    "BackpackCraftingProbe.java": "69a6bf9d91f5fcb2b8aaee66bfaa9b9f4a46c5f3427ed4df647f7adc3ab52556",
+    "executed-run.py": "1198721e10962d9a7f279f29a3fe1327fe8ee709147118f8c87027b6b7d47a83",
+    "BackpackClientSortChecks.java": "05f479e2f795d646d945fb1513b04d7a458b9d114cd3ae22b277b832fb9bf3ef"
+  },
+  "audit_note": "Absolute personal paths are replaced with portable tokens. Raw hashes identify the retained local inputs; published hashes identify sanitized copies. Worlds, original JARs, raw game logs and native libraries are excluded."
+}
