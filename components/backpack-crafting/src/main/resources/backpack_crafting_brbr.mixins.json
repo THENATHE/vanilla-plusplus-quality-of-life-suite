@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "mixinextras": {
+    "minVersion": "0.5.5"
+  },
+  "package": "com.thenathe.backpackcrafting.compat",
+  "plugin": "com.thenathe.backpackcrafting.compat.BrbrMixinPlugin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "BrbrInstantCraftingMixin",
+    "BrbrRecipePlacementMixin",
+    "BrbrPendingAccess"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

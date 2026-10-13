@@ -81,6 +81,20 @@ public final class SuiteServerQa implements ModInitializer {
                 handler.player.getInventory().setItem(5,stone);
                 handler.player.getInventory().setItem(6,potion);
             }
+            if (FabricLoader.getInstance().isModLoaded("vpp_backpack_crafting")) {
+                handler.player.getInventory().setItem(20, new ItemStack(com.thenathe.backpackcrafting.BackpackCrafting.IRON_HAMMER));
+                handler.player.getInventory().setItem(21, new ItemStack(com.thenathe.backpackcrafting.BackpackCrafting.DIAMOND_HAMMER));
+                boolean nativeCrafting = SuiteCapabilities.isNativeEntry(handler.getPacketContext(), Identifier.parse("vpp_backpack_crafting:crafting"));
+                passed &= nativeCrafting == SuiteCapabilities.isNative(handler.getPacketContext(), "vpp_mod_suite");
+                result.addProperty("crafting_namespace_native", nativeCrafting);
+                if (!nativeCrafting) {
+                    var menuBefore = handler.player.containerMenu;
+                    var testBackpack = new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.parse("tiered_backpacks:leather_backpack")));
+                    me.pajic.tiered_backpacks.platform.MultiLoaderUtil.INSTANCE.openBackpackScreen(handler.player, testBackpack);
+                    passed &= handler.player.containerMenu == menuBefore;
+                    result.addProperty("unsupported_backpack_open_blocked", handler.player.containerMenu == menuBefore);
+                }
+            }
             handler.player.inventoryMenu.broadcastFullState();
             JsonObject marker = new JsonObject();
             marker.addProperty("x",position.getX());marker.addProperty("y",position.getY());marker.addProperty("z",position.getZ());
@@ -96,6 +110,7 @@ public final class SuiteServerQa implements ModInitializer {
                 marker.addProperty("potion_count",3);
                 marker.addProperty("potion_max",handler.player.getInventory().getItem(6).getMaxStackSize());
             }
+            marker.addProperty("crafting_hammers", FabricLoader.getInstance().isModLoaded("vpp_backpack_crafting"));
             result.add("marker",marker);
             passed &= level.getBlockState(anvilPosition).equals(anvil);
             passed &= level.getBlockState(position).equals(mark);

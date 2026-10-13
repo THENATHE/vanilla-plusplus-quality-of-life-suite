@@ -69,6 +69,20 @@ public final class SuiteClientQa implements ClientModInitializer {
                     if (ticks < 200) return;
                     throw new IllegalStateException("Broken anvil packet mismatch: block=" + actualAnvil + " item=" + actualAnvilItem);
                 }
+                if (marker.has("crafting_hammers") && marker.get("crafting_hammers").getAsBoolean()) {
+                    boolean nativeCrafting = net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("vpp_mod_suite")
+                            && com.thenathe.suite.network.SuiteCapabilities.isNative(
+                            client.getConnection().getPacketContext(), "vpp_mod_suite");
+                    for (int index = 0; index < 2; index++) {
+                        var hammer = client.player.getInventory().getItem(20 + index);
+                        String tier = index == 0 ? "iron" : "diamond";
+                        String expectedHammer = nativeCrafting ? "vpp_backpack_crafting:" + tier + "_hammer" : "minecraft:" + tier + "_axe";
+                        if (!BuiltInRegistries.ITEM.getKey(hammer.getItem()).toString().equals(expectedHammer) || hammer.getCount() != 1) {
+                            if (ticks < 200) return;
+                            throw new IllegalStateException("Hammer packet representation differs: " + hammer);
+                        }
+                    }
+                }
                 if(marker.has("stone_count")&&stackStage==0) {
                     for(var pair:new String[]{"stone","potion"}) {
                         var received=client.player.getInventory().getItem(pair.equals("stone")?5:6);
@@ -104,6 +118,10 @@ public final class SuiteClientQa implements ClientModInitializer {
                 done = true;
                 Files.writeString(directory.resolve("client-joined.txt"), "PASS in-world client ticks\n");
                 JsonObject result = new JsonObject();if(marker.has("stone_count")) {result.addProperty("stone_count",client.player.getInventory().getItem(stackStage==3?7:5).getCount());result.addProperty("inventory_packet_moves",stackStage==3);result.addProperty("stone_max",client.player.getInventory().getItem(stackStage==3?7:5).getMaxStackSize());result.addProperty("potion_count",client.player.getInventory().getItem(6).getCount());result.addProperty("potion_max",client.player.getInventory().getItem(6).getMaxStackSize());}
+                if (marker.has("crafting_hammers") && marker.get("crafting_hammers").getAsBoolean()) {
+                    result.addProperty("iron_hammer_received", BuiltInRegistries.ITEM.getKey(client.player.getInventory().getItem(20).getItem()).toString());
+                    result.addProperty("diamond_hammer_received", BuiltInRegistries.ITEM.getKey(client.player.getInventory().getItem(21).getItem()).toString());
+                }
                 result.addProperty("mixed_scale_ui_roundtrip",nativeChalk&&MixedUi.mixedStage==11);result.addProperty("join_count", joins);result.addProperty("passed", true);
                 result.addProperty("native_chalk",nativeChalk);result.addProperty("actual_block",actualBlock);result.addProperty("actual_item",actualItem);
                 result.addProperty("damage",stack.getDamageValue());result.addProperty("custom_name",stack.get(DataComponents.CUSTOM_NAME).getString());result.addProperty("virtual_mark_displays",displays);

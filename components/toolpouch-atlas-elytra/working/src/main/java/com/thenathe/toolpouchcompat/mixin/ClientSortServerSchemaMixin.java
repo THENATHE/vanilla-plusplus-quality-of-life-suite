@@ -3,10 +3,12 @@ package com.thenathe.toolpouchcompat.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
+import com.thenathe.toolpouchcompat.BackpackCraftingSlots;
 import dev.terminalmc.clientsort.network.handler.validate.SchemaValidator;
 import me.pajic.toolpouch.menu.ToolPouchMenu;
 import me.pajic.toolpouch.menu.ToolPouchSlot;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
@@ -17,10 +19,19 @@ import org.spongepowered.asm.mixin.injection.At;
 @Mixin(value = SchemaValidator.class, remap = false)
 public abstract class ClientSortServerSchemaMixin {
     @WrapOperation(method = {"validateSlotArray", "validateSlotMapping"}, at = @At(value = "INVOKE",
+            target = "Lnet/minecraft/world/inventory/Slot;mayPickup(Lnet/minecraft/world/entity/player/Player;)Z"))
+    private static boolean toolpouchcompat$excludeCraftingSources(Slot slot, Player player,
+                                                                 Operation<Boolean> original,
+                                                                 @Local(argsOnly = true) AbstractContainerMenu menu) {
+        return BackpackCraftingSlots.maySort(menu, slot) && original.call(slot, player);
+    }
+
+    @WrapOperation(method = {"validateSlotArray", "validateSlotMapping"}, at = @At(value = "INVOKE",
             target = "Lnet/minecraft/world/inventory/Slot;mayPlace(Lnet/minecraft/world/item/ItemStack;)Z"))
     private static boolean toolpouchCompat$recognizeStorageProbe(Slot slot, ItemStack probe,
                                                                  Operation<Boolean> original,
                                                                  @Local(argsOnly = true) AbstractContainerMenu menu) {
+        if (!BackpackCraftingSlots.maySort(menu, slot)) return false;
         // This call is only ClientSort's accessibility probe. Its real-item checks still run later.
         if (menu instanceof ToolPouchMenu && slot instanceof ToolPouchSlot
                 && !(slot.container instanceof Inventory) && probe.is(Items.LIGHT)) return true;

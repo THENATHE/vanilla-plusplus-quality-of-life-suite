@@ -1,0 +1,5 @@
+{
+  "CraftingNetworkServer.class": "2858625c0d2e9f9b4ace7296a5242f95376dad903e7c3c2401ce19b2494f30c3",
+  "CraftingNetworkClient.class": "25bd4b64b1a3af361a82b618628e7dd3d32c6cf6fea5035febd08ec819ceb3d7",
+  "qa/backpackcrafting/mixin/CraftingNetworkBrbrTrace.class": "e8296094baf8e115fa7008a242a449f18b30700fa35ff0822ef733b958dbb59d"
+}

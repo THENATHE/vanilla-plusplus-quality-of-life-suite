@@ -1,5 +1,7 @@
 # Installation pack — Vanilla++ Quality of Life Suite 1.3.1+26.3
 
+Experimental `feat/backpack-crafting` uses suite **1.4.0-beta.1+26.3** and the new bundled addon **1.0.0-beta.1+26.3**. Existing developer inputs and external dependencies remain unchanged. See [the branch guide](BACKPACK_CRAFTING.md); stable release records below retain their original scope.
+
 The **1.3.1+26.3** update fixes anvil shift-click XP, grindstone scrap insertion and pet recall safety. Replace the suite JAR on the server and matching native clients. Exact external dependencies and original developer inputs remain unchanged; Collective is not required.
 
 The authored root mod ID remains `vpp_mod_suite`. Swift Flight retains its original enchantment ID and existing enchanted books/harnesses. Legacy pet-call bindings and datapack state are not imported; rebind horns after removing the old packs. Remove standalone versions of enabled replacement features to avoid duplicate execution. [Release instructions](RELEASE_1_3_1.md) record the full scope and verification.

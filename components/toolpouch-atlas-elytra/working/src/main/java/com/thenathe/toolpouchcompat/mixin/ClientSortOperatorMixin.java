@@ -3,10 +3,12 @@ package com.thenathe.toolpouchcompat.mixin;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.thenathe.toolpouchcompat.ClientSortOperator;
+import com.thenathe.toolpouchcompat.BackpackCraftingSlots;
 import dev.terminalmc.clientsort.client.inventory.operator.SingleUseOperator;
 import me.pajic.toolpouch.menu.ToolPouchMenu;
 import me.pajic.toolpouch.menu.ToolPouchSlot;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -24,9 +26,16 @@ public abstract class ClientSortOperatorMixin {
     @WrapOperation(method = "collectSlots", at = @At(value = "INVOKE",
             target = "Lnet/minecraft/world/inventory/Slot;mayPlace(Lnet/minecraft/world/item/ItemStack;)Z"))
     private boolean toolpouchcompat$discoverRestrictedSlots(Slot slot, ItemStack probe, Operation<Boolean> original) {
+        if (!BackpackCraftingSlots.maySort(screen.getMenu(), slot)) return false;
         // This probe asks whether a slot is accessible, not whether LIGHT is a valid pouch item.
         return screen.getMenu() instanceof ToolPouchMenu && slot instanceof ToolPouchSlot && probe.is(Items.LIGHT)
                 || original.call(slot, probe);
+    }
+
+    @WrapOperation(method = "collectSlots", at = @At(value = "INVOKE",
+            target = "Lnet/minecraft/world/inventory/Slot;mayPickup(Lnet/minecraft/world/entity/player/Player;)Z"))
+    private boolean toolpouchcompat$excludeCraftingSources(Slot slot, Player player, Operation<Boolean> original) {
+        return BackpackCraftingSlots.maySort(screen.getMenu(), slot) && original.call(slot, player);
     }
 
     @Inject(method = "getClientOperator", at = @At("HEAD"), cancellable = true)

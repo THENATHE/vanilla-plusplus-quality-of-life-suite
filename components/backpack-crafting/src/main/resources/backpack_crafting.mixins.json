@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "com.thenathe.backpackcrafting.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "BackpackOpeningMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

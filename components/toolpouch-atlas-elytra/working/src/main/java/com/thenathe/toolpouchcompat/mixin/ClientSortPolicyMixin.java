@@ -1,6 +1,7 @@
 package com.thenathe.toolpouchcompat.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import com.thenathe.toolpouchcompat.BackpackCraftingSlots;
 import dev.terminalmc.clientsort.client.config.ClassPolicy;
 import dev.terminalmc.clientsort.client.util.PolicyManager;
 import net.minecraft.world.inventory.ChestMenu;
@@ -15,6 +16,7 @@ public abstract class ClientSortPolicyMixin {
     @ModifyReturnValue(method = "getPolicy", at = @At("RETURN"))
     private static ClassPolicy toolpouchcompat$chestDefaults(ClassPolicy original, Class<?> type, String title) {
         if (original != null || !(type.getName().equals("me.pajic.toolpouch.menu.ToolPouchMenu")
+                || type.getName().equals(BackpackCraftingSlots.MENU_CLASS)
                 || type.getName().equals("me.pajic.tiered_backpacks.ui.BackpackMenu"))) return original;
         ClassPolicy chest = PolicyManager.getPolicy(ChestMenu.class, title);
         if (chest == null) return null;

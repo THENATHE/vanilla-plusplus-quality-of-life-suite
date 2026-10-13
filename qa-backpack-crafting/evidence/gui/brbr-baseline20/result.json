@@ -1,0 +1,1863 @@
+{
+  "passed": true,
+  "version": "1.4.0-beta.1+26.3",
+  "bundle_sha256": "0310791d5d23428b6e0304c694d0c0d065e8446c8c259c11e619f7ed6f104a06",
+  "backpack_ingredients": false,
+  "brbr_sha256": "1788316a99505b767f6076884469910de62bb04737212bc2a6195e28e143fa04",
+  "polymer": true,
+  "profiles": [
+    "suite"
+  ],
+  "observations": [
+    {
+      "profile": "suite",
+      "clicks": [
+        {
+          "tier": "baseline",
+          "size": 3,
+          "client": {
+            "ticks": 150,
+            "screen": "net.minecraft.client.gui.screens.inventory.CraftingScreen",
+            "actions": [
+              {
+                "type": "book",
+                "id": 1,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 2,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 3,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 4,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 5,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 6,
+                "right": false,
+                "maximum": false
+              }
+            ],
+            "brbr_pending": false,
+            "size": 3,
+            "menu_id": 1,
+            "capacity": 0,
+            "screen_width": 640,
+            "screen_height": 400,
+            "menu_left": 309,
+            "menu_top": 117,
+            "menu_width": 176,
+            "menu_height": 166,
+            "output": 0,
+            "book_visible": true,
+            "ghost_slots": 10,
+            "book_left": 160
+          },
+          "server": {
+            "menu": "net.minecraft.world.inventory.CraftingMenu",
+            "crafted_tables": 2,
+            "planks": 4,
+            "size": 3,
+            "menu_id": 1,
+            "valid": true,
+            "knows_recipe": true,
+            "capacity": 0,
+            "result_count": 0,
+            "grid_planks": 0,
+            "stored_planks": 0
+          }
+        },
+        {
+          "tier": "baseline",
+          "size": 3,
+          "client": {
+            "ticks": 250,
+            "screen": "net.minecraft.client.gui.screens.inventory.CraftingScreen",
+            "actions": [
+              {
+                "type": "book",
+                "id": 1,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 2,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 3,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 4,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 5,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 6,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 7,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 8,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 9,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 10,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 11,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 12,
+                "right": false,
+                "maximum": false
+              }
+            ],
+            "brbr_pending": false,
+            "size": 3,
+            "menu_id": 2,
+            "capacity": 0,
+            "screen_width": 640,
+            "screen_height": 400,
+            "menu_left": 309,
+            "menu_top": 117,
+            "menu_width": 176,
+            "menu_height": 166,
+            "output": 0,
+            "book_visible": true,
+            "ghost_slots": 10,
+            "book_left": 160
+          },
+          "server": {
+            "menu": "net.minecraft.world.inventory.CraftingMenu",
+            "crafted_tables": 2,
+            "planks": 4,
+            "size": 3,
+            "menu_id": 2,
+            "valid": true,
+            "knows_recipe": true,
+            "capacity": 0,
+            "result_count": 0,
+            "grid_planks": 0,
+            "stored_planks": 0
+          }
+        },
+        {
+          "tier": "baseline",
+          "size": 3,
+          "client": {
+            "ticks": 350,
+            "screen": "net.minecraft.client.gui.screens.inventory.CraftingScreen",
+            "actions": [
+              {
+                "type": "book",
+                "id": 1,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 2,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 3,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 4,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 5,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 6,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 7,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 8,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 9,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 10,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 11,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 12,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 13,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 14,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 15,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 16,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 17,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 18,
+                "right": false,
+                "maximum": false
+              }
+            ],
+            "brbr_pending": false,
+            "size": 3,
+            "menu_id": 3,
+            "capacity": 0,
+            "screen_width": 640,
+            "screen_height": 400,
+            "menu_left": 309,
+            "menu_top": 117,
+            "menu_width": 176,
+            "menu_height": 166,
+            "output": 0,
+            "book_visible": true,
+            "ghost_slots": 10,
+            "book_left": 160
+          },
+          "server": {
+            "menu": "net.minecraft.world.inventory.CraftingMenu",
+            "crafted_tables": 2,
+            "planks": 4,
+            "size": 3,
+            "menu_id": 3,
+            "valid": true,
+            "knows_recipe": true,
+            "capacity": 0,
+            "result_count": 0,
+            "grid_planks": 0,
+            "stored_planks": 0
+          }
+        },
+        {
+          "tier": "baseline",
+          "size": 3,
+          "client": {
+            "ticks": 450,
+            "screen": "net.minecraft.client.gui.screens.inventory.CraftingScreen",
+            "actions": [
+              {
+                "type": "book",
+                "id": 1,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 2,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 3,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 4,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 5,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 6,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 7,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 8,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 9,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 10,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 11,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 12,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 13,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 14,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 15,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 16,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 17,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 18,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 19,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 20,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 21,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 22,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 23,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 24,
+                "right": false,
+                "maximum": false
+              }
+            ],
+            "brbr_pending": false,
+            "size": 3,
+            "menu_id": 4,
+            "capacity": 0,
+            "screen_width": 640,
+            "screen_height": 400,
+            "menu_left": 309,
+            "menu_top": 117,
+            "menu_width": 176,
+            "menu_height": 166,
+            "output": 0,
+            "book_visible": true,
+            "ghost_slots": 10,
+            "book_left": 160
+          },
+          "server": {
+            "menu": "net.minecraft.world.inventory.CraftingMenu",
+            "crafted_tables": 2,
+            "planks": 4,
+            "size": 3,
+            "menu_id": 4,
+            "valid": true,
+            "knows_recipe": true,
+            "capacity": 0,
+            "result_count": 0,
+            "grid_planks": 0,
+            "stored_planks": 0
+          }
+        },
+        {
+          "tier": "baseline",
+          "size": 3,
+          "client": {
+            "ticks": 550,
+            "screen": "net.minecraft.client.gui.screens.inventory.CraftingScreen",
+            "actions": [
+              {
+                "type": "book",
+                "id": 1,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 2,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 3,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 4,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 5,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 6,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 7,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 8,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 9,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 10,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 11,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 12,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 13,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 14,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 15,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 16,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 17,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 18,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 19,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 20,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 21,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 22,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 23,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 24,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 25,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 26,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 27,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 28,
+                "right": true,
+                "maximum": true,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 29,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 30,
+                "right": false,
+                "maximum": false
+              }
+            ],
+            "brbr_pending": false,
+            "size": 3,
+            "menu_id": 5,
+            "capacity": 0,
+            "screen_width": 640,
+            "screen_height": 400,
+            "menu_left": 309,
+            "menu_top": 117,
+            "menu_width": 176,
+            "menu_height": 166,
+            "output": 0,
+            "book_visible": true,
+            "ghost_slots": 10,
+            "book_left": 160
+          },
+          "server": {
+            "menu": "net.minecraft.world.inventory.CraftingMenu",
+            "crafted_tables": 3,
+            "planks": 0,
+            "size": 3,
+            "menu_id": 5,
+            "valid": true,
+            "knows_recipe": true,
+            "capacity": 0,
+            "result_count": 0,
+            "grid_planks": 0,
+            "stored_planks": 0
+          }
+        },
+        {
+          "tier": "baseline",
+          "size": 3,
+          "client": {
+            "ticks": 650,
+            "screen": "net.minecraft.client.gui.screens.inventory.CraftingScreen",
+            "actions": [
+              {
+                "type": "book",
+                "id": 1,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 2,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 3,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 4,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 5,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 6,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 7,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 8,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 9,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 10,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 11,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 12,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 13,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 14,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 15,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 16,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 17,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 18,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 19,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 20,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 21,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 22,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 23,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 24,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 25,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 26,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 27,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 28,
+                "right": true,
+                "maximum": true,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 29,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 30,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 31,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 32,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 33,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 34,
+                "right": true,
+                "maximum": true,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 35,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 36,
+                "right": false,
+                "maximum": false
+              }
+            ],
+            "brbr_pending": false,
+            "size": 3,
+            "menu_id": 6,
+            "capacity": 0,
+            "screen_width": 640,
+            "screen_height": 400,
+            "menu_left": 309,
+            "menu_top": 117,
+            "menu_width": 176,
+            "menu_height": 166,
+            "output": 0,
+            "book_visible": true,
+            "ghost_slots": 10,
+            "book_left": 160
+          },
+          "server": {
+            "menu": "net.minecraft.world.inventory.CraftingMenu",
+            "crafted_tables": 3,
+            "planks": 0,
+            "size": 3,
+            "menu_id": 6,
+            "valid": true,
+            "knows_recipe": true,
+            "capacity": 0,
+            "result_count": 0,
+            "grid_planks": 0,
+            "stored_planks": 0
+          }
+        },
+        {
+          "tier": "baseline",
+          "size": 3,
+          "client": {
+            "ticks": 750,
+            "screen": "net.minecraft.client.gui.screens.inventory.CraftingScreen",
+            "actions": [
+              {
+                "type": "book",
+                "id": 1,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 2,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 3,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 4,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 5,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 6,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 7,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 8,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 9,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 10,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 11,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 12,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 13,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 14,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 15,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 16,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 17,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 18,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 19,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 20,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 21,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 22,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 23,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 24,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 25,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 26,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 27,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 28,
+                "right": true,
+                "maximum": true,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 29,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 30,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 31,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 32,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 33,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 34,
+                "right": true,
+                "maximum": true,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 35,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 36,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 37,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 38,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 39,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 40,
+                "right": true,
+                "maximum": true,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 41,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 42,
+                "right": false,
+                "maximum": false
+              }
+            ],
+            "brbr_pending": false,
+            "size": 3,
+            "menu_id": 7,
+            "capacity": 0,
+            "screen_width": 640,
+            "screen_height": 400,
+            "menu_left": 309,
+            "menu_top": 117,
+            "menu_width": 176,
+            "menu_height": 166,
+            "output": 0,
+            "book_visible": true,
+            "ghost_slots": 10,
+            "book_left": 160
+          },
+          "server": {
+            "menu": "net.minecraft.world.inventory.CraftingMenu",
+            "crafted_tables": 3,
+            "planks": 0,
+            "size": 3,
+            "menu_id": 7,
+            "valid": true,
+            "knows_recipe": true,
+            "capacity": 0,
+            "result_count": 0,
+            "grid_planks": 0,
+            "stored_planks": 0
+          }
+        },
+        {
+          "tier": "baseline",
+          "size": 3,
+          "client": {
+            "ticks": 850,
+            "screen": "net.minecraft.client.gui.screens.inventory.CraftingScreen",
+            "actions": [
+              {
+                "type": "book",
+                "id": 1,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 2,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 3,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 4,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 5,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 6,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 7,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 8,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 9,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 10,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 11,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 12,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 13,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 14,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 15,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 16,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 17,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 18,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 19,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 20,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 21,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 22,
+                "right": true,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 23,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 24,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 25,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 26,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 27,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 28,
+                "right": true,
+                "maximum": true,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 29,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 30,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 31,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 32,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 33,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 34,
+                "right": true,
+                "maximum": true,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 35,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 36,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 37,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 38,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 39,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 40,
+                "right": true,
+                "maximum": true,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 41,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 42,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "book",
+                "id": 43,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 44,
+                "right": false,
+                "maximum": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 45,
+                "right": false,
+                "maximum": false
+              },
+              {
+                "type": "recipe",
+                "id": 46,
+                "right": true,
+                "maximum": true,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "cake",
+                "id": 47,
+                "right": false,
+                "maximum": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 48,
+                "right": false,
+                "maximum": false
+              }
+            ],
+            "brbr_pending": false,
+            "size": 3,
+            "menu_id": 8,
+            "capacity": 0,
+            "screen_width": 640,
+            "screen_height": 400,
+            "menu_left": 309,
+            "menu_top": 117,
+            "menu_width": 176,
+            "menu_height": 166,
+            "output": 0,
+            "book_visible": true,
+            "ghost_slots": 10,
+            "book_left": 160
+          },
+          "server": {
+            "menu": "net.minecraft.world.inventory.CraftingMenu",
+            "crafted_tables": 3,
+            "planks": 0,
+            "size": 3,
+            "menu_id": 8,
+            "valid": true,
+            "knows_recipe": true,
+            "capacity": 0,
+            "result_count": 0,
+            "grid_planks": 0,
+            "stored_planks": 0
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Connected native crafting screen, visible recipe book recipe click, autofill, output packet click, authoritative ingredient conservation for both grid sizes."
+}

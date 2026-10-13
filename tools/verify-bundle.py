@@ -3,7 +3,7 @@
 import hashlib,io,json,re,sys,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-path=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.3.1+26.3.jar'
+path=Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'build/libs/vanilla-plusplus-quality-of-life-suite-1.4.0-beta.1+26.3.jar'
 locks=json.loads((ROOT/'locks/artifacts.json').read_text())
 def declared_version(build):
     versions=re.findall(r"^version\s*=\s*['\"]([^'\"]+)['\"]", build.read_text(), re.MULTILINE)
@@ -11,7 +11,7 @@ def declared_version(build):
     return versions[0]
 component_versions={
     json.loads((ROOT/component/'src/main/resources/fabric.mod.json').read_text())['id']: declared_version(ROOT/component/'build.gradle')
-    for component in ['components/combined-compat','components/chalk-compat','components/shared-region-maps/working','components/toolpouch-atlas-elytra/working','components/mapstitch-mixed-scales/working','components/sensible-stackables/compat','components/bannerpoint-compat']
+    for component in ['components/combined-compat','components/chalk-compat','components/shared-region-maps/working','components/toolpouch-atlas-elytra/working','components/mapstitch-mixed-scales/working','components/sensible-stackables/compat','components/bannerpoint-compat','components/backpack-crafting']
 }
 with zipfile.ZipFile(path) as archive:
     assert archive.testzip() is None
@@ -19,7 +19,7 @@ with zipfile.ZipFile(path) as archive:
     assert meta['id']=='vpp_mod_suite' and meta['version']==declared_version(ROOT/'build.gradle')
     assert 'defaulted' not in meta['depends']
     component_versions['sensible_stackables'] = next(x['version'] for x in locks if x['id']=='sensible_stackables')
-    for required in ['mapstitch_mixed_scales','sensible_stackables','sensible_stackables_polymer_compat','bannerpoint_polymer_compat']:
+    for required in ['mapstitch_mixed_scales','sensible_stackables','sensible_stackables_polymer_compat','bannerpoint_polymer_compat','vpp_backpack_crafting']:
         assert meta['depends'][required]=='='+component_versions[required], 'Required suite module must not be optional: '+required
     assert not any(name.endswith('.class') and '/suite/network/' in name for name in archive.namelist()),'Duplicated coordinator in root'
     modules=[]
@@ -41,8 +41,8 @@ with zipfile.ZipFile(path) as archive:
         for required, constraint in info.get('depends', {}).items():
             if required in versions and isinstance(constraint, str) and constraint.startswith('='):
                 assert versions[required] == constraint[1:], f"Stale nested dependency: {info['id']} requires {required}{constraint}, bundled {versions[required]}"
-    assert len({x['id'] for x in modules})==len(modules)==18
-    expected={'simple_smithing_overhaul','mapstitch','toolpouch','tiered_backpacks','misctweaks','simple_death_improvements','shared_region_maps','chalk','chalk-colorful-addon','toolpouch_atlas_elytra_compat','amethyst_curse_cleanser','chalk_polymer_compat','sso_backpack_toolpouch_mapstitch_shim','mapstitch_mixed_scales','sensible_stackables','sensible_stackables_polymer_compat','bannerpoint','bannerpoint_polymer_compat'}
+    assert len({x['id'] for x in modules})==len(modules)==19
+    expected={'simple_smithing_overhaul','mapstitch','toolpouch','tiered_backpacks','misctweaks','simple_death_improvements','shared_region_maps','chalk','chalk-colorful-addon','toolpouch_atlas_elytra_compat','amethyst_curse_cleanser','chalk_polymer_compat','sso_backpack_toolpouch_mapstitch_shim','mapstitch_mixed_scales','sensible_stackables','sensible_stackables_polymer_compat','bannerpoint','bannerpoint_polymer_compat','vpp_backpack_crafting'}
     assert {x['id'] for x in modules}==expected
     for licensefile in (ROOT/'licenses').glob('*.txt'):
         assert archive.read('META-INF/licenses/'+licensefile.name)==licensefile.read_bytes()

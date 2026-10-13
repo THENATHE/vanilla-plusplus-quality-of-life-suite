@@ -1,0 +1,4 @@
+[20:39:52] [Render thread/INFO]: [STDOUT]: CRAFTING_RECIPE_CLICK {"type":"recipe","id":2,"right":false,"maximum":false,"recipe_id":"RecipeDisplayId[index=407]","recipe_craftable":true,"last_placed":"RecipeDisplayId[index=407]"}
+[20:39:54] [Render thread/INFO]: [STDOUT]: CRAFTING_RECIPE_CLICK {"type":"recipe","id":4,"right":true,"maximum":false,"recipe_id":"RecipeDisplayId[index=407]","recipe_craftable":true,"last_placed":"RecipeDisplayId[index=407]"}
+[20:39:54] [Render thread/INFO]: [STDOUT]: CRAFTING_BRBR_CANCEL marsh.town.brb.InstantCraftingManager$Pending@29a54880
+[20:39:54] [Render thread/INFO]: [STDERR]: 	at knot//marsh.town.brb.InstantCraftingManager.tick(InstantCraftingManager.java:316)

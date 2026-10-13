@@ -12,6 +12,7 @@ public final class SuiteModMenu implements ModMenuApi {
             factories.put(feature.id(), feature.nativeSettings() ? SuiteSettings::createFeatures : SuiteSettings::create);
         }
         factories.put("sso_backpack_toolpouch_mapstitch_shim", SuiteSettings::create);
+        factories.put("vpp_backpack_crafting", SuiteSettings::create);
         return factories;
     }
 }

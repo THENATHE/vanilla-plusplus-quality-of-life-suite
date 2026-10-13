@@ -1,0 +1,29 @@
+{
+  "suite_version": "1.4.0-beta.1+26.3",
+  "suite_sha256": "23459d1ba1ffcb87790475e58a8c195f838d879360cbf17bd0295eded45cb40b",
+  "sprites": {
+    "iron_hammer": {
+      "size": [
+        16,
+        16
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "sha256": "378de02e05c59ac46ca44737384250c74c0a21278d0d2b9319c0dab5eb2ad50d"
+    },
+    "diamond_hammer": {
+      "size": [
+        16,
+        16
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "sha256": "d00e0e8b115123ebb86268ba6e9a99e4a15d8ce4485e267e6b4908d9656b9192"
+    }
+  },
+  "nested_modules": 19
+}

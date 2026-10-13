@@ -17,11 +17,12 @@ tasks.withType(JavaCompile).configureEach {
 java { withSourcesJar(); sourceCompatibility = JavaVersion.VERSION_25; targetCompatibility = JavaVersion.VERSION_25 }
 jar { from('LICENSE') }
 
-version = '1.3.1+26.3'
+version = '1.4.0-beta.1+26.3'
 base { archivesName = 'vanilla-plusplus-quality-of-life-suite' }
 sourceSets.main.java.exclude('com/thenathe/suite/network/**')
 dependencies {
  implementation project(':combined-compat')
+ implementation project(':backpack-crafting')
  compileOnly 'eu.pb4:polymer-core:0.18.2+26.3'
  compileOnly 'eu.pb4:polymer-resource-pack:0.18.2+26.3'
  implementation 'com.terraformersmc:modmenu:21.0.0'
@@ -40,11 +41,11 @@ tasks.register('verifyInputs') {
  }
 }
 tasks.named('compileJava') { dependsOn 'verifyInputs' }
-['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra', 'mapstitch-mixed-scales', 'sensible-stackables-compat', 'bannerpoint-compat'].each { evaluationDependsOn(":${it}") }
+['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra', 'mapstitch-mixed-scales', 'sensible-stackables-compat', 'bannerpoint-compat', 'backpack-crafting'].each { evaluationDependsOn(":${it}") }
 subprojects { tasks.withType(JavaCompile).configureEach { dependsOn rootProject.tasks.named('verifyInputs') } }
-def componentJars = ['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra', 'mapstitch-mixed-scales', 'sensible-stackables-compat', 'bannerpoint-compat'].collect { rootProject.project(":${it}").tasks.named('jar').flatMap { it.archiveFile } }
+def componentJars = ['combined-compat', 'chalk-compat', 'shared-region-maps', 'toolpouch-atlas-elytra', 'mapstitch-mixed-scales', 'sensible-stackables-compat', 'bannerpoint-compat', 'backpack-crafting'].collect { rootProject.project(":${it}").tasks.named('jar').flatMap { it.archiveFile } }
 jar {
- dependsOn ':combined-compat:jar', ':chalk-compat:jar', ':shared-region-maps:jar', ':toolpouch-atlas-elytra:jar', ':mapstitch-mixed-scales:jar', ':sensible-stackables-compat:jar', ':bannerpoint-compat:jar'
+ dependsOn ':combined-compat:jar', ':chalk-compat:jar', ':shared-region-maps:jar', ':toolpouch-atlas-elytra:jar', ':mapstitch-mixed-scales:jar', ':sensible-stackables-compat:jar', ':bannerpoint-compat:jar', ':backpack-crafting:jar'
  from(bundled) { into 'META-INF/jars' }
  from(componentJars) { into 'META-INF/jars' }
  from('licenses') { into 'META-INF/licenses' }

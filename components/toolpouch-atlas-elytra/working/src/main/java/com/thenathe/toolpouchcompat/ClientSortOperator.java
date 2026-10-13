@@ -25,6 +25,7 @@ public final class ClientSortOperator extends ClientSurvivalOperator {
 
     public static boolean supports(AbstractContainerScreen<?> screen) {
         return screen.getMenu() instanceof ToolPouchMenu
+                || BackpackCraftingSlots.supports(screen.getMenu())
                 || screen.getMenu().getClass().getName().equals("me.pajic.tiered_backpacks.ui.BackpackMenu");
     }
 

@@ -149,7 +149,8 @@ public final class SuiteCapabilities {
     }
 
     public static boolean isNativeEntry(PacketContext context, Identifier id) {
-        return id != null && isNative(context, id.getNamespace());
+        return id != null && isNative(context, id.getNamespace().equals("vpp_backpack_crafting")
+                ? "vpp_mod_suite" : id.getNamespace());
     }
 
     public static boolean hasRegistryReceiver(ServerConfigurationPacketListenerImpl listener) {
@@ -182,7 +183,8 @@ public final class SuiteCapabilities {
     }
 
     private static List<String> dependencies(String mod) {
-        if (mod.equals("debugwrench") || mod.equals("vpp_mod_suite")) return List.of("vpp_mod_suite");
+        if (mod.equals("vpp_mod_suite")) return List.of("vpp_mod_suite", "vpp_backpack_crafting");
+        if (mod.equals("debugwrench")) return List.of("vpp_mod_suite");
         if (mod.equals("mapstitch")) return List.of(mod, "mapstitch_mixed_scales", "toolpouch_atlas_elytra_compat", "shared_region_maps", "sso_backpack_toolpouch_mapstitch_shim", "vpp_mod_suite");
         if (mod.equals("sensible_stackables")) return List.of(mod, "sensible_stackables_polymer_compat", "fzzy_config", "vpp_mod_suite");
         if (mod.equals("chalk")) return List.of(mod, "chalk-colorful-addon", "chalk_polymer_compat", "vpp_mod_suite");
@@ -190,7 +192,9 @@ public final class SuiteCapabilities {
         return List.of(mod, "sso_backpack_toolpouch_mapstitch_shim", "vpp_mod_suite");
     }
     private static boolean owns(String mod, Identifier id) {
-        return id.getNamespace().equals(mod) || (mod.equals("chalk") && id.getNamespace().equals("chalk_polymer_compat"));
+        return id.getNamespace().equals(mod)
+                || (mod.equals("vpp_mod_suite") && id.getNamespace().equals("vpp_backpack_crafting"))
+                || (mod.equals("chalk") && id.getNamespace().equals("chalk_polymer_compat"));
     }
     public record Decision(List<String> modules) implements CustomPacketPayload {
         public static final Type<Decision> TYPE = new Type<>(Identifier.parse("vpp_mod_suite:decision_v3"));

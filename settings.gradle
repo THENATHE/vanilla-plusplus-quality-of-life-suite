@@ -15,3 +15,6 @@ project(':mapstitch-mixed-scales').projectDir = file('components/mapstitch-mixed
 
 include 'bannerpoint-compat'
 project(':bannerpoint-compat').projectDir = file('components/bannerpoint-compat')
+
+include 'backpack-crafting'
+project(':backpack-crafting').projectDir = file('components/backpack-crafting')

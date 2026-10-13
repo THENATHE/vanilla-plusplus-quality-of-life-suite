@@ -1,5 +1,7 @@
 # Source map and updating upstream modules
 
+Experimental `feat/backpack-crafting` uses suite **1.4.0-beta.1+26.3** and the new bundled addon **1.0.0-beta.1+26.3**. Existing developer inputs and external dependencies remain unchanged. See [the branch guide](BACKPACK_CRAFTING.md); stable release records below retain their original scope.
+
 The current **1.3.1+26.3** update fixes anvil shift-click XP, grindstone scrap insertion and pet recall safety. The original nested inputs and runtime library set remain unchanged; Collective is not added. See [current release scope](RELEASE_1_3_1.md), [native feature attribution](NATIVE_FEATURES.md) and [validation](VALIDATION.md).
 
 The active source is at `Minecraft/thenathe-mod-suite/`, branch `main`, with current update **1.3.1+26.3**. Local release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.3.1+26.3/`. Preserve older release files and their evidence.

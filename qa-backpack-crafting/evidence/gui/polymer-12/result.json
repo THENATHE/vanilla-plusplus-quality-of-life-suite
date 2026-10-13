@@ -1,0 +1,423 @@
+{
+  "passed": true,
+  "version": "1.4.0-beta.1+26.3",
+  "bundle_sha256": "aa29bbb1fe278b5fbf1f280513160c563e2bb5e2dd3e636c4ec29133d5979c52",
+  "backpack_ingredients": true,
+  "brbr_sha256": null,
+  "polymer": true,
+  "profiles": [
+    "suite"
+  ],
+  "observations": [
+    {
+      "profile": "suite",
+      "clicks": [
+        {
+          "tier": "leather",
+          "size": 2,
+          "client": {
+            "ticks": 110,
+            "screen": "com.thenathe.backpackcrafting.client.BackpackCraftingScreen",
+            "actions": [
+              {
+                "type": "book",
+                "id": 1,
+                "right": false
+              },
+              {
+                "type": "recipe",
+                "id": 2,
+                "right": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 3,
+                "right": false
+              },
+              {
+                "type": "cake",
+                "id": 4,
+                "right": false,
+                "larger_recipe_filtered": true
+              }
+            ],
+            "size": 2,
+            "menu_id": 1,
+            "capacity": 27,
+            "screen_width": 640,
+            "screen_height": 400,
+            "menu_left": 254,
+            "menu_top": 116,
+            "menu_width": 286,
+            "menu_height": 168,
+            "output": 0,
+            "book_visible": true,
+            "ghost_slots": 0,
+            "book_left": 105
+          },
+          "server": {
+            "menu": "com.thenathe.backpackcrafting.menu.BackpackCraftingMenu",
+            "crafted_tables": 1,
+            "planks": 0,
+            "size": 2,
+            "menu_id": 1,
+            "valid": true,
+            "knows_recipe": true,
+            "capacity": 27,
+            "result_count": 0,
+            "grid_planks": 0,
+            "stored_planks": 8
+          }
+        },
+        {
+          "tier": "leather",
+          "size": 3,
+          "client": {
+            "ticks": 190,
+            "screen": "com.thenathe.backpackcrafting.client.BackpackCraftingScreen",
+            "actions": [
+              {
+                "type": "book",
+                "id": 1,
+                "right": false
+              },
+              {
+                "type": "recipe",
+                "id": 2,
+                "right": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 3,
+                "right": false
+              },
+              {
+                "type": "cake",
+                "id": 4,
+                "right": false,
+                "larger_recipe_filtered": true
+              },
+              {
+                "type": "book",
+                "id": 5,
+                "right": false
+              },
+              {
+                "type": "recipe",
+                "id": 6,
+                "right": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 7,
+                "right": false
+              },
+              {
+                "type": "cake",
+                "id": 8,
+                "right": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 9,
+                "right": false
+              }
+            ],
+            "size": 3,
+            "menu_id": 2,
+            "capacity": 27,
+            "screen_width": 640,
+            "screen_height": 400,
+            "menu_left": 245,
+            "menu_top": 116,
+            "menu_width": 304,
+            "menu_height": 168,
+            "output": 0,
+            "book_visible": true,
+            "ghost_slots": 10,
+            "book_left": 96
+          },
+          "server": {
+            "menu": "com.thenathe.backpackcrafting.menu.BackpackCraftingMenu",
+            "crafted_tables": 1,
+            "planks": 0,
+            "size": 3,
+            "menu_id": 2,
+            "valid": true,
+            "knows_recipe": true,
+            "capacity": 27,
+            "result_count": 0,
+            "grid_planks": 0,
+            "stored_planks": 8
+          }
+        },
+        {
+          "tier": "netherite",
+          "size": 2,
+          "client": {
+            "ticks": 260,
+            "screen": "com.thenathe.backpackcrafting.client.BackpackCraftingScreen",
+            "actions": [
+              {
+                "type": "book",
+                "id": 1,
+                "right": false
+              },
+              {
+                "type": "recipe",
+                "id": 2,
+                "right": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 3,
+                "right": false
+              },
+              {
+                "type": "cake",
+                "id": 4,
+                "right": false,
+                "larger_recipe_filtered": true
+              },
+              {
+                "type": "book",
+                "id": 5,
+                "right": false
+              },
+              {
+                "type": "recipe",
+                "id": 6,
+                "right": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 7,
+                "right": false
+              },
+              {
+                "type": "cake",
+                "id": 8,
+                "right": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 9,
+                "right": false
+              },
+              {
+                "type": "book",
+                "id": 10,
+                "right": false
+              },
+              {
+                "type": "recipe",
+                "id": 11,
+                "right": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 12,
+                "right": false
+              },
+              {
+                "type": "cake",
+                "id": 13,
+                "right": false,
+                "larger_recipe_filtered": true
+              }
+            ],
+            "size": 2,
+            "menu_id": 3,
+            "capacity": 78,
+            "screen_width": 640,
+            "screen_height": 400,
+            "menu_left": 218,
+            "menu_top": 89,
+            "menu_width": 358,
+            "menu_height": 222,
+            "output": 0,
+            "book_visible": true,
+            "ghost_slots": 0,
+            "book_left": 69
+          },
+          "server": {
+            "menu": "com.thenathe.backpackcrafting.menu.BackpackCraftingMenu",
+            "crafted_tables": 1,
+            "planks": 0,
+            "size": 2,
+            "menu_id": 3,
+            "valid": true,
+            "knows_recipe": true,
+            "capacity": 78,
+            "result_count": 0,
+            "grid_planks": 0,
+            "stored_planks": 8
+          }
+        },
+        {
+          "tier": "netherite",
+          "size": 3,
+          "client": {
+            "ticks": 340,
+            "screen": "com.thenathe.backpackcrafting.client.BackpackCraftingScreen",
+            "actions": [
+              {
+                "type": "book",
+                "id": 1,
+                "right": false
+              },
+              {
+                "type": "recipe",
+                "id": 2,
+                "right": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 3,
+                "right": false
+              },
+              {
+                "type": "cake",
+                "id": 4,
+                "right": false,
+                "larger_recipe_filtered": true
+              },
+              {
+                "type": "book",
+                "id": 5,
+                "right": false
+              },
+              {
+                "type": "recipe",
+                "id": 6,
+                "right": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 7,
+                "right": false
+              },
+              {
+                "type": "cake",
+                "id": 8,
+                "right": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 9,
+                "right": false
+              },
+              {
+                "type": "book",
+                "id": 10,
+                "right": false
+              },
+              {
+                "type": "recipe",
+                "id": 11,
+                "right": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 12,
+                "right": false
+              },
+              {
+                "type": "cake",
+                "id": 13,
+                "right": false,
+                "larger_recipe_filtered": true
+              },
+              {
+                "type": "book",
+                "id": 14,
+                "right": false
+              },
+              {
+                "type": "recipe",
+                "id": 15,
+                "right": false,
+                "recipe_id": "RecipeDisplayId[index=407]",
+                "recipe_craftable": true,
+                "last_placed": "RecipeDisplayId[index=407]"
+              },
+              {
+                "type": "take",
+                "id": 16,
+                "right": false
+              },
+              {
+                "type": "cake",
+                "id": 17,
+                "right": false,
+                "uncraftable_recipe_clicked": true
+              },
+              {
+                "type": "snapshot",
+                "id": 18,
+                "right": false
+              }
+            ],
+            "size": 3,
+            "menu_id": 4,
+            "capacity": 78,
+            "screen_width": 640,
+            "screen_height": 400,
+            "menu_left": 209,
+            "menu_top": 89,
+            "menu_width": 376,
+            "menu_height": 222,
+            "output": 0,
+            "book_visible": true,
+            "ghost_slots": 10,
+            "book_left": 60
+          },
+          "server": {
+            "menu": "com.thenathe.backpackcrafting.menu.BackpackCraftingMenu",
+            "crafted_tables": 1,
+            "planks": 0,
+            "size": 3,
+            "menu_id": 4,
+            "valid": true,
+            "knows_recipe": true,
+            "capacity": 78,
+            "result_count": 0,
+            "grid_planks": 0,
+            "stored_planks": 8
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Connected native crafting screen, visible recipe book recipe click, autofill, output packet click, authoritative ingredient conservation for both grid sizes."
+}

@@ -32,6 +32,7 @@ public final class SettingsClientQa implements ClientModInitializer {
     int wheelPhase;
     boolean wheelDone;
     int featurePhase;
+    long featureReadbackDeadline;
     boolean featureDone;
     ConfigScreenManager beforeInvalidation;
     public void onInitializeClient() {
@@ -399,12 +400,17 @@ public final class SettingsClientQa implements ClientModInitializer {
                 button.onPress();
             } else toggle("vpp_mod_suite.features","dropsIntoShulker",featurePhase==2);
             manager().provideUpdateManager$fzzy_config("vpp_mod_suite.features").apply(false);
+            featureReadbackDeadline = System.nanoTime() + java.util.concurrent.TimeUnit.SECONDS.toNanos(5);
             featurePhase++;
             return;
         }
         var state=JsonParser.parseString(Files.readString(control.resolve("server-config.json"))).getAsJsonObject();
         boolean expected=guest || featurePhase==3;
-        if(state.get("dropsIntoShulker").getAsBoolean()!=expected || state.get("savedDropsIntoShulker").getAsBoolean()!=expected)throw new AssertionError("native feature toggle not reflected in server runtime and saved config: "+state);
+        if(state.get("dropsIntoShulker").getAsBoolean()!=expected || state.get("savedDropsIntoShulker").getAsBoolean()!=expected) {
+            // The observer file is sampled once per server second, after the config packet arrives.
+            if (System.nanoTime() < featureReadbackDeadline) return;
+            throw new AssertionError("native feature toggle not reflected in server runtime and saved config: "+state);
+        }
         row("new shulker module native checkbox server/runtime/file readback="+expected+" guest="+guest);
         featurePhase++;
         if(featurePhase>=4) {

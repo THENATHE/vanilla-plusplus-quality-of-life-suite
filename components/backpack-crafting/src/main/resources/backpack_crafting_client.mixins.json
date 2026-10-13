@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.thenathe.backpackcrafting.mixin.client",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "CraftingScreenDimensionsMixin",
+    "RecipeBookScreenMixin",
+    "RecipeBookCountsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

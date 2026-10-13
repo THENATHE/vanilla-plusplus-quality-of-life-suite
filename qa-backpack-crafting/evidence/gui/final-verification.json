@@ -1,0 +1,87 @@
+{
+  "passed": true,
+  "suite_version": "1.4.0-beta.1+26.3",
+  "suite_sha256": "23459d1ba1ffcb87790475e58a8c195f838d879360cbf17bd0295eded45cb40b",
+  "profiles": [
+    {
+      "kind": "published",
+      "evidence": "brbr-published-guard22/result.json",
+      "passed": true,
+      "suite_sha256": "23459d1ba1ffcb87790475e58a8c195f838d879360cbf17bd0295eded45cb40b",
+      "brbr_sha256": "1788316a99505b767f6076884469910de62bb04737212bc2a6195e28e143fa04",
+      "cases": 8,
+      "grid_sizes": [
+        2,
+        3
+      ],
+      "capacities": [
+        27,
+        78
+      ],
+      "ordinary_instant_cases": 4,
+      "maximum_instant_cases": 4,
+      "synthetic_false_predicate_checks": 0
+    },
+    {
+      "kind": "local",
+      "evidence": "brbr-local-guard24/result.json",
+      "passed": true,
+      "suite_sha256": "23459d1ba1ffcb87790475e58a8c195f838d879360cbf17bd0295eded45cb40b",
+      "brbr_sha256": "b18f78dff65c6e5a2859c8ae5e0f966c0374b41ea3d62282d678f86e6c31d8dc",
+      "cases": 8,
+      "grid_sizes": [
+        2,
+        3
+      ],
+      "capacities": [
+        27,
+        78
+      ],
+      "ordinary_instant_cases": 4,
+      "maximum_instant_cases": 4,
+      "synthetic_false_predicate_checks": 0
+    },
+    {
+      "kind": "synthetic_incomplete_grid",
+      "evidence": "brbr-delayed-guard25/result.json",
+      "passed": true,
+      "suite_sha256": "23459d1ba1ffcb87790475e58a8c195f838d879360cbf17bd0295eded45cb40b",
+      "brbr_sha256": "1788316a99505b767f6076884469910de62bb04737212bc2a6195e28e143fa04",
+      "cases": 4,
+      "grid_sizes": [
+        2,
+        3
+      ],
+      "capacities": [
+        27,
+        78
+      ],
+      "ordinary_instant_cases": 4,
+      "maximum_instant_cases": 0,
+      "synthetic_false_predicate_checks": 12
+    }
+  ],
+  "runtime_verified": [
+    "Native BRBR screen and optional mixin startup with both exact supported binaries",
+    "Real recipe-book autofill from backpack storage and ordinary output shift-click",
+    "Right-click and Shift-right-click instant crafting",
+    "Both crafting sizes with leather (27) and netherite (78) storage slots",
+    "Ingredient conservation after each craft",
+    "Unavailable 3x3 ghost recipe and filtering from 2x2",
+    "Recipe-book tabs and menu bounds at 640x400",
+    "Acknowledgment retained through synthetic unmatched-grid predicate for three ticks before normal crafting resumes"
+  ],
+  "code_preserved_not_separately_runtime_exercised": [
+    "BRBR original five-second timeout",
+    "BRBR user-input cancellation",
+    "BRBR correction/full-content cancellation"
+  ],
+  "limits": [
+    "Synthetic test changes only the expected-grid predicate; it does not delay network packets.",
+    "Undiscovered/local recipe-id placement and every BRBR UI control are not independently covered by these fixtures."
+  ],
+  "earlier_diagnostic": "brbr-intermittent/README.md",
+  "baseline": "brbr-baseline20/result.json",
+  "no_brbr_native": "native-12/result.json",
+  "no_brbr_polymer": "polymer-12/result.json"
+}

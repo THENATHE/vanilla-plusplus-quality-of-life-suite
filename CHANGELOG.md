@@ -1,5 +1,14 @@
 # Changes
 
+## 1.4.0-beta.1+26.3 (experimental branch)
+
+- Bundle Backpack Crafting as a separate addon, preserving original Tiered Backpacks and Tool Pouch source/JARs.
+- Add iron and diamond crafting hammers for 2×2 and 3×3 backpack crafting; the diamond hammer takes priority.
+- Use both player and backpack ingredients in the native recipe book and optional BRBR placement/instant crafting.
+- Retain vanilla connection/display compatibility and native-only backpack access.
+- Add fixed 16×16 hammer sprites and branch-specific crafting regression fixtures.
+
+
 ## 1.3.1+26.3
 
 - Charge the displayed anvil XP cost on enchanted shift-click outputs while preserving configured free unenchanted repairs.

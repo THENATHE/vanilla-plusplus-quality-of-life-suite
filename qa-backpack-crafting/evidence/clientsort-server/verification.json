@@ -1,0 +1,15 @@
+{
+  "suite_sha256": "0310791d5d23428b6e0304c694d0c0d065e8446c8c259c11e619f7ed6f104a06",
+  "clientsort_version": "3.104.1+26.3",
+  "clientsort_sha256": "37f812d25307bc011be64a4853e26d848b858599c5068244dd857c521d4078ce",
+  "coverage": "Real dedicated-server SchemaValidator and SortHandler permutation execution on 2x2 and 3x3 crafting backpacks. Not client button or accelerated network packet testing.",
+  "regression_found": "Occupied crafting slots bypassed mayPlace-only exclusion; wrapping mayPickup now protects them.",
+  "profiles": [
+    "native",
+    "polymer"
+  ],
+  "checks_each": 126,
+  "toolpouch_atlas_elytra_compat_version": "1.0.10-beta.1+26.3",
+  "combined_compat_version": "1.4.0-beta.1+26.3",
+  "mapstitch_mixed_scales_version": "1.1.9-beta.1+26.3"
+}

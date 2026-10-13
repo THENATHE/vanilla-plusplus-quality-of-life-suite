@@ -1,0 +1,10 @@
+{
+  "tested_suite_sha256": "0310791d5d23428b6e0304c694d0c0d065e8446c8c259c11e619f7ed6f104a06",
+  "candidate_suite_sha256": "23459d1ba1ffcb87790475e58a8c195f838d879360cbf17bd0295eded45cb40b",
+  "changed_entries": [
+    "META-INF/jars/thenathe-suite-backpack-crafting-1.0.0-beta.1+26.3.jar!/backpack_crafting_brbr.mixins.json",
+    "META-INF/jars/thenathe-suite-backpack-crafting-1.0.0-beta.1+26.3.jar!/com/thenathe/backpackcrafting/compat/BrbrInstantCraftingMixin.class",
+    "META-INF/jars/thenathe-suite-backpack-crafting-1.0.0-beta.1+26.3.jar!/com/thenathe/backpackcrafting/compat/BrbrPendingAccess.class"
+  ],
+  "scope": "Server and ClientSort evidence remains from the tested artifact. Only optional BRBR client mixin entries differ; gameplay/menu/sorting class bytes are identical. BRBR runtime verification is separate."
+}

@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "suite_version": "1.4.0-beta.1+26.3",
+  "suite_sha256": "23459d1ba1ffcb87790475e58a8c195f838d879360cbf17bd0295eded45cb40b",
+  "wheel_version": "1.0.6+26.3",
+  "wheel_sha256": "1e7ee2c1306bb9a0de2eb5da3075a42a50396ae8bd3298c48f48c337e984f9d1",
+  "scope": "Existing Hotkey Wheel with the candidate Vanilla++ suite: activation, selection, overlapping release key, suite controls and unified settings navigation, native configuration objects and permission/update behavior. This is suite integration testing; Hotkey Wheel itself was not modified or rebuilt.",
+  "input_method": "Isolated fixture dispatches SDL focus events plus native keyboard and mouse events. Does not claim physical hardware input.",
+  "profiles": [
+    {
+      "profile": "native",
+      "passed": true,
+      "observations": 63,
+      "passed_assertions": 62,
+      "context_records": 1,
+      "source_evidence_sha256": "f0cf1beed519a5a85232599189e4619d14df83c6e60d62f49998955009eede0d"
+    },
+    {
+      "profile": "polymer",
+      "passed": true,
+      "observations": 63,
+      "passed_assertions": 62,
+      "context_records": 1,
+      "source_evidence_sha256": "60a474d01a24f77a7605ff17fa5b8d6a96607847de127a61cdded520562debdd"
+    }
+  ],
+  "fixture_note": "The first native attempt read a stale observer file. The fixture now waits up to five seconds for its observer, and the recorded native rerun passed.",
+  "screenshot": {
+    "file": "hotkey-wheel-suite-control.png",
+    "profile": "native",
+    "sha256": "0c6f85b696314f4446d58dcc254e74bf7a5786c2fac10f814ba6fc2a72283db8"
+  }
+}

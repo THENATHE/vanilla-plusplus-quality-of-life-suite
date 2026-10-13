@@ -1,5 +1,7 @@
 # Validation
 
+Experimental `feat/backpack-crafting` uses suite **1.4.0-beta.1+26.3** and the new bundled addon **1.0.0-beta.1+26.3**. Existing developer inputs and external dependencies remain unchanged. See [the branch guide](BACKPACK_CRAFTING.md); stable release records below retain their original scope.
+
 ## Current 1.3.1 — review corrections
 
 Final candidate **1.3.1+26.3**, SHA-256 `7becece0f4bbe9ff85ad4cad8474c6b9a8b9dcbdf9940abeb5a31e0d0786db2f`, targets Minecraft 26.3 / Fabric Loader 0.19.5 / Java 25+. All eighteen nested mod/component JARs are byte-identical to 1.3.0. The three fixes are in suite-owned root code. The separate SSO-port track remains paused.

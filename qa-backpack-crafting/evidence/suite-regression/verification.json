@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "tested_suite_sha256": "aa29bbb1fe278b5fbf1f280513160c563e2bb5e2dd3e636c4ec29133d5979c52",
+  "final_suite_sha256": "23459d1ba1ffcb87790475e58a8c195f838d879360cbf17bd0295eded45cb40b",
+  "source_result_sha256": "e0bb7fbdfaba2acd8756316bbff9de6705c89ae842ec52ea59848d2eac79965e",
+  "scope": "Native and Polymer full suite feature checks, each with initial world and actual restart, ran on the tested artifact. Final artifact differs in optional BRBR client classes and version/mixin metadata; server gameplay class bytes are unchanged. These are reused feature regression results, not a new final-artifact runtime run.",
+  "cases": [
+    {
+      "profile": "native",
+      "phase": "initial",
+      "passed": true,
+      "exit_code": 0,
+      "recorded_mechanics_entries": 250
+    },
+    {
+      "profile": "native",
+      "phase": "restart",
+      "passed": true,
+      "exit_code": 0,
+      "recorded_mechanics_entries": 259
+    },
+    {
+      "profile": "polymer",
+      "phase": "initial",
+      "passed": true,
+      "exit_code": 0,
+      "recorded_mechanics_entries": 250
+    },
+    {
+      "profile": "polymer",
+      "phase": "restart",
+      "passed": true,
+      "exit_code": 0,
+      "recorded_mechanics_entries": 259
+    }
+  ],
+  "changed_class_entries": [
+    "com/thenathe/backpackcrafting/compat/BrbrInstantCraftingMixin.class",
+    "com/thenathe/backpackcrafting/compat/BrbrPendingAccess.class"
+  ]
+}

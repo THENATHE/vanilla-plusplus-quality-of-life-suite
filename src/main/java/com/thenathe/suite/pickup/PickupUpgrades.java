@@ -114,7 +114,8 @@ public final class PickupUpgrades {
     /** Mutates the dropped stack only after the backpack component is committed. */
     public static int collectIntoBackpack(ServerPlayer player, ItemStack incoming) {
         if (incoming.isEmpty() || !player.isAlive() || player.isSpectator() || !enabled(player)
-                || !hasCollector(player) || player.containerMenu instanceof BackpackMenu) return 0;
+                || !hasCollector(player) || player.containerMenu instanceof BackpackMenu
+                || player.containerMenu instanceof com.thenathe.backpackcrafting.menu.BackpackCraftingMenu) return 0;
         if (BackpackUtil.isValidContainerHolder(incoming)
                 || (!TieredBackpacks.CONFIG.canStoreShulkers.get() && incoming.is(ItemTags.SHULKER_BOXES))) return 0;
         ItemStack backpack = activeBackpack(player);
