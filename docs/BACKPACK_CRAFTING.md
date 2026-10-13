@@ -1,6 +1,6 @@
-# Backpack Crafting experiment
+# Backpack Crafting
 
-Branch: `feat/backpack-crafting`. Suite candidate: `1.4.0-beta.2+26.3`. Addon: `vpp_backpack_crafting` `1.0.0-beta.2+26.3`. The existing authored Tool Pouch atlas/Elytra addon advances to `1.0.10-beta.1+26.3` for its ClientSort integration. Combined compatibility advances to `1.4.0-beta.1+26.3` for the capability fingerprint update; the mixed-scale addon becomes `1.1.9-beta.1+26.3` to retain its exact coordinator dependency.
+Main suite: `1.4.0+26.3`. Addon: `vpp_backpack_crafting` `1.0.0+26.3`. The existing authored Tool Pouch atlas/Elytra addon advances to `1.0.10+26.3` for its ClientSort integration. Combined compatibility advances to `1.4.0+26.3` for the capability fingerprint update; the mixed-scale addon becomes `1.1.9+26.3` to retain its exact coordinator dependency.
 
 ## Using it
 
@@ -26,13 +26,17 @@ Toolbox permissions are added once to Tool Pouch's allowed-item settings. Later 
 
 Requires the same Minecraft 26.3/Fabric 0.19.5/Java 25 installation and exact libraries as the suite. Original developer inputs remain Tiered Backpacks 1.0.20 and Tool Pouch 1.1.10, byte-for-byte unchanged. Thanks to **pajic** for [Tiered Backpacks](https://modrinth.com/mod/tiered-backpacks) and [Tool Pouch](https://modrinth.com/mod/tool-pouch). This separate addon is authored by THENATHE.
 
-Polymer remains optional for matching suite clients. Vanilla clients with server-side Polymer can craft, hold and see the toolboxes, but cannot open the backpack. Matching suite capability fingerprints gate the new native menu; the existing v3 handshake framing is unchanged. Sprites are regenerated iron and netherite toolboxes, fixed 16×16 PNGs; resource-pack detection is not used. Existing `iron_hammer` and `diamond_hammer` serialized item IDs are retained so saved items and pouch rules become toolboxes on update.
+Polymer remains optional for matching suite clients. Vanilla clients with server-side Polymer can craft, hold and see the toolboxes, but cannot open the backpack. Matching suite capability fingerprints gate the new native menu; the existing v3 handshake framing is unchanged. Sprites are regenerated iron and netherite toolboxes, fixed 16×16 PNGs; resource-pack detection is not used. Final item and recipe selectors are `vpp_backpack_crafting:iron_toolbox` and `vpp_backpack_crafting:netherite_toolbox`. Testing hammer selectors have been removed without conversion or aliases, as requested.
 
 Optional [Better Recipe Book Rebetterered](https://github.com/THENATHE/better-recipe-book-rebetterered) integration lives entirely in addon mixins. Neither its local working tree nor its published source/JAR is modified. Native recipe-book search, grouping and settings use BRBR's existing components. Small optional hooks admit the backpack menu and include its storage in BRBR's placement and instant-crafting calculations. The addon waits for consistent grid/result updates before consuming BRBR’s result acknowledgment, retaining its original recipe validation, timeout and user cancellation.
 
 Supported test baselines are GitHub main/release 1.11.1+26.3, commit `8485b2f8c19acf58f51f97d964d7d1e871f2b1e3`, and the local 1.11.2+26.3 candidate. Exact hashes and runtime results are recorded in the verification evidence below. The separate SSO port remains paused; the normal developer-release suite track is used.
 
-## Beta 2 verification
+## Current 1.4.0 verification
+
+See [the release guide](RELEASE_1_4_0.md) for the final artifact and current runtime results.
+
+## Beta 2 verification (historical)
 
 Candidate SHA-256: `7e734d89c51a35e4203a39ab978f16d9db9ec2bb58a9949ef05dd6b204fe787c`.
 
@@ -55,4 +59,4 @@ Candidate SHA-256: `23459d1ba1ffcb87790475e58a8c195f838d879360cbf17bd0295eded45c
 - The standard recipe book passed four native and four Polymer GUI cases on the compact-panel `aa29bbb1` candidate, including recipe filtering, ghost recipes, click handling and viewport/tab bounds. Later changes were confined to version metadata and optional BRBR integration.
 - ClientSort server operations are tested; its client buttons and accelerated network packets are not independently covered by the server fixture.
 
-This branch is an experiment. It does not replace stable main or publish a stable release.
+Earlier beta records above retain their original testing IDs and artifact hashes; the current main build uses the final toolbox selectors.

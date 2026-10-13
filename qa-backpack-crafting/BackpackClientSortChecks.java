@@ -24,7 +24,7 @@ public final class BackpackClientSortChecks {
             ItemStack backpack = new ItemStack(me.pajic.tiered_backpacks.item.ModItems.LEATHER_BACKPACK);
             ItemStack pouch = new ItemStack(me.pajic.toolpouch.item.ModItems.TOOL_POUCH);
             pouch.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(List.of(
-                    new ItemStack(size == 2 ? BackpackCrafting.IRON_HAMMER : BackpackCrafting.DIAMOND_HAMMER))));
+                    new ItemStack(size == 2 ? BackpackCrafting.IRON_TOOLBOX : BackpackCrafting.NETHERITE_TOOLBOX))));
             player.getInventory().setItem(12, pouch);
             player.getInventory().setItem(13, backpack);
             var menu = new BackpackCraftingMenu(201 + size, player.getInventory(), backpack, size);

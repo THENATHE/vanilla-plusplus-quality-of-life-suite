@@ -53,11 +53,28 @@ public final class BackpackCraftingProbe implements ModInitializer {
                 };
                 player.setGameMode(GameType.SURVIVAL);
                 me.pajic.toolpouch.ToolPouch.CONFIG.allowUseFromInventory.accept(true);
-                for (String hammer : List.of("iron_hammer", "diamond_hammer")) {
+                for (String retired : List.of("iron_hammer", "diamond_hammer")) {
+                    check(!BuiltInRegistries.ITEM.containsKey(BackpackCrafting.id(retired)),
+                            "retired testing item " + retired + " is absent from registry");
+                    check(server.getRecipeManager().byKey(net.minecraft.resources.ResourceKey.create(
+                            net.minecraft.core.registries.Registries.RECIPE, BackpackCrafting.id(retired))).isEmpty(),
+                            "retired testing recipe " + retired + " is absent");
+                }
+                check(Files.exists(FabricLoader.getInstance().getConfigDir()
+                                .resolve("vanilla-plusplus-toolbox-rules-v1")),
+                        "toolbox-specific marker records initial Tool Pouch permissions");
+                for (String toolbox : List.of("iron_toolbox", "netherite_toolbox")) {
                     check(server.getRecipeManager().byKey(net.minecraft.resources.ResourceKey.create(
                             net.minecraft.core.registries.Registries.RECIPE,
-                            Identifier.fromNamespaceAndPath("vpp_backpack_crafting", hammer))).isPresent(),
-                            "real resource loader registers " + hammer + " crafting recipe");
+                            Identifier.fromNamespaceAndPath("vpp_backpack_crafting", toolbox))).isPresent(),
+                            "real resource loader registers " + toolbox + " recipe");
+                    Item toolboxItem = BuiltInRegistries.ITEM.getValue(BackpackCrafting.id(toolbox));
+                    check(toolboxItem != Items.AIR, "new toolbox selector " + toolbox + " is registered");
+                    check(BackpackCrafting.id(toolbox).equals(new ItemStack(toolboxItem).get(DataComponents.ITEM_MODEL)),
+                            "new toolbox selector " + toolbox + " uses its own item model");
+                    check(me.pajic.toolpouch.ToolPouch.CONFIG.allowedItems.get().stream()
+                                    .anyMatch(rule -> rule.id.get().equals(BackpackCrafting.id(toolbox).toString())),
+                            "Tool Pouch permissions explicitly include " + toolbox);
                 }
                 for (int size : new int[]{2, 3}) {
                     for (boolean shift : new boolean[]{false, true}) craftPlanks(size, shift);
@@ -77,7 +94,7 @@ public final class BackpackCraftingProbe implements ModInitializer {
                     for (String checked : BackpackClientSortChecks.run(player)) checks.add(checked);
                 }
                 seed(0);
-                check(BackpackCrafting.getCraftingSize(player) == 0, "no hammer leaves original backpack route available");
+                check(BackpackCrafting.getCraftingSize(player) == 0, "no toolbox leaves original backpack route available");
                 result.addProperty("passed", true);
             } catch (Throwable failure) {
                 failure.printStackTrace();
@@ -99,10 +116,10 @@ public final class BackpackCraftingProbe implements ModInitializer {
         backpack = new ItemStack(me.pajic.tiered_backpacks.item.ModItems.LEATHER_BACKPACK);
         backpack.set(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
         pouch = new ItemStack(me.pajic.toolpouch.item.ModItems.TOOL_POUCH);
-        ItemStack hammer = size == 0 ? ItemStack.EMPTY : new ItemStack(size == 2
-                ? BackpackCrafting.IRON_HAMMER : BackpackCrafting.DIAMOND_HAMMER);
+        ItemStack toolbox = size == 0 ? ItemStack.EMPTY : new ItemStack(size == 2
+                ? BackpackCrafting.IRON_TOOLBOX : BackpackCrafting.NETHERITE_TOOLBOX);
         Item collector = BuiltInRegistries.ITEM.getValue(Identifier.fromNamespaceAndPath("vpp_mod_suite", "pouch_collector"));
-        pouch.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(List.of(hammer, new ItemStack(collector))));
+        pouch.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(List.of(toolbox, new ItemStack(collector))));
         player.getInventory().setItem(12, pouch);
         player.getInventory().setItem(13, backpack);
         PickupUpgrades.setEnabled(player, true);
@@ -163,14 +180,14 @@ public final class BackpackCraftingProbe implements ModInitializer {
         seed(size);
         var menu = open(size);
         pouch.set(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
-        check(!menu.stillValid(player), "removed hammer invalidates open crafting menu " + size);
+        check(!menu.stillValid(player), "removed toolbox invalidates open crafting menu " + size);
         menu.removed(player);
     }
 
     private void toolboxRecipes() {
         seed(3);
         pouch.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(List.of(
-                new ItemStack(BackpackCrafting.IRON_HAMMER), new ItemStack(BackpackCrafting.DIAMOND_HAMMER))));
+                new ItemStack(BackpackCrafting.IRON_TOOLBOX), new ItemStack(BackpackCrafting.NETHERITE_TOOLBOX))));
         check(BackpackCrafting.getCraftingSize(player) == 3, "netherite toolbox wins when both upgrades are in pouch");
         var menu = open(3);
         for (int index = 1; index <= 3; index++) menu.getSlot(index).set(new ItemStack(Items.IRON_INGOT));
@@ -192,33 +209,33 @@ public final class BackpackCraftingProbe implements ModInitializer {
         for (int index : new int[]{1, 3, 4, 6, 7, 8, 9}) menu.getSlot(index).set(new ItemStack(Items.IRON_INGOT));
         menu.getSlot(2).set(new ItemStack(Items.IRON_CHAIN));
         menu.getSlot(5).set(new ItemStack(Items.CRAFTING_TABLE));
-        checkResolvedRecipe(menu, "vpp_backpack_crafting:iron_hammer", BackpackCrafting.IRON_HAMMER);
-        check(menu.getSlot(0).getItem().is(BackpackCrafting.IRON_HAMMER),
+        checkResolvedRecipe(menu, "vpp_backpack_crafting:iron_toolbox", BackpackCrafting.IRON_TOOLBOX);
+        check(menu.getSlot(0).getItem().is(BackpackCrafting.IRON_TOOLBOX),
                 "ICI/ITI/III with seven iron ingots, one iron chain and one crafting table produces iron toolbox");
         menu.clicked(0, 0, ContainerInput.QUICK_MOVE, player);
-        check(player.getInventory().countItem(BackpackCrafting.IRON_HAMMER) == 1
+        check(player.getInventory().countItem(BackpackCrafting.IRON_TOOLBOX) == 1
                 && menu.getInputGridSlots().stream().allMatch(slot -> slot.getItem().isEmpty()),
                 "iron toolbox crafting consumes exact inputs and creates one output");
         menu.removed(player);
         seed(3);
         menu = open(3);
         for (int index : new int[]{2, 4, 6, 8}) menu.getSlot(index).set(new ItemStack(Items.DIAMOND));
-        menu.getSlot(5).set(new ItemStack(BackpackCrafting.IRON_HAMMER));
+        menu.getSlot(5).set(new ItemStack(BackpackCrafting.IRON_TOOLBOX));
         var level = (net.minecraft.server.level.ServerLevel) player.level();
         var oldInput = net.minecraft.world.item.crafting.CraftingInput.of(3, 3,
                 menu.getInputGridSlots().stream().map(slot -> slot.getItem().copy()).toList());
         var oldRecipe = level.getServer().getRecipeManager().getRecipeFor(
                 net.minecraft.world.item.crafting.RecipeType.CRAFTING, oldInput, level);
-        check(oldRecipe.isEmpty() || !oldRecipe.get().value().assemble(oldInput).is(BackpackCrafting.DIAMOND_HAMMER),
+        check(oldRecipe.isEmpty() || !oldRecipe.get().value().assemble(oldInput).is(BackpackCrafting.NETHERITE_TOOLBOX),
                 "actual RecipeManager no longer resolves four-diamond crafting pattern to high-tier toolbox");
-        check(!menu.getSlot(0).getItem().is(BackpackCrafting.DIAMOND_HAMMER),
+        check(!menu.getSlot(0).getItem().is(BackpackCrafting.NETHERITE_TOOLBOX),
                 "removed diamond crafting upgrade produces no high-tier toolbox in crafting menu");
         menu.removed(player);
         for (boolean shift : new boolean[]{false, true}) {
             ItemStack controlTemplate = smithingUpgrade(Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE,
                     "minecraft:netherite_pickaxe_smithing", "vanilla netherite control", shift);
-            ItemStack toolboxTemplate = smithingUpgrade(BackpackCrafting.IRON_HAMMER, BackpackCrafting.DIAMOND_HAMMER,
-                    "vpp_backpack_crafting:diamond_hammer", "netherite toolbox", shift);
+            ItemStack toolboxTemplate = smithingUpgrade(BackpackCrafting.IRON_TOOLBOX, BackpackCrafting.NETHERITE_TOOLBOX,
+                    "vpp_backpack_crafting:netherite_toolbox", "netherite toolbox", shift);
             check(ItemStack.matches(controlTemplate, toolboxTemplate),
                     "netherite toolbox preserves the exact SSO/vanilla control template remainder, shift=" + shift);
         }

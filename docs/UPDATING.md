@@ -1,16 +1,14 @@
 # Source map and updating upstream modules
 
-Experimental `feat/backpack-crafting` uses suite **1.4.0-beta.2+26.3** and the new bundled addon **1.0.0-beta.2+26.3**. Existing developer inputs and external dependencies remain unchanged. See [the branch guide](BACKPACK_CRAFTING.md); stable release records below retain their original scope.
+The current **1.4.0+26.3** update adds backpack crafting with iron and netherite toolboxes and a native recipe book. The original nested inputs and runtime library set remain unchanged; Collective is not added. See [current release scope](RELEASE_1_4_0.md), [native feature attribution](NATIVE_FEATURES.md) and [validation](VALIDATION.md).
 
-The current **1.3.1+26.3** update fixes anvil shift-click XP, grindstone scrap insertion and pet recall safety. The original nested inputs and runtime library set remain unchanged; Collective is not added. See [current release scope](RELEASE_1_3_1.md), [native feature attribution](NATIVE_FEATURES.md) and [validation](VALIDATION.md).
-
-The active source is at `Minecraft/thenathe-mod-suite/`, branch `main`, with current update **1.3.1+26.3**. Local release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.3.1+26.3/`. Preserve older release files and their evidence.
+The active source is at `Minecraft/thenathe-mod-suite/`, branch `main`, with current update **1.4.0+26.3**. Local release files belong under `Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.4.0+26.3/`. Preserve older release files and their evidence.
 
 The repository and outer artifact use `vanilla-plusplus-quality-of-life-suite`. From 1.2.1 onward, the authored root mod ID and item/protocol/config namespace use `vpp_mod_suite`. Original feature mod IDs, original mod configuration files and the Debug Wrench ID remain unchanged. Swift Flight preserves its original enchantment identifier; legacy animal-call bindings are not migrated.
 
 ## Where things live
 
-Current suite is **1.3.1+26.3** and unchanged combined compatibility is **1.3.0+26.3**; the mixed-scale addon is **1.1.8+26.3** to retain its exact coordinator dependency, and Stackables compatibility remains **1.0.2+26.3**. The 1.2.1 collector sprite and native/fallback tooltip improvements remain intact. Exact publisher inputs and external dependencies are unchanged. See the [current guide](RELEASE_1_3_1.md) and [validation](VALIDATION.md).
+Current suite is **1.4.0+26.3** and combined compatibility is **1.4.0+26.3**; the mixed-scale addon is **1.1.9+26.3** to retain its exact coordinator dependency, and Stackables compatibility remains **1.0.2+26.3**. The 1.2.1 collector sprite and native/fallback tooltip improvements remain intact. Exact publisher inputs and external dependencies are unchanged. See the [current guide](RELEASE_1_4_0.md) and [validation](VALIDATION.md).
 
 | Path | Purpose |
 | --- | --- |
@@ -28,6 +26,7 @@ Current suite is **1.3.1+26.3** and unchanged combined compatibility is **1.3.0+
 | components/shared-region-maps/working | Vanilla/MapStitch-only modified module |
 | components/toolpouch-atlas-elytra/upstream | Original local addon 1.0.4 source baseline |
 | components/toolpouch-atlas-elytra/working | Preserved addon features plus synchronized minimaps and independent details; HudLayout and four client mixins capture map bounds, move details, order rendering and observe native config Apply. |
+| components/backpack-crafting/ | Suite-owned toolboxes, combined-inventory crafting menu, recipe-book screen and optional BRBR/Polymer integrations; original backpack/pouch code remains separate |
 | components/bannerpoint/ | Unchanged official Bannerpoint 1.1.2+26.3, published sources, repository/reference records and exact staged-input lock |
 | components/bannerpoint-compat/ | Separate native-channel detection, Polymer waypoint-asset contribution and per-player banner-waypoint gating; original Bannerpoint JAR remains unchanged |
 | components/chalk/upstream | Exact local Chalk Fabric 26.3 port source snapshot |
@@ -94,10 +93,10 @@ The atlas/Elytra component uses the same staged root inputs as the other suite p
 
 ## Rebuilding a checkout from release inputs
 
-Use the local suite JAR and `vanilla-plusplus-installation-pack-1.3.1+26.3.zip`, or a retained published baseline when supplying unchanged original inputs, and extract the installation ZIP into an input directory. The kit includes the suite and exact CodecUI file under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Compile-only Defaulted remains a separate historical input: retrieve the exact locked dropfix from retained prior-release inputs when building its optional compatibility hook; do not install it merely to build current runtime profiles. Run:
+Use the local suite JAR and `vanilla-plusplus-installation-pack-1.4.0+26.3.zip`, or a retained published baseline when supplying unchanged original inputs, and extract the installation ZIP into an input directory. The kit includes the suite and exact CodecUI file under `overrides/mods/` and six permitted publisher binaries under `downloads/mods/`. Fzzy Config is deliberately absent; staging obtains its locked official file when needed. Compile-only Defaulted remains a separate historical input: retrieve the exact locked dropfix from retained prior-release inputs when building its optional compatibility hook; do not install it merely to build current runtime profiles. Run:
 
 ```sh
-python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.3.1+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
+python3 tools/stage-inputs.py --bundle /path/to/vanilla-plusplus-quality-of-life-suite-1.4.0+26.3.jar --inputs /path/to/extracted-installation-kit --download-public
 ```
 
 The script verifies the outer release hash and recursively stages only original inputs matching the artifact lock; suite-modified compatibility/HUD/map modules are rebuilt from working source. It rejects unavailable or mismatched inputs. `tools/fetch-upstream.py` remains available to retrieve official source/reference inputs. The release has no separate local-library ZIP or uploaded tracked-source archive; use the repository or GitHub’s generated source download for the working checkout.
@@ -110,7 +109,7 @@ After changing source, build and run the applicable checks. Update the build and
 
 Implementation lives in `components/toolpouch-atlas-elytra/working/src/main/java/com/thenathe/toolpouchcompat/`: `PouchDurability` and its utility mixin replace raw flight wear, `PouchItems` handles active/live contents, and `PouchSsoMending` with its guarded inventory mixin delegates SSO material repair. `PouchMending`/`PouchMendingExperienceMixin` retain the separate XP path. Focused fixtures are in `qa-release/pouch-mending/`, with historical results under `qa-release/evidence/1.1.4/pouch-mending/` and current-release scope in [validation](VALIDATION.md).
 
-The suite’s pouch addon `1.0.9-suite.1+26.3` owns enchantment-aware flight wear and optional SSO repair integration. When Tool Pouch or SSO updates, trace `ToolPouchUtil.updateElytraInToolPouch`, active-pouch selection, `ExperienceOrb.repairPlayerItems`, and SSO’s `InventoryMixin`/`ModUtil.tryRepairItem`. Preserve Unbreaking, equipped-item XP priority, server-side Mending settings, original whetstone enchantment compatibility and material costs, correct usable-Elytra selection and live open-menu saveback. Verify enabled/disabled and missing-resource cases, attached pouches, menu close persistence and unrelated-item conservation. Keep SSO optional for this component and retain its original recipe rather than recreating its repair rules.
+The suite’s pouch addon `1.0.10+26.3` owns enchantment-aware flight wear and optional SSO repair integration. When Tool Pouch or SSO updates, trace `ToolPouchUtil.updateElytraInToolPouch`, active-pouch selection, `ExperienceOrb.repairPlayerItems`, and SSO’s `InventoryMixin`/`ModUtil.tryRepairItem`. Preserve Unbreaking, equipped-item XP priority, server-side Mending settings, original whetstone enchantment compatibility and material costs, correct usable-Elytra selection and live open-menu saveback. Verify enabled/disabled and missing-resource cases, attached pouches, menu close persistence and unrelated-item conservation. Keep SSO optional for this component and retain its original recipe rather than recreating its repair rules.
 
 
 ### Repair and stack synchronization without Defaulted

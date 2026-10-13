@@ -2,6 +2,7 @@
 from pathlib import Path
 import argparse
 import hashlib
+import io
 import json
 import os
 import shutil
@@ -25,7 +26,17 @@ from workspace_paths import load_helper, project_path, mapstitch_launch
 helper = load_helper(project_path(workspace, 'chalk-polymer-shim') / 'qa/run.py', 'cached_cp')
 servercp, clientcp, _ = helper.prepare_classpaths('26.3', work / 'libraries')
 with zipfile.ZipFile(suite) as archive:
-    bundled = {Path(entry['file']).name for entry in json.loads(archive.read('fabric.mod.json'))['jars']}
+    entries = json.loads(archive.read('fabric.mod.json'))['jars']
+    bundled = {Path(entry['file']).name for entry in entries}
+    addon = next(entry['file'] for entry in entries if Path(entry['file']).name.startswith('thenathe-suite-backpack-crafting-'))
+    with zipfile.ZipFile(io.BytesIO(archive.read(addon))) as toolbox_archive:
+        for item in ('iron_toolbox', 'netherite_toolbox'):
+            definition = json.loads(toolbox_archive.read(f'assets/vpp_backpack_crafting/items/{item}.json'))
+            assert definition['model']['model'] == f'vpp_backpack_crafting:item/{item}'
+            model = json.loads(toolbox_archive.read(f'assets/vpp_backpack_crafting/models/item/{item}.json'))
+            assert model['textures']['layer0'] == f'vpp_backpack_crafting:item/{item}'
+            assert f'assets/vpp_backpack_crafting/textures/item/{item}.png' in toolbox_archive.namelist()
+        assert not any('iron_hammer' in name or 'diamond_hammer' in name for name in toolbox_archive.namelist())
 dependencies = []
 for dependency in (root / 'libs').glob('*.jar'):
     with zipfile.ZipFile(dependency) as archive:
@@ -82,6 +93,8 @@ for profile in ('native', 'polymer'):
     selected = [suite, *dependencies, probe] + ([polymer] if profile == 'polymer' else [])
     for dependency in selected:
         shutil.copy2(dependency, target / 'mods' / dependency.name)
+    (target / 'config').mkdir()
+    (target / 'config/vanilla-plusplus-crafting-rules-v1').write_text('Previous testing marker retained.\n')
     mapstitch_launch(workspace).copy_accepted_eula(target)
     (target / 'server.properties').write_text('server-ip=127.0.0.1\nserver-port=0\nonline-mode=false\nwhite-list=false\nspawn-protection=16\nview-distance=2\nsimulation-distance=2\npause-when-empty-seconds=0\nlevel-type=minecraft:flat\ngenerator-settings={"layers":[{"block":"minecraft:bedrock","height":1}],"biome":"minecraft:plains"}\ngenerate-structures=false\n')
     command = ['/usr/lib/jvm/java-25-openjdk/bin/java', '-Xmx2G', '-XX:ActiveProcessorCount=2', '-cp',

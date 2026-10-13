@@ -1,8 +1,8 @@
-# Experimental suite addon: 1.0.10-beta.1+26.3
+# Suite addon: 1.0.10+26.3
 
 Adds recognition of the separate Backpack Crafting menu to existing ClientSort hooks, preserving crafting/result slot exclusions on client and server. Earlier module notes follow.
 
-# Suite addon: 1.0.9-suite.1+26.3
+## Previous suite addon: 1.0.9-suite.1+26.3
 
 Stable suite **1.1.5** includes this separate Tool Pouch / MapStitch addon. It shares atlas and ordinary-map minimap placement while keeping Tool Pouch information placement independent, with measured bounds to prevent same-side overlap. It retains the original addon’s gameplay features and integrations. Read [the current HUD guide](../../../docs/HUD.md) and [suite validation](../../../docs/VALIDATION.md) for current behavior and exact verification scope.
 

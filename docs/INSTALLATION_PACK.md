@@ -1,19 +1,17 @@
-# Installation pack — Vanilla++ Quality of Life Suite 1.3.1+26.3
+# Installation pack — Vanilla++ Quality of Life Suite 1.4.0+26.3
 
-Experimental `feat/backpack-crafting` uses suite **1.4.0-beta.2+26.3** and the new bundled addon **1.0.0-beta.2+26.3**. Existing developer inputs and external dependencies remain unchanged. See [the branch guide](BACKPACK_CRAFTING.md); stable release records below retain their original scope.
+The **1.4.0+26.3** update adds backpack crafting with iron and netherite toolboxes and a native recipe book. Prior anvil, grindstone and pet safety fixes remain included. Replace the suite JAR on the server and matching native clients. Exact external dependencies and original developer inputs remain unchanged; Collective is not required.
 
-The **1.3.1+26.3** update fixes anvil shift-click XP, grindstone scrap insertion and pet recall safety. Replace the suite JAR on the server and matching native clients. Exact external dependencies and original developer inputs remain unchanged; Collective is not required.
-
-The authored root mod ID remains `vpp_mod_suite`. Swift Flight retains its original enchantment ID and existing enchanted books/harnesses. Legacy pet-call bindings and datapack state are not imported; rebind horns after removing the old packs. Remove standalone versions of enabled replacement features to avoid duplicate execution. [Release instructions](RELEASE_1_3_1.md) record the full scope and verification.
+The authored root mod ID remains `vpp_mod_suite`. Swift Flight retains its original enchantment ID and existing enchanted books/harnesses. Legacy pet-call bindings and datapack state are not imported; rebind horns after removing the old packs. Remove standalone versions of enabled replacement features to avoid duplicate execution. [Release instructions](RELEASE_1_4_0.md) record the full scope and verification.
 
 ## Release files
 
 [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) supplies four files:
 
 - `README.md` — feature and installation overview.
-- `vanilla-plusplus-quality-of-life-suite-1.3.1+26.3.jar` — the suite for an instance with the correct libraries already installed.
+- `vanilla-plusplus-quality-of-life-suite-1.4.0+26.3.jar` — the suite for an instance with the correct libraries already installed.
 - `docs.zip` — source/dependency/verification records and documentation.
-- `vanilla-plusplus-installation-pack-1.3.1+26.3.zip` — the setup kit, permitted dependency binaries, notices and side-aware installer.
+- `vanilla-plusplus-installation-pack-1.4.0+26.3.zip` — the setup kit, permitted dependency binaries, notices and side-aware installer.
 
 ## Native client installation
 
@@ -65,7 +63,7 @@ The ZIP includes these two local files under `overrides/mods/`:
 
 | Included file | SHA-256 | License/source context |
 | --- | --- | --- |
-| Suite 1.3.1+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
+| Suite 1.4.0+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
 | CodecUI 26.3-1.4.3 | `4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898` | MIT declaration and retained notices; precise private build revision is unrecorded. [Source-family record](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference). |
 
 Six public publisher binaries are cached under `downloads/mods/`, with licenses and hashes retained. Fzzy Config has only its official download entry:

@@ -4,9 +4,8 @@
 
 ![Vanilla++ modpack artwork](artwork/vanilla-plusplus-modpack.png)
 
-The **1.3.1** update fixes anvil XP charging when shift-clicking, restores netherite scrap insertion into grindstones, and checks pet recall destinations for passengers and hazards. All 1.3.0 gameplay additions and Mod Menu grouping remain available. See the [1.3.1 release guide](docs/RELEASE_1_3_1.md) for setup and verification.
+The **1.4.0** update adds backpack crafting with iron and netherite toolboxes, a compact floating crafting panel and a recipe book that uses both backpack and player ingredients. See the [1.4.0 release guide](docs/RELEASE_1_4_0.md) for setup and verification.
 
-**Experimental branch `feat/backpack-crafting`:** iron and netherite Tool Pouch toolboxes add 2×2 or 3×3 crafting and a recipe book to the backpack. Recipe placement uses backpack and player inventory ingredients. See [the branch guide](docs/BACKPACK_CRAFTING.md) for recipes, BRBR support and current verification. Stable 1.3.1 remains available.
 
 ## What it is
 
@@ -183,7 +182,7 @@ Thanks for your hard work, **pajic**, and contributor **Moonkey**!
 
 #### My tweaks and additions
 
-- Experimental branch: carry an iron toolbox in your active Tool Pouch for a compact floating 2×2 crafting panel and recipe book. A netherite toolbox, upgraded in a smithing table, enables 3×3. Recipes use both backpack and player ingredients, with optional BRBR support. This is a separate addon; original developer source stays untouched. See [recipes and testing](docs/BACKPACK_CRAFTING.md).
+- Carry an iron toolbox in your active Tool Pouch for a compact floating 2×2 crafting panel and recipe book. A netherite toolbox, upgraded in a smithing table, enables 3×3. Recipes use both backpack and player ingredients, with optional BRBR support. This is a separate addon; original developer source stays untouched. See [recipes and testing](docs/BACKPACK_CRAFTING.md).
 - Added optional ClientSort controls for sorting, refilling, and transferring items while preserving backpack nesting restrictions.
 - Brought the original backpack settings into the combined suite settings screen.
 - Included safe display and connection support for players without the suite; opening the custom backpack screen still needs the client mod.
@@ -455,7 +454,7 @@ The compatibility layer includes:
 
 ## Installation
 
-The [1.3.1 release guide](docs/RELEASE_1_3_1.md) covers this update, installation and verification. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) provides these four files:
+The [1.4.0 release guide](docs/RELEASE_1_4_0.md) covers this update, installation and verification. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) provides these four files:
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -467,7 +466,7 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Put `vanilla-plusplus-quality-of-life-suite-1.3.1+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
+2. Put `vanilla-plusplus-quality-of-life-suite-1.4.0+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, the standalone Polymer Debug Wrench, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Remove the replaced standalone mods/datapacks when enabling their suite features. Swift Flight keeps existing enchantment data; legacy pet-call bindings are not migrated and must be rebound.
@@ -525,13 +524,13 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/jdk25 ./gradlew build -PcompilerVersion=27 -Pjavac=/path/to/jdk27/bin/javac
 ```
 
-The build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.3.1+26.3.jar`.
+The build uses a Java 27 compiler targeting Java 25; Java 25 is the runtime target. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.4.0+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 
 ### Changes and testing
 
-The [release guide](docs/RELEASE_1_3_1.md) and [validation report](docs/VALIDATION.md) record the exact 1.3.1 artifact, focused regression checks, Hotkey Wheel verification and installation checks. Historical results keep their original artifacts and test scope.
+The [release guide](docs/RELEASE_1_4_0.md) and [validation report](docs/VALIDATION.md) record the exact 1.4.0 artifact, focused regression checks, Hotkey Wheel verification and installation checks. Historical results keep their original artifacts and test scope.
 
 The [release procedure](docs/RELEASE_WORKFLOW.md) records the standing documentation, four-asset packaging, version-only titles and branch-cleanup conventions.
 

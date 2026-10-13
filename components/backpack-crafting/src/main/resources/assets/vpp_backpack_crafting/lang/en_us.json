@@ -1,6 +1,6 @@
 {
-  "item.vpp_backpack_crafting.iron_hammer": "Iron Toolbox",
-  "item.vpp_backpack_crafting.diamond_hammer": "Netherite Toolbox",
-  "tooltip.vpp_backpack_crafting.iron_hammer": "Put in your Tool Pouch: 2\u00d72 backpack crafting.",
-  "tooltip.vpp_backpack_crafting.diamond_hammer": "Put in your Tool Pouch: 3\u00d73 backpack crafting."
+  "item.vpp_backpack_crafting.iron_toolbox": "Iron Toolbox",
+  "item.vpp_backpack_crafting.netherite_toolbox": "Netherite Toolbox",
+  "tooltip.vpp_backpack_crafting.iron_toolbox": "Put in your Tool Pouch: 2\u00d72 backpack crafting.",
+  "tooltip.vpp_backpack_crafting.netherite_toolbox": "Put in your Tool Pouch: 3\u00d73 backpack crafting."
 }

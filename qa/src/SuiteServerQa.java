@@ -82,8 +82,8 @@ public final class SuiteServerQa implements ModInitializer {
                 handler.player.getInventory().setItem(6,potion);
             }
             if (FabricLoader.getInstance().isModLoaded("vpp_backpack_crafting")) {
-                handler.player.getInventory().setItem(20, new ItemStack(com.thenathe.backpackcrafting.BackpackCrafting.IRON_HAMMER));
-                handler.player.getInventory().setItem(21, new ItemStack(com.thenathe.backpackcrafting.BackpackCrafting.DIAMOND_HAMMER));
+                handler.player.getInventory().setItem(20, new ItemStack(com.thenathe.backpackcrafting.BackpackCrafting.IRON_TOOLBOX));
+                handler.player.getInventory().setItem(21, new ItemStack(com.thenathe.backpackcrafting.BackpackCrafting.NETHERITE_TOOLBOX));
                 boolean nativeCrafting = SuiteCapabilities.isNativeEntry(handler.getPacketContext(), Identifier.parse("vpp_backpack_crafting:crafting"));
                 passed &= nativeCrafting == SuiteCapabilities.isNative(handler.getPacketContext(), "vpp_mod_suite");
                 result.addProperty("crafting_namespace_native", nativeCrafting);
@@ -110,7 +110,7 @@ public final class SuiteServerQa implements ModInitializer {
                 marker.addProperty("potion_count",3);
                 marker.addProperty("potion_max",handler.player.getInventory().getItem(6).getMaxStackSize());
             }
-            marker.addProperty("crafting_hammers", FabricLoader.getInstance().isModLoaded("vpp_backpack_crafting"));
+            marker.addProperty("crafting_toolboxes", FabricLoader.getInstance().isModLoaded("vpp_backpack_crafting"));
             result.add("marker",marker);
             passed &= level.getBlockState(anvilPosition).equals(anvil);
             passed &= level.getBlockState(position).equals(mark);

@@ -17,15 +17,15 @@ import net.minecraft.world.item.TooltipFlag;
 import java.util.List;
 
 /** Polymer stays optional; only the guarded initialization loads this class. */
-final class HammerPolymer {
-    private HammerPolymer() {}
+final class ToolboxPolymer {
+    private ToolboxPolymer() {}
 
     static void initialize() {
         PolymerResourcePackUtils.addModAssets(BackpackCrafting.ID);
         PolymerResourcePackUtils.markAsRequired();
         eu.pb4.polymer.rsm.api.RegistrySyncUtils.setServerEntry(BuiltInRegistries.MENU, BackpackCrafting.MENU_TYPE);
-        PolymerItem.registerOverlay(BackpackCrafting.IRON_HAMMER, new UpgradeOverlay(Items.IRON_AXE));
-        PolymerItem.registerOverlay(BackpackCrafting.DIAMOND_HAMMER, new UpgradeOverlay(Items.NETHERITE_AXE));
+        PolymerItem.registerOverlay(BackpackCrafting.IRON_TOOLBOX, new UpgradeOverlay(Items.IRON_AXE));
+        PolymerItem.registerOverlay(BackpackCrafting.NETHERITE_TOOLBOX, new UpgradeOverlay(Items.NETHERITE_AXE));
     }
 
     private record UpgradeOverlay(Item fallback) implements PolymerItem {

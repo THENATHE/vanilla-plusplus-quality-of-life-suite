@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "suite_version": "1.4.0+26.3",
+  "suite_sha256": "dc2e8d7c5bcf90ab22822e2886f766a1735bc6a2558d4794dbb51c816c689386",
+  "profiles": [
+    {
+      "profile": "SuiteNative",
+      "passed": true,
+      "client_kind": "suite",
+      "server_polymer": true
+    },
+    {
+      "profile": "FabricOnly",
+      "passed": true,
+      "client_kind": "fabric-api",
+      "server_polymer": true
+    },
+    {
+      "profile": "SuiteVanilla",
+      "passed": true,
+      "client_kind": "vanilla",
+      "server_polymer": true
+    },
+    {
+      "profile": "SuiteNativeNP",
+      "passed": true,
+      "client_kind": "suite",
+      "server_polymer": false
+    }
+  ],
+  "scope": "Real native/Fabric-only/unmodified vanilla Polymer server connections and native non-Polymer connection, capability negotiation, raw versus fallback toolbox item receipt, safe unsupported backpack-opening rejection, resource-pack and in-world smoke. No new singleplayer or exhaustive gameplay claim."
+}

@@ -15,7 +15,7 @@
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipes": [
-          "vpp_backpack_crafting:diamond_hammer"
+          "vpp_backpack_crafting:netherite_toolbox"
         ]
       }
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vpp_backpack_crafting:diamond_hammer"
+      "vpp_backpack_crafting:netherite_toolbox"
     ]
   }
 }

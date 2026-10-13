@@ -1,5 +1,11 @@
 # Changes
 
+## 1.4.0+26.3
+
+- Promote backpack crafting into main with final `iron_toolbox` and `netherite_toolbox` item, recipe and resource IDs. Retire testing hammer IDs without conversion or aliases.
+- Register the final toolbox permissions even when the old testing setup marker exists.
+- Keep the unique iron toolbox recipe, netherite smithing upgrade, 16×16 sprites and optional BRBR integration.
+
 ## 1.4.0-beta.2+26.3 (experimental branch)
 
 - Replace hammer names and sprites with iron and netherite toolboxes while preserving saved item IDs.

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "suite_version": "1.4.0+26.3",
+  "suite_sha256": "dc2e8d7c5bcf90ab22822e2886f766a1735bc6a2558d4794dbb51c816c689386",
+  "profiles": {
+    "native": {
+      "passed": true,
+      "exit_code": 0,
+      "checks": 198
+    },
+    "polymer": {
+      "passed": true,
+      "exit_code": 0,
+      "checks": 198
+    }
+  },
+  "identifier_scope": "Real item registry and resource loader register iron_toolbox/netherite_toolbox and reject old iron_hammer/diamond_hammer item and recipe IDs. Item model components and packaged item definitions, models and textures use toolbox IDs. Fresh Tool Pouch configuration receives both rules using the toolbox marker even when the prior testing marker exists.",
+  "recipe_scope": "Actual RecipeManager selects vanilla iron pickaxe and new iron toolbox crafting patterns; normal and shift SmithingMenu clicks select netherite_toolbox with exact base/ingot consumption and template remainder matching a vanilla netherite pickaxe control under the same SSO rules.",
+  "menu_scope": "Real server crafting and placement for 2x2/3x3, combined bag/player ingredients, conservation, remainders, portable holder protection, validity/cleanup, capacity refusal and overflow preservation, collector pause/resume.",
+  "clientsort_scope": "Real dedicated-server schema validation and permutation execution for both crafting sizes including occupied crafting inputs/result protection. No new ClientSort GUI or accelerated packet claim."
+}

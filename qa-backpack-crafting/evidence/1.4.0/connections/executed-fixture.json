@@ -1,0 +1,20 @@
+{
+  "sources": {
+    "qa/light.py": "89e71a102e6c4c13de3dced943cefac6b6940af22060edc1899771de5b03c1e6",
+    "qa/src/SuiteClientQa.java": "176c91b5fc4acb6db04c15e5f690bed7d4cb12ebc614f6c1ed4d74fa5e7c1324",
+    "qa/src/SuiteServerQa.java": "1e17ec75dc6656b500e97bea395b6c9a1d89cb8e287b8f3d0f91998bdd149397"
+  },
+  "compiled_classes": {
+    "suite/qa/SuiteClientQa$MixedUi.class": "2a847c33670921c0be4c5e3c2a08b9ccbce9bc396b94252ad449d674a0dc273a",
+    "suite/qa/SuiteClientQa$Mutation.class": "ef1212bc0be8212eac491881a203e4bcf541dd50d98728c1217106a4b023462c",
+    "suite/qa/SuiteClientQa.class": "3b19a91abf49be626516808ed023e53060e4e9d7c7acda216e1194c2b0323f48",
+    "suite/qa/SuiteServerQa.class": "cec05ec0f941230a3152cda738cf72385080a64f961712c5bd8aedfee85171ec"
+  },
+  "fixture_jars": {
+    "integrated.jar": "71e6c4f651cf15480616971ca9ebc3b2cc30a42128d28d485b37acb4be618213",
+    "server.jar": "73433775893a1e736c6096bd840a3b94e0ae6e0957bc978bfa4a1a97fd897f22",
+    "client.jar": "2be72986cfb4018f3ac61777822f0b9b6f8574ff679669f3e27dd8b0c9a2f615"
+  },
+  "compiler": "Java 27 javac --release 25",
+  "runtime": "Java 25"
+}

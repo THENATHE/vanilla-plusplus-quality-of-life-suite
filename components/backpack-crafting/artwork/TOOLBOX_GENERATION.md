@@ -2,7 +2,7 @@
 
 Generated and edited with the built-in imagegen tool. Current originals: `iron_toolbox-vanilla-generated.png` and `netherite_toolbox-vanilla-generated.png`. Earlier hammer/diamond concepts are retained only as art history, outside shipped resources.
 
-Shipped sprites are nearest-neighbor samples at exactly **16×16**, reduced without dithering to **12 colors or fewer**, with alpha restricted to **0 or 255**. Existing `iron_hammer.png` and `diamond_hammer.png` texture names preserve model/item identities; the latter now depicts the netherite toolbox. `iron_toolbox-vanilla-preview.png` and `netherite_toolbox-vanilla-preview.png` enlarge the actual shipped pixels using nearest-neighbor scaling.
+Shipped sprites are nearest-neighbor samples at exactly **16×16**, reduced without dithering to **12 colors or fewer**, with alpha restricted to **0 or 255**. Current texture names are `iron_toolbox.png` and `netherite_toolbox.png`, matching their final item IDs. `iron_toolbox-vanilla-preview.png` and `netherite_toolbox-vanilla-preview.png` enlarge the actual shipped pixels using nearest-neighbor scaling.
 
 ## Prompt set
 

@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "suite_version": "1.4.0+26.3",
+  "suite_sha256": "dc2e8d7c5bcf90ab22822e2886f766a1735bc6a2558d4794dbb51c816c689386",
+  "profiles": [
+    {
+      "evidence": "brbr-published",
+      "passed": true,
+      "brbr_version": "1.11.1+26.3",
+      "brbr_sha256": "1788316a99505b767f6076884469910de62bb04737212bc2a6195e28e143fa04",
+      "polymer": true,
+      "cases": 8,
+      "cycles": 2,
+      "backpack_ingredients": true
+    },
+    {
+      "evidence": "brbr-local",
+      "passed": true,
+      "brbr_version": "1.11.2+26.3",
+      "brbr_sha256": "b18f78dff65c6e5a2859c8ae5e0f966c0374b41ea3d62282d678f86e6c31d8dc",
+      "polymer": false,
+      "cases": 8,
+      "cycles": 2,
+      "backpack_ingredients": true
+    }
+  ],
+  "scope": "Connected native toolbox opening through original upstream method, 2x2/3x3 grids in leather27/netherite78 backpacks, recipe book callbacks, bag-only ingredients, normal output shift-click, BRBR ordinary and maximum instant crafting, unavailable cake ghosts and 3x3 filtering, compact panel/recipe tabs viewport bounds and authoritative ingredient conservation. No physical input simulation or every BRBR control claim."
+}

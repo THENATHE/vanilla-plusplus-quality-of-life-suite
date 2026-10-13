@@ -15,7 +15,7 @@
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipes": [
-          "vpp_backpack_crafting:iron_hammer"
+          "vpp_backpack_crafting:iron_toolbox"
         ]
       }
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "vpp_backpack_crafting:iron_hammer"
+      "vpp_backpack_crafting:iron_toolbox"
     ]
   }
 }

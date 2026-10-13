@@ -1,10 +1,10 @@
 {
   "type": "minecraft:smithing_transform",
   "template": "minecraft:netherite_upgrade_smithing_template",
-  "base": "vpp_backpack_crafting:iron_hammer",
+  "base": "vpp_backpack_crafting:iron_toolbox",
   "addition": "minecraft:netherite_ingot",
   "result": {
-    "id": "vpp_backpack_crafting:diamond_hammer",
+    "id": "vpp_backpack_crafting:netherite_toolbox",
     "count": 1
   }
 }

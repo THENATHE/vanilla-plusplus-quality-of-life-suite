@@ -38,9 +38,8 @@ import java.util.List;
 
 public final class BackpackCrafting implements ModInitializer {
     public static final String ID = "vpp_backpack_crafting";
-    // Keep the experimental item IDs so existing pouch upgrades remain valid.
-    public static final Item IRON_HAMMER = toolbox("iron_hammer", "Iron Toolbox", "2×2");
-    public static final Item DIAMOND_HAMMER = toolbox("diamond_hammer", "Netherite Toolbox", "3×3");
+    public static final Item IRON_TOOLBOX = toolbox("iron_toolbox", "Iron Toolbox", "2×2");
+    public static final Item NETHERITE_TOOLBOX = toolbox("netherite_toolbox", "Netherite Toolbox", "3×3");
     public static final MenuType<BackpackCraftingMenu> MENU_TYPE = new ExtendedMenuType<>(
             (id, inventory, data) -> new BackpackCraftingMenu(id, inventory, data.backpack(), data.gridSize()), OpeningData.CODEC);
 
@@ -58,21 +57,21 @@ public final class BackpackCrafting implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        Registry.register(BuiltInRegistries.ITEM, id("iron_hammer"), IRON_HAMMER);
-        Registry.register(BuiltInRegistries.ITEM, id("diamond_hammer"), DIAMOND_HAMMER);
+        Registry.register(BuiltInRegistries.ITEM, id("iron_toolbox"), IRON_TOOLBOX);
+        Registry.register(BuiltInRegistries.ITEM, id("netherite_toolbox"), NETHERITE_TOOLBOX);
         Registry.register(BuiltInRegistries.MENU, id("crafting"), MENU_TYPE);
         if (FabricLoader.getInstance().isModLoaded("polymer-core")
-                && FabricLoader.getInstance().isModLoaded("polymer-resource-pack")) HammerPolymer.initialize();
+                && FabricLoader.getInstance().isModLoaded("polymer-resource-pack")) ToolboxPolymer.initialize();
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(entries -> {
-            entries.accept(IRON_HAMMER);
-            entries.accept(DIAMOND_HAMMER);
+            entries.accept(IRON_TOOLBOX);
+            entries.accept(NETHERITE_TOOLBOX);
         });
         addPouchRules();
     }
 
     public static int getCraftingSize(Player player) {
-        if (PouchUpgradeAccess.contains(player, DIAMOND_HAMMER)) return 3;
-        return PouchUpgradeAccess.contains(player, IRON_HAMMER) ? 2 : 0;
+        if (PouchUpgradeAccess.contains(player, NETHERITE_TOOLBOX)) return 3;
+        return PouchUpgradeAccess.contains(player, IRON_TOOLBOX) ? 2 : 0;
     }
 
     public static boolean hasBackpack(Player player, ItemStack backpack) {
@@ -98,10 +97,10 @@ public final class BackpackCrafting implements ModInitializer {
     }
 
     private static void addPouchRules() {
-        var marker = FabricLoader.getInstance().getConfigDir().resolve("vanilla-plusplus-crafting-rules-v1");
+        var marker = FabricLoader.getInstance().getConfigDir().resolve("vanilla-plusplus-toolbox-rules-v1");
         if (Files.exists(marker)) return;
         var rules = new LinkedHashSet<AllowedItem>(ToolPouch.CONFIG.allowedItems.get());
-        for (String path : List.of("iron_hammer", "diamond_hammer")) {
+        for (String path : List.of("iron_toolbox", "netherite_toolbox")) {
             String itemId = id(path).toString();
             if (rules.stream().noneMatch(rule -> rule.id.get().equals(itemId))) rules.add(new AllowedItem(itemId, 1, 1));
         }

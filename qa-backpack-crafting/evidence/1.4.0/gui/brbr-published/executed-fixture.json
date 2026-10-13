@@ -1,0 +1,14 @@
+{
+  "sources": {
+    "CraftingNetworkClient.java": "9a1c7f023058ae1e06b77e6a1add3d94da7eae8f117d23b3a44b3ac370cb0709",
+    "CraftingNetworkServer.java": "d3e32c444c33242fbfda436f7130719d9c85c899826e6eea93bdac368c72e4dc",
+    "CraftingNetworkBrbrTrace.java": "6f6fad0e7167aa60fab53a96e637881111eee7dd9ac6e636ac3da4754f4b677d",
+    "network.py": "7a200ee7c33dc2f6b73b5bc43e50bf601d7fa0a58078b4512bd385ad8968ee9f"
+  },
+  "fixtures": {
+    "server": "819430a042b86f400f0d8fe89073a62ce981a0078ded3d8aef1cf95c4e07e75c",
+    "client": "27495693c242aac666fc0f700232ac6247d731f1844d21e9c6cc3bef752cb957"
+  },
+  "compiler": "Java 27 javac --release 25",
+  "runtime": "Java 25"
+}

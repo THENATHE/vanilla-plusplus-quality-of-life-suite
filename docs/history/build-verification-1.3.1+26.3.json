@@ -1,0 +1,173 @@
+{
+  "archive_integrity": true,
+  "root_id": "vpp_mod_suite",
+  "version": "1.3.1+26.3",
+  "sha256": "7becece0f4bbe9ff85ad4cad8474c6b9a8b9dcbdf9940abeb5a31e0d0786db2f",
+  "modules": [
+    {
+      "id": "amethyst_curse_cleanser",
+      "version": "1.0.1+26.3",
+      "sha256": "5ec26e2a0010dfdee82aa5cb27664314150a4daa36deadc10f0c659f399507b6",
+      "file": "META-INF/jars/amethyst-curse-cleanser-1.0.1+26.3.jar"
+    },
+    {
+      "id": "chalk",
+      "version": "3.2.1+26.3",
+      "sha256": "886b0b10cc12df65d47f446c2bd54c0c670f9a54fa09a1fe95c9ec46df565f49",
+      "file": "META-INF/jars/chalk-3.2.1+26.3.jar"
+    },
+    {
+      "id": "chalk-colorful-addon",
+      "version": "2.1.1-port.1+26.3",
+      "sha256": "69a2443250abd95100636194a145b5479d240151cd19bf4186766117d0710b34",
+      "file": "META-INF/jars/chalk-colorful-addon-2.1.1-port.1+26.3.jar"
+    },
+    {
+      "id": "mapstitch",
+      "version": "1.1.7",
+      "sha256": "d7949f082d365fa4b71ce29b7fdce21ecec3f759ef9f9da9be34b880fc64b5e4",
+      "file": "META-INF/jars/mapstitch-fabric-1.1.7+26.3.jar"
+    },
+    {
+      "id": "misctweaks",
+      "version": "1.4.4",
+      "sha256": "97fe263764cb6b93822e13fe9423cf91c3a6a0169aeeb8734b65136cc9ea9647",
+      "file": "META-INF/jars/misctweaks-fabric-1.4.4+26.3.jar"
+    },
+    {
+      "id": "simple_death_improvements",
+      "version": "1.6.0",
+      "sha256": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2",
+      "file": "META-INF/jars/simple_death_improvements-fabric-1.6.0+26.3.jar"
+    },
+    {
+      "id": "simple_smithing_overhaul",
+      "version": "2.10.0",
+      "sha256": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
+      "file": "META-INF/jars/simple_smithing_overhaul-fabric-2.10.0+26.3.jar"
+    },
+    {
+      "id": "tiered_backpacks",
+      "version": "1.0.20",
+      "sha256": "b129b9b61ec1da62842dc2dfa5b166a6df8e91c796666dcee70f7b8acf1ecc33",
+      "file": "META-INF/jars/tiered_backpacks-fabric-1.0.20+26.3.jar"
+    },
+    {
+      "id": "toolpouch",
+      "version": "1.1.10",
+      "sha256": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903",
+      "file": "META-INF/jars/toolpouch-fabric-1.1.10+26.3.jar"
+    },
+    {
+      "id": "sso_backpack_toolpouch_mapstitch_shim",
+      "version": "1.3.0+26.3",
+      "sha256": "c688b9815750c05a36185f770769abe5f8ce015cae703ae4dc2e001323873843",
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.3.0+26.3.jar"
+    },
+    {
+      "id": "chalk_polymer_compat",
+      "version": "1.1.1-suite.1+26.3",
+      "sha256": "1d01b06608918b7f73c203bd9c0334d3d1de2925ca64a8fbbdc315b21b41b604",
+      "file": "META-INF/jars/thenathe-suite-chalk-compat-1.1.1-suite.1+26.3.jar"
+    },
+    {
+      "id": "shared_region_maps",
+      "version": "1.0.5-combo.1+mc26.3",
+      "sha256": "0303adb278cd819ac387d16c673e9de095a7ee5b28801960e3ffd4b75b65ed10",
+      "file": "META-INF/jars/shared-region-maps-1.0.5-combo.1+mc26.3.jar"
+    },
+    {
+      "id": "toolpouch_atlas_elytra_compat",
+      "version": "1.0.9-suite.1+26.3",
+      "sha256": "628e779025ee732a6c6bb4ba6a4d1529d2e735c582f60b2abba1f96ccc2adfb7",
+      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.9-suite.1+26.3.jar"
+    },
+    {
+      "id": "sensible_stackables",
+      "version": "3.1.1",
+      "sha256": "bf750cbe40394caffe3fd7c9bc2b57985d4110c5cae51dc726f948b55a25598a",
+      "file": "META-INF/jars/sensible_stackables-fabric-3.1.1+26.3.jar"
+    },
+    {
+      "id": "sensible_stackables_polymer_compat",
+      "version": "1.0.2+26.3",
+      "sha256": "3857e2763784e2c1d0229e6ffd947a415ba4ddd933fb70d1d2fcd51e4c7a7c31",
+      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.2+26.3.jar"
+    },
+    {
+      "id": "mapstitch_mixed_scales",
+      "version": "1.1.8+26.3",
+      "sha256": "b21f84efff920ee46e062e5f4eab0783db4e5f46574c8488355c0cccd60c94d4",
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.8+26.3.jar"
+    },
+    {
+      "id": "bannerpoint",
+      "version": "1.1.2",
+      "sha256": "499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0",
+      "file": "META-INF/jars/bannerpoint-fabric-1.1.2+26.3.jar"
+    },
+    {
+      "id": "bannerpoint_polymer_compat",
+      "version": "1.0.1+26.3",
+      "sha256": "e9ade30001b3d6a165fc2332879d8c71120c1777eada0f4ef4c4ff909fed9896",
+      "file": "META-INF/jars/thenathe-suite-bannerpoint-compat-1.0.1+26.3.jar"
+    }
+  ],
+  "original_inputs_unchanged": true,
+  "nested_exact_dependencies_verified": true,
+  "defaulted_runtime_required": false,
+  "licenses_retained": true,
+  "runtime_tested": true,
+  "date": "2026-10-12",
+  "release_channel": "stable main release",
+  "build_command": "JAVA_HOME=/usr/lib/jvm/java-25-openjdk bash gradlew build -PcompilerVersion=27 -Pjavac=/usr/lib/jvm/java-27-openjdk/bin/javac --offline",
+  "compiler_override": "Java 27 javac emits Java 25 classes; Gradle and Minecraft run on Java 25.",
+  "evidence": {
+    "anvil": "qa-features/evidence/1.3.1/anvil/result.json",
+    "mechanics": "qa-features/evidence/1.3.1/result.json",
+    "mechanics_summary": "qa-features/evidence/1.3.1/acceptance.json",
+    "network_native": "qa-features/evidence/1.3.1/network/native/result.json",
+    "network_polymer": "qa-features/evidence/1.3.1/network/polymer/result.json",
+    "settings_wheel": "qa-settings/evidence/1.3.1/result.json",
+    "installation": "docs/installation-pack-verification.json",
+    "connections": "qa/evidence/1.3.1/connections.json",
+    "singleplayer": "qa/evidence/1.3.1/singleplayer.json"
+  },
+  "evidence_sha256": {
+    "anvil": "d218ef874d14517b17e94ec76ae44daf8f2392aafa37c21fc8410b69825aaae2",
+    "mechanics": "fb0ced7a749de701f8342b7ed47999cb16f5ae120664fcc82efb1f2cd15fd491",
+    "mechanics_summary": "a2d8598c962156682a4a7de0c1de937a3878bdb0de53ac642404e67678ff7ad5",
+    "network_native": "44477fb310ea6444cb393afdb7ccfc34d18c10a38514e86661e8f3a64f8f2df9",
+    "network_polymer": "fa87f74de71d3cff54fec68d2d8fea8910c6499e9259d6c03b4beedf76f21f4f",
+    "settings_wheel": "d2802f8f12cb9195bb734ff0cd91e9e93d4a5eb2be4efb692dc7db49d293857f",
+    "installation": "04dc57c5e42616713d0d47f4bd234fd201cf0e26cfcc0ee908db754b26ec926a",
+    "connections": "53b54be855a4ab900901c61c26ecda31ea3f908915c5c022c526758b2787c777",
+    "singleplayer": "ee5922335b6831c87674d809270c57114ce7de260bf6ad1525deab2765738932"
+  },
+  "limitations": [
+    "Anvil and pet safety assertions use real server mechanics through test-player fixtures; occupied pet recall is not a physical two-player network test.",
+    "Unmodified vanilla has connection and generated-pack receipt evidence; fallback scrap gameplay uses a Fabric API-only observer.",
+    "Wheel/settings integration uses native handlers and development-only SDL focus events, not hardware key automation.",
+    "Singleplayer checks cover startup, negotiation and world/client ticks; dedicated fixtures cover the detailed gameplay regressions.",
+    "Offline player shoulder data cannot be accessed until the holder returns; legacy horn migration remains intentionally unsupported.",
+    "The independent ChatGPT SSO port remains paused."
+  ],
+  "hotkey_wheel": {
+    "version": "1.0.3+26.3",
+    "sha256": "5057ded646ea3c9d97b444c572f515c3914bcfd12d0bb1dec1edfb1523e2527b",
+    "profiles": [
+      "native-admin",
+      "polymer-admin"
+    ],
+    "passed": true,
+    "input_scope": "Native keyboard/mouse handlers and development-only SDL focus events; no hardware key automation."
+  },
+  "assertions": {
+    "mechanics": 1014,
+    "anvil": 166,
+    "settings_observations_per_profile": 63,
+    "installer_cases": 13
+  },
+  "source_archive_matches_working_java": true,
+  "all_nested_jars_unchanged_from": "1.3.0+26.3"
+}
