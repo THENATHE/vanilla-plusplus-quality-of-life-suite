@@ -1,0 +1,79 @@
+{
+  "suite_version": "1.4.3+26.3",
+  "suite_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "passed": true,
+  "runs": [
+    {
+      "profile": "server",
+      "passed": true,
+      "assertions": 396,
+      "screenshots": 0
+    },
+    {
+      "profile": "preview",
+      "passed": true,
+      "assertions": 19,
+      "screenshots": 10
+    },
+    {
+      "profile": "storage/sorted26-native",
+      "passed": true,
+      "assertions": 487,
+      "screenshots": 10
+    },
+    {
+      "profile": "storage/sorted26-polymer",
+      "passed": true,
+      "assertions": 487,
+      "screenshots": 10
+    },
+    {
+      "profile": "storage/sorted25-native",
+      "passed": true,
+      "assertions": 487,
+      "screenshots": 10
+    },
+    {
+      "profile": "layout/sorted26-native",
+      "passed": true,
+      "assertions": 886,
+      "screenshots": 7
+    },
+    {
+      "profile": "layout/sorted26-polymer",
+      "passed": true,
+      "assertions": 886,
+      "screenshots": 7
+    },
+    {
+      "profile": "recipes/native",
+      "passed": true,
+      "assertions": 0,
+      "screenshots": 10
+    },
+    {
+      "profile": "recipes/polymer",
+      "passed": true,
+      "assertions": 0,
+      "screenshots": 10
+    },
+    {
+      "profile": "wheel/native",
+      "passed": true,
+      "assertions": 62,
+      "screenshots": 18
+    },
+    {
+      "profile": "wheel/polymer",
+      "passed": true,
+      "assertions": 62,
+      "screenshots": 18
+    }
+  ],
+  "collector_sha256": "e48699b2f3f42a039e84d4d8424a9058c506f67baa3022e8ea6c464036f45985",
+  "raw_report_sha256": {
+    "reports/independent-build.json": "f7f19de1181d2d370975308d8c3f7a998e670574c2109634d58f85ea62cb1eb2",
+    "reports/standard-build.txt": "f4169b411613111edef758c30393f63eea9f0cdeab7ddaf82fe8c356c6b2d9e3",
+    "reports/archive-verification.json": "51ab2d8cda6918e4de5bb1494e18862c208af932f7064a1091f2b92666be7530"
+  }
+}

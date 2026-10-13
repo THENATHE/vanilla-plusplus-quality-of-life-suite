@@ -1,0 +1,15 @@
+{
+  "suite_version": "1.4.2+26.3",
+  "suite_sha256": "7c85a7ae934917cb1c5427e18fa00e68b3943064c12c1b74b7c8a3d31511c24b",
+  "passed": true,
+  "runs": [
+    {
+      "profile": "recovery",
+      "passed": true,
+      "assertions": 26,
+      "screenshots": 2
+    }
+  ],
+  "collector_sha256": "e48699b2f3f42a039e84d4d8424a9058c506f67baa3022e8ea6c464036f45985",
+  "raw_report_sha256": {}
+}

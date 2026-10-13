@@ -1,0 +1,14 @@
+{
+  "menu": "net.minecraft.world.inventory.InventoryMenu",
+  "menu_id": 0,
+  "cursor": 0,
+  "held_bag": {
+    "minecraft:diamond": 8,
+    "minecraft:cobblestone": 9,
+    "minecraft:emerald": 2,
+    "minecraft:oak_log": 7,
+    "minecraft:oak_planks": 6
+  },
+  "dropped_emeralds": 0,
+  "prepared_id": 8
+}

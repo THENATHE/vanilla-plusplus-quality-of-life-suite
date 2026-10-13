@@ -1,0 +1,464 @@
+{
+  "passed": true,
+  "version": "1.4.3+26.3",
+  "bundle_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "backpack_ingredients": false,
+  "delayed_grid": false,
+  "delayed_predicate_checks": 0,
+  "baseline": false,
+  "cycles": 1,
+  "brbr_sha256": "28868f38950057d850d634364881855503093dcd8e70064faf7febcecb81621f",
+  "polymer": false,
+  "profiles": [
+    "suite"
+  ],
+  "observations": [
+    {
+      "profile": "suite",
+      "assertion_count": 19,
+      "checks": [
+        "leather 2x2: crafting panel excluded from storage classification",
+        "leather 3x3: crafting panel excluded from storage classification",
+        "netherite 2x2: crafting panel excluded from storage classification",
+        "netherite 3x3: crafting panel excluded from storage classification",
+        "large 2x2: crafting panel excluded from storage classification",
+        "large 3x3: crafting panel excluded from storage classification",
+        "leather 2x2: inventory controls match original full-frame placement",
+        "leather 2x2: backpack controls match original above-panel right alignment",
+        "leather 3x3: inventory controls match original full-frame placement",
+        "leather 3x3: backpack controls match original above-panel right alignment",
+        "netherite 2x2: inventory controls match original full-frame placement",
+        "netherite 2x2: backpack controls match original above-panel right alignment",
+        "netherite 3x3: inventory controls match original full-frame placement",
+        "netherite 3x3: backpack controls match original above-panel right alignment",
+        "large 2x2: inventory controls match original full-frame placement",
+        "large 2x2: backpack controls match original above-panel right alignment",
+        "large 3x3: inventory controls match original full-frame placement",
+        "large 3x3: backpack controls match original above-panel right alignment",
+        "Original client backpack dimensions restored"
+      ],
+      "operations": [],
+      "recovery": [],
+      "button_offsets": [
+        {
+          "menu": "leather 2x2",
+          "tier": "leather",
+          "offsets": {
+            "sorted:widget/search": {
+              "x": -9,
+              "y": 1
+            },
+            "sorted:widget/sort_inventory": {
+              "x": 151,
+              "y": 1
+            },
+            "sorted:widget/quick_stack": {
+              "x": 133,
+              "y": 1
+            },
+            "sorted:widget/quick_fill": {
+              "x": 115,
+              "y": 1
+            },
+            "sorted:widget/quick_empty": {
+              "x": 97,
+              "y": 1
+            }
+          },
+          "container_offsets": {
+            "sorted:widget/sort_container": {
+              "x": -18,
+              "y": -20
+            },
+            "sorted:widget/quick_dump": {
+              "x": -36,
+              "y": -20
+            }
+          }
+        },
+        {
+          "menu": "leather 3x3",
+          "tier": "leather",
+          "offsets": {
+            "sorted:widget/search": {
+              "x": -9,
+              "y": 1
+            },
+            "sorted:widget/sort_inventory": {
+              "x": 151,
+              "y": 1
+            },
+            "sorted:widget/quick_stack": {
+              "x": 133,
+              "y": 1
+            },
+            "sorted:widget/quick_fill": {
+              "x": 115,
+              "y": 1
+            },
+            "sorted:widget/quick_empty": {
+              "x": 97,
+              "y": 1
+            }
+          },
+          "container_offsets": {
+            "sorted:widget/sort_container": {
+              "x": -18,
+              "y": -20
+            },
+            "sorted:widget/quick_dump": {
+              "x": -36,
+              "y": -20
+            }
+          }
+        },
+        {
+          "menu": "netherite 2x2",
+          "tier": "netherite",
+          "offsets": {
+            "sorted:widget/search": {
+              "x": -45,
+              "y": 1
+            },
+            "sorted:widget/sort_inventory": {
+              "x": 187,
+              "y": 1
+            },
+            "sorted:widget/quick_stack": {
+              "x": 169,
+              "y": 1
+            },
+            "sorted:widget/quick_fill": {
+              "x": 151,
+              "y": 1
+            },
+            "sorted:widget/quick_empty": {
+              "x": 133,
+              "y": 1
+            }
+          },
+          "container_offsets": {
+            "sorted:widget/sort_container": {
+              "x": -18,
+              "y": -20
+            },
+            "sorted:widget/quick_dump": {
+              "x": -36,
+              "y": -20
+            }
+          }
+        },
+        {
+          "menu": "netherite 3x3",
+          "tier": "netherite",
+          "offsets": {
+            "sorted:widget/search": {
+              "x": -45,
+              "y": 1
+            },
+            "sorted:widget/sort_inventory": {
+              "x": 187,
+              "y": 1
+            },
+            "sorted:widget/quick_stack": {
+              "x": 169,
+              "y": 1
+            },
+            "sorted:widget/quick_fill": {
+              "x": 151,
+              "y": 1
+            },
+            "sorted:widget/quick_empty": {
+              "x": 133,
+              "y": 1
+            }
+          },
+          "container_offsets": {
+            "sorted:widget/sort_container": {
+              "x": -18,
+              "y": -20
+            },
+            "sorted:widget/quick_dump": {
+              "x": -36,
+              "y": -20
+            }
+          }
+        },
+        {
+          "menu": "large 2x2",
+          "tier": "large",
+          "offsets": {
+            "sorted:widget/search": {
+              "x": -45,
+              "y": 1
+            },
+            "sorted:widget/sort_inventory": {
+              "x": 187,
+              "y": 1
+            },
+            "sorted:widget/quick_stack": {
+              "x": 169,
+              "y": 1
+            },
+            "sorted:widget/quick_fill": {
+              "x": 151,
+              "y": 1
+            },
+            "sorted:widget/quick_empty": {
+              "x": 133,
+              "y": 1
+            }
+          },
+          "container_offsets": {
+            "sorted:widget/sort_container": {
+              "x": -18,
+              "y": -20
+            },
+            "sorted:widget/quick_dump": {
+              "x": -36,
+              "y": -20
+            }
+          }
+        },
+        {
+          "menu": "large 3x3",
+          "tier": "large",
+          "offsets": {
+            "sorted:widget/search": {
+              "x": -45,
+              "y": 1
+            },
+            "sorted:widget/sort_inventory": {
+              "x": 187,
+              "y": 1
+            },
+            "sorted:widget/quick_stack": {
+              "x": 169,
+              "y": 1
+            },
+            "sorted:widget/quick_fill": {
+              "x": 151,
+              "y": 1
+            },
+            "sorted:widget/quick_empty": {
+              "x": 133,
+              "y": 1
+            }
+          },
+          "container_offsets": {
+            "sorted:widget/sort_container": {
+              "x": -18,
+              "y": -20
+            },
+            "sorted:widget/quick_dump": {
+              "x": -36,
+              "y": -20
+            }
+          }
+        }
+      ],
+      "normal_reference": {
+        "type": "button-reference",
+        "id": 48,
+        "inventory_button_offsets": {
+          "sorted:widget/search": {
+            "x": -8,
+            "y": 1
+          },
+          "sorted:widget/sort_inventory": {
+            "x": 150,
+            "y": 1
+          },
+          "sorted:widget/quick_stack": {
+            "x": 132,
+            "y": 1
+          },
+          "sorted:widget/quick_fill": {
+            "x": 114,
+            "y": 1
+          },
+          "sorted:widget/quick_empty": {
+            "x": 96,
+            "y": 1
+          }
+        },
+        "container_button_offsets": {
+          "sorted:widget/sort_container": {
+            "x": -18,
+            "y": -19
+          },
+          "sorted:widget/quick_dump": {
+            "x": -36,
+            "y": -19
+          }
+        },
+        "storage_right": 408,
+        "panel_top": 116,
+        "inventory_origin_x": 240,
+        "panel_bottom": 284,
+        "menu_class": "net.minecraft.world.inventory.ChestMenu",
+        "screen_class": "net.minecraft.client.gui.screens.inventory.ContainerScreen"
+      },
+      "plain_backpack_references": [
+        {
+          "tier": "leather",
+          "capacity": 27,
+          "reference": {
+            "type": "button-reference",
+            "id": 54,
+            "inventory_button_offsets": {
+              "sorted:widget/search": {
+                "x": -9,
+                "y": 1
+              },
+              "sorted:widget/sort_inventory": {
+                "x": 151,
+                "y": 1
+              },
+              "sorted:widget/quick_stack": {
+                "x": 133,
+                "y": 1
+              },
+              "sorted:widget/quick_fill": {
+                "x": 115,
+                "y": 1
+              },
+              "sorted:widget/quick_empty": {
+                "x": 97,
+                "y": 1
+              }
+            },
+            "container_button_offsets": {
+              "sorted:widget/sort_container": {
+                "x": -18,
+                "y": -20
+              },
+              "sorted:widget/quick_dump": {
+                "x": -36,
+                "y": -20
+              }
+            },
+            "storage_right": 409,
+            "panel_top": 115,
+            "inventory_origin_x": 240,
+            "panel_bottom": 285,
+            "menu_class": "me.pajic.tiered_backpacks.ui.BackpackMenu",
+            "screen_class": "me.pajic.tiered_backpacks.ui.BackpackScreen"
+          }
+        },
+        {
+          "tier": "netherite",
+          "capacity": 78,
+          "reference": {
+            "type": "button-reference",
+            "id": 60,
+            "inventory_button_offsets": {
+              "sorted:widget/search": {
+                "x": -45,
+                "y": 1
+              },
+              "sorted:widget/sort_inventory": {
+                "x": 187,
+                "y": 1
+              },
+              "sorted:widget/quick_stack": {
+                "x": 169,
+                "y": 1
+              },
+              "sorted:widget/quick_fill": {
+                "x": 151,
+                "y": 1
+              },
+              "sorted:widget/quick_empty": {
+                "x": 133,
+                "y": 1
+              }
+            },
+            "container_button_offsets": {
+              "sorted:widget/sort_container": {
+                "x": -18,
+                "y": -20
+              },
+              "sorted:widget/quick_dump": {
+                "x": -36,
+                "y": -20
+              }
+            },
+            "storage_right": 445,
+            "panel_top": 88,
+            "inventory_origin_x": 240,
+            "panel_bottom": 312,
+            "menu_class": "me.pajic.tiered_backpacks.ui.BackpackMenu",
+            "screen_class": "me.pajic.tiered_backpacks.ui.BackpackScreen"
+          }
+        },
+        {
+          "tier": "large",
+          "capacity": 117,
+          "reference": {
+            "type": "button-reference",
+            "id": 66,
+            "inventory_button_offsets": {
+              "sorted:widget/search": {
+                "x": -45,
+                "y": 1
+              },
+              "sorted:widget/sort_inventory": {
+                "x": 187,
+                "y": 1
+              },
+              "sorted:widget/quick_stack": {
+                "x": 169,
+                "y": 1
+              },
+              "sorted:widget/quick_fill": {
+                "x": 151,
+                "y": 1
+              },
+              "sorted:widget/quick_empty": {
+                "x": 133,
+                "y": 1
+              }
+            },
+            "container_button_offsets": {
+              "sorted:widget/sort_container": {
+                "x": -18,
+                "y": -20
+              },
+              "sorted:widget/quick_dump": {
+                "x": -36,
+                "y": -20
+              }
+            },
+            "storage_right": 445,
+            "panel_top": 61,
+            "inventory_origin_x": 240,
+            "panel_bottom": 339,
+            "menu_class": "me.pajic.tiered_backpacks.ui.BackpackMenu",
+            "screen_class": "me.pajic.tiered_backpacks.ui.BackpackScreen"
+          }
+        }
+      ],
+      "baseline": false,
+      "placement_only": true,
+      "scope": "Actual Sorted widget callbacks with matching crafting ingredients, plus direct original cursor-recovery selection. Recovery selection is tested without simulating a full interrupted queue."
+    }
+  ],
+  "placement_only": true,
+  "storage_actions_sorted": true,
+  "recovery_baseline": false,
+  "rules_sorted": false,
+  "layout_sorted": true,
+  "sorted_sha256": "df080bab56e7f6c6f836533f403fe192a04019d9004e1c8d3acac5b6fe77edd5",
+  "optional_client_dependencies": [
+    {
+      "file": "sorted-fabric-0.1.26-mc26.x.jar",
+      "sha256": "df080bab56e7f6c6f836533f403fe192a04019d9004e1c8d3acac5b6fe77edd5"
+    },
+    {
+      "file": "yacl-3.9.7+26.3-fabric.jar",
+      "sha256": "c52d41d444522d9abba994cd4c4ee2e71a065d7c31010f92a9959b80ccb4b0f5"
+    }
+  ],
+  "scope": "All six real Sorted storage buttons and direct cursor-recovery selection against authoritative crafting fixtures."
+}

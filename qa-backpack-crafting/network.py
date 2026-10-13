@@ -31,13 +31,19 @@ def main():
     parser.add_argument('--baseline', action='store_true')
     parser.add_argument('--cycles', type=int, default=1)
     parser.add_argument('--rules-sorted', action='store_true', help='Test original Sorted Alt keep-rule callbacks and slot markers')
+    parser.add_argument('--storage-actions-sorted', action='store_true', help='Exercise all Sorted storage buttons and cursor recovery')
+    parser.add_argument('--recovery-baseline', action='store_true', help='Reproduce the published cursor-recovery leak without asserting the fix')
+    parser.add_argument('--placement-only', action='store_true', help='Quickly capture and compare original control placement for all backpack sizes')
     parser.add_argument('--with-sorted', action='store_true', help='Install the preserved Sorted and YACL client dependencies for standard recipe/BRBR checks')
     parser.add_argument('--layout-sorted', action='store_true', help='Test actual Sorted storage registration, controls, conservation and outside-click geometry')
     parser.add_argument('--sorted', type=Path, default=Path.home() / '.local/share/ModrinthApp/profiles/Vanilla Fast/mods/sorted-fabric-0.1.26-mc26.x.jar', help='Preserved original Sorted client JAR for --layout-sorted')
     parser.add_argument('--compile-only', action='store_true', help='Compile/package observation fixtures without launching any runtime')
     args = parser.parse_args()
     if args.profiles != 'suite': parser.error('This fixture requires the native suite client; vanilla boundary is tested separately')
-    if args.rules_sorted and args.layout_sorted: parser.error('Choose one isolated Sorted QA mode')
+    if sum((args.rules_sorted, args.layout_sorted, args.storage_actions_sorted)) > 1: parser.error('Choose one isolated Sorted QA mode')
+    if args.recovery_baseline and not args.storage_actions_sorted: parser.error('Recovery baseline requires storage-action mode')
+    if args.placement_only and not args.storage_actions_sorted: parser.error('Placement preview requires storage-action mode')
+    if args.storage_actions_sorted: args.layout_sorted = True
     if args.without_polymer and args.profiles != 'suite': parser.error('Without Polymer requires the suite-only profile')
     run = ROOT / 'qa-backpack-crafting/runs' / args.label; run.mkdir(parents=True, exist_ok=False)
     control = run / 'control'; control.mkdir()
@@ -47,6 +53,8 @@ def main():
     shutil.copy2(Path(__file__), executed / 'network.py')
     if args.layout_sorted: shutil.copy2(ROOT / 'qa-backpack-crafting/layout_sorted.py', executed / 'layout_sorted.py')
     if args.rules_sorted: shutil.copy2(ROOT / 'qa-backpack-crafting/rules_sorted.py', executed / 'rules_sorted.py')
+    if args.storage_actions_sorted: shutil.copy2(ROOT / 'qa-backpack-crafting/storage_actions_sorted.py', executed / 'storage_actions_sorted.py')
+    sys.path.insert(0, str(executed))
     launch = mapstitch_launch(WORKSPACE); suite = run / args.jar.name; shutil.copy2(args.jar.resolve(), suite)
     dependencies = [ROOT / 'libs' / name for name in (
         'codecui-26.3-1.4.3-fabric.jar',
@@ -70,7 +78,7 @@ def main():
                     content = archive.read(name); target = fixtures / (hashlib.sha256(content).hexdigest()[:12] + '-' + Path(name).name)
                     if not target.exists(): target.write_bytes(content); paths.append(str(target)); nested(target)
     for jar in [suite, *dependencies, polymer]: nested(jar)
-    subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac', '--release', '25', '-proc:none', '-cp', os.pathsep.join(dict.fromkeys(paths)), '-d', str(classes), *map(str, (ROOT / 'qa-backpack-crafting').glob('CraftingNetwork*.java'))], check=True)
+    subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac', '--release', '25', '-proc:none', '-cp', os.pathsep.join(dict.fromkeys(paths)), '-d', str(classes), *map(str, executed.glob('CraftingNetwork*.java'))], check=True)
     for side in ('server', 'client'):
         entry = 'CraftingNetwork' + side.title()
         metadata = {'schemaVersion': 1, 'id': 'suite_feature_network_qa_' + side, 'version': '1', 'environment': side,
@@ -139,8 +147,12 @@ def main():
                 print('PASS actual Sorted keep-rule and marker checks: ' + str(observation['assertion_count']) + ' assertions', flush=True)
                 continue
             if args.layout_sorted:
-                from layout_sorted import run_layout_checks
-                observation = run_layout_checks(name, client, read, wait, control)
+                if args.storage_actions_sorted:
+                    from storage_actions_sorted import run_storage_checks
+                    observation = run_storage_checks(name, client, read, wait, control, args.recovery_baseline, args.placement_only)
+                else:
+                    from layout_sorted import run_layout_checks
+                    observation = run_layout_checks(name, client, read, wait, control)
                 observations.append(observation)
                 stop(client)
                 print('PASS actual Sorted integration and cursor layout: ' + str(observation['assertion_count']) + ' assertions', flush=True)
@@ -186,7 +198,7 @@ def main():
         stop(server,True)
         delayed_checks=sum((run/('FeatureNet'+profile.title())/'console.log').read_text().count('CRAFTING_QA_DELAYED_GRID') for profile in args.profiles.split(','))
         if args.delay_grid: assert delayed_checks >= 3, 'synthetic unsettled-grid mode did not execute'
-        (run/'result.json').write_text(json.dumps({'passed':True,'version':version,'bundle_sha256':sha(suite),'backpack_ingredients':args.backpack,'delayed_grid':args.delay_grid,'delayed_predicate_checks':delayed_checks,'baseline':args.baseline,'cycles':args.cycles,'brbr_sha256':sha(args.brbr) if args.brbr else None,'polymer':not args.without_polymer,'profiles':args.profiles.split(','),'observations':observations,'rules_sorted':args.rules_sorted,'layout_sorted':args.layout_sorted,'sorted_sha256':sha(args.sorted) if optional_client else None,'optional_client_dependencies':[{'file':jar.name,'sha256':sha(jar)} for jar in optional_client],'scope':('Actual Sorted Alt-rule callbacks, memory/persisted global-rule preservation, storage/player positive edits and original marker render eligibility.' if args.rules_sorted else 'Actual Sorted registered client commands, storage classification/filtering, sort and quick-stack callbacks, protected panel clicks, deadspace drops, narrow/wide book states and server item conservation.' if args.layout_sorted else 'Connected screen callbacks, recipe-book autofill, normal output clicks, optional BRBR ordinary/maximum instant crafting, ghost recipes, viewport bounds and authoritative ingredient conservation.')},indent=2)+'\n')
+        (run/'result.json').write_text(json.dumps({'passed':True,'version':version,'bundle_sha256':sha(suite),'backpack_ingredients':args.backpack,'delayed_grid':args.delay_grid,'delayed_predicate_checks':delayed_checks,'baseline':args.baseline,'cycles':args.cycles,'brbr_sha256':sha(args.brbr) if args.brbr else None,'polymer':not args.without_polymer,'profiles':args.profiles.split(','),'observations':observations,'placement_only':args.placement_only,'storage_actions_sorted':args.storage_actions_sorted,'recovery_baseline':args.recovery_baseline,'rules_sorted':args.rules_sorted,'layout_sorted':args.layout_sorted,'sorted_sha256':sha(args.sorted) if optional_client else None,'optional_client_dependencies':[{'file':jar.name,'sha256':sha(jar)} for jar in optional_client],'scope':('All six real Sorted storage buttons and direct cursor-recovery selection against authoritative crafting fixtures.' if args.storage_actions_sorted else 'Actual Sorted Alt-rule callbacks, memory/persisted global-rule preservation, storage/player positive edits and original marker render eligibility.' if args.rules_sorted else 'Actual Sorted registered client commands, storage classification/filtering, sort and quick-stack callbacks, protected panel clicks, deadspace drops, narrow/wide book states and server item conservation.' if args.layout_sorted else 'Connected screen callbacks, recipe-book autofill, normal output clicks, optional BRBR ordinary/maximum instant crafting, ghost recipes, viewport bounds and authoritative ingredient conservation.')},indent=2)+'\n')
         print('PASS backpack crafting GUI checks',flush=True)
     finally:
         for process,log in reversed(children):

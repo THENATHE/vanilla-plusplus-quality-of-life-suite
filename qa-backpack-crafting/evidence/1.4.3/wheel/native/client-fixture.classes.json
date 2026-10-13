@@ -1,0 +1,9 @@
+{
+  "file": "client.jar",
+  "sha256": "3ab934f40f4787f10454f8fb89d800cb754fb20303f51e7a6e88ee92b8809894",
+  "classes": {
+    "suitesettingsqa/SettingsClientQa.class": "8f838942e5508d98e75aaca367a0e9b75a3cf59037460e27f0f8463bb572cb7d",
+    "suitesettingsqa/SettingsServerQa.class": "45dc2aaa3e782a07ae4e9c793fd3b3b3d17a91f187e1bb089b0bef84e074b95b",
+    "suitesettingsqa/mixin/WheelFocusQaMixin.class": "8f2d0a76f8e6f5ddd9f9e38a337f8062824ad94dfcc748bf80ae5f63ccfcf116"
+  }
+}

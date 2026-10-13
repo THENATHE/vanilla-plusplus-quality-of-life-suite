@@ -1,0 +1,13 @@
+{
+  "menu": "com.thenathe.backpackcrafting.menu.BackpackCraftingMenu",
+  "crafted_tables": 3,
+  "planks": 0,
+  "size": 3,
+  "menu_id": 8,
+  "valid": true,
+  "knows_recipe": true,
+  "capacity": 78,
+  "result_count": 0,
+  "grid_planks": 0,
+  "stored_planks": 0
+}

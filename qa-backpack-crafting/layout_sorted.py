@@ -33,7 +33,7 @@ def run_layout_checks(name, process, read, wait, control):
 
     def open_menu(tier, size):
         previous = read(name, 'client').get('menu_id')
-        capacity = 27 if tier == 'leather' else 78
+        capacity = {'leather': 27, 'netherite': 78, 'large': 117}[tier]
         (control / f'{name}-open.json').write_text(json.dumps(dict(size=size, tier=tier)))
         wait(lambda: read(name, 'client').get('menu_id') != previous
              and read(name, 'client').get('size') == size
@@ -44,7 +44,8 @@ def run_layout_checks(name, process, read, wait, control):
     def totals(row):
         return Counter(row['storage']) + Counter(row['inventory'])
 
-    for tier in ('leather', 'netherite'):
+    for tier in ('leather', 'netherite', 'large'):
+        act('backpack-size', rows=9 if tier == 'large' else 6, columns=13)
         for size in (0, 2, 3):
             label = f'{tier} {size or "plain"}'
             open_menu(tier, size)
@@ -87,7 +88,7 @@ def run_layout_checks(name, process, read, wait, control):
             states = [(width, opened) for width in (640, 427) for opened in ((False, True) if size else (False,))]
             for width, opened in states:
                 state = f'{label} width={width} book={opened}'
-                act('resize', width=width, height=240 if tier == 'netherite' and size else 300)
+                act('resize', width=width, height=400 if tier == 'large' else 300)
                 if size:
                     act('book-state', open=opened)
                 settle()
@@ -125,4 +126,6 @@ def run_layout_checks(name, process, read, wait, control):
                     act('screenshot', name=f'layout-{tier}-{size}-{width}-book-{str(opened).lower()}')
             act('close')
             wait(lambda: read(name, 'server').get('menu_id') == 0, process, 'layout fixture closes')
+    restored_size = act('backpack-size', restore=True)
+    check(restored_size['original_size_restored'], 'Original client backpack dimensions restored')
     return dict(profile='suite', assertion_count=len(checks), checks=checks, scenarios=scenarios)

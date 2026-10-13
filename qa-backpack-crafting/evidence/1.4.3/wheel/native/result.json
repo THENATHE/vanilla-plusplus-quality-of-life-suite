@@ -1,0 +1,312 @@
+{
+  "passed": true,
+  "version": "1.4.3+26.3",
+  "bundle_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "scope": "Actual Hotkey Wheel activation and native suite settings callbacks.",
+  "observations": [
+    {
+      "case": "wheel activation context focused=true key=key.keyboard.g mapping=key.keyboard.g matches=true",
+      "passed": true
+    },
+    {
+      "case": "isolated input fixture dispatches SDL focus, native keyboard and mouse events: Hotkey Wheel selects the unbound suite control; overlapping release key opens combined settings once",
+      "passed": true
+    },
+    {
+      "case": "all original feature entries remain individually visible beneath Vanilla++",
+      "passed": true
+    },
+    {
+      "case": "one Compatibility + Shims entry with all original compatibility loader identities retained",
+      "passed": true
+    },
+    {
+      "case": "all fifteen new feature entries appear individually beneath suite",
+      "passed": true
+    },
+    {
+      "case": "all integrated feature configuration actions open real settings without inventing loader identities",
+      "passed": true
+    },
+    {
+      "case": "suite parent and original Chalk configuration factories open their real grouped screens",
+      "passed": true
+    },
+    {
+      "case": "registered rebindable Controls hotkey opens the native suite screen from gameplay",
+      "passed": true
+    },
+    {
+      "case": "effective native title simple_smithing_overhaul.config-v2=Simple Smithing Overhaul Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title mapstitch.config=MapStitch Gameplay Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title mapstitch.client_config=MapStitch Client Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title toolpouch.config=Tool Pouch Gameplay Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title toolpouch.client_config=Tool Pouch Client Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title tiered_backpacks.config=Tiered Backpacks Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title misctweaks.config=MiscTweaks Gameplay Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title misctweaks.client_config=MiscTweaks Client Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title simple_death_improvements.config=Simple Death Improvements Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title sensible_stackables.config=Sensible Stackables Gameplay Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title sensible_stackables.client_config=Sensible Stackables Client Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title bannerpoint.config=Bannerpoint Gameplay Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title bannerpoint.client_config=Bannerpoint Client Settings",
+      "passed": true
+    },
+    {
+      "case": "effective native title vpp_mod_suite.features=Native Features",
+      "passed": true
+    },
+    {
+      "case": "effective native title vpp_mod_suite.chalk=Chalk Settings",
+      "passed": true
+    },
+    {
+      "case": "only functional original configurations and Chalk bridge appear in native root navigation",
+      "passed": true
+    },
+    {
+      "case": "settings language overlay automatically enabled, required, and top by default",
+      "passed": true
+    },
+    {
+      "case": "all original language entries present in live client: 696",
+      "passed": true
+    },
+    {
+      "case": "original translation retained gui.toolpouch.coordinates_xyz",
+      "passed": true
+    },
+    {
+      "case": "original translation retained gui.toolpouch.facing",
+      "passed": true
+    },
+    {
+      "case": "original translation retained gui.toolpouch.day",
+      "passed": true
+    },
+    {
+      "case": "original translation retained gui.toolpouch.time",
+      "passed": true
+    },
+    {
+      "case": "original translation retained item.toolpouch.tool_pouch",
+      "passed": true
+    },
+    {
+      "case": "original translation retained mapstitch.gui.worldmap.title",
+      "passed": true
+    },
+    {
+      "case": "original translation retained simple_smithing_overhaul.config-v2.portableItemRepair",
+      "passed": true
+    },
+    {
+      "case": "original translation retained tiered_backpacks.config.leatherSize",
+      "passed": true
+    },
+    {
+      "case": "original translation retained misctweaks.config.sneakingPreventsBerryBushDamage",
+      "passed": true
+    },
+    {
+      "case": "original translation retained simple_death_improvements.config.noItemSplatterOnDeath",
+      "passed": true
+    },
+    {
+      "case": "original translation retained sensible_stackables.config.items",
+      "passed": true
+    },
+    {
+      "case": "all 15 root buttons say Configure... while native titles remain named; original Chalk button opens its correct category",
+      "passed": true
+    },
+    {
+      "case": "new shulker module native checkbox server/runtime/file readback=false guest=false",
+      "passed": true
+    },
+    {
+      "case": "new shulker module native checkbox server/runtime/file readback=true guest=false",
+      "passed": true
+    },
+    {
+      "config_id": "simple_smithing_overhaul.config-v2",
+      "rows": 12,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "mapstitch.config",
+      "rows": 8,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "mapstitch.client_config",
+      "rows": 4,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "toolpouch.config",
+      "rows": 13,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "toolpouch.client_config",
+      "rows": 6,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "tiered_backpacks.config",
+      "rows": 12,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "misctweaks.config",
+      "rows": 18,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "misctweaks.client_config",
+      "rows": 4,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "simple_death_improvements.config",
+      "rows": 17,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "sensible_stackables.config",
+      "rows": 4,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "sensible_stackables.client_config",
+      "rows": 3,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "bannerpoint.config",
+      "rows": 3,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "bannerpoint.client_config",
+      "rows": 4,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "vpp_mod_suite.features",
+      "rows": 47,
+      "client_only": false,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "config_id": "vpp_mod_suite.chalk",
+      "rows": 1,
+      "client_only": true,
+      "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+      "passed": true
+    },
+    {
+      "case": "Chalk original AutoConfig saved/reloaded/reopened=false",
+      "passed": true
+    },
+    {
+      "case": "Chalk original AutoConfig saved/reloaded/reopened=true",
+      "passed": true
+    },
+    {
+      "case": "Tool Pouch native checkbox original file=false",
+      "passed": true
+    },
+    {
+      "case": "Tool Pouch native checkbox original file=true",
+      "passed": true
+    },
+    {
+      "case": "remote-server-library-context",
+      "client_level_present": true,
+      "client_connection_present": true,
+      "is_local_server": false,
+      "screen_out_of_game": true,
+      "update_out_of_game": false,
+      "permission_level": 4,
+      "native_widget_enabled": true
+    },
+    {
+      "case": "remote-server-original-config-routing",
+      "server_preventShulkerDuplication": true,
+      "passed": true
+    },
+    {
+      "case": "pending forwarded proposal survives suite close/reopen",
+      "passed": true
+    },
+    {
+      "case": "native receiveUpdate invalidation rebuilds widgets, restores original routing, preserves and receives proposals",
+      "passed": true
+    }
+  ]
+}

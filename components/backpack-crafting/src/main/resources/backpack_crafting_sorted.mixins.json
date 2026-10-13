@@ -6,9 +6,9 @@
   "client": [
     "SortedStorageMixin",
     "SortedPortableMixin",
-    "SortedMenuLayoutMixin",
     "SortedRuleScreenMixin",
-    "SortedKeepIndicatorMixin"
+    "SortedKeepIndicatorMixin",
+    "SortedCursorRecoveryMixin"
   ],
   "injectors": {
     "defaultRequire": 1

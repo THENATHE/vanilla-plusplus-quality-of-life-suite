@@ -25,9 +25,8 @@ public abstract class SortedStorageMixin {
     private static void backpackCrafting$buttonPlacement(AbstractContainerMenu menu,
                                                           CallbackInfoReturnable<StorageMenus.Placement> cir) {
         if (menu instanceof BackpackCraftingMenu backpack) {
-            int center = backpack.getStorageWidth() / 2;
-            cir.setReturnValue(new StorageMenus.Placement(backpack.getStorageWidth(), 0,
-                    center - 88, center + 88, backpack.getInventoryY() - 19));
+            cir.setReturnValue(new StorageMenus.Placement(backpack.getStorageWidth(), -20,
+                    0, backpack.getStorageWidth(), backpack.getHeight() + 1));
         }
     }
 }

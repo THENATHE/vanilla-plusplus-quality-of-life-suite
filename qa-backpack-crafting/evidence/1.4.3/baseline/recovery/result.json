@@ -1,0 +1,202 @@
+{
+  "passed": true,
+  "version": "1.4.2+26.3",
+  "bundle_sha256": "7c85a7ae934917cb1c5427e18fa00e68b3943064c12c1b74b7c8a3d31511c24b",
+  "backpack_ingredients": false,
+  "delayed_grid": false,
+  "delayed_predicate_checks": 0,
+  "baseline": false,
+  "cycles": 1,
+  "brbr_sha256": null,
+  "polymer": false,
+  "profiles": [
+    "suite"
+  ],
+  "observations": [
+    {
+      "profile": "suite",
+      "assertion_count": 26,
+      "checks": [
+        "leather 2x2: crafting panel excluded from storage classification",
+        "leather 2x2: recovery origin-grid calls the original recovery selector",
+        "leather 2x2: recovery origin-grid reproduces published grid leak",
+        "leather 2x2: recovery origin-grid selector leaves actual item state unchanged",
+        "leather 2x2: recovery origin-grid preserves authoritative item state",
+        "leather 2x2: recovery matching-grid calls the original recovery selector",
+        "leather 2x2: recovery matching-grid reproduces published grid leak",
+        "leather 2x2: recovery matching-grid selector leaves actual item state unchanged",
+        "leather 2x2: recovery matching-grid preserves authoritative item state",
+        "leather 2x2: recovery empty-grid calls the original recovery selector",
+        "leather 2x2: recovery empty-grid reproduces published grid leak",
+        "leather 2x2: recovery empty-grid selector leaves actual item state unchanged",
+        "leather 2x2: recovery empty-grid preserves authoritative item state",
+        "leather 3x3: crafting panel excluded from storage classification",
+        "leather 3x3: recovery origin-grid calls the original recovery selector",
+        "leather 3x3: recovery origin-grid reproduces published grid leak",
+        "leather 3x3: recovery origin-grid selector leaves actual item state unchanged",
+        "leather 3x3: recovery origin-grid preserves authoritative item state",
+        "leather 3x3: recovery matching-grid calls the original recovery selector",
+        "leather 3x3: recovery matching-grid reproduces published grid leak",
+        "leather 3x3: recovery matching-grid selector leaves actual item state unchanged",
+        "leather 3x3: recovery matching-grid preserves authoritative item state",
+        "leather 3x3: recovery empty-grid calls the original recovery selector",
+        "leather 3x3: recovery empty-grid reproduces published grid leak",
+        "leather 3x3: recovery empty-grid selector leaves actual item state unchanged",
+        "leather 3x3: recovery empty-grid preserves authoritative item state"
+      ],
+      "operations": [],
+      "recovery": [
+        {
+          "tier": "leather",
+          "grid": 2,
+          "scenario": "origin-grid",
+          "action": {
+            "type": "storage-recovery",
+            "id": 5,
+            "scenario": "origin-grid",
+            "origin": 1,
+            "expected_target": -1,
+            "baseline": true,
+            "actual_return_target": 1,
+            "selected_target": 1,
+            "target_is_crafting": true,
+            "cursor_unchanged": true,
+            "all_slots_unchanged": true,
+            "actual_private_selector_invoked": true,
+            "cursor_item": "minecraft:oak_log",
+            "cursor_count": 4,
+            "grid_width": 2
+          }
+        },
+        {
+          "tier": "leather",
+          "grid": 2,
+          "scenario": "matching-grid",
+          "action": {
+            "type": "storage-recovery",
+            "id": 6,
+            "scenario": "matching-grid",
+            "origin": -1,
+            "expected_target": -1,
+            "baseline": true,
+            "actual_return_target": 1,
+            "selected_target": 1,
+            "target_is_crafting": true,
+            "cursor_unchanged": true,
+            "all_slots_unchanged": true,
+            "actual_private_selector_invoked": true,
+            "cursor_item": "minecraft:oak_log",
+            "cursor_count": 4,
+            "grid_width": 2
+          }
+        },
+        {
+          "tier": "leather",
+          "grid": 2,
+          "scenario": "empty-grid",
+          "action": {
+            "type": "storage-recovery",
+            "id": 7,
+            "scenario": "empty-grid",
+            "origin": -1,
+            "expected_target": -1,
+            "baseline": true,
+            "actual_return_target": 1,
+            "selected_target": 1,
+            "target_is_crafting": true,
+            "cursor_unchanged": true,
+            "all_slots_unchanged": true,
+            "actual_private_selector_invoked": true,
+            "cursor_item": "minecraft:oak_log",
+            "cursor_count": 4,
+            "grid_width": 2
+          }
+        },
+        {
+          "tier": "leather",
+          "grid": 3,
+          "scenario": "origin-grid",
+          "action": {
+            "type": "storage-recovery",
+            "id": 14,
+            "scenario": "origin-grid",
+            "origin": 1,
+            "expected_target": -1,
+            "baseline": true,
+            "actual_return_target": 1,
+            "selected_target": 1,
+            "target_is_crafting": true,
+            "cursor_unchanged": true,
+            "all_slots_unchanged": true,
+            "actual_private_selector_invoked": true,
+            "cursor_item": "minecraft:oak_log",
+            "cursor_count": 4,
+            "grid_width": 3
+          }
+        },
+        {
+          "tier": "leather",
+          "grid": 3,
+          "scenario": "matching-grid",
+          "action": {
+            "type": "storage-recovery",
+            "id": 15,
+            "scenario": "matching-grid",
+            "origin": -1,
+            "expected_target": -1,
+            "baseline": true,
+            "actual_return_target": 1,
+            "selected_target": 1,
+            "target_is_crafting": true,
+            "cursor_unchanged": true,
+            "all_slots_unchanged": true,
+            "actual_private_selector_invoked": true,
+            "cursor_item": "minecraft:oak_log",
+            "cursor_count": 4,
+            "grid_width": 3
+          }
+        },
+        {
+          "tier": "leather",
+          "grid": 3,
+          "scenario": "empty-grid",
+          "action": {
+            "type": "storage-recovery",
+            "id": 16,
+            "scenario": "empty-grid",
+            "origin": -1,
+            "expected_target": -1,
+            "baseline": true,
+            "actual_return_target": 1,
+            "selected_target": 1,
+            "target_is_crafting": true,
+            "cursor_unchanged": true,
+            "all_slots_unchanged": true,
+            "actual_private_selector_invoked": true,
+            "cursor_item": "minecraft:oak_log",
+            "cursor_count": 4,
+            "grid_width": 3
+          }
+        }
+      ],
+      "baseline": true,
+      "scope": "Actual Sorted widget callbacks with matching crafting ingredients, plus direct original cursor-recovery selection. Recovery selection is tested without simulating a full interrupted queue."
+    }
+  ],
+  "storage_actions_sorted": true,
+  "recovery_baseline": true,
+  "rules_sorted": false,
+  "layout_sorted": true,
+  "sorted_sha256": "df080bab56e7f6c6f836533f403fe192a04019d9004e1c8d3acac5b6fe77edd5",
+  "optional_client_dependencies": [
+    {
+      "file": "sorted-fabric-0.1.26-mc26.x.jar",
+      "sha256": "df080bab56e7f6c6f836533f403fe192a04019d9004e1c8d3acac5b6fe77edd5"
+    },
+    {
+      "file": "yacl-3.9.7+26.3-fabric.jar",
+      "sha256": "c52d41d444522d9abba994cd4c4ee2e71a065d7c31010f92a9959b80ccb4b0f5"
+    }
+  ],
+  "scope": "All six real Sorted storage buttons and direct cursor-recovery selection against authoritative crafting fixtures."
+}

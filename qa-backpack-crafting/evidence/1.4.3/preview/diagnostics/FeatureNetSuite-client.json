@@ -1,0 +1,802 @@
+{
+  "ticks": 730,
+  "menu_id": 0,
+  "screen": "none",
+  "cursor": 0,
+  "actions": [
+    {
+      "type": "backpack-size",
+      "id": 1,
+      "rows": 6,
+      "columns": 13,
+      "accepted_rows": 6,
+      "accepted_columns": 13,
+      "restored": false,
+      "original_size_restored": false
+    },
+    {
+      "type": "register",
+      "id": 2,
+      "registered_menu_id": "vpp_backpack_crafting:crafting"
+    },
+    {
+      "type": "resize",
+      "id": 3,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "book-state",
+      "id": 4,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 5,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "button-reference",
+      "id": 6,
+      "inventory_button_offsets": {
+        "sorted:widget/search": {
+          "x": -9,
+          "y": 1
+        },
+        "sorted:widget/sort_inventory": {
+          "x": 151,
+          "y": 1
+        },
+        "sorted:widget/quick_stack": {
+          "x": 133,
+          "y": 1
+        },
+        "sorted:widget/quick_fill": {
+          "x": 115,
+          "y": 1
+        },
+        "sorted:widget/quick_empty": {
+          "x": 97,
+          "y": 1
+        }
+      },
+      "container_button_offsets": {
+        "sorted:widget/sort_container": {
+          "x": -18,
+          "y": -20
+        },
+        "sorted:widget/quick_dump": {
+          "x": -36,
+          "y": -20
+        }
+      },
+      "storage_right": 355,
+      "panel_top": 116,
+      "inventory_origin_x": 186,
+      "panel_bottom": 284,
+      "menu_class": "com.thenathe.backpackcrafting.menu.BackpackCraftingMenu",
+      "screen_class": "com.thenathe.backpackcrafting.client.BackpackCraftingScreen"
+    },
+    {
+      "type": "screenshot",
+      "id": 7,
+      "name": "storage-actions-leather-2"
+    },
+    {
+      "type": "close",
+      "id": 8
+    },
+    {
+      "type": "register",
+      "id": 9,
+      "registered_menu_id": "vpp_backpack_crafting:crafting"
+    },
+    {
+      "type": "resize",
+      "id": 10,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "book-state",
+      "id": 11,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 12,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "button-reference",
+      "id": 13,
+      "inventory_button_offsets": {
+        "sorted:widget/search": {
+          "x": -9,
+          "y": 1
+        },
+        "sorted:widget/sort_inventory": {
+          "x": 151,
+          "y": 1
+        },
+        "sorted:widget/quick_stack": {
+          "x": 133,
+          "y": 1
+        },
+        "sorted:widget/quick_fill": {
+          "x": 115,
+          "y": 1
+        },
+        "sorted:widget/quick_empty": {
+          "x": 97,
+          "y": 1
+        }
+      },
+      "container_button_offsets": {
+        "sorted:widget/sort_container": {
+          "x": -18,
+          "y": -20
+        },
+        "sorted:widget/quick_dump": {
+          "x": -36,
+          "y": -20
+        }
+      },
+      "storage_right": 346,
+      "panel_top": 116,
+      "inventory_origin_x": 177,
+      "panel_bottom": 284,
+      "menu_class": "com.thenathe.backpackcrafting.menu.BackpackCraftingMenu",
+      "screen_class": "com.thenathe.backpackcrafting.client.BackpackCraftingScreen"
+    },
+    {
+      "type": "screenshot",
+      "id": 14,
+      "name": "storage-actions-leather-3"
+    },
+    {
+      "type": "close",
+      "id": 15
+    },
+    {
+      "type": "backpack-size",
+      "id": 16,
+      "rows": 6,
+      "columns": 13,
+      "accepted_rows": 6,
+      "accepted_columns": 13,
+      "restored": false,
+      "original_size_restored": false
+    },
+    {
+      "type": "register",
+      "id": 17,
+      "registered_menu_id": "vpp_backpack_crafting:crafting"
+    },
+    {
+      "type": "resize",
+      "id": 18,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "book-state",
+      "id": 19,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 20,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "button-reference",
+      "id": 21,
+      "inventory_button_offsets": {
+        "sorted:widget/search": {
+          "x": -45,
+          "y": 1
+        },
+        "sorted:widget/sort_inventory": {
+          "x": 187,
+          "y": 1
+        },
+        "sorted:widget/quick_stack": {
+          "x": 169,
+          "y": 1
+        },
+        "sorted:widget/quick_fill": {
+          "x": 151,
+          "y": 1
+        },
+        "sorted:widget/quick_empty": {
+          "x": 133,
+          "y": 1
+        }
+      },
+      "container_button_offsets": {
+        "sorted:widget/sort_container": {
+          "x": -18,
+          "y": -20
+        },
+        "sorted:widget/quick_dump": {
+          "x": -36,
+          "y": -20
+        }
+      },
+      "storage_right": 391,
+      "panel_top": 89,
+      "inventory_origin_x": 186,
+      "panel_bottom": 311,
+      "menu_class": "com.thenathe.backpackcrafting.menu.BackpackCraftingMenu",
+      "screen_class": "com.thenathe.backpackcrafting.client.BackpackCraftingScreen"
+    },
+    {
+      "type": "screenshot",
+      "id": 22,
+      "name": "storage-actions-netherite-2"
+    },
+    {
+      "type": "close",
+      "id": 23
+    },
+    {
+      "type": "register",
+      "id": 24,
+      "registered_menu_id": "vpp_backpack_crafting:crafting"
+    },
+    {
+      "type": "resize",
+      "id": 25,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "book-state",
+      "id": 26,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 27,
+      "storage_slots_verified": 78,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "button-reference",
+      "id": 28,
+      "inventory_button_offsets": {
+        "sorted:widget/search": {
+          "x": -45,
+          "y": 1
+        },
+        "sorted:widget/sort_inventory": {
+          "x": 187,
+          "y": 1
+        },
+        "sorted:widget/quick_stack": {
+          "x": 169,
+          "y": 1
+        },
+        "sorted:widget/quick_fill": {
+          "x": 151,
+          "y": 1
+        },
+        "sorted:widget/quick_empty": {
+          "x": 133,
+          "y": 1
+        }
+      },
+      "container_button_offsets": {
+        "sorted:widget/sort_container": {
+          "x": -18,
+          "y": -20
+        },
+        "sorted:widget/quick_dump": {
+          "x": -36,
+          "y": -20
+        }
+      },
+      "storage_right": 382,
+      "panel_top": 89,
+      "inventory_origin_x": 177,
+      "panel_bottom": 311,
+      "menu_class": "com.thenathe.backpackcrafting.menu.BackpackCraftingMenu",
+      "screen_class": "com.thenathe.backpackcrafting.client.BackpackCraftingScreen"
+    },
+    {
+      "type": "screenshot",
+      "id": 29,
+      "name": "storage-actions-netherite-3"
+    },
+    {
+      "type": "close",
+      "id": 30
+    },
+    {
+      "type": "backpack-size",
+      "id": 31,
+      "rows": 9,
+      "columns": 13,
+      "accepted_rows": 9,
+      "accepted_columns": 13,
+      "restored": false,
+      "original_size_restored": false
+    },
+    {
+      "type": "register",
+      "id": 32,
+      "registered_menu_id": "vpp_backpack_crafting:crafting"
+    },
+    {
+      "type": "resize",
+      "id": 33,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "book-state",
+      "id": 34,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 35,
+      "storage_slots_verified": 117,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "button-reference",
+      "id": 36,
+      "inventory_button_offsets": {
+        "sorted:widget/search": {
+          "x": -45,
+          "y": 1
+        },
+        "sorted:widget/sort_inventory": {
+          "x": 187,
+          "y": 1
+        },
+        "sorted:widget/quick_stack": {
+          "x": 169,
+          "y": 1
+        },
+        "sorted:widget/quick_fill": {
+          "x": 151,
+          "y": 1
+        },
+        "sorted:widget/quick_empty": {
+          "x": 133,
+          "y": 1
+        }
+      },
+      "container_button_offsets": {
+        "sorted:widget/sort_container": {
+          "x": -18,
+          "y": -20
+        },
+        "sorted:widget/quick_dump": {
+          "x": -36,
+          "y": -20
+        }
+      },
+      "storage_right": 391,
+      "panel_top": 62,
+      "inventory_origin_x": 186,
+      "panel_bottom": 338,
+      "menu_class": "com.thenathe.backpackcrafting.menu.BackpackCraftingMenu",
+      "screen_class": "com.thenathe.backpackcrafting.client.BackpackCraftingScreen"
+    },
+    {
+      "type": "screenshot",
+      "id": 37,
+      "name": "storage-actions-large-2"
+    },
+    {
+      "type": "close",
+      "id": 38
+    },
+    {
+      "type": "register",
+      "id": 39,
+      "registered_menu_id": "vpp_backpack_crafting:crafting"
+    },
+    {
+      "type": "resize",
+      "id": 40,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "book-state",
+      "id": 41,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 42,
+      "storage_slots_verified": 117,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 250,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "button-reference",
+      "id": 43,
+      "inventory_button_offsets": {
+        "sorted:widget/search": {
+          "x": -45,
+          "y": 1
+        },
+        "sorted:widget/sort_inventory": {
+          "x": 187,
+          "y": 1
+        },
+        "sorted:widget/quick_stack": {
+          "x": 169,
+          "y": 1
+        },
+        "sorted:widget/quick_fill": {
+          "x": 151,
+          "y": 1
+        },
+        "sorted:widget/quick_empty": {
+          "x": 133,
+          "y": 1
+        }
+      },
+      "container_button_offsets": {
+        "sorted:widget/sort_container": {
+          "x": -18,
+          "y": -20
+        },
+        "sorted:widget/quick_dump": {
+          "x": -36,
+          "y": -20
+        }
+      },
+      "storage_right": 382,
+      "panel_top": 62,
+      "inventory_origin_x": 177,
+      "panel_bottom": 338,
+      "menu_class": "com.thenathe.backpackcrafting.menu.BackpackCraftingMenu",
+      "screen_class": "com.thenathe.backpackcrafting.client.BackpackCraftingScreen"
+    },
+    {
+      "type": "screenshot",
+      "id": 44,
+      "name": "storage-actions-large-3"
+    },
+    {
+      "type": "close",
+      "id": 45
+    },
+    {
+      "type": "backpack-size",
+      "id": 46,
+      "restore": true,
+      "accepted_rows": 6,
+      "accepted_columns": 13,
+      "restored": true,
+      "original_size_restored": true
+    },
+    {
+      "type": "resize",
+      "id": 47,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "button-reference",
+      "id": 48,
+      "inventory_button_offsets": {
+        "sorted:widget/search": {
+          "x": -8,
+          "y": 1
+        },
+        "sorted:widget/sort_inventory": {
+          "x": 150,
+          "y": 1
+        },
+        "sorted:widget/quick_stack": {
+          "x": 132,
+          "y": 1
+        },
+        "sorted:widget/quick_fill": {
+          "x": 114,
+          "y": 1
+        },
+        "sorted:widget/quick_empty": {
+          "x": 96,
+          "y": 1
+        }
+      },
+      "container_button_offsets": {
+        "sorted:widget/sort_container": {
+          "x": -18,
+          "y": -19
+        },
+        "sorted:widget/quick_dump": {
+          "x": -36,
+          "y": -19
+        }
+      },
+      "storage_right": 408,
+      "panel_top": 116,
+      "inventory_origin_x": 240,
+      "panel_bottom": 284,
+      "menu_class": "net.minecraft.world.inventory.ChestMenu",
+      "screen_class": "net.minecraft.client.gui.screens.inventory.ContainerScreen"
+    },
+    {
+      "type": "screenshot",
+      "id": 49,
+      "name": "normal-chest-control-reference"
+    },
+    {
+      "type": "close",
+      "id": 50
+    },
+    {
+      "type": "backpack-size",
+      "id": 51,
+      "rows": 6,
+      "columns": 13,
+      "accepted_rows": 6,
+      "accepted_columns": 13,
+      "restored": false,
+      "original_size_restored": false
+    },
+    {
+      "type": "register",
+      "id": 52,
+      "registered_menu_id": "tiered_backpacks:backpack_menu"
+    },
+    {
+      "type": "resize",
+      "id": 53,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "button-reference",
+      "id": 54,
+      "inventory_button_offsets": {
+        "sorted:widget/search": {
+          "x": -9,
+          "y": 1
+        },
+        "sorted:widget/sort_inventory": {
+          "x": 151,
+          "y": 1
+        },
+        "sorted:widget/quick_stack": {
+          "x": 133,
+          "y": 1
+        },
+        "sorted:widget/quick_fill": {
+          "x": 115,
+          "y": 1
+        },
+        "sorted:widget/quick_empty": {
+          "x": 97,
+          "y": 1
+        }
+      },
+      "container_button_offsets": {
+        "sorted:widget/sort_container": {
+          "x": -18,
+          "y": -20
+        },
+        "sorted:widget/quick_dump": {
+          "x": -36,
+          "y": -20
+        }
+      },
+      "storage_right": 409,
+      "panel_top": 115,
+      "inventory_origin_x": 240,
+      "panel_bottom": 285,
+      "menu_class": "me.pajic.tiered_backpacks.ui.BackpackMenu",
+      "screen_class": "me.pajic.tiered_backpacks.ui.BackpackScreen"
+    },
+    {
+      "type": "screenshot",
+      "id": 55,
+      "name": "original-backpack-control-reference-leather"
+    },
+    {
+      "type": "close",
+      "id": 56
+    },
+    {
+      "type": "backpack-size",
+      "id": 57,
+      "rows": 6,
+      "columns": 13,
+      "accepted_rows": 6,
+      "accepted_columns": 13,
+      "restored": false,
+      "original_size_restored": false
+    },
+    {
+      "type": "register",
+      "id": 58,
+      "registered_menu_id": "tiered_backpacks:backpack_menu"
+    },
+    {
+      "type": "resize",
+      "id": 59,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "button-reference",
+      "id": 60,
+      "inventory_button_offsets": {
+        "sorted:widget/search": {
+          "x": -45,
+          "y": 1
+        },
+        "sorted:widget/sort_inventory": {
+          "x": 187,
+          "y": 1
+        },
+        "sorted:widget/quick_stack": {
+          "x": 169,
+          "y": 1
+        },
+        "sorted:widget/quick_fill": {
+          "x": 151,
+          "y": 1
+        },
+        "sorted:widget/quick_empty": {
+          "x": 133,
+          "y": 1
+        }
+      },
+      "container_button_offsets": {
+        "sorted:widget/sort_container": {
+          "x": -18,
+          "y": -20
+        },
+        "sorted:widget/quick_dump": {
+          "x": -36,
+          "y": -20
+        }
+      },
+      "storage_right": 445,
+      "panel_top": 88,
+      "inventory_origin_x": 240,
+      "panel_bottom": 312,
+      "menu_class": "me.pajic.tiered_backpacks.ui.BackpackMenu",
+      "screen_class": "me.pajic.tiered_backpacks.ui.BackpackScreen"
+    },
+    {
+      "type": "screenshot",
+      "id": 61,
+      "name": "original-backpack-control-reference-netherite"
+    },
+    {
+      "type": "close",
+      "id": 62
+    },
+    {
+      "type": "backpack-size",
+      "id": 63,
+      "rows": 9,
+      "columns": 13,
+      "accepted_rows": 9,
+      "accepted_columns": 13,
+      "restored": false,
+      "original_size_restored": false
+    },
+    {
+      "type": "register",
+      "id": 64,
+      "registered_menu_id": "tiered_backpacks:backpack_menu"
+    },
+    {
+      "type": "resize",
+      "id": 65,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "button-reference",
+      "id": 66,
+      "inventory_button_offsets": {
+        "sorted:widget/search": {
+          "x": -45,
+          "y": 1
+        },
+        "sorted:widget/sort_inventory": {
+          "x": 187,
+          "y": 1
+        },
+        "sorted:widget/quick_stack": {
+          "x": 169,
+          "y": 1
+        },
+        "sorted:widget/quick_fill": {
+          "x": 151,
+          "y": 1
+        },
+        "sorted:widget/quick_empty": {
+          "x": 133,
+          "y": 1
+        }
+      },
+      "container_button_offsets": {
+        "sorted:widget/sort_container": {
+          "x": -18,
+          "y": -20
+        },
+        "sorted:widget/quick_dump": {
+          "x": -36,
+          "y": -20
+        }
+      },
+      "storage_right": 445,
+      "panel_top": 61,
+      "inventory_origin_x": 240,
+      "panel_bottom": 339,
+      "menu_class": "me.pajic.tiered_backpacks.ui.BackpackMenu",
+      "screen_class": "me.pajic.tiered_backpacks.ui.BackpackScreen"
+    },
+    {
+      "type": "screenshot",
+      "id": 67,
+      "name": "original-backpack-control-reference-large"
+    },
+    {
+      "type": "close",
+      "id": 68
+    },
+    {
+      "type": "backpack-size",
+      "id": 69,
+      "restore": true,
+      "accepted_rows": 6,
+      "accepted_columns": 13,
+      "restored": true,
+      "original_size_restored": true
+    },
+    {
+      "type": "close",
+      "id": 70
+    }
+  ],
+  "sort_running": false
+}

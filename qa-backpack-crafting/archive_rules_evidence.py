@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Archive selected successful 1.4.2 QA runs without worlds or dependency binaries.
+"""Archive selected successful QA runs without worlds or dependency binaries.
 
-Example: archive_rules_evidence.py --candidate-sha256 HASH --destination evidence/1.4.2
+Example: archive_rules_evidence.py --candidate-sha256 HASH --destination evidence/1.4.3
     --run server=runs/1.4.2-server-final --run rules/native=runs/SUCCESSFUL_LABEL
-    --attachment independent-build.json=/tmp/vanilla-plusplus-1.4.2-source-compare.json
+    --attachment independent-build.json=/tmp/vanilla-plusplus-1.4.3-source-compare.json
     --attachment standard-build.txt=/tmp/EXPLICIT_BUILD_LOG
 """
 import argparse
@@ -17,7 +17,7 @@ from pathlib import Path, PurePosixPath
 
 
 SUITE = Path(__file__).resolve().parents[1]
-VERSION = "1.4.2+26.3"
+DEFAULT_VERSION = "1.4.3+26.3"
 
 
 def digest(path):
@@ -57,7 +57,7 @@ def nodes(value):
             yield from nodes(item)
 
 
-def read_result(run, candidate):
+def read_result(run, candidate, expected_version):
     if (run / "result.json").is_file():
         return json.loads((run / "result.json").read_text()), [run / "result.json"]
     evidence_path = run / "evidence.json"
@@ -82,8 +82,8 @@ def read_result(run, candidate):
         raise ValueError(f"Wheel frozen candidate no longer matches: {run.name}")
     with zipfile.ZipFile(frozen) as archive:
         version = json.loads(archive.read("fabric.mod.json"))["version"]
-    if version != VERSION:
-        raise ValueError(f"Wheel run does not target {VERSION}: {run.name}")
+    if version != expected_version:
+        raise ValueError(f"Wheel run does not target {expected_version}: {run.name}")
     for side, audit in evidence.get("launches", {}).items():
         if json.loads((run / side / "launch-audit.json").read_text()) != audit:
             raise ValueError(f"Wheel launch audit changed: {run.name}/{side}")
@@ -107,16 +107,16 @@ def assertion_count(value):
     return 0
 
 
-def verify_run(run, candidate):
-    result, reports = read_result(run, candidate)
+def verify_run(run, candidate, version=DEFAULT_VERSION):
+    result, reports = read_result(run, candidate, version)
     dictionaries = [item for item in nodes(result) if isinstance(item, dict)]
     passed = [item["passed"] for item in dictionaries if "passed" in item]
     if not passed or any(value is not True for value in passed):
         raise ValueError(f"Run is incomplete or failed: {run.name}")
     if any(item.get("exit_code", 0) != 0 for item in dictionaries):
         raise ValueError(f"Run has an unsuccessful process exit: {run.name}")
-    if result.get("version", VERSION) != VERSION:
-        raise ValueError(f"Run does not target {VERSION}: {run.name}")
+    if result.get("version", version) != version:
+        raise ValueError(f"Run does not target {version}: {run.name}")
     hashes = [item["bundle_sha256"] for item in dictionaries if "bundle_sha256" in item]
     if not hashes or any(value != candidate for value in hashes):
         raise ValueError(f"Run used a different suite candidate: {run.name}")
@@ -136,6 +136,14 @@ def verify_run(run, candidate):
                       if mod["file"].startswith("vanilla-plusplus-quality-of-life-suite-")]
         if not suite_mods or any(mod["sha256"] != candidate for mod in suite_mods):
             raise ValueError(f"Launch audit does not match candidate: {run.name}/{audit.parent.name}")
+        for mod in suite_mods:
+            frozen = audit.parent / "mods" / mod["file"]
+            if digest(frozen) != candidate:
+                raise ValueError(f"Launched suite changed after the run: {run.name}/{audit.parent.name}")
+            with zipfile.ZipFile(frozen) as archive:
+                actual_version = json.loads(archive.read("fabric.mod.json"))["version"]
+            if actual_version != version:
+                raise ValueError(f"Launched suite does not declare {version}: {run.name}/{audit.parent.name}")
     fixtures = list((run / "fixtures").glob("client.jar")) + list((run / "fixtures").glob("server.jar"))
     fixtures += list(run.glob("backpack-crafting-probe.jar"))
     if not fixtures:
@@ -178,7 +186,7 @@ def checksums(directory):
         f"{digest(path)}  {path.relative_to(directory).as_posix()}\n" for path in files))
 
 
-def archive_run(label, run, verified, target, candidate):
+def archive_run(label, run, verified, target, candidate, version=DEFAULT_VERSION):
     result, sources, audits, fixtures, reports = verified
     target.mkdir(parents=True)
     raw_hashes = {}
@@ -211,7 +219,7 @@ def archive_run(label, run, verified, target, candidate):
             shutil.copyfile(screenshot, destination)
             screenshots.append(destination.relative_to(target).as_posix())
     assertions = assertion_count(result)
-    manifest = {"profile": label, "passed": True, "suite_version": VERSION, "suite_sha256": candidate,
+    manifest = {"profile": label, "passed": True, "suite_version": version, "suite_sha256": candidate,
                 "assertions": assertions, "screenshots": screenshots,
                 "raw_input_sha256": {Path(name).relative_to(target).as_posix(): value for name, value in raw_hashes.items()},
                 "published_source_sha256": {path.name: digest(path) for path in (target / "executed-source").iterdir()},
@@ -226,6 +234,7 @@ def main():
     parser.add_argument("--run", type=assignment, action="append", required=True)
     parser.add_argument("--destination", type=Path, required=True)
     parser.add_argument("--candidate-sha256", required=True)
+    parser.add_argument("--version", default=DEFAULT_VERSION, help="Exact declared suite version, including the Minecraft suffix")
     parser.add_argument("--attachment", type=assignment, action="append", default=[])
     parser.add_argument("--check-only", action="store_true", help="Validate inputs without creating an archive")
     args = parser.parse_args()
@@ -241,7 +250,7 @@ def main():
     if len(set(attachment_labels)) != len(attachment_labels) or any(
             a != b and b.startswith(a + "/") for a in attachment_labels for b in attachment_labels):
         parser.error("Attachment labels must be unique and must not contain another attachment label")
-    verified = [(label, run, verify_run(run, args.candidate_sha256)) for label, run in args.run]
+    verified = [(label, run, verify_run(run, args.candidate_sha256, args.version)) for label, run in args.run]
     for label, source in args.attachment:
         if source.suffix not in (".json", ".txt", ".log", ".sha256", ".md") or not source.is_file():
             parser.error("Attachments must be explicit existing text reports, not binary artifacts")
@@ -254,13 +263,13 @@ def main():
     with tempfile.TemporaryDirectory(prefix=".rules-evidence-", dir=destination.parent) as temporary:
         staging = Path(temporary) / "archive"
         staging.mkdir()
-        summaries = [archive_run(label, run, data, staging / label, args.candidate_sha256)
+        summaries = [archive_run(label, run, data, staging / label, args.candidate_sha256, args.version)
                      for label, run, data in verified]
         attachment_hashes = {}
         for label, source in args.attachment:
             copy_text(source, staging / "reports" / label, attachment_hashes)
         write_json(staging / "verification.json", {
-            "suite_version": VERSION, "suite_sha256": args.candidate_sha256, "passed": True,
+            "suite_version": args.version, "suite_sha256": args.candidate_sha256, "passed": True,
             "runs": summaries, "collector_sha256": digest(Path(__file__)),
             "raw_report_sha256": {Path(name).relative_to(staging).as_posix(): value for name, value in attachment_hashes.items()}})
         checksums(staging)

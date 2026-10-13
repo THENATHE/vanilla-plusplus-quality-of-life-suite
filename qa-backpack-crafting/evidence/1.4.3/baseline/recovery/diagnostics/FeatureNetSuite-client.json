@@ -1,0 +1,183 @@
+{
+  "ticks": 320,
+  "menu_id": 0,
+  "screen": "none",
+  "cursor": 0,
+  "actions": [
+    {
+      "type": "register",
+      "id": 1,
+      "registered_menu_id": "vpp_backpack_crafting:crafting"
+    },
+    {
+      "type": "resize",
+      "id": 2,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "book-state",
+      "id": 3,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 4,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "storage-recovery",
+      "id": 5,
+      "scenario": "origin-grid",
+      "origin": 1,
+      "expected_target": -1,
+      "baseline": true,
+      "actual_return_target": 1,
+      "selected_target": 1,
+      "target_is_crafting": true,
+      "cursor_unchanged": true,
+      "all_slots_unchanged": true,
+      "actual_private_selector_invoked": true,
+      "cursor_item": "minecraft:oak_log",
+      "cursor_count": 4,
+      "grid_width": 2
+    },
+    {
+      "type": "storage-recovery",
+      "id": 6,
+      "scenario": "matching-grid",
+      "origin": -1,
+      "expected_target": -1,
+      "baseline": true,
+      "actual_return_target": 1,
+      "selected_target": 1,
+      "target_is_crafting": true,
+      "cursor_unchanged": true,
+      "all_slots_unchanged": true,
+      "actual_private_selector_invoked": true,
+      "cursor_item": "minecraft:oak_log",
+      "cursor_count": 4,
+      "grid_width": 2
+    },
+    {
+      "type": "storage-recovery",
+      "id": 7,
+      "scenario": "empty-grid",
+      "origin": -1,
+      "expected_target": -1,
+      "baseline": true,
+      "actual_return_target": 1,
+      "selected_target": 1,
+      "target_is_crafting": true,
+      "cursor_unchanged": true,
+      "all_slots_unchanged": true,
+      "actual_private_selector_invoked": true,
+      "cursor_item": "minecraft:oak_log",
+      "cursor_count": 4,
+      "grid_width": 2
+    },
+    {
+      "type": "screenshot",
+      "id": 8,
+      "name": "storage-actions-leather-2"
+    },
+    {
+      "type": "close",
+      "id": 9
+    },
+    {
+      "type": "register",
+      "id": 10,
+      "registered_menu_id": "vpp_backpack_crafting:crafting"
+    },
+    {
+      "type": "resize",
+      "id": 11,
+      "width": 640,
+      "height": 400
+    },
+    {
+      "type": "book-state",
+      "id": 12,
+      "open": false
+    },
+    {
+      "type": "validate",
+      "id": 13,
+      "storage_slots_verified": 27,
+      "filtered_grid_and_result_excluded": true,
+      "sorted_buttons_verified": 7,
+      "storage_panel_width": 178,
+      "book_visible": false,
+      "pinned_tab_visible": false,
+      "narrow": false
+    },
+    {
+      "type": "storage-recovery",
+      "id": 14,
+      "scenario": "origin-grid",
+      "origin": 1,
+      "expected_target": -1,
+      "baseline": true,
+      "actual_return_target": 1,
+      "selected_target": 1,
+      "target_is_crafting": true,
+      "cursor_unchanged": true,
+      "all_slots_unchanged": true,
+      "actual_private_selector_invoked": true,
+      "cursor_item": "minecraft:oak_log",
+      "cursor_count": 4,
+      "grid_width": 3
+    },
+    {
+      "type": "storage-recovery",
+      "id": 15,
+      "scenario": "matching-grid",
+      "origin": -1,
+      "expected_target": -1,
+      "baseline": true,
+      "actual_return_target": 1,
+      "selected_target": 1,
+      "target_is_crafting": true,
+      "cursor_unchanged": true,
+      "all_slots_unchanged": true,
+      "actual_private_selector_invoked": true,
+      "cursor_item": "minecraft:oak_log",
+      "cursor_count": 4,
+      "grid_width": 3
+    },
+    {
+      "type": "storage-recovery",
+      "id": 16,
+      "scenario": "empty-grid",
+      "origin": -1,
+      "expected_target": -1,
+      "baseline": true,
+      "actual_return_target": 1,
+      "selected_target": 1,
+      "target_is_crafting": true,
+      "cursor_unchanged": true,
+      "all_slots_unchanged": true,
+      "actual_private_selector_invoked": true,
+      "cursor_item": "minecraft:oak_log",
+      "cursor_count": 4,
+      "grid_width": 3
+    },
+    {
+      "type": "screenshot",
+      "id": 17,
+      "name": "storage-actions-leather-3"
+    },
+    {
+      "type": "close",
+      "id": 18
+    }
+  ],
+  "sort_running": false
+}

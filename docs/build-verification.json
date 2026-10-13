@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "vpp_mod_suite",
-  "version": "1.4.2+26.3",
-  "sha256": "7c85a7ae934917cb1c5427e18fa00e68b3943064c12c1b74b7c8a3d31511c24b",
+  "version": "1.4.3+26.3",
+  "sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -60,9 +60,9 @@
     },
     {
       "id": "sso_backpack_toolpouch_mapstitch_shim",
-      "version": "1.4.2+26.3",
-      "sha256": "652a12dbb9dc54dae55ad9c8af49ff93b5853835389ec495b70718bc0a1c8f8b",
-      "file": "META-INF/jars/thenathe-suite-combined-compat-1.4.2+26.3.jar"
+      "version": "1.4.3+26.3",
+      "sha256": "7583496b5d5e98fbea89b063e8701f4447b29697b7eb6b94449d79aa433ed476",
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.4.3+26.3.jar"
     },
     {
       "id": "chalk_polymer_compat",
@@ -96,9 +96,9 @@
     },
     {
       "id": "mapstitch_mixed_scales",
-      "version": "1.1.11+26.3",
-      "sha256": "5de99be404cfa76d5dd15041fae9a6ec26b57b1e92499f31862d6aa49be80687",
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.11+26.3.jar"
+      "version": "1.1.12+26.3",
+      "sha256": "612e5e4e1aaf3198548c70d02b09d92b4a866a05a306800aca91edaa29a07bed",
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.1.12+26.3.jar"
     },
     {
       "id": "bannerpoint",
@@ -114,9 +114,9 @@
     },
     {
       "id": "vpp_backpack_crafting",
-      "version": "1.0.2+26.3",
-      "sha256": "5fde38de40571f89a44153878a092917636c1c46b123826b3a2132cfbdb0a5d9",
-      "file": "META-INF/jars/thenathe-suite-backpack-crafting-1.0.2+26.3.jar"
+      "version": "1.0.3+26.3",
+      "sha256": "c262ca3f47818e005b2ebfabaedf6a8b950899371caac8c10e53b04414eadb69",
+      "file": "META-INF/jars/thenathe-suite-backpack-crafting-1.0.3+26.3.jar"
     }
   ],
   "original_inputs_unchanged": true,
@@ -124,40 +124,69 @@
   "defaulted_runtime_required": false,
   "licenses_retained": true,
   "runtime_tested": true,
-  "scope": "Exact candidate passed focused native/Polymer server regressions, original Sorted rules and native layout, ordinary/maximum BRBR crafting, standard recipes with optional mods absent, and Hotkey Wheel integration. Installer has a separate verification record.",
-  "evidence": "qa-backpack-crafting/evidence/1.4.2/verification.json",
+  "scope": "Exact final artifact passed native/Polymer server regressions, original Sorted storage actions and direct recovery selectors, full-frame controls and narrow/wide native layouts, BRBR ordinary/maximum backpack crafting, and native/Polymer Hotkey Wheel integration. Recovery probes verify destination selection rather than a complete interrupted-sort timeline; ClientSort fill/transfer UI remains unexecuted. Installer acceptance has a separate record.",
+  "evidence": "qa-backpack-crafting/evidence/1.4.3/verification.json",
   "fresh_checks": {
     "server_assertions": {
       "native": 198,
       "polymer": 198
     },
-    "sorted_rule_assertions": {
-      "0.1.26_native": 146,
-      "0.1.26_polymer": 146,
-      "0.1.25_native_without_brbr": 146
+    "sorted_storage_assertions": {
+      "0.1.26_native": 487,
+      "0.1.26_polymer": 487,
+      "0.1.25_native_without_brbr": 487
     },
-    "native_layout": {
-      "assertions": 590,
-      "states": 20,
-      "cursor_clicks": 128,
-      "pins_checks": 8
+    "sorted_storage_execution": {
+      "crafting_menus": 18,
+      "widget_callbacks": 144,
+      "direct_recovery_selector_probes": 126,
+      "plain_backpack_references": 9,
+      "capacities": [
+        27,
+        78,
+        117
+      ],
+      "crafting_grids": [
+        "2x2",
+        "3x3"
+      ],
+      "client_configuration_restorations": 3
+    },
+    "layout": {
+      "native_assertions": 886,
+      "polymer_assertions": 886,
+      "states": 60,
+      "cursor_clicks": 384,
+      "pins_checks": 24,
+      "client_configuration_restorations": 2
+    },
+    "placement_preview": {
+      "assertions": 19,
+      "storage_operations": 0,
+      "recovery_probes": 0,
+      "plain_backpack_references": 3,
+      "screenshots": 10
     },
     "recipe_cases": {
       "brbr_native": 8,
-      "brbr_polymer": 8,
-      "standard_without_sorted_or_brbr": 4
+      "brbr_polymer": 8
     },
     "hotkey_wheel": {
       "version": "1.0.6+26.3",
       "native_assertions": 62,
       "polymer_assertions": 62,
-      "context_observations_each": 1
+      "context_observations_each": 1,
+      "configurations_each": 15,
+      "screenshots_each": 18
     },
     "independent_build": {
-      "non_directory_entries": 130,
+      "main_non_directory_entries": 130,
+      "source_non_directory_entries": 80,
       "all_file_entries_byte_identical": true,
       "whole_archive_byte_identical": false,
       "empty_directory_differences": 4
-    }
+    },
+    "total_declared_assertions": 3772,
+    "total_recipe_cases": 16
   }
 }

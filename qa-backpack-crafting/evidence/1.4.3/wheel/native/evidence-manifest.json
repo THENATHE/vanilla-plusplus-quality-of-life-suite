@@ -1,0 +1,47 @@
+{
+  "profile": "wheel/native",
+  "passed": true,
+  "suite_version": "1.4.3+26.3",
+  "suite_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "assertions": 62,
+  "screenshots": [
+    "screenshots/client/bannerpoint.client_config.png",
+    "screenshots/client/bannerpoint.config.png",
+    "screenshots/client/hotkey-wheel-opened-suite-settings.png",
+    "screenshots/client/hotkey-wheel-suite-control.png",
+    "screenshots/client/mapstitch.client_config.png",
+    "screenshots/client/mapstitch.config.png",
+    "screenshots/client/misctweaks.client_config.png",
+    "screenshots/client/misctweaks.config.png",
+    "screenshots/client/sensible_stackables.client_config.png",
+    "screenshots/client/sensible_stackables.config.png",
+    "screenshots/client/simple_death_improvements.config.png",
+    "screenshots/client/simple_smithing_overhaul.config-v2.png",
+    "screenshots/client/suite-settings-overview.png",
+    "screenshots/client/tiered_backpacks.config.png",
+    "screenshots/client/toolpouch.client_config.png",
+    "screenshots/client/toolpouch.config.png",
+    "screenshots/client/vpp_mod_suite.chalk.png",
+    "screenshots/client/vpp_mod_suite.features.png"
+  ],
+  "raw_input_sha256": {
+    "evidence.json": "6050954c594880d11152c59b03c5f1f1769df3289d2efcca00a28ce53ea60f0a",
+    "result.txt": "4135cb2bc42e08d71a6418c5d08f3b08aa407e2a71fcd8bcd2058cdad15f60f5",
+    "observations.json": "fb20bc27c1c5ace083c7fff01aefd59b35c34b1e47a5637b7ed447453dffd7b4",
+    "executed-source/SettingsClientQa.java": "8596fa36e4e2aa1f857787785bffae998af5bd8843543835b1c121ab19e6d492",
+    "executed-source/SettingsServerQa.java": "27b731be2359349b6ef7f11a45d2461408ad89e979dfb39d7763325dfdc464d2",
+    "executed-source/WheelFocusQaMixin.java": "ec3ae94c65e01dc367fc8b09c12c537bddafd2c0a4f8f28d0913bdc4dbbbde16",
+    "executed-source/run.py": "c0c3ac560cab77e292d577ab5f48b0961fff770376f20988e5a6807580e6534c",
+    "client-launch-audit.json": "351ba92c46925723d9d483bd51ddc609fe08139a3b7b7b3fc7d815cb984f8c53",
+    "server-launch-audit.json": "46d96ce4ca1ef5448e4d03ac261557e59a6f264885f54901f84cb66812fd66e3",
+    "diagnostics/observations.json": "fb20bc27c1c5ace083c7fff01aefd59b35c34b1e47a5637b7ed447453dffd7b4",
+    "diagnostics/server-config.json": "9b2b7ac0cc3216c65141c0633502f4d16059a43350e9e3806207e81b176d3516"
+  },
+  "published_source_sha256": {
+    "SettingsClientQa.java": "8596fa36e4e2aa1f857787785bffae998af5bd8843543835b1c121ab19e6d492",
+    "run.py": "c0c3ac560cab77e292d577ab5f48b0961fff770376f20988e5a6807580e6534c",
+    "WheelFocusQaMixin.java": "ec3ae94c65e01dc367fc8b09c12c537bddafd2c0a4f8f28d0913bdc4dbbbde16",
+    "SettingsServerQa.java": "27b731be2359349b6ef7f11a45d2461408ad89e979dfb39d7763325dfdc464d2"
+  },
+  "audit_note": "Absolute personal paths are replaced with portable tokens. Raw hashes identify the retained local inputs; published hashes identify sanitized copies. Worlds, original JARs, raw game logs and native libraries are excluded."
+}

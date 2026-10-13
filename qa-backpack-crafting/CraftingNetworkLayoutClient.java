@@ -22,6 +22,8 @@ import com.mojang.blaze3d.platform.InputConstants;
 /** Real client command parser, widget callbacks and held-cursor clicks in disposable menus. */
 public final class CraftingNetworkLayoutClient {
     private static final JsonArray actions = new JsonArray();
+    private static Integer originalNetheriteRows;
+    private static Integer originalNetheriteColumns;
 
     public static void tick(Minecraft client, Path control, int ticks) throws Exception {
         String name = client.player.getGameProfile().name();
@@ -54,6 +56,23 @@ public final class CraftingNetworkLayoutClient {
 
     private static void act(Minecraft client, JsonObject action) throws Exception {
         String type = action.get("type").getAsString();
+        if (type.equals("backpack-size")) {
+            var dimensions = me.pajic.tiered_backpacks.TieredBackpacks.CONFIG.netheriteSize.get();
+            if (originalNetheriteRows == null) {
+                originalNetheriteRows = dimensions.rows.get();
+                originalNetheriteColumns = dimensions.columns.get();
+            }
+            boolean restore = action.has("restore") && action.get("restore").getAsBoolean();
+            dimensions.rows.accept(restore ? originalNetheriteRows : action.get("rows").getAsInt());
+            dimensions.columns.accept(restore ? originalNetheriteColumns : action.get("columns").getAsInt());
+            action.addProperty("accepted_rows", dimensions.rows.get());
+            action.addProperty("accepted_columns", dimensions.columns.get());
+            action.addProperty("restored", restore);
+            action.addProperty("original_size_restored", restore
+                    && dimensions.rows.get().equals(originalNetheriteRows)
+                    && dimensions.columns.get().equals(originalNetheriteColumns));
+            return;
+        }
         if (type.equals("register")) {
             AbstractContainerMenu menu = client.player.containerMenu;
             String id = (String) invoke("com.sorted.client.StorageMenus", "typeId", new Class<?>[] {AbstractContainerMenu.class}, menu);
@@ -78,21 +97,49 @@ public final class CraftingNetworkLayoutClient {
             if (book.isVisible() != action.get("open").getAsBoolean()) book.toggleVisibility();
             // The native opener also recomputes the container position after toggling.
             screen.resize(screen.width, screen.height);
+        } else if (type.equals("button-reference")) {
+            inventoryButtonReference(screen, action);
         } else if (type.equals("validate")) {
             validateStorage(screen, action);
             validateButtons(screen, action);
-        } else if (type.equals("sort") || type.equals("stack")) {
-            String desired = type.equals("sort") ? "sorted:widget/sort_container" : "sorted:widget/quick_stack";
+        } else if (type.equals("storage-recovery")) {
+            CraftingNetworkStorageRecovery.probe(screen.getMenu(), action);
+        } else if (type.equals("sort") || type.equals("stack") || type.equals("storage-operation")) {
+            String desired = type.equals("storage-operation") ? action.get("icon").getAsString()
+                    : type.equals("sort") ? "sorted:widget/sort_container" : "sorted:widget/quick_stack";
+            if (type.equals("storage-operation")) {
+                try (org.lwjgl.sdl.SDL_Event focus = org.lwjgl.sdl.SDL_Event.calloc()) {
+                    focus.window().type(org.lwjgl.sdl.SDLEvents.SDL_EVENT_WINDOW_FOCUS_GAINED)
+                            .windowID(org.lwjgl.sdl.SDLVideo.SDL_GetWindowID(client.getWindow().handle()));
+                    client.getWindow().handleEvent(focus);
+                }
+                require(screen.getMenu().getCarried().isEmpty(), "Sorted operation fixture starts with a held cursor stack");
+                action.add("client_crafting_before", craftingSnapshot(screen));
+                action.addProperty("window_active", client.isWindowActive());
+                action.addProperty("simulated_sdl_focus", true);
+                action.addProperty("cursor_before", screen.getMenu().getCarried().getCount());
+            }
             AbstractWidget button = widgets(screen).stream().filter(widget -> {
                 try { return field(widget, "icon").toString().equals(desired); }
                 catch (Exception failure) { throw new RuntimeException(failure); }
             }).findFirst().orElseThrow(() -> new AssertionError("Sorted button missing: " + desired));
             clearHover(screen);
             setField(button, "isHovered", true);
-            MouseButtonEvent event = click(button.getX() + 8, button.getY() + 8);
+            boolean shift = type.equals("storage-operation") && action.has("shift") && action.get("shift").getAsBoolean();
+            MouseButtonEvent event = shift
+                    ? new MouseButtonEvent(button.getX() + 8, button.getY() + 8,
+                            new MouseButtonInfo(InputConstants.MOUSE_BUTTON_LEFT, InputConstants.MOD_SHIFT))
+                    : click(button.getX() + 8, button.getY() + 8);
             require(screen.mouseClicked(event, false), "Real screen ignored Sorted " + type + " click");
             screen.mouseReleased(event);
             action.addProperty("clicked_icon", desired);
+            if (type.equals("storage-operation")) {
+                action.add("client_crafting_after", craftingSnapshot(screen));
+                action.addProperty("cursor_after", screen.getMenu().getCarried().getCount());
+                action.addProperty("event_button", event.button());
+                action.addProperty("shift", shift);
+                action.addProperty("event_has_shift", event.hasShiftDown());
+            }
         } else if (type.equals("point")) {
             String pointId = action.get("point").getAsString();
             double[] point = point(screen, pointId);
@@ -132,6 +179,64 @@ public final class CraftingNetworkLayoutClient {
         } else throw new AssertionError("Unknown layout action " + type);
     }
 
+    private static void inventoryButtonReference(AbstractContainerScreen<?> screen, JsonObject action) throws Exception {
+        Slot firstInventory = screen.getMenu().slots.stream().filter(slot -> slot.container instanceof net.minecraft.world.entity.player.Inventory
+                && slot.getContainerSlot() == 9).findFirst().orElseThrow(() -> new AssertionError("Reference menu has no player inventory row"));
+        int originX = number(screen, "leftPos") + firstInventory.x;
+        int panelBottom = number(screen, "topPos") + number(screen, "imageHeight");
+        JsonObject offsets = new JsonObject();
+        for (String icon : List.of("sorted:widget/search", "sorted:widget/sort_inventory", "sorted:widget/quick_stack",
+                "sorted:widget/quick_fill", "sorted:widget/quick_empty")) {
+            AbstractWidget widget = widgets(screen).stream().filter(button -> {
+                try { return field(button, "icon").toString().equals(icon); }
+                catch (Exception failure) { throw new RuntimeException(failure); }
+            }).findFirst().orElseThrow(() -> new AssertionError("Reference inventory button missing: " + icon));
+            require(widget.visible && widget.active, "Reference inventory button is unavailable: " + icon);
+            JsonObject position = new JsonObject();
+            position.addProperty("x", widget.getX() - originX);
+            position.addProperty("y", widget.getY() - panelBottom);
+            offsets.add(icon, position);
+        }
+        action.add("inventory_button_offsets", offsets);
+        int storageRight = number(screen, "leftPos") + (screen.getMenu() instanceof BackpackCraftingMenu menu
+                ? menu.getStorageWidth() : number(screen, "imageWidth"));
+        int panelTop = number(screen, "topPos");
+        JsonObject containerOffsets = new JsonObject();
+        for (String icon : List.of("sorted:widget/sort_container", "sorted:widget/quick_dump")) {
+            AbstractWidget widget = widgets(screen).stream().filter(button -> {
+                try { return field(button, "icon").toString().equals(icon); }
+                catch (Exception failure) { throw new RuntimeException(failure); }
+            }).findFirst().orElseThrow(() -> new AssertionError("Reference container button missing: " + icon));
+            require(widget.visible && widget.active, "Reference container button is unavailable: " + icon);
+            JsonObject position = new JsonObject();
+            position.addProperty("x", widget.getX() - storageRight);
+            position.addProperty("y", widget.getY() - panelTop);
+            containerOffsets.add(icon, position);
+        }
+        action.add("container_button_offsets", containerOffsets);
+        action.addProperty("storage_right", storageRight);
+        action.addProperty("panel_top", panelTop);
+        action.addProperty("inventory_origin_x", originX);
+        action.addProperty("panel_bottom", panelBottom);
+        action.addProperty("menu_class", screen.getMenu().getClass().getName());
+        action.addProperty("screen_class", screen.getClass().getName());
+    }
+
+    private static JsonObject craftingSnapshot(AbstractContainerScreen<?> screen) {
+        JsonObject snapshot = new JsonObject();
+        if (screen.getMenu() instanceof BackpackCraftingMenu menu) {
+            JsonArray grid = new JsonArray();
+            for (Slot slot : menu.getInputGridSlots()) grid.add(describeStack(slot.getItem()));
+            snapshot.add("grid", grid);
+            snapshot.addProperty("result", describeStack(menu.getResultSlot().getItem()));
+        }
+        return snapshot;
+    }
+
+    private static String describeStack(net.minecraft.world.item.ItemStack stack) {
+        return stack.isEmpty() ? "empty" : stack + " components=" + stack.getComponents();
+    }
+
     private static void validateStorage(AbstractContainerScreen<?> screen, JsonObject action) throws Exception {
         AbstractContainerMenu menu = screen.getMenu();
         List<Slot> actual = storageSlots(menu);
@@ -157,8 +262,8 @@ public final class CraftingNetworkLayoutClient {
         int left = number(screen, "leftPos"), top = number(screen, "topPos");
         int storageWidth = screen.getMenu() instanceof BackpackCraftingMenu crafting ? crafting.getStorageWidth() : number(screen, "imageWidth");
         int height = number(screen, "imageHeight");
-        int inventoryLeft = screen.getMenu() instanceof BackpackCraftingMenu ? storageWidth / 2 - 88 : 0;
-        int inventoryRight = screen.getMenu() instanceof BackpackCraftingMenu ? storageWidth / 2 + 88 : storageWidth;
+        int inventoryLeft = 0;
+        int inventoryRight = storageWidth;
         List<AbstractWidget> controls = widgets(screen);
         require(controls.size() == 7, "Expected seven normal Sorted storage/inventory buttons, found " + controls.size());
         for (AbstractWidget widget : controls) {
@@ -175,7 +280,7 @@ public final class CraftingNetworkLayoutClient {
             };
             boolean container = icon.equals("sorted:widget/sort_container") || icon.equals("sorted:widget/quick_dump");
             int y = screen.getMenu() instanceof BackpackCraftingMenu crafting
-                    ? (container ? 0 : crafting.getInventoryY() - 19) : (container ? -20 : height + 1);
+                    ? (container ? -20 : height + 1) : (container ? -20 : height + 1);
             require(widget.visible && widget.getX() == left + x && widget.getY() == top + y,
                     "Sorted button follows the wrong panel: " + icon + " at " + widget.getX() + "," + widget.getY());
             require(widget.getX() >= 0 && widget.getY() >= 0 && widget.getRight() <= screen.width && widget.getBottom() <= screen.height,

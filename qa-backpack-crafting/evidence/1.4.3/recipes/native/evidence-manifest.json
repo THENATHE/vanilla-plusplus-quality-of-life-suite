@@ -1,0 +1,46 @@
+{
+  "profile": "recipes/native",
+  "passed": true,
+  "suite_version": "1.4.3+26.3",
+  "suite_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "assertions": 0,
+  "screenshots": [
+    "screenshots/FeatureNetSuite/backpack-crafting-2-27.png",
+    "screenshots/FeatureNetSuite/backpack-crafting-2-78.png",
+    "screenshots/FeatureNetSuite/backpack-crafting-3-27.png",
+    "screenshots/FeatureNetSuite/backpack-crafting-3-78.png",
+    "screenshots/FeatureNetSuite/backpack-crafting-ghost-3-27.png",
+    "screenshots/FeatureNetSuite/backpack-crafting-ghost-3-78.png",
+    "screenshots/FeatureNetSuite/backpack-crafting-result-2-27.png",
+    "screenshots/FeatureNetSuite/backpack-crafting-result-2-78.png",
+    "screenshots/FeatureNetSuite/backpack-crafting-result-3-27.png",
+    "screenshots/FeatureNetSuite/backpack-crafting-result-3-78.png"
+  ],
+  "raw_input_sha256": {
+    "result.json": "03f94fa66bc42693a5e5b5acbdc88df6608febe2e5557928d90f68930d0e39b9",
+    "executed-source/CraftingNetworkBrbrTrace.java": "6f6fad0e7167aa60fab53a96e637881111eee7dd9ac6e636ac3da4754f4b677d",
+    "executed-source/CraftingNetworkClient.java": "006695aa71856d7de8299807872aaad5d15c0030f24eb3f60d8c769d1a03dc73",
+    "executed-source/CraftingNetworkLayoutClient.java": "3665a8b336df93e4bfa3dc67607097b11ae3e9f969d1040aeb0550113354d9b2",
+    "executed-source/CraftingNetworkLayoutServer.java": "c76f0df3a4ff92390a8d1540871604ee3ae5af8c09e3aae4f6f113547e6da875",
+    "executed-source/CraftingNetworkRulesClient.java": "c1ef2bcfeb598772026e6961bda3a2064eeaaa3fa5ba6ec2e136756424a067bf",
+    "executed-source/CraftingNetworkServer.java": "e20d9d3ddd9479b8c9e61ad5f0e75927141c4fe792e9d346aa5445ce04f12684",
+    "executed-source/CraftingNetworkStorageRecovery.java": "6fc810896130c6840ac151fb090634bb4c0d99ee1f937960f5784938cad707a5",
+    "executed-source/network.py": "c8774b22da87cf2175c4172fb5eed552554d17217b656c5008858ae960d6ba73",
+    "FeatureNetSuite-launch-audit.json": "cf5c983a54ecbc33d423918eb9a875e3448f51c4247599b91c051652e0a16222",
+    "config-proof/FeatureNetSuite/sorted.json": "3e558773d1dc9c882d9b8c836de3f0e1247f039332afbf0f1e3de9b2d1f84d71",
+    "server-launch-audit.json": "eabe51dddc2ade4ae009568989750a94071c3a63a14dd1a056f2fa8a5f6d6d17",
+    "diagnostics/FeatureNetSuite-client.json": "699b19f4a11b4bd9c67904ab58aa9d7f8b361b281c20cb2d967272fe0d9ea84d",
+    "diagnostics/FeatureNetSuite-server.json": "4436719937f610b09dbbd80b361ab0029966bb4372ab378b9ec879e4353028b0"
+  },
+  "published_source_sha256": {
+    "CraftingNetworkLayoutServer.java": "c76f0df3a4ff92390a8d1540871604ee3ae5af8c09e3aae4f6f113547e6da875",
+    "CraftingNetworkClient.java": "006695aa71856d7de8299807872aaad5d15c0030f24eb3f60d8c769d1a03dc73",
+    "CraftingNetworkRulesClient.java": "c1ef2bcfeb598772026e6961bda3a2064eeaaa3fa5ba6ec2e136756424a067bf",
+    "CraftingNetworkLayoutClient.java": "3665a8b336df93e4bfa3dc67607097b11ae3e9f969d1040aeb0550113354d9b2",
+    "CraftingNetworkServer.java": "e20d9d3ddd9479b8c9e61ad5f0e75927141c4fe792e9d346aa5445ce04f12684",
+    "CraftingNetworkBrbrTrace.java": "6f6fad0e7167aa60fab53a96e637881111eee7dd9ac6e636ac3da4754f4b677d",
+    "network.py": "c8774b22da87cf2175c4172fb5eed552554d17217b656c5008858ae960d6ba73",
+    "CraftingNetworkStorageRecovery.java": "6fc810896130c6840ac151fb090634bb4c0d99ee1f937960f5784938cad707a5"
+  },
+  "audit_note": "Absolute personal paths are replaced with portable tokens. Raw hashes identify the retained local inputs; published hashes identify sanitized copies. Worlds, original JARs, raw game logs and native libraries are excluded."
+}

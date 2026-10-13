@@ -1,17 +1,17 @@
-# Installation pack — Vanilla++ Quality of Life Suite 1.4.2+26.3
+# Installation pack — Vanilla++ Quality of Life Suite 1.4.3+26.3
 
-The **1.4.2+26.3** update excludes temporary backpack crafting inputs/output from Sorted keep-rule suggestions and Alt edits. Prior panel/drop boundaries, recipe-book protection and optional Sorted storage controls remain included. Prior anvil, grindstone and pet safety fixes remain included. Replace the suite JAR on the server and matching native clients. Exact external dependencies and original developer inputs remain unchanged; Collective is not required. Final 1.4.2 runtime acceptance passed for Sorted rule/layout, standard/BRBR recipe, current wheel and native/Polymer server profiles. The exact runtime and separate installation-package proof are recorded in the release guide; prior 1.4.1 acceptance retains its original artifact and scope. [The release guide](RELEASE_1_4_2.md) keeps runtime evidence and installation-package verification distinct.
+The **1.4.3+26.3** update restores Sorted's backpack controls above the panel at its right edge, keeps player controls below the full backpack frame with search at its left edge and the other actions at its right, excluding the crafting extension, and excludes temporary backpack crafting inputs/output from interrupted-operation cursor recovery. Earlier keep-rule, panel/drop, recipe-book, storage-control and gameplay fixes remain included. Replace the suite JAR on the server and matching native clients. Exact external dependencies and original developer inputs remain unchanged; Collective is not required. Final 1.4.3 runtime acceptance passed, with 3,772 declared assertions plus 16 recipe cases. The release guide records the exact runtime proof and separate installation-package status; prior 1.4.2 acceptance retains its original artifact and scope. [The release guide](RELEASE_1_4_3.md) keeps runtime evidence and installation-package verification distinct.
 
-The authored root mod ID remains `vpp_mod_suite`. Swift Flight retains its original enchantment ID and existing enchanted books/harnesses. Legacy pet-call bindings and datapack state are not imported; rebind horns after removing the old packs. Remove standalone versions of enabled replacement features to avoid duplicate execution. [Release instructions](RELEASE_1_4_2.md) record the full scope and verification.
+The authored root mod ID remains `vpp_mod_suite`. Swift Flight retains its original enchantment ID and existing enchanted books/harnesses. Legacy pet-call bindings and datapack state are not imported; rebind horns after removing the old packs. Remove standalone versions of enabled replacement features to avoid duplicate execution. [Release instructions](RELEASE_1_4_3.md) record the full scope and verification.
 
 ## Release files
 
 [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) supplies four files:
 
 - `README.md` — feature and installation overview.
-- `vanilla-plusplus-quality-of-life-suite-1.4.2+26.3.jar` — the suite for an instance with the correct libraries already installed.
+- `vanilla-plusplus-quality-of-life-suite-1.4.3+26.3.jar` — the suite for an instance with the correct libraries already installed.
 - `docs.zip` — source/dependency/verification records and documentation.
-- `vanilla-plusplus-installation-pack-1.4.2+26.3.zip` — the setup kit, permitted dependency binaries, notices and side-aware installer.
+- `vanilla-plusplus-installation-pack-1.4.3+26.3.zip` — the setup kit, permitted dependency binaries, notices and side-aware installer.
 
 ## Native client installation
 
@@ -63,7 +63,7 @@ The ZIP includes these two local files under `overrides/mods/`:
 
 | Included file | SHA-256 | License/source context |
 | --- | --- | --- |
-| Suite 1.4.2+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
+| Suite 1.4.3+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
 | CodecUI 26.3-1.4.3 | `4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898` | MIT declaration and retained notices; precise private build revision is unrecorded. [Source-family record](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference). |
 
 Six public publisher binaries are cached under `downloads/mods/`, with licenses and hashes retained. Fzzy Config has only its official download entry:

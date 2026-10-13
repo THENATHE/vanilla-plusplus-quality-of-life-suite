@@ -1,5 +1,14 @@
 # Changes
 
+## 1.4.3+26.3
+
+- Restore Sorted's backpack controls above the panel at its right edge. Keep player controls below the full backpack frame, search at its left edge and the remaining actions at its right, matching the original plain backpack. Exclude the crafting extension from those horizontal anchors and remove the extra inventory header/label shift.
+
+- Exclude temporary backpack crafting inputs/output from Sorted's cursor-recovery scan after interrupted operations or unexpected carried-stack changes. Keep ordinary storage/player destinations eligible and preserve normal crafting clicks.
+- Retain the prior storage/control, drop-boundary and keep-rule exclusions. All six Sorted storage/player buttons should operate within those regions.
+- Advance Backpack Crafting to 1.0.3+26.3 and combined compatibility to 1.4.3+26.3. Mixed-scale MapStitch 1.1.12+26.3 changes only its exact coordinator constraint. Original mod binaries and runtime libraries stay unchanged.
+- Track the final candidate, baseline reproduction and fresh native/Polymer checks in [the 1.4.3 guide](docs/RELEASE_1_4_3.md). Final acceptance passed across 27, 78 and an actual configured 117-slot backpack, with restored configuration. The record totals 3,772 declared assertions plus 16 recipe cases; installation status is separate. Earlier candidate results remain superseded.
+
 ## 1.4.2+26.3
 
 - Keep Sorted's global keep-rule suggestions, markers, Alt-click and Alt-scroll edits off backpack crafting inputs and output. Preserve normal crafting clicks/scroll handling and existing rules for backpack storage, player inventory and ordinary menus.
