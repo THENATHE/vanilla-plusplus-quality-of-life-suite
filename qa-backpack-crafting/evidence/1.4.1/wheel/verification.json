@@ -1,0 +1,23 @@
+{
+  "suite_version": "1.4.1+26.3",
+  "suite_sha256": "2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b",
+  "wheel_version": "1.0.6+26.3",
+  "wheel_sha256": "1e7ee2c1306bb9a0de2eb5da3075a42a50396ae8bd3298c48f48c337e984f9d1",
+  "profiles": [
+    {
+      "profile": "native",
+      "passed": true,
+      "observations": 63,
+      "assertions": 62,
+      "evidence": "native/evidence-manifest.json"
+    },
+    {
+      "profile": "polymer",
+      "passed": true,
+      "observations": 63,
+      "assertions": 62,
+      "evidence": "polymer/evidence-manifest.json"
+    }
+  ],
+  "scope": "Exact current wheel/suite activation and selection, unbound suite control, overlapping release key, suite menus/unified native settings, persistence and capability contexts; Sorted and BRBR absent in these profiles. Native callbacks and simulated SDL focus; no physical user input claim."
+}

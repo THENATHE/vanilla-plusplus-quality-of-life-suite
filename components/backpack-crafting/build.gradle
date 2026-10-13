@@ -1,5 +1,5 @@
 plugins { id 'net.fabricmc.fabric-loom' version '1.17.20' }
-version = '1.0.0+26.3'
+version = '1.0.1+26.3'
 group = 'com.thenathe'
 base { archivesName = 'thenathe-suite-backpack-crafting' }
 
@@ -9,6 +9,7 @@ dependencies {
     implementation 'net.fabricmc:fabric-loader:0.19.5'
     implementation 'net.fabricmc.fabric-api:fabric-api:0.161.0+26.3'
     compileOnly rootProject.fileTree('libs') { include '*.jar' }
+    compileOnly rootProject.fileTree('libs/compile-only') { include 'sorted-fabric-0.1.25-mc26.x.jar' }
     compileOnly project(':combined-compat')
     compileOnly 'eu.pb4:polymer-core:0.18.2+26.3'
     compileOnly 'eu.pb4:polymer-resource-pack:0.18.2+26.3'

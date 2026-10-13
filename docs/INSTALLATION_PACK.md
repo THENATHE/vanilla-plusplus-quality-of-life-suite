@@ -1,17 +1,17 @@
-# Installation pack — Vanilla++ Quality of Life Suite 1.4.0+26.3
+# Installation pack — Vanilla++ Quality of Life Suite 1.4.1+26.3
 
-The **1.4.0+26.3** update adds backpack crafting with iron and netherite toolboxes and a native recipe book. Prior anvil, grindstone and pet safety fixes remain included. Replace the suite JAR on the server and matching native clients. Exact external dependencies and original developer inputs remain unchanged; Collective is not required.
+The **1.4.1+26.3** update corrects toolbox crafting panel/drop boundaries, including native recipe-book protection, visible body/tabs and optional BRBR Pins, and adds optional Sorted storage controls for those screens. Prior anvil, grindstone and pet safety fixes remain included. Replace the suite JAR on the server and matching native clients. Exact external dependencies and original developer inputs remain unchanged; Collective is not required. Final runtime acceptance covers native and Polymer server regressions, Sorted 0.1.26 and retained 0.1.25, BRBR ordinary/maximum crafting and Hotkey Wheel. [The release guide](RELEASE_1_4_1.md) keeps runtime evidence and installation-package verification distinct.
 
-The authored root mod ID remains `vpp_mod_suite`. Swift Flight retains its original enchantment ID and existing enchanted books/harnesses. Legacy pet-call bindings and datapack state are not imported; rebind horns after removing the old packs. Remove standalone versions of enabled replacement features to avoid duplicate execution. [Release instructions](RELEASE_1_4_0.md) record the full scope and verification.
+The authored root mod ID remains `vpp_mod_suite`. Swift Flight retains its original enchantment ID and existing enchanted books/harnesses. Legacy pet-call bindings and datapack state are not imported; rebind horns after removing the old packs. Remove standalone versions of enabled replacement features to avoid duplicate execution. [Release instructions](RELEASE_1_4_1.md) record the full scope and verification.
 
 ## Release files
 
 [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) supplies four files:
 
 - `README.md` — feature and installation overview.
-- `vanilla-plusplus-quality-of-life-suite-1.4.0+26.3.jar` — the suite for an instance with the correct libraries already installed.
+- `vanilla-plusplus-quality-of-life-suite-1.4.1+26.3.jar` — the suite for an instance with the correct libraries already installed.
 - `docs.zip` — source/dependency/verification records and documentation.
-- `vanilla-plusplus-installation-pack-1.4.0+26.3.zip` — the setup kit, permitted dependency binaries, notices and side-aware installer.
+- `vanilla-plusplus-installation-pack-1.4.1+26.3.zip` — the setup kit, permitted dependency binaries, notices and side-aware installer.
 
 ## Native client installation
 
@@ -63,7 +63,7 @@ The ZIP includes these two local files under `overrides/mods/`:
 
 | Included file | SHA-256 | License/source context |
 | --- | --- | --- |
-| Suite 1.4.0+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
+| Suite 1.4.1+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
 | CodecUI 26.3-1.4.3 | `4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898` | MIT declaration and retained notices; precise private build revision is unrecorded. [Source-family record](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference). |
 
 Six public publisher binaries are cached under `downloads/mods/`, with licenses and hashes retained. Fzzy Config has only its official download entry:
@@ -78,7 +78,7 @@ Six public publisher binaries are cached under `downloads/mods/`, with licenses 
 | [Mod Menu 21.0.0](https://modrinth.com/mod/modmenu/version/kyy7dbrZ) | Optional | Excluded | Included; MIT |
 | [Polymer Bundled 0.18.2+26.3](https://modrinth.com/mod/polymer/version/REBDssAz) | Excluded | Required by this server kit | Included; LGPL-3.0-only |
 
-Mod Menu’s exact JAR already includes Text Placeholder API; no separate copy is added. Other optional integrations, including ClientSort, are outside this kit. Dependency project pages and optional integration links are in [DEPENDENCIES.md](DEPENDENCIES.md).
+Mod Menu’s exact JAR already includes Text Placeholder API; no separate copy is added. Other optional integrations, including Sorted, ClientSort, Better Recipe Book Rebetterered and Hotkey Wheel, are outside this kit. Sorted remains compile-only for the bridge and is never bundled. Dependency project pages and optional integration links are in [DEPENDENCIES.md](DEPENDENCIES.md).
 
 Fzzy Config is **not inside the ZIP**, including nested suite JARs. Its [TDL-M 1.3 license, section 2.2](https://github.com/fzzyhmstrs/fconfig/blob/master/LICENSE#L25), permits modpacks to obtain it through a manifest from the official Modrinth/CurseForge source. The helper downloads the unchanged pinned file directly from `cdn.modrinth.com`; the distribution includes only its URL and hashes. This is why a new installation needs internet access even though the other selected binaries are included.
 

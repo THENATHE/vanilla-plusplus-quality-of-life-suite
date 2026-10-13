@@ -1,0 +1,20 @@
+{
+  "profile": "polymer",
+  "passed": true,
+  "suite_sha256": "2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b",
+  "raw_audit_sha256": {
+    "client": "b901b2804960b7fbb5893f00a1fa7c024dd9ae12fff3e4cd2e68ab558a7de5f7",
+    "server": "acd58ab8236bdd52d0ffc8ef0cec311e91e3cc58b3d025ddf20170bc588c5d25"
+  },
+  "executed_fixture_jars": {
+    "client": "d50a7f5e78b3d69818338a4b5787a57166e73ee2fa3f73f04850837c17b10a0f",
+    "server": "973e61c2c03e341043d4c627981fc437c8511435295b6650101e21ba1e1c4bac"
+  },
+  "wheel_sha256": "1e7ee2c1306bb9a0de2eb5da3075a42a50396ae8bd3298c48f48c337e984f9d1",
+  "observations": 63,
+  "assertions": 62,
+  "result_sha256": "4135cb2bc42e08d71a6418c5d08f3b08aa407e2a71fcd8bcd2058cdad15f60f5",
+  "observations_sha256": "fb20bc27c1c5ace083c7fff01aefd59b35c34b1e47a5637b7ed447453dffd7b4",
+  "screenshots": 18,
+  "audit_note": "Personal absolute paths are replaced with portable location tokens. Original audit and executed-source hashes identify the retained local inputs; public source hashes separately identify any tokenized copies. Worlds, raw logs and original dependency binaries are excluded."
+}

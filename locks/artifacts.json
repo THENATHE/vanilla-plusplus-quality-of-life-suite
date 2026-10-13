@@ -143,5 +143,18 @@
     "track": "developer-release",
     "version_url": "https://modrinth.com/mod/sensible-stackables/version/oRpBICTz",
     "download_url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/oRpBICTz/sensible_stackables-fabric-3.1.1%2B26.3.jar"
+  },
+  {
+    "file": "libs/compile-only/sorted-fabric-0.1.25-mc26.x.jar",
+    "id": "sorted",
+    "version": "0.1.25",
+    "sha256": "44cc1f50724264a37319dcb4358d071cb8e20a6a324ac595e68ba887750e7a71",
+    "origin": "Retained official developer release; optional backpack client integration compile-only input. Original JAR unchanged; never bundled or installed by suite runtime profiles.",
+    "track": "developer-release",
+    "usage": "compile-only optional integration",
+    "scope": "compile-only",
+    "project_url": "https://modrinth.com/mod/sorted",
+    "version_url": "https://modrinth.com/mod/sorted/version/UB75pgWu",
+    "download_url": "https://cdn.modrinth.com/data/vtsGVHan/versions/UB75pgWu/sorted-fabric-0.1.25-mc26.x.jar"
   }
 ]

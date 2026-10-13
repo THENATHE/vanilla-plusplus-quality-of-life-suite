@@ -1,5 +1,13 @@
 # Changes
 
+## 1.4.1+26.3
+
+- Correct toolbox crafting outside-click handling so the visible storage and crafting panels protect held items, while their gap and blank space above/below the crafting panel retain normal drop behavior unless a visible book region or control overlaps. Retain native recipe-book outside-click protection and add visible body/tab bounds for side and narrow overlay layouts. Preserve standard hover without BRBR, optional BRBR hover and its separate Pins controls.
+- Add an optional Sorted adapter for both toolbox crafting screens. The original backpack remains covered by regression tests using Sorted's own built-in support. Classify only actual backpack slots as storage, excluding crafting inputs, output and player inventory; place storage and player controls beside their respective regions.
+- Support the installed Sorted 0.1.26 and retained 0.1.25 API without modifying or bundling either JAR. Keep existing optional ClientSort and BRBR integration.
+- Advance Backpack Crafting to 1.0.1+26.3 and combined compatibility to 1.4.1+26.3. Mixed-scale MapStitch 1.1.10+26.3 updates only its exact coordinator constraint. Original developer inputs and runtime libraries stay unchanged; the separate SSO port remains paused.
+- Track exact candidate verification in [the release guide](docs/RELEASE_1_4_1.md). Fresh native/Polymer server regressions, Sorted 0.1.26 controls, Sorted 0.1.25 without BRBR, ordinary/maximum BRBR crafting and current Hotkey Wheel profiles pass. Installation-package status is recorded separately in the guide.
+
 ## 1.4.0+26.3
 
 - Promote backpack crafting into main with final `iron_toolbox` and `netherite_toolbox` item, recipe and resource IDs. Retire testing hammer IDs without conversion or aliases.

@@ -1,10 +1,12 @@
 # Backpack Crafting
 
-Main suite: `1.4.0+26.3`. Addon: `vpp_backpack_crafting` `1.0.0+26.3`. The existing authored Tool Pouch atlas/Elytra addon advances to `1.0.10+26.3` for its ClientSort integration. Combined compatibility advances to `1.4.0+26.3` for the capability fingerprint update; the mixed-scale addon becomes `1.1.9+26.3` to retain its exact coordinator dependency.
+Main suite: `1.4.1+26.3`. Addon: `vpp_backpack_crafting` `1.0.1+26.3`. The authored Tool Pouch atlas/Elytra addon remains `1.0.10+26.3`. Combined compatibility advances to `1.4.1+26.3`; mixed-scale MapStitch becomes `1.1.10+26.3` only to retain its exact coordinator dependency.
 
 ## Using it
 
 Put an Iron Toolbox in your active Tool Pouch to add a 2×2 crafting grid and recipe book when opening a Tiered Backpack. Crafting uses a compact floating panel beside the backpack, with its own border and a gap; the 3×3 version grows only enough to fit its grid. A Netherite Toolbox enables 3×3 recipes and takes priority if both toolboxes are present. Remove the toolbox to return to the original backpack screen. Crafting ingredients left in the grid return to your inventory on close, with ordinary dropped overflow if no space remains.
+
+The storage/player panel and crafting panel each protect held items across their actual visible bounds. Clicking their gap or blank space above or below the crafting panel can drop the held stack normally unless a visible recipe-book region or control overlaps the point. Recipe-book protection retains the native outside-click helper and adds actual visible body/tab bounds in side and narrow overlay layouts. The native helper retains conservative book-side protection. Standard hover works without BRBR; optional BRBR hover and separate Pins controls remain protected. The original backpack screen is unchanged and is included in regression coverage.
 
 Recipe placement uses ingredients from **both player inventory and backpack storage**. Crafted shift-click output goes to player inventory first, then backpack space. The open backpack and pouch stay locked while crafting. The collector pauses insertion while this screen is open, matching the original backpack screen policy.
 
@@ -30,11 +32,19 @@ Polymer remains optional for matching suite clients. Vanilla clients with server
 
 Optional [Better Recipe Book Rebetterered](https://github.com/THENATHE/better-recipe-book-rebetterered) integration lives entirely in addon mixins. Neither its local working tree nor its published source/JAR is modified. Native recipe-book search, grouping and settings use BRBR's existing components. Small optional hooks admit the backpack menu and include its storage in BRBR's placement and instant-crafting calculations. The addon waits for consistent grid/result updates before consuming BRBR’s result acknowledgment, retaining its original recipe validation, timeout and user cancellation.
 
-Supported test baselines are GitHub main/release 1.11.1+26.3, commit `8485b2f8c19acf58f51f97d964d7d1e871f2b1e3`, and the local 1.11.2+26.3 candidate. Exact hashes and runtime results are recorded in the verification evidence below. The separate SSO port remains paused; the normal developer-release suite track is used.
+Current optional integration checks select BRBR **1.11.7+26.3** with the exact final suite candidate. Earlier tests used GitHub main/release 1.11.1+26.3, commit `8485b2f8c19acf58f51f97d964d7d1e871f2b1e3`, and local 1.11.2+26.3; their hashes and results remain historical below. The separate SSO port remains paused; the normal developer-release suite track is used.
 
-## Current 1.4.0 verification
+The optional [Sorted](https://modrinth.com/mod/sorted) bridge covers the 2×2/3×3 crafting menu. The original backpack uses Sorted's own built-in support and stays in regression coverage. Storage classification and the transfer/filter/cache data view use actual backpack slots and exclude crafting input, result and player slots. Global Alt keep rules retain Sorted's separate behavior. Its storage and player buttons anchor to their respective slot regions. Sorted 0.1.26 is the current installed input; retained 0.1.25 has a compatible API. Both stay unchanged and external, with compile-only linkage and guarded optional loading. Neither is bundled. ClientSort remains a separate optional integration.
 
-See [the release guide](RELEASE_1_4_0.md) for the final artifact and current runtime results.
+A local read-only comparison of Sophisticated Backpacks/Core informed the panel-region and storage-identity design. No Sophisticated source or assets are copied or bundled.
+
+## Current 1.4.1 verification
+
+See [the release guide](RELEASE_1_4_1.md) for final verification results and installation status. Native and Polymer checks use actual Sorted controls across plain, 2×2 and 3×3 screens, standard recipe-book profiles without BRBR, plus BRBR 1.11.7 and Hotkey Wheel 1.0.6 on the exact final suite JAR. The final native and Polymer server regressions passed 198 checks each; actual Sorted 0.1.26 connected profiles passed 590 assertions each. Sorted 0.1.25 without BRBR passed 550 assertions; native and Polymer Hotkey Wheel profiles passed 62 assertions plus one context observation each. BRBR 1.11.7 with Sorted 0.1.26 passed eight recipe cases each for native and Polymer, four ordinary and four actual maximum, using backpack ingredients. All seven connected runtime profiles passed. See the release guide for installation-package status.
+
+## 1.4.0 verification (historical)
+
+See [the 1.4.0 release guide](RELEASE_1_4_0.md) for that artifact and its recorded runtime results.
 
 ## Beta 2 verification (historical)
 

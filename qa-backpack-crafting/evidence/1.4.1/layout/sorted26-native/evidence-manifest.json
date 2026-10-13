@@ -1,0 +1,40 @@
+{
+  "profile": "sorted26-native",
+  "passed": true,
+  "suite_sha256": "2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b",
+  "raw_audit_sha256": {
+    "client": "c89fc3000731564f7012fd338bdb65d619d07eb1207241f638fe44110170eb91",
+    "server": "9efee4d55b55b38796c7e5bc90eda1e3e7b2f06915dc779fe71e4714bbc836d1"
+  },
+  "executed_fixture_jars": {
+    "client": "0aaeeab2e8ad4092df941e65ff67bf4a6005c4ef7e4d10510b1800a13a13d3bb",
+    "server": "8efc542ca902248ade785bc7c7d232710100733778076fdff0c6f986f1dc47a5"
+  },
+  "result_sha256": "ff716de1ba4c46fc4f34b035e54a5b98ab1811c965e3d6e5f7831387e085b038",
+  "sorted_sha256": "df080bab56e7f6c6f836533f403fe192a04019d9004e1c8d3acac5b6fe77edd5",
+  "brbr_sha256": "28868f38950057d850d634364881855503093dcd8e70064faf7febcecb81621f",
+  "polymer": false,
+  "assertions": 590,
+  "states": 20,
+  "cursor_clicks": 128,
+  "executed_source_sha256": {
+    "CraftingNetworkLayoutServer.java": "64d888ed229f544e0bf741b5c89d0160e71753bb343126d4dc1c432af3be23b1",
+    "layout_sorted.py": "1f151a03cac81b9724b494f14aadf98bfb998b868bcab0982cdb7859000fd92e",
+    "CraftingNetworkClient.java": "5dc012b3dd9b960048bd187e4ea97ec3bc84e7a3d6482df773ee3d4dfe4a7b5a",
+    "CraftingNetworkLayoutClient.java": "3537dfaf2bfaaa4927b14bf0265832f13f7014196b8ded9481c7dd1997d57a65",
+    "CraftingNetworkServer.java": "11319529585ece220b0540ecb88e1b39a41804735954bebe095ac01e2f6e8f65",
+    "CraftingNetworkBrbrTrace.java": "6f6fad0e7167aa60fab53a96e637881111eee7dd9ac6e636ac3da4754f4b677d",
+    "network.py": "5d4c8a29eb8d89ed39edb297c3263f240ef29a9da6582e4cc84748d1b50c054f"
+  },
+  "published_source_sha256": {
+    "CraftingNetworkLayoutServer.java": "64d888ed229f544e0bf741b5c89d0160e71753bb343126d4dc1c432af3be23b1",
+    "layout_sorted.py": "1f151a03cac81b9724b494f14aadf98bfb998b868bcab0982cdb7859000fd92e",
+    "CraftingNetworkClient.java": "5dc012b3dd9b960048bd187e4ea97ec3bc84e7a3d6482df773ee3d4dfe4a7b5a",
+    "CraftingNetworkLayoutClient.java": "3537dfaf2bfaaa4927b14bf0265832f13f7014196b8ded9481c7dd1997d57a65",
+    "CraftingNetworkServer.java": "11319529585ece220b0540ecb88e1b39a41804735954bebe095ac01e2f6e8f65",
+    "CraftingNetworkBrbrTrace.java": "6f6fad0e7167aa60fab53a96e637881111eee7dd9ac6e636ac3da4754f4b677d",
+    "network.py": "5d4c8a29eb8d89ed39edb297c3263f240ef29a9da6582e4cc84748d1b50c054f"
+  },
+  "screenshots": 5,
+  "audit_note": "Personal absolute paths are replaced with portable location tokens. Original audit and executed-source hashes identify the retained local inputs; public source hashes separately identify any tokenized copies. Worlds, raw logs and original dependency binaries are excluded."
+}

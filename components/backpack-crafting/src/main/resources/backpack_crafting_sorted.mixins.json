@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.thenathe.backpackcrafting.compat",
+  "plugin": "com.thenathe.backpackcrafting.compat.SortedMixinPlugin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "SortedStorageMixin",
+    "SortedPortableMixin",
+    "SortedMenuLayoutMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

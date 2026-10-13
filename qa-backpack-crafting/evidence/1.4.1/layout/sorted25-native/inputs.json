@@ -1,0 +1,78 @@
+{
+  "client": [
+    {
+      "file": "vanilla-plusplus-quality-of-life-suite-1.4.1+26.3.jar",
+      "sha256": "2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b"
+    },
+    {
+      "file": "codecui-26.3-1.4.3-fabric.jar",
+      "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+    },
+    {
+      "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+      "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+    },
+    {
+      "file": "fzzy_config-0.7.7+fix3+26.3.jar",
+      "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+    },
+    {
+      "file": "mixson-2.2.1-multiloader.jar",
+      "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+    },
+    {
+      "file": "fabric-api-0.161.0+26.3.jar",
+      "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+    },
+    {
+      "file": "cloth-config-fabric-26.3.159.jar",
+      "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+    },
+    {
+      "file": "client.jar",
+      "sha256": "3bfa87d2d3b294d2b49a66197267eb0c39cc990f4e1e202602f21f42f5ffad53"
+    },
+    {
+      "file": "sorted-fabric-0.1.25-mc26.x.jar",
+      "sha256": "44cc1f50724264a37319dcb4358d071cb8e20a6a324ac595e68ba887750e7a71"
+    },
+    {
+      "file": "yacl-3.9.7+26.3-fabric.jar",
+      "sha256": "c52d41d444522d9abba994cd4c4ee2e71a065d7c31010f92a9959b80ccb4b0f5"
+    }
+  ],
+  "server": [
+    {
+      "file": "vanilla-plusplus-quality-of-life-suite-1.4.1+26.3.jar",
+      "sha256": "2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b"
+    },
+    {
+      "file": "codecui-26.3-1.4.3-fabric.jar",
+      "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+    },
+    {
+      "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+      "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+    },
+    {
+      "file": "fzzy_config-0.7.7+fix3+26.3.jar",
+      "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+    },
+    {
+      "file": "mixson-2.2.1-multiloader.jar",
+      "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+    },
+    {
+      "file": "fabric-api-0.161.0+26.3.jar",
+      "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+    },
+    {
+      "file": "cloth-config-fabric-26.3.159.jar",
+      "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+    },
+    {
+      "file": "server.jar",
+      "sha256": "8de3e6ddb1b792a56c5f32023c39d0cdd14e1c058480caebbb9a38131c45e353"
+    }
+  ]
+}

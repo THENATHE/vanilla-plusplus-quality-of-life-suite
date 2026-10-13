@@ -1,0 +1,19 @@
+{
+  "version": "1.4.1+26.3",
+  "tested_artifact_sha256": "2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b",
+  "independent_build_sha256": "4feee1e3d0b5dc997822ab7ff79d4ab48792c4ac923c5959401181c4b7ecda80",
+  "independent_source_build": true,
+  "all_non_directory_entries_byte_identical": true,
+  "archive_byte_identical": false,
+  "directory_entry_differences": [
+    "assets/tiered_backpacks/",
+    "assets/tiered_backpacks/lang/",
+    "data/swift_flight/loot_table/",
+    "data/swift_flight/loot_table/chests/"
+  ],
+  "explanation": "Local untracked empty source resource directories produce harmless additional ZIP directory entries. Every compiled class, nested module, asset, metadata and locked input matches byte for byte.",
+  "compiler": "Microsoft OpenJDK25",
+  "target_java": 25,
+  "gradle": "9.6.0",
+  "locked_inputs": 19
+}

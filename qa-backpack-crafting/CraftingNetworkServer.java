@@ -18,6 +18,10 @@ public final class CraftingNetworkServer implements ModInitializer {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             try {
                 Path control = Path.of(System.getProperty("crafting.qa.control"));
+                if (Boolean.getBoolean("crafting.qa.layoutSorted")) {
+                    CraftingNetworkLayoutServer.tick(server, control);
+                    return;
+                }
                 for (var player : server.getPlayerList().getPlayers()) {
                     String name = player.getGameProfile().name();
                     Path request = control.resolve(name + "-open.json");

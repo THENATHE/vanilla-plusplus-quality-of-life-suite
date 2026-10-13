@@ -1,0 +1,49 @@
+{
+  "suite_version": "1.4.1+26.3",
+  "suite_sha256": "2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b",
+  "profiles": [
+    {
+      "profile": "brbr-sorted26-native",
+      "passed": true,
+      "cases": 8,
+      "ordinary_instant_recipe_clicks": 4,
+      "maximum_instant_recipe_clicks": 4,
+      "server_crafted_tables": [
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "polymer": false,
+      "brbr_sha256": "28868f38950057d850d634364881855503093dcd8e70064faf7febcecb81621f",
+      "sorted_sha256": "df080bab56e7f6c6f836533f403fe192a04019d9004e1c8d3acac5b6fe77edd5",
+      "evidence": "brbr-sorted26-native/result.json"
+    },
+    {
+      "profile": "brbr-sorted26-polymer",
+      "passed": true,
+      "cases": 8,
+      "ordinary_instant_recipe_clicks": 4,
+      "maximum_instant_recipe_clicks": 4,
+      "server_crafted_tables": [
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "polymer": true,
+      "brbr_sha256": "28868f38950057d850d634364881855503093dcd8e70064faf7febcecb81621f",
+      "sorted_sha256": "df080bab56e7f6c6f836533f403fe192a04019d9004e1c8d3acac5b6fe77edd5",
+      "evidence": "brbr-sorted26-polymer/result.json"
+    }
+  ],
+  "scope": "Connected vanilla recipe-book autofill, ordinary and maximum BRBR instant recipe clicks, Shift-left output quick-move, 2x2 larger recipe exclusion, 3x3 ghost recipes, screen bounds and authoritative conservation using backpack ingredients. Four ordinary and four maximum cases per profile, across both capacities and grid sizes."
+}

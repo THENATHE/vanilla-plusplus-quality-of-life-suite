@@ -1,0 +1,15 @@
+{
+  "suite_version": "1.4.1+26.3",
+  "suite_sha256": "2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b",
+  "profiles": {
+    "native": {
+      "passed": true,
+      "assertions": 198
+    },
+    "polymer": {
+      "passed": true,
+      "assertions": 198
+    }
+  },
+  "scope": "Real native and Polymer dedicated-server toolbox/crafting/menu/persistence and ClientSort schema/permutation regressions on the exact final suite artifact. No Sorted installed on these dedicated server profiles."
+}

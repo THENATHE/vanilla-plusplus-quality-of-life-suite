@@ -26,6 +26,10 @@ public final class CraftingNetworkClient implements ClientModInitializer {
             if (client.player == null || ++ticks % 5 != 0) return;
             try {
                 Path control = Path.of(System.getProperty("crafting.qa.control"));
+                if (Boolean.getBoolean("crafting.qa.layoutSorted")) {
+                    CraftingNetworkLayoutClient.tick(client, control, ticks);
+                    return;
+                }
                 String name = client.player.getGameProfile().name();
                 var row = new JsonObject();
                 row.addProperty("ticks", ticks);

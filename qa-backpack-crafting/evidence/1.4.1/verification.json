@@ -1,0 +1,24 @@
+{
+  "version": "1.4.1+26.3",
+  "suite_sha256": "2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b",
+  "passed": true,
+  "date": "2026-10-13",
+  "verification_records": {
+    "server": "qa-backpack-crafting/evidence/1.4.1/server/verification.json",
+    "layout": "qa-backpack-crafting/evidence/1.4.1/layout/verification.json",
+    "gui": "qa-backpack-crafting/evidence/1.4.1/gui/verification.json",
+    "wheel": "qa-backpack-crafting/evidence/1.4.1/wheel/verification.json"
+  },
+  "installation_record": "docs/installation-pack-verification.json",
+  "server_checks": 396,
+  "sorted_assertions": 1730,
+  "layout_states": 60,
+  "cursor_clicks": 376,
+  "pins_clicks": 16,
+  "recipe_scenarios": 16,
+  "ordinary_instant_recipe_clicks": 8,
+  "maximum_instant_recipe_clicks": 8,
+  "wheel_assertions": 124,
+  "installation_checks": 13,
+  "scope": "Focused exact-artifact suite backpack/Sorted/BRBR/currentHotkeyWheel runtime and installation acceptance. Historical broader gameplay/vanilla-boundary/singleplayer results retain their original hashes and are not claimed as fresh."
+}

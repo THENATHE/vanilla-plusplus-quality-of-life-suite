@@ -1,0 +1,33 @@
+{
+  "suite_version": "1.4.1+26.3",
+  "suite_sha256": "2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b",
+  "date": "2026-10-13",
+  "review_scope": [
+    "Outside-click panel and visible native recipe-book guards",
+    "Optional Sorted version gating, absent-mod loading and separate0.1.26portable protection",
+    "Per-instance storage indices excluding crafting output/grid/player inventory",
+    "Widget placement, inventory label clearance and native screen sizing",
+    "Dedicated and integrated server geometry preserved by client player-level guard",
+    "Unchanged original inputs and packet/menu identifiers",
+    "Actual side/centered recipe-book body/native tabs plus retained public guards for BRBR Pins and other extensions",
+    "Exact Sorted0.1.26 storage/cache/filter consumer audit"
+  ],
+  "material_issues_remaining": [],
+  "limitations": [
+    "Static review does not replace connected runtime acceptance. The integrated-server client/server position guard was reviewed in code; no fresh integrated singleplayer session is claimed.",
+    "Sorted Search reads world-container cache data; no current-container item-hide UI exists. Global ALT KeepRules overlays/editing are independent of storage classification and remain available."
+  ],
+  "source_sha256": {
+    "components/backpack-crafting/src/main/java/com/thenathe/backpackcrafting/client/BackpackCraftingScreen.java": "7aaf9ed7d21335ef103559668a3ad50c1348af6827cce9de835b889062638525",
+    "components/backpack-crafting/src/main/java/com/thenathe/backpackcrafting/compat/SortedCompat.java": "02318fce66b5c7c502274608e9a2e3aa23eb17ebdfff679b6dc87d67ebbb3d24",
+    "components/backpack-crafting/src/main/java/com/thenathe/backpackcrafting/compat/SortedMixinPlugin.java": "c4918bca0eed2dfb208a585752a3c812b67bcf8208655409dc3febc002102498",
+    "components/backpack-crafting/src/main/java/com/thenathe/backpackcrafting/compat/SortedStorageMixin.java": "74d4c323f67340faf5fb62742c2e94826405394992019ac3c3d6790f26ceecd5",
+    "components/backpack-crafting/src/main/java/com/thenathe/backpackcrafting/compat/SortedMenuLayoutMixin.java": "6d9336fb616400176391eda10dfd8a05b028f64085bdd2ce4ae24edef459635c",
+    "components/backpack-crafting/src/main/java/com/thenathe/backpackcrafting/compat/SortedPortableMixin.java": "c095a5da8fa14c1ccc115b8fc74592fefaee9e36e64d9fc9975e6af519ceb484",
+    "components/backpack-crafting/src/main/java/com/thenathe/backpackcrafting/mixin/client/RecipeBookBoundsAccessor.java": "dd0f91c922b296f2757fb20a3086af52eb29360f6df1561247809e01cb73c9c0"
+  },
+  "issues_fixed_during_review": [
+    "Vanilla recipe book supplies no actual mouse-over body guard; actual bounds now protected by the backpack book",
+    "Retained public outside-click hook preserves BRBR separate Pins protection"
+  ]
+}

@@ -1,6 +1,10 @@
 # Validation
 
-Current **1.4.0+26.3** adds the backpack crafting addon and final toolbox IDs. See [1.4.0 verification](RELEASE_1_4_0.md) and [backpack crafting records](BACKPACK_CRAFTING.md). Historical tests below retain their original artifacts and scope.
+Current **1.4.1+26.3** corrects toolbox crafting visible-panel drop boundaries, recipe-book body/tab geometry and optional Sorted storage/control integration. See [1.4.1 verification](RELEASE_1_4_1.md) and [backpack crafting records](BACKPACK_CRAFTING.md). Final JAR SHA-256 is `2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b`; the final clean build executed all 55 tasks and archive/bundle verification passed. The independent clean source build matches all non-directory ZIP entries; four empty directory entries differ, so whole-archive byte identity is not claimed.
+
+[Fresh server regressions](../qa-backpack-crafting/evidence/1.4.1/server/verification.json) passed 198 checks each for native and Polymer. Sorted 0.1.26 native and Polymer connected profiles passed 590 assertions each across 20 states, 128 cursor clicks and eight Pins checks per profile; these cover actual commands, sorting, quick-stack transfer and storage-data selection. Sorted 0.1.25 without BRBR passed 550 assertions across 20 states and 120 cursor clicks. Hotkey Wheel 1.0.6 native and Polymer profiles passed 62 assertions plus one context observation each. BRBR 1.11.7 with Sorted 0.1.26 passed eight recipe cases each for native and Polymer: four ordinary and four actual maximum, including backpack ingredients and authoritative conservation. All seven connected profiles passed; layout coverage totals 1,730 assertions, 60 states and 376 cursor clicks.
+
+[Installation-package verification](installation-pack-verification.json) passed all 13 checks, including actual client/server installs, exact distribution hashes, Fzzy binary exclusion, corruption/path rejection, idempotency and byte-identical kit rebuild. Installation ZIP SHA-256: `83d3bbd104cbf95a58c68afc9e4e90e6cd3eb44eb1a23ec1486701f08dc99183`. Launcher GUI import was not separately tested. [1.4.0 verification](RELEASE_1_4_0.md) and all historical tests below retain their original artifacts and scope.
 
 ## Historical 1.3.1 — review corrections
 

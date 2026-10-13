@@ -1,0 +1,39 @@
+{
+  "profile": "brbr-sorted26-polymer",
+  "passed": true,
+  "suite_sha256": "2928783da8e2b532a102045a8abab9dd91c49813ae451062b2198010619ed36b",
+  "raw_audit_sha256": {
+    "client": "9b4731acf73543819870a5fa0c9411499734fbeb865dd0449e83190773ea608a",
+    "server": "3f5f3be5781c7e94d53067344f1da5421844615b305703fb31863f3b42db43ef"
+  },
+  "executed_fixture_jars": {
+    "client": "14f318bd056ed9b329a09728168ffa83c7ccb672eaf0f96497b340903ea0c83a",
+    "server": "d55957d6096cb9c2af963609c1e53fe7578e7bc16b7bbb7fdb0dbf467cf5a73f"
+  },
+  "result_sha256": "f570134fb507ccff875f7f1ddf86ac4f3b945a18272b979e9452da187b1d6763",
+  "sorted_sha256": "df080bab56e7f6c6f836533f403fe192a04019d9004e1c8d3acac5b6fe77edd5",
+  "brbr_sha256": "28868f38950057d850d634364881855503093dcd8e70064faf7febcecb81621f",
+  "polymer": true,
+  "recipe_scenarios": 8,
+  "ordinary_instant_recipe_clicks": 4,
+  "maximum_instant_recipe_clicks": 4,
+  "executed_scope": "Native recipe-book autofill and Shift-left result clicks, ordinary and maximum BRBR right-click crafting from backpack ingredients (counts recorded above), 2x2 exclusion of 3x3 recipes, 3x3 ghost ingredients, and authoritative ingredient conservation.",
+  "executed_source_sha256": {
+    "CraftingNetworkLayoutServer.java": "64d888ed229f544e0bf741b5c89d0160e71753bb343126d4dc1c432af3be23b1",
+    "CraftingNetworkClient.java": "5dc012b3dd9b960048bd187e4ea97ec3bc84e7a3d6482df773ee3d4dfe4a7b5a",
+    "CraftingNetworkLayoutClient.java": "3537dfaf2bfaaa4927b14bf0265832f13f7014196b8ded9481c7dd1997d57a65",
+    "CraftingNetworkServer.java": "11319529585ece220b0540ecb88e1b39a41804735954bebe095ac01e2f6e8f65",
+    "CraftingNetworkBrbrTrace.java": "6f6fad0e7167aa60fab53a96e637881111eee7dd9ac6e636ac3da4754f4b677d",
+    "network.py": "e60f7c2566ae089557de35294f47086c5d1643b8586f8bb1ec1ad5fb5bef4f25"
+  },
+  "published_source_sha256": {
+    "CraftingNetworkLayoutServer.java": "64d888ed229f544e0bf741b5c89d0160e71753bb343126d4dc1c432af3be23b1",
+    "CraftingNetworkClient.java": "5dc012b3dd9b960048bd187e4ea97ec3bc84e7a3d6482df773ee3d4dfe4a7b5a",
+    "CraftingNetworkLayoutClient.java": "3537dfaf2bfaaa4927b14bf0265832f13f7014196b8ded9481c7dd1997d57a65",
+    "CraftingNetworkServer.java": "11319529585ece220b0540ecb88e1b39a41804735954bebe095ac01e2f6e8f65",
+    "CraftingNetworkBrbrTrace.java": "6f6fad0e7167aa60fab53a96e637881111eee7dd9ac6e636ac3da4754f4b677d",
+    "network.py": "e60f7c2566ae089557de35294f47086c5d1643b8586f8bb1ec1ad5fb5bef4f25"
+  },
+  "screenshots": 10,
+  "audit_note": "Personal absolute paths are replaced with portable location tokens. Original audit and executed-source hashes identify the retained local inputs; public source hashes separately identify any tokenized copies. Worlds, raw logs and original dependency binaries are excluded."
+}
