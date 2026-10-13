@@ -1,0 +1,36 @@
+{
+  "suite_version": "1.4.0-beta.2+26.3",
+  "suite_sha256": "7e734d89c51a35e4203a39ab978f16d9db9ec2bb58a9949ef05dd6b204fe787c",
+  "sprites": {
+    "iron_toolbox": {
+      "size": [
+        16,
+        16
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "colors": 11,
+      "sha256": "a8baec99766401e6e8ebd13b0d29e751357faff31a88ddfcd39e205927f5bc0e",
+      "texture": "src/main/resources/assets/vpp_backpack_crafting/textures/item/iron_hammer.png"
+    },
+    "netherite_toolbox": {
+      "size": [
+        16,
+        16
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "colors": 11,
+      "sha256": "61a3475743d6fde17440318e4f42a457771efb2c6637b40a1ca89b3b5d720596",
+      "texture": "src/main/resources/assets/vpp_backpack_crafting/textures/item/diamond_hammer.png"
+    }
+  },
+  "saved_item_ids_preserved": [
+    "vpp_backpack_crafting:iron_hammer",
+    "vpp_backpack_crafting:diamond_hammer"
+  ]
+}

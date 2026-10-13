@@ -70,7 +70,7 @@ public final class BackpackCraftingProbe implements ModInitializer {
                     fullInventoryResult(size);
                     fullInventoryRecipeClear(size);
                 }
-                hammerRecipes();
+                toolboxRecipes();
                 cakeRemainders();
                 oversizedRecipeRejected();
                 if (FabricLoader.getInstance().isModLoaded("clientsort")) {
@@ -167,31 +167,109 @@ public final class BackpackCraftingProbe implements ModInitializer {
         menu.removed(player);
     }
 
-    private void hammerRecipes() {
+    private void toolboxRecipes() {
         seed(3);
         pouch.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(List.of(
                 new ItemStack(BackpackCrafting.IRON_HAMMER), new ItemStack(BackpackCrafting.DIAMOND_HAMMER))));
-        check(BackpackCrafting.getCraftingSize(player) == 3, "diamond hammer wins when both upgrades are in pouch");
+        check(BackpackCrafting.getCraftingSize(player) == 3, "netherite toolbox wins when both upgrades are in pouch");
         var menu = open(3);
         for (int index = 1; index <= 3; index++) menu.getSlot(index).set(new ItemStack(Items.IRON_INGOT));
         menu.getSlot(5).set(new ItemStack(Items.STICK));
         menu.getSlot(8).set(new ItemStack(Items.STICK));
-        check(menu.getSlot(0).getItem().is(BackpackCrafting.IRON_HAMMER), "three iron and two sticks match iron hammer recipe");
+        checkResolvedRecipe(menu, "minecraft:iron_pickaxe", Items.IRON_PICKAXE);
+        check(menu.getSlot(0).getItem().is(Items.IRON_PICKAXE),
+                "original three iron and two sticks produce vanilla iron pickaxe without toolbox collision");
+        menu.clicked(0, 0, ContainerInput.QUICK_MOVE, player);
+        check(player.getInventory().countItem(Items.IRON_PICKAXE) == 1
+                && menu.getInputGridSlots().stream().allMatch(slot -> slot.getItem().isEmpty()),
+                "restored iron pickaxe recipe consumes exact inputs and creates one output");
+        menu.removed(player);
+
+        seed(3);
+        menu = open(3);
+        check(BuiltInRegistries.ITEM.getKey(Items.IRON_CHAIN).equals(Identifier.parse("minecraft:iron_chain")),
+                "Minecraft 26.3 iron chain registry identifier is minecraft:iron_chain");
+        for (int index : new int[]{1, 3, 4, 6, 7, 8, 9}) menu.getSlot(index).set(new ItemStack(Items.IRON_INGOT));
+        menu.getSlot(2).set(new ItemStack(Items.IRON_CHAIN));
+        menu.getSlot(5).set(new ItemStack(Items.CRAFTING_TABLE));
+        checkResolvedRecipe(menu, "vpp_backpack_crafting:iron_hammer", BackpackCrafting.IRON_HAMMER);
+        check(menu.getSlot(0).getItem().is(BackpackCrafting.IRON_HAMMER),
+                "ICI/ITI/III with seven iron ingots, one iron chain and one crafting table produces iron toolbox");
         menu.clicked(0, 0, ContainerInput.QUICK_MOVE, player);
         check(player.getInventory().countItem(BackpackCrafting.IRON_HAMMER) == 1
                 && menu.getInputGridSlots().stream().allMatch(slot -> slot.getItem().isEmpty()),
-                "iron hammer crafting consumes exact inputs and creates one output");
+                "iron toolbox crafting consumes exact inputs and creates one output");
         menu.removed(player);
         seed(3);
         menu = open(3);
         for (int index : new int[]{2, 4, 6, 8}) menu.getSlot(index).set(new ItemStack(Items.DIAMOND));
         menu.getSlot(5).set(new ItemStack(BackpackCrafting.IRON_HAMMER));
-        check(menu.getSlot(0).getItem().is(BackpackCrafting.DIAMOND_HAMMER), "four diamonds and iron hammer match upgrade recipe");
-        menu.clicked(0, 0, ContainerInput.QUICK_MOVE, player);
-        check(player.getInventory().countItem(BackpackCrafting.DIAMOND_HAMMER) == 1
-                && menu.getInputGridSlots().stream().allMatch(slot -> slot.getItem().isEmpty()),
-                "diamond upgrade consumes exact inputs and creates one output");
+        var level = (net.minecraft.server.level.ServerLevel) player.level();
+        var oldInput = net.minecraft.world.item.crafting.CraftingInput.of(3, 3,
+                menu.getInputGridSlots().stream().map(slot -> slot.getItem().copy()).toList());
+        var oldRecipe = level.getServer().getRecipeManager().getRecipeFor(
+                net.minecraft.world.item.crafting.RecipeType.CRAFTING, oldInput, level);
+        check(oldRecipe.isEmpty() || !oldRecipe.get().value().assemble(oldInput).is(BackpackCrafting.DIAMOND_HAMMER),
+                "actual RecipeManager no longer resolves four-diamond crafting pattern to high-tier toolbox");
+        check(!menu.getSlot(0).getItem().is(BackpackCrafting.DIAMOND_HAMMER),
+                "removed diamond crafting upgrade produces no high-tier toolbox in crafting menu");
         menu.removed(player);
+        for (boolean shift : new boolean[]{false, true}) {
+            ItemStack controlTemplate = smithingUpgrade(Items.DIAMOND_PICKAXE, Items.NETHERITE_PICKAXE,
+                    "minecraft:netherite_pickaxe_smithing", "vanilla netherite control", shift);
+            ItemStack toolboxTemplate = smithingUpgrade(BackpackCrafting.IRON_HAMMER, BackpackCrafting.DIAMOND_HAMMER,
+                    "vpp_backpack_crafting:diamond_hammer", "netherite toolbox", shift);
+            check(ItemStack.matches(controlTemplate, toolboxTemplate),
+                    "netherite toolbox preserves the exact SSO/vanilla control template remainder, shift=" + shift);
+        }
+    }
+
+    private ItemStack smithingUpgrade(Item base, Item expectedOutput, String recipeId, String label, boolean shift) {
+        seed(3);
+        label += shift ? " shift-click" : " ordinary-click";
+        var level = (net.minecraft.server.level.ServerLevel) player.level();
+        var position = player.blockPosition().above();
+        level.setBlock(position, net.minecraft.world.level.block.Blocks.SMITHING_TABLE.defaultBlockState(), 3);
+        var input = new net.minecraft.world.item.crafting.SmithingRecipeInput(
+                new ItemStack(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), new ItemStack(base), new ItemStack(Items.NETHERITE_INGOT));
+        var recipe = level.getServer().getRecipeManager().getRecipeFor(
+                net.minecraft.world.item.crafting.RecipeType.SMITHING, input, level).orElseThrow();
+        check(recipe.id().identifier().equals(Identifier.parse(recipeId)) && recipe.value().assemble(input).is(expectedOutput),
+                "actual RecipeManager selects smithing recipe " + recipeId + " and its expected output");
+        var menu = new net.minecraft.world.inventory.SmithingMenu(72, player.getInventory(),
+                net.minecraft.world.inventory.ContainerLevelAccess.create(level, position));
+        player.containerMenu = menu;
+        ItemStack[] ingredients = {input.template(), input.base(), input.addition()};
+        for (int slot = 0; slot < ingredients.length; slot++) {
+            check(menu.getSlot(slot).mayPlace(ingredients[slot]), label + " smithing input slot accepts ingredient " + slot);
+            menu.setCarried(ingredients[slot].copy());
+            menu.clicked(slot, 0, ContainerInput.PICKUP, player);
+            check(menu.getCarried().isEmpty(), label + " smithing input click inserts ingredient " + slot);
+        }
+        check(menu.getSlot(3).getItem().is(expectedOutput), label + " smithing menu creates correct preview");
+        menu.clicked(3, 0, shift ? ContainerInput.QUICK_MOVE : ContainerInput.PICKUP, player);
+        check(shift ? player.getInventory().countItem(expectedOutput) == 1 && menu.getCarried().isEmpty()
+                        : menu.getCarried().is(expectedOutput) && menu.getCarried().getCount() == 1,
+                label + " smithing output click creates exactly one item");
+        check(menu.getSlot(1).getItem().isEmpty() && menu.getSlot(2).getItem().isEmpty(),
+                label + " smithing consumes exactly one base and one netherite ingot");
+        check(menu.getSlot(3).getItem().isEmpty(), label + " smithing output clears after pickup");
+        ItemStack template = menu.getSlot(0).getItem().copy();
+        check(template.isEmpty() || template.is(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE) && template.getCount() == 1,
+                label + " smithing template remainder under active suite rules: " + template);
+        menu.removed(player);
+        return template;
+    }
+
+    private void checkResolvedRecipe(BackpackCraftingMenu menu, String recipeId, Item expectedOutput) {
+        var level = (net.minecraft.server.level.ServerLevel) player.level();
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(menu.getGridWidth(), menu.getGridHeight(),
+                menu.getInputGridSlots().stream().map(slot -> slot.getItem().copy()).toList());
+        var recipe = level.getServer().getRecipeManager().getRecipeFor(
+                net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, level).orElseThrow();
+        check(recipe.id().identifier().equals(Identifier.parse(recipeId))
+                        && recipe.value().assemble(input).is(expectedOutput),
+                "actual RecipeManager selects " + recipeId + " and its expected output");
     }
 
     private void oversizedRecipeRejected() {

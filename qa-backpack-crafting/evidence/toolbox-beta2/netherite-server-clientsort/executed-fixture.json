@@ -1,0 +1,16 @@
+{
+  "sources": {
+    "qa-backpack-crafting/run.py": "08943bdd62b32fff36f0c9b2261037a9d59525943f120562c731224cc866a1d5",
+    "qa-backpack-crafting/BackpackCraftingProbe.java": "0b4c2185b03bd4d9ad3415aa2cd283f289f4b09418eb834ef79e836e8a7e116d",
+    "qa-backpack-crafting/BackpackClientSortChecks.java": "de0bfdf6b369247aa514dfb22bcade3fbcdc596f1b95e4cf7e359c81eed9aa2f"
+  },
+  "compiled_classes": {
+    "BackpackClientSortChecks.class": "430b49763217f8ac1c743f7b066dc1d1b527da51de972d0c2a078cd52e7736e3",
+    "BackpackCraftingProbe$1.class": "15fdbd72dc1b6f34f3495d9dd7d1b4a2b2fd4d40c7b3144bc349331b4545f503",
+    "BackpackCraftingProbe$2.class": "2e991e4698cc583c3b9b4b526e38b41c8a21d9942eef9501950ca79eb4f3744c",
+    "BackpackCraftingProbe.class": "501143cbbdb01fda99fb516ab2d49e41d53e9db2ab11780dc074a419db90d3b3"
+  },
+  "fixture_jar_sha256": "9916bbeff829e215ab646544a93cd217f10133ab8fb9c7f023d08bc73fc40cd5",
+  "compiler": "Java 27 javac --release 25",
+  "runtime": "Java 25"
+}

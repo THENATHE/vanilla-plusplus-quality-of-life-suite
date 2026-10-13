@@ -1,0 +1,10 @@
+{
+  "previous_suite_sha256": "23459d1ba1ffcb87790475e58a8c195f838d879360cbf17bd0295eded45cb40b",
+  "candidate_suite_sha256": "262d4d2a7811f070a30d8d85c7fac202412f4feaf07e2c8630781da135655783",
+  "changed_class_entries": [
+    "vpp_backpack_crafting/com/thenathe/backpackcrafting/BackpackCrafting$1.class",
+    "vpp_backpack_crafting/com/thenathe/backpackcrafting/BackpackCrafting$OpeningData.class",
+    "vpp_backpack_crafting/com/thenathe/backpackcrafting/BackpackCrafting.class"
+  ],
+  "scope": "Only addon entrypoint and its nested classes changed after toolbox display-name/private-helper edits. Crafting menu, screens, BRBR optional hooks, networking, Polymer overlay and ClientSort classes remain byte-identical; beta1 runtime results remain historical, not freshly rerun beta2 claims."
+}

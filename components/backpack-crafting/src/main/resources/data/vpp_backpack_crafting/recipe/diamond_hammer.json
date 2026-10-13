@@ -1,15 +1,8 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "equipment",
-  "pattern": [
-    " D ",
-    "DHD",
-    " D "
-  ],
-  "key": {
-    "D": "minecraft:diamond",
-    "H": "vpp_backpack_crafting:iron_hammer"
-  },
+  "type": "minecraft:smithing_transform",
+  "template": "minecraft:netherite_upgrade_smithing_template",
+  "base": "vpp_backpack_crafting:iron_hammer",
+  "addition": "minecraft:netherite_ingot",
   "result": {
     "id": "vpp_backpack_crafting:diamond_hammer",
     "count": 1

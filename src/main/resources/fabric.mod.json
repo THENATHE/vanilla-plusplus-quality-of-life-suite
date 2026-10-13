@@ -42,7 +42,7 @@
     "sensible_stackables_polymer_compat": "=1.0.2+26.3",
     "bannerpoint": "=1.1.2",
     "bannerpoint_polymer_compat": "=1.0.1+26.3",
-    "vpp_backpack_crafting": "=1.0.0-beta.1+26.3"
+    "vpp_backpack_crafting": "=1.0.0-beta.2+26.3"
   },
   "suggests": {
     "polymer-core": "0.18.2+26.3",
@@ -106,7 +106,7 @@
       "file": "META-INF/jars/thenathe-suite-bannerpoint-compat-1.0.1+26.3.jar"
     },
     {
-      "file": "META-INF/jars/thenathe-suite-backpack-crafting-1.0.0-beta.1+26.3.jar"
+      "file": "META-INF/jars/thenathe-suite-backpack-crafting-1.0.0-beta.2+26.3.jar"
     }
   ],
   "mixins": [

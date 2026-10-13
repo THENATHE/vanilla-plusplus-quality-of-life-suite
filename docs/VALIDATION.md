@@ -1,6 +1,6 @@
 # Validation
 
-Experimental `feat/backpack-crafting` uses suite **1.4.0-beta.1+26.3** and the new bundled addon **1.0.0-beta.1+26.3**. Existing developer inputs and external dependencies remain unchanged. See [the branch guide](BACKPACK_CRAFTING.md); stable release records below retain their original scope.
+Experimental `feat/backpack-crafting` uses suite **1.4.0-beta.2+26.3** and the new bundled addon **1.0.0-beta.2+26.3**. Existing developer inputs and external dependencies remain unchanged. See [the branch guide](BACKPACK_CRAFTING.md); stable release records below retain their original scope.
 
 ## Current 1.3.1 — review corrections
 

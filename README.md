@@ -6,7 +6,7 @@
 
 The **1.3.1** update fixes anvil XP charging when shift-clicking, restores netherite scrap insertion into grindstones, and checks pet recall destinations for passengers and hazards. All 1.3.0 gameplay additions and Mod Menu grouping remain available. See the [1.3.1 release guide](docs/RELEASE_1_3_1.md) for setup and verification.
 
-**Experimental branch `feat/backpack-crafting`:** iron and diamond Tool Pouch hammers add 2×2 or 3×3 crafting and a recipe book to the backpack. Recipe placement uses backpack and player inventory ingredients. See [the branch guide](docs/BACKPACK_CRAFTING.md) for recipes, BRBR support and current verification. Stable 1.3.1 remains available.
+**Experimental branch `feat/backpack-crafting`:** iron and netherite Tool Pouch toolboxes add 2×2 or 3×3 crafting and a recipe book to the backpack. Recipe placement uses backpack and player inventory ingredients. See [the branch guide](docs/BACKPACK_CRAFTING.md) for recipes, BRBR support and current verification. Stable 1.3.1 remains available.
 
 ## What it is
 
@@ -183,7 +183,7 @@ Thanks for your hard work, **pajic**, and contributor **Moonkey**!
 
 #### My tweaks and additions
 
-- Experimental branch: carry an iron crafting hammer in your active Tool Pouch for a compact floating 2×2 crafting panel and recipe book. A diamond hammer upgrades it to 3×3. Recipes use both backpack and player ingredients, with optional BRBR support. This is a separate addon; original developer source stays untouched. See [recipes and testing](docs/BACKPACK_CRAFTING.md).
+- Experimental branch: carry an iron toolbox in your active Tool Pouch for a compact floating 2×2 crafting panel and recipe book. A netherite toolbox, upgraded in a smithing table, enables 3×3. Recipes use both backpack and player ingredients, with optional BRBR support. This is a separate addon; original developer source stays untouched. See [recipes and testing](docs/BACKPACK_CRAFTING.md).
 - Added optional ClientSort controls for sorting, refilling, and transferring items while preserving backpack nesting restrictions.
 - Brought the original backpack settings into the combined suite settings screen.
 - Included safe display and connection support for players without the suite; opening the custom backpack screen still needs the client mod.

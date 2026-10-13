@@ -1,0 +1,10 @@
+{
+  "client": {
+    "suite/qa/SuiteClientQa$Mutation.class": "ef1212bc0be8212eac491881a203e4bcf541dd50d98728c1217106a4b023462c",
+    "suite/qa/SuiteClientQa.class": "a3f607e2f4f616e114d97b6b7d258c2ee2f23de9d8c6a4281fea1b58e772e372",
+    "suite/qa/SuiteClientQa$MixedUi.class": "2a847c33670921c0be4c5e3c2a08b9ccbce9bc396b94252ad449d674a0dc273a"
+  },
+  "server": {
+    "suite/qa/SuiteServerQa.class": "61edb2010ad9ab1b887249561c2eca5b4fda2e7f9828b22739559bbcb7285502"
+  }
+}

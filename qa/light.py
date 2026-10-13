@@ -14,6 +14,7 @@ parser.add_argument('--originals-only', action='store_true', help='Original late
 parser.add_argument('--all-profiles',action='store_true',help='Keep all four connection profiles when testing inventory actions')
 parser.add_argument('--stackables-actions',action='store_true',help='Run native and Fabric-only real inventory packet moves')
 parser.add_argument('--stackables-uncapped',action='store_true',help='Configure common stacks at 2048 and verify native/fallback packets')
+parser.add_argument('--compile-only', action='store_true', help='Compile/package fixtures without starting servers or clients')
 parser.add_argument('--label', default='light-'+time.strftime('%Y%m%d-%H%M%S'))
 parser.add_argument('--integrated-only', action='store_true', help='Singleplayer suite worlds with and without Polymer on the physical client')
 parser.add_argument('--world-template', type=Path, default=ROOT/'qa/runs/official-private-02/server-polymer/world')
@@ -61,6 +62,9 @@ integratedfixture=fixture/'integrated.jar'
 with zipfile.ZipFile(integratedfixture,'w',zipfile.ZIP_DEFLATED) as z:
     z.writestr('fabric.mod.json',json.dumps({'schemaVersion':1,'id':'suite_light_qa_integrated','version':'1','environment':'*','entrypoints':{'main':['suite.qa.SuiteServerQa'],'client':['suite.qa.SuiteClientQa']},'depends':{'fabric-api':'*'}}))
     for p in classes.rglob('*.class'):z.write(p,p.relative_to(classes))
+if args.compile_only:
+    print('PASS light fixtures compiled; no runtime launched', flush=True)
+    sys.exit(0)
 children=[]
 result={'passed':False,'bundle_sha256':sha(bundle),'scope':('bounded integrated singleplayer native negotiation and client/world ticks; no exhaustive gameplay test' if args.integrated_only else 'bounded connection/capability/resource-pack smoke; no exhaustive gameplay test'),'defaulted_runtime_present':False,'cases':[]}
 def wait(predicate,process,reason,seconds=120):

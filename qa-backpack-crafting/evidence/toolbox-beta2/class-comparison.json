@@ -1,0 +1,12 @@
+{
+  "previous_suite_sha256": "23459d1ba1ffcb87790475e58a8c195f838d879360cbf17bd0295eded45cb40b",
+  "candidate_suite_sha256": "7e734d89c51a35e4203a39ab978f16d9db9ec2bb58a9949ef05dd6b204fe787c",
+  "changed_class_entries": [
+    "vpp_backpack_crafting/com/thenathe/backpackcrafting/BackpackCrafting$1.class",
+    "vpp_backpack_crafting/com/thenathe/backpackcrafting/BackpackCrafting$OpeningData.class",
+    "vpp_backpack_crafting/com/thenathe/backpackcrafting/BackpackCrafting.class",
+    "vpp_backpack_crafting/com/thenathe/backpackcrafting/HammerPolymer.class"
+  ],
+  "scope": "Recursive comparison of all root and nested mod classes. Only addon entrypoint/nested classes and HammerPolymer differ. Crafting menu, screens, optional BRBR hooks, networking and ClientSort classes remain byte-identical. Prior beta1 runtime results remain historical; new beta2 server results are independently executed.",
+  "superseded_comparison": "class-comparison-diamond-variant.json"
+}

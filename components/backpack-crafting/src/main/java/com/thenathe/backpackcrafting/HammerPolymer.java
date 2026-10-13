@@ -25,7 +25,7 @@ final class HammerPolymer {
         PolymerResourcePackUtils.markAsRequired();
         eu.pb4.polymer.rsm.api.RegistrySyncUtils.setServerEntry(BuiltInRegistries.MENU, BackpackCrafting.MENU_TYPE);
         PolymerItem.registerOverlay(BackpackCrafting.IRON_HAMMER, new UpgradeOverlay(Items.IRON_AXE));
-        PolymerItem.registerOverlay(BackpackCrafting.DIAMOND_HAMMER, new UpgradeOverlay(Items.DIAMOND_AXE));
+        PolymerItem.registerOverlay(BackpackCrafting.DIAMOND_HAMMER, new UpgradeOverlay(Items.NETHERITE_AXE));
     }
 
     private record UpgradeOverlay(Item fallback) implements PolymerItem {

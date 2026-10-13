@@ -1,6 +1,6 @@
 # Dependencies and optional integrations
 
-Experimental `feat/backpack-crafting` uses suite **1.4.0-beta.1+26.3** and the new bundled addon **1.0.0-beta.1+26.3**. Existing developer inputs and external dependencies remain unchanged. See [the branch guide](BACKPACK_CRAFTING.md); stable release records below retain their original scope.
+Experimental `feat/backpack-crafting` uses suite **1.4.0-beta.2+26.3** and the new bundled addon **1.0.0-beta.2+26.3**. Existing developer inputs and external dependencies remain unchanged. See [the branch guide](BACKPACK_CRAFTING.md); stable release records below retain their original scope.
 
 Applies to **Vanilla++ Quality of Life Suite 1.3.1+26.3**. The new native feature modules use the existing Fabric/Fzzy dependencies; the original Drops into Shulker, placement, grindstone and datapack JARs are not required. No Collective library is added. Remove replaced standalone implementations when their corresponding suite features are enabled. [Current installation and verification](RELEASE_1_3_1.md).
 

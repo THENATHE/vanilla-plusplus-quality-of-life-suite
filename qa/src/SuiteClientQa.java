@@ -76,7 +76,8 @@ public final class SuiteClientQa implements ClientModInitializer {
                     for (int index = 0; index < 2; index++) {
                         var hammer = client.player.getInventory().getItem(20 + index);
                         String tier = index == 0 ? "iron" : "diamond";
-                        String expectedHammer = nativeCrafting ? "vpp_backpack_crafting:" + tier + "_hammer" : "minecraft:" + tier + "_axe";
+                        String fallbackTier = index == 0 ? "iron" : "netherite";
+                        String expectedHammer = nativeCrafting ? "vpp_backpack_crafting:" + tier + "_hammer" : "minecraft:" + fallbackTier + "_axe";
                         if (!BuiltInRegistries.ITEM.getKey(hammer.getItem()).toString().equals(expectedHammer) || hammer.getCount() != 1) {
                             if (ticks < 200) return;
                             throw new IllegalStateException("Hammer packet representation differs: " + hammer);

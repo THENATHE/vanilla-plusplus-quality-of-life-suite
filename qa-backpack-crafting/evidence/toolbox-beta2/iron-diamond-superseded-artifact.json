@@ -1,0 +1,34 @@
+{
+  "suite_version": "1.4.0-beta.2+26.3",
+  "suite_sha256": "262d4d2a7811f070a30d8d85c7fac202412f4feaf07e2c8630781da135655783",
+  "sprites": {
+    "iron_toolbox": {
+      "size": [
+        16,
+        16
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "sha256": "62b864725202dbb47c7190d3988660ae63af3b3c9e75e64d0f7aa8105ab17d8d",
+      "texture": "src/main/resources/assets/vpp_backpack_crafting/textures/item/iron_hammer.png"
+    },
+    "diamond_toolbox": {
+      "size": [
+        16,
+        16
+      ],
+      "alpha_values": [
+        0,
+        255
+      ],
+      "sha256": "22ba177041770308b801019260507dda2ae7a0fd2bede0e377a42fa89b2abe7d",
+      "texture": "src/main/resources/assets/vpp_backpack_crafting/textures/item/diamond_hammer.png"
+    }
+  },
+  "saved_item_ids_preserved": [
+    "vpp_backpack_crafting:iron_hammer",
+    "vpp_backpack_crafting:diamond_hammer"
+  ]
+}

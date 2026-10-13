@@ -3,7 +3,7 @@
   "id": "vpp_backpack_crafting",
   "version": "${version}",
   "name": "Backpack Crafting",
-  "description": "Tool Pouch hammer upgrades add crafting and a recipe book to Tiered Backpacks without replacing its developer source.",
+  "description": "Tool Pouch toolbox upgrades add crafting and a recipe book to Tiered Backpacks without replacing its developer source.",
   "authors": ["THENATHE"],
   "license": "MIT",
   "environment": "*",

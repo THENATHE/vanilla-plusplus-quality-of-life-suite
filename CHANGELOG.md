@@ -1,5 +1,13 @@
 # Changes
 
+## 1.4.0-beta.2+26.3 (experimental branch)
+
+- Replace hammer names and sprites with iron and netherite toolboxes while preserving saved item IDs.
+- Restore vanilla iron pickaxe crafting: the iron toolbox now uses seven iron ingots, an iron chain and a crafting table.
+- Upgrade the iron toolbox in a smithing table with a Netherite Upgrade template and netherite ingot.
+- Regenerate simpler Minecraft-style sprites, locked to 16×16 with binary alpha and at most 12 colors.
+- Verify recipe selection, ordinary/shift smithing consumption, native/Polymer connectivity, ClientSort and current Hotkey Wheel integration.
+
 ## 1.4.0-beta.1+26.3 (experimental branch)
 
 - Bundle Backpack Crafting as a separate addon, preserving original Tiered Backpacks and Tool Pouch source/JARs.

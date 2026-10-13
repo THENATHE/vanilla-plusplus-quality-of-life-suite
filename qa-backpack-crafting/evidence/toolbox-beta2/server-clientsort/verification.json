@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "suite_version": "1.4.0-beta.2+26.3",
+  "suite_sha256": "262d4d2a7811f070a30d8d85c7fac202412f4feaf07e2c8630781da135655783",
+  "profiles": {
+    "native": {
+      "passed": true,
+      "exit_code": 0,
+      "checks": 134
+    },
+    "polymer": {
+      "passed": true,
+      "exit_code": 0,
+      "checks": 134
+    }
+  },
+  "recipe_scope": "Actual loaded RecipeManager selects minecraft:iron_pickaxe for the original three-iron/two-stick pattern, vpp_backpack_crafting:iron_hammer for ICI/ITI/III (seven iron ingots, one minecraft:iron_chain, one crafting table), and vpp_backpack_crafting:diamond_hammer for four diamonds surrounding the iron toolbox. Real menu crafting verifies outputs and complete ingredient consumption. Serialized IDs remain unchanged.",
+  "clientsort_scope": "Real dedicated-server schema validation and permutation execution for both crafting sizes; no new ClientSort GUI-button or accelerated packet claim.",
+  "recipe_checks": {
+    "native": [
+      "diamond toolbox wins when both upgrades are in pouch",
+      "actual RecipeManager selects minecraft:iron_pickaxe and its expected output",
+      "original three iron and two sticks produce vanilla iron pickaxe without toolbox collision",
+      "restored iron pickaxe recipe consumes exact inputs and creates one output",
+      "Minecraft 26.3 iron chain registry identifier is minecraft:iron_chain",
+      "actual RecipeManager selects vpp_backpack_crafting:iron_hammer and its expected output",
+      "ICI/ITI/III with seven iron ingots, one iron chain and one crafting table produces iron toolbox",
+      "iron toolbox crafting consumes exact inputs and creates one output",
+      "actual RecipeManager selects vpp_backpack_crafting:diamond_hammer and its expected output",
+      "four diamonds and iron toolbox match upgrade recipe",
+      "diamond upgrade consumes exact inputs and creates one output"
+    ],
+    "polymer": [
+      "diamond toolbox wins when both upgrades are in pouch",
+      "actual RecipeManager selects minecraft:iron_pickaxe and its expected output",
+      "original three iron and two sticks produce vanilla iron pickaxe without toolbox collision",
+      "restored iron pickaxe recipe consumes exact inputs and creates one output",
+      "Minecraft 26.3 iron chain registry identifier is minecraft:iron_chain",
+      "actual RecipeManager selects vpp_backpack_crafting:iron_hammer and its expected output",
+      "ICI/ITI/III with seven iron ingots, one iron chain and one crafting table produces iron toolbox",
+      "iron toolbox crafting consumes exact inputs and creates one output",
+      "actual RecipeManager selects vpp_backpack_crafting:diamond_hammer and its expected output",
+      "four diamonds and iron toolbox match upgrade recipe",
+      "diamond upgrade consumes exact inputs and creates one output"
+    ]
+  },
+  "historical_evidence": "Beta1 records remain separate and unchanged."
+}

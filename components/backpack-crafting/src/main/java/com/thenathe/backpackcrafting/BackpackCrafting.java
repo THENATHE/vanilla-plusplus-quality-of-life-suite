@@ -38,8 +38,9 @@ import java.util.List;
 
 public final class BackpackCrafting implements ModInitializer {
     public static final String ID = "vpp_backpack_crafting";
-    public static final Item IRON_HAMMER = hammer("iron_hammer", "Iron Crafting Hammer", "2×2");
-    public static final Item DIAMOND_HAMMER = hammer("diamond_hammer", "Diamond Crafting Hammer", "3×3");
+    // Keep the experimental item IDs so existing pouch upgrades remain valid.
+    public static final Item IRON_HAMMER = toolbox("iron_hammer", "Iron Toolbox", "2×2");
+    public static final Item DIAMOND_HAMMER = toolbox("diamond_hammer", "Netherite Toolbox", "3×3");
     public static final MenuType<BackpackCraftingMenu> MENU_TYPE = new ExtendedMenuType<>(
             (id, inventory, data) -> new BackpackCraftingMenu(id, inventory, data.backpack(), data.gridSize()), OpeningData.CODEC);
 
@@ -47,7 +48,7 @@ public final class BackpackCrafting implements ModInitializer {
         return Identifier.fromNamespaceAndPath(ID, path);
     }
 
-    private static Item hammer(String path, String name, String size) {
+    private static Item toolbox(String path, String name, String size) {
         return new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, id(path)))
                 .stacksTo(1).component(DataComponents.ITEM_NAME,
                         Component.translatableWithFallback("item." + ID + "." + path, name))
@@ -108,7 +109,7 @@ public final class BackpackCrafting implements ModInitializer {
         ToolPouch.CONFIG.save();
         try {
             Files.createDirectories(marker.getParent());
-            Files.writeString(marker, "Crafting hammer rules added once. Later administrator changes are preserved.\n");
+            Files.writeString(marker, "Crafting toolbox rules added once. Later administrator changes are preserved.\n");
         } catch (IOException exception) {
             throw new IllegalStateException("Could not record Tool Pouch crafting rules", exception);
         }
