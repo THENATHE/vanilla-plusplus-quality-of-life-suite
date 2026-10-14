@@ -1,0 +1,23 @@
+> Measurement correction: earlier caption-shadow overlap statements used an approximate `font.width`/`font.lineHeight` box. Exact native prepared-text bounds later measured the caption ending at Y149 and the information background starting at Y149, which touch without overlap. The old shadow assertion is a fixture false positive, not a verified physical collision. Original receipts, source and bytecode remain intact. See `../2026-10-13-e466-native-bounds-fixture-correction/`. The final30-scene fixture separately checks actual Y148 overlap and Y149 touching.
+
+> Intermediate evidence: the ca8a candidate below passed the original 24-scene matrix but subsequently failed the added real edge-name marker case. See `../2026-10-13-ca8a-edge-name-failure/`. It is preserved as historical acceptance of its stated scope and is superseded before publication by the native submission bounds correction and expanded matrix.
+
+# Final Suite 1.4.4 HUD regression evidence
+
+Production candidate: `vanilla-plusplus-quality-of-life-suite-1.4.4+26.3.jar`, SHA-256 `ca8a1f0c54c5f31a6c97e0e4a2a9cd294cdfce65f315513fd8277c14ffc6c15f`. Nested HUD addon: `toolpouch-atlas-elytra-compat-1.0.11+26.3.jar`. Other suite component versions are unchanged by this HUD correction.
+
+The final observer receives actual native `innerBlit` canvas/decoration rectangles, native minimap background/caption rectangles, and information background/text rectangles after placement wrappers. Every rectangle includes the submitted pose; native default text shadows add their actual one-pixel extent. No width or row count is guessed. The complete information block uses the actual generated strings and native twelve-pixel row spacing.
+
+Each full profile covers 24 scenes, including four same-corner horizontal separation cases, four horizontal overlap cases, four overlaps across opposite configured corner names, nonunit scales, original signed-offset/Apply cases, caption-shadow contact, saved native configuration values and the combined settings screen. `control/observations.json` records the received draw rectangles and exact geometry decisions. `provenance.json` records the executed observer classes, compiler/input hashes and exact candidate. All observer classes are development fixtures and absent from production.
+
+The backgroundless atlas edge produces a native map canvas `[4,4,132,132]` and caption bottom at `150`. The natural information background starts at `149`, so the real shadow creates a one-pixel overlap. The final candidate moves the whole information block without editing its saved offset. Disjoint horizontal cases retain their native positions despite sharing corner names; actual overlaps across opposite corner names move the block.
+
+These are real graphical runs on `DISPLAY=:1`, Minecraft 26.3, Fabric Loader 0.19.5, Java 25, AMD Radeon RX 9070 XT (RADV GFX1201), Vulkan 1.4.354 RADV Mesa 26.2.4. RenderPearl first logs an OpenGL initialization failure and then successfully selects this hardware Vulkan backend. Server Polymer is 0.18.2+26.3 in both profiles; the client-Polymer profile additionally installs it on the client. Exact runtime dependency hashes are in each launch audit. The original public developer SSO 2.10.0+26.3 release is present, SHA-256 `b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47`; the paused ChatGPT SSO port is excluded.
+
+Historical failures are retained separately: Suite 1.4.3 incorrectly moved horizontally disjoint information from native Y17 to Y155, and the first 1.4.4 candidate omitted the default caption shadow, leaving actual map text `[46,140,91,150]` intersecting actual information background `[13,149,81,221]`. The final artifact supersedes both. The intermediate 23-scene successes and first final 24-scene successes are preserved separately, with their own observer classes and artifact hashes.
+
+This evidence establishes HUD geometry, saved settings and settings-screen behavior for these profiles. All-four Hotkey Wheel/Buildprint/Blocktone/BRBR interaction checks and wider server gameplay/capability checks have separate reports.
+
+Final outcome: **24 native scenes passed and 24 client-Polymer scenes passed**. Every graphical scene records unchanged saved information/map fields. Both runtime processes exited cleanly, and the shared display was handed to Hotkey Wheel for the final combined integration profiles.
+
+Recorded QA observer JARs and frozen development inputs remain local execution artifacts. Their hashes identify what ran. Public source/documentation may include the fixture source, sanitized logs/configuration and recorded hashes; it does not distribute QA JARs.

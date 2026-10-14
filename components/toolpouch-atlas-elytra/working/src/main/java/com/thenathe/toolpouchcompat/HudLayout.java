@@ -14,6 +14,9 @@ import net.minecraft.resources.Identifier;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import me.pajic.toolpouch.hud.InfoOverlays;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.navigation.ScreenRectangle;
+import net.minecraft.client.renderer.state.gui.GuiRenderState;
+import com.thenathe.toolpouchcompat.mixin.HudLayoutGraphicsAccess;
 
 /** Current-frame minimap bounds; no guessed information-row count or persisted HUD state. */
 public final class HudLayout {
@@ -25,9 +28,16 @@ public final class HudLayout {
     private static boolean mapRight;
     private static float mapOriginY;
     private static float mapScaleY;
+    private static float mapScaleX;
+    private static float mapLocalLeft;
+    private static float mapLocalRight;
     private static float mapLocalBottom;
     private static float mapLocalTop;
+    private static GuiRenderState mapRenderState;
+    private static boolean measuringMap;
+    private static float mapPixelLeft, mapPixelTop, mapPixelRight, mapPixelBottom;
     private static int detailCount;
+    private static int detailWidth;
     private static boolean detailsBottom;
     private static Integer detailShift;
     private static boolean preferencesInitialized;
@@ -61,10 +71,15 @@ public final class HudLayout {
         // Applied settings are also observed between sessions and after file reloads.
         if (Minecraft.getInstance().gui.screen() == null) synchronizePreferences(null);
         mapGraphics = graphics;
+        mapRenderState = ((HudLayoutGraphicsAccess) graphics).suite$renderState();
+        measuringMap = true;
+        mapPixelLeft = mapPixelTop = Float.POSITIVE_INFINITY;
+        mapPixelRight = mapPixelBottom = Float.NEGATIVE_INFINITY;
         mapShown = false;
         mapSource = "atlas";
-        mapLocalBottom = 128;
-        mapLocalTop = 0;
+        mapLocalLeft = mapLocalTop = Float.POSITIVE_INFINITY;
+        mapLocalRight = mapLocalBottom = Float.NEGATIVE_INFINITY;
+        mapScaleX = 1;
         mapScaleY = 1;
         var player = Minecraft.getInstance().player;
         pouchAtlas = player != null && ToolPouchUtil.toolPouchHasItem(player, stack -> stack.is(ModItems.ATLAS));
@@ -73,6 +88,24 @@ public final class HudLayout {
     public static void beginPouchMap(GuiGraphicsExtractor graphics) {
         beginMap(graphics);
         mapSource = "map";
+    }
+
+    public static void endMap() {
+        measuringMap = false;
+        mapRenderState = null;
+    }
+
+    public static boolean measuringMap(GuiRenderState state) {
+        return measuringMap && state == mapRenderState;
+    }
+
+    /** Native submissions include transformed icons, names, shadows and clipping. */
+    public static void mapBounds(ScreenRectangle bounds) {
+        if (bounds == null || bounds.width() <= 0 || bounds.height() <= 0) return;
+        mapPixelLeft = Math.min(mapPixelLeft, bounds.left());
+        mapPixelTop = Math.min(mapPixelTop, bounds.top());
+        mapPixelRight = Math.max(mapPixelRight, bounds.right());
+        mapPixelBottom = Math.max(mapPixelBottom, bounds.bottom());
     }
 
     /** Save only after a native config apply; GUI previews must not become persisted edits. */
@@ -147,7 +180,12 @@ public final class HudLayout {
     }
     public static void translated(float x, float y) { mapOriginX = x; translated(y); }
 
-    public static void scaled(float y) { mapScaleY = y; }
+    public static void scaled(float y) { scaled(y, y); }
+
+    public static void scaled(float x, float y) {
+        mapScaleX = x;
+        mapScaleY = y;
+    }
 
     public static void drawnTo(float y) { mapLocalBottom = Math.max(mapLocalBottom, y); }
 
@@ -156,36 +194,71 @@ public final class HudLayout {
         drawnTo(bottom);
     }
 
+    public static void background(float left, float top, float right, float bottom) {
+        mapLocalLeft = Math.min(mapLocalLeft, left);
+        mapLocalRight = Math.max(mapLocalRight, right);
+        background(top, bottom);
+    }
+
+    /** GuiGraphicsExtractor.map actually submits a 128 by 128 native map canvas. */
+    public static void drawnMap() {
+        background(0, 0, 128, 128);
+    }
+
     public static void beginDetails(int count) {
+        beginDetails(count, 0);
+    }
+
+    public static void beginDetails(int count, int width) {
         detailCount = count;
+        detailWidth = width;
         detailsBottom = ToolPouchClient.CONFIG.infoOverlaySettings.position.get().name().startsWith("BOTTOM");
         detailShift = null;
     }
 
     public static int shift(GuiGraphicsExtractor graphics, int originalTextY) {
         boolean detailsRight = ToolPouchClient.CONFIG.infoOverlaySettings.position.get().name().endsWith("RIGHT");
-        if (!mapShown || graphics != mapGraphics || detailsRight != mapRight || detailCount == 0) return 0;
+        int raisedX = CompatFlags.RAISED_LOADED ? RaisedCompat.getOtherComponentOffsets().leftInt() : 0;
+        int offsetX = ToolPouchClient.CONFIG.infoOverlaySettings.offsetX.get();
+        int x = detailsRight ? Minecraft.getInstance().getWindow().getGuiScaledWidth() - 4 - offsetX - detailWidth + raisedX
+                : 4 + offsetX + raisedX;
+        return shift(graphics, x, originalTextY, x + detailWidth,
+                originalTextY + Minecraft.getInstance().font.lineHeight, detailWidth);
+    }
+
+    /** The first native row supplies its real rectangle, including background or shadow. */
+    public static int shift(GuiGraphicsExtractor graphics, int rowLeft, int rowTop,
+            int rowRight, int rowBottom, int textWidth) {
+        if (!mapShown || graphics != mapGraphics || detailCount == 0
+                || !Float.isFinite(mapLocalLeft) || !Float.isFinite(mapLocalTop)) return 0;
         if (detailShift == null) {
-            // Original bottom-corner rendering emits the lowest row first. Keep its
-            // ordering while finding the top of the whole details block.
-            int top = originalTextY - (detailsBottom ? 12 * (detailCount - 1) : 0);
+            boolean detailsRight = ToolPouchClient.CONFIG.infoOverlaySettings.position.get().name().endsWith("RIGHT");
+            int width = detailWidth + rowRight - rowLeft - textWidth;
+            int left = detailsRight ? rowRight - width : rowLeft;
+            int right = detailsRight ? rowRight : rowLeft + width;
+            // Native renderLines emits rows twelve pixels apart and reverses bottom layouts.
+            // The generated list determines the complete block, including wider later rows.
+            int rowsHeight = 12 * (detailCount - 1);
+            int top = rowTop - (detailsBottom ? rowsHeight : 0);
+            int bottom = rowBottom + (detailsBottom ? 0 : rowsHeight);
             int padding = ToolPouchClient.CONFIG.infoOverlaySettings.offsetY.get();
             var mc = Minecraft.getInstance();
-            int textHeight = 12 * (detailCount - 1) + mc.font.lineHeight;
-            float mapTop = mapOriginY + mapScaleY * mapLocalTop;
-            float mapBottom = mapOriginY + mapScaleY * mapLocalBottom;
-            // Opposite vertical corners can share a side without colliding.
-            // Leave the user's information position alone when it is already clear.
-            if (top + textHeight + 2 <= mapTop - 4 || top - 2 >= mapBottom + 4) {
+            int textHeight = bottom - top;
+            boolean measured = Float.isFinite(mapPixelLeft);
+            float mapLeft = measured ? mapPixelLeft : mapOriginX + mapScaleX * mapLocalLeft;
+            float mapRight = measured ? mapPixelRight : mapOriginX + mapScaleX * mapLocalRight;
+            float mapTop = measured ? mapPixelTop : mapOriginY + mapScaleY * mapLocalTop;
+            float mapBottom = measured ? mapPixelBottom : mapOriginY + mapScaleY * mapLocalBottom;
+            if (right <= mapLeft || left >= mapRight || bottom <= mapTop || top >= mapBottom) {
                 detailShift = 0;
                 return 0;
             }
-            int requiredTop = (int) Math.ceil(mapOriginY + mapScaleY * mapLocalBottom) + 4 + padding;
+            int requiredTop = (int) Math.ceil(mapBottom) + 4 + padding;
             int targetTop = Math.max(top, requiredTop);
             if (targetTop + textHeight > mc.getWindow().getGuiScaledHeight() - 2) {
                 // Bottom minimaps leave no space below; use the free space above
                 // without moving either configured corner or changing offsets.
-                targetTop = (int) Math.floor(mapOriginY + mapScaleY * mapLocalTop) - 4 - padding - textHeight;
+                targetTop = (int) Math.floor(mapTop) - 4 - padding - textHeight;
             }
             detailShift = targetTop - top;
         }

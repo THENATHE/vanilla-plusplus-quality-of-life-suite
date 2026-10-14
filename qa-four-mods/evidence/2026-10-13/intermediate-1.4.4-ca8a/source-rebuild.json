@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "final_sha256": "ca8a1f0c54c5f31a6c97e0e4a2a9cd294cdfce65f315513fd8277c14ffc6c15f",
+  "rebuilt_sha256": "b0771b4162a2352201ab738e3fddbb45bd53b77252df8038ea3c15ac33b08210",
+  "whole_archive_byte_identical": false,
+  "all_leaf_files_byte_identical": true,
+  "archive_comparison": [
+    {
+      "archive": "vanilla-plusplus-quality-of-life-suite-1.4.4+26.3.jar",
+      "file_entries": 130,
+      "changed_nested_archive_containers": [],
+      "differing_empty_directories": [
+        "assets/tiered_backpacks/",
+        "assets/tiered_backpacks/lang/",
+        "data/swift_flight/loot_table/",
+        "data/swift_flight/loot_table/chests/"
+      ]
+    }
+  ],
+  "build_tasks": 46,
+  "compiler": "Microsoft Java25.0.4.1+1-LTS",
+  "scope": "Fresh source export with exact locked binaries, no original build output or project Gradle cache. All 130 file entries, including nested archives, are byte-identical; four outer empty directory entries differ, so whole-archive byte identity is not claimed."
+}

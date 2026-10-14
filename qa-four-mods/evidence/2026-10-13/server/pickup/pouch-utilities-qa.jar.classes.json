@@ -1,0 +1,12 @@
+{
+  "file": "pouch-utilities-qa.jar",
+  "sha256": "f96bd6a684144354cb7b668d5c2b2d4b4152848223cdb8c87a8c467649113c20",
+  "classes": {
+    "qa/DebugWrenchChecks$CheckedRunnable.class": "91ebe2d6e0af8fc8dd1c4b73e590e8d9973e9876f555f01bd8aae812aff7f6e3",
+    "qa/DebugWrenchChecks$PolymerChecks.class": "565b23cbe14431d31581ec4d4aea9b371241877e265303b9461f1921d833f8f9",
+    "qa/DebugWrenchChecks.class": "e0cf31450b3d1b925cf1a9e33ed88817c03cf0a0920ec3ced8bd85e09544ada5",
+    "qa/pickup/PickupQa$1.class": "cc86a1ee0e06df7438a74f24c37f4b33a9729d873be6ee5074c454aa24cdcc95",
+    "qa/pickup/PickupQa$PolymerChecks.class": "1cca79ac361cf3456ffd8b35c95cf5c9a663a56c30a4a9be40ebb5ff8c3b19ef",
+    "qa/pickup/PickupQa.class": "74dc6fced216902f846656ceab4865ec65911e33d1f6d8d990aab2631729205c"
+  }
+}

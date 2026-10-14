@@ -1,0 +1,20 @@
+{
+  "bundle_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "misc-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 154 assertions: MiscTweaks: block positions/velocities, targeted fling/crouch/range controls, obsidian+anchor mining controls, configured cobweb fire odds, adult/baby cow goal and actual food consumption; SDI: saved safe position, XP percentages and vanilla/keepInventory controls, actual orb spawning, item lifetime/splatter/explosion toggles, airborne lava and void rescue, armor/hotbar/offhand death retention and exclusion lists",
+      "passed": true
+    },
+    {
+      "profile": "misc-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 154 assertions: MiscTweaks: block positions/velocities, targeted fling/crouch/range controls, obsidian+anchor mining controls, configured cobweb fire odds, adult/baby cow goal and actual food consumption; SDI: saved safe position, XP percentages and vanilla/keepInventory controls, actual orb spawning, item lifetime/splatter/explosion toggles, airborne lava and void rescue, armor/hotbar/offhand death retention and exclusion lists",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "raw_sha256": {
+    "qa-pickup/run.py": "e6607f5da95168b263adfc4bf2dd6799aa3768db1136a937ea6339c4a10ffaa8",
+    "qa-pickup/src/PickupQa.java": "79e3811c44b7ac73d0c7485fc1b23df48f843f651ebaf77be2aa92818267f584",
+    "qa-pouch-utilities/src/DebugWrenchChecks.java": "0755645d4bbbce7c9306444213fd8d4e46f56ead476210001c6c402ae18f468f"
+  },
+  "recorded_revision": "09aac6a21a57d25df6e51f1bee6d80469c326293",
+  "source_capture": "Copies of unchanged current fixture sources; launch audits and class hashes identify the exact executed fixture."
+}

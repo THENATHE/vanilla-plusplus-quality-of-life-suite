@@ -1,0 +1,8 @@
+{
+  "sha256": "d016cd071b42528bd6ba719cce1b3d4a9c9abba3e7d8dcc45426fe6faf44a3e8",
+  "classes": {
+    "qa/PacketTemplatesQa$1.class": "c2c68c4cc3be075750bfcd2ba05f9134a824134006ad853fd7e5e50b37212ff3",
+    "qa/PacketTemplatesQa$2.class": "ba7fec0258bea4ac059c18cee37fb5819a354b4ad89b8cf39d7dff76f1c40e47",
+    "qa/PacketTemplatesQa.class": "1ab53cc0f032dd3f3a387aa1a6a9da5a2cddb716693bee27775cb67fa0b9497e"
+  }
+}

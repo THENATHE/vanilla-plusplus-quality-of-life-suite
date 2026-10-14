@@ -32,6 +32,8 @@
     "AtlasHudLayoutMixin",
     "PouchInfoLayoutMixin",
     "PouchHudLayoutMixin",
+    "HudLayoutGraphicsAccess",
+    "HudLayoutRenderStateMixin",
     "HudLayoutConfigMixin"
   ],
   "injectors": {

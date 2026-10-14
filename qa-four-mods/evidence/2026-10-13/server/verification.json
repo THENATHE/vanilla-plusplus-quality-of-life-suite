@@ -1,0 +1,33 @@
+{
+  "suite_version": "1.4.3+26.3",
+  "suite_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "passed": true,
+  "profiles": [
+    {
+      "profile": "backpack",
+      "passed": true,
+      "result": "backpack/result.json"
+    },
+    {
+      "profile": "sanity",
+      "passed": true,
+      "result": "sanity/result.json"
+    },
+    {
+      "profile": "features",
+      "passed": true,
+      "result": "features/result.json"
+    },
+    {
+      "profile": "pickup",
+      "passed": true,
+      "result": "pickup/result.json"
+    },
+    {
+      "profile": "misc",
+      "passed": true,
+      "result": "misc/result.json"
+    }
+  ],
+  "scope": "Fresh standalone suite server regression and restart evidence; all-four rendered and connected integration is recorded separately."
+}

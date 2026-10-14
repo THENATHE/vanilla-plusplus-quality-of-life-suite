@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "vpp_mod_suite",
-  "version": "1.4.3+26.3",
-  "sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "version": "1.4.4+26.3",
+  "sha256": "e4663dddf2e176c3d5d7a669f59822dc76286ed28e195cc1a77b1bb1b3e7d269",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -78,9 +78,9 @@
     },
     {
       "id": "toolpouch_atlas_elytra_compat",
-      "version": "1.0.10+26.3",
-      "sha256": "685a9b537fef9348e20f8fe8255bf8cb201ea17b30f9a30f752b3ef4021b696b",
-      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.10+26.3.jar"
+      "version": "1.0.11+26.3",
+      "sha256": "08fb7ee7565102cdecc97659703aca8dd7c037f7401d48bbf7d736c06219efb8",
+      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.11+26.3.jar"
     },
     {
       "id": "sensible_stackables",
@@ -124,69 +124,12 @@
   "defaulted_runtime_required": false,
   "licenses_retained": true,
   "runtime_tested": true,
-  "scope": "Exact final artifact passed native/Polymer server regressions, original Sorted storage actions and direct recovery selectors, full-frame controls and narrow/wide native layouts, BRBR ordinary/maximum backpack crafting, and native/Polymer Hotkey Wheel integration. Recovery probes verify destination selection rather than a complete interrupted-sort timeline; ClientSort fill/transfer UI remains unexecuted. Installer acceptance has a separate record.",
-  "evidence": "qa-backpack-crafting/evidence/1.4.3/verification.json",
-  "fresh_checks": {
-    "server_assertions": {
-      "native": 198,
-      "polymer": 198
-    },
-    "sorted_storage_assertions": {
-      "0.1.26_native": 487,
-      "0.1.26_polymer": 487,
-      "0.1.25_native_without_brbr": 487
-    },
-    "sorted_storage_execution": {
-      "crafting_menus": 18,
-      "widget_callbacks": 144,
-      "direct_recovery_selector_probes": 126,
-      "plain_backpack_references": 9,
-      "capacities": [
-        27,
-        78,
-        117
-      ],
-      "crafting_grids": [
-        "2x2",
-        "3x3"
-      ],
-      "client_configuration_restorations": 3
-    },
-    "layout": {
-      "native_assertions": 886,
-      "polymer_assertions": 886,
-      "states": 60,
-      "cursor_clicks": 384,
-      "pins_checks": 24,
-      "client_configuration_restorations": 2
-    },
-    "placement_preview": {
-      "assertions": 19,
-      "storage_operations": 0,
-      "recovery_probes": 0,
-      "plain_backpack_references": 3,
-      "screenshots": 10
-    },
-    "recipe_cases": {
-      "brbr_native": 8,
-      "brbr_polymer": 8
-    },
-    "hotkey_wheel": {
-      "version": "1.0.6+26.3",
-      "native_assertions": 62,
-      "polymer_assertions": 62,
-      "context_observations_each": 1,
-      "configurations_each": 15,
-      "screenshots_each": 18
-    },
-    "independent_build": {
-      "main_non_directory_entries": 130,
-      "source_non_directory_entries": 80,
-      "all_file_entries_byte_identical": true,
-      "whole_archive_byte_identical": false,
-      "empty_directory_differences": 4
-    },
-    "total_declared_assertions": 3772,
-    "total_recipe_cases": 16
-  }
+  "publication_ready": true,
+  "evidence": [
+    "docs/RELEASE_1_4_4.md",
+    "docs/FOUR_MOD_QA_2026_10_13.md",
+    "qa-four-mods/evidence/2026-10-13/final-1.4.4/verification.json",
+    "qa-hud/evidence/2026-10-13-final-1.4.4-native-bounds/README.md"
+  ],
+  "runtime_scope": "Exact final native/Polymer server, rendered HUD, all-four wheel, packaged BRBR and four connected backpack profiles passed. Baseline/intermediate wider checks are preserved separately."
 }

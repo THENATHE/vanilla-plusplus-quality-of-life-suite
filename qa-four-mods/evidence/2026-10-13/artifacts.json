@@ -1,0 +1,108 @@
+{
+  "minecraft": "26.3",
+  "loader": "0.19.5",
+  "java": 25,
+  "artifacts": [
+    {
+      "file": "vanilla-plusplus-quality-of-life-suite-1.4.3+26.3.jar",
+      "sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+      "mod_id": "vpp_mod_suite",
+      "version": "1.4.3+26.3",
+      "environment": "*",
+      "requires": {
+        "minecraft": "26.3",
+        "java": ">=25",
+        "fabricloader": ">=0.19.5",
+        "fabric-api": ">=0.161.0+26.3",
+        "fzzy_config": "=0.7.7+fix3+26.3",
+        "cloth-config": ">=26.3.159",
+        "fabric-language-kotlin": ">=1.14.1+kotlin.2.4.20",
+        "codecui": ">=26.3-1.4.3",
+        "mixson": ">=2.2.1",
+        "mapstitch_mixed_scales": "=1.1.12+26.3",
+        "sensible_stackables": "=3.1.1",
+        "sensible_stackables_polymer_compat": "=1.0.2+26.3",
+        "bannerpoint": "=1.1.2",
+        "bannerpoint_polymer_compat": "=1.0.1+26.3",
+        "vpp_backpack_crafting": "=1.0.3+26.3"
+      },
+      "source": {
+        "sources": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite",
+        "issues": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/issues"
+      }
+    },
+    {
+      "file": "hotkey-wheel-1.0.7+26.3.jar",
+      "sha256": "3095b28e981dd995aabc582b7abe785baeccfdc4ac00128eabd6bda0d5a55fd6",
+      "mod_id": "hotkey_wheel",
+      "version": "1.0.7+26.3",
+      "environment": "client",
+      "requires": {
+        "fabricloader": ">=0.19.5",
+        "minecraft": "~26.3",
+        "java": ">=25",
+        "fabric-api": ">=0.161.0"
+      },
+      "source": {
+        "sources": "https://github.com/THENATHE/hotkey-wheel",
+        "issues": "https://github.com/THENATHE/hotkey-wheel/issues"
+      }
+    },
+    {
+      "file": "buildprint-toning-0.1.24.jar",
+      "sha256": "b9c42fd4679f9c70c584a6f8a888e51911c0dfe90f10dddd92c4e427efec5940",
+      "mod_id": "buildprint_toning",
+      "version": "0.1.24",
+      "environment": "client",
+      "requires": {
+        "minecraft": "26.3",
+        "java": ">=25",
+        "fabricloader": ">=0.19.5",
+        "fabric-api": "*",
+        "buildprint": "=0.1.19+26.x"
+      },
+      "source": {}
+    },
+    {
+      "file": "better-recipe-book-rebetterered-1.11.7+26.3.jar",
+      "sha256": "28868f38950057d850d634364881855503093dcd8e70064faf7febcecb81621f",
+      "mod_id": "brb",
+      "version": "1.11.7+26.3",
+      "environment": "client",
+      "requires": {
+        "fabricloader": ">=0.19.5",
+        "java": ">=25",
+        "minecraft": "26.3",
+        "fabric-api": ">=0.161.0+26.3",
+        "cloth-config": ">=26.3.159"
+      },
+      "source": {
+        "issues": "https://github.com/THENATHE/better-recipe-book-rebetterered/issues",
+        "homepage": "https://github.com/THENATHE/better-recipe-book-rebetterered",
+        "sources": "https://github.com/THENATHE/better-recipe-book-rebetterered"
+      }
+    },
+    {
+      "file": "buildprint-fabric-0.1.19+26.x.jar",
+      "sha256": "bd60814e7ba944d7a67bfbf9831a8fa156223277345dc87569cd358a326e3f1f",
+      "mod_id": "buildprint",
+      "version": "0.1.19+26.x",
+      "environment": "client",
+      "requires": {
+        "fabricloader": ">=0.16.0",
+        "fabric-api": "*",
+        "voxelsprout_core": ">=0.6.0",
+        "voxelsprout_ui": ">=0.6.0",
+        "voxelsprout_controls": ">=0.6.0",
+        "voxelsprout_render": ">=0.6.0",
+        "voxelsprout_ghost": ">=0.6.0",
+        "voxelsprout_onboarding": ">=0.6.0",
+        "yet_another_config_lib_v3": "*",
+        "minecraft": ">=26.2 <27",
+        "java": ">=25"
+      },
+      "source": {}
+    }
+  ],
+  "scope": "Exact input identity and archive integrity; runtime acceptance is recorded separately."
+}

@@ -51,7 +51,9 @@ public final class HudServerQa implements ModInitializer {
                 if (Files.exists(file)) {
                     String next = Files.readString(file).trim();
                     if (!next.equals(command)) {
-                        command = next;seed(p, next.equals("atlas"));
+                        command = next;
+                        if(next.endsWith("-edge"))addEdgeBanner(p);
+                        seed(p, next.startsWith("atlas"));
                         Files.writeString(control.resolve("server-ack"), next);
                     }
                 }
@@ -60,6 +62,23 @@ public final class HudServerQa implements ModInitializer {
                 try { Files.writeString(control.resolve("failure"), "server: " + error); } catch (Exception ignored) {}
             }
         });
+    }
+    void addEdgeBanner(net.minecraft.server.level.ServerPlayer player) {
+        var data=MapItem.getSavedData(map,player.level());
+        if(data.getBanners().isEmpty()) {
+            var position=new net.minecraft.core.BlockPos(data.centerX-63,player.getBlockY(),data.centerZ-50);
+            player.level().setBlockAndUpdate(position.below(),net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
+            player.level().setBlockAndUpdate(position,net.minecraft.world.level.block.Blocks.BANNER.white().defaultBlockState());
+            var banner=(net.minecraft.world.level.block.entity.BannerBlockEntity)player.level().getBlockEntity(position);
+            var stack=new ItemStack(Items.BANNER.white());
+            stack.set(DataComponents.CUSTOM_NAME,net.minecraft.network.chat.Component.literal("Named marker at the map edge"));
+            banner.applyComponentsFromItemStack(stack);
+            if(!data.toggleBanner(player.level(),position))throw new AssertionError("edge banner not added to map");
+            var packet=data.getUpdatePacket(map.get(DataComponents.MAP_ID),player);
+            if(packet!=null)player.connection.send(packet);
+            try {Files.writeString(control.resolve("edge-banner.json"),"{\"banner_world_x\":"+position.getX()+",\"banner_world_z\":"+position.getZ()+",\"map_center_x\":"+data.centerX+",\"map_center_z\":"+data.centerZ+"}");}
+            catch(Exception error){throw new RuntimeException(error);}
+        }
     }
     void seed(net.minecraft.server.level.ServerPlayer p, boolean withAtlas) {
         var items = withAtlas ? List.of(atlas.copy(), new ItemStack(Items.COMPASS), new ItemStack(Items.CLOCK))

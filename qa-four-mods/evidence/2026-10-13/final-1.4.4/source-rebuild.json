@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "final_sha256": "e4663dddf2e176c3d5d7a669f59822dc76286ed28e195cc1a77b1bb1b3e7d269",
+  "rebuilt_sha256": "257aaa3b8c45ffbc343527771485a6ed2bfb27e1629ad874eb68bd961168a591",
+  "whole_archive_byte_identical": false,
+  "all_non_directory_entries_identical": true,
+  "non_directory_entries": 130,
+  "differing_empty_directories": [
+    "assets/tiered_backpacks/",
+    "assets/tiered_backpacks/lang/",
+    "data/swift_flight/loot_table/",
+    "data/swift_flight/loot_table/chests/"
+  ],
+  "build_tasks": 46,
+  "compiler": "Microsoft Java25.0.4.1+1-LTS",
+  "scope": "Fresh complete source export and locked inputs; no project cache/output copied. All actual files and nested archives match; four empty outer directories differ."
+}

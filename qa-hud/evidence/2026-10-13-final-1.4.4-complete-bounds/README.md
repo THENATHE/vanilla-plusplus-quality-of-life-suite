@@ -1,0 +1,1 @@
+Observer-source snapshot for the initial29-scene fixture. Its first run revealed the caption overlap assumption was incorrect under exact native prepared bounds. See ../2026-10-13-e466-native-bounds-fixture-correction/. No final acceptance is claimed here.

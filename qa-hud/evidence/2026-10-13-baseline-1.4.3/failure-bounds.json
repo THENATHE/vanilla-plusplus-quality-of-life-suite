@@ -1,0 +1,53 @@
+{
+  "stage": "client phase\u003d10",
+  "case": "ordinary-map-top-horizontal-separation",
+  "failure": "java.lang.AssertionError: nonoverlapping details moved: 155 expected 17",
+  "received_map_rectangles": [
+    [
+      262.0,
+      2.0,
+      398.0,
+      138.0
+    ]
+  ],
+  "received_information_text_rectangles": [
+    [
+      15,
+      155,
+      50,
+      9
+    ],
+    [
+      15,
+      167,
+      64,
+      9
+    ],
+    [
+      15,
+      179,
+      29,
+      9
+    ],
+    [
+      15,
+      191,
+      54,
+      9
+    ],
+    [
+      15,
+      203,
+      27,
+      9
+    ],
+    [
+      15,
+      215,
+      58,
+      9
+    ]
+  ],
+  "map_settings": "TOP_LEFT:260:0",
+  "information_settings": "TOP_LEFT:11:13"
+}

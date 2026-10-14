@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "version": "1.4.3+26.3",
+  "published_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "rebuilt_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "byte_identical": true,
+  "source_revision": "09aac6a21a57d25df6e51f1bee6d80469c326293",
+  "command": "JAVA_HOME=<complete Microsoft Java25 JDK> ./gradlew build --offline --no-daemon --max-workers=2 --rerun-tasks",
+  "build_tasks": 46,
+  "compiler": "Microsoft Java25.0.4.1+1-LTS",
+  "runtime_target": "Java25",
+  "java27_substitution_reproduces_identical_bytes": false
+}

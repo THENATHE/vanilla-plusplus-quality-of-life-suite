@@ -49,7 +49,7 @@ def main():
     for name in filter(None, tracked):
         path = ROOT / name
         if (path.suffix.lower() in ('.md', '.rst', '.adoc') or name.startswith(('docs/', 'licenses/', 'locks/'))
-                or ('/evidence/' in name and path.suffix.lower() in ('.json', '.txt', '.png', '.sha256'))):
+                or ('/evidence/' in name and path.suffix.lower() in ('.json', '.txt', '.png', '.sha256', '.toml', '.py', '.java', '.log'))):
             assert path.is_file() and not path.is_symlink(), name
             assert not name.endswith('.jar'), 'Development binaries must not enter docs.zip'
             documents[name] = path.read_bytes()

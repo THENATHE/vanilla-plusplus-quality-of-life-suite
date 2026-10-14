@@ -1,0 +1,10 @@
+{
+  "raw_sha256": {
+    "qa-features/run.py": "cdb5651bec01d1134cdab3b654d79f3a895fe0ec42081489774ce9d2a5ff4390",
+    "qa-features/src/CoreFeatureChecks.java": "876d9dbcf2bdce1ac9e1f7a6e3cbe2455ffa6d340e5a937e19d1538da6290e13",
+    "qa-features/src/FeatureQa.java": "5fbfe33e596a80655e49f2010861e43bb2b8690a502c481476927b6776658f65",
+    "qa-features/src/PetFeatureChecks.java": "aae9f7a4b0ddb667fc60a628d9b966f8cc26c7ede1b5bf432796291d78748310"
+  },
+  "recorded_revision": "09aac6a21a57d25df6e51f1bee6d80469c326293",
+  "source_capture": "Copies of unchanged current fixture sources; launch audits and class hashes identify the exact executed fixture."
+}

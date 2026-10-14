@@ -1,0 +1,2773 @@
+[
+  {
+    "case": "startup-atlas-right-info-left",
+    "map_shown": true,
+    "map_source": "atlas",
+    "map_x": 501.0,
+    "map_y": 13.0,
+    "map_scale": 1.0,
+    "map_corner": "TOP_RIGHT",
+    "info_corner": "TOP_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 497.0,
+    "map_right": 633.0,
+    "map_top": 9.0,
+    "map_bottom": 145.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 17,
+    "details_bottom": 86,
+    "natural_overlap": false,
+    "details_repositioned_for_overlap": false,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        497.0,
+        9.0,
+        633.0,
+        145.0
+      ],
+      [
+        501.0,
+        13.0,
+        629.0,
+        141.0
+      ],
+      [
+        569.0,
+        74.0,
+        577.0,
+        82.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        15.0,
+        55.0,
+        27.0
+      ],
+      [
+        15.0,
+        17.0,
+        53.0,
+        26.0
+      ],
+      [
+        13.0,
+        27.0,
+        81.0,
+        39.0
+      ],
+      [
+        15.0,
+        29.0,
+        79.0,
+        38.0
+      ],
+      [
+        13.0,
+        39.0,
+        46.0,
+        51.0
+      ],
+      [
+        15.0,
+        41.0,
+        44.0,
+        50.0
+      ],
+      [
+        13.0,
+        51.0,
+        71.0,
+        63.0
+      ],
+      [
+        15.0,
+        53.0,
+        69.0,
+        62.0
+      ],
+      [
+        13.0,
+        63.0,
+        44.0,
+        75.0
+      ],
+      [
+        15.0,
+        65.0,
+        42.0,
+        74.0
+      ],
+      [
+        13.0,
+        75.0,
+        75.0,
+        87.0
+      ],
+      [
+        15.0,
+        77.0,
+        73.0,
+        86.0
+      ]
+    ]
+  },
+  {
+    "case": "ordinary-map-right-info-left",
+    "map_shown": true,
+    "map_source": "map",
+    "map_x": 501.0,
+    "map_y": 13.0,
+    "map_scale": 1.0,
+    "map_corner": "TOP_RIGHT",
+    "info_corner": "TOP_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 497.0,
+    "map_right": 633.0,
+    "map_top": 9.0,
+    "map_bottom": 145.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 17,
+    "details_bottom": 86,
+    "natural_overlap": false,
+    "details_repositioned_for_overlap": false,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        497.0,
+        9.0,
+        633.0,
+        145.0
+      ],
+      [
+        501.0,
+        13.0,
+        629.0,
+        141.0
+      ],
+      [
+        569.0,
+        74.0,
+        577.0,
+        82.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        15.0,
+        55.0,
+        27.0
+      ],
+      [
+        15.0,
+        17.0,
+        53.0,
+        26.0
+      ],
+      [
+        13.0,
+        27.0,
+        81.0,
+        39.0
+      ],
+      [
+        15.0,
+        29.0,
+        79.0,
+        38.0
+      ],
+      [
+        13.0,
+        39.0,
+        46.0,
+        51.0
+      ],
+      [
+        15.0,
+        41.0,
+        44.0,
+        50.0
+      ],
+      [
+        13.0,
+        51.0,
+        71.0,
+        63.0
+      ],
+      [
+        15.0,
+        53.0,
+        69.0,
+        62.0
+      ],
+      [
+        13.0,
+        63.0,
+        44.0,
+        75.0
+      ],
+      [
+        15.0,
+        65.0,
+        42.0,
+        74.0
+      ],
+      [
+        13.0,
+        75.0,
+        75.0,
+        87.0
+      ],
+      [
+        15.0,
+        77.0,
+        73.0,
+        86.0
+      ]
+    ]
+  },
+  {
+    "case": "info-apply-bottom-right",
+    "map_shown": true,
+    "map_source": "map",
+    "map_x": 501.0,
+    "map_y": 13.0,
+    "map_scale": 1.0,
+    "map_corner": "TOP_RIGHT",
+    "info_corner": "BOTTOM_RIGHT",
+    "info_offset_x": 17,
+    "info_offset_y": 19,
+    "native_files_persisted": true,
+    "map_left": 497.0,
+    "map_right": 633.0,
+    "map_top": 9.0,
+    "map_bottom": 145.0,
+    "details_left": 555,
+    "details_right": 619,
+    "details_top": 359,
+    "details_bottom": 428,
+    "natural_overlap": false,
+    "details_repositioned_for_overlap": false,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        497.0,
+        9.0,
+        633.0,
+        145.0
+      ],
+      [
+        501.0,
+        13.0,
+        629.0,
+        141.0
+      ],
+      [
+        569.0,
+        74.0,
+        577.0,
+        82.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        559.0,
+        417.0,
+        621.0,
+        429.0
+      ],
+      [
+        561.0,
+        419.0,
+        619.0,
+        428.0
+      ],
+      [
+        590.0,
+        405.0,
+        621.0,
+        417.0
+      ],
+      [
+        592.0,
+        407.0,
+        619.0,
+        416.0
+      ],
+      [
+        563.0,
+        393.0,
+        621.0,
+        405.0
+      ],
+      [
+        565.0,
+        395.0,
+        619.0,
+        404.0
+      ],
+      [
+        588.0,
+        381.0,
+        621.0,
+        393.0
+      ],
+      [
+        590.0,
+        383.0,
+        619.0,
+        392.0
+      ],
+      [
+        553.0,
+        369.0,
+        621.0,
+        381.0
+      ],
+      [
+        555.0,
+        371.0,
+        619.0,
+        380.0
+      ],
+      [
+        579.0,
+        357.0,
+        621.0,
+        369.0
+      ],
+      [
+        581.0,
+        359.0,
+        619.0,
+        368.0
+      ]
+    ]
+  },
+  {
+    "case": "ordinary-map-same-top-left",
+    "map_shown": true,
+    "map_source": "map",
+    "map_x": 6.0,
+    "map_y": 6.0,
+    "map_scale": 1.0,
+    "map_corner": "TOP_LEFT",
+    "info_corner": "TOP_LEFT",
+    "info_offset_x": 17,
+    "info_offset_y": 19,
+    "native_files_persisted": true,
+    "map_left": 2.0,
+    "map_right": 138.0,
+    "map_top": 2.0,
+    "map_bottom": 138.0,
+    "details_left": 21,
+    "details_right": 85,
+    "details_top": 163,
+    "details_bottom": 232,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        2.0,
+        2.0,
+        138.0,
+        138.0
+      ],
+      [
+        6.0,
+        6.0,
+        134.0,
+        134.0
+      ],
+      [
+        74.0,
+        67.0,
+        82.0,
+        75.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        19.0,
+        161.0,
+        61.0,
+        173.0
+      ],
+      [
+        21.0,
+        163.0,
+        59.0,
+        172.0
+      ],
+      [
+        19.0,
+        173.0,
+        87.0,
+        185.0
+      ],
+      [
+        21.0,
+        175.0,
+        85.0,
+        184.0
+      ],
+      [
+        19.0,
+        185.0,
+        52.0,
+        197.0
+      ],
+      [
+        21.0,
+        187.0,
+        50.0,
+        196.0
+      ],
+      [
+        19.0,
+        197.0,
+        77.0,
+        209.0
+      ],
+      [
+        21.0,
+        199.0,
+        75.0,
+        208.0
+      ],
+      [
+        19.0,
+        209.0,
+        50.0,
+        221.0
+      ],
+      [
+        21.0,
+        211.0,
+        48.0,
+        220.0
+      ],
+      [
+        19.0,
+        221.0,
+        81.0,
+        233.0
+      ],
+      [
+        21.0,
+        223.0,
+        79.0,
+        232.0
+      ]
+    ]
+  },
+  {
+    "case": "atlas-same-top-left",
+    "map_shown": true,
+    "map_source": "atlas",
+    "map_x": 6.0,
+    "map_y": 6.0,
+    "map_scale": 1.0,
+    "map_corner": "TOP_LEFT",
+    "info_corner": "TOP_LEFT",
+    "info_offset_x": 17,
+    "info_offset_y": 19,
+    "native_files_persisted": true,
+    "map_left": 2.0,
+    "map_right": 138.0,
+    "map_top": 2.0,
+    "map_bottom": 138.0,
+    "details_left": 21,
+    "details_right": 85,
+    "details_top": 163,
+    "details_bottom": 232,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        2.0,
+        2.0,
+        138.0,
+        138.0
+      ],
+      [
+        6.0,
+        6.0,
+        134.0,
+        134.0
+      ],
+      [
+        74.0,
+        67.0,
+        82.0,
+        75.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        19.0,
+        161.0,
+        61.0,
+        173.0
+      ],
+      [
+        21.0,
+        163.0,
+        59.0,
+        172.0
+      ],
+      [
+        19.0,
+        173.0,
+        87.0,
+        185.0
+      ],
+      [
+        21.0,
+        175.0,
+        85.0,
+        184.0
+      ],
+      [
+        19.0,
+        185.0,
+        52.0,
+        197.0
+      ],
+      [
+        21.0,
+        187.0,
+        50.0,
+        196.0
+      ],
+      [
+        19.0,
+        197.0,
+        77.0,
+        209.0
+      ],
+      [
+        21.0,
+        199.0,
+        75.0,
+        208.0
+      ],
+      [
+        19.0,
+        209.0,
+        50.0,
+        221.0
+      ],
+      [
+        21.0,
+        211.0,
+        48.0,
+        220.0
+      ],
+      [
+        19.0,
+        221.0,
+        81.0,
+        233.0
+      ],
+      [
+        21.0,
+        223.0,
+        79.0,
+        232.0
+      ]
+    ]
+  },
+  {
+    "case": "map-apply-right-info-left",
+    "map_shown": true,
+    "map_source": "atlas",
+    "map_x": 501.0,
+    "map_y": 13.0,
+    "map_scale": 1.0,
+    "map_corner": "TOP_RIGHT",
+    "info_corner": "TOP_LEFT",
+    "info_offset_x": 17,
+    "info_offset_y": 19,
+    "native_files_persisted": true,
+    "map_left": 497.0,
+    "map_right": 633.0,
+    "map_top": 9.0,
+    "map_bottom": 145.0,
+    "details_left": 21,
+    "details_right": 85,
+    "details_top": 23,
+    "details_bottom": 92,
+    "natural_overlap": false,
+    "details_repositioned_for_overlap": false,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        497.0,
+        9.0,
+        633.0,
+        145.0
+      ],
+      [
+        501.0,
+        13.0,
+        629.0,
+        141.0
+      ],
+      [
+        569.0,
+        74.0,
+        577.0,
+        82.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        19.0,
+        21.0,
+        61.0,
+        33.0
+      ],
+      [
+        21.0,
+        23.0,
+        59.0,
+        32.0
+      ],
+      [
+        19.0,
+        33.0,
+        87.0,
+        45.0
+      ],
+      [
+        21.0,
+        35.0,
+        85.0,
+        44.0
+      ],
+      [
+        19.0,
+        45.0,
+        52.0,
+        57.0
+      ],
+      [
+        21.0,
+        47.0,
+        50.0,
+        56.0
+      ],
+      [
+        19.0,
+        57.0,
+        77.0,
+        69.0
+      ],
+      [
+        21.0,
+        59.0,
+        75.0,
+        68.0
+      ],
+      [
+        19.0,
+        69.0,
+        50.0,
+        81.0
+      ],
+      [
+        21.0,
+        71.0,
+        48.0,
+        80.0
+      ],
+      [
+        19.0,
+        81.0,
+        81.0,
+        93.0
+      ],
+      [
+        21.0,
+        83.0,
+        79.0,
+        92.0
+      ]
+    ]
+  },
+  {
+    "case": "atlas-top-left-info-bottom-left",
+    "map_shown": true,
+    "map_source": "atlas",
+    "map_x": 6.0,
+    "map_y": 6.0,
+    "map_scale": 1.0,
+    "map_corner": "TOP_LEFT",
+    "info_corner": "BOTTOM_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 2.0,
+    "map_right": 138.0,
+    "map_top": 2.0,
+    "map_bottom": 138.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 365,
+    "details_bottom": 434,
+    "natural_overlap": false,
+    "details_repositioned_for_overlap": false,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        2.0,
+        2.0,
+        138.0,
+        138.0
+      ],
+      [
+        6.0,
+        6.0,
+        134.0,
+        134.0
+      ],
+      [
+        74.0,
+        67.0,
+        82.0,
+        75.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        423.0,
+        75.0,
+        435.0
+      ],
+      [
+        15.0,
+        425.0,
+        73.0,
+        434.0
+      ],
+      [
+        13.0,
+        411.0,
+        44.0,
+        423.0
+      ],
+      [
+        15.0,
+        413.0,
+        42.0,
+        422.0
+      ],
+      [
+        13.0,
+        399.0,
+        71.0,
+        411.0
+      ],
+      [
+        15.0,
+        401.0,
+        69.0,
+        410.0
+      ],
+      [
+        13.0,
+        387.0,
+        46.0,
+        399.0
+      ],
+      [
+        15.0,
+        389.0,
+        44.0,
+        398.0
+      ],
+      [
+        13.0,
+        375.0,
+        81.0,
+        387.0
+      ],
+      [
+        15.0,
+        377.0,
+        79.0,
+        386.0
+      ],
+      [
+        13.0,
+        363.0,
+        55.0,
+        375.0
+      ],
+      [
+        15.0,
+        365.0,
+        53.0,
+        374.0
+      ]
+    ]
+  },
+  {
+    "case": "ordinary-map-same-bottom-left",
+    "map_shown": true,
+    "map_source": "map",
+    "map_x": 6.0,
+    "map_y": 316.0,
+    "map_scale": 1.0,
+    "map_corner": "BOTTOM_LEFT",
+    "info_corner": "BOTTOM_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 2.0,
+    "map_right": 138.0,
+    "map_top": 312.0,
+    "map_bottom": 448.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 225,
+    "details_bottom": 294,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        2.0,
+        312.0,
+        138.0,
+        448.0
+      ],
+      [
+        6.0,
+        316.0,
+        134.0,
+        444.0
+      ],
+      [
+        74.0,
+        377.0,
+        82.0,
+        385.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        283.0,
+        75.0,
+        295.0
+      ],
+      [
+        15.0,
+        285.0,
+        73.0,
+        294.0
+      ],
+      [
+        13.0,
+        271.0,
+        44.0,
+        283.0
+      ],
+      [
+        15.0,
+        273.0,
+        42.0,
+        282.0
+      ],
+      [
+        13.0,
+        259.0,
+        71.0,
+        271.0
+      ],
+      [
+        15.0,
+        261.0,
+        69.0,
+        270.0
+      ],
+      [
+        13.0,
+        247.0,
+        46.0,
+        259.0
+      ],
+      [
+        15.0,
+        249.0,
+        44.0,
+        258.0
+      ],
+      [
+        13.0,
+        235.0,
+        81.0,
+        247.0
+      ],
+      [
+        15.0,
+        237.0,
+        79.0,
+        246.0
+      ],
+      [
+        13.0,
+        223.0,
+        55.0,
+        235.0
+      ],
+      [
+        15.0,
+        225.0,
+        53.0,
+        234.0
+      ]
+    ]
+  },
+  {
+    "case": "ordinary-map-signed-offset",
+    "map_shown": true,
+    "map_source": "map",
+    "map_x": 4.0,
+    "map_y": 319.0,
+    "map_scale": 1.0,
+    "map_corner": "BOTTOM_LEFT",
+    "info_corner": "BOTTOM_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 0.0,
+    "map_right": 136.0,
+    "map_top": 315.0,
+    "map_bottom": 451.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 228,
+    "details_bottom": 297,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        0.0,
+        315.0,
+        136.0,
+        451.0
+      ],
+      [
+        4.0,
+        319.0,
+        132.0,
+        447.0
+      ],
+      [
+        72.0,
+        380.0,
+        80.0,
+        388.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        286.0,
+        75.0,
+        298.0
+      ],
+      [
+        15.0,
+        288.0,
+        73.0,
+        297.0
+      ],
+      [
+        13.0,
+        274.0,
+        44.0,
+        286.0
+      ],
+      [
+        15.0,
+        276.0,
+        42.0,
+        285.0
+      ],
+      [
+        13.0,
+        262.0,
+        71.0,
+        274.0
+      ],
+      [
+        15.0,
+        264.0,
+        69.0,
+        273.0
+      ],
+      [
+        13.0,
+        250.0,
+        46.0,
+        262.0
+      ],
+      [
+        15.0,
+        252.0,
+        44.0,
+        261.0
+      ],
+      [
+        13.0,
+        238.0,
+        81.0,
+        250.0
+      ],
+      [
+        15.0,
+        240.0,
+        79.0,
+        249.0
+      ],
+      [
+        13.0,
+        226.0,
+        55.0,
+        238.0
+      ],
+      [
+        15.0,
+        228.0,
+        53.0,
+        237.0
+      ]
+    ]
+  },
+  {
+    "case": "ordinary-map-separated-same-corner",
+    "map_shown": true,
+    "map_source": "map",
+    "map_x": 6.0,
+    "map_y": 6.0,
+    "map_scale": 1.0,
+    "map_corner": "TOP_LEFT",
+    "info_corner": "TOP_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 210,
+    "native_files_persisted": true,
+    "map_left": 2.0,
+    "map_right": 138.0,
+    "map_top": 2.0,
+    "map_bottom": 138.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 214,
+    "details_bottom": 283,
+    "natural_overlap": false,
+    "details_repositioned_for_overlap": false,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        2.0,
+        2.0,
+        138.0,
+        138.0
+      ],
+      [
+        6.0,
+        6.0,
+        134.0,
+        134.0
+      ],
+      [
+        74.0,
+        67.0,
+        82.0,
+        75.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        212.0,
+        55.0,
+        224.0
+      ],
+      [
+        15.0,
+        214.0,
+        53.0,
+        223.0
+      ],
+      [
+        13.0,
+        224.0,
+        81.0,
+        236.0
+      ],
+      [
+        15.0,
+        226.0,
+        79.0,
+        235.0
+      ],
+      [
+        13.0,
+        236.0,
+        46.0,
+        248.0
+      ],
+      [
+        15.0,
+        238.0,
+        44.0,
+        247.0
+      ],
+      [
+        13.0,
+        248.0,
+        71.0,
+        260.0
+      ],
+      [
+        15.0,
+        250.0,
+        69.0,
+        259.0
+      ],
+      [
+        13.0,
+        260.0,
+        44.0,
+        272.0
+      ],
+      [
+        15.0,
+        262.0,
+        42.0,
+        271.0
+      ],
+      [
+        13.0,
+        272.0,
+        75.0,
+        284.0
+      ],
+      [
+        15.0,
+        274.0,
+        73.0,
+        283.0
+      ]
+    ]
+  },
+  {
+    "case": "ordinary-map-top-horizontal-separation",
+    "map_shown": true,
+    "map_source": "map",
+    "map_x": 265.0,
+    "map_y": 5.0,
+    "map_scale": 0.75,
+    "map_corner": "TOP_LEFT",
+    "info_corner": "TOP_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 262.0,
+    "map_right": 364.0,
+    "map_top": 2.0,
+    "map_bottom": 104.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 17,
+    "details_bottom": 86,
+    "natural_overlap": false,
+    "details_repositioned_for_overlap": false,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        262.0,
+        2.0,
+        364.0,
+        104.0
+      ],
+      [
+        265.0,
+        5.0,
+        361.0,
+        101.0
+      ],
+      [
+        316.0,
+        50.75,
+        322.0,
+        56.75
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        15.0,
+        55.0,
+        27.0
+      ],
+      [
+        15.0,
+        17.0,
+        53.0,
+        26.0
+      ],
+      [
+        13.0,
+        27.0,
+        81.0,
+        39.0
+      ],
+      [
+        15.0,
+        29.0,
+        79.0,
+        38.0
+      ],
+      [
+        13.0,
+        39.0,
+        46.0,
+        51.0
+      ],
+      [
+        15.0,
+        41.0,
+        44.0,
+        50.0
+      ],
+      [
+        13.0,
+        51.0,
+        71.0,
+        63.0
+      ],
+      [
+        15.0,
+        53.0,
+        69.0,
+        62.0
+      ],
+      [
+        13.0,
+        63.0,
+        44.0,
+        75.0
+      ],
+      [
+        15.0,
+        65.0,
+        42.0,
+        74.0
+      ],
+      [
+        13.0,
+        75.0,
+        75.0,
+        87.0
+      ],
+      [
+        15.0,
+        77.0,
+        73.0,
+        86.0
+      ]
+    ]
+  },
+  {
+    "case": "atlas-top-horizontal-separation",
+    "map_shown": true,
+    "map_source": "atlas",
+    "map_x": 263.0,
+    "map_y": 3.0,
+    "map_scale": 0.5,
+    "map_corner": "TOP_LEFT",
+    "info_corner": "TOP_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 261.0,
+    "map_right": 329.0,
+    "map_top": 1.0,
+    "map_bottom": 69.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 17,
+    "details_bottom": 86,
+    "natural_overlap": false,
+    "details_repositioned_for_overlap": false,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        261.0,
+        1.0,
+        329.0,
+        69.0
+      ],
+      [
+        263.0,
+        3.0,
+        327.0,
+        67.0
+      ],
+      [
+        297.0,
+        33.5,
+        301.0,
+        37.5
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        15.0,
+        55.0,
+        27.0
+      ],
+      [
+        15.0,
+        17.0,
+        53.0,
+        26.0
+      ],
+      [
+        13.0,
+        27.0,
+        81.0,
+        39.0
+      ],
+      [
+        15.0,
+        29.0,
+        79.0,
+        38.0
+      ],
+      [
+        13.0,
+        39.0,
+        46.0,
+        51.0
+      ],
+      [
+        15.0,
+        41.0,
+        44.0,
+        50.0
+      ],
+      [
+        13.0,
+        51.0,
+        71.0,
+        63.0
+      ],
+      [
+        15.0,
+        53.0,
+        69.0,
+        62.0
+      ],
+      [
+        13.0,
+        63.0,
+        44.0,
+        75.0
+      ],
+      [
+        15.0,
+        65.0,
+        42.0,
+        74.0
+      ],
+      [
+        13.0,
+        75.0,
+        75.0,
+        87.0
+      ],
+      [
+        15.0,
+        77.0,
+        73.0,
+        86.0
+      ]
+    ]
+  },
+  {
+    "case": "ordinary-map-bottom-horizontal-separation",
+    "map_shown": true,
+    "map_source": "map",
+    "map_x": 268.0,
+    "map_y": 282.0,
+    "map_scale": 1.25,
+    "map_corner": "BOTTOM_LEFT",
+    "info_corner": "BOTTOM_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 263.0,
+    "map_right": 433.0,
+    "map_top": 277.0,
+    "map_bottom": 447.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 365,
+    "details_bottom": 434,
+    "natural_overlap": false,
+    "details_repositioned_for_overlap": false,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        263.0,
+        277.0,
+        433.0,
+        447.0
+      ],
+      [
+        268.0,
+        282.0,
+        428.0,
+        442.0
+      ],
+      [
+        353.0,
+        358.25,
+        363.0,
+        368.25
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        423.0,
+        75.0,
+        435.0
+      ],
+      [
+        15.0,
+        425.0,
+        73.0,
+        434.0
+      ],
+      [
+        13.0,
+        411.0,
+        44.0,
+        423.0
+      ],
+      [
+        15.0,
+        413.0,
+        42.0,
+        422.0
+      ],
+      [
+        13.0,
+        399.0,
+        71.0,
+        411.0
+      ],
+      [
+        15.0,
+        401.0,
+        69.0,
+        410.0
+      ],
+      [
+        13.0,
+        387.0,
+        46.0,
+        399.0
+      ],
+      [
+        15.0,
+        389.0,
+        44.0,
+        398.0
+      ],
+      [
+        13.0,
+        375.0,
+        81.0,
+        387.0
+      ],
+      [
+        15.0,
+        377.0,
+        79.0,
+        386.0
+      ],
+      [
+        13.0,
+        363.0,
+        55.0,
+        375.0
+      ],
+      [
+        15.0,
+        365.0,
+        53.0,
+        374.0
+      ]
+    ]
+  },
+  {
+    "case": "atlas-bottom-horizontal-separation",
+    "map_shown": true,
+    "map_source": "atlas",
+    "map_x": 268.0,
+    "map_y": 282.0,
+    "map_scale": 1.25,
+    "map_corner": "BOTTOM_LEFT",
+    "info_corner": "BOTTOM_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 263.0,
+    "map_right": 433.0,
+    "map_top": 277.0,
+    "map_bottom": 447.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 365,
+    "details_bottom": 434,
+    "natural_overlap": false,
+    "details_repositioned_for_overlap": false,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        263.0,
+        277.0,
+        433.0,
+        447.0
+      ],
+      [
+        268.0,
+        282.0,
+        428.0,
+        442.0
+      ],
+      [
+        353.0,
+        358.25,
+        363.0,
+        368.25
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        423.0,
+        75.0,
+        435.0
+      ],
+      [
+        15.0,
+        425.0,
+        73.0,
+        434.0
+      ],
+      [
+        13.0,
+        411.0,
+        44.0,
+        423.0
+      ],
+      [
+        15.0,
+        413.0,
+        42.0,
+        422.0
+      ],
+      [
+        13.0,
+        399.0,
+        71.0,
+        411.0
+      ],
+      [
+        15.0,
+        401.0,
+        69.0,
+        410.0
+      ],
+      [
+        13.0,
+        387.0,
+        46.0,
+        399.0
+      ],
+      [
+        15.0,
+        389.0,
+        44.0,
+        398.0
+      ],
+      [
+        13.0,
+        375.0,
+        81.0,
+        387.0
+      ],
+      [
+        15.0,
+        377.0,
+        79.0,
+        386.0
+      ],
+      [
+        13.0,
+        363.0,
+        55.0,
+        375.0
+      ],
+      [
+        15.0,
+        365.0,
+        53.0,
+        374.0
+      ]
+    ]
+  },
+  {
+    "case": "ordinary-map-top-horizontal-overlap",
+    "map_shown": true,
+    "map_source": "map",
+    "map_x": 45.0,
+    "map_y": 5.0,
+    "map_scale": 0.75,
+    "map_corner": "TOP_LEFT",
+    "info_corner": "TOP_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 42.0,
+    "map_right": 144.0,
+    "map_top": 2.0,
+    "map_bottom": 104.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 123,
+    "details_bottom": 192,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        42.0,
+        2.0,
+        144.0,
+        104.0
+      ],
+      [
+        45.0,
+        5.0,
+        141.0,
+        101.0
+      ],
+      [
+        96.0,
+        50.75,
+        102.0,
+        56.75
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        121.0,
+        55.0,
+        133.0
+      ],
+      [
+        15.0,
+        123.0,
+        53.0,
+        132.0
+      ],
+      [
+        13.0,
+        133.0,
+        81.0,
+        145.0
+      ],
+      [
+        15.0,
+        135.0,
+        79.0,
+        144.0
+      ],
+      [
+        13.0,
+        145.0,
+        46.0,
+        157.0
+      ],
+      [
+        15.0,
+        147.0,
+        44.0,
+        156.0
+      ],
+      [
+        13.0,
+        157.0,
+        71.0,
+        169.0
+      ],
+      [
+        15.0,
+        159.0,
+        69.0,
+        168.0
+      ],
+      [
+        13.0,
+        169.0,
+        44.0,
+        181.0
+      ],
+      [
+        15.0,
+        171.0,
+        42.0,
+        180.0
+      ],
+      [
+        13.0,
+        181.0,
+        75.0,
+        193.0
+      ],
+      [
+        15.0,
+        183.0,
+        73.0,
+        192.0
+      ]
+    ]
+  },
+  {
+    "case": "atlas-top-horizontal-overlap",
+    "map_shown": true,
+    "map_source": "atlas",
+    "map_x": 43.0,
+    "map_y": 3.0,
+    "map_scale": 0.5,
+    "map_corner": "TOP_LEFT",
+    "info_corner": "TOP_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 41.0,
+    "map_right": 109.0,
+    "map_top": 1.0,
+    "map_bottom": 69.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 88,
+    "details_bottom": 157,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        41.0,
+        1.0,
+        109.0,
+        69.0
+      ],
+      [
+        43.0,
+        3.0,
+        107.0,
+        67.0
+      ],
+      [
+        77.0,
+        33.5,
+        81.0,
+        37.5
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        86.0,
+        55.0,
+        98.0
+      ],
+      [
+        15.0,
+        88.0,
+        53.0,
+        97.0
+      ],
+      [
+        13.0,
+        98.0,
+        81.0,
+        110.0
+      ],
+      [
+        15.0,
+        100.0,
+        79.0,
+        109.0
+      ],
+      [
+        13.0,
+        110.0,
+        46.0,
+        122.0
+      ],
+      [
+        15.0,
+        112.0,
+        44.0,
+        121.0
+      ],
+      [
+        13.0,
+        122.0,
+        71.0,
+        134.0
+      ],
+      [
+        15.0,
+        124.0,
+        69.0,
+        133.0
+      ],
+      [
+        13.0,
+        134.0,
+        44.0,
+        146.0
+      ],
+      [
+        15.0,
+        136.0,
+        42.0,
+        145.0
+      ],
+      [
+        13.0,
+        146.0,
+        75.0,
+        158.0
+      ],
+      [
+        15.0,
+        148.0,
+        73.0,
+        157.0
+      ]
+    ]
+  },
+  {
+    "case": "ordinary-map-bottom-horizontal-overlap",
+    "map_shown": true,
+    "map_source": "map",
+    "map_x": 48.0,
+    "map_y": 282.0,
+    "map_scale": 1.25,
+    "map_corner": "BOTTOM_LEFT",
+    "info_corner": "BOTTOM_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 43.0,
+    "map_right": 213.0,
+    "map_top": 277.0,
+    "map_bottom": 447.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 190,
+    "details_bottom": 259,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        43.0,
+        277.0,
+        213.0,
+        447.0
+      ],
+      [
+        48.0,
+        282.0,
+        208.0,
+        442.0
+      ],
+      [
+        133.0,
+        358.25,
+        143.0,
+        368.25
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        248.0,
+        75.0,
+        260.0
+      ],
+      [
+        15.0,
+        250.0,
+        73.0,
+        259.0
+      ],
+      [
+        13.0,
+        236.0,
+        44.0,
+        248.0
+      ],
+      [
+        15.0,
+        238.0,
+        42.0,
+        247.0
+      ],
+      [
+        13.0,
+        224.0,
+        71.0,
+        236.0
+      ],
+      [
+        15.0,
+        226.0,
+        69.0,
+        235.0
+      ],
+      [
+        13.0,
+        212.0,
+        46.0,
+        224.0
+      ],
+      [
+        15.0,
+        214.0,
+        44.0,
+        223.0
+      ],
+      [
+        13.0,
+        200.0,
+        81.0,
+        212.0
+      ],
+      [
+        15.0,
+        202.0,
+        79.0,
+        211.0
+      ],
+      [
+        13.0,
+        188.0,
+        55.0,
+        200.0
+      ],
+      [
+        15.0,
+        190.0,
+        53.0,
+        199.0
+      ]
+    ]
+  },
+  {
+    "case": "atlas-bottom-horizontal-overlap",
+    "map_shown": true,
+    "map_source": "atlas",
+    "map_x": 48.0,
+    "map_y": 282.0,
+    "map_scale": 1.25,
+    "map_corner": "BOTTOM_LEFT",
+    "info_corner": "BOTTOM_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 43.0,
+    "map_right": 213.0,
+    "map_top": 277.0,
+    "map_bottom": 447.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 190,
+    "details_bottom": 259,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        43.0,
+        277.0,
+        213.0,
+        447.0
+      ],
+      [
+        48.0,
+        282.0,
+        208.0,
+        442.0
+      ],
+      [
+        133.0,
+        358.25,
+        143.0,
+        368.25
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        248.0,
+        75.0,
+        260.0
+      ],
+      [
+        15.0,
+        250.0,
+        73.0,
+        259.0
+      ],
+      [
+        13.0,
+        236.0,
+        44.0,
+        248.0
+      ],
+      [
+        15.0,
+        238.0,
+        42.0,
+        247.0
+      ],
+      [
+        13.0,
+        224.0,
+        71.0,
+        236.0
+      ],
+      [
+        15.0,
+        226.0,
+        69.0,
+        235.0
+      ],
+      [
+        13.0,
+        212.0,
+        46.0,
+        224.0
+      ],
+      [
+        15.0,
+        214.0,
+        44.0,
+        223.0
+      ],
+      [
+        13.0,
+        200.0,
+        81.0,
+        212.0
+      ],
+      [
+        15.0,
+        202.0,
+        79.0,
+        211.0
+      ],
+      [
+        13.0,
+        188.0,
+        55.0,
+        200.0
+      ],
+      [
+        15.0,
+        190.0,
+        53.0,
+        199.0
+      ]
+    ]
+  },
+  {
+    "case": "ordinary-map-top-cross-corner-overlap",
+    "map_shown": true,
+    "map_source": "map",
+    "map_x": 406.0,
+    "map_y": 6.0,
+    "map_scale": 1.0,
+    "map_corner": "TOP_LEFT",
+    "info_corner": "TOP_RIGHT",
+    "info_offset_x": 120,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 402.0,
+    "map_right": 538.0,
+    "map_top": 2.0,
+    "map_bottom": 138.0,
+    "details_left": 452,
+    "details_right": 516,
+    "details_top": 157,
+    "details_bottom": 226,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        402.0,
+        2.0,
+        538.0,
+        138.0
+      ],
+      [
+        406.0,
+        6.0,
+        534.0,
+        134.0
+      ],
+      [
+        474.0,
+        67.0,
+        482.0,
+        75.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        476.0,
+        155.0,
+        518.0,
+        167.0
+      ],
+      [
+        478.0,
+        157.0,
+        516.0,
+        166.0
+      ],
+      [
+        450.0,
+        167.0,
+        518.0,
+        179.0
+      ],
+      [
+        452.0,
+        169.0,
+        516.0,
+        178.0
+      ],
+      [
+        485.0,
+        179.0,
+        518.0,
+        191.0
+      ],
+      [
+        487.0,
+        181.0,
+        516.0,
+        190.0
+      ],
+      [
+        460.0,
+        191.0,
+        518.0,
+        203.0
+      ],
+      [
+        462.0,
+        193.0,
+        516.0,
+        202.0
+      ],
+      [
+        487.0,
+        203.0,
+        518.0,
+        215.0
+      ],
+      [
+        489.0,
+        205.0,
+        516.0,
+        214.0
+      ],
+      [
+        456.0,
+        215.0,
+        518.0,
+        227.0
+      ],
+      [
+        458.0,
+        217.0,
+        516.0,
+        226.0
+      ]
+    ]
+  },
+  {
+    "case": "atlas-top-cross-corner-overlap",
+    "map_shown": true,
+    "map_source": "atlas",
+    "map_x": 406.0,
+    "map_y": 6.0,
+    "map_scale": 1.0,
+    "map_corner": "TOP_LEFT",
+    "info_corner": "TOP_RIGHT",
+    "info_offset_x": 120,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 402.0,
+    "map_right": 538.0,
+    "map_top": 2.0,
+    "map_bottom": 138.0,
+    "details_left": 452,
+    "details_right": 516,
+    "details_top": 157,
+    "details_bottom": 226,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        402.0,
+        2.0,
+        538.0,
+        138.0
+      ],
+      [
+        406.0,
+        6.0,
+        534.0,
+        134.0
+      ],
+      [
+        474.0,
+        67.0,
+        482.0,
+        75.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        476.0,
+        155.0,
+        518.0,
+        167.0
+      ],
+      [
+        478.0,
+        157.0,
+        516.0,
+        166.0
+      ],
+      [
+        450.0,
+        167.0,
+        518.0,
+        179.0
+      ],
+      [
+        452.0,
+        169.0,
+        516.0,
+        178.0
+      ],
+      [
+        485.0,
+        179.0,
+        518.0,
+        191.0
+      ],
+      [
+        487.0,
+        181.0,
+        516.0,
+        190.0
+      ],
+      [
+        460.0,
+        191.0,
+        518.0,
+        203.0
+      ],
+      [
+        462.0,
+        193.0,
+        516.0,
+        202.0
+      ],
+      [
+        487.0,
+        203.0,
+        518.0,
+        215.0
+      ],
+      [
+        489.0,
+        205.0,
+        516.0,
+        214.0
+      ],
+      [
+        456.0,
+        215.0,
+        518.0,
+        227.0
+      ],
+      [
+        458.0,
+        217.0,
+        516.0,
+        226.0
+      ]
+    ]
+  },
+  {
+    "case": "ordinary-map-bottom-cross-corner-overlap",
+    "map_shown": true,
+    "map_source": "map",
+    "map_x": 406.0,
+    "map_y": 316.0,
+    "map_scale": 1.0,
+    "map_corner": "BOTTOM_LEFT",
+    "info_corner": "BOTTOM_RIGHT",
+    "info_offset_x": 120,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 402.0,
+    "map_right": 538.0,
+    "map_top": 312.0,
+    "map_bottom": 448.0,
+    "details_left": 452,
+    "details_right": 516,
+    "details_top": 225,
+    "details_bottom": 294,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        402.0,
+        312.0,
+        538.0,
+        448.0
+      ],
+      [
+        406.0,
+        316.0,
+        534.0,
+        444.0
+      ],
+      [
+        474.0,
+        377.0,
+        482.0,
+        385.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        456.0,
+        283.0,
+        518.0,
+        295.0
+      ],
+      [
+        458.0,
+        285.0,
+        516.0,
+        294.0
+      ],
+      [
+        487.0,
+        271.0,
+        518.0,
+        283.0
+      ],
+      [
+        489.0,
+        273.0,
+        516.0,
+        282.0
+      ],
+      [
+        460.0,
+        259.0,
+        518.0,
+        271.0
+      ],
+      [
+        462.0,
+        261.0,
+        516.0,
+        270.0
+      ],
+      [
+        485.0,
+        247.0,
+        518.0,
+        259.0
+      ],
+      [
+        487.0,
+        249.0,
+        516.0,
+        258.0
+      ],
+      [
+        450.0,
+        235.0,
+        518.0,
+        247.0
+      ],
+      [
+        452.0,
+        237.0,
+        516.0,
+        246.0
+      ],
+      [
+        476.0,
+        223.0,
+        518.0,
+        235.0
+      ],
+      [
+        478.0,
+        225.0,
+        516.0,
+        234.0
+      ]
+    ]
+  },
+  {
+    "case": "atlas-bottom-cross-corner-overlap",
+    "map_shown": true,
+    "map_source": "atlas",
+    "map_x": 406.0,
+    "map_y": 316.0,
+    "map_scale": 1.0,
+    "map_corner": "BOTTOM_LEFT",
+    "info_corner": "BOTTOM_RIGHT",
+    "info_offset_x": 120,
+    "info_offset_y": 13,
+    "native_files_persisted": true,
+    "map_left": 402.0,
+    "map_right": 538.0,
+    "map_top": 312.0,
+    "map_bottom": 448.0,
+    "details_left": 452,
+    "details_right": 516,
+    "details_top": 225,
+    "details_bottom": 294,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        402.0,
+        312.0,
+        538.0,
+        448.0
+      ],
+      [
+        406.0,
+        316.0,
+        534.0,
+        444.0
+      ],
+      [
+        474.0,
+        377.0,
+        482.0,
+        385.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        456.0,
+        283.0,
+        518.0,
+        295.0
+      ],
+      [
+        458.0,
+        285.0,
+        516.0,
+        294.0
+      ],
+      [
+        487.0,
+        271.0,
+        518.0,
+        283.0
+      ],
+      [
+        489.0,
+        273.0,
+        516.0,
+        282.0
+      ],
+      [
+        460.0,
+        259.0,
+        518.0,
+        271.0
+      ],
+      [
+        462.0,
+        261.0,
+        516.0,
+        270.0
+      ],
+      [
+        485.0,
+        247.0,
+        518.0,
+        259.0
+      ],
+      [
+        487.0,
+        249.0,
+        516.0,
+        258.0
+      ],
+      [
+        450.0,
+        235.0,
+        518.0,
+        247.0
+      ],
+      [
+        452.0,
+        237.0,
+        516.0,
+        246.0
+      ],
+      [
+        476.0,
+        223.0,
+        518.0,
+        235.0
+      ],
+      [
+        478.0,
+        225.0,
+        516.0,
+        234.0
+      ]
+    ]
+  },
+  {
+    "case": "atlas-backgroundless-caption-shadow-edge",
+    "map_shown": true,
+    "map_source": "atlas",
+    "map_x": 4.0,
+    "map_y": 4.0,
+    "map_scale": 1.0,
+    "map_corner": "TOP_LEFT",
+    "info_corner": "TOP_LEFT",
+    "info_offset_x": 11,
+    "info_offset_y": 147,
+    "native_files_persisted": true,
+    "map_left": 4.0,
+    "map_right": 132.0,
+    "map_top": 4.0,
+    "map_bottom": 150.0,
+    "details_left": 15,
+    "details_right": 79,
+    "details_top": 303,
+    "details_bottom": 372,
+    "natural_overlap": true,
+    "details_repositioned_for_overlap": true,
+    "detail_lines": 6,
+    "screen_height": 450,
+    "passed": true,
+    "received_map_rectangles": [
+      [
+        4.0,
+        4.0,
+        132.0,
+        132.0
+      ],
+      [
+        72.0,
+        65.0,
+        80.0,
+        73.0
+      ],
+      [
+        49.0,
+        140.0,
+        88.0,
+        150.0
+      ],
+      [
+        49.0,
+        140.0,
+        88.0,
+        150.0
+      ]
+    ],
+    "received_information_draw_rectangles": [
+      [
+        13.0,
+        301.0,
+        55.0,
+        313.0
+      ],
+      [
+        15.0,
+        303.0,
+        53.0,
+        312.0
+      ],
+      [
+        13.0,
+        313.0,
+        81.0,
+        325.0
+      ],
+      [
+        15.0,
+        315.0,
+        79.0,
+        324.0
+      ],
+      [
+        13.0,
+        325.0,
+        46.0,
+        337.0
+      ],
+      [
+        15.0,
+        327.0,
+        44.0,
+        336.0
+      ],
+      [
+        13.0,
+        337.0,
+        71.0,
+        349.0
+      ],
+      [
+        15.0,
+        339.0,
+        69.0,
+        348.0
+      ],
+      [
+        13.0,
+        349.0,
+        44.0,
+        361.0
+      ],
+      [
+        15.0,
+        351.0,
+        42.0,
+        360.0
+      ],
+      [
+        13.0,
+        361.0,
+        75.0,
+        373.0
+      ],
+      [
+        15.0,
+        363.0,
+        73.0,
+        372.0
+      ]
+    ]
+  },
+  {
+    "case": "settings",
+    "screen_class": "me.fzzyhmstrs.fzzy_config.screen.internal.ConfigScreen",
+    "passed": true
+  }
+]

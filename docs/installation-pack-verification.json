@@ -1,10 +1,10 @@
 {
-  "pack_version": "1.4.3+26.3",
+  "pack_version": "1.4.4+26.3",
   "date": "2026-10-13",
   "passed": true,
-  "suite_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "suite_sha256": "e4663dddf2e176c3d5d7a669f59822dc76286ed28e195cc1a77b1bb1b3e7d269",
   "archives": {
-    "vanilla-plusplus-installation-pack-1.4.3+26.3.zip": "d1cd98caf03932a63ff8f8c6b340592bf67d0ed9a28976f0f0619f9703ed20a7"
+    "vanilla-plusplus-installation-pack-1.4.4+26.3.zip": "64c904347d1ef05459d3f4359c40d3888d5f40c45f267c366dc98a05163ca985"
   },
   "cases": [
     "Installation ZIP integrity, safe paths and manifest identity verified",
@@ -29,7 +29,7 @@
       "mods/cloth-config-fabric-26.3.159.jar": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b",
       "mods/mixson-2.2.1-multiloader.jar": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0",
       "mods/modmenu-21.0.0.jar": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f",
-      "mods/vanilla-plusplus-quality-of-life-suite-1.4.3+26.3.jar": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+      "mods/vanilla-plusplus-quality-of-life-suite-1.4.4+26.3.jar": "e4663dddf2e176c3d5d7a669f59822dc76286ed28e195cc1a77b1bb1b3e7d269",
       "mods/codecui-26.3-1.4.3-fabric.jar": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
     },
     "server": {
@@ -39,10 +39,10 @@
       "mods/cloth-config-fabric-26.3.159.jar": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b",
       "mods/mixson-2.2.1-multiloader.jar": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0",
       "mods/polymer-bundled-0.18.2+26.3.jar": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f",
-      "mods/vanilla-plusplus-quality-of-life-suite-1.4.3+26.3.jar": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+      "mods/vanilla-plusplus-quality-of-life-suite-1.4.4+26.3.jar": "e4663dddf2e176c3d5d7a669f59822dc76286ed28e195cc1a77b1bb1b3e7d269",
       "mods/codecui-26.3-1.4.3-fabric.jar": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
     }
   },
   "launcher_gui_import_tested": false,
-  "runtime_note": "Focused installer/archive checks; exact suite also has independently recorded 1.4.3+26.3 runtime checks."
+  "runtime_note": "Focused installer/archive checks; exact suite also has independently recorded 1.4.4+26.3 runtime checks."
 }

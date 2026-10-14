@@ -1,0 +1,19 @@
+{
+  "suite_sha256": "ca8a1f0c54c5f31a6c97e0e4a2a9cd294cdfce65f315513fd8277c14ffc6c15f",
+  "observer_class_sha256": {
+    "suitehudqa/HudServerQa.class": "1ca135496529a1a50083e1e20948c485d4faa31bf044e9dc4d725671eb4a9961",
+    "suitehudqa/HudClientQa.class": "e1d7ebb0f26c3dadae13ad1d5759c8473daac4cc006c6e099171bdb651a49c4a",
+    "suitehudqa/HudObservation.class": "5f75cf175ec3eda1398eca82e22cf3a96357e43fca9d5925ee2feb6e3168c02e",
+    "suitehudqa/mixin/MapTraceMixin.class": "0844456c535c7195643fe93b2c10d9c3a0ae507d196357c1c636b5e2fccc49f0",
+    "suitehudqa/mixin/GraphicsTraceMixin.class": "fb784ad2012196a350188385611997a5bf98835cfd59010f051fb2518ae9e704",
+    "suitehudqa/mixin/InfoTraceMixin.class": "39ae476cbd4effb1faed8cb50afafc5bb204f14348d20f655b2a580cfd1a9cec"
+  },
+  "observer_source_sha256": {
+    "HudServerQa.java": "ffb74435e1750ddd61f86c2a4bc33a6a187b2c055dc61a4373dbe75d27e680ce",
+    "MapTraceMixin.java": "6f490163acef4b6d1287c68c529498cc2047ea916de26f71bcfe604303403410",
+    "GraphicsTraceMixin.java": "f6ef3fd90fbad93d3a1269bfac3068d6f5e9f9dd6f7308def1742e5b40839bce",
+    "InfoTraceMixin.java": "4fb3ea0b1fa3c5ca4a7999f425ceaab5406fdd0dd2fe7420a873b0d1c471f02c",
+    "HudObservation.java": "427966fbf4e13a671e86de3e8766ba187fb3b12975aa2d5ab959ffd093943d92",
+    "HudClientQa.java": "a2e58cfe7db34172ac9940b3eb9b45d8e05545e99dfd22dae7a84fd137a76e50"
+  }
+}

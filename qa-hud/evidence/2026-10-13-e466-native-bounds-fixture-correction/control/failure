@@ -1,0 +1,1 @@
+client phase=22: java.lang.AssertionError: scene does not have its intended actual rectangle overlap: atlas-backgroundless-caption-shadow-edge overlap=false

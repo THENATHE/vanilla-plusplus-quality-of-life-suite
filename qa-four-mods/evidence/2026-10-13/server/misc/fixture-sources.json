@@ -1,0 +1,8 @@
+{
+  "raw_sha256": {
+    "qa-sanity-misc/run.py": "4661fd16a0d05c3a526d7de14c4d46c6f7274fd8f1d34065a2917d5a452042c9",
+    "qa-sanity-misc/src/MiscSdiQa.java": "0f7b77d05894db0f800a1d9748e7ab714789dc392aa6043d7cb71e174911877c"
+  },
+  "recorded_revision": "09aac6a21a57d25df6e51f1bee6d80469c326293",
+  "source_capture": "Copies of unchanged current fixture sources; launch audits and class hashes identify the exact executed fixture."
+}

@@ -1,0 +1,20 @@
+{
+  "bundle_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "mechanics-polymer",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 140 broader SSO, 180 storage, 15587 chalk placement assertions",
+      "passed": true
+    },
+    {
+      "profile": "mechanics-native",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "PASS 105 broader SSO, 180 storage, 15587 chalk placement assertions",
+      "passed": true
+    }
+  ]
+}

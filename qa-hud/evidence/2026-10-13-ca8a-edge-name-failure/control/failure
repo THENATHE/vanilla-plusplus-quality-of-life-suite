@@ -1,0 +1,1 @@
+client phase=23: java.lang.AssertionError: actual received rectangles overlap: details=13.0,15.0..81.0,87.0 map=74.0,2.0..217.0,138.0

@@ -1,0 +1,35 @@
+{
+  "passed": false,
+  "expected_baseline_failure": true,
+  "suite_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "frozen_suite_path": "/home/thenathe/SSDC/Plugins/WP Plugin Dev/Minecraft/thenathe-mod-suite/qa-hud/runs/old-1.4.3-horizontal-receipt/vanilla-plusplus-quality-of-life-suite-1.4.3+26.3.jar",
+  "compiler": "/usr/lib/jvm/java-27-openjdk/bin/javac",
+  "compiler_sha256": "f07b2b3074934540fccbf1a8b906fd6f5a6c15f1b20027e918ff5ef62441f66b",
+  "compiler_options": [
+    "--release",
+    "25",
+    "-proc:none"
+  ],
+  "observer_source_hashes": {
+    "src/GraphicsTraceMixin.java": "d4cced81679de5a1b8d826e80e535bfe752750820f247d2b502db5a22af43044",
+    "src/HudClientQa.java": "c1e1b1e49464f1704c6223c4cb6d640bf8480efef32f6cadf5b75c84799c6c09",
+    "src/HudObservation.java": "b6df8228f7e153cdb3b08550e9b36c5e3b17b973b8d609892c0369a3fef2f8a5",
+    "src/HudServerQa.java": "ffb74435e1750ddd61f86c2a4bc33a6a187b2c055dc61a4373dbe75d27e680ce",
+    "src/InfoTraceMixin.java": "4fb3ea0b1fa3c5ca4a7999f425ceaab5406fdd0dd2fe7420a873b0d1c471f02c",
+    "src/MapTraceMixin.java": "6f490163acef4b6d1287c68c529498cc2047ea916de26f71bcfe604303403410"
+  },
+  "observer_class_hashes": {
+    "suitehudqa/HudClientQa.class": "057961b19912bf2d0b348d25ae9dbb36d0a3c7aa8c37e25ce30bbf9e30651651",
+    "suitehudqa/HudObservation.class": "4190f6d6cfe626c08abe4f6e364fd5d411c2adb2189d71d40a2fd13eb3ce274b",
+    "suitehudqa/HudServerQa.class": "1ca135496529a1a50083e1e20948c485d4faa31bf044e9dc4d725671eb4a9961",
+    "suitehudqa/mixin/GraphicsTraceMixin.class": "a646201bc546d3a57783e7f090298d10803ec6b3d9acff6b7fc023dc53fbb77b",
+    "suitehudqa/mixin/InfoTraceMixin.class": "39ae476cbd4effb1faed8cb50afafc5bb204f14348d20f655b2a580cfd1a9cec",
+    "suitehudqa/mixin/MapTraceMixin.class": "0844456c535c7195643fe93b2c10d9c3a0ae507d196357c1c636b5e2fccc49f0"
+  },
+  "observer_jars": {
+    "client": "d7af516be41f85ffa68584314e2fa1ff387da0983bc723fc10a28cd42ed47f72",
+    "server": "9b1fc012ea389aed2e1f8fc2c87788bc75467616411e306794f50e82177aa8d1"
+  },
+  "executed_runner_sha256": "00d84e298b6683a3f135a424be70e2f3377dcb6820f9ba0872c70f87cc37dfd3",
+  "source_capture_note": "Observer sources and runner match the files used by the baseline compile; no fixture edits occurred between its launch and this snapshot. Launches/dependency hashes and final native configurations are recorded separately."
+}

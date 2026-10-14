@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "version": "1.4.4+26.3",
+  "sha256": "e4663dddf2e176c3d5d7a669f59822dc76286ed28e195cc1a77b1bb1b3e7d269",
+  "build_tasks": 46,
+  "compiler": "Microsoft Java25.0.4.1+1-LTS",
+  "command": "JAVA_HOME=<complete Microsoft Java25 JDK> ./gradlew build --offline --no-daemon --max-workers=2 --rerun-tasks",
+  "scope": "Final complete native-render-bounds production build; runtime checks recorded separately."
+}

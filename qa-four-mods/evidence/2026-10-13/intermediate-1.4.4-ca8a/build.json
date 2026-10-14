@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "version": "1.4.4+26.3",
+  "sha256": "ca8a1f0c54c5f31a6c97e0e4a2a9cd294cdfce65f315513fd8277c14ffc6c15f",
+  "build_tasks": 46,
+  "compiler": "Microsoft Java25.0.4.1+1-LTS",
+  "command": "JAVA_HOME=<complete Microsoft Java25 JDK> ./gradlew build --offline --no-daemon --max-workers=2 --rerun-tasks",
+  "scope": "Final production rebuild after HUD caption-shadow correction; runtime acceptance recorded separately."
+}

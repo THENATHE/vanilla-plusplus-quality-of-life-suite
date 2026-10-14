@@ -1,0 +1,9 @@
+{
+  "file": "misc.jar",
+  "sha256": "9a637089b771bf25ffba3280e4cba95d67380d28c1c39573c3aad661182a62c6",
+  "classes": {
+    "qa/MiscSdiQa$Probe$1.class": "802d1b1947ba4405eb1180c67fc5ba4f5addfd5a852f824ae591ea9dcc5ea47f",
+    "qa/MiscSdiQa$Probe.class": "ecfcab0323eb645ffec5768dd48b61b0bbe8b2017e4d0e1a5fee652793f1aaa6",
+    "qa/MiscSdiQa.class": "0176f568c2f6246eca54c82b904e9c9a4acfc48d029d16d0ace3a390eddabf26"
+  }
+}

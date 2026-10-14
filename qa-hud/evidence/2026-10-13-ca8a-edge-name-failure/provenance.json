@@ -1,0 +1,29 @@
+{
+  "suite_sha256": "ca8a1f0c54c5f31a6c97e0e4a2a9cd294cdfce65f315513fd8277c14ffc6c15f",
+  "frozen_suite": "/home/thenathe/SSDC/Plugins/WP Plugin Dev/Minecraft/thenathe-mod-suite/qa-hud/runs/ca8a-edge-name-proof/vanilla-plusplus-quality-of-life-suite-1.4.4+26.3.jar",
+  "compiler": "/usr/lib/jvm/java-27-openjdk/bin/javac",
+  "compiler_sha256": "f07b2b3074934540fccbf1a8b906fd6f5a6c15f1b20027e918ff5ef62441f66b",
+  "compiler_options": [
+    "--release",
+    "25",
+    "-proc:none"
+  ],
+  "observer_class_sha256": {
+    "suitehudqa/HudServerQa.class": "def5501dece1cf79593034feeaf73e4f17d52e5ef21d9966d35220124c5d3aed",
+    "suitehudqa/HudClientQa.class": "43f1e539ca492142673aaef6ba46a0f32ac68341978b9442f4e8be2c26137d11",
+    "suitehudqa/HudObservation.class": "1fcfeaec95a5cc8d3894b5f71f890b17cdf9a4d5662de2cbe08f6faad1b75d47",
+    "suitehudqa/mixin/MapTraceMixin.class": "0844456c535c7195643fe93b2c10d9c3a0ae507d196357c1c636b5e2fccc49f0",
+    "suitehudqa/mixin/GraphicsTraceMixin.class": "c74b6cbf7a7617ae6ea0d2893a8e3e867db5bc7befa876788732d8f42b124670",
+    "suitehudqa/mixin/RenderStateTraceMixin.class": "82d9584a0b2f7ca0194fa60facd1974efa43cce7ca5458493007dcc4eda44f18",
+    "suitehudqa/mixin/InfoTraceMixin.class": "39ae476cbd4effb1faed8cb50afafc5bb204f14348d20f655b2a580cfd1a9cec"
+  },
+  "observer_source_sha256": {
+    "HudServerQa.java": "1f303beb0adde96039bd51f106b56a3095a1328b73715c46c433c3dbe01fca4b",
+    "MapTraceMixin.java": "6f490163acef4b6d1287c68c529498cc2047ea916de26f71bcfe604303403410",
+    "GraphicsTraceMixin.java": "618833cbae9282ff459dd0eee98dd540b4bfc8e94da42ecbc8aff4ab9bccdddd",
+    "InfoTraceMixin.java": "4fb3ea0b1fa3c5ca4a7999f425ceaab5406fdd0dd2fe7420a873b0d1c471f02c",
+    "HudObservation.java": "052f1778ea293b321aa96ad26e9501a4a37e4dcde4c386cc5818a9b6eec85778",
+    "HudClientQa.java": "c175868935e71762ad378e01005e35df27d8c14078dbb9ae8c54be3ebcb1aa47",
+    "RenderStateTraceMixin.java": "797a7ab2ab260328c0ddcda97f55b999c86d1ea008040a6d7a2e0e9e41c313e1"
+  }
+}

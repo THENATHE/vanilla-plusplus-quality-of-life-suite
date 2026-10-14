@@ -1,0 +1,18 @@
+{
+  "suite_version": "1.4.4+26.3",
+  "suite_sha256": "ca8a1f0c54c5f31a6c97e0e4a2a9cd294cdfce65f315513fd8277c14ffc6c15f",
+  "passed": true,
+  "profiles": [
+    {
+      "profile": "backpack",
+      "passed": true,
+      "result": "backpack/result.json"
+    },
+    {
+      "profile": "features",
+      "passed": true,
+      "result": "features/result.json"
+    }
+  ],
+  "scope": "Exact final standalone suite server acceptance: native/Polymer crafting198each; native/Polymer feature mechanics250initial/259restart each. Rendered/combined acceptance recorded separately."
+}

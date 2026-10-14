@@ -1,8 +1,10 @@
 # Provenance and compatibility tracks
 
-The current **1.4.3+26.3** update adds suite-owned optional corrections for Sorted's above-backpack/below-inventory controls and recovery destination scan. Temporary backpack crafting inputs/output remain excluded even when a queued operation stops or its cursor stack changes unexpectedly. Original Sorted, Tiered Backpacks, Tool Pouch and all other developer binaries remain unchanged. Sorted stays optional and compile-only, never bundled. The full-frame candidate `321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80` passed build/archive, fresh native/Polymer server and independent-source checks. Final connected acceptance passed on that exact JAR, 3,772 declared assertions plus 16 recipe cases; placement-only preview and installation proof remain separately scoped in [the release guide](RELEASE_1_4_3.md). Earlier 1.4.3 candidate results are superseded. Executed capacity checks include 27 and 78 slots plus a real temporarily configured 117-slot backpack; disposable configuration is restored afterward.
+The [2026-10-13 four-mod review](FOUR_MOD_QA_2026_10_13.md) starts with the previous released binaries and identifies a suite-owned HUD bounds defect. Suite 1.4.4 and its HUD component 1.0.11 contain the correction; the wheel, Blocktone and BRBR binaries remain unchanged. No original input, dependency, saved identity or compatibility track changes. Main-branch commits identify the fix and fresh QA/documentation; original release tags remain preserved.
 
-Suite and combined compatibility are **1.4.3+26.3**, Backpack Crafting is **1.0.3+26.3**, and mixed-scale MapStitch **1.1.12+26.3** changes only its exact coordinator constraint. Saved contents/settings, IDs, licenses and credits remain intact. The separate SSO port remains paused.
+The previous **1.4.3+26.3** update adds suite-owned optional corrections for Sorted's above-backpack/below-inventory controls and recovery destination scan. Temporary backpack crafting inputs/output remain excluded even when a queued operation stops or its cursor stack changes unexpectedly. Original Sorted, Tiered Backpacks, Tool Pouch and all other developer binaries remain unchanged. Sorted stays optional and compile-only, never bundled. The full-frame candidate `321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80` passed build/archive, fresh native/Polymer server and independent-source checks. Final connected acceptance passed on that exact JAR, 3,772 declared assertions plus 16 recipe cases; placement-only preview and installation proof remain separately scoped in [the release guide](RELEASE_1_4_3.md). Earlier 1.4.3 candidate results are superseded. Executed capacity checks include 27 and 78 slots plus a real temporarily configured 117-slot backpack; disposable configuration is restored afterward.
+
+The current suite is **1.4.4+26.3**, with Tool Pouch Atlas and Elytra compatibility **1.0.11+26.3** for the bounds correction. Combined compatibility remains **1.4.3+26.3**, Backpack Crafting is **1.0.3+26.3**, and mixed-scale MapStitch remains **1.1.12+26.3**, retaining its exact coordinator constraint. Saved contents/settings, IDs, licenses and credits remain intact. The separate SSO port remains paused.
 
 ## Historical 1.4.2 source record
 
@@ -70,17 +72,20 @@ The [2026-10-06 publisher audit](pajic-release-audit-2026-10-06.json) distinguis
 
 ## Modified suite components
 
-| Component | Suite version | Baseline / record |
+Current component versions in suite **1.4.4+26.3** are listed below; historical standalone origins remain separate.
+
+| Component | Component version | Baseline / record |
 | --- | --- | --- |
-| Combined compatibility | 1.2.1+26.3 | Original standalone Multi-Shim 1.0.5+26.3; components/combined-compat/ORIGIN.json |
+| Combined compatibility | 1.4.3+26.3 | Original standalone Multi-Shim 1.0.5+26.3; components/combined-compat/ORIGIN.json |
 | Chalk compatibility | 1.1.1-suite.1+26.3 | Original standalone Chalk shim 1.1.0+26.3; components/chalk-compat/ORIGIN.json |
 | Shared Region Maps | 1.0.5-combo.1+mc26.3 | Original local 1.0.3, commit 338270a70c14be19ba79b535b40fac980e414470; components/shared-region-maps/upstream-manifest.json |
-| Tool Pouch atlas/Elytra addon | 1.0.9-suite.1+26.3 | Original local 1.0.4; components/toolpouch-atlas-elytra/upstream-manifest.json |
-| Mixed-scale MapStitch addon | 1.1.7+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
+| Tool Pouch atlas/Elytra addon | 1.0.11+26.3 | Original local 1.0.4; components/toolpouch-atlas-elytra/upstream-manifest.json |
+| Mixed-scale MapStitch addon | 1.1.12+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
 | Sensible Stackables historical port (not nested) | 3.0.3-port.1+26.3 | Preserved published 3.0.3+26.2 baseline and independent port source/dependency records in components/sensible-stackables/ |
 | Sensible Stackables Polymer compatibility | 1.0.2+26.3 | Separate components/sensible-stackables/compat module |
 | Bannerpoint compatibility | 1.0.1+26.3 | Separate components/bannerpoint-compat module; original artwork notices and client/pack detection retained. Reconciles map-linked tracking after multiscale atlas edits through the internal addon event. |
-| Suite root / settings | 1.2.1+26.3 | Newly authored source in src/ |
+| Backpack Crafting addon | 1.0.3+26.3 | Separate components/backpack-crafting module; temporary crafting, BRBR/Sorted adapters and storage-slot recovery guards. |
+| Suite root / settings | 1.4.4+26.3 | Newly authored source in src/ |
 
 The archive retains original feature module IDs and embeds each module separately. The authored root ID is `vpp_mod_suite` from 1.2.1 onward. Original standalone repositories and versioned releases remain available; the suite variants do not overwrite them.
 

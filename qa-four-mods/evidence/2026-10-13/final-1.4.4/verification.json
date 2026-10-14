@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-13",
+  "passed": true,
+  "suite_version": "1.4.4+26.3",
+  "suite_sha256": "e4663dddf2e176c3d5d7a669f59822dc76286ed28e195cc1a77b1bb1b3e7d269",
+  "hud": {
+    "native": 30,
+    "client_polymer": 30,
+    "evidence": "qa-hud/evidence/2026-10-13-final-1.4.4-native-bounds/README.md"
+  },
+  "wheel": {
+    "native_all_four_assertions": 655,
+    "polymer_all_four_assertions": 655,
+    "evidence": "wheel/BUILD-REPORT.json"
+  },
+  "brbr": {
+    "packaged_checks": 1968,
+    "connected_profiles": 4,
+    "backpack_cases": 32,
+    "prepared_cake_cases": 32,
+    "evidence": "brbr/review-summary.json"
+  },
+  "standalone_server": {
+    "native_backpack_checks": 198,
+    "polymer_backpack_checks": 198,
+    "evidence": "server/verification.json"
+  },
+  "installer": {
+    "passed": true,
+    "checks": 13,
+    "sha256": "64c904347d1ef05459d3f4359c40d3888d5f40c45f267c366dc98a05163ca985",
+    "evidence": "installation.json"
+  },
+  "scope": "Exact final artifact acceptance. Broader mechanics/packets/restarts and superseded HUD attempts retain their own baseline/intermediate identities."
+}

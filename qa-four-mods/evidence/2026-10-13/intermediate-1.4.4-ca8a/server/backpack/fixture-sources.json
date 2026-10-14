@@ -1,0 +1,8 @@
+{
+  "raw_sha256": {
+    "qa-backpack-crafting/run.py": "1198721e10962d9a7f279f29a3fe1327fe8ee709147118f8c87027b6b7d47a83",
+    "qa-backpack-crafting/BackpackCraftingProbe.java": "69a6bf9d91f5fcb2b8aaee66bfaa9b9f4a46c5f3427ed4df647f7adc3ab52556",
+    "qa-backpack-crafting/BackpackClientSortChecks.java": "05f479e2f795d646d945fb1513b04d7a458b9d114cd3ae22b277b832fb9bf3ef"
+  },
+  "source_capture": "Frozen sources actually executed; Java27 compiler used only for QA observer, not shipping code."
+}

@@ -1,0 +1,11 @@
+{
+  "raw_sha256": {
+    "qa-sanity/run.py": "7333b30d94d7acb279aa24d6c9fe221e09aad4aaea86489fa2978a63e09378bb",
+    "qa-sanity/src/ChalkChecks.java": "344454c01b1e52afc03a1d9fba9c6f49d3cdc8b7a9c9085e90dbbae601766bf8",
+    "qa-sanity/src/GeneralSanityQa.java": "2705c098aa124de5e6db09fa19483c3ef6232f32f6d92ce1977b58192db189bb",
+    "qa-sanity/src/RepairChecks.java": "bbc0e89210b38a3186c56e1726f5ac663756d7024f6b4af34f4a196adab98a69",
+    "qa-sanity/src/StorageChecks.java": "7dae54992ee30a4a5f4e9be6eba581b0a0f521b0b74905bb7bfd01e5a97b95f3"
+  },
+  "recorded_revision": "09aac6a21a57d25df6e51f1bee6d80469c326293",
+  "source_capture": "Copies of unchanged current fixture sources; launch audits and class hashes identify the exact executed fixture."
+}

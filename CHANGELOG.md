@@ -1,5 +1,16 @@
 # Changes
 
+## 1.4.4+26.3
+
+- Measure native submitted canvas, icon, name and text bounds before checking horizontal and vertical overlap with Tool Pouch information. Preserve nonoverlapping horizontal-offset layouts and detect overlap even across different configured corners.
+- Keep independent information placement and saved offsets. Advance only the outer suite and the Tool Pouch Atlas and Elytra component to 1.4.4 and 1.0.11 respectively.
+- Add rendered regressions for atlas/ordinary maps, named markers at clear/backgroundless edges, genuine overlap and touching controls, top/bottom placement and separated horizontal positions. Repeat current four-mod integration against the final candidate; see [the release guide](docs/RELEASE_1_4_4.md).
+
+## 2026-10-13 four-mod QA review
+
+- Review the exact current Vanilla++ 1.4.3, Hotkey Wheel 1.0.7, Blocktone 0.1.24 and BRBR 1.11.7 combination with original Buildprint 0.1.19. Keep product binaries and versions unchanged where the review finds no production defect.
+- Record fresh server/restart, packet-codec and installation checks separately from earlier release acceptance. Refresh combined client fixtures and review all nine documented Buildprint API areas. See [the review record](docs/FOUR_MOD_QA_2026_10_13.md) for scope and final results.
+
 ## 1.4.3+26.3
 
 - Restore Sorted's backpack controls above the panel at its right edge. Keep player controls below the full backpack frame, search at its left edge and the remaining actions at its right, matching the original plain backpack. Exclude the crafting extension from those horizontal anchors and remove the extra inventory header/label shift.

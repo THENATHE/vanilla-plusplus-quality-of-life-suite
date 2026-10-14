@@ -1,0 +1,20 @@
+{
+  "previous_sha256": "321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80",
+  "candidate_sha256": "e4663dddf2e176c3d5d7a669f59822dc76286ed28e195cc1a77b1bb1b3e7d269",
+  "changed_modules": [
+    {
+      "id": "toolpouch_atlas_elytra_compat",
+      "before": [
+        "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.10+26.3.jar",
+        "685a9b537fef9348e20f8fe8255bf8cb201ea17b30f9a30f752b3ef4021b696b"
+      ],
+      "after": [
+        "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.11+26.3.jar",
+        "08fb7ee7565102cdecc97659703aca8dd7c037f7401d48bbf7d736c06219efb8"
+      ]
+    }
+  ],
+  "root_class_differences": [],
+  "all_other_nested_bytes_identical": true,
+  "unchanged_nested_modules": 18
+}

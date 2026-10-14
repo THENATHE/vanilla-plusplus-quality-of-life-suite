@@ -13,6 +13,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--suite',type=Path,default=SUITE/'build/libs/vanilla-plusplus-quality-of-life-suite-1.1.5+26.3.jar')
     p.add_argument('--client-polymer',action='store_true',help='Also install Polymer on the native QA client');p.add_argument('--label',required=True);p.add_argument('--prepare-only',action='store_true');p.add_argument('--settings-only',action='store_true');p.add_argument('--port',type=int,default=25976)
+    p.add_argument('--start-scene',type=int,default=0,help='Start at a selected scene for a focused baseline reproduction')
     args=p.parse_args();suite=args.suite.resolve();assert suite.is_file();suiteHash=sha(suite)
     run=HERE/'runs'/args.label;run.mkdir(parents=True,exist_ok=False);control=run/'control';control.mkdir();fixtures=run/'fixtures';fixtures.mkdir();classes=fixtures/'classes';classes.mkdir()
     frozen=run/suite.name;shutil.copy2(suite,frozen);assert sha(frozen)==suiteHash;suite=frozen
@@ -33,7 +34,7 @@ def main():
         with zipfile.ZipFile(fixtures/f'{side}.jar','w') as z:
             meta={'schemaVersion':1,'id':'suite_hud_qa_'+side,'version':'1','environment':side,'entrypoints':{'client' if side=='client' else 'main':['suitehudqa.Hud'+side.title()+'Qa']},'depends':{'fabric-api':'*','vpp_mod_suite':'*'}}
             if side=='client':
-                meta['mixins']=['suite-hud-qa.mixins.json'];z.writestr('suite-hud-qa.mixins.json',json.dumps({'required':True,'package':'suitehudqa.mixin','compatibilityLevel':'JAVA_25','client':['InfoTraceMixin','GraphicsTraceMixin'],'injectors':{'defaultRequire':1}}))
+                meta['mixins']=['suite-hud-qa.mixins.json'];z.writestr('suite-hud-qa.mixins.json',json.dumps({'required':True,'package':'suitehudqa.mixin','compatibilityLevel':'JAVA_25','client':['InfoTraceMixin','MapTraceMixin','GraphicsTraceMixin','RenderStateTraceMixin'],'injectors':{'defaultRequire':1}}))
             z.writestr('fabric.mod.json',json.dumps(meta))
             for file in classes.rglob('*.class'):z.write(file,file.relative_to(classes))
     if args.prepare_only:
@@ -63,6 +64,7 @@ def main():
             command=launch.base_command('server' if side=='server' else 'native',directory,args.port)
             command[0]='/usr/lib/jvm/java-25-openjdk/bin/java'
             command.insert(1,'-Dhud.qa.control='+str(control))
+            command.insert(1,'-Dhud.qa.startScene='+str(args.start_scene))
             if side=='client':
                 command[command.index('--width')+1]='1280';command[command.index('--height')+1]='900'
             if args.settings_only:
@@ -93,7 +95,7 @@ def main():
                 except subprocess.TimeoutExpired:child.kill();child.wait()
             log.close()
         evidence={'client_polymer':args.client_polymer,'suite':str(suite),'suite_sha256':suiteHash,'settings_only':args.settings_only,'launches':audits}
-        for name in ['result.txt','observations.json','failure']:
+        for name in ['result.txt','observations.json','failure','failure-bounds.json']:
             if (control/name).exists():evidence[name]=(control/name).read_text()
         (run/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
 if __name__=='__main__':main()

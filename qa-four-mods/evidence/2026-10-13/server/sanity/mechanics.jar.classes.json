@@ -1,0 +1,14 @@
+{
+  "file": "mechanics.jar",
+  "sha256": "a8cb98e3d3728ce76e5cef526d7db9abc03f07da3beba9f28f8ed0e0703a197c",
+  "classes": {
+    "chalk/qa/ChalkChecks$1.class": "7d5f70bf5a0e92a742f69fd07b293d29a9360cab7e40f0c607225981910a1617",
+    "chalk/qa/ChalkChecks$Context.class": "e20ac293d1991f85bea8583a46edf7be97389d1db1c9929fa6dd75bf060b3f0e",
+    "chalk/qa/ChalkChecks.class": "de768e6faa163170e5af293008a3b30665713c49b5771c8dccbba9c52f8ce2cd",
+    "qa/GeneralSanityQa.class": "ee948031bea5088a6a8f27b6109f9f0b92bb9e2ef7503d09700503d93c25477c",
+    "qa/StorageChecks$1.class": "dfe6cdc76e8f916514058740634557006e958e1773abd270b6e84fe105331c79",
+    "qa/StorageChecks.class": "be4fe345f1bf42a4d9de23242cee7027f2e8d66732acf52c19d979c18382859a",
+    "sso/qa/RepairChecks$1.class": "cb2865cde6da1efb174c5f6135943d7c7082efaf64e4962bcf62d5ed259904cd",
+    "sso/qa/RepairChecks.class": "9f92f346ca3750bf85489cb017f7efa4cc7a01bcfb3d195ed8a2f82cf5594306"
+  }
+}

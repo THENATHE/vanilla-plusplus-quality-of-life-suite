@@ -1,0 +1,23 @@
+{
+  "suite_sha256": "e4663dddf2e176c3d5d7a669f59822dc76286ed28e195cc1a77b1bb1b3e7d269",
+  "observer_class_sha256": {
+    "suitehudqa/HudServerQa.class": "def5501dece1cf79593034feeaf73e4f17d52e5ef21d9966d35220124c5d3aed",
+    "suitehudqa/HudClientQa.class": "a7106cd96bcce06d013dc4201db079f75d0625cc505c7d6a463423b057c46770",
+    "suitehudqa/HudObservation.class": "45dbaf26e2f7b728b79d39f100a0af8a22c91ebc4d21bc6e71de8dfa0a56bbff",
+    "suitehudqa/mixin/MapTraceMixin.class": "0844456c535c7195643fe93b2c10d9c3a0ae507d196357c1c636b5e2fccc49f0",
+    "suitehudqa/mixin/GraphicsTraceMixin.class": "c74b6cbf7a7617ae6ea0d2893a8e3e867db5bc7befa876788732d8f42b124670",
+    "suitehudqa/mixin/RenderStateTraceMixin.class": "08c521e64707261491ea9751b8f7f46a09502a95a3b44579dfde07e68f76c1aa",
+    "suitehudqa/mixin/InfoTraceMixin.class": "39ae476cbd4effb1faed8cb50afafc5bb204f14348d20f655b2a580cfd1a9cec"
+  },
+  "observer_source_sha256": {
+    "HudServerQa.java": "1f303beb0adde96039bd51f106b56a3095a1328b73715c46c433c3dbe01fca4b",
+    "MapTraceMixin.java": "6f490163acef4b6d1287c68c529498cc2047ea916de26f71bcfe604303403410",
+    "GraphicsTraceMixin.java": "618833cbae9282ff459dd0eee98dd540b4bfc8e94da42ecbc8aff4ab9bccdddd",
+    "InfoTraceMixin.java": "4fb3ea0b1fa3c5ca4a7999f425ceaab5406fdd0dd2fe7420a873b0d1c471f02c",
+    "HudObservation.java": "8d5c078bb179698a4ee9b0a4b9978e5d79f072f6531db82f40eb8b6fdd824b4d",
+    "HudClientQa.java": "c26e4d5b6ce9170a9579135bea4da34b316173aa7cec830d2799761fd1373329",
+    "RenderStateTraceMixin.java": "3b5cc04c29017cd88c931d5d087cc636919657e0349430b81227fc2434a9f8e3"
+  },
+  "classification": "fixture expectation error; native rectangles touch at149, product correctly leaves information in place",
+  "passed_previous_scenes": 22
+}
