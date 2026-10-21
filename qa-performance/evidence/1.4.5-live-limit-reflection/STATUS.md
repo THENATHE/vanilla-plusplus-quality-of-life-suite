@@ -1,0 +1,3 @@
+# Superseded live-limit candidate
+
+These receipts identify candidate `c780009ad4909e6ce28469c2eb86245e27f51665fe8f7408855b5fff06fc1f33`. Stackables, packet and source checks passed. The corresponding native integration run passed all six existing integration fixtures and its live-limit behavior checks, but did not consistently meet the atlas allocation target. Optional snapshot invocation was subsequently changed to a cached method handle. Later bounded runs had similar allocation totals, so the extra measured allocation is not conclusively attributed to reflection. This is not the final release artifact; current acceptance is in `../1.4.5/verification.json`.

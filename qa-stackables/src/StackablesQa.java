@@ -47,6 +47,9 @@ public final class StackablesQa implements ModInitializer {
                 check(new ItemStack(Items.SADDLE).getMaxStackSize() == 16, "saddle default");
                 check(new ItemStack(Items.ENCHANTED_BOOK).getMaxStackSize() == 64, "book default");
                 result.addProperty("effective_override_registry", checkOverrideRegistry(server, uncap));
+                if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("sensible_stackables_polymer_compat")) {
+                    result.add("template_lookup", TemplateLookupQa.run(uncap));
+                }
                 var level = server.overworld();
                 var player = new ServerPlayer(server, level, new GameProfile(UUID.randomUUID(), "StackablesQA"), ClientInformation.createDefault());
                 player.connection = new ServerGamePacketListenerImpl(server, new Connection(PacketFlow.SERVERBOUND), player, CommonListenerCookie.createInitial(player.getGameProfile(), false));

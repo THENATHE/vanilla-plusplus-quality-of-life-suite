@@ -1,0 +1,3 @@
+Final candidate SHA-256: 2b8da007d555b55512c1e8fb08ce5db3be419bb5f3a47d61a1e13d577f67b97b.
+
+Native acceptance completed all seven fixtures in one process, exit 0, 762 checks. Polymer acceptance combines the first three completed reports (450 checks) from the separately preserved interrupted retry with fresh individual fixture processes for SideMouseEditorTest, ToolPouchClientTest, BrbrIntegrationTest and AllocationClientTest. The interrupted retry itself is not described as passing. Both teardown deadlocks and their thread dumps are preserved in sibling evidence folders. Inputs, fixture assertions and product bytes are unchanged across these sessions. The parent acceptance record aggregates the final scoped reports.

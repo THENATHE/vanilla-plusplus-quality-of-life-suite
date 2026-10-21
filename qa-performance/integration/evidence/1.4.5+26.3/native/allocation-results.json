@@ -1,0 +1,13 @@
+{
+  "suite": "1.4.5+26.3",
+  "polymer_client": false,
+  "candidate_cache_present": true,
+  "live_stack_size_changes": true,
+  "atlas_maps": 1024,
+  "lookup_iterations": 400,
+  "baseline_lookup_bytes": 502400,
+  "candidate_lookup_bytes": 248896,
+  "lookup_allocation_reduction_percent": 50.45859872611465,
+  "checks": 35,
+  "passed": true
+}

@@ -1,0 +1,1 @@
+Allocation-only follow-up on the unchanged c780009a candidate passed all 35 checks. Raw 400-lookup measurement was baseline 502,400 bytes, candidate 249,280 bytes (50.382 percent reduction). The earlier full-profile threshold failure remains separately preserved; this narrow pass does not erase that failure or establish a stable final performance margin.

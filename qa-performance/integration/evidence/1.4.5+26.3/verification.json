@@ -1,0 +1,200 @@
+{
+  "version": "1.4.5+26.3",
+  "date": "2026-10-21",
+  "suite_sha256": "2b8da007d555b55512c1e8fb08ce5db3be419bb5f3a47d61a1e13d577f67b97b",
+  "passed": true,
+  "profiles": {
+    "native": {
+      "passed": true,
+      "checks": 762,
+      "session_mode": "single process",
+      "fixtures": {
+        "WheelClientTest": {
+          "passed": true,
+          "checks": 154,
+          "report": "native/results.json"
+        },
+        "KeyManagementTest": {
+          "passed": true,
+          "checks": 82,
+          "report": "native/key-management-results.json"
+        },
+        "BuildprintMenuTest": {
+          "passed": true,
+          "checks": 214,
+          "report": "native/buildprint-menu-results.json"
+        },
+        "SideMouseEditorTest": {
+          "passed": true,
+          "checks": 67,
+          "report": "native/side-mouse-editor-results.json"
+        },
+        "ToolPouchClientTest": {
+          "passed": true,
+          "checks": 183,
+          "report": "native/toolpouch-results.json"
+        },
+        "BrbrIntegrationTest": {
+          "passed": true,
+          "checks": 27,
+          "report": "native/brbr-integration-results.json"
+        },
+        "AllocationClientTest": {
+          "passed": true,
+          "checks": 35,
+          "report": "native/allocation-results.json"
+        }
+      },
+      "sessions": {
+        "native": {
+          "provenance": "native/provenance.json",
+          "source_audit": "native/executed-source.json",
+          "source_hashes_verified": true,
+          "source_files": 9,
+          "exact_candidate_verified": true,
+          "versions_verified": true,
+          "process_exit_code": 0,
+          "scope": "Selected fixtures completed and the process exited successfully."
+        }
+      },
+      "allocation": {
+        "suite": "1.4.5+26.3",
+        "polymer_client": false,
+        "candidate_cache_present": true,
+        "live_stack_size_changes": true,
+        "atlas_maps": 1024,
+        "lookup_iterations": 400,
+        "baseline_lookup_bytes": 502400,
+        "candidate_lookup_bytes": 248896,
+        "lookup_allocation_reduction_percent": 50.45859872611465,
+        "checks": 35,
+        "passed": true
+      }
+    },
+    "polymer": {
+      "passed": true,
+      "checks": 762,
+      "session_mode": "split sessions",
+      "fixtures": {
+        "WheelClientTest": {
+          "passed": true,
+          "checks": 154,
+          "report": "polymer/first-three-completed/results.json"
+        },
+        "KeyManagementTest": {
+          "passed": true,
+          "checks": 82,
+          "report": "polymer/first-three-completed/key-management-results.json"
+        },
+        "BuildprintMenuTest": {
+          "passed": true,
+          "checks": 214,
+          "report": "polymer/first-three-completed/buildprint-menu-results.json"
+        },
+        "SideMouseEditorTest": {
+          "passed": true,
+          "checks": 67,
+          "report": "polymer/side-mouse/side-mouse-editor-results.json"
+        },
+        "ToolPouchClientTest": {
+          "passed": true,
+          "checks": 183,
+          "report": "polymer/tool-pouch/toolpouch-results.json"
+        },
+        "BrbrIntegrationTest": {
+          "passed": true,
+          "checks": 27,
+          "report": "polymer/brbr/brbr-integration-results.json"
+        },
+        "AllocationClientTest": {
+          "passed": true,
+          "checks": 35,
+          "report": "polymer/allocation/allocation-results.json"
+        }
+      },
+      "sessions": {
+        "polymer/first-three-completed": {
+          "provenance": "polymer/first-three-completed/provenance.json",
+          "source_audit": "polymer/first-three-completed/executed-source.json",
+          "source_hashes_verified": true,
+          "source_files": 9,
+          "exact_candidate_verified": true,
+          "versions_verified": true,
+          "process_exit_code": 143,
+          "scope": "Only the first three completed passing fixture reports are accepted; the later interrupted teardown is not a passing process."
+        },
+        "polymer/side-mouse": {
+          "provenance": "polymer/side-mouse/provenance.json",
+          "source_audit": "polymer/side-mouse/executed-source.json",
+          "source_hashes_verified": true,
+          "source_files": 3,
+          "exact_candidate_verified": true,
+          "versions_verified": true,
+          "process_exit_code": 0,
+          "scope": "Selected fixtures completed and the process exited successfully."
+        },
+        "polymer/tool-pouch": {
+          "provenance": "polymer/tool-pouch/provenance.json",
+          "source_audit": "polymer/tool-pouch/executed-source.json",
+          "source_hashes_verified": true,
+          "source_files": 3,
+          "exact_candidate_verified": true,
+          "versions_verified": true,
+          "process_exit_code": 0,
+          "scope": "Selected fixtures completed and the process exited successfully."
+        },
+        "polymer/brbr": {
+          "provenance": "polymer/brbr/provenance.json",
+          "source_audit": "polymer/brbr/executed-source.json",
+          "source_hashes_verified": true,
+          "source_files": 3,
+          "exact_candidate_verified": true,
+          "versions_verified": true,
+          "process_exit_code": 0,
+          "scope": "Selected fixtures completed and the process exited successfully."
+        },
+        "polymer/allocation": {
+          "provenance": "polymer/allocation/provenance.json",
+          "source_audit": "polymer/allocation/executed-source.json",
+          "source_hashes_verified": true,
+          "source_files": 3,
+          "exact_candidate_verified": true,
+          "versions_verified": true,
+          "process_exit_code": 0,
+          "scope": "Selected fixtures completed and the process exited successfully."
+        }
+      },
+      "allocation": {
+        "suite": "1.4.5+26.3",
+        "polymer_client": true,
+        "candidate_cache_present": true,
+        "live_stack_size_changes": true,
+        "atlas_maps": 1024,
+        "lookup_iterations": 400,
+        "baseline_lookup_bytes": 550400,
+        "candidate_lookup_bytes": 264912,
+        "lookup_allocation_reduction_percent": 51.86918604651163,
+        "checks": 35,
+        "passed": true
+      }
+    }
+  },
+  "scope": "Exact candidate graphical integration with Hotkey Wheel, BuildPrint, Blocktone and BRBR, plus atlas ownership, invalidation, live stack-limit and allocation checks. Allocation measurements compare cached and previous uncached lookup expressions with the optimized component getter present on both paths; they do not predict FPS gains.",
+  "total_checks": 1524,
+  "harness_limitation": {
+    "description": "Two Polymer batch attempts stalled during Fabric client game-test world teardown. Thread dumps show render-thread IntegratedServer.halt waiting while the test and server threads wait on the Fabric Phaser. Neither interrupted batch is represented as a passing process. The first three completed fixture reports from the retry are accepted individually; the remaining four fixtures passed unchanged in separate fresh JVMs. Product bytes, inputs, assertions and benchmark warm-up were unchanged across final acceptance sessions.",
+    "preserved_attempts": [
+      "../method-handle-polymer-harness-disconnect-deadlock",
+      "../method-handle-polymer-retry-harness-disconnect-deadlock"
+    ]
+  },
+  "validation": {
+    "all_selected_reports_passed": true,
+    "all_report_counts_verified": true,
+    "all_session_candidate_hashes_verified": true,
+    "all_expected_versions_verified": true,
+    "all_executed_source_hashes_verified": true,
+    "assertion_thresholds_relaxed": false,
+    "fps_improvement_measured": false
+  }
+}

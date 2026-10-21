@@ -1,0 +1,10 @@
+{
+  "qa-hud/src/GraphicsTraceMixin.java": "618833cbae9282ff459dd0eee98dd540b4bfc8e94da42ecbc8aff4ab9bccdddd",
+  "qa-hud/src/HudClientQa.java": "832e820ba7163ac27d0ff0733f88a3e10531c0aac0b281d5376989de71962162",
+  "qa-hud/src/HudObservation.java": "8d5c078bb179698a4ee9b0a4b9978e5d79f072f6531db82f40eb8b6fdd824b4d",
+  "qa-hud/src/HudServerQa.java": "1f303beb0adde96039bd51f106b56a3095a1328b73715c46c433c3dbe01fca4b",
+  "qa-hud/src/InfoTraceMixin.java": "4fb3ea0b1fa3c5ca4a7999f425ceaab5406fdd0dd2fe7420a873b0d1c471f02c",
+  "qa-hud/src/MapTraceMixin.java": "6f490163acef4b6d1287c68c529498cc2047ea916de26f71bcfe604303403410",
+  "qa-hud/src/RenderStateTraceMixin.java": "3b5cc04c29017cd88c931d5d087cc636919657e0349430b81227fc2434a9f8e3",
+  "qa-hud/run.py": "d2497beee95990edfb05d517d47a9954ce9d6c089251c9e973e7fe21cb42394a"
+}

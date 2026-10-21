@@ -1,0 +1,50 @@
+{
+  "bundle_sha256": "4f0c1b41b6bf9627565aa4a207ac2249bda68b5339b35126bd6fac88644f33cd",
+  "minecraft": "26.3",
+  "track": "developer-release-suite",
+  "passed": true,
+  "cases": [
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"template_lookup\":{\"allocation\":{\"lookups\":200000,\"legacy_split_bytes\":132800000,\"optimized_getter_bytes\":0,\"legacy_bytes_per_lookup\":664.0,\"optimized_bytes_per_lookup\":0.0},\"passed\":true,\"assertions\":42},\"passed\":true,\"uncapped\":false,\"common_stack_size\":64,\"restart\":false,\"assertions\":94}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-defaults",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"template_lookup\":{\"allocation\":{\"lookups\":200000,\"legacy_split_bytes\":148800000,\"optimized_getter_bytes\":1440,\"legacy_bytes_per_lookup\":744.0,\"optimized_bytes_per_lookup\":0.0072},\"passed\":true,\"assertions\":42},\"passed\":true,\"uncapped\":false,\"common_stack_size\":64,\"restart\":true,\"assertions\":95}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"template_lookup\":{\"allocation\":{\"lookups\":200000,\"legacy_split_bytes\":137600000,\"optimized_getter_bytes\":0,\"legacy_bytes_per_lookup\":688.0,\"optimized_bytes_per_lookup\":0.0},\"passed\":true,\"assertions\":42},\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":false,\"assertions\":94}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-polymer-uncapped",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"template_lookup\":{\"allocation\":{\"lookups\":200000,\"legacy_split_bytes\":142553144,\"optimized_getter_bytes\":1440,\"legacy_bytes_per_lookup\":712.76572,\"optimized_bytes_per_lookup\":0.0072},\"passed\":true,\"assertions\":42},\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":true,\"assertions\":95}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 0,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"template_lookup\":{\"allocation\":{\"lookups\":200000,\"legacy_split_bytes\":137468456,\"optimized_getter_bytes\":0,\"legacy_bytes_per_lookup\":687.34228,\"optimized_bytes_per_lookup\":0.0},\"passed\":true,\"assertions\":42},\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":false,\"assertions\":70}",
+      "passed": true
+    },
+    {
+      "profile": "stackables-native-uncapped",
+      "phase": 1,
+      "exit_code": 0,
+      "result": "{\"effective_override_registry\":true,\"template_lookup\":{\"allocation\":{\"lookups\":200000,\"legacy_split_bytes\":148800000,\"optimized_getter_bytes\":224,\"legacy_bytes_per_lookup\":744.0,\"optimized_bytes_per_lookup\":0.00112},\"passed\":true,\"assertions\":42},\"passed\":true,\"uncapped\":true,\"common_stack_size\":2048,\"restart\":true,\"assertions\":71}",
+      "passed": true
+    }
+  ]
+}

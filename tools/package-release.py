@@ -42,7 +42,7 @@ def main():
     assert installation['archives'][kit.name] == sha(kit), 'Installation ZIP changed after verification'
     readme = (ROOT / 'README.md').read_text()
     readme = re.sub(r'\]\((?!https?://|#)([^)]+)\)', lambda match: '](' + REPO + '/blob/' + revision + '/' + match.group(1) + ')', readme)
-    readme += f'\n## Release record\n\nRelease: `{version}`. Source revision: `{revision}`. Exact installation requirements, artifact verification and historical test limits are linked above. The four uploaded assets are this README, the feature JAR, `docs.zip`, and the installation ZIP. Local checksum/publication records accompany the preserved release folder.\n'
+    readme += f'\n## Release record\n\nRelease: `{version}`. Source revision: `{revision}`. Exact installation requirements, artifact verification and historical test limits are linked above. The four release assets are this README, the feature JAR, `docs.zip`, and the installation ZIP. Local checksum/publication records accompany the preserved release folder.\n'
     (release / 'README.md').write_text(readme)
     tracked = subprocess.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode().split('\0')
     documents = {}

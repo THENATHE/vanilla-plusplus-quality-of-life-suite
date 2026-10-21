@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "version": "1.4.5+26.3",
+  "candidate_sha256": "c780009ad4909e6ce28469c2eb86245e27f51665fe8f7408855b5fff06fc1f33",
+  "export_sha256": "446b6a22f9e8cbc4b22ca1be9c58cf1cab263a048d6a95af00f925d8f37d9334",
+  "byte_identical_archive": false,
+  "file_entries_identical": 130,
+  "build": "Separate source export; offline clean build with no build cache and rerun tasks. Exact locked libraries supplied separately.",
+  "source_files": 6344,
+  "scope": "Production source rebuild matches all file entries. Export precedes final documentation and QA evidence promotion."
+}

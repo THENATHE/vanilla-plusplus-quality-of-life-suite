@@ -1,0 +1,42 @@
+{
+  "scope": "User recordings establish observed workload, not controlled before/after fix performance. Last recording still invokes minimap and atlas bridge; changed execution conditions are not established. All-byte percentages use sum of thread weights; execution weights are time, allocation weights are estimated bytes.",
+  "profiles": [
+    {
+      "profile": "https://spark.lucko.me/pqIdkZauWw",
+      "raw_sha256": "fbca888af33b254fa2f2857ffc5591b139c13e4223d7e11ab380059a698ee6f8",
+      "mode": "EXECUTION",
+      "seconds": 53.839,
+      "all_threads_weight": 52980.0,
+      "atlas_weight": 2032.0,
+      "atlas_percent": 3.835409588523971,
+      "minimap_percent": 6.04001510003775,
+      "component_split_percent": 2.884107210268026
+    },
+    {
+      "profile": "https://spark.lucko.me/ZMTDDkGijz",
+      "raw_sha256": "553637db21cf17e0d01b4951a731e02639e95c9e63d90ad49954f9bd9f3018bc",
+      "mode": "ALLOCATION",
+      "seconds": 60.551,
+      "all_threads_weight": 25141029710.0,
+      "atlas_weight": 11920189232.0,
+      "atlas_percent": 47.413289628541634,
+      "minimap_percent": 51.10441923104509,
+      "component_split_percent": 47.30693504677458,
+      "total_estimated_MB_per_second": 415.20420323363777,
+      "atlas_estimated_MB_per_second": 196.86197142904328
+    },
+    {
+      "profile": "https://spark.lucko.me/c0brPnfWy3",
+      "raw_sha256": "03598a1fdb4dc362f8222353587ad34c2c712a847229fd8eccf54a9e9389e77b",
+      "mode": "ALLOCATION",
+      "seconds": 60.306,
+      "all_threads_weight": 13410934794.0,
+      "atlas_weight": 24641489.0,
+      "atlas_percent": 0.18374177026812855,
+      "minimap_percent": 0.5199501158651297,
+      "component_split_percent": 0.0,
+      "total_estimated_MB_per_second": 222.38143458362353,
+      "atlas_estimated_MB_per_second": 0.4086075846516101
+    }
+  ]
+}

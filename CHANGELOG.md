@@ -1,5 +1,12 @@
 # Changes
 
+## 1.4.5+26.3
+
+- Cache client atlas materialization by player/world, resolved active pouch, immutable container component and live Stackables override table, returning detached copies and preserving authoritative server ticking/save behavior.
+- Read explicit component-patch precedence without allocating added/removed collections in the Sensible Stackables template getter. Preserve explicit additions/removals, live stack-limit updates and strict validation.
+- Advance only the outer suite to 1.4.5, the atlas/Elytra component to 1.0.12, and Stackables compatibility to 1.0.3. Keep original developer inputs, libraries, IDs, configuration and the paused SSO-port track unchanged.
+- Add allocation/behavior regressions and repeat relevant native/Polymer, packet, HUD, installation and current Hotkey Wheel/BuildPrint/Blocktone integration checks. See [the release guide](docs/RELEASE_1_4_5.md).
+
 ## 1.4.4+26.3
 
 - Measure native submitted canvas, icon, name and text bounds before checking horizontal and vertical overlap with Tool Pouch information. Preserve nonoverlapping horizontal-offset layouts and detect overlap even across different configured corners.

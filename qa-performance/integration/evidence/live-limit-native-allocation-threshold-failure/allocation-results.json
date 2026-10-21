@@ -1,0 +1,6 @@
+{
+  "suite": "1.4.5+26.3",
+  "polymer_client": false,
+  "passed": false,
+  "failure": "java.lang.AssertionError: Cached lookup must cut measured allocation by at least half"
+}

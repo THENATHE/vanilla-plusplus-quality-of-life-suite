@@ -4,7 +4,7 @@
 
 ![Vanilla++ modpack artwork](artwork/vanilla-plusplus-modpack.png)
 
-The **1.4.4** update corrects information placement beside horizontally offset maps. Tool Pouch information moves only when its rendered bounds overlap the minimap in both dimensions, preserving independent positioning and saved offsets. See the [1.4.4 release guide](docs/RELEASE_1_4_4.md) and [fresh four-mod review](docs/FOUR_MOD_QA_2026_10_13.md) for setup and verification.
+The **1.4.5** update reduces memory allocation in pouch-atlas lookups and stored-item stack-size checks. Atlas views stay current when the active pouch or its contents change, while saved inventories, stack limits and HUD placement retain their existing behavior. See the [1.4.5 release guide](docs/RELEASE_1_4_5.md) for installation and validation.
 
 
 ## What it is
@@ -454,7 +454,7 @@ The compatibility layer includes:
 
 ## Installation
 
-The [1.4.4 release guide](docs/RELEASE_1_4_4.md) covers this update, installation and verification. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) provides these four files:
+The [1.4.5 release guide](docs/RELEASE_1_4_5.md) covers this update, installation and verification. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) provides these four files:
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -466,7 +466,7 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Put `vanilla-plusplus-quality-of-life-suite-1.4.4+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
+2. Put `vanilla-plusplus-quality-of-life-suite-1.4.5+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, the standalone Polymer Debug Wrench, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Remove the replaced standalone mods/datapacks when enabling their suite features. Swift Flight keeps existing enchantment data; legacy pet-call bindings are not migrated and must be rebound.
@@ -524,13 +524,13 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/complete-jdk25 ./gradlew build
 ```
 
-Use a complete Java 25 or newer JDK, including `javac`; the build targets Java 25. The current clean build uses the complete Microsoft Java 25 JDK. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.4.4+26.3.jar`.
+Use a complete Java 25 or newer JDK, including `javac`; the build targets Java 25. The current clean build uses the complete Microsoft Java 25 JDK. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.4.5+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 
 ### Changes and testing
 
-The [release guide](docs/RELEASE_1_4_4.md) and [four-mod review](docs/FOUR_MOD_QA_2026_10_13.md) record the current HUD correction, exact candidate and combined verification. [Validation](docs/VALIDATION.md) preserves earlier storage, recovery-selector, enlarged-backpack, recipe and installer results with their original artifacts and scope.
+The [release guide](docs/RELEASE_1_4_5.md) records the current allocation fixes, exact candidate and fresh verification. The [four-mod review](docs/FOUR_MOD_QA_2026_10_13.md) retains the earlier HUD correction and its original combined acceptance. [Validation](docs/VALIDATION.md) preserves earlier storage, recovery-selector, enlarged-backpack, recipe and installer results with their original artifacts and scope.
 
 The [release procedure](docs/RELEASE_WORKFLOW.md) records the standing documentation, four-asset packaging, version-only titles and branch-cleanup conventions.
 

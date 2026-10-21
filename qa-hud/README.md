@@ -1,13 +1,13 @@
 # Independent minimap / Tool Pouch information HUD verification
 
-Suite **1.4.4+26.3** includes HUD addon **1.0.11+26.3**. The addon measures the actual map and information rectangles before applying overlap protection. Independent information corners and saved offsets remain intact. Current suite release scope is recorded in [VALIDATION.md](../docs/VALIDATION.md), with behavior explained in [HUD.md](../docs/HUD.md).
+Suite **1.4.5+26.3** includes Atlas/Elytra/HUD addon **1.0.12+26.3**. The 1.4.5 allocation update preserves the existing HUD geometry behavior. The addon measures the actual map and information rectangles before applying overlap protection. Independent information corners and saved offsets remain intact. Current suite release scope is recorded in [VALIDATION.md](../docs/VALIDATION.md), with behavior explained in [HUD.md](../docs/HUD.md).
 
 This development fixture launches an isolated localhost world and a real graphical client using cached official runtime files. Observer mixins record the native renderer's actual element and prepared text bounds, including map backgrounds, canvas, decorations, named markers, captions, clipping and native information. Raw caller coordinates remain separate diagnostic receipts. The fixture compares the complete received rectangles and records exact configurations after every scene. Observer classes are never packaged in the suite.
 
 ```sh
-python3 qa-hud/run.py --suite build/libs/vanilla-plusplus-quality-of-life-suite-1.4.4+26.3.jar --label hud-prepare --prepare-only
-python3 qa-hud/run.py --suite build/libs/vanilla-plusplus-quality-of-life-suite-1.4.4+26.3.jar --label hud-native
-python3 qa-hud/run.py --suite build/libs/vanilla-plusplus-quality-of-life-suite-1.4.4+26.3.jar --label hud-client-polymer --client-polymer
+python3 qa-hud/run.py --suite build/libs/vanilla-plusplus-quality-of-life-suite-1.4.5+26.3.jar --label hud-prepare --prepare-only
+python3 qa-hud/run.py --suite build/libs/vanilla-plusplus-quality-of-life-suite-1.4.5+26.3.jar --label hud-native
+python3 qa-hud/run.py --suite build/libs/vanilla-plusplus-quality-of-life-suite-1.4.5+26.3.jar --label hud-client-polymer --client-polymer
 ```
 
 Use Java 25 and the installed Java 27 compiler targeting Java 25. `DISPLAY=:1` is the shared graphical test display and must be reserved before launching. Each label must be unique. Runtime smoke uses an existing accepted QA EULA. Always select the exact candidate with `--suite`; historical evidence retains its original candidate and dependencies.
@@ -40,3 +40,5 @@ Fresh evidence is organized beneath [evidence/](evidence/):
 Raw run evidence remains under `runs/<label>/evidence.json`. A build or `--prepare-only` result does not establish runtime acceptance. The exact official developer SSO 2.10.0+26.3 input remains included; the paused ChatGPT SSO port is excluded. This fixture verifies HUD geometry, saved native settings and configuration navigation. Full gameplay, connection capability networking and all-four wheel/BRBR interactions have separate acceptance profiles.
 
 QA binaries remain local execution artifacts and are excluded from public source/documentation packages. Recorded hashes, fixture source and sanitized evidence identify exact execution without distributing those binaries.
+
+Current 1.4.5 candidate receipts are recorded under [qa-performance/evidence/1.4.5](../qa-performance/evidence/1.4.5/verification.json). Earlier evidence folders retain their original version and scope.

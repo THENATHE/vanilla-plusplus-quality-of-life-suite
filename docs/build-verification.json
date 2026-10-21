@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "vpp_mod_suite",
-  "version": "1.4.4+26.3",
-  "sha256": "e4663dddf2e176c3d5d7a669f59822dc76286ed28e195cc1a77b1bb1b3e7d269",
+  "version": "1.4.5+26.3",
+  "sha256": "2b8da007d555b55512c1e8fb08ce5db3be419bb5f3a47d61a1e13d577f67b97b",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -78,9 +78,9 @@
     },
     {
       "id": "toolpouch_atlas_elytra_compat",
-      "version": "1.0.11+26.3",
-      "sha256": "08fb7ee7565102cdecc97659703aca8dd7c037f7401d48bbf7d736c06219efb8",
-      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.11+26.3.jar"
+      "version": "1.0.12+26.3",
+      "sha256": "dd5c2565c8d39fdac36c7b3bf9d98c140937d49d2c37cd253a6623dd9a5cd334",
+      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.0.12+26.3.jar"
     },
     {
       "id": "sensible_stackables",
@@ -90,9 +90,9 @@
     },
     {
       "id": "sensible_stackables_polymer_compat",
-      "version": "1.0.2+26.3",
-      "sha256": "3857e2763784e2c1d0229e6ffd947a415ba4ddd933fb70d1d2fcd51e4c7a7c31",
-      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.2+26.3.jar"
+      "version": "1.0.3+26.3",
+      "sha256": "da17dd3279e605c0fca277d69c298a1931a191be5ff81a10c04f85947fa15604",
+      "file": "META-INF/jars/thenathe-suite-stackables-compat-1.0.3+26.3.jar"
     },
     {
       "id": "mapstitch_mixed_scales",
@@ -124,12 +124,10 @@
   "defaulted_runtime_required": false,
   "licenses_retained": true,
   "runtime_tested": true,
-  "publication_ready": true,
-  "evidence": [
-    "docs/RELEASE_1_4_4.md",
-    "docs/FOUR_MOD_QA_2026_10_13.md",
-    "qa-four-mods/evidence/2026-10-13/final-1.4.4/verification.json",
-    "qa-hud/evidence/2026-10-13-final-1.4.4-native-bounds/README.md"
-  ],
-  "runtime_scope": "Exact final native/Polymer server, rendered HUD, all-four wheel, packaged BRBR and four connected backpack profiles passed. Baseline/intermediate wider checks are preserved separately."
+  "runtime_scope": "Exact-candidate native/Polymer stack/restart and packet checks, wheel/BuildPrint/Blocktone/BRBR integration, live atlas cache/allocation, 60 graphical HUD scenes, four real connection profiles and 13 installer checks. Scope and harness teardown limits are recorded in linked acceptance.",
+  "evidence": {
+    "release": "docs/RELEASE_1_4_5.md",
+    "acceptance": "qa-performance/evidence/1.4.5/verification.json",
+    "integration": "qa-performance/integration/evidence/1.4.5+26.3/verification.json"
+  }
 }

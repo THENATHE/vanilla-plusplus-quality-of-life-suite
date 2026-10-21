@@ -1,4 +1,5 @@
 package com.thenathe.toolpouchcompat;
+import com.thenathe.toolpouchcompat.mixin.PouchMendingAccess;
 import me.pajic.mapstitch.item.ModItems;
 import me.pajic.toolpouch.menu.ToolPouchMenu;
 import me.pajic.toolpouch.util.ToolPouchUtil;
@@ -11,6 +12,10 @@ public final class AtlasBridge {
  public static List<ItemStack> atlases(Player player) {
   // The open menu owns a mutable copy. Never mutate its stale stored snapshot.
   if (player.containerMenu instanceof ToolPouchMenu) return List.of();
+  if (player.level().isClientSide()) {
+   var source = PouchMendingAccess.toolpouchCompat$activePouch(player);
+   return ((AtlasCacheOwner) player).toolpouchCompat$atlasCache().copies(player.level(), source);
+  }
   return ToolPouchUtil.getItemsFromToolPouch(player, stack -> stack.is(ModItems.ATLAS)).stream().map(ItemStackTemplate::create).toList();
  }
  public static void save(Player player, ItemStack atlas, int index) {

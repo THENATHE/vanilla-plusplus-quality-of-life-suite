@@ -1,0 +1,1 @@
+Bounded allocation-only check on candidate 2b8da007 passed all 35 checks before full acceptance. Raw 400-lookup allocation: baseline 502,400 bytes, candidate 248,912 bytes (50.455 percent reduction). This isolates cached atlas lookups with the optimized component getter present on both paths; it is not a measured FPS improvement.

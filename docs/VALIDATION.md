@@ -1,8 +1,12 @@
 # Validation
 
-The [2026-10-13 four-mod review](FOUR_MOD_QA_2026_10_13.md) adds fresh acceptance against the exact current releases. Earlier results below retain their historical scope and versions.
+## Current 1.4.5 - atlas and stack-limit allocation fixes
 
-## Current 1.4.4 — native map bounds and four-mod acceptance
+The [release guide](RELEASE_1_4_5.md) describes the two source changes, exact dependencies, measurements and limits. [Candidate acceptance](../qa-performance/evidence/1.4.5/verification.json) records fresh behavior/allocation, native/Polymer wheel integration, inventory packet, HUD, connection, source and installation checks. Only the atlas and Stackables compatibility components change; seventeen other nested modules and root Java classes remain byte-identical to 1.4.4. Existing historical results below retain their exact versions and scope.
+
+The [2026-10-13 four-mod review](FOUR_MOD_QA_2026_10_13.md) records historical acceptance against its exact releases. Earlier results below retain their historical scope and versions.
+
+## Historical 1.4.4 — native map bounds and four-mod acceptance
 
 Exact final JAR SHA-256: `e4663dddf2e176c3d5d7a669f59822dc76286ed28e195cc1a77b1bb1b3e7d269`. The [release guide](RELEASE_1_4_4.md) and [four-mod review](FOUR_MOD_QA_2026_10_13.md) record final native/Polymer HUD 30+30, wheel all-four 655+655, packaged BRBR 1,968, four connected backpack profiles, server crafting 198+198, archive/source verification and all 13 installer checks. Actual named-marker collisions, genuine caption overlap, touching/disjoint placement and saved settings passed. Earlier approximate caption-shadow assertions are retained as corrected fixture false positives. Other nested modules/root classes remain byte-identical to 1.4.3; broader baseline checks below keep their own artifact identities.
 

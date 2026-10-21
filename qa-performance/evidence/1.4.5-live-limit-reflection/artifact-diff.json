@@ -1,0 +1,32 @@
+{
+  "baseline": "1.4.4+26.3",
+  "baseline_sha256": "e4663dddf2e176c3d5d7a669f59822dc76286ed28e195cc1a77b1bb1b3e7d269",
+  "candidate": "1.4.5+26.3",
+  "candidate_sha256": "c780009ad4909e6ce28469c2eb86245e27f51665fe8f7408855b5fff06fc1f33",
+  "changed_modules": {
+    "toolpouch_atlas_elytra_compat": {
+      "before": {
+        "version": "1.0.11+26.3",
+        "sha256": "08fb7ee7565102cdecc97659703aca8dd7c037f7401d48bbf7d736c06219efb8"
+      },
+      "after": {
+        "version": "1.0.12+26.3",
+        "sha256": "93b2b920eeb8914341f039ba7fcefa95084ac7b946d2c28bfa600b46a02dda71"
+      }
+    },
+    "sensible_stackables_polymer_compat": {
+      "before": {
+        "version": "1.0.2+26.3",
+        "sha256": "3857e2763784e2c1d0229e6ffd947a415ba4ddd933fb70d1d2fcd51e4c7a7c31"
+      },
+      "after": {
+        "version": "1.0.3+26.3",
+        "sha256": "da17dd3279e605c0fca277d69c298a1931a191be5ff81a10c04f85947fa15604"
+      }
+    }
+  },
+  "unchanged_module_count": 17,
+  "root_class_count": 56,
+  "root_classes_identical": true,
+  "passed": true
+}

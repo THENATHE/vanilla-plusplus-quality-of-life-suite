@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "version": "1.4.5+26.3",
+  "candidate_sha256": "4f0c1b41b6bf9627565aa4a207ac2249bda68b5339b35126bd6fac88644f33cd",
+  "export_sha256": "5e98cce74de0c3dc2846e8e2ab67230f634632a244d975c8dea3efbb8fb40a3d",
+  "byte_identical_archive": false,
+  "file_entries_identical": 130,
+  "build": "Separate source export; offline clean build with no build cache and rerun tasks. Exact locked libraries supplied separately.",
+  "source_files": 6280
+}
