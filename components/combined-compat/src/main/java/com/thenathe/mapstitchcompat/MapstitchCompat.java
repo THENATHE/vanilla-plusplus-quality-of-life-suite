@@ -36,11 +36,40 @@ public final class MapstitchCompat {
     public static void initialize() {
         AtlasResources.initialize();
         PolymerItem.registerOverlay(ModItems.ATLAS, new AtlasOverlay());
+        PolymerItem.registerOverlay(ModItems.ATLAS_PIN, new PinOverlay());
         PolymerComponent.registerDataComponent(ModDataComponents.ATLAS_SCALE,
                 ModDataComponents.ATLAS_FULLNESS, ModDataComponents.ATLAS_ACTIVE_MAP_ID,
                 ModDataComponents.ATLAS_EJECT_FILLED_MAPS_FIRST, ModDataComponents.MAP_CENTER);
         RegistrySyncUtils.setServerEntry(BuiltInRegistries.RECIPE_SERIALIZER, ModRecipes.ATLAS);
+        RegistrySyncUtils.setServerEntry(BuiltInRegistries.RECIPE_SERIALIZER, ModRecipes.ATLAS_PIN_BULK_DYE);
         HeldAtlasNotice.initialize();
+    }
+
+    /** Pins are placed from the native world map; vanilla clients only need to see and carry them. */
+    private static final class PinOverlay implements PolymerItem {
+        @Override
+        public boolean canSyncRawToClient(PacketContext context) {
+            return nativeClient(context);
+        }
+
+        @Override
+        public Item getPolymerItem(ItemStack stack, PacketContext context) {
+            return nativeClient(context) ? ModItems.ATLAS_PIN : Items.IRON_NUGGET;
+        }
+
+        @Override
+        public Identifier getPolymerItemModel(ItemStack stack, PacketContext context, HolderLookup.Provider lookup) {
+            return AtlasResources.pinModel(stack, context);
+        }
+
+        @Override
+        public ItemStack getPolymerItemStack(ItemStack stack, TooltipFlag tooltip,
+                                             PacketContext context, HolderLookup.Provider lookup) {
+            if (nativeClient(context)) return stack;
+            var result = PolymerItem.super.getPolymerItemStack(stack, tooltip, context, lookup);
+            result.set(DataComponents.ITEM_NAME, Component.literal("Atlas Pin (MapStitch)"));
+            return result;
+        }
     }
 
     private static final class AtlasOverlay implements PolymerItem {

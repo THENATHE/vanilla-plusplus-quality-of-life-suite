@@ -1,6 +1,7 @@
 package com.thenathe.toolpouchcompat;
 
 import me.pajic.mapstitch.item.ModItems;
+import me.pajic.toolpouch.component.ModDataComponents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
@@ -21,24 +22,38 @@ public final class AtlasStackCache {
     private Level level;
     private ItemStack source = ItemStack.EMPTY;
     private ItemContainerContents contents;
+    private List<Integer> disabledSlots;
     private List<ItemStack> atlases = List.of();
     private Object stackSizes;
 
     public List<ItemStack> copies(Level currentLevel, ItemStack currentSource) {
         var currentContents = currentSource.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
+        // Tool Pouch slot toggles replace this component without touching the contents.
+        var currentDisabled = currentSource.getOrDefault(ModDataComponents.DISABLED_SLOTS, List.<Integer>of());
         Object currentStackSizes = stackSizeRevision();
         boolean cacheable = !STACKABLES_LOADED || STACK_SIZE_SNAPSHOT != null;
-        if (!cacheable || level != currentLevel || source != currentSource || contents != currentContents || stackSizes != currentStackSizes) {
+        if (!cacheable || level != currentLevel || source != currentSource || contents != currentContents
+                || disabledSlots != currentDisabled || stackSizes != currentStackSizes) {
             // Container components and their templates are immutable. Replacing the component,
             // even on the same pouch stack, invalidates every materialized atlas immediately.
             var materialized = new ArrayList<ItemStack>();
-            for (var template : currentContents.nonEmptyItems()) {
-                if (template.is(ModItems.ATLAS)) materialized.add(template.create());
+            if (currentDisabled.isEmpty()) {
+                for (var template : currentContents.nonEmptyItems()) {
+                    if (template.is(ModItems.ATLAS)) materialized.add(template.create());
+                }
+            } else {
+                // Match the server, which never ticks or lists atlases in disabled slots.
+                var stacks = currentContents.itemCopies().toList();
+                for (int slot = 0; slot < stacks.size(); slot++) {
+                    var stack = stacks.get(slot);
+                    if (stack.is(ModItems.ATLAS) && !currentDisabled.contains(slot)) materialized.add(stack);
+                }
             }
             atlases = List.copyOf(materialized);
             level = currentLevel;
             source = currentSource;
             contents = currentContents;
+            disabledSlots = currentDisabled;
             stackSizes = currentStackSizes;
         }
         // MapStitch retains and can mutate returned stacks. Copies preserve that ownership

@@ -5,7 +5,6 @@ import de.dafuqs.chalk.common.blocks.ChalkMarkBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,15 +16,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 /** Sends the original cloud effect because an AIR client block has no break particles. */
 @Mixin(value = ChalkMarkBlock.class, remap = false)
 public class ChalkDestroyParticlesMixin {
+    // Official Chalk 3.2.0+26.3 overrides the three-argument hook. ChalkBreakEffectsMixin routes
+    // player breaking through it as well, so this one injection covers both break paths.
     @Group(name = "chalkDestroy", min = 1, max = 1)
-    @Inject(method = "spawnDestroyByEntityParticles", at = @At("TAIL"), require = 0)
-    private void chalkcompat$destroyParticles(Level level, Entity entity, BlockPos pos, BlockState state,
-                                              CallbackInfo ci) {
+    @Inject(method = "spawnDestroyParticles(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V",
+            at = @At("TAIL"), require = 0)
+    private void chalkcompat$destroyParticles(Level level, BlockPos pos, BlockState state, CallbackInfo ci) {
         chalkcompat$sendCloud(level, pos);
     }
 
     @Group(name = "chalkDestroy", min = 1, max = 1)
-    @Inject(method = "spawnDestroyParticles", at = @At("TAIL"), require = 0)
+    @Inject(method = "spawnDestroyParticles(Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V",
+            at = @At("TAIL"), require = 0)
     private void chalkcompat$destroyParticles26_2(Level level, net.minecraft.world.entity.player.Player player,
                                                  BlockPos pos, BlockState state, CallbackInfo ci) {
         chalkcompat$sendCloud(level, pos);

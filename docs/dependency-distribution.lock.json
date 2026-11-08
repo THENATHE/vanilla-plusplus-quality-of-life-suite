@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "verified_on": "2026-10-05",
+  "verified_on": "2026-11-08",
   "scope": "Unchanged permitted dependency binaries; Fzzy Config is manifest-download-only. Corresponding upstream LGPL sources and license texts accompany the installer ZIP.",
   "sources": [
     {
@@ -14,12 +14,12 @@
     },
     {
       "id": "polymer",
-      "file": "polymer-0.18.2+26.3-source.zip",
-      "source": "libs/installation/polymer-0.18.2+26.3-source.zip",
-      "url": "https://codeload.github.com/Patbox/polymer/zip/refs/tags/0.18.2%2B26.3",
-      "revision": "682decf397d93c372a76c9441da13a8029a61cea",
-      "sha256": "98e28a6a89be9efbc06b178dd88e3294c6dccb09aabb34e3fe9fced5674f8eff",
-      "fileSize": 3181699
+      "file": "polymer-0.18.7+26.3-source.zip",
+      "source": "libs/installation/polymer-0.18.7+26.3-source.zip",
+      "url": "https://codeload.github.com/Patbox/polymer/zip/refs/tags/0.18.7%2B26.3",
+      "revision": "35a601d12e5084d5f953c3961bdba59a53e69a10",
+      "sha256": "55ca3e76247f29b71b632208cc7c596b48b7371b4f74d36f5fc6aa5d7d448c45",
+      "fileSize": 3191789
     }
   ],
   "notices": [

@@ -1,5 +1,6 @@
 package com.thenathe.suite.features;
 
+import me.pajic.tiered_backpacks.util.BackpackUtil;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerPlayer;
@@ -17,7 +18,9 @@ public final class ShulkerPickup {
     public static int collect(ServerPlayer player, ItemStack incoming) {
         if (!FeatureConfig.CONFIG.dropsIntoShulker.get() || incoming.isEmpty()
                 || !player.isAlive() || player.isSpectator()
-                || !incoming.getItem().canFitInsideContainerItems()) return 0;
+                || !incoming.getItem().canFitInsideContainerItems()
+                // Tiered Backpacks also keeps chestplates with an attached backpack out of shulkers.
+                || BackpackUtil.isValidContainerHolder(incoming)) return 0;
         ItemStack holder = player.getOffhandItem();
         if (holder == incoming || holder.getCount() != 1
                 || !(holder.getItem() instanceof BlockItem blockItem)

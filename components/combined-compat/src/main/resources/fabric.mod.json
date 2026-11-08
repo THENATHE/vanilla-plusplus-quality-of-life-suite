@@ -25,17 +25,17 @@
     "minecraft": "26.3",
     "java": ">=25",
     "fabricloader": ">=0.19.5",
-    "fabric-api": ">=0.161.0+26.3",
+    "fabric-api": ">=0.165.2+26.3",
     "vpp_mod_suite": "*"
   },
   "suggests": {
     "simple_smithing_overhaul": "*",
-    "tiered_backpacks": "1.0.20",
-    "toolpouch": "1.1.10",
-    "mapstitch": "1.1.7",
+    "tiered_backpacks": "1.0.21",
+    "toolpouch": "1.2.0",
+    "mapstitch": "1.2.1",
     "toolpouch_atlas_elytra_compat": "*",
-    "polymer-core": "0.18.2+26.3",
-    "polymer-resource-pack": "0.18.2+26.3"
+    "polymer-core": "0.18.7+26.3",
+    "polymer-resource-pack": "0.18.7+26.3"
   },
   "breaks": {
     "simple_smithing_polymer_compat": "*",

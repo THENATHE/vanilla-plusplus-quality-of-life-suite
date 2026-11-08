@@ -14,13 +14,10 @@ public final class ModuleMixinPlugin implements IMixinConfigPlugin {
             "com.thenathe.ssopolymer.mixin.AnvilMenuMixin",
             "com.thenathe.ssopolymer.mixin.DataPatchesMixin",
             "com.thenathe.ssopolymer.mixin.MendingUseMixin",
-            "com.thenathe.ssopolymer.mixin.MendingRepairCountMixin",
             "com.thenathe.ssopolymer.mixin.MendingWhetstoneSelectionMixin",
             "com.thenathe.ssopolymer.mixin.EnchantingPowerMixin",
             "com.thenathe.toolpouchcompat.mixin.ToolpouchAccess",
-            "com.thenathe.toolpouchcompat.mixin.ShulkerOpenMixin",
-            "com.thenathe.toolpouchcompat.mixin.ShulkerContainerMixin",
-            "com.thenathe.toolpouchcompat.mixin.ShulkerSlotMixin");
+            "com.thenathe.toolpouchcompat.mixin.ShulkerOpenMixin");
     public static boolean polymerAvailable() {
         var loader = FabricLoader.getInstance();
         return loader.isModLoaded("polymer-core") && loader.isModLoaded("polymer-resource-pack");

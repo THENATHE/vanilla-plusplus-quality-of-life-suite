@@ -71,9 +71,11 @@ public final class MixedScaleMaps {
             var id = map.get(DataComponents.MAP_ID);
             if (id == null) continue;
             var data = MapItem.getSavedData(id, level);
-            if (data != null && data.scale == scale && data.dimension.equals(level.dimension())
-                    && !ModUtil.isExplorationMap(map.create(), level)
-                    && covers(data, owner.getBlockX(), owner.getBlockZ())) return map.create();
+            // Check coverage first: this runs several times per atlas tick and creating a stack is not free.
+            if (data == null || data.scale != scale || !data.dimension.equals(level.dimension())
+                    || !covers(data, owner.getBlockX(), owner.getBlockZ())) continue;
+            var stack = map.create();
+            if (!ModUtil.isExplorationMap(stack, level)) return stack;
         }
         return null;
     }

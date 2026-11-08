@@ -68,4 +68,11 @@ public abstract class AtlasHudLayoutMixin {
         HudLayout.drawnMap();
         original.call(util, client, graphics, id, data, grid, minimap);
     }
+
+    @WrapOperation(method = "render", at = @At(value = "INVOKE", target = "Lme/pajic/mapstitch/minimap/MinimapOverlay;enableMapScissor(Lnet/minecraft/client/gui/GuiGraphicsExtractor;III)V"))
+    private static void suite$centeredMapBounds(GuiGraphicsExtractor graphics, int x, int y, int size, Operation<Void> original) {
+        // Centered mode draws its tiles in renderCenteredMaps; the scissored map area is the same 128-pixel square.
+        HudLayout.drawnMap();
+        original.call(graphics, x, y, size);
+    }
 }

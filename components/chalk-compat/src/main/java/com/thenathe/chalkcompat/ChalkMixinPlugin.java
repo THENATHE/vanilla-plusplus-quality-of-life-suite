@@ -18,7 +18,9 @@ public final class ChalkMixinPlugin implements IMixinConfigPlugin {
     public String getRefMapperConfig() { return null; }
     public boolean shouldApplyMixin(String target, String mixin) {
         var loader = FabricLoader.getInstance();
-        if (mixin.endsWith("ChalkInitializationMixin")) return loader.isModLoaded("chalk");
+        if (mixin.endsWith("ChalkInitializationMixin") || mixin.endsWith("ChalkBreakEffectsMixin")) {
+            return loader.isModLoaded("chalk");
+        }
         if (SHARED_BLOCK_TRANSPORT.contains(mixin.substring(mixin.lastIndexOf('.') + 1))) {
             return (loader.isModLoaded("chalk") || loader.isModLoaded("simple_smithing_overhaul"))
                     && loader.isModLoaded("polymer-core") && loader.isModLoaded("polymer-resource-pack");

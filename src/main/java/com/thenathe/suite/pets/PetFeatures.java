@@ -28,6 +28,7 @@ import net.minecraft.world.entity.Leashable;
 import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.animal.equine.AbstractHorse;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ProjectileUtil;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -282,6 +283,14 @@ public final class PetFeatures {
         if (!occupiedAllowed && pet.countPlayerPassengers() > 0) {
             feedback(player, "Someone is riding this pet.");
             return false;
+        }
+        // Unowned mounts such as happy ghasts can be bound by anyone, so never carry
+        // along a rider who is neither the caller nor on the caller's team.
+        for (Entity rider : pet.getIndirectPassengers()) {
+            if (rider instanceof Player other && other != player && !player.isAlliedTo(other)) {
+                feedback(player, "Someone else is riding this pet.");
+                return false;
+            }
         }
         List<LeashConnection> leashes = new ArrayList<>();
         if (!collectLeashes(pet, player, leashes, 0)) {

@@ -57,7 +57,8 @@ public final class ToolpouchCompat {
         PouchResources.initialize();
         PolymerItem.registerOverlay(ModItems.TOOL_POUCH, new PouchOverlay(false));
         PolymerItem.registerOverlay(ModItems.NETHERITE_TOOL_POUCH, new PouchOverlay(true));
-        PolymerComponent.registerDataComponent(ModDataComponents.STORED_TOOL_POUCH_DYE, ModDataComponents.IS_NETHERITE_POUCH);
+        PolymerComponent.registerDataComponent(ModDataComponents.STORED_TOOL_POUCH_DYE, ModDataComponents.IS_NETHERITE_POUCH,
+                ModDataComponents.DISABLED_SLOTS);
         RegistrySyncUtils.setServerEntry(BuiltInRegistries.MENU, ModMenuTypes.TOOL_POUCH_MENU);
         RegistrySyncUtils.setServerEntry(BuiltInRegistries.RECIPE_SERIALIZER, ModRecipes.ATTACH_TOOL_POUCH);
         RegistrySyncUtils.setServerEntry(BuiltInRegistries.RECIPE_SERIALIZER, ModRecipes.DETACH_TOOL_POUCH);

@@ -24,7 +24,8 @@ public abstract class AtlasCartographyMenuMixin extends AbstractContainerMenu {
 
     @Inject(method = "setupResultSlot", at = @At("HEAD"), cancellable = true)
     private void atlasCopy$preview(ItemStack source, ItemStack addition, ItemStack previous, CallbackInfo ci) {
-        if (!source.is(ModItems.ATLAS)) return;
+        // Two atlases are MapStitch's own copy/merge recipe; let its result handling run.
+        if (!source.is(ModItems.ATLAS) || addition.is(ModItems.ATLAS)) return;
         var result = AtlasCartographyCopy.matches(source, addition)
                 ? AtlasCartographyCopy.preview(source, previous) : ItemStack.EMPTY;
         if (!ItemStack.matches(result, previous)) {
@@ -39,8 +40,9 @@ public abstract class AtlasCartographyMenuMixin extends AbstractContainerMenu {
         var menu = (CartographyTableMenu) (Object) this;
         if (index < 3 || index >= menu.slots.size()) return;
         var slot = menu.getSlot(index); var stack = slot.getItem();
-        int target = stack.is(ModItems.ATLAS) ? 0 : stack.is(Items.BOOK) ? 1 : -1;
-        if (target < 0) return;
+        // MapStitch routes atlases itself, including a second atlas into the lower slot.
+        if (!stack.is(Items.BOOK)) return;
+        int target = 1;
         var before = stack.copy();
         if (!moveItemStackTo(stack, target, target + 1, false) || stack.getCount() == before.getCount()) {
             cir.setReturnValue(ItemStack.EMPTY); return;

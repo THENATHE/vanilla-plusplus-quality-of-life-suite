@@ -19,7 +19,11 @@ public final class AtlasBridge {
   return ToolPouchUtil.getItemsFromToolPouch(player, stack -> stack.is(ModItems.ATLAS)).stream().map(ItemStackTemplate::create).toList();
  }
  public static void save(Player player, ItemStack atlas, int index) {
-  if (!(player.containerMenu instanceof ToolPouchMenu)) ToolPouchUtil.replaceItemInToolPouch(player, atlas, stack -> stack.is(ModItems.ATLAS), index);
+  if (player.containerMenu instanceof ToolPouchMenu) return;
+  // Indices follow atlases(): enabled, non-empty atlas slots in pouch order.
+  var pouch = ToolPouchUtil.getToolPouch(player);
+  var slots = ToolPouchUtil.findSlotsInToolPouch(pouch, stack -> stack.is(ModItems.ATLAS));
+  if (index >= 0 && index < slots.size()) ToolPouchUtil.setItemInToolPouch(pouch, slots.getInt(index), atlas);
  }
  public static void tick(Player player) {
   if (player.level().isClientSide()) return;

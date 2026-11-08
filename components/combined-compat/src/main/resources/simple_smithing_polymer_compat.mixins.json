@@ -11,9 +11,9 @@
     "DataPatchesMixin",
     "AdvancementTextMixin",
     "MendingUseMixin",
-    "MendingRepairCountMixin",
     "MendingWhetstoneSelectionMixin",
-    "EnchantingPowerMixin"
+    "EnchantingPowerMixin",
+    "PolymerStackRemovalMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -1,11 +1,11 @@
 plugins { id 'net.fabricmc.fabric-loom' version '1.17.20' }
-version = '1.0.12+26.3'
+version = '1.1.0+26.3'
 group = 'com.thenathe'
 base { archivesName = 'toolpouch-atlas-elytra-compat' }
 dependencies {
  minecraft 'com.mojang:minecraft:26.3'
  implementation 'net.fabricmc:fabric-loader:0.19.5'
- implementation 'net.fabricmc.fabric-api:fabric-api:0.161.0+26.3'
+ implementation 'net.fabricmc.fabric-api:fabric-api:0.165.2+26.3'
  compileOnly rootProject.fileTree('libs') { include '*.jar', 'compile-only/*.jar' }
 }
 processResources { inputs.property 'version', project.version; filesMatching('fabric.mod.json') { expand(version: project.version) } }

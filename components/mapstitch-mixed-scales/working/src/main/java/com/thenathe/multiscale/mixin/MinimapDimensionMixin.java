@@ -1,11 +1,16 @@
 package com.thenathe.multiscale.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.thenathe.multiscale.client.MixedScalesClient;
 import me.pajic.mapstitch.minimap.MinimapOverlay;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.saveddata.maps.MapId;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
@@ -59,6 +64,20 @@ public abstract class MinimapDimensionMixin {
     private static MapItemSavedData mixedScales$activeCurrentDimension(MapItemSavedData data) {
         var level = Minecraft.getInstance().level;
         return data != null && level != null && data.dimension.equals(level.dimension()) ? data : null;
+    }
+
+    @WrapOperation(method = "updateMarkers", at = @At(value = "INVOKE",
+            target = "Lnet/minecraft/world/item/ItemStackTemplate;get(Lnet/minecraft/core/component/DataComponentType;)Ljava/lang/Object;"))
+    private static Object mixedScales$authoritativeNeighbourCenter(ItemStackTemplate map, DataComponentType<?> component,
+                                                                   Operation<Object> original) {
+        if (component == me.pajic.mapstitch.component.ModDataComponents.MAP_CENTER) {
+            // Centered minimaps place every neighbouring tile from these centers, not only the active map.
+            var level = Minecraft.getInstance().level;
+            var id = map.get(DataComponents.MAP_ID);
+            var data = level == null || id == null ? null : level.getMapData(id);
+            if (data != null && data.scale >= 0 && data.scale <= 4) return new Vector2i(data.centerX, data.centerZ);
+        }
+        return original.call(map, component);
     }
 
     @ModifyExpressionValue(method = "updateMarkers", at = @At(value = "INVOKE",

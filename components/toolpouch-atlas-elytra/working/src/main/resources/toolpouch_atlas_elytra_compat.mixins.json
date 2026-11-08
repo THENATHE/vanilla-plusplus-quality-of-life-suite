@@ -20,7 +20,6 @@
     "ClientSortServerSchemaMixin",
     "ClientSortServerSortMixin",
     "ClientSortServerTransferMixin",
-    "PouchDurabilityMixin",
     "PouchSsoMendingMixin"
   ],
   "client": [

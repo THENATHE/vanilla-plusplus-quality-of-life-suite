@@ -10,9 +10,7 @@
     "ToolpouchGameplayMixin",
     "ToolpouchUnequipMixin",
     "ToolpouchAccess",
-    "ShulkerOpenMixin",
-    "ShulkerContainerMixin",
-    "ShulkerSlotMixin"
+    "ShulkerOpenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

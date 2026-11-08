@@ -7,18 +7,21 @@
     "origin": "Existing local authored 26.3 mod; source snapshot components/amethyst-curse-cleanser/upstream"
   },
   {
-    "file": "libs/chalk-3.2.1+26.3.jar",
+    "file": "libs/chalk-3.2.0+26.3.jar",
     "id": "chalk",
-    "version": "3.2.1+26.3",
-    "sha256": "886b0b10cc12df65d47f446c2bd54c0c670f9a54fa09a1fe95c9ec46df565f49",
-    "origin": "Existing ChatGPT Fabric 26.3 port of DaFuqs Chalk; source snapshot components/chalk/upstream; historical git dfb461ef9eb6f7bf5188570594c3bd21171c2391"
+    "version": "3.2.0+26.3",
+    "sha256": "a7ed83c41c88d59011e0b22fd59ccb766cfb6cdc878ac6b392f517869b30392c",
+    "origin": "Official DaFuqs Chalk Fabric 26.3 developer release (Modrinth IfK88aD4); unchanged. Source DaFuqs/Chalk branch 26.3-fabric commit c0e3a3c969c8f5b22bc18fcd217fe48ed75863fb; record components/chalk/developer-release/inputs.lock.json. Replaces the earlier ChatGPT 3.2.1+26.3 port.",
+    "track": "developer-release",
+    "version_url": "https://modrinth.com/mod/chalk/version/IfK88aD4",
+    "download_url": "https://cdn.modrinth.com/data/OrtjXTCH/versions/IfK88aD4/chalk-3.2.0%2B26.3.jar"
   },
   {
-    "file": "libs/chalk-colorful-addon-2.1.1-port.1+26.3.jar",
+    "file": "libs/chalk-colorful-addon-2.1.1-port.2+26.3.jar",
     "id": "chalk-colorful-addon",
-    "version": "2.1.1-port.1+26.3",
-    "sha256": "69a2443250abd95100636194a145b5479d240151cd19bf4186766117d0710b34",
-    "origin": "Existing metadata-only ChatGPT 26.3 port; original uploaded addon retained; source components/chalk-colorful/upstream"
+    "version": "2.1.1-port.2+26.3",
+    "sha256": "a38e00192419279e83924365483f9c657bcdd27ea1f652a554a6c063984c4bcc",
+    "origin": "Metadata-only unofficial 26.3 port by THENATHE, revision 2: identical to port.1 except it requires official Chalk =3.2.0+26.3. Original uploaded addon retained; source components/chalk-colorful/upstream"
   },
   {
     "file": "libs/codecui-26.3-1.4.3-fabric.jar",
@@ -38,11 +41,13 @@
     "scope": "compile-only"
   },
   {
-    "file": "libs/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+    "file": "libs/fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar",
     "id": "fabric-language-kotlin",
-    "version": "1.14.1+kotlin.2.4.20",
-    "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5",
-    "origin": "Pinned existing runtime library, unchanged archive"
+    "version": "1.14.2+kotlin.2.4.21",
+    "sha256": "fbdbf5286ab9d65fedb49e6e01c15e338ae303eb7b9d8c7423d0a9bcfe526ef9",
+    "origin": "Official Fabric Language Kotlin release (Modrinth SKW1BTL3); unchanged archive",
+    "version_url": "https://modrinth.com/mod/fabric-language-kotlin/version/SKW1BTL3",
+    "download_url": "https://cdn.modrinth.com/data/Ha28R6CL/versions/SKW1BTL3/fabric-language-kotlin-1.14.2%2Bkotlin.2.4.21.jar"
   },
   {
     "file": "libs/fzzy_config-0.7.7+fix3+26.3.jar",
@@ -54,14 +59,14 @@
     "download_url": "https://cdn.modrinth.com/data/hYykXjDp/versions/YkOumqzV/fzzy_config-0.7.7%2Bfix3%2B26.3.jar"
   },
   {
-    "file": "libs/mapstitch-fabric-1.1.7+26.3.jar",
+    "file": "libs/mapstitch-fabric-1.2.1+26.3.jar",
     "id": "mapstitch",
-    "version": "1.1.7",
-    "sha256": "d7949f082d365fa4b71ce29b7fdce21ecec3f759ef9f9da9be34b880fc64b5e4",
-    "origin": "Official developer Fabric 26.3 release; components/mapstitch/inputs.lock.json",
+    "version": "1.2.1",
+    "sha256": "ecb6f5eec2f6b3f83ac7665ff579a68275727fcd4cb680a81de6997ecc9919fc",
+    "origin": "Official developer Fabric 26.3 release 1.2.1+26.3 (Modrinth TyJwvZB9); components/mapstitch/inputs.lock.json",
     "track": "developer-release",
-    "version_url": "https://modrinth.com/mod/mapstitch/version/oDB5IJ7O",
-    "download_url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/oDB5IJ7O/mapstitch-fabric-1.1.7%2B26.3.jar"
+    "version_url": "https://modrinth.com/mod/mapstitch/version/TyJwvZB9",
+    "download_url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/TyJwvZB9/mapstitch-fabric-1.2.1%2B26.3.jar"
   },
   {
     "file": "libs/misctweaks-fabric-1.4.4+26.3.jar",
@@ -78,42 +83,51 @@
     "origin": "Pinned existing runtime library, unchanged archive"
   },
   {
-    "file": "libs/simple_death_improvements-fabric-1.6.0+26.3.jar",
+    "file": "libs/simple_death_improvements-fabric-1.7.0+26.3.jar",
     "id": "simple_death_improvements",
-    "version": "1.6.0",
-    "sha256": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2",
-    "origin": "Official developer Fabric 26.3 release; components/simple-death-improvements/inputs.lock.json"
+    "version": "1.7.0",
+    "sha256": "52cd6ad2f6b9d9dff481e7a4102cdd9b0282b21fe4853a6ed7bdc816411b5f6d",
+    "origin": "Official developer Fabric 26.3 release 1.7.0+26.3 (Modrinth axbdo6aY); components/simple-death-improvements/inputs.lock.json",
+    "version_url": "https://modrinth.com/mod/simple-death-improvements/version/axbdo6aY",
+    "download_url": "https://cdn.modrinth.com/data/2JFsuD70/versions/axbdo6aY/simple_death_improvements-fabric-1.7.0%2B26.3.jar",
+    "track": "developer-release"
   },
   {
-    "file": "libs/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+    "file": "libs/simple_smithing_overhaul-fabric-2.10.3+26.3.jar",
     "id": "simple_smithing_overhaul",
-    "version": "2.10.0",
-    "sha256": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
-    "origin": "Official developer Fabric 26.3 release; components/sso/inputs.lock.json",
+    "version": "2.10.3",
+    "sha256": "f7301e59a26327632aa6d03c029429ffc9822750b88218e26dfe3753b1d3217a",
+    "origin": "Official developer Fabric 26.3 release 2.10.3+26.3 (Modrinth bNtv3MPv); components/sso/inputs.lock.json",
     "track": "developer-release",
-    "version_url": "https://modrinth.com/mod/simple-smithing-overhaul/version/k5NaPhrq",
-    "download_url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/k5NaPhrq/simple_smithing_overhaul-fabric-2.10.0%2B26.3.jar"
+    "version_url": "https://modrinth.com/mod/simple-smithing-overhaul/version/bNtv3MPv",
+    "download_url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/bNtv3MPv/simple_smithing_overhaul-fabric-2.10.3%2B26.3.jar"
   },
   {
-    "file": "libs/tiered_backpacks-fabric-1.0.20+26.3.jar",
+    "file": "libs/tiered_backpacks-fabric-1.0.21+26.3.jar",
     "id": "tiered_backpacks",
-    "version": "1.0.20",
-    "sha256": "b129b9b61ec1da62842dc2dfa5b166a6df8e91c796666dcee70f7b8acf1ecc33",
-    "origin": "Official developer Fabric 26.3 release 1.0.20; components/tiered-backpacks/inputs.lock.json"
+    "version": "1.0.21",
+    "sha256": "23bbe0221d9a8ffa6145bc37155340ab6b8ebe6da14bc7a36d097b4fcd322b5c",
+    "origin": "Official developer Fabric 26.3 release 1.0.21+26.3 (Modrinth Fh8qqxFD); components/tiered-backpacks/inputs.lock.json",
+    "version_url": "https://modrinth.com/mod/tiered-backpacks/version/Fh8qqxFD",
+    "download_url": "https://cdn.modrinth.com/data/IhNtYNEF/versions/Fh8qqxFD/tiered_backpacks-fabric-1.0.21%2B26.3.jar",
+    "track": "developer-release"
   },
   {
-    "file": "libs/toolpouch-fabric-1.1.10+26.3.jar",
+    "file": "libs/toolpouch-fabric-1.2.0+26.3.jar",
     "id": "toolpouch",
-    "version": "1.1.10",
-    "sha256": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903",
-    "origin": "Official developer Fabric 26.3 release; components/toolpouch/inputs.lock.json"
+    "version": "1.2.0",
+    "sha256": "fcc2f984c910c4002f9936bb5dcd2ee4f6a065b0bfee5d814325c425d0a9a1e1",
+    "origin": "Official developer Fabric 26.3 release 1.2.0+26.3 (Modrinth LDL8NLQd); components/toolpouch/inputs.lock.json",
+    "version_url": "https://modrinth.com/mod/tool-pouch/version/LDL8NLQd",
+    "download_url": "https://cdn.modrinth.com/data/ZY6C1rJ4/versions/LDL8NLQd/toolpouch-fabric-1.2.0%2B26.3.jar",
+    "track": "developer-release"
   },
   {
-    "file": "libs/kotlin-stdlib-2.4.20.jar",
+    "file": "libs/kotlin-stdlib-2.4.21.jar",
     "id": null,
-    "version": "2.4.20",
-    "sha256": "078594f80e214438a35454e3f16f890a68dba6a607aa2c83014065344d13308a",
-    "origin": "Compile-only unchanged META-INF/jars/kotlin-stdlib-2.4.20.jar extracted from pinned Fabric Language Kotlin archive"
+    "version": "2.4.21",
+    "sha256": "efd646cae9ac0d11f5f24a65310b5d421747073b1fbd6b59ab12f5c4234d8d3e",
+    "origin": "Compile-only unchanged META-INF/jars/kotlin-stdlib-2.4.21.jar extracted from pinned Fabric Language Kotlin 1.14.2 archive"
   },
   {
     "file": "libs/compile-only/clientsort-fabric-3.104.1+26.3.jar",
@@ -135,26 +149,26 @@
     "download_url": "https://cdn.modrinth.com/data/IfTBNyjQ/versions/Vrns75Ns/bannerpoint-fabric-1.1.2%2B26.3.jar"
   },
   {
-    "file": "libs/sensible_stackables-fabric-3.1.1+26.3.jar",
+    "file": "libs/sensible_stackables-fabric-3.1.2+26.3.jar",
     "id": "sensible_stackables",
-    "version": "3.1.1",
-    "sha256": "bf750cbe40394caffe3fd7c9bc2b57985d4110c5cae51dc726f948b55a25598a",
-    "origin": "Official developer Fabric 26.3 release; components/sensible-stackables/inputs.lock.json",
+    "version": "3.1.2",
+    "sha256": "6d4073c9da88c19e530238b840a8645fe2e1378c2c9c018f106d2abc3b3d56c3",
+    "origin": "Official developer Fabric 26.3 release 3.1.2+26.3 (Modrinth aZbIVjYA); components/sensible-stackables/inputs.lock.json",
     "track": "developer-release",
-    "version_url": "https://modrinth.com/mod/sensible-stackables/version/oRpBICTz",
-    "download_url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/oRpBICTz/sensible_stackables-fabric-3.1.1%2B26.3.jar"
+    "version_url": "https://modrinth.com/mod/sensible-stackables/version/aZbIVjYA",
+    "download_url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/aZbIVjYA/sensible_stackables-fabric-3.1.2%2B26.3.jar"
   },
   {
     "file": "libs/compile-only/sorted-fabric-0.1.25-mc26.x.jar",
     "id": "sorted",
     "version": "0.1.25",
     "sha256": "44cc1f50724264a37319dcb4358d071cb8e20a6a324ac595e68ba887750e7a71",
-    "origin": "Retained official developer release; optional backpack client integration compile-only input. Original JAR unchanged; never bundled or installed by suite runtime profiles.",
+    "origin": "Retained official developer release; optional backpack client integration compile-only input. Original JAR unchanged; never bundled or installed by suite runtime profiles. Runtime integration also supports 0.1.26 and 0.1.41+26.3 (Modrinth PcNoO0No), verified separately; compile input stays 0.1.25.",
     "track": "developer-release",
     "usage": "compile-only optional integration",
     "scope": "compile-only",
     "project_url": "https://modrinth.com/mod/sorted",
-    "version_url": "https://modrinth.com/mod/sorted/version/UB75pgWu",
-    "download_url": "https://cdn.modrinth.com/data/vtsGVHan/versions/UB75pgWu/sorted-fabric-0.1.25-mc26.x.jar"
+    "version_url": "https://modrinth.com/mod/sorted/version/Adp2oTzm",
+    "download_url": "https://cdn.modrinth.com/data/vtsGVHan/versions/Adp2oTzm/sorted-fabric-0.1.25-mc26.x.jar"
   }
 ]

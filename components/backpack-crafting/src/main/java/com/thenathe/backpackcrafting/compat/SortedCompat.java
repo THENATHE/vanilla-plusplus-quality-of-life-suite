@@ -8,7 +8,9 @@ import org.slf4j.LoggerFactory;
 
 /** Registers the portable menu without changing the user's Sorted configuration. */
 public final class SortedCompat {
-    private static final List<String> SUPPORTED_VERSIONS = List.of("0.1.25", "0.1.26");
+    // Exact Loader version strings: each listed release was checked against every mixin target.
+    private static final List<String> SUPPORTED_VERSIONS = List.of("0.1.25", "0.1.26", "0.1.41+26.3");
+    private static final List<String> PORTABLE_MENU_VERSIONS = List.of("0.1.26", "0.1.41+26.3");
 
     private SortedCompat() { }
 
@@ -20,7 +22,7 @@ public final class SortedCompat {
 
     public static boolean supportsPortableMenus() {
         return FabricLoader.getInstance().getModContainer("sorted")
-                .map(mod -> "0.1.26".equals(mod.getMetadata().getVersion().getFriendlyString()))
+                .map(mod -> PORTABLE_MENU_VERSIONS.contains(mod.getMetadata().getVersion().getFriendlyString()))
                 .orElse(false);
     }
 

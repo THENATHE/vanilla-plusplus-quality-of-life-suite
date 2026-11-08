@@ -9,6 +9,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -70,8 +71,10 @@ public final class StructurePlacement {
                 && material.is(BlockTags.CONDUIT_EFFECT_BLOCK);
         if (!beacon && !conduit) return InteractionResult.PASS;
         int moved = fill(player, hand, origin, beacon, held, material, player.isShiftKeyDown());
-        // A completed or protected structure does not turn this click into accidental placement.
-        return moved > 0 ? InteractionResult.SUCCESS : InteractionResult.FAIL;
+        if (moved > 0) return InteractionResult.SUCCESS;
+        // A completed beacon still opens its screen on a plain click. Otherwise a completed or
+        // protected structure does not turn this click into accidental placement.
+        return beacon && !player.isShiftKeyDown() ? InteractionResult.PASS : InteractionResult.FAIL;
     }
 
     public static int fill(ServerPlayer player, InteractionHand hand, BlockPos origin, boolean beacon,
@@ -151,6 +154,8 @@ public final class StructurePlacement {
                     BlockPos pos = origin.offset(x, y, z);
                     BlockState previous = player.level().getBlockState(pos);
                     if (player.level().isWaterAt(pos) || previous.is(BlockTags.CONDUIT_EFFECT_BLOCK)) continue;
+                    // Like a water bucket, never create water where it would evaporate (the Nether).
+                    if (player.level().environmentAttributes().getValue(EnvironmentAttributes.WATER_EVAPORATES, pos)) continue;
                     if (canReplace(player, hand, pos, held, Blocks.WATER.defaultBlockState())) {
                         replace(player, pos, origin, previous, Blocks.WATER.defaultBlockState(),
                                 FeatureConfig.CONFIG.dropReplacedConduitBlocks.get());

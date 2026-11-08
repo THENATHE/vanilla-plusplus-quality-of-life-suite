@@ -18,6 +18,14 @@ public final class AtlasResources {
             "atlas_empty", "atlas_full_0", "atlas_full_1", "atlas_full_2", "atlas_full_3"
     };
 
+    private static final String[] PIN_ASSETS = {
+            "assets/mapstitch/items/atlas_pin.json",
+            "assets/mapstitch/models/item/atlas_pin.json",
+            "assets/mapstitch/textures/item/atlas_pin.png",
+            "assets/mapstitch/textures/item/atlas_pin_overlay.png"
+    };
+    private static final Identifier PIN_MODEL = Identifier.fromNamespaceAndPath("mapstitch", "atlas_pin");
+
     private AtlasResources() {}
 
     public static void initialize() {
@@ -37,6 +45,12 @@ public final class AtlasResources {
         } catch (IOException exception) {
             throw new UncheckedIOException(exception);
         }
+        // The pin's original item definition uses only vanilla model and dye-tint codecs.
+        for (var path : PIN_ASSETS) {
+            var data = builder.getDataOrSource(path);
+            if (data == null) throw new IllegalStateException("Missing MapStitch pin asset: " + path);
+            builder.addData(path, data);
+        }
         for (var variant : VARIANTS) {
             var texture = builder.getDataOrSource("assets/mapstitch/textures/item/" + variant + ".png");
             if (texture == null) throw new IllegalStateException("Missing MapStitch artwork: " + variant);
@@ -48,6 +62,14 @@ public final class AtlasResources {
                     "{\"model\":{\"type\":\"minecraft:model\",\"model\":\""
                             + NAMESPACE + ":item/" + variant + "\"}}");
         }
+    }
+
+    public static Identifier pinModel(ItemStack stack, PacketContext context) {
+        if (MapstitchCompat.nativeClient(context)) return stack.get(DataComponents.ITEM_MODEL);
+        if (context == null || !PolymerResourcePackUtils.hasMainPack(context)) {
+            return Identifier.withDefaultNamespace("iron_nugget");
+        }
+        return PIN_MODEL;
     }
 
     public static Identifier model(ItemStack stack, PacketContext context) {

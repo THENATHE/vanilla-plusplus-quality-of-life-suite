@@ -130,7 +130,7 @@ public final class AtlasMapExtraction {
         handle.save().run();
         long dropped = 0;
         for (var stack : extracted) {
-            player.getInventory().add(stack);
+            InventoryInsertion.insert(player, stack);
             if (!stack.isEmpty()) {
                 dropped += stack.getCount();
                 player.drop(stack, false, Prediction.SERVER_ONLY);

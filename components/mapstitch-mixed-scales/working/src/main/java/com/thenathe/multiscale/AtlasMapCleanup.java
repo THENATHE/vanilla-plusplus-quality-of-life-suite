@@ -72,7 +72,7 @@ public final class AtlasMapCleanup {
         for (long remaining = removed; remaining > 0;) {
             int batch = (int) Math.min(64, remaining);
             var blanks = new ItemStack(Items.MAP, batch);
-            player.getInventory().add(blanks);
+            InventoryInsertion.insert(player, blanks);
             if (!blanks.isEmpty()) {
                 dropped += blanks.getCount();
                 player.drop(blanks, false, Prediction.SERVER_ONLY);

@@ -85,6 +85,6 @@ public final class AtlasDeathRetention {
         if (!(player instanceof ServerPlayer) || !player.isAlive()) return;
         List<ItemStack> retained = ((State) player).suite$retainedAtlases();
         if (retained.isEmpty()) return;
-        retained.removeIf(stack -> { player.getInventory().add(stack); return stack.isEmpty(); });
+        retained.removeIf(stack -> { InventoryInsertion.insert(player, stack); return stack.isEmpty(); });
     }
 }

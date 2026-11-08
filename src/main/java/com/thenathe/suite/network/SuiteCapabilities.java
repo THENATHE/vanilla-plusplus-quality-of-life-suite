@@ -62,7 +62,8 @@ public final class SuiteCapabilities {
             Identifier.parse("mapstitch:dimension_ids"),
             Identifier.parse("mapstitch:open_world_map_screen"),
             Identifier.parse("mapstitch:sync_world_map"),
-            Identifier.parse("mapstitch:s2c_play_sound"));
+            Identifier.parse("mapstitch:s2c_play_sound"),
+            Identifier.parse("mapstitch:sync_pins"));
 
     private static final PacketContext.Key<List<String>> FINGERPRINTS = PacketContext.key(
             Identifier.parse("vpp_mod_suite:module_fingerprints"));

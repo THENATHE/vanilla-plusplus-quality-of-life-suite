@@ -6,7 +6,8 @@
     "MapstitchInitializationMixin",
     "MapstitchNetworkingMixin",
     "AtlasMetadataMixin",
-    "AtlasRecipeMixin"
+    "AtlasRecipeMixin",
+    "CartographyDataSlotsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

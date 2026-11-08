@@ -48,7 +48,12 @@ public final class MapstitchMaps {
             // Persisted maps may already have a center from a previous ID or scale.
             // Validate present values too; a wrong center survives reconnect and
             // can place a real map in the wrong atlas grid cell without Polymer.
-            if (template.get(DataComponents.MAP_ID) == null) continue;
+            var id = template.get(DataComponents.MAP_ID);
+            if (id == null) continue;
+            // Most ticks find every center valid; only materialize the entry when it needs a repair.
+            var data = level.getMapData(id);
+            if (data != null && template.get(centerType) instanceof Vector2i center
+                    && center.x == data.centerX && center.y == data.centerZ) continue;
             var map = template.create();
             if (refreshCenter(map, level)) {
                 if (repaired == null) repaired = new ArrayList<>(contents.items());

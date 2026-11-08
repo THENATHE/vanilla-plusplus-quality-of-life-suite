@@ -21,12 +21,12 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.ItemStack;
 import org.joml.Vector2i;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -34,6 +34,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class WorldMapScaleMixin extends Screen {
     protected WorldMapScaleMixin(Component title) { super(title); }
     @Shadow private int scale;
+    @Shadow @Final private Button nextScale;
     @Shadow private static Identifier dimensionId;
     @Unique private int mixedScales$previous;
     @Unique private Identifier mixedScales$previousDimension;
@@ -76,11 +77,6 @@ public abstract class WorldMapScaleMixin extends Screen {
         return original.call(map, component);
     }
 
-    @ModifyArg(method = "init", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/components/Tooltip;create(Lnet/minecraft/network/chat/Component;)Lnet/minecraft/client/gui/components/Tooltip;", ordinal = 3), index = 0)
-    private Component mixedScales$scaleHelp(Component original) {
-        return mixedScales$target == null ? original : Component.translatable("mapstitch_mixed_scales.screen.scale_help");
-    }
-
     @Inject(method = "<init>", at = @At("RETURN"))
     private void mixedScales$bindBook(int scaleOverride, CallbackInfo ci) {
         mixedScales$target = MixedScalesClient.openTarget(scaleOverride);
@@ -94,6 +90,10 @@ public abstract class WorldMapScaleMixin extends Screen {
     private void mixedScales$buttons(CallbackInfo ci) {
         mixedScales$minimap = null;
         mixedScales$generation = null;
+        // MapStitch builds this button in a field initializer, before the opened book is known.
+        if (mixedScales$target != null) {
+            nextScale.setTooltip(Tooltip.create(Component.translatable("mapstitch_mixed_scales.screen.scale_help")));
+        }
         if (mixedScales$target == null || !MapStitchClient.CONFIG.worldMap.buttons.get()) return;
         var player = Minecraft.getInstance().player;
         var handle = player == null ? null : mixedScales$target.resolve(player);

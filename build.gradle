@@ -4,10 +4,10 @@ repositories { maven { url = 'https://maven.nucleoid.xyz/' } }
 dependencies {
  minecraft 'com.mojang:minecraft:26.3'
  implementation 'net.fabricmc:fabric-loader:0.19.5'
- implementation 'net.fabricmc.fabric-api:fabric-api:0.161.0+26.3'
+ implementation 'net.fabricmc.fabric-api:fabric-api:0.165.2+26.3'
  compileOnly rootProject.fileTree('libs') { include '*.jar' }
 }
-processResources { inputs.property 'version', providers.provider { project.version.toString() }; filesMatching('fabric.mod.json') { expand(version:project.version, mc:'26.3', chalk:'3.2.1+26.3', polymer:'0.18.2+26.3') } }
+processResources { inputs.property 'version', providers.provider { project.version.toString() }; filesMatching('fabric.mod.json') { expand(version:project.version, mc:'26.3', chalk:'3.2.0+26.3', polymer:'0.18.7+26.3') } }
 tasks.withType(JavaCompile).configureEach {
  options.encoding = 'UTF-8'; options.release = 25
  if (providers.gradleProperty('compilerVersion').isPresent()) {
@@ -17,14 +17,14 @@ tasks.withType(JavaCompile).configureEach {
 java { withSourcesJar(); sourceCompatibility = JavaVersion.VERSION_25; targetCompatibility = JavaVersion.VERSION_25 }
 jar { from('LICENSE') }
 
-version = '1.4.5+26.3'
+version = '1.5.0+26.3'
 base { archivesName = 'vanilla-plusplus-quality-of-life-suite' }
 sourceSets.main.java.exclude('com/thenathe/suite/network/**')
 dependencies {
  implementation project(':combined-compat')
  implementation project(':backpack-crafting')
- compileOnly 'eu.pb4:polymer-core:0.18.2+26.3'
- compileOnly 'eu.pb4:polymer-resource-pack:0.18.2+26.3'
+ compileOnly 'eu.pb4:polymer-core:0.18.7+26.3'
+ compileOnly 'eu.pb4:polymer-resource-pack:0.18.7+26.3'
  implementation 'com.terraformersmc:modmenu:21.0.0'
  implementation 'me.shedaniel.cloth:cloth-config-fabric:26.3.159'
 }
