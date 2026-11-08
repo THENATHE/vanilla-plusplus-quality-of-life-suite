@@ -17,15 +17,28 @@ public final class ModuleMixinPlugin implements IMixinConfigPlugin {
             "com.thenathe.ssopolymer.mixin.MendingWhetstoneSelectionMixin",
             "com.thenathe.ssopolymer.mixin.EnchantingPowerMixin",
             "com.thenathe.toolpouchcompat.mixin.ToolpouchAccess",
-            "com.thenathe.toolpouchcompat.mixin.ShulkerOpenMixin");
+            "com.thenathe.toolpouchcompat.mixin.ShulkerOpenMixin",
+            "com.thenathe.mapstitchcompat.mixin.PinContainerSizeMixin");
+    /** MapStitch releases whose pin container copy is known to truncate at 27 slots. */
+    private static final Set<String> PIN_TRUNCATING_MAPSTITCH = Set.of("1.2.1");
     public static boolean polymerAvailable() {
         var loader = FabricLoader.getInstance();
         return loader.isModLoaded("polymer-core") && loader.isModLoaded("polymer-resource-pack");
+    }
+    private static boolean pinGuardApplies() {
+        var mapstitch = FabricLoader.getInstance().getModContainer("mapstitch");
+        if (mapstitch.isEmpty() || !Modules.enabled("mapstitch")) return false;
+        String version = mapstitch.get().getMetadata().getVersion().getFriendlyString();
+        if (PIN_TRUNCATING_MAPSTITCH.contains(version)) return true;
+        org.slf4j.LoggerFactory.getLogger("vpp_mod_suite").warn(
+                "Pin container guard is not applied to MapStitch {}; recheck PinUtil.removeFromContainer for this release.", version);
+        return false;
     }
     public void onLoad(String name) {}
     public String getRefMapperConfig() { return null; }
     public boolean shouldApplyMixin(String target, String mixin) {
         if (mixin.equals("com.thenathe.combinedshim.mixin.RegistrySyncSchedulingMixin")) return true;
+        if (mixin.equals("com.thenathe.mapstitchcompat.mixin.PinContainerSizeMixin")) return pinGuardApplies();
         if (!polymerAvailable() && !ALWAYS.contains(mixin)) return false;
         if (mixin.equals("com.thenathe.ssopolymer.mixin.DefaultedSyncMixin") && !FabricLoader.getInstance().isModLoaded("defaulted")) return false;
         for (var entry : MODULES.entrySet()) if (mixin.startsWith("com.thenathe." + entry.getKey() + ".mixin.")) return Modules.enabled(entry.getValue());

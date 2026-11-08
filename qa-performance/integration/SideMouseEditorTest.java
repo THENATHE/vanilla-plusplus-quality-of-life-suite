@@ -242,8 +242,19 @@ public final class SideMouseEditorTest implements FabricClientGameTest {
         });
     }
 
-    private void openSave(ClientGameTestContext context) {
-        context.getInput().pressKey(InputConstants.KEY_3);
+    // Buildprint numbers its toolbar from the registered tool order, which changes as tools are added.
+    private static int saveToolKey() throws Exception {
+        var ordered = (List<?>) Class.forName("com.buildprint.client.edit.ToolRegistry").getMethod("ordered").invoke(null);
+        for (int index = 0; index < ordered.size() && index < 9; index++) {
+            Object slot = ordered.get(index);
+            if (slot.getClass().getMethod("id").invoke(slot).equals("buildprint:save")) return InputConstants.KEY_1 + index;
+        }
+        throw new AssertionError("Buildprint Save tool has no number key");
+    }
+
+    private void openSave(ClientGameTestContext context) throws Exception {
+        int saveKey = context.computeOnClient(client -> saveToolKey());
+        context.getInput().pressKey(saveKey);
         context.getInput().pressMouse(InputConstants.MOUSE_BUTTON_LEFT);
         context.waitTicks(3);
         context.runOnClient(client -> check(client.gui.screen() != null && client.gui.screen().getClass().getName()

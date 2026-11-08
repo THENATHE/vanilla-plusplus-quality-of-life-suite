@@ -130,8 +130,8 @@ public final class CraftingNetworkRulesClient {
             MouseButtonEvent event = new MouseButtonEvent(left + slot.x + 8, top + slot.y + 8,
                     new MouseButtonInfo(kind.equals("right") ? InputConstants.MOUSE_BUTTON_RIGHT : InputConstants.MOUSE_BUTTON_LEFT, InputConstants.MOD_ALT));
             noteAlt(true);
-            action.addProperty("sorted_mouse_left", Class.forName("com.sorted.client.McCompat").getField("MOUSE_LEFT").getInt(null));
-            action.addProperty("sorted_mouse_right", Class.forName("com.sorted.client.McCompat").getField("MOUSE_RIGHT").getInt(null));
+            action.addProperty("sorted_mouse_left", sortedMouseButton("MOUSE_LEFT", "MOUSE_BUTTON_LEFT"));
+            action.addProperty("sorted_mouse_right", sortedMouseButton("MOUSE_RIGHT", "MOUSE_BUTTON_RIGHT"));
             action.addProperty("event_button", event.button());
             action.addProperty("window_active_before", client.isWindowActive());
             action.addProperty("event_alt_down", event.hasAltDown());
@@ -221,7 +221,23 @@ public final class CraftingNetworkRulesClient {
                 ? menu.isStorageSlot(slot) : !(slot.container instanceof Inventory)).toList();
     }
 
-    private static Path configPath() { return net.fabricmc.loader.api.FabricLoader.getInstance().getConfigDir().resolve("sorted.json"); }
+    private static Path configPath() throws Exception {
+        try {
+            // Sorted 0.1.41 keeps its settings in a voxelsprout ConfigFile.
+            Object file = Class.forName("com.sorted.config.ConfigManager").getField("FILE").get(null);
+            return (Path) file.getClass().getMethod("path").invoke(file);
+        } catch (NoSuchFieldException olderSorted) {
+            return net.fabricmc.loader.api.FabricLoader.getInstance().getConfigDir().resolve("sorted.json");
+        }
+    }
+    /** Sorted 0.1.41 moved its mouse constants into the bundled voxelsprout library. */
+    private static int sortedMouseButton(String legacy, String current) throws Exception {
+        try {
+            return Class.forName("com.sorted.client.McCompat").getField(legacy).getInt(null);
+        } catch (ClassNotFoundException | NoSuchFieldException newerSorted) {
+            return Class.forName("com.voxelsprout.common.compat.Keys").getField(current).getInt(null);
+        }
+    }
     private static JsonObject config() throws Exception { return gson.toJsonTree(invoke("com.sorted.config.ConfigManager", "get", new Class<?>[0])).getAsJsonObject(); }
     private static int keep(String item) throws Exception { return (int) invoke("com.sorted.config.KeepRules", "keep", new Class<?>[] {String.class}, item); }
     private static void setRule(String item, int value) throws Exception { invoke("com.sorted.config.KeepRules", "set", new Class<?>[] {String.class, int.class}, item, value); }
@@ -231,12 +247,21 @@ public final class CraftingNetworkRulesClient {
     private static void restoreConfig() throws Exception {
         if (originalConfig == null) return;
         Class<?> type = Class.forName("com.sorted.config.ModConfig");
-        var instance = Class.forName("com.sorted.config.ConfigManager").getDeclaredField("instance");
-        instance.setAccessible(true);
-        instance.set(null, gson.fromJson(originalConfig, type));
-        invoke("com.sorted.config.KeepRules", "invalidate", new Class<?>[0]);
+        Class<?> manager = Class.forName("com.sorted.config.ConfigManager");
+        java.lang.reflect.Field instance = null;
+        try {
+            instance = manager.getDeclaredField("instance");
+        } catch (NoSuchFieldException newerSorted) {
+            // Sorted 0.1.41 has no settable instance; restore the saved file and reload it instead.
+        }
+        if (instance != null) {
+            instance.setAccessible(true);
+            instance.set(null, gson.fromJson(originalConfig, type));
+        }
         if (originalFileExists) Files.writeString(configPath(), originalSavedConfig);
         else Files.deleteIfExists(configPath());
+        if (instance == null) invoke("com.sorted.config.ConfigManager", "load", new Class<?>[0]);
+        invoke("com.sorted.config.KeepRules", "invalidate", new Class<?>[0]);
     }
     private static Object invoke(String type, String method, Class<?>[] parameters, Object... values) throws Exception {
         return Class.forName(type).getMethod(method, parameters).invoke(null, values);

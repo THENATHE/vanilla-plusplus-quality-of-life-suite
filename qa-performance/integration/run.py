@@ -17,12 +17,12 @@ POLYMER = '--polymer' in sys.argv
 SUITE = True
 INTEGRATED = True
 BUILDPRINT_VERSION = os.environ.get('HOTKEY_WHEEL_BUILDPRINT_VERSION', '0.1.25+26.3')
-BLOCKTONE_VERSION = '0.1.25'
-SUITE_VERSION = '1.5.0+26.3'
+BLOCKTONE_VERSION = os.environ.get('HOTKEY_WHEEL_BLOCKTONE_VERSION', '0.1.25')
+SUITE_VERSION = '1.5.1+26.3'
 SUITE_SHA256 = os.environ.get('HOTKEY_WHEEL_SUITE_SHA256', 'pending-final-build')
 BRBR_VERSION = '1.11.7+26.3'
 POLYMER_VERSION = '0.18.7+26.3'
-WHEEL_VERSION = '1.0.8+26.3'
+WHEEL_VERSION = os.environ.get('HOTKEY_WHEEL_VERSION', '1.0.8+26.3')
 RUN = Path(os.environ.get('HOTKEY_WHEEL_QA_RUN_ROOT', str(ROOT / 'runs' / ('suite-polymer' if POLYMER else 'suite' if SUITE else 'integrated'))))
 RUN.mkdir(parents=True, exist_ok=True)
 GAME = RUN / 'game'

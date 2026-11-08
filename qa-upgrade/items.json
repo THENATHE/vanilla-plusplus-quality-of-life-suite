@@ -35,6 +35,7 @@
   {"id": "chalk:purple_chalk", "count": 1, "components": {"minecraft:damage": 4}},
   {"id": "debugwrench:debug_wrench", "count": 1},
   {"id": "minecraft:enchanted_book", "count": 1, "components": {"minecraft:stored_enchantments": {"swift_flight:swift_flight": 3}}},
+  {"id": "minecraft:blue_harness", "count": 1, "components": {"minecraft:enchantments": {"swift_flight:swift_flight": 2}}},
   {"id": "minecraft:goat_horn", "count": 1, "components": {"minecraft:custom_data": {"vpp_pet_call": {"version": 1, "pet": [1, 2, 3, 4]}}}},
   {"id": "minecraft:snowball", "count": 16},
   {"id": "minecraft:ender_pearl", "count": 16},

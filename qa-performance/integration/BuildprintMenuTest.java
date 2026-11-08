@@ -20,6 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import net.fabricmc.fabric.api.client.gametest.v1.FabricClientGameTest;
 import net.fabricmc.fabric.api.client.gametest.v1.context.ClientGameTestContext;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.EditBox;
@@ -32,6 +33,8 @@ public final class BuildprintMenuTest implements FabricClientGameTest {
     private static final String BUILDPRINT_SCREEN = "com.buildprint.client.gui.BuildprintScreen";
     private static final String INSTAMINE_SCREEN = "com.thenathe.buildprinttoning.client.InstamineSettingsScreen";
     private final List<String> checks = new ArrayList<>();
+    // Blocktone pins one Buildprint release; a newer Buildprint can be checked before its Blocktone build exists.
+    private final boolean blocktone = Boolean.parseBoolean(System.getProperty("wheel.qa.blocktone", "true"));
     private Object schematic;
     private Object loaded;
     private InputConstants.Key forwardKey;
@@ -50,7 +53,10 @@ public final class BuildprintMenuTest implements FabricClientGameTest {
     public void runTest(ClientGameTestContext context) {
         var report = new LinkedHashMap<String, Object>();
         report.put("checks", checks);
+        report.put("blocktone", blocktone);
         try {
+            check(FabricLoader.getInstance().isModLoaded("buildprint_toning") == blocktone,
+                    "Blocktone presence matches the requested profile");
             context.runOnClient(client -> {
                 Object onboarding = Class.forName("com.buildprint.client.onboarding.BuildprintOnboarding")
                         .getConstructor().newInstance();
@@ -70,7 +76,7 @@ public final class BuildprintMenuTest implements FabricClientGameTest {
                 childClose(context);
                 originalCycleOpener(context);
                 nativeOpeningStaysIndependent(context);
-                validatedAddonClose(context);
+                if (blocktone) validatedAddonClose(context);
                 disabledIntegration(context);
                 unrelatedReplacement(context);
                 nonMenuActionDoesNotClaimScreen(context);
@@ -239,12 +245,15 @@ public final class BuildprintMenuTest implements FabricClientGameTest {
                     "Wheel-owned editor opens Buildprint's native API tool picker");
             var registry = Class.forName("com.buildprint.client.edit.ToolRegistry");
             var ordered = (List<?>) registry.getMethod("ordered").invoke(null);
-            var toning = (List<?>) registry.getMethod("slotsIn", String.class)
-                    .invoke(null, "buildprint_toning:toning");
-            check(ordered.size() == 13,
-                    "Wheel-owned native picker contains exactly thirteen tools without duplicate shortcuts");
-            check(toning.size() == 3,
-                    "Wheel-owned native picker keeps exactly three Toning entries");
+            var ids = new java.util.HashSet<Object>();
+            for (Object slot : ordered) ids.add(call(slot, "id"));
+            check(!ordered.isEmpty() && ids.size() == ordered.size(),
+                    "Wheel-owned native picker lists each tool once without duplicate shortcuts");
+            if (blocktone) {
+                var toning = (List<?>) registry.getMethod("slotsIn", String.class)
+                        .invoke(null, "buildprint_toning:toning");
+                check(toning.size() == 3, "Wheel-owned native picker keeps exactly three Toning entries");
+            }
         });
         context.takeScreenshot("buildprint-native-api-picker-wheel-owned");
         context.getInput().pressKey(InputConstants.KEY_G);
@@ -260,6 +269,7 @@ public final class BuildprintMenuTest implements FabricClientGameTest {
                     "Wheel-owned native editor open and close each deliver exactly one public lifecycle event");
         });
 
+        if (!blocktone) return;
         openSelectionEditor(context, false, false);
         openSplineSettings(context);
         double previousWidth = context.computeOnClient(client ->
@@ -464,6 +474,8 @@ public final class BuildprintMenuTest implements FabricClientGameTest {
                 activeEditorWheelToggle(context);
             }
         }
+        reservedEditorKeyOpeners(context, originalInput[0]);
+        walkingCameraEditor(context, originalInput[0]);
 
         openSelectionEditor(context, true, false);
         context.getInput().pressKey(InputConstants.KEY_G);
@@ -547,7 +559,7 @@ public final class BuildprintMenuTest implements FabricClientGameTest {
             Object selection = callStatic("com.buildprint.client.edit.EditorMode", "selection");
             selection.getClass().getMethod("add", region[0].getClass()).invoke(selection, region[0]);
         });
-        if (editorApi) {
+        if (editorApi && blocktone) {
             String previousTool = context.computeOnClient(client ->
                     (String) callStatic("com.buildprint.api.editor.BuildprintEditor", "activeTool"));
             openSplineSettings(context);
@@ -603,6 +615,69 @@ public final class BuildprintMenuTest implements FabricClientGameTest {
         });
     }
 
+    // Buildprint 0.1.38 consumes more raw keys inside the editor: C switches camera, Q and E step tools.
+    private void reservedEditorKeyOpeners(ClientGameTestContext context, Object originalInput) throws Exception {
+        InputConstants.Key previousKey = context.computeOnClient(client ->
+                InputConstants.getKey(HotkeyWheelClient.WHEEL_KEYS[0].saveString()));
+        for (int key : new int[] {InputConstants.KEY_C, InputConstants.KEY_E}) {
+            String name = context.computeOnClient(client -> {
+                HotkeyWheelClient.WHEEL_KEYS[0].setKey(InputConstants.Type.KEYBOARD.getOrCreate(key));
+                KeyMapping.resetMapping();
+                return InputConstants.Type.KEYBOARD.getOrCreate(key).getDisplayName().getString();
+            });
+            context.getInput().holdKey(key);
+            context.waitTicks(2);
+            context.runOnClient(client -> check(client.gui.screen() instanceof WheelScreen,
+                    "Wheel bound to Buildprint's reserved editor key " + name + " opens from gameplay"));
+            pointTop(context);
+            context.getInput().releaseKey(key);
+            context.waitTicks(4);
+            context.runOnClient(client -> check(editorActive() && client.gui.screen() == null,
+                    "Wheel on " + name + " opens the selection editor"));
+            context.getInput().pressKey(key);
+            context.waitTicks(3);
+            context.runOnClient(client -> {
+                check(!editorActive() && client.gui.screen() == null,
+                        "Original opener " + name + " closes the wheel-owned editor before Buildprint's editor shortcut");
+                check(client.getCameraEntity() == client.player && client.player.input == originalInput,
+                        "Closing with " + name + " restores native camera and player input");
+            });
+        }
+        context.runOnClient(client -> {
+            HotkeyWheelClient.WHEEL_KEYS[0].setKey(previousKey);
+            KeyMapping.resetMapping();
+        });
+    }
+
+    // Buildprint 0.1.38 can run the editor from the player's own camera instead of freecam.
+    private void walkingCameraEditor(ClientGameTestContext context, Object originalInput) throws Exception {
+        Class<?> cameraChoice;
+        try {
+            cameraChoice = Class.forName("com.voxelsprout.common.freecam.CameraChoice");
+        } catch (ClassNotFoundException freecamOnly) {
+            return;
+        }
+        Class<?> view = Class.forName("com.voxelsprout.common.freecam.CameraChoice$View");
+        Object walk = view.getField("WALK").get(null);
+        Object free = view.getField("FREE").get(null);
+        context.runOnClient(client -> cameraChoice.getMethod("setOwnWorlds", view).invoke(null, walk));
+        context.getInput().holdKey(InputConstants.KEY_G);
+        context.waitTicks(2);
+        pointTop(context);
+        context.getInput().releaseKey(InputConstants.KEY_G);
+        context.waitTicks(4);
+        context.runOnClient(client -> check(editorActive() && client.gui.screen() == null && client.getCameraEntity() == client.player,
+                "Wheel opens the selection editor with Buildprint's walking camera"));
+        context.getInput().pressKey(InputConstants.KEY_G);
+        context.waitTicks(3);
+        context.runOnClient(client -> {
+            check(!editorActive() && client.gui.screen() == null,
+                    "Original opener closes a wheel-owned walking-camera editor");
+            check(client.player.input == originalInput, "Walking-camera editor closure restores native player input");
+            cameraChoice.getMethod("setOwnWorlds", view).invoke(null, free);
+        });
+    }
+
     private void openSelectionEditor(ClientGameTestContext context, boolean toggle, boolean cycle) throws Exception {
         context.runOnClient(client -> {
             WheelConfig config = WheelConfig.get().copy();
@@ -626,8 +701,19 @@ public final class BuildprintMenuTest implements FabricClientGameTest {
         });
     }
 
-    private void openSelectionSave(ClientGameTestContext context) {
-        context.getInput().pressKey(InputConstants.KEY_3);
+    // Buildprint numbers its toolbar from the registered tool order, which changes as tools are added.
+    private static int saveToolKey() throws Exception {
+        var ordered = (List<?>) Class.forName("com.buildprint.client.edit.ToolRegistry").getMethod("ordered").invoke(null);
+        for (int index = 0; index < ordered.size() && index < 9; index++) {
+            Object slot = ordered.get(index);
+            if (slot.getClass().getMethod("id").invoke(slot).equals("buildprint:save")) return InputConstants.KEY_1 + index;
+        }
+        throw new AssertionError("Buildprint Save tool has no number key");
+    }
+
+    private void openSelectionSave(ClientGameTestContext context) throws Exception {
+        int saveKey = context.computeOnClient(client -> saveToolKey());
+        context.getInput().pressKey(saveKey);
         context.getInput().pressMouse(InputConstants.MOUSE_BUTTON_LEFT);
         context.waitTicks(3);
         context.runOnClient(client -> check(client.gui.screen() != null
@@ -698,7 +784,13 @@ public final class BuildprintMenuTest implements FabricClientGameTest {
             select.setAccessible(true);
             select.invoke(root, loadedPane);
             Object list = field(root, "loadedList");
-            list.getClass().getMethod("setSelectedIndex", int.class).invoke(list, 0);
+            List<?> rows = (List<?>) call(list, "items");
+            int row = -1;
+            for (int index = 0; index < rows.size(); index++) {
+                if (loadedRow(rows.get(index)) == loaded) row = index;
+            }
+            check(row >= 0, "Native loaded list shows the schematic fixture");
+            list.getClass().getMethod("setSelectedIndex", int.class).invoke(list, row);
             Method initLoaded = root.getClass().getDeclaredMethod("initLoaded");
             initLoaded.setAccessible(true);
             initLoaded.invoke(root);
@@ -706,7 +798,7 @@ public final class BuildprintMenuTest implements FabricClientGameTest {
         context.waitTicks(3);
         context.runOnClient(client -> {
             Screen root = client.gui.screen();
-            check(call(field(root, "loadedList"), "selected") == loaded,
+            check(loadedRow(call(field(root, "loadedList"), "selected")) == loaded,
                     "Native loaded-list selection still references the edited schematic after relayout");
             EditBox name = (EditBox) field(root, "nameBox");
             check(name != null, "Loaded schematic has editable native name field");
@@ -961,6 +1053,23 @@ public final class BuildprintMenuTest implements FabricClientGameTest {
         Field field = instance.getClass().getDeclaredField(name);
         field.setAccessible(true);
         return field.get(instance);
+    }
+
+    // Buildprint 0.1.38 groups loaded schematics into place sections; earlier lists held them directly.
+    private static Object loadedRow(Object row) throws Exception {
+        if (row == null) return null;
+        Method itemMethod;
+        try {
+            itemMethod = row.getClass().getDeclaredMethod("item");
+        } catch (NoSuchMethodException directSchematic) {
+            return row;
+        }
+        itemMethod.setAccessible(true);
+        Object item = itemMethod.invoke(row);
+        if (item == null) return null;
+        Method build = item.getClass().getDeclaredMethod("build");
+        build.setAccessible(true);
+        return build.invoke(item);
     }
 
     private static Object call(Object instance, String method) throws Exception {

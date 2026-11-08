@@ -1,5 +1,6 @@
 package com.thenathe.backpackcrafting.client;
 
+import com.thenathe.backpackcrafting.compat.SortedCompat;
 import com.thenathe.backpackcrafting.menu.BackpackCraftingMenu;
 import com.thenathe.backpackcrafting.mixin.client.RecipeBookBoundsAccessor;
 import me.pajic.tiered_backpacks.keybind.ModKeybinds;
@@ -34,6 +35,7 @@ public final class BackpackCraftingScreen extends AbstractRecipeBookScreen<Backp
         titleLabelY = 5;
         inventoryLabelX = menu.getStorageWidth() / 2 - 80;
         inventoryLabelY = menu.getInventoryY() - 11;
+        SortedCompat.placeButtons(menu);
     }
 
     @Override

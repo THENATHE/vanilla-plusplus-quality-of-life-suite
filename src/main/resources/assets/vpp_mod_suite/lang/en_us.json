@@ -88,7 +88,7 @@
   "vpp_mod_suite.features.allWeatherChanneling": "Trident All Weather Channeling",
   "vpp_mod_suite.features.allWeatherChanneling.desc": "Let Channeling trident hits on surviving living entities summon lightning in any weather, including indoors.",
   "vpp_mod_suite.features.swiftFlight": "Swift Flight",
-  "vpp_mod_suite.features.swiftFlight.desc": "Enable flying speed bonuses from the existing Swift Flight enchantment on happy ghast harnesses. Restart after changing. Existing books and harness enchantments remain registered.",
+  "vpp_mod_suite.features.swiftFlight.desc": "Enable flying speed bonuses from the Swift Flight enchantment on happy ghast harnesses. The enchantment stays registered, and available from enchanting tables like other ordinary enchantments, when this is off. Restart after changing.",
   "vpp_mod_suite.features.swiftFlightBookLoot": "Swift Flight End City Books",
   "vpp_mod_suite.features.swiftFlightBookLoot.desc": "Add Swift Flight enchanted books to End City treasure with an 8 percent chance. Restart after changing.",
   "vpp_mod_suite.features.transferPetOwner": "Transfer Pet Owner",

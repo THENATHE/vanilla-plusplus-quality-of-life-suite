@@ -1,5 +1,26 @@
 # Provenance and compatibility tracks
 
+The current suite is **1.5.1+26.3** (2026-11-08), a follow-up to the unpublished 1.5.0 build. It brings the suite's Swift Flight data up to Jodek's Swift Flight **v1.2.0** (Modrinth datapack `lJ17PHg5`, MIT, notice unchanged in `licenses/swift-flight-LICENSE.txt`): the enchantment joins `#minecraft:non_treasure`, its minimum cost becomes 10 + 10 per level with harnesses as primary items, and the 32 vanilla harness and harness-dye recipes are overridden byte-for-byte from v1.2.0 so newly crafted harnesses carry `minecraft:enchantable` 10. These recipe files differ from vanilla 26.3 only by that result component. The identifier `swift_flight:swift_flight` is unchanged. Backpack Crafting advances to **1.1.1+26.3** to use Sorted's public API where it is equivalent; all other nested modules are byte-identical to 1.5.0.
+
+### Sorted permission and integration boundary
+
+Sorted (L4stIdi0t) is published as all-rights-reserved. The user states that they know the author personally and that he is fine with the suite's use of Sorted, including its runtime integration; no written grant is attached. The suite never bundles or redistributes Sorted: it compiles against the unchanged 0.1.25 JAR and runs alongside a separately installed copy.
+
+From 1.5.1 the bridge uses Sorted's public `com.sorted.api.SortedStorage` wherever it gives the same behaviour, and keeps targeted mixins only where no public API exists:
+
+| Behaviour | Mechanism | Reason |
+| --- | --- | --- |
+| Register the toolbox crafting menu | `SortedStorage.register(id, IntPredicate)` | Public API, unchanged in 0.1.25, 0.1.26 and 0.1.41. |
+| Storage-slot classification (crafting inputs/output and player slots are not storage) | The same predicate, evaluated against the open menu (replaces the former `isStorageSlot` mixin) | Sorted only consults the predicate from `StorageMenus.isStorageSlot`, and every caller passes the open menu. |
+| Button placement per actual backpack size and toolbox layout | `SortedStorage.placeButtons(id, …)` published from the screen constructor, before Sorted adds its buttons in `init` (replaces the former `placement` mixin) | Sorted keeps one placement per menu ID; publishing it for each opened screen gives the per-instance result. |
+| Treat the toolbox menu as a portable container | `SortedPortableMixin` on `StorageMenus.isPortable` | No public API; the list of portable menus is internal. |
+| Hide keep-rule markers and ignore Alt edits on temporary crafting slots | `SortedKeepIndicatorMixin`, `SortedRuleScreenMixin` | No public API for keep rules or their input handling. |
+| Keep cursor recovery out of crafting slots | `SortedCursorRecoveryMixin` on `SortQueue.returnTarget` | No public API for recovery destinations. |
+
+The runtime gate still admits exactly 0.1.25, 0.1.26 and 0.1.41+26.3.
+
+## Historical 1.5.0 record
+
 The current suite is **1.5.0+26.3** (2026-11-08). It adopts the newest official Fabric 26.3 developer releases: SSO **2.10.3** ([bNtv3MPv](https://modrinth.com/mod/simple-smithing-overhaul/version/bNtv3MPv)), MapStitch **1.2.1** ([TyJwvZB9](https://modrinth.com/mod/mapstitch/version/TyJwvZB9)), Tool Pouch **1.2.0** ([LDL8NLQd](https://modrinth.com/mod/tool-pouch/version/LDL8NLQd)), Tiered Backpacks **1.0.21** ([Fh8qqxFD](https://modrinth.com/mod/tiered-backpacks/version/Fh8qqxFD)), Simple Death Improvements **1.7.0** ([axbdo6aY](https://modrinth.com/mod/simple-death-improvements/version/axbdo6aY)) and Sensible Stackables **3.1.2** ([aZbIVjYA](https://modrinth.com/mod/sensible-stackables/version/aZbIVjYA)). MiscTweaks 1.4.4 and Bannerpoint 1.1.2 are still the newest 26.3 releases. Each component keeps its previous lock and metadata under `upstream/history/<version>/` (Stackables: `developer-release/history/`); published-source trees are replaced in place and remain in git history.
 
 Chalk moves from the existing ChatGPT 26.3 port (3.2.1+26.3) to DaFuqs' official developer release **3.2.0+26.3** ([IfK88aD4](https://modrinth.com/mod/chalk/version/IfK88aD4)), recorded in `components/chalk/developer-release/` with the `26.3-fabric` source reference `c0e3a3c`. The comparison found no functional additions in the port: registry IDs, block states, items, recipes, tags and assets are identical apart from line endings. The only code difference is the destroy-effect hook; `chalk-compat` restores Chalk's own effect for hand-breaking without modifying the official JAR. The port's source stays in `components/chalk/upstream/` as a historical baseline. Chalk: Colorful Addon has no 26.3 developer release, so its metadata-only port advances to **2.1.1-port.2+26.3**, identical except for requiring official Chalk `=3.2.0+26.3`.
@@ -80,7 +101,7 @@ The [2026-10-06 publisher audit](pajic-release-audit-2026-10-06.json) distinguis
 
 ## Modified suite components
 
-Current component versions in suite **1.5.0+26.3** are listed below; historical standalone origins remain separate.
+Current component versions in suite **1.5.1+26.3** are listed below; historical standalone origins remain separate.
 
 | Component | Component version | Baseline / record |
 | --- | --- | --- |
@@ -92,8 +113,8 @@ Current component versions in suite **1.5.0+26.3** are listed below; historical 
 | Sensible Stackables historical port (not nested) | 3.0.3-port.1+26.3 | Preserved published 3.0.3+26.2 baseline and independent port source/dependency records in components/sensible-stackables/ |
 | Sensible Stackables Polymer compatibility | 1.0.4+26.3 | Separate components/sensible-stackables/compat module |
 | Bannerpoint compatibility | 1.0.2+26.3 | Separate components/bannerpoint-compat module; original artwork notices and client/pack detection retained. Reconciles map-linked tracking after multiscale atlas edits through the internal addon event. |
-| Backpack Crafting addon | 1.1.0+26.3 | Separate components/backpack-crafting module; temporary crafting, BRBR/Sorted adapters and storage-slot recovery guards. |
-| Suite root / settings | 1.5.0+26.3 | Newly authored source in src/ |
+| Backpack Crafting addon | 1.1.1+26.3 | Separate components/backpack-crafting module; temporary crafting, BRBR/Sorted adapters and storage-slot recovery guards. |
+| Suite root / settings | 1.5.1+26.3 | Newly authored source in src/ |
 
 The archive retains original feature module IDs and embeds each module separately. The authored root ID is `vpp_mod_suite` from 1.2.1 onward. Original standalone repositories and versioned releases remain available; the suite variants do not overwrite them.
 

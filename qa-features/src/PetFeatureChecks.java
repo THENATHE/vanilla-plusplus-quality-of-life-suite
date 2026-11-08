@@ -471,6 +471,32 @@ public final class PetFeatureChecks {
             }
         }
         check(found >= 40 && found <= 120, "End City 8 percent Swift Flight loot observed " + found + "/1000");
+        swiftFlightEnchanting(server, enchant);
+    }
+
+    /** Swift Flight 1.2.0: enchanting-table availability, lower costs and enchantable crafted harnesses. */
+    private static void swiftFlightEnchanting(MinecraftServer server,
+            net.minecraft.core.Holder<net.minecraft.world.item.enchantment.Enchantment> enchant) {
+        check(enchant.is(net.minecraft.tags.EnchantmentTags.NON_TREASURE)
+            && enchant.is(net.minecraft.tags.EnchantmentTags.IN_ENCHANTING_TABLE), "Swift Flight is a table enchantment");
+        check(enchant.value().getMinCost(1) == 10 && enchant.value().getMinCost(3) == 30, "Swift Flight 1.2.0 minimum costs");
+        var key = ResourceKey.create(Registries.RECIPE, Identifier.withDefaultNamespace("blue_harness"));
+        var recipe = (net.minecraft.world.item.crafting.CraftingRecipe) server.getRecipeManager().byKey(key).orElseThrow().value();
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(3, 2, java.util.List.of(
+            new ItemStack(Items.LEATHER), new ItemStack(Items.LEATHER), new ItemStack(Items.LEATHER),
+            new ItemStack(Items.GLASS), new ItemStack(Items.WOOL.blue()), new ItemStack(Items.GLASS)));
+        ItemStack crafted = recipe.assemble(input);
+        var enchantable = crafted.get(net.minecraft.core.component.DataComponents.ENCHANTABLE);
+        check(crafted.is(Items.HARNESS.blue()) && enchantable != null && enchantable.value() == 10,
+            "crafted harness is enchantable at value 10");
+        check(enchant.value().isPrimaryItem(crafted), "harness is a primary Swift Flight item");
+        var table = server.registryAccess().lookupOrThrow(Registries.ENCHANTMENT)
+            .get(net.minecraft.tags.EnchantmentTags.IN_ENCHANTING_TABLE).orElseThrow();
+        for (ItemStack target : java.util.List.of(crafted, new ItemStack(Items.BOOK))) {
+            boolean offered = EnchantmentHelper.getAvailableEnchantmentResults(30, target, table.stream())
+                .stream().anyMatch(result -> result.enchantment().equals(enchant));
+            check(offered, "enchanting table can offer Swift Flight on " + target.getItem());
+        }
     }
 
     private static void persistedFixture(MinecraftServer server, ServerPlayer player) throws Exception {

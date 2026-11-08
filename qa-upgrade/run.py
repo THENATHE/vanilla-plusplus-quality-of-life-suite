@@ -122,9 +122,27 @@ shutil.copytree(old_dir, new_dir, ignore=shutil.ignore_patterns('mods', 'logs', 
 code, result = run_server(new_dir, candidate_mods, 'verify')
 after = config_values(new_dir)
 lost = {key: {'before': value, 'after': after.get(key)} for key, value in before.items() if after.get(key) != value}
-record.update(verify={'exit': code, 'result': result}, config_files_edited=edits, config_values_checked=len(before), config_changes=lost)
+# Changes made on purpose by an upstream release when it loads an older file (accepted by the user).
+ACCEPTED_UPSTREAM = {
+    'config/mapstitch/config.toml::version': 'MapStitch 1.2 config v1 -> v2 migration',
+    'config/mapstitch/config.toml::compass': 'MapStitch 1.2 clears compass requirements',
+    'config/mapstitch/config.toml::clock': 'MapStitch 1.2 clears clock requirements',
+    'config/mapstitch/config.toml::allowGameTime': 'MapStitch 1.2 allows minimap time',
+    'config/mapstitch/config.toml::allowCoordinates': 'MapStitch 1.2 allows minimap coordinates',
+    'config/mapstitch/config.toml::allowBiome': 'MapStitch 1.2 allows minimap biome',
+    'config/mapstitch/config.toml::allowWeather': 'MapStitch 1.2 allows minimap weather',
+    'config/mapstitch/config.toml::minecraft': 'line-based reader artifact: MapStitch 1.2 adds a multi-line loot-table list',
+    'config/polymer/server.json::_c1': 'Polymer 0.18.7 removed the PolyMc options',
+    'config/polymer/server.json::polyMcSyncModdedEntries': 'Polymer 0.18.7 removed the PolyMc options',
+    'config/polymer/server.json::_c13': 'Polymer 0.18.7 removed the PolyMc options',
+    'config/polymer/server.json::override_polymc_mining_check': 'Polymer 0.18.7 removed the PolyMc options',
+}
+explained = {key: ACCEPTED_UPSTREAM[key] for key in lost if key in ACCEPTED_UPSTREAM}
+unexplained = {key: change for key, change in lost.items() if key not in ACCEPTED_UPSTREAM}
+record.update(verify={'exit': code, 'result': result}, config_files_edited=edits, config_values_checked=len(before),
+              config_changes=lost, accepted_upstream_changes=explained, unexplained_config_changes=unexplained)
 verify = new_dir / 'verify.json'
 record['world'] = json.loads(verify.read_text()) if verify.exists() else None
-record['passed'] = result.startswith('PASS') and not lost
+record['passed'] = result.startswith('PASS') and not unexplained
 (RUN / 'result.json').write_text(json.dumps(record, indent=2) + '\n')
-print(json.dumps({k: record[k] for k in ('write', 'verify', 'config_files_edited', 'config_values_checked', 'config_changes', 'passed')}, indent=2))
+print(json.dumps({k: record[k] for k in ('write', 'verify', 'config_values_checked', 'accepted_upstream_changes', 'unexplained_config_changes', 'passed')}, indent=2))

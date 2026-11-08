@@ -1,5 +1,13 @@
 # Changes
 
+## 1.5.1+26.3
+
+1.5.0 was prepared but not published; 1.5.1 contains all of its changes plus the following.
+
+- Bring Swift Flight up to Jodek's Swift Flight 1.2.0: it can appear in the enchanting table on books and newly crafted harnesses, its enchanting cost is lower (10 + 10 per level), and grindstone extraction costs fall accordingly. Existing Swift Flight books and harnesses keep working; harnesses crafted earlier are not table-enchantable.
+- Use Sorted's public API for the backpack crafting menu's storage slots and button placement, keeping targeted integration only where Sorted has no public API. Record the Sorted author's permission as stated by the user.
+- Keep the pet-call team rule and MapStitch's one-time configuration migration, as decided after review.
+
 ## 1.5.0+26.3
 
 - Move to the newest official 26.3 developer releases: Simple Smithing Overhaul 2.10.3, MapStitch 1.2.1, Tool Pouch 1.2.0, Tiered Backpacks 1.0.21, Simple Death Improvements 1.7.0 and Sensible Stackables 3.1.2, with Fabric API 0.165.2, Fabric Language Kotlin 1.14.2 and Polymer 0.18.7. Their own new features (atlas pins, centered minimap, atlas copy/merge, pouch slot toggles, keep-damageable-items on death and many duplication fixes) are included unchanged.
