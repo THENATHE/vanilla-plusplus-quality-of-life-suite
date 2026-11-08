@@ -42,9 +42,9 @@ for dependency in (root / 'libs').glob('*.jar'):
     with zipfile.ZipFile(dependency) as archive:
         if dependency.name not in bundled and 'fabric.mod.json' in archive.namelist():
             dependencies.append(dependency)
-stage = project_path(workspace, 'polymer-shim-test-bundle') / 'staging-2026-10-01/mods'
-dependencies += [stage / 'fabric-api-0.161.0+26.3.jar', stage / 'cloth-config-fabric-26.3.159.jar']
-polymer = stage / 'polymer-bundled-0.18.2+26.3.jar'
+stage = project_path(workspace, 'thenathe-mod-suite') / 'libs/installation'
+dependencies += [stage / 'fabric-api-0.165.2+26.3.jar', stage / 'cloth-config-fabric-26.3.159.jar']
+polymer = stage / 'polymer-bundled-0.18.7+26.3.jar'
 assert not any(path.name.startswith('defaulted-') for path in dependencies)
 compile_paths = [*servercp, *clientcp, suite, *dependencies, polymer]
 clientsort = root / 'libs/compile-only/clientsort-fabric-3.104.1+26.3.jar'

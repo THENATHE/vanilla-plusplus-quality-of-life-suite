@@ -20,7 +20,7 @@ for p in (ROOT/'libs').glob('*.jar'):
  with zipfile.ZipFile(p) as z:
   if 'fabric.mod.json' not in z.namelist():continue
  mods.append(p)
-stage=project_path(WORKSPACE,'polymer-shim-test-bundle')/'staging-2026-10-01/mods';mods += [stage/'fabric-api-0.161.0+26.3.jar',stage/'cloth-config-fabric-26.3.159.jar'];polymer=stage/'polymer-bundled-0.18.2+26.3.jar'
+stage=project_path(WORKSPACE, 'thenathe-mod-suite') / 'libs/installation';mods += [stage/'fabric-api-0.165.2+26.3.jar',stage/'cloth-config-fabric-26.3.159.jar'];polymer=stage/'polymer-bundled-0.18.7+26.3.jar'
 if args.upstream_baseline:
  cache=Path.home()/'.gradle/caches/modules-2/files-2.1'
  patterns=['net.fabricmc.fabric-api/fabric-api/0.161.0+26.2/*/*.jar','me.fzzyhmstrs/fzzy_config/0.7.6+26.2-pre-3/*/*.jar','maven.modrinth/defaulted/1.3.8-26.1.2-Fabric/*/*.jar','maven.modrinth/mixson/2.2.0/*/*.jar']

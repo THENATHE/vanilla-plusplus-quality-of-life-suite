@@ -149,16 +149,17 @@ public final class SuiteClientQa implements ClientModInitializer {
                 var screen=new me.pajic.mapstitch.worldmap.WorldMapScreen(0);
                 client.gui.setScreen(screen);
                 // Observe actual widgets: original sidebar geometry must stay native.
-                for (int i = 0; i < 8; i++) {
+                // MapStitch 1.2 adds a ninth sidebar button (pin placement) and centers the column.
+                for (int i = 0; i < 9; i++) {
                     var button = (net.minecraft.client.gui.components.Button) screen.children().get(i);
-                    if (button.getX() != screen.width - 20 || button.getY() != screen.height / 2 - 72 + 18 * i
+                    if (button.getX() != screen.width - 20 || button.getY() != screen.height / 2 - 81 + 18 * i
                             || button.getWidth() != 16 || button.getHeight() != 16)
                         throw new IllegalStateException("Original atlas sidebar spacing changed at " + i);
                 }
                 int rowX = screen.width - 152;
-                for (int i = 8; i < 14; i++) {
+                for (int i = 9; i < 15; i++) {
                     var button = (net.minecraft.client.gui.components.Button) screen.children().get(i);
-                    int wantedX = i == 8 ? rowX : rowX + 40 + 22 * (i - 9);
+                    int wantedX = i == 9 ? rowX : rowX + 40 + 22 * (i - 10);
                     if (button.getX() != wantedX || button.getY() != 16 || button.getHeight() != 16
                             || button.getX() < 0 || button.getX() + button.getWidth() > screen.width)
                         throw new IllegalStateException("Top atlas controls are misaligned at " + i);

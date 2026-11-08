@@ -47,7 +47,7 @@ def main():
             for n,data in members.items():archive.writestr(n,data)
     dependencies = [ROOT / 'libs' / name for name in (
         'codecui-26.3-1.4.3-fabric.jar',
-        'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'mixson-2.2.1-multiloader.jar')]
+        'fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar', 'mixson-2.2.1-multiloader.jar')]
     fzzy = list((ROOT / 'libs').glob('fzzy_config-*.jar'))
     if len(fzzy) != 1: raise AssertionError(f'Expected exactly one locked Fzzy Config library, found {fzzy}')
     dependencies += fzzy
@@ -56,11 +56,11 @@ def main():
             if 'fabric.mod.json' in archive.namelist() and 'defaulted' in json.loads(archive.read('fabric.mod.json')).get('depends', {}): return True
             return any(requires_defaulted(archive.read(n)) for n in archive.namelist() if n.endswith('.jar'))
     if requires_defaulted(suite.read_bytes()): dependencies.append(ROOT / 'libs/defaulted-1.3.8+26.3.dropfix.1-fabric.jar')
-    api = launch.artifact('net.fabricmc.fabric-api', 'fabric-api', '0.161.0+26.3')
+    api = launch.artifact('net.fabricmc.fabric-api', 'fabric-api', '0.165.2+26.3')
     dependencies += [api, launch.artifact('me.shedaniel.cloth', 'cloth-config-fabric', '26.3.159')]
     original = ROOT / 'libs/bannerpoint-fabric-1.1.2+26.3.jar'
     if not original.exists(): original = Path('/tmp/bannerpoint-research/bannerpoint-fabric-1.1.2+26.3.jar')
-    polymer = WORKSPACE / 'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar'
+    polymer = WORKSPACE / 'Minecraft/thenathe-mod-suite/libs/installation/polymer-bundled-0.18.7+26.3.jar'
     server_audit, client_audit = launch.audits()
     paths = launch.cp(server_audit['command']) + launch.cp(client_audit['command']) + list(map(str, [suite, original, *dependencies, polymer]))
     paths += [str(launch.artifact('io.github.llamalad7', 'mixinextras-fabric', '0.5.5'))]

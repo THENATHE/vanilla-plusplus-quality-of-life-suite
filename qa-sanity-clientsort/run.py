@@ -26,11 +26,11 @@ def main():
     run.mkdir(parents=True,exist_ok=False)
     control=run/'control';control.mkdir();build=run/'fixtures';build.mkdir();classes=build/'classes';classes.mkdir()
     suite=run/args.suite.name;shutil.copy2(args.suite,suite)
-    dependencies=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar','fzzy_config-0.7.7+fix3+26.3.jar','mixson-2.2.1-multiloader.jar']]
-    dependencies += [launch.artifact('net.fabricmc.fabric-api','fabric-api','0.161.0+26.3'),launch.artifact('me.shedaniel.cloth','cloth-config-fabric','26.3.159')]
+    dependencies=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar','fzzy_config-0.7.7+fix3+26.3.jar','mixson-2.2.1-multiloader.jar']]
+    dependencies += [launch.artifact('net.fabricmc.fabric-api','fabric-api','0.165.2+26.3'),launch.artifact('me.shedaniel.cloth','cloth-config-fabric','26.3.159')]
     clientsort=ROOT/'Backups/General Utilities (Non-WP)/Minecraft/toolpouch-atlas-elytra-compat-26.3/Snapshots/2026-10-04-suite-consolidation/qa/clientsort/fixtures/clientsort-fabric-3.104.1+26.3.jar'
     native=[suite,*dependencies,clientsort]
-    server=[suite,*dependencies,ROOT/'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar']
+    server=[suite,*dependencies,ROOT/'Minecraft/thenathe-mod-suite/libs/installation/polymer-bundled-0.18.7+26.3.jar']
     if args.server_clientsort:server.append(clientsort)
     mods=list(dict.fromkeys(server+native)); server_audit,client_audit=launch.audits()
     paths=launch.cp(server_audit['command'])+launch.cp(client_audit['command'])+list(map(str,mods))
@@ -54,7 +54,7 @@ def main():
     if args.prepare_only:
         print('Fixtures compiled; no runtime launched');return
     before={str(p):sha(p) for p in mods};children=[];audits={}
-    env=os.environ.copy();env.update(DISPLAY=env.get('DISPLAY',':1'),SDL_VIDEODRIVER='x11',SDL_VIDEO_X11_XINPUT2='0',LP_NUM_THREADS='3')
+    env=os.environ.copy();env.update(DISPLAY=os.environ['SUITE_QA_DISPLAY'],SDL_VIDEODRIVER='x11',SDL_VIDEO_X11_XINPUT2='0',LP_NUM_THREADS='3')
     try:
         for side,mode,selected in [('server','server',server),('client','native',native)]:
             directory=run/side;moddir=directory/'mods';moddir.mkdir(parents=True,exist_ok=False)

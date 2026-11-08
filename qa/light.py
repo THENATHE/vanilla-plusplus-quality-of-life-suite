@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKSPACE = ROOT.parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
 from workspace_paths import load_helper, project_path
-STAGE = project_path(WORKSPACE, 'polymer-shim-test-bundle') / 'staging-2026-10-01/mods'
+STAGE = project_path(WORKSPACE, 'thenathe-mod-suite') / 'libs/installation'
 JAVA = '/usr/lib/jvm/java-25-openjdk/bin/java'
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--jar', type=Path, default=ROOT / 'build/libs/vanilla-plusplus-quality-of-life-suite-1.4.0+26.3.jar')
@@ -34,8 +34,8 @@ with zipfile.ZipFile(bundle) as z:
 def fabric_mod(path):
     with zipfile.ZipFile(path) as z:return 'fabric.mod.json' in z.namelist()
 external=[p for p in (ROOT/'libs').glob('*.jar') if p.name not in featurefiles and fabric_mod(p)]
-external += [STAGE/'cloth-config-fabric-26.3.159.jar',STAGE/'fabric-api-0.161.0+26.3.jar']
-polymer=STAGE/'polymer-bundled-0.18.2+26.3.jar'
+external += [STAGE/'cloth-config-fabric-26.3.159.jar',STAGE/'fabric-api-0.165.2+26.3.jar']
+polymer=STAGE/'polymer-bundled-0.18.7+26.3.jar'
 assert not any(p.name.startswith('defaulted-') for p in external), 'Defaulted must be absent from current runtime QA'
 # Compile only the two bounded observer fixtures, never changing the production bundle.
 fixture=RUN/'fixture';classes=fixture/'classes';classes.mkdir(parents=True)
@@ -77,7 +77,7 @@ def start(directory,command,mods):
     directory.mkdir(parents=True,exist_ok=True)
     (directory/'audit.json').write_text(json.dumps({'command':command,'mods':[{'file':p.name,'sha256':sha(p)} for p in mods]},indent=2)+'\n')
     out=(directory/'console.log').open('w')
-    env=os.environ.copy();env.update(DISPLAY=':1',SDL_VIDEODRIVER='x11',SDL_VIDEO_X11_XINPUT2='0',LP_NUM_THREADS='2')
+    env=os.environ.copy();env.update(DISPLAY=os.environ['SUITE_QA_DISPLAY'],SDL_VIDEODRIVER='x11',SDL_VIDEO_X11_XINPUT2='0',LP_NUM_THREADS='2')
     proc=subprocess.Popen(command,cwd=directory,env=env,stdin=subprocess.PIPE,stdout=out,stderr=subprocess.STDOUT,text=True)
     children.append((proc,out));return proc
 def stop(proc,server=False):
@@ -113,9 +113,9 @@ def server(label,with_polymer):
 def client(name,kind,sp,serverdir,port,pack,extended=False,mismatch=None):
     directory=RUN/name;(directory/'mods').mkdir(parents=True)
     if kind.startswith('suite') or kind=='originals':stackables_config(directory)
-    mods=[] if kind=='vanilla' else [fixtures['client'],STAGE/'fabric-api-0.161.0+26.3.jar']
+    mods=[] if kind=='vanilla' else [fixtures['client'],STAGE/'fabric-api-0.165.2+26.3.jar']
     if kind.startswith('suite'):mods=[bundle,*external,fixtures['client']]
-    if kind=='originals':mods=[*external, fixtures['client'], ROOT/'libs/simple_smithing_overhaul-fabric-2.10.0+26.3.jar', ROOT/'libs/sensible_stackables-fabric-3.1.1+26.3.jar']
+    if kind=='originals':mods=[*external, fixtures['client'], ROOT/'libs/simple_smithing_overhaul-fabric-2.10.3+26.3.jar', ROOT/'libs/sensible_stackables-fabric-3.1.2+26.3.jar']
     if kind=='suite-polymer':mods.append(polymer)
     for mod in mods:shutil.copy2(mod,directory/'mods'/mod.name)
     packopt=''

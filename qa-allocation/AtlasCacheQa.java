@@ -232,16 +232,20 @@ public final class AtlasCacheQa {
             check(AtlasBridge.atlases(player).getFirst().getCount() == 2, "Raised live atlas limit recovers rejected materialization");
             check(source.get(DataComponents.CONTAINER) == unchangedContents, "Live atlas limits changed without replacing container");
 
+            // Stackables 3.1.2 validates contained items leniently, against the larger of the
+            // override and the vanilla maximum (64 for maps), so the nested count must exceed 64.
+            set.invoke(null, Map.of(ModItems.ATLAS, 2, Items.FILLED_MAP, 80));
             var nested = atlas("Live nested map limit", 4, 1);
-            var map = new ItemStack(Items.FILLED_MAP, 2);
+            var map = new ItemStack(Items.FILLED_MAP, 70);
             map.set(DataComponents.MAP_ID, new MapId(20000));
             nested.set(DataComponents.BUNDLE_CONTENTS, new BundleContents(List.of(ItemStackTemplate.fromNonEmptyStack(map))));
             source.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(List.of(nested)));
             unchangedContents = source.get(DataComponents.CONTAINER);
-            check(!AtlasBridge.atlases(player).getFirst().isEmpty(), "Nested map count two is valid at live maximum two");
-            set.invoke(null, Map.of(ModItems.ATLAS, 2, Items.FILLED_MAP, 1));
-            check(AtlasBridge.atlases(player).getFirst().isEmpty(), "Lowered live map limit revalidates nested templates");
+            check(!AtlasBridge.atlases(player).getFirst().isEmpty(), "Nested map count seventy is valid at live maximum eighty");
             set.invoke(null, Map.of(ModItems.ATLAS, 2, Items.FILLED_MAP, 2));
+            check(AtlasBridge.atlases(player).getFirst().isEmpty(), "Lowered live map limit revalidates nested templates");
+            check(baseline(player).getFirst().isEmpty(), "Uncached materialization agrees with the lowered nested limit");
+            set.invoke(null, Map.of(ModItems.ATLAS, 2, Items.FILLED_MAP, 80));
             check(!AtlasBridge.atlases(player).getFirst().isEmpty(), "Raised live map limit recovers rejected nested template");
             check(source.get(DataComponents.CONTAINER) == unchangedContents, "Live map limits changed without replacing container");
         } finally {

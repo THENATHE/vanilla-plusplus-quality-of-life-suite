@@ -34,12 +34,12 @@ def main():
     launch = mapstitch_launch(WORKSPACE); suite = run / args.jar.name; shutil.copy2(args.jar.resolve(), suite)
     dependencies = [ROOT / 'libs' / name for name in (
         'codecui-26.3-1.4.3-fabric.jar',
-        'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'fzzy_config-0.7.7+fix3+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
-    api = launch.artifact('net.fabricmc.fabric-api', 'fabric-api', '0.161.0+26.3')
+        'fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar', 'fzzy_config-0.7.7+fix3+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
+    api = launch.artifact('net.fabricmc.fabric-api', 'fabric-api', '0.165.2+26.3')
     dependencies += [api, launch.artifact('me.shedaniel.cloth', 'cloth-config-fabric', '26.3.159')]
     original = ROOT / 'libs/bannerpoint-fabric-1.1.2+26.3.jar'
     if not original.exists(): original = Path('/tmp/bannerpoint-research/bannerpoint-fabric-1.1.2+26.3.jar')
-    polymer = WORKSPACE / 'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar'
+    polymer = WORKSPACE / 'Minecraft/thenathe-mod-suite/libs/installation/polymer-bundled-0.18.7+26.3.jar'
     server_audit, client_audit = launch.audits()
     paths = launch.cp(server_audit['command']) + launch.cp(client_audit['command']) + list(map(str, [suite, original, *dependencies, polymer]))
     paths += [str(launch.artifact('io.github.llamalad7', 'mixinextras-fabric', '0.5.5'))]
@@ -67,7 +67,7 @@ def main():
         print('PASS compiled current Bannerpoint QA fixtures; no runtime launched', flush=True)
         return
     children = []; observations = []; env = os.environ.copy()
-    env.update(DISPLAY=env.get('DISPLAY', ':1'), SDL_VIDEODRIVER='x11', SDL_VIDEO_X11_XINPUT2='0', LP_NUM_THREADS='2')
+    env.update(DISPLAY=os.environ['SUITE_QA_DISPLAY'], SDL_VIDEODRIVER='x11', SDL_VIDEO_X11_XINPUT2='0', LP_NUM_THREADS='2')
     def start(directory, command, mods=()):
         (directory / 'mods').mkdir(parents=True, exist_ok=True)
         for jar in mods: shutil.copy2(jar, directory / 'mods' / jar.name)
@@ -137,7 +137,7 @@ def main():
                 name = 'BannerQA' + ('NoPoly' if profile == 'nopolymer' else profile.title()); client_directory = run / name; client_directory.mkdir()
                 mods = [] if profile == 'vanilla' else [api, fixtures / 'client.jar']
                 if profile in ('suite', 'nopolymer'): mods = [suite, *dependencies, fixtures / 'client.jar']
-                elif profile == 'original': mods += [original, ROOT / 'libs/fzzy_config-0.7.7+fix3+26.3.jar', ROOT / 'libs/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar']
+                elif profile == 'original': mods += [original, ROOT / 'libs/fzzy_config-0.7.7+fix3+26.3.jar', ROOT / 'libs/fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar']
                 save_server(client_directory / 'servers.dat', port, 'decline' if profile == 'fabric' else 'accept')
                 (client_directory / 'options.txt').write_text('pauseOnLostFocus:false\nguiScale:2\ngraphicsMode:0\nrenderDistance:2\nmaxFps:25\nmaxFpsInactive:25\nsoundCategory_master:0.0\njoinedFirstServer:true\n')
                 command = launch.base_command('vanilla' if profile == 'vanilla' else 'native', client_directory, port)

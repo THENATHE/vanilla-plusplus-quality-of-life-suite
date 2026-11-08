@@ -21,9 +21,9 @@ for file in (ROOT/'libs').glob('*.jar'):
  if file.name in features:continue
  with zipfile.ZipFile(file) as z:
   if 'fabric.mod.json' in z.namelist():mods.append(file)
-stage=project_path(WORKSPACE,'polymer-shim-test-bundle')/'staging-2026-10-01/mods'
-mods += [stage/'fabric-api-0.161.0+26.3.jar',stage/'cloth-config-fabric-26.3.159.jar']
-polymer=stage/'polymer-bundled-0.18.2+26.3.jar'
+stage=project_path(WORKSPACE, 'thenathe-mod-suite') / 'libs/installation'
+mods += [stage/'fabric-api-0.165.2+26.3.jar',stage/'cloth-config-fabric-26.3.159.jar']
+polymer=stage/'polymer-bundled-0.18.7+26.3.jar'
 assert not any(x.name.startswith('defaulted-') for x in mods)
 classes=RUN/'classes';classes.mkdir();paths=[*servercp,*clientcp,bundle,*mods,polymer]
 sourcefiles=[]

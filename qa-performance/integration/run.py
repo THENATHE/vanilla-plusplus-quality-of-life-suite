@@ -16,12 +16,12 @@ WORKSPACE = ROOT.parents[3]
 POLYMER = '--polymer' in sys.argv
 SUITE = True
 INTEGRATED = True
-BUILDPRINT_VERSION = '0.1.25+26.3'
+BUILDPRINT_VERSION = os.environ.get('HOTKEY_WHEEL_BUILDPRINT_VERSION', '0.1.25+26.3')
 BLOCKTONE_VERSION = '0.1.25'
-SUITE_VERSION = '1.4.5+26.3'
-SUITE_SHA256 = '2b8da007d555b55512c1e8fb08ce5db3be419bb5f3a47d61a1e13d577f67b97b'
+SUITE_VERSION = '1.5.0+26.3'
+SUITE_SHA256 = os.environ.get('HOTKEY_WHEEL_SUITE_SHA256', 'pending-final-build')
 BRBR_VERSION = '1.11.7+26.3'
-POLYMER_VERSION = '0.18.2+26.3'
+POLYMER_VERSION = '0.18.7+26.3'
 WHEEL_VERSION = '1.0.8+26.3'
 RUN = Path(os.environ.get('HOTKEY_WHEEL_QA_RUN_ROOT', str(ROOT / 'runs' / ('suite-polymer' if POLYMER else 'suite' if SUITE else 'integrated'))))
 RUN.mkdir(parents=True, exist_ok=True)
@@ -62,7 +62,7 @@ if SUITE:
             raise SystemExit(f'Expected {mod_id} {expected_version}; found {metadata["version"]}')
         shutil.copy2(source, MODS / source.name)
 if POLYMER:
-    source = Path(os.environ.get('HOTKEY_WHEEL_POLYMER_JAR', str(WORKSPACE / 'Builds/Minecraft/Polymer/Main Plugin' / POLYMER_VERSION / f'polymer-bundled-{POLYMER_VERSION}.jar')))
+    source = Path(os.environ.get('HOTKEY_WHEEL_POLYMER_JAR', str(PROJECT / 'libs/installation' / f'polymer-bundled-{POLYMER_VERSION}.jar')))
     if not source.is_file():
         raise SystemExit(f'Missing pinned Polymer artifact: {source}')
     with zipfile.ZipFile(source) as archive:
@@ -91,7 +91,8 @@ with zipfile.ZipFile(addon) as archive:
 if wheel_metadata['id'] != 'hotkey_wheel' or wheel_metadata['version'] != WHEEL_VERSION:
     raise SystemExit(f'Expected Hotkey Wheel {WHEEL_VERSION}; found {wheel_metadata["id"]} {wheel_metadata["version"]}')
 shutil.copy2(addon, MODS / addon.name)
-gametest = next((CACHE / 'net.fabricmc.fabric-api/fabric-client-gametest-api-v1/6.0.7+4be74c3f5d').glob('*/*5d.jar'))
+# Client game-test module matching Fabric API 0.165.2+26.3.
+gametest = next(p for p in (CACHE / 'net.fabricmc.fabric-api/fabric-client-gametest-api-v1/6.0.12+131f8d475d').glob('*/*.jar') if not p.name.endswith('-sources.jar'))
 shutil.copy2(gametest, MODS / gametest.name)
 info = json.loads((META / 'versions/26.3-0.19.5/26.3-0.19.5.json').read_text())
 classpath = [META / 'versions/26.3/26.3.jar']
@@ -191,6 +192,7 @@ if '--prepare-only' in sys.argv:
     print('Prepared isolated QA profile:', RUN)
     raise SystemExit(0)
 environment = os.environ.copy()
+environment['DISPLAY'] = os.environ['SUITE_QA_DISPLAY']  # private Xvfb display, never the desktop
 environment['SDL_VIDEODRIVER'] = 'x11'
 with (RUN / 'console.log').open('w') as log:
     process = subprocess.Popen(command, cwd=GAME, env=environment, stdout=log, stderr=subprocess.STDOUT)

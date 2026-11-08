@@ -1,0 +1,42 @@
+[
+  {"id": "mapstitch:atlas", "count": 1, "components": {
+    "minecraft:bundle_contents": [{"id": "minecraft:filled_map", "count": 1, "components": {"minecraft:map_id": "$MAP_ID"}}, {"id": "minecraft:map", "count": 12}],
+    "mapstitch:atlas_scale": 1, "mapstitch:atlas_active_map_index": "$MAP_ID", "minecraft:custom_name": "Upgrade Atlas"}},
+  {"id": "toolpouch:tool_pouch", "count": 1, "components": {
+    "minecraft:container": [
+      {"slot": 0, "item": {"id": "minecraft:elytra", "count": 1, "components": {"minecraft:damage": 120, "minecraft:enchantments": {"minecraft:mending": 1, "minecraft:unbreaking": 3}}}},
+      {"slot": 1, "item": {"id": "mapstitch:atlas", "count": 1, "components": {"minecraft:bundle_contents": [{"id": "minecraft:filled_map", "count": 1, "components": {"minecraft:map_id": "$MAP_ID"}}], "mapstitch:atlas_scale": 2}}},
+      {"slot": 3, "item": {"id": "minecraft:shulker_box", "count": 1, "components": {"minecraft:container": [{"slot": 0, "item": {"id": "minecraft:torch", "count": 64}}]}}},
+      {"slot": 5, "item": {"id": "vpp_mod_suite:pouch_magnet", "count": 1}},
+      {"slot": 6, "item": {"id": "vpp_mod_suite:pouch_collector", "count": 1}},
+      {"slot": 7, "item": {"id": "minecraft:arrow", "count": 64}}
+    ], "toolpouch:stored_dye": 11546150}},
+  {"id": "toolpouch:netherite_tool_pouch", "count": 1, "components": {
+    "minecraft:container": [{"slot": 20, "item": {"id": "minecraft:diamond_pickaxe", "count": 1, "components": {"minecraft:damage": 30, "simple_smithing_overhaul:repair_count": 7}}}]}},
+  {"id": "minecraft:iron_leggings", "count": 1, "components": {
+    "minecraft:container": [{"slot": 0, "item": {"id": "minecraft:spyglass", "count": 1}}], "toolpouch:is_netherite_pouch": true}},
+  {"id": "tiered_backpacks:iron_backpack", "count": 1, "components": {
+    "minecraft:container": [
+      {"slot": 0, "item": {"id": "vpp_backpack_crafting:iron_toolbox", "count": 1}},
+      {"slot": 1, "item": {"id": "minecraft:oak_log", "count": 64}},
+      {"slot": 30, "item": {"id": "minecraft:diamond", "count": 9}}
+    ]}},
+  {"id": "tiered_backpacks:netherite_backpack", "count": 1, "components": {
+    "minecraft:container": [{"slot": 0, "item": {"id": "vpp_backpack_crafting:netherite_toolbox", "count": 1}}, {"slot": 100, "item": {"id": "minecraft:emerald", "count": 32}}]}},
+  {"id": "minecraft:diamond_chestplate", "count": 1, "components": {
+    "minecraft:container": [{"slot": 2, "item": {"id": "minecraft:gold_ingot", "count": 17}}], "tiered_backpacks:tier": "golden"}},
+  {"id": "minecraft:netherite_sword", "count": 1, "components": {"minecraft:damage": 2031, "simple_smithing_overhaul:broken": true, "simple_smithing_overhaul:repair_count": 3, "simple_smithing_overhaul:pinnacle_count": 1, "minecraft:enchantments": {"minecraft:sharpness": 5}}},
+  {"id": "simple_smithing_overhaul:whetstone", "count": 1},
+  {"id": "simple_smithing_overhaul:broken_anvil", "count": 2},
+  {"id": "simple_smithing_overhaul:enchantment_upgrade", "count": 3},
+  {"id": "simple_smithing_overhaul:pinnacle_enchantment", "count": 1},
+  {"id": "chalk:white_chalk", "count": 1, "components": {"minecraft:damage": 13, "minecraft:custom_name": "Marker"}},
+  {"id": "chalk:red_glow_chalk", "count": 1},
+  {"id": "chalk:purple_chalk", "count": 1, "components": {"minecraft:damage": 4}},
+  {"id": "debugwrench:debug_wrench", "count": 1},
+  {"id": "minecraft:enchanted_book", "count": 1, "components": {"minecraft:stored_enchantments": {"swift_flight:swift_flight": 3}}},
+  {"id": "minecraft:goat_horn", "count": 1, "components": {"minecraft:custom_data": {"vpp_pet_call": {"version": 1, "pet": [1, 2, 3, 4]}}}},
+  {"id": "minecraft:snowball", "count": 16},
+  {"id": "minecraft:ender_pearl", "count": 16},
+  {"id": "minecraft:potion", "count": 1, "components": {"minecraft:potion_contents": {"potion": "minecraft:swiftness"}}}
+]

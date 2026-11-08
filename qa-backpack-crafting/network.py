@@ -58,10 +58,10 @@ def main():
     launch = mapstitch_launch(WORKSPACE); suite = run / args.jar.name; shutil.copy2(args.jar.resolve(), suite)
     dependencies = [ROOT / 'libs' / name for name in (
         'codecui-26.3-1.4.3-fabric.jar',
-        'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'fzzy_config-0.7.7+fix3+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
-    api = launch.artifact('net.fabricmc.fabric-api', 'fabric-api', '0.161.0+26.3')
+        'fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar', 'fzzy_config-0.7.7+fix3+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
+    api = launch.artifact('net.fabricmc.fabric-api', 'fabric-api', '0.165.2+26.3')
     dependencies += [api, launch.artifact('me.shedaniel.cloth', 'cloth-config-fabric', '26.3.159')]
-    polymer = WORKSPACE / 'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar'
+    polymer = WORKSPACE / 'Minecraft/thenathe-mod-suite/libs/installation/polymer-bundled-0.18.7+26.3.jar'
     optional_client = []
     if args.layout_sorted or args.with_sorted or args.rules_sorted:
         if not args.sorted.is_file(): parser.error('Sorted original JAR does not exist: ' + str(args.sorted))
@@ -93,7 +93,7 @@ def main():
         print('PASS observation fixtures compiled; no runtime launched',flush=True); return
     with zipfile.ZipFile(suite) as archive: version=json.loads(archive.read('fabric.mod.json'))['version']
     children=[]; observations=[]; env=os.environ.copy()
-    env.update(DISPLAY=env.get('DISPLAY', ':1'), SDL_VIDEODRIVER='x11', SDL_VIDEO_X11_XINPUT2='0', LP_NUM_THREADS='2')
+    env.update(DISPLAY=os.environ['SUITE_QA_DISPLAY'], SDL_VIDEODRIVER='x11', SDL_VIDEO_X11_XINPUT2='0', LP_NUM_THREADS='2')
     def start(directory,command,mods):
         (directory/'mods').mkdir(parents=True,exist_ok=True)
         for jar in mods: shutil.copy2(jar,directory/'mods'/jar.name)

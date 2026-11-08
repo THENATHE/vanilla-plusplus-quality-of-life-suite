@@ -21,8 +21,8 @@ def main():
         shutil.copy2(source,executed/source.name)
     frozen=run/suite.name;shutil.copy2(suite,frozen);assert sha(frozen)==suiteHash;suite=frozen
     # Original runtime dependencies remain separate; component mods are nested in suite.
-    deps=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar','fzzy_config-0.7.7+fix3+26.3.jar','mixson-2.2.1-multiloader.jar']]
-    deps+=[launch.artifact('net.fabricmc.fabric-api','fabric-api','0.161.0+26.3'),launch.artifact('me.shedaniel.cloth','cloth-config-fabric','26.3.159'),launch.artifact('com.terraformersmc','modmenu','21.0.0')]
+    deps=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar','fzzy_config-0.7.7+fix3+26.3.jar','mixson-2.2.1-multiloader.jar']]
+    deps+=[launch.artifact('net.fabricmc.fabric-api','fabric-api','0.165.2+26.3'),launch.artifact('me.shedaniel.cloth','cloth-config-fabric','26.3.159'),launch.artifact('com.terraformersmc','modmenu','21.0.0')]
     selected=[suite]+deps
     wheel_compile=ROOT/'Builds/Minecraft/Hotkey Wheel/Main Plugin/1.0.3+26.3/hotkey-wheel-1.0.3+26.3.jar'
     if args.wheel: selected.append(args.wheel.resolve())
@@ -37,16 +37,16 @@ def main():
     subprocess.run(['/usr/lib/jvm/java-27-openjdk/bin/javac','--release','25','-proc:none','-cp',os.pathsep.join(dict.fromkeys(paths)),'-d',str(classes),*map(str,executed.glob('*.java'))],check=True)
     original_language_keys=[]
     for namespace,filename in {
-        'mapstitch':'mapstitch-fabric-1.1.7+26.3.jar',
+        'mapstitch':'mapstitch-fabric-1.2.1+26.3.jar',
         'misctweaks':'misctweaks-fabric-1.4.4+26.3.jar',
-        'simple_death_improvements':'simple_death_improvements-fabric-1.6.0+26.3.jar',
-        'simple_smithing_overhaul':'simple_smithing_overhaul-fabric-2.10.0+26.3.jar',
-        'tiered_backpacks':'tiered_backpacks-fabric-1.0.20+26.3.jar',
-        'toolpouch':'toolpouch-fabric-1.1.10+26.3.jar',
+        'simple_death_improvements':'simple_death_improvements-fabric-1.7.0+26.3.jar',
+        'simple_smithing_overhaul':'simple_smithing_overhaul-fabric-2.10.3+26.3.jar',
+        'tiered_backpacks':'tiered_backpacks-fabric-1.0.21+26.3.jar',
+        'toolpouch':'toolpouch-fabric-1.2.0+26.3.jar',
     }.items():
         with zipfile.ZipFile(SUITE/'libs'/filename) as z:
             original_language_keys.extend(json.loads(z.read(f'assets/{namespace}/lang/en_us.json')))
-    with zipfile.ZipFile(SUITE/'libs/sensible_stackables-fabric-3.1.1+26.3.jar') as z:
+    with zipfile.ZipFile(SUITE/'libs/sensible_stackables-fabric-3.1.2+26.3.jar') as z:
         original_language_keys.extend(json.loads(z.read('assets/sensible_stackables/lang/en_us.json')))
     for side in ['client','server']:
         with zipfile.ZipFile(fixtures/f'{side}.jar','w') as z:
@@ -60,7 +60,7 @@ def main():
     if args.prepare_only:
         (run/'prepare.json').write_text(json.dumps({'suite':str(suite),'suite_sha256':suiteHash,'fixtures_compiled':True,'runtime_launched':False},indent=2)+'\n')
         print('Fixtures compiled; no runtime launched');return
-    children=[];env=os.environ.copy();env.update(SDL_VIDEODRIVER='x11',SDL_VIDEO_X11_XINPUT2='0',LP_NUM_THREADS='3',DISPLAY=env.get('DISPLAY',':1'))
+    children=[];env=os.environ.copy();env.update(SDL_VIDEODRIVER='x11',SDL_VIDEO_X11_XINPUT2='0',LP_NUM_THREADS='3',DISPLAY=os.environ['SUITE_QA_DISPLAY'])
     audits={}
     try:
         sides=['client'] if args.settings_only else (['server','server2','client'] if args.reconnect else ['server','client'])
@@ -68,7 +68,7 @@ def main():
             isServer=side.startswith('server');runtimeSide='server' if isServer else 'client';port=args.port+(1 if side=='server2' else 0)
             directory=run/side;mods=directory/'mods';mods.mkdir(parents=True)
             chosen=[jar for jar in selected if not(isServer and args.wheel and jar==args.wheel.resolve())]+[fixtures/f'{runtimeSide}.jar']
-            if isServer and not args.without_polymer:chosen+=[ROOT/'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar']
+            if isServer and not args.without_polymer:chosen+=[ROOT/'Minecraft/thenathe-mod-suite/libs/installation/polymer-bundled-0.18.7+26.3.jar']
             for jar in chosen:shutil.copy2(jar,mods/jar.name)
             if isServer:
                 launch.copy_accepted_eula(directory)

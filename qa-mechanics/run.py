@@ -18,7 +18,7 @@ for p in (ROOT/'libs').glob('*.jar'):
  with zipfile.ZipFile(p) as z:
   if 'fabric.mod.json' not in z.namelist():continue
  mods.append(p)
-stage=project_path(WORKSPACE,'polymer-shim-test-bundle')/'staging-2026-10-01/mods';mods += [stage/'fabric-api-0.161.0+26.3.jar',stage/'cloth-config-fabric-26.3.159.jar'];polymer=stage/'polymer-bundled-0.18.2+26.3.jar'
+stage=project_path(WORKSPACE, 'thenathe-mod-suite') / 'libs/installation';mods += [stage/'fabric-api-0.165.2+26.3.jar',stage/'cloth-config-fabric-26.3.159.jar'];polymer=stage/'polymer-bundled-0.18.7+26.3.jar'
 assert not any(p.name.startswith('defaulted-') for p in mods), 'Defaulted must be absent from current runtime'
 compile_defaulted=ROOT/'libs/compile-only/defaulted-1.3.8+26.3.dropfix.1-fabric.jar'
 assert sha(compile_defaulted)=='e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61'

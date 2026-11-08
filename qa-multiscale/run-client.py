@@ -25,10 +25,10 @@ def main():
     frozen = run / suite.name; shutil.copy2(suite, frozen); assert sha(frozen) == sha(suite); suite = frozen
     dependencies = [ROOT / 'libs' / name for name in (
         'codecui-26.3-1.4.3-fabric.jar',
-        'fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar', 'fzzy_config-0.7.7+fix3+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
-    dependencies += [launch.artifact('net.fabricmc.fabric-api', 'fabric-api', '0.161.0+26.3'),
+        'fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar', 'fzzy_config-0.7.7+fix3+26.3.jar', 'mixson-2.2.1-multiloader.jar')]
+    dependencies += [launch.artifact('net.fabricmc.fabric-api', 'fabric-api', '0.165.2+26.3'),
                      launch.artifact('me.shedaniel.cloth', 'cloth-config-fabric', '26.3.159')]
-    polymer = WORKSPACE / 'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar'
+    polymer = WORKSPACE / 'Minecraft/thenathe-mod-suite/libs/installation/polymer-bundled-0.18.7+26.3.jar'
     server_audit, client_audit = launch.audits()
     paths = launch.cp(server_audit['command']) + launch.cp(client_audit['command']) + list(map(str, [suite, *dependencies, polymer]))
     paths += [str(launch.artifact('io.github.llamalad7', 'mixinextras-fabric', '0.5.5'))]
@@ -60,7 +60,7 @@ def main():
             for file in classes.rglob('*.class'): archive.write(file, file.relative_to(classes))
     with socket.socket() as sock: sock.bind(('127.0.0.1', 0)); port = sock.getsockname()[1]
     children = []; audits = {}
-    env = os.environ.copy(); env.update(DISPLAY=env.get('DISPLAY', ':1'), SDL_VIDEODRIVER='x11', SDL_VIDEO_X11_XINPUT2='0', LP_NUM_THREADS='2')
+    env = os.environ.copy(); env.update(DISPLAY=os.environ['SUITE_QA_DISPLAY'], SDL_VIDEODRIVER='x11', SDL_VIDEO_X11_XINPUT2='0', LP_NUM_THREADS='2')
     try:
         for side in ('server', 'client'):
             directory = run / side; mods = directory / 'mods'; mods.mkdir(parents=True)

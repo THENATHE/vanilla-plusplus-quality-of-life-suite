@@ -18,8 +18,8 @@ def main():
     run=HERE/'runs'/args.label;run.mkdir(parents=True,exist_ok=False);control=run/'control';control.mkdir();fixtures=run/'fixtures';fixtures.mkdir();classes=fixtures/'classes';classes.mkdir()
     frozen=run/suite.name;shutil.copy2(suite,frozen);assert sha(frozen)==suiteHash;suite=frozen
     # Original runtime dependencies remain separate; component mods are nested in suite.
-    deps=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar','fzzy_config-0.7.7+fix3+26.3.jar','mixson-2.2.1-multiloader.jar']]
-    deps+=[launch.artifact('net.fabricmc.fabric-api','fabric-api','0.161.0+26.3'),launch.artifact('me.shedaniel.cloth','cloth-config-fabric','26.3.159'),launch.artifact('com.terraformersmc','modmenu','21.0.0')]
+    deps=[SUITE/'libs'/n for n in ['codecui-26.3-1.4.3-fabric.jar','fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar','fzzy_config-0.7.7+fix3+26.3.jar','mixson-2.2.1-multiloader.jar']]
+    deps+=[launch.artifact('net.fabricmc.fabric-api','fabric-api','0.165.2+26.3'),launch.artifact('me.shedaniel.cloth','cloth-config-fabric','26.3.159'),launch.artifact('com.terraformersmc','modmenu','21.0.0')]
     selected=[suite]+deps
     serverAudit,clientAudit=launch.audits();paths=launch.cp(serverAudit['command'])+launch.cp(clientAudit['command'])+[str(p) for p in selected]+[str(launch.artifact('io.github.llamalad7','mixinextras-fabric','0.5.5'))]
     def extract(jar):
@@ -40,14 +40,14 @@ def main():
     if args.prepare_only:
         (run/'prepare.json').write_text(json.dumps({'suite':str(suite),'suite_sha256':suiteHash,'fixtures_compiled':True,'runtime_launched':False},indent=2)+'\n')
         print('Fixtures compiled; no runtime launched');return
-    children=[];env=os.environ.copy();env.update(SDL_VIDEODRIVER='x11',SDL_VIDEO_X11_XINPUT2='0',LP_NUM_THREADS='3',DISPLAY=env.get('DISPLAY',':1'))
+    children=[];env=os.environ.copy();env.update(SDL_VIDEODRIVER='x11',SDL_VIDEO_X11_XINPUT2='0',LP_NUM_THREADS='3',DISPLAY=os.environ['SUITE_QA_DISPLAY'])
     audits={}
     try:
         sides=['client'] if args.settings_only else ['server','client']
         for side in sides:
             directory=run/side;mods=directory/'mods';mods.mkdir(parents=True)
             chosen=selected+[fixtures/f'{side}.jar']
-            if side=='server' or args.client_polymer:chosen+=[ROOT/'Builds/Minecraft/Polymer/Main Plugin/0.18.2+26.3/polymer-bundled-0.18.2+26.3.jar']
+            if side=='server' or args.client_polymer:chosen+=[ROOT/'Minecraft/thenathe-mod-suite/libs/installation/polymer-bundled-0.18.7+26.3.jar']
             for jar in chosen:shutil.copy2(jar,mods/jar.name)
             if side=='server':
                 launch.copy_accepted_eula(directory)
