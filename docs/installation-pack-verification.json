@@ -1,10 +1,10 @@
 {
-  "pack_version": "1.4.5+26.3",
-  "date": "2026-10-21",
+  "pack_version": "1.5.0+26.3",
+  "date": "2026-11-08",
   "passed": true,
-  "suite_sha256": "2b8da007d555b55512c1e8fb08ce5db3be419bb5f3a47d61a1e13d577f67b97b",
+  "suite_sha256": "2bc95d4b0ad0d41a18b1e1100371e548b6c0dc4a994fa057af48fc9029de8c3c",
   "archives": {
-    "vanilla-plusplus-installation-pack-1.4.5+26.3.zip": "7391e6465f3da1f5aba17946dc259b34f1896c0bf3f3ae59b25ecc73ede0011c"
+    "vanilla-plusplus-installation-pack-1.5.0+26.3.zip": "784f57a9f7e132feb24a0555863faf4b4888d926390e952b64e0cd8094379e40"
   },
   "cases": [
     "Installation ZIP integrity, safe paths and manifest identity verified",
@@ -23,26 +23,26 @@
   ],
   "installed_profiles": {
     "client": {
-      "mods/fabric-api-0.161.0+26.3.jar": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6",
-      "mods/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5",
+      "mods/fabric-api-0.165.2+26.3.jar": "2612a078a5daa06d9a14cabad40fe66de36b8cb22ee8cdf346d5d9894478c392",
+      "mods/fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar": "fbdbf5286ab9d65fedb49e6e01c15e338ae303eb7b9d8c7423d0a9bcfe526ef9",
       "mods/fzzy_config-0.7.7+fix3+26.3.jar": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a",
       "mods/cloth-config-fabric-26.3.159.jar": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b",
       "mods/mixson-2.2.1-multiloader.jar": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0",
       "mods/modmenu-21.0.0.jar": "837812c6c98d66141db7b5dcae668f27fb78d557e8f4c0c89912985fc26a5e6f",
-      "mods/vanilla-plusplus-quality-of-life-suite-1.4.5+26.3.jar": "2b8da007d555b55512c1e8fb08ce5db3be419bb5f3a47d61a1e13d577f67b97b",
+      "mods/vanilla-plusplus-quality-of-life-suite-1.5.0+26.3.jar": "2bc95d4b0ad0d41a18b1e1100371e548b6c0dc4a994fa057af48fc9029de8c3c",
       "mods/codecui-26.3-1.4.3-fabric.jar": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
     },
     "server": {
-      "mods/fabric-api-0.161.0+26.3.jar": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6",
-      "mods/fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5",
+      "mods/fabric-api-0.165.2+26.3.jar": "2612a078a5daa06d9a14cabad40fe66de36b8cb22ee8cdf346d5d9894478c392",
+      "mods/fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar": "fbdbf5286ab9d65fedb49e6e01c15e338ae303eb7b9d8c7423d0a9bcfe526ef9",
       "mods/fzzy_config-0.7.7+fix3+26.3.jar": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a",
       "mods/cloth-config-fabric-26.3.159.jar": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b",
       "mods/mixson-2.2.1-multiloader.jar": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0",
-      "mods/polymer-bundled-0.18.2+26.3.jar": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f",
-      "mods/vanilla-plusplus-quality-of-life-suite-1.4.5+26.3.jar": "2b8da007d555b55512c1e8fb08ce5db3be419bb5f3a47d61a1e13d577f67b97b",
+      "mods/polymer-bundled-0.18.7+26.3.jar": "b18b0bb66fc8455fbf43f8a54e226952c630ab0cfee433e6585520c0e591538b",
+      "mods/vanilla-plusplus-quality-of-life-suite-1.5.0+26.3.jar": "2bc95d4b0ad0d41a18b1e1100371e548b6c0dc4a994fa057af48fc9029de8c3c",
       "mods/codecui-26.3-1.4.3-fabric.jar": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
     }
   },
   "launcher_gui_import_tested": false,
-  "runtime_note": "Focused installer/archive checks; exact suite also has independently recorded 1.4.5+26.3 runtime checks."
+  "runtime_note": "Focused installer/archive checks; exact suite also has independently recorded 1.5.0+26.3 runtime checks."
 }

@@ -120,7 +120,7 @@ public final class CraftingNetworkLayoutClient {
                 action.addProperty("cursor_before", screen.getMenu().getCarried().getCount());
             }
             AbstractWidget button = widgets(screen).stream().filter(widget -> {
-                try { return field(widget, "icon").toString().equals(desired); }
+                try { return icon(widget).equals(desired); }
                 catch (Exception failure) { throw new RuntimeException(failure); }
             }).findFirst().orElseThrow(() -> new AssertionError("Sorted button missing: " + desired));
             clearHover(screen);
@@ -188,7 +188,7 @@ public final class CraftingNetworkLayoutClient {
         for (String icon : List.of("sorted:widget/search", "sorted:widget/sort_inventory", "sorted:widget/quick_stack",
                 "sorted:widget/quick_fill", "sorted:widget/quick_empty")) {
             AbstractWidget widget = widgets(screen).stream().filter(button -> {
-                try { return field(button, "icon").toString().equals(icon); }
+                try { return icon(button).equals(icon); }
                 catch (Exception failure) { throw new RuntimeException(failure); }
             }).findFirst().orElseThrow(() -> new AssertionError("Reference inventory button missing: " + icon));
             require(widget.visible && widget.active, "Reference inventory button is unavailable: " + icon);
@@ -204,7 +204,7 @@ public final class CraftingNetworkLayoutClient {
         JsonObject containerOffsets = new JsonObject();
         for (String icon : List.of("sorted:widget/sort_container", "sorted:widget/quick_dump")) {
             AbstractWidget widget = widgets(screen).stream().filter(button -> {
-                try { return field(button, "icon").toString().equals(icon); }
+                try { return icon(button).equals(icon); }
                 catch (Exception failure) { throw new RuntimeException(failure); }
             }).findFirst().orElseThrow(() -> new AssertionError("Reference container button missing: " + icon));
             require(widget.visible && widget.active, "Reference container button is unavailable: " + icon);
@@ -267,7 +267,7 @@ public final class CraftingNetworkLayoutClient {
         List<AbstractWidget> controls = widgets(screen);
         require(controls.size() == 7, "Expected seven normal Sorted storage/inventory buttons, found " + controls.size());
         for (AbstractWidget widget : controls) {
-            String icon = field(widget, "icon").toString();
+            String icon = icon(widget);
             int x = switch (icon) {
                 case "sorted:widget/sort_container" -> storageWidth - 18;
                 case "sorted:widget/quick_dump" -> storageWidth - 36;
@@ -443,6 +443,12 @@ public final class CraftingNetworkLayoutClient {
 
     private static MouseButtonEvent click(double x, double y) {
         return new MouseButtonEvent(x, y, new MouseButtonInfo(InputConstants.MOUSE_BUTTON_LEFT, 0));
+    }
+
+    /** Sorted 0.1.41 draws its search button with the bundled voxelsprout icon; keep one name per role. */
+    private static String icon(Object widget) throws Exception {
+        String icon = field(widget, "icon").toString();
+        return icon.equals("voxelsprout_common:icon/search_button") ? "sorted:widget/search" : icon;
     }
 
     private static Object invoke(String type, String method, Class<?>[] parameters, Object... args) throws Exception {

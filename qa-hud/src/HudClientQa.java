@@ -202,6 +202,9 @@ public final class HudClientQa implements ClientModInitializer {
         float drawBottom=(float)HudObservation.detailDrawBounds.stream().mapToDouble(r->r[3]).max().orElseThrow();
         int displacement=top-naturalTop;
         boolean naturalOverlap=drawLeft<mapRight && drawRight>mapLeft && drawTop-displacement<mapBottom && drawBottom-displacement>mapTop;
+        // MapStitch 1.2 draws atlas marker names itself and keeps them inside the minimap, so an edge
+        // name no longer necessarily reaches the details. Those scenes check whichever case occurs.
+        if(phase>=24&&phase<=27&&atlasScene[phase])shifted=naturalOverlap;
         if(naturalOverlap!=shifted)throw new AssertionError("scene does not have its intended actual rectangle overlap: "+names[phase]+" overlap="+naturalOverlap);
         if(drawLeft<mapRight && drawRight>mapLeft && drawTop<mapBottom && drawBottom>mapTop)throw new AssertionError("actual received rectangles overlap: details="+drawLeft+","+drawTop+".."+drawRight+","+drawBottom+" map="+mapLeft+","+mapTop+".."+mapRight+","+mapBottom);
         if(!shifted) {

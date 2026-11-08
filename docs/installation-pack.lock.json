@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "name": "Vanilla++ Quality of Life Suite",
-  "pack_version": "1.4.5+26.3",
-  "verified_on": "2026-10-21",
+  "pack_version": "1.5.0+26.3",
+  "verified_on": "2026-11-08",
   "dependencies": {
     "minecraft": "26.3",
     "fabric-loader": "0.19.5"
@@ -294,17 +294,17 @@
   "overrides": [
     {
       "id": "suite",
-      "source": "build/libs/vanilla-plusplus-quality-of-life-suite-1.4.5+26.3.jar",
-      "path": "mods/vanilla-plusplus-quality-of-life-suite-1.4.5+26.3.jar",
+      "source": "build/libs/vanilla-plusplus-quality-of-life-suite-1.5.0+26.3.jar",
+      "path": "mods/vanilla-plusplus-quality-of-life-suite-1.5.0+26.3.jar",
       "hashes": {
-        "sha1": "5603db59fb4a05872020238139250dc61934d0ca",
-        "sha256": "2b8da007d555b55512c1e8fb08ce5db3be419bb5f3a47d61a1e13d577f67b97b",
-        "sha512": "092f60cd6dd8a5b2a177e84c7d5924b914a41e3ca76af5416d9c1e4a5a9a43f40cceaa29524c763e2427a811b856c711232796b50927deaeacb0352940ad7156"
+        "sha1": "5f86beab89d9573d5570d8f7450e1c9682efcc68",
+        "sha256": "2bc95d4b0ad0d41a18b1e1100371e548b6c0dc4a994fa057af48fc9029de8c3c",
+        "sha512": "55873e72391bd695b1dc4427a0fcee9047b7d814ef8b3dd931d6ec681ede91b381cfbc076e5a48fbb776476cab95873aac8a54323f3cd3bb738f27f56ecfdd7d"
       },
-      "fileSize": 3329434,
+      "fileSize": 3474666,
       "license": "Suite licenses and retained upstream notices",
       "source_url": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/",
-      "version": "1.4.5+26.3"
+      "version": "1.5.0+26.3"
     },
     {
       "id": "codecui",
@@ -320,5 +320,5 @@
       "source_url": "https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference"
     }
   ],
-  "checked_on": "2026-10-21"
+  "checked_on": "2026-11-08"
 }

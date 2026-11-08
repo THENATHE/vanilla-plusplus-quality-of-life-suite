@@ -4,7 +4,7 @@
 
 ![Vanilla++ modpack artwork](artwork/vanilla-plusplus-modpack.png)
 
-The **1.4.5** update reduces memory allocation in pouch-atlas lookups and stored-item stack-size checks. Atlas views stay current when the active pouch or its contents change, while saved inventories, stack limits and HUD placement retain their existing behavior. See the [1.4.5 release guide](docs/RELEASE_1_4_5.md) for installation and validation.
+The **1.5.0** update moves the suite to the newest developer releases of its included mods, including the official Chalk release, and adapts the suite's additions to them. Existing worlds, items and settings carry over. See the [1.5.0 release guide](docs/RELEASE_1_5_0.md) for installation and validation.
 
 
 ## What it is
@@ -86,6 +86,8 @@ Thanks for your hard work, **pajic**!
 - Map the Nether, with configurable rendering for its ceiling-covered terrain.
 - Craft maps from paper without spending a compass when the cheaper-map recipe is enabled.
 - Optionally display time, coordinates, biome, and weather information. The matching server options must allow those details.
+- Choose a centered minimap that follows the player, or the classic map-by-map view.
+- Place, share and remove pins on the world map, and copy or merge atlases in a cartography table.
 
 #### My tweaks and additions
 
@@ -148,6 +150,7 @@ Thanks for your hard work, **pajic**!
 - Use stored fireworks for Elytra boosts or crossbow ammunition.
 - Add optional lantern lighting with [LambDynamicLights](https://modrinth.com/mod/lambdynamiclights), and container previews with [Shulker Box Tooltip](https://modrinth.com/mod/shulkerboxtooltip).
 - Configure allowed items, storage limits, information fields, and overlay appearance.
+- Bind a key to any pouch slot to switch that item's pouch functions off and on; disabled slots are highlighted.
 
 #### My tweaks and additions
 
@@ -224,6 +227,7 @@ Thanks for your hard work, **pajic**!
 - Protect dropped items from explosions.
 - Reduce the experience lost on death; the default loss is 20%.
 - Optionally retain armor, hotbar items, offhand items, or equipped accessories on death. These retention options are off by default.
+- Optionally keep items with durability on death at the cost of some durability; they are never broken by it.
 - Configure the death rules to match the level of risk you want in your world.
 
 #### My tweaks and additions
@@ -231,7 +235,7 @@ Thanks for your hard work, **pajic**!
 - Kept the original death behavior and its options, and made those options accessible from the suite settings screen.
 - Preserved the original accessory integrations and server control over these settings.
 
-### Chalk — Fabric port and Colorful Addon
+### Chalk and Colorful Addon
 
 [Original Chalk mod on Modrinth](https://modrinth.com/mod/chalk) · [Original Colorful Addon on Modrinth](https://modrinth.com/mod/chalk-colorful-addon)
 
@@ -248,7 +252,8 @@ Thanks for your hard work, **mortuusars and DaFuqs**, on Chalk and its Colorful 
 
 #### My tweaks and additions
 
-- Included Fabric-compatible Chalk and matching Colorful Addon ports for the suite's supported Minecraft release.
+- Included the official Chalk release with an unofficial, metadata-only Colorful Addon port for the suite's supported Minecraft release.
+- Kept Chalk's own sound and cloud effect when a mark is broken by hand.
 - Added recoloring and glow conversions that preserve the chalk's remaining durability, custom name, and other item data.
 - Made dye replace the chalk's current color, rather than mixing colors.
 - Let you add dye, glow ink, or both in one crafting operation. Recoloring glowing chalk keeps it glowing.
@@ -454,7 +459,7 @@ The compatibility layer includes:
 
 ## Installation
 
-The [1.4.5 release guide](docs/RELEASE_1_4_5.md) covers this update, installation and verification. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) provides these four files:
+The [1.5.0 release guide](docs/RELEASE_1_5_0.md) covers this update, installation and verification. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) provides these four files:
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -466,7 +471,7 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Put `vanilla-plusplus-quality-of-life-suite-1.4.5+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
+2. Put `vanilla-plusplus-quality-of-life-suite-1.5.0+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, the standalone Polymer Debug Wrench, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Remove the replaced standalone mods/datapacks when enabling their suite features. Swift Flight keeps existing enchantment data; legacy pet-call bindings are not migrated and must be rebound.
@@ -502,7 +507,7 @@ For developers, server maintainers, or anyone troubleshooting a problem, the tec
 
 This is a standalone, unofficial repository. One feature JAR contains separate modules with their original mod IDs, assets, configuration identities, and saved-data formats. Original notices remain in the source and production archive; see [credits and licensing](THIRD_PARTY_NOTICES.md).
 
-The suite combines developer releases, local ports, and THENATHE additions. SSO and Sensible Stackables now use public official Minecraft 26.3 developer releases. The previous private official SSO input and Stackables port remain preserved as historical baselines. The separate ChatGPT-produced SSO port remains paused. Chalk uses the recorded local 26.3 Fabric port, with the matching Colorful Addon metadata port. See [provenance and compatibility tracks](docs/PROVENANCE.md).
+The suite combines developer releases, local ports, and THENATHE additions. SSO and Sensible Stackables now use public official Minecraft 26.3 developer releases. The previous private official SSO input and Stackables port remain preserved as historical baselines. The separate ChatGPT-produced SSO port remains paused. Chalk now uses DaFuqs' official 26.3 developer release; the earlier local port is preserved as a historical baseline. The Colorful Addon keeps its metadata-only 26.3 port, rebuilt for the official Chalk release. See [provenance and compatibility tracks](docs/PROVENANCE.md).
 
 Defaulted is no longer a runtime requirement: the updated original mods synchronize repair rules and stack limits themselves. Historical guarded Defaulted support retains its exact compile input. Fzzy Config remains an official external dependency; its installation and distribution rules are recorded in [installation instructions](docs/INSTALLATION_PACK.md). Exact artifact versions and hashes are recorded in [the dependency lock](locks/artifacts.json).
 
@@ -524,13 +529,13 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/complete-jdk25 ./gradlew build
 ```
 
-Use a complete Java 25 or newer JDK, including `javac`; the build targets Java 25. The current clean build uses the complete Microsoft Java 25 JDK. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.4.5+26.3.jar`.
+Use a complete Java 25 or newer JDK, including `javac`; the build targets Java 25. The current clean build uses the complete Microsoft Java 25 JDK. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.5.0+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 
 ### Changes and testing
 
-The [release guide](docs/RELEASE_1_4_5.md) records the current allocation fixes, exact candidate and fresh verification. The [four-mod review](docs/FOUR_MOD_QA_2026_10_13.md) retains the earlier HUD correction and its original combined acceptance. [Validation](docs/VALIDATION.md) preserves earlier storage, recovery-selector, enlarged-backpack, recipe and installer results with their original artifacts and scope.
+The [release guide](docs/RELEASE_1_5_0.md) records the current upstream refresh, exact candidate and fresh verification; the [2026-11-08 audit](docs/AUDIT-2026-11-08.md) lists fixed and open findings. The [four-mod review](docs/FOUR_MOD_QA_2026_10_13.md) retains the earlier HUD correction and its original combined acceptance. [Validation](docs/VALIDATION.md) preserves earlier storage, recovery-selector, enlarged-backpack, recipe and installer results with their original artifacts and scope.
 
 The [release procedure](docs/RELEASE_WORKFLOW.md) records the standing documentation, four-asset packaging, version-only titles and branch-cleanup conventions.
 

@@ -1,4 +1,4 @@
-# Installation pack — Vanilla++ Quality of Life Suite 1.4.5+26.3
+# Installation pack — Vanilla++ Quality of Life Suite 1.5.0+26.3
 
 The **1.4.3+26.3** update restores Sorted's backpack controls above the panel at its right edge, keeps player controls below the full backpack frame with search at its left edge and the other actions at its right, excluding the crafting extension, and excludes temporary backpack crafting inputs/output from interrupted-operation cursor recovery. Earlier keep-rule, panel/drop, recipe-book, storage-control and gameplay fixes remain included. Replace the suite JAR on the server and matching native clients. Exact external dependencies and original developer inputs remain unchanged; Collective is not required. Final 1.4.3 runtime acceptance passed, with 3,772 declared assertions plus 16 recipe cases. The release guide records the exact runtime proof and separate installation-package status; prior 1.4.2 acceptance retains its original artifact and scope. [The release guide](RELEASE_1_4_3.md) keeps runtime evidence and installation-package verification distinct.
 
@@ -11,7 +11,7 @@ The authored root mod ID remains `vpp_mod_suite`. Swift Flight retains its origi
 - `README.md` — feature and installation overview.
 - `vanilla-plusplus-quality-of-life-suite-1.4.3+26.3.jar` — the suite for an instance with the correct libraries already installed.
 - `docs.zip` — source/dependency/verification records and documentation.
-- `vanilla-plusplus-installation-pack-1.4.5+26.3.zip` — the setup kit, permitted dependency binaries, notices and side-aware installer.
+- `vanilla-plusplus-installation-pack-1.5.0+26.3.zip` — the setup kit, permitted dependency binaries, notices and side-aware installer.
 
 ## Native client installation
 
@@ -47,7 +47,7 @@ Use a new server directory, or stop and back up an existing instance before deli
 
    On Windows, use `py -3 install.py --side server --instance "C:\Minecraft\suite-server"`.
 
-4. The helper verifies the selected binaries and installs the suite, CodecUI and required external libraries, including **Polymer Bundled 0.18.2+26.3**. It excludes Mod Menu. Fzzy Config is fetched from its official Modrinth CDN URL.
+4. The helper verifies the selected binaries and installs the suite, CodecUI and required external libraries, including **Polymer Bundled 0.18.7+26.3**. It excludes Mod Menu. Fzzy Config is fetched from its official Modrinth CDN URL.
 5. Review and accept Minecraft’s EULA yourself, then start the Fabric server normally. The helper neither accepts the EULA nor starts the server.
 6. Generate and host Polymer’s server resource pack using the [Polymer hosting guide](https://polymer.pb4.eu/latest/user/resource-pack-hosting/). Players should accept that pack for Chalk’s vanilla-visible items and marks, Bannerpoint’s locator-bar icons, and the new magnet, collector and wrench sprites. Bannerpoint icons stay hidden until the pack successfully loads; custom banner-name labels require Bannerpoint on the client. The installation ZIP cannot supply the resource pack for your particular server configuration or hosting address.
 
@@ -63,20 +63,20 @@ The ZIP includes these two local files under `overrides/mods/`:
 
 | Included file | SHA-256 | License/source context |
 | --- | --- | --- |
-| Suite 1.4.5+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
+| Suite 1.5.0+26.3 | See the installation lock and build verification | Existing authorized suite distribution; original notices remain in its JAR and the kit. [Source](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite). |
 | CodecUI 26.3-1.4.3 | `4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898` | MIT declaration and retained notices; precise private build revision is unrecorded. [Source-family record](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/tree/main/components/codecui-reference). |
 
 Six public publisher binaries are cached under `downloads/mods/`, with licenses and hashes retained. Fzzy Config has only its official download entry:
 
 | Publisher version | Client | Dedicated server | Distribution / license |
 | --- | --- | --- | --- |
-| [Fabric API 0.161.0+26.3](https://modrinth.com/mod/fabric-api/version/bNnaTiuM) | Required | Required | Included; Apache-2.0 |
-| [Fabric Language Kotlin 1.14.1+kotlin.2.4.20](https://modrinth.com/mod/fabric-language-kotlin/version/eRRZzGMc) | Required | Required | Included; Apache-2.0 |
+| [Fabric API 0.165.2+26.3](https://modrinth.com/mod/fabric-api/version/nJlcvFfj) | Required | Required | Included; Apache-2.0 |
+| [Fabric Language Kotlin 1.14.2+kotlin.2.4.21](https://modrinth.com/mod/fabric-language-kotlin/version/SKW1BTL3) | Required | Required | Included; Apache-2.0 |
 | [Fzzy Config 0.7.7+fix3+26.3](https://modrinth.com/mod/fzzy-config/version/YkOumqzV) | Required | Required | Official download only; TDL-M 1.3 |
 | [Cloth Config 26.3.159+fabric](https://modrinth.com/mod/cloth-config/version/fg2uyxOW) | Required | Required | Included; LGPL-3.0-only |
 | [Mixson 2.2.1](https://modrinth.com/mod/mixson/version/yWpBBcpq) | Required | Required | Included; MIT |
 | [Mod Menu 21.0.0](https://modrinth.com/mod/modmenu/version/kyy7dbrZ) | Optional | Excluded | Included; MIT |
-| [Polymer Bundled 0.18.2+26.3](https://modrinth.com/mod/polymer/version/REBDssAz) | Excluded | Required by this server kit | Included; LGPL-3.0-only |
+| [Polymer Bundled 0.18.7+26.3](https://modrinth.com/mod/polymer/version/pA7tHJZE) | Excluded | Required by this server kit | Included; LGPL-3.0-only |
 
 Mod Menu’s exact JAR already includes Text Placeholder API; no separate copy is added. Other optional integrations, including Sorted, ClientSort, Better Recipe Book Rebetterered and Hotkey Wheel, are outside this kit. Sorted remains compile-only for the bridge and is never bundled. Dependency project pages and optional integration links are in [DEPENDENCIES.md](DEPENDENCIES.md).
 

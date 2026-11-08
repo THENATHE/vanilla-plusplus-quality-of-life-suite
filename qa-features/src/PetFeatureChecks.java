@@ -177,8 +177,15 @@ public final class PetFeatureChecks {
             for (int x = -9; x <= 9; x++) for (int z = -9; z <= 9; z++) {
                 level.setBlock(CENTER.offset(x, 5, z), Blocks.AIR.defaultBlockState(), 2);
             }
+            check(!PetFeatures.summon(player, ghast, PetHorn.binding(horn)) && ghast.position().equals(original),
+                "occupied recall refuses a rider who is not on the caller's team");
+            var scoreboard = server.getScoreboard();
+            var team = scoreboard.addPlayerTeam("vpp_qa_riders");
+            scoreboard.addPlayerToTeam(player.getScoreboardName(), team);
+            scoreboard.addPlayerToTeam(rider.getScoreboardName(), team);
             check(PetFeatures.summon(player, ghast, PetHorn.binding(horn)),
                 "occupied happy ghast recall succeeds with clear headroom");
+            scoreboard.removePlayerTeam(team);
             check(rider.getVehicle() == ghast && level.noCollision(rider, rider.getBoundingBox()),
                 "successful occupied recall retains rider in clear space");
             rider.stopRiding();

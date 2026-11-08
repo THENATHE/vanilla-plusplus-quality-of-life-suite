@@ -1,5 +1,16 @@
 # Changes
 
+## 1.5.0+26.3
+
+- Move to the newest official 26.3 developer releases: Simple Smithing Overhaul 2.10.3, MapStitch 1.2.1, Tool Pouch 1.2.0, Tiered Backpacks 1.0.21, Simple Death Improvements 1.7.0 and Sensible Stackables 3.1.2, with Fabric API 0.165.2, Fabric Language Kotlin 1.14.2 and Polymer 0.18.7. Their own new features (atlas pins, centered minimap, atlas copy/merge, pouch slot toggles, keep-damageable-items on death and many duplication fixes) are included unchanged.
+- Replace the unofficial Chalk 26.3 port with DaFuqs' official Chalk 3.2.0+26.3. Saved chalk marks and items keep their IDs and states. Chalk's own sound and cloud effect is kept when a mark is broken by hand. The Colorful Addon metadata port is rebuilt for the official release (2.1.1-port.2+26.3).
+- Adapt the pouch, atlas and compatibility additions: pouch atlases save correctly again, disabled pouch slots are respected (atlas lists, mending, ClientSort), the world-map scale help and centered-minimap HUD spacing work with the new MapStitch screens, and MapStitch's atlas+atlas cartography is no longer blocked.
+- Vanilla and Fabric-only players can see atlas pins and open cartography tables on Polymer servers, and no longer risk a disconnect when a toolbox is sent to them.
+- Fix a shulker duplication path and a doubled SSO repair counter that the new upstream releases would otherwise have exposed, by removing the now-duplicate suite workarounds.
+- Support Sorted 0.1.41 in the backpack crafting bridge.
+- Fixes: drops cannot put a chestplate with an attached backpack into a shulker; calling a pet no longer teleports other players riding it unless they are on your team; conduit frames no longer create water in the Nether; a completed beacon opens normally when clicked with a base block; creative players no longer lose maps or atlases that do not fit when they are returned; atlas ticking allocates less.
+- See [the release guide](docs/RELEASE_1_5_0.md) and [the audit](docs/AUDIT-2026-11-08.md).
+
 ## 1.4.5+26.3
 
 - Cache client atlas materialization by player/world, resolved active pouch, immutable container component and live Stackables override table, returning detached copies and preserving authoritative server ticking/save behavior.

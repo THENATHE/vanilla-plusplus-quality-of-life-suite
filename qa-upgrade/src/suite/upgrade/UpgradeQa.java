@@ -15,7 +15,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.MapItem;
 import net.minecraft.world.level.block.Blocks;
@@ -77,7 +77,7 @@ public final class UpgradeQa implements ModInitializer {
         }
         snapshot.add("stacks", stacks);
         snapshot.add("chalk", placeChalk(level));
-        var wolf = EntityType.WOLF.spawn(level, ORIGIN.offset(4, 0, 4), EntitySpawnReason.COMMAND);
+        var wolf = EntityTypes.WOLF.spawn(level, ORIGIN.offset(4, 0, 4), EntitySpawnReason.COMMAND);
         wolf.setPersistenceRequired();
         PetIndex.get(server).update(wolf);
         snapshot.addProperty("pet", wolf.getUUID().toString());

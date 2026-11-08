@@ -1,5 +1,13 @@
 # Provenance and compatibility tracks
 
+The current suite is **1.5.0+26.3** (2026-11-08). It adopts the newest official Fabric 26.3 developer releases: SSO **2.10.3** ([bNtv3MPv](https://modrinth.com/mod/simple-smithing-overhaul/version/bNtv3MPv)), MapStitch **1.2.1** ([TyJwvZB9](https://modrinth.com/mod/mapstitch/version/TyJwvZB9)), Tool Pouch **1.2.0** ([LDL8NLQd](https://modrinth.com/mod/tool-pouch/version/LDL8NLQd)), Tiered Backpacks **1.0.21** ([Fh8qqxFD](https://modrinth.com/mod/tiered-backpacks/version/Fh8qqxFD)), Simple Death Improvements **1.7.0** ([axbdo6aY](https://modrinth.com/mod/simple-death-improvements/version/axbdo6aY)) and Sensible Stackables **3.1.2** ([aZbIVjYA](https://modrinth.com/mod/sensible-stackables/version/aZbIVjYA)). MiscTweaks 1.4.4 and Bannerpoint 1.1.2 are still the newest 26.3 releases. Each component keeps its previous lock and metadata under `upstream/history/<version>/` (Stackables: `developer-release/history/`); published-source trees are replaced in place and remain in git history.
+
+Chalk moves from the existing ChatGPT 26.3 port (3.2.1+26.3) to DaFuqs' official developer release **3.2.0+26.3** ([IfK88aD4](https://modrinth.com/mod/chalk/version/IfK88aD4)), recorded in `components/chalk/developer-release/` with the `26.3-fabric` source reference `c0e3a3c`. The comparison found no functional additions in the port: registry IDs, block states, items, recipes, tags and assets are identical apart from line endings. The only code difference is the destroy-effect hook; `chalk-compat` restores Chalk's own effect for hand-breaking without modifying the official JAR. The port's source stays in `components/chalk/upstream/` as a historical baseline. Chalk: Colorful Addon has no 26.3 developer release, so its metadata-only port advances to **2.1.1-port.2+26.3**, identical except for requiring official Chalk `=3.2.0+26.3`.
+
+Libraries move to Fabric API **0.165.2+26.3**, Fabric Language Kotlin **1.14.2+kotlin.2.4.21** and Polymer **0.18.7+26.3**; Fzzy Config, Mixson, Cloth Config, Mod Menu, CodecUI and ClientSort are unchanged. Sorted stays compile-only at 0.1.25; the runtime bridge now also admits 0.1.41+26.3. The separate SSO port remains paused and was neither built nor tested. Component versions and the audit are in [the release guide](RELEASE_1_5_0.md) and [AUDIT-2026-11-08.md](AUDIT-2026-11-08.md).
+
+## Historical 1.4.5 record
+
 The [2026-10-13 four-mod review](FOUR_MOD_QA_2026_10_13.md) starts with the previous released binaries and identifies a suite-owned HUD bounds defect. Suite 1.4.4 and its HUD component 1.0.11 contain the correction; the wheel, Blocktone and BRBR binaries remain unchanged. No original input, dependency, saved identity or compatibility track changes. Main-branch commits identify the fix and fresh QA/documentation; original release tags remain preserved.
 
 The previous **1.4.3+26.3** update adds suite-owned optional corrections for Sorted's above-backpack/below-inventory controls and recovery destination scan. Temporary backpack crafting inputs/output remain excluded even when a queued operation stops or its cursor stack changes unexpectedly. Original Sorted, Tiered Backpacks, Tool Pouch and all other developer binaries remain unchanged. Sorted stays optional and compile-only, never bundled. The full-frame candidate `321925c18ea28f2894821011c12904917ab0e5e3f44a2145eda01dfcc647bf80` passed build/archive, fresh native/Polymer server and independent-source checks. Final connected acceptance passed on that exact JAR, 3,772 declared assertions plus 16 recipe cases; placement-only preview and installation proof remain separately scoped in [the release guide](RELEASE_1_4_3.md). Earlier 1.4.3 candidate results are superseded. Executed capacity checks include 27 and 78 slots plus a real temporarily configured 117-slot backpack; disposable configuration is restored afterward.
@@ -54,38 +62,38 @@ The [2026-10-06 publisher audit](pajic-release-audit-2026-10-06.json) distinguis
 | --- | --- | --- | --- |
 | bannerpoint | 1.1.2 | `499823f5adf1dce27f62362b1674eb9f1b7f3d9d821dccfbf611e00bf8b5acc0` | Official developer Fabric 26.3 release [Vrns75Ns](https://modrinth.com/mod/bannerpoint/version/Vrns75Ns); exact source record components/bannerpoint/inputs.lock.json. |
 | amethyst_curse_cleanser | 1.0.1+26.3 | `5ec26e2a0010dfdee82aa5cb27664314150a4daa36deadc10f0c659f399507b6` | Existing local authored 26.3 mod; source snapshot components/amethyst-curse-cleanser/upstream |
-| chalk | 3.2.1+26.3 | `886b0b10cc12df65d47f446c2bd54c0c670f9a54fa09a1fe95c9ec46df565f49` | Existing ChatGPT Fabric 26.3 port of DaFuqs Chalk; source snapshot components/chalk/upstream; historical git dfb461ef9eb6f7bf5188570594c3bd21171c2391 |
-| chalk-colorful-addon | 2.1.1-port.1+26.3 | `69a2443250abd95100636194a145b5479d240151cd19bf4186766117d0710b34` | Existing metadata-only ChatGPT 26.3 port; original uploaded addon retained; source components/chalk-colorful/upstream |
+| chalk | 3.2.0+26.3 | `a7ed83c41c88d59011e0b22fd59ccb766cfb6cdc878ac6b392f517869b30392c` | Official DaFuqs developer Fabric 26.3 release [IfK88aD4](https://modrinth.com/mod/chalk/version/IfK88aD4); record components/chalk/developer-release/inputs.lock.json. Historical port 3.2.1+26.3 (`886b0b10…5f49`) remains in components/chalk/upstream. |
+| chalk-colorful-addon | 2.1.1-port.2+26.3 | `a38e00192419279e83924365483f9c657bcdd27ea1f652a554a6c063984c4bcc` | Unofficial metadata-only 26.3 port for official Chalk 3.2.0; original uploaded addon retained; source components/chalk-colorful/upstream |
 | codecui | 26.3-1.4.3 | `4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898` | Retained 26.3 CodecUI fork-family input, exact private build commit unrecorded; Extension API matches Pajic fork reference components/codecui-reference. Separate ChatGPT Access-based 26.3-port.1 artifact is not used. |
 | defaulted (compile-only historical compatibility) | 1.3.8+26.3.dropfix.1 | `e339d6f0eb471a4ac41185fb9dbe0cfaa78a290c6ceedf92a49ba9110f732c61` | Retained compile-only local dropfix modification; not installed at runtime by this release. Exact original hash 0f6efc6423902b83da78ce85a119c69536517b1a9af52ed7046858859ff582a0; source components/defaulted-dropfix |
-| fabric-language-kotlin | 1.14.1+kotlin.2.4.20 | `620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5` | Pinned existing runtime library, unchanged archive |
+| fabric-language-kotlin | 1.14.2+kotlin.2.4.21 | `fbdbf5286ab9d65fedb49e6e01c15e338ae303eb7b9d8c7423d0a9bcfe526ef9` | Official release [SKW1BTL3](https://modrinth.com/mod/fabric-language-kotlin/version/SKW1BTL3), unchanged archive |
 | fzzy_config | 0.7.7+fix3+26.3 | `3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a` | Byte-identical official public [Modrinth release YkOumqzV](https://modrinth.com/mod/fzzy-config/version/YkOumqzV), verified 2026-10-06; externally installed, never bundled; comparison in components/fzzy-config-reference/ |
-| mapstitch | 1.1.7 | `d7949f082d365fa4b71ce29b7fdce21ecec3f759ef9f9da9be34b880fc64b5e4` | Official developer Fabric 26.3 release [oDB5IJ7O](https://modrinth.com/mod/mapstitch/version/oDB5IJ7O); components/mapstitch/inputs.lock.json. All 90 Java classes match 1.1.6; published source changes only Russian translation. |
+| mapstitch | 1.2.1 | `ecb6f5eec2f6b3f83ac7665ff579a68275727fcd4cb680a81de6997ecc9919fc` | Official developer Fabric 26.3 release [TyJwvZB9](https://modrinth.com/mod/mapstitch/version/TyJwvZB9); components/mapstitch/inputs.lock.json. Adds atlas pins, centered minimap and atlas copy/merge. |
 | misctweaks | 1.4.4 | `97fe263764cb6b93822e13fe9423cf91c3a6a0169aeeb8734b65136cc9ea9647` | Official developer Fabric 26.3 release; components/misctweaks/inputs.lock.json |
 | mixson | 2.2.1 | `e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0` | Pinned existing runtime library, unchanged archive |
-| simple_death_improvements | 1.6.0 | `67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2` | Official developer Fabric 26.3 release; components/simple-death-improvements/inputs.lock.json |
-| simple_smithing_overhaul | 2.10.0 | `b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47` | Official public Fabric 26.3 release [k5NaPhrq](https://modrinth.com/mod/simple-smithing-overhaul/version/k5NaPhrq); historical private official 2.9.14 and public 26.2 baseline preserved separately. |
-| sensible_stackables | 3.1.1 | `bf750cbe40394caffe3fd7c9bc2b57985d4110c5cae51dc726f948b55a25598a` | Official public Fabric 26.3 release [oRpBICTz](https://modrinth.com/mod/sensible-stackables/version/oRpBICTz); exact published source/binary records under components/sensible-stackables/developer-release/. |
-| tiered_backpacks | 1.0.20 | `b129b9b61ec1da62842dc2dfa5b166a6df8e91c796666dcee70f7b8acf1ecc33` | Official developer Fabric 26.3 release 1.0.20; components/tiered-backpacks/inputs.lock.json |
-| toolpouch | 1.1.10 | `a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903` | Official developer Fabric 26.3 release; components/toolpouch/inputs.lock.json |
-| compile-only Kotlin stdlib | 2.4.20 | `078594f80e214438a35454e3f16f890a68dba6a607aa2c83014065344d13308a` | Compile-only unchanged META-INF/jars/kotlin-stdlib-2.4.20.jar extracted from pinned Fabric Language Kotlin archive |
+| simple_death_improvements | 1.7.0 | `52cd6ad2f6b9d9dff481e7a4102cdd9b0282b21fe4853a6ed7bdc816411b5f6d` | Official developer Fabric 26.3 release [axbdo6aY](https://modrinth.com/mod/simple-death-improvements/version/axbdo6aY); components/simple-death-improvements/inputs.lock.json |
+| simple_smithing_overhaul | 2.10.3 | `f7301e59a26327632aa6d03c029429ffc9822750b88218e26dfe3753b1d3217a` | Official public Fabric 26.3 release [bNtv3MPv](https://modrinth.com/mod/simple-smithing-overhaul/version/bNtv3MPv); previous 2.10.0, private official 2.9.14 and public 26.2 baselines preserved separately. |
+| sensible_stackables | 3.1.2 | `6d4073c9da88c19e530238b840a8645fe2e1378c2c9c018f106d2abc3b3d56c3` | Official public Fabric 26.3 release [aZbIVjYA](https://modrinth.com/mod/sensible-stackables/version/aZbIVjYA); exact published source/binary records under components/sensible-stackables/developer-release/. |
+| tiered_backpacks | 1.0.21 | `23bbe0221d9a8ffa6145bc37155340ab6b8ebe6da14bc7a36d097b4fcd322b5c` | Official developer Fabric 26.3 release [Fh8qqxFD](https://modrinth.com/mod/tiered-backpacks/version/Fh8qqxFD); components/tiered-backpacks/inputs.lock.json |
+| toolpouch | 1.2.0 | `fcc2f984c910c4002f9936bb5dcd2ee4f6a065b0bfee5d814325c425d0a9a1e1` | Official developer Fabric 26.3 release [LDL8NLQd](https://modrinth.com/mod/tool-pouch/version/LDL8NLQd); components/toolpouch/inputs.lock.json |
+| compile-only Kotlin stdlib | 2.4.21 | `efd646cae9ac0d11f5f24a65310b5d421747073b1fbd6b59ab12f5c4234d8d3e` | Compile-only unchanged META-INF/jars/kotlin-stdlib-2.4.21.jar extracted from pinned Fabric Language Kotlin archive |
 
 ## Modified suite components
 
-Current component versions in suite **1.4.5+26.3** are listed below; historical standalone origins remain separate.
+Current component versions in suite **1.5.0+26.3** are listed below; historical standalone origins remain separate.
 
 | Component | Component version | Baseline / record |
 | --- | --- | --- |
-| Combined compatibility | 1.4.3+26.3 | Original standalone Multi-Shim 1.0.5+26.3; components/combined-compat/ORIGIN.json |
-| Chalk compatibility | 1.1.1-suite.1+26.3 | Original standalone Chalk shim 1.1.0+26.3; components/chalk-compat/ORIGIN.json |
-| Shared Region Maps | 1.0.5-combo.1+mc26.3 | Original local 1.0.3, commit 338270a70c14be19ba79b535b40fac980e414470; components/shared-region-maps/upstream-manifest.json |
-| Tool Pouch atlas/Elytra addon | 1.0.12+26.3 | Original local 1.0.4; components/toolpouch-atlas-elytra/upstream-manifest.json |
-| Mixed-scale MapStitch addon | 1.1.12+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
+| Combined compatibility | 1.5.0+26.3 | Original standalone Multi-Shim 1.0.5+26.3; components/combined-compat/ORIGIN.json |
+| Chalk compatibility | 1.2.0-suite.1+26.3 | Original standalone Chalk shim 1.1.0+26.3; components/chalk-compat/ORIGIN.json |
+| Shared Region Maps | 1.0.6-combo.1+mc26.3 | Original local 1.0.3, commit 338270a70c14be19ba79b535b40fac980e414470; components/shared-region-maps/upstream-manifest.json |
+| Tool Pouch atlas/Elytra addon | 1.1.0+26.3 | Original local 1.0.4; components/toolpouch-atlas-elytra/upstream-manifest.json |
+| Mixed-scale MapStitch addon | 1.2.0+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
 | Sensible Stackables historical port (not nested) | 3.0.3-port.1+26.3 | Preserved published 3.0.3+26.2 baseline and independent port source/dependency records in components/sensible-stackables/ |
-| Sensible Stackables Polymer compatibility | 1.0.3+26.3 | Separate components/sensible-stackables/compat module |
-| Bannerpoint compatibility | 1.0.1+26.3 | Separate components/bannerpoint-compat module; original artwork notices and client/pack detection retained. Reconciles map-linked tracking after multiscale atlas edits through the internal addon event. |
-| Backpack Crafting addon | 1.0.3+26.3 | Separate components/backpack-crafting module; temporary crafting, BRBR/Sorted adapters and storage-slot recovery guards. |
-| Suite root / settings | 1.4.5+26.3 | Newly authored source in src/ |
+| Sensible Stackables Polymer compatibility | 1.0.4+26.3 | Separate components/sensible-stackables/compat module |
+| Bannerpoint compatibility | 1.0.2+26.3 | Separate components/bannerpoint-compat module; original artwork notices and client/pack detection retained. Reconciles map-linked tracking after multiscale atlas edits through the internal addon event. |
+| Backpack Crafting addon | 1.1.0+26.3 | Separate components/backpack-crafting module; temporary crafting, BRBR/Sorted adapters and storage-slot recovery guards. |
+| Suite root / settings | 1.5.0+26.3 | Newly authored source in src/ |
 
 The archive retains original feature module IDs and embeds each module separately. The authored root ID is `vpp_mod_suite` from 1.2.1 onward. Original standalone repositories and versioned releases remain available; the suite variants do not overwrite them.
 
@@ -101,7 +109,7 @@ The separately named ChatGPT SSO **2.9.14-port.1+26.3** project, its companion p
 
 ## Chalk track separation
 
-The suite uses the exact local Chalk 3.2.1+26.3 port and colorful-addon 2.1.1-port.1+26.3 input. Its new compatibility variants are compiled and tested for those inputs only. Historical original Chalk 3.2.0+26.2, original colorful-addon 2.1.1+1.19.3 and standalone shim 1.1.0+26.2 remain in their existing source/release track. This suite does not modify or newly verify that 26.2 installation. Sensible Stackables now uses its official 26.3 developer release; its previous 26.3 port and untouched 26.2 baseline remain historical, separately identifiable tracks. The other Pajic modules have no separately maintained ChatGPT port in this suite; no unsolicited port is invented.
+From 1.5.0 the suite uses official Chalk 3.2.0+26.3 and colorful-addon 2.1.1-port.2+26.3; its compatibility variant is compiled and tested for those inputs. Suites 1.1–1.4.5 used the local Chalk 3.2.1+26.3 port with colorful-addon 2.1.1-port.1+26.3; those records stay with their releases. Historical original Chalk 3.2.0+26.2, original colorful-addon 2.1.1+1.19.3 and standalone shim 1.1.0+26.2 remain in their existing source/release track. This suite does not modify or newly verify that 26.2 installation. Sensible Stackables now uses its official 26.3 developer release; its previous 26.3 port and untouched 26.2 baseline remain historical, separately identifiable tracks. The other Pajic modules have no separately maintained ChatGPT port in this suite; no unsolicited port is invented.
 
 ## Validation authority
 

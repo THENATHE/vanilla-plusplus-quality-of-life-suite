@@ -65,8 +65,10 @@ def main():
     optional_client = []
     if args.layout_sorted or args.with_sorted or args.rules_sorted:
         if not args.sorted.is_file(): parser.error('Sorted original JAR does not exist: ' + str(args.sorted))
-        yacl = next((Path.home() / '.gradle/caches/modules-2/files-2.1/maven.modrinth/yacl/3.9.7+26.3-fabric').rglob('yacl-3.9.7+26.3-fabric.jar'))
-        optional_client = [args.sorted.resolve(), yacl]
+        # Sorted 0.1.41 bundles its own libraries; only the 0.1.25/0.1.26 builds need YACL.
+        yacl = next((Path.home() / '.gradle/caches/modules-2/files-2.1/maven.modrinth/yacl/3.9.7+26.3-fabric').rglob('yacl-3.9.7+26.3-fabric.jar'), None)
+        if yacl is None and '0.1.2' in args.sorted.name: parser.error('Sorted 0.1.25/0.1.26 needs the cached YACL 3.9.7 JAR')
+        optional_client = [args.sorted.resolve()] + ([yacl] if yacl and '0.1.2' in args.sorted.name else [])
     server_audit, client_audit = launch.audits()
     paths = launch.cp(server_audit['command']) + launch.cp(client_audit['command']) + list(map(str, [suite, *dependencies, polymer]))
     paths += [str(launch.artifact('io.github.llamalad7', 'mixinextras-fabric', '0.5.5'))]

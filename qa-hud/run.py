@@ -34,7 +34,7 @@ def main():
         with zipfile.ZipFile(fixtures/f'{side}.jar','w') as z:
             meta={'schemaVersion':1,'id':'suite_hud_qa_'+side,'version':'1','environment':side,'entrypoints':{'client' if side=='client' else 'main':['suitehudqa.Hud'+side.title()+'Qa']},'depends':{'fabric-api':'*','vpp_mod_suite':'*'}}
             if side=='client':
-                meta['mixins']=['suite-hud-qa.mixins.json'];z.writestr('suite-hud-qa.mixins.json',json.dumps({'required':True,'package':'suitehudqa.mixin','compatibilityLevel':'JAVA_25','client':['InfoTraceMixin','MapTraceMixin','GraphicsTraceMixin','RenderStateTraceMixin'],'injectors':{'defaultRequire':1}}))
+                meta['mixins']=['suite-hud-qa.mixins.json'];z.writestr('suite-hud-qa.mixins.json',json.dumps({'required':True,'package':'suitehudqa.mixin','compatibilityLevel':'JAVA_25','client':['InfoTraceMixin','MapTraceMixin','GraphicsTraceMixin','RenderStateTraceMixin','DecorationTraceMixin'],'injectors':{'defaultRequire':1}}))
             z.writestr('fabric.mod.json',json.dumps(meta))
             for file in classes.rglob('*.class'):z.write(file,file.relative_to(classes))
     if args.prepare_only:
