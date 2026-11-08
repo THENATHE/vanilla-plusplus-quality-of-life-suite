@@ -33,10 +33,12 @@ public abstract class LivingEntityMixin extends Entity {
 	}
 
 	@Shadow protected abstract void updateUsingItem(ItemStack useItem);
+	@Shadow public abstract boolean isUsingItem();
 
     @WrapMethod(method = "updatingUsingItem")
     private void useSpyglassFromToolPouch(Operation<Void> original) {
-        if (ClientUtil.shouldScope) {
+        LivingEntity self = (LivingEntity) (Object) this;
+        if (ClientUtil.shouldScope && !isUsingItem() && self instanceof Player p && p.isLocalPlayer()) {
             updateUsingItem(new ItemStack(Items.SPYGLASS));
         }
         else original.call();
@@ -53,9 +55,9 @@ public abstract class LivingEntityMixin extends Entity {
 	private void useElytraFromToolPouch(CallbackInfo ci) {
 		if (
 				(LivingEntity) (Object) this instanceof Player player &&
-				ToolPouchUtil.toolPouchHasItem(player, stack -> ItemStackTemplateUtil.has(stack, DataComponents.GLIDER))
+				ToolPouchUtil.getElytraFromToolPouch(player, false) != null
 		) {
-			ToolPouchUtil.updateElytraInToolPouch(player);
+			ToolPouchUtil.damageElytraInToolPouch(player);
 			gameEvent(GameEvent.ELYTRA_GLIDE);
 			ci.cancel();
 		}
@@ -94,8 +96,8 @@ public abstract class LivingEntityMixin extends Entity {
 			);
 			if (!totems.isEmpty()) {
 				ItemStackTemplate totem = totems.getFirst();
-				ToolPouchUtil.removeItemFromToolPouch(player, totem.item().value(), 1);
-				return totems.getFirst().create();
+				ToolPouchUtil.removeItemFromToolPouch(player, totem, 1);
+				return totem.create();
 			}
 		}
 		return original;

@@ -2,6 +2,8 @@ package me.pajic.toolpouch.util;
 
 import it.unimi.dsi.fastutil.objects.ObjectBooleanImmutablePair;
 import me.pajic.toolpouch.ToolPouch;
+import me.pajic.toolpouch.component.ModDataComponents;
+import me.pajic.toolpouch.item.ModItems;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -13,6 +15,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.ProjectileWeaponItem;
+import net.minecraft.world.item.component.DyedItemColor;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.GameType;
 
@@ -29,6 +32,17 @@ public class GameplayUtil {
 
 	public static boolean isLeggingsWithPouchAttached(ItemStack stack) {
 		return stack.is(ItemTags.LEG_ARMOR) && stack.has(DataComponents.CONTAINER);
+	}
+
+	public static ItemStack detachToolPouch(ItemStack leggings) {
+		ItemStack toolPouch = leggings.getOrDefault(ModDataComponents.IS_NETHERITE_POUCH, false) ?
+				new ItemStack(ModItems.NETHERITE_TOOL_POUCH) :
+				new ItemStack(ModItems.TOOL_POUCH);
+		toolPouch.set(DataComponents.CONTAINER, leggings.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
+		toolPouch.set(ModDataComponents.DISABLED_SLOTS, leggings.get(ModDataComponents.DISABLED_SLOTS));
+		DyedItemColor dye = leggings.get(ModDataComponents.STORED_TOOL_POUCH_DYE);
+		if (dye != null) toolPouch.set(DataComponents.DYED_COLOR, dye);
+		return toolPouch;
 	}
 
 	public static boolean isHoldingProjectileWeapon(Player player) {
@@ -49,7 +63,7 @@ public class GameplayUtil {
 	public static boolean canUnequipToolPouch(Player player, ItemStack backpack) {
 		GameType mode = player.gameMode();
 		if (mode != null && mode.isSurvival() && ToolPouch.CONFIG.preventUnequipWhenNotEmpty.get() && isValidContainerHolder(backpack)) {
-			return backpack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY) == ItemContainerContents.EMPTY;
+			return backpack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY).nonEmptyItemsStream().findAny().isEmpty();
 		}
 		return true;
 	}

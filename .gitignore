@@ -13,3 +13,4 @@ libs/
 **/*.jar
 !**/gradle/wrapper/gradle-wrapper.jar
 **/upstream/*.zip
+**/developer-release/artifacts/*.zip

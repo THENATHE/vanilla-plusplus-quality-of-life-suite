@@ -2,15 +2,12 @@ package me.pajic.toolpouch.recipe;
 
 import com.mojang.serialization.MapCodec;
 import me.pajic.toolpouch.component.ModDataComponents;
-import me.pajic.toolpouch.item.ModItems;
 import me.pajic.toolpouch.util.GameplayUtil;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.DyedItemColor;
-import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -32,17 +29,8 @@ public class DetachToolPouchRecipe extends CustomRecipe {
 
 	@Override
 	public @NotNull ItemStack assemble(CraftingInput inputStacks) {
-		ItemStack toolPouch = ItemStack.EMPTY;
 		ItemStack input = inputStacks.getItem(0);
-		if (GameplayUtil.isLeggingsWithPouchAttached(input)) {
-			toolPouch = input.getOrDefault(ModDataComponents.IS_NETHERITE_POUCH, false) ?
-					new ItemStack(ModItems.NETHERITE_TOOL_POUCH) :
-					new ItemStack(ModItems.TOOL_POUCH);
-			toolPouch.set(DataComponents.CONTAINER, input.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
-			DyedItemColor dye = input.get(ModDataComponents.STORED_TOOL_POUCH_DYE);
-			if (dye != null) toolPouch.set(DataComponents.DYED_COLOR, dye);
-		}
-		return toolPouch;
+		return GameplayUtil.isLeggingsWithPouchAttached(input) ? GameplayUtil.detachToolPouch(input) : ItemStack.EMPTY;
 	}
 
 	@Override
@@ -54,6 +42,8 @@ public class DetachToolPouchRecipe extends CustomRecipe {
 				ItemStack leggings = input.copy();
 				leggings.remove(DataComponents.CONTAINER);
 				leggings.remove(ModDataComponents.STORED_TOOL_POUCH_DYE);
+				leggings.remove(ModDataComponents.IS_NETHERITE_POUCH);
+				leggings.remove(ModDataComponents.DISABLED_SLOTS);
 				nonNullList.set(i, leggings);
 			}
 		}

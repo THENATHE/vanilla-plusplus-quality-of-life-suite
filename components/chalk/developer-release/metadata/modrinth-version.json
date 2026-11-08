@@ -1,0 +1,37 @@
+{
+  "game_versions": [
+    "26.3"
+  ],
+  "loaders": [
+    "fabric"
+  ],
+  "environment": "client_and_server",
+  "id": "IfK88aD4",
+  "project_id": "OrtjXTCH",
+  "author_id": "CTsNUReQ",
+  "featured": false,
+  "name": "Chalk (Fabric) 3.2.0+26.3",
+  "version_number": "3.2.0+26.3",
+  "changelog": "",
+  "changelog_url": null,
+  "date_published": "2026-10-22T04:53:57.603358Z",
+  "downloads": 845,
+  "version_type": "release",
+  "status": "listed",
+  "requested_status": null,
+  "files": [
+    {
+      "id": "DnUtSE3e",
+      "hashes": {
+        "sha512": "e9fe5e7c1c60566e6aa8253f2e6ad67ca14c72a0a00e1dbe451490880ce6d9c5d1189b9b8ce4d9b181ae8c26f4515e0e32eb996200be7105650b67cf06f4644f",
+        "sha1": "250795833c9763118841c59acb8b861b9b1eba6b"
+      },
+      "url": "https://cdn.modrinth.com/data/OrtjXTCH/versions/IfK88aD4/chalk-3.2.0%2B26.3.jar",
+      "filename": "chalk-3.2.0+26.3.jar",
+      "primary": true,
+      "size": 205779,
+      "file_type": null
+    }
+  ],
+  "dependencies": []
+}

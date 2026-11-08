@@ -1,1 +1,12 @@
-- Fixed LambDynamicLights and Shulker Box Tooltip compatibility.
+- Added slot toggle keys: 
+  - Hover over a slot in the tool pouch and press the Bind slot toggle key (B by default), then press any key to bind it to that slot. 
+  - Pressing the bound key at any time enables or disables the tool pouch functionality of the item in that slot.
+  - Disabled slots are highlighted in red.
+- Fixed several item duplication exploits involving shulker boxes, totems and elytras in the tool pouch.
+- Picked up arrows are no longer deleted when the tool pouch is full or when in creative mode.
+- Attaching a tool pouch to leggings that already have a tool pouch attached is no longer allowed.
+- Items from the tool pouch that would be deleted after reducing its size in the config are now given back instead.
+- Fixed stat bonuses of items in the tool pouch staying on the player permanently.
+- Fixed a few visual and functional issues with tool pouch spyglasses.
+- Fixed various smaller issues with elytras, arrow selection, fireworks, the detach recipe, and reduced debug info.
+- Fixed a Netherite Tool Pouch attached to leggings having the size of a regular tool pouch.

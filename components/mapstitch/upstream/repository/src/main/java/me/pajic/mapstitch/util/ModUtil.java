@@ -3,7 +3,7 @@ package me.pajic.mapstitch.util;
 import me.pajic.mapstitch.MapStitch;
 import me.pajic.mapstitch.enchantment.ModEnchantments;
 import me.pajic.mapstitch.extension.MapItemSavedDataExtension;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.protocol.Packet;
@@ -17,12 +17,12 @@ import net.minecraft.world.item.component.BundleContents;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.saveddata.maps.MapId;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.EmptyLootItem;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetEnchantmentsFunction;
+import org.joml.Vector2i;
 
 //? <26.3 {
 /*import net.minecraft.world.level.saveddata.maps.MapDecoration;
@@ -45,7 +45,15 @@ public class ModUtil {
         if (packet != null) player.connection.send(packet);
     }
 
-    public static LootPool.Builder getGlobetrotterLootPool(HolderLookup.Provider registry) {
+    public static Vector2i alignMapCenter(Vector2i center, int scale) {
+        int size = 128 << scale;
+        return new Vector2i(
+                Math.floorDiv(center.x + 64, size) * size + size / 2 - 64,
+                Math.floorDiv(center.y + 64, size) * size + size / 2 - 64
+        );
+    }
+
+    public static LootPool.Builder getGlobetrotterLootPool(HolderGetter.Provider registry) {
         return MapStitch.CONFIG.globetrotter.enabled.get() ? LootPool.lootPool()
                 .add(LootItem.lootTableItem(Items.BOOK).setWeight(MapStitch.CONFIG.globetrotter.chance.get())
                         .apply(new SetEnchantmentsFunction.Builder().withEnchantment(
@@ -56,10 +64,7 @@ public class ModUtil {
     }
 
     public static boolean isGlobetrotterLootTable(ResourceKey<LootTable> key) {
-        Identifier id = key.identifier();
-        return id.equals(BuiltInLootTables.STRONGHOLD_LIBRARY.identifier()) ||
-                // d&t stronghold overhaul library pool
-                id.equals(ResourceKey.create(Registries.LOOT_TABLE, Identifier.withDefaultNamespace("chests/stronghold/library_bookshelf")).identifier());
+        return MapStitch.CONFIG.globetrotter.lootTables.get().contains(key.identifier());
     }
 
     public static boolean isExplorationMap(ItemStack map, Level level) {

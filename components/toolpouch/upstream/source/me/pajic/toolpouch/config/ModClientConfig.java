@@ -3,14 +3,18 @@ package me.pajic.toolpouch.config;
 import me.fzzyhmstrs.fzzy_config.annotations.Version;
 import me.fzzyhmstrs.fzzy_config.config.Config;
 import me.fzzyhmstrs.fzzy_config.config.ConfigSection;
+import me.fzzyhmstrs.fzzy_config.validation.collection.ValidatedMap;
 import me.fzzyhmstrs.fzzy_config.validation.misc.ValidatedBoolean;
 import me.fzzyhmstrs.fzzy_config.validation.misc.ValidatedColor;
 import me.fzzyhmstrs.fzzy_config.validation.misc.ValidatedEnum;
+import me.fzzyhmstrs.fzzy_config.validation.misc.ValidatedString;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedFloat;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedInt;
 import me.pajic.toolpouch.ToolPouch;
 import me.pajic.toolpouch.hud.MinimapBackground;
 import me.pajic.toolpouch.hud.OverlayPosition;
+
+import java.util.Map;
 
 @Version(version = 1)
 public class ModClientConfig extends Config {
@@ -25,6 +29,9 @@ public class ModClientConfig extends Config {
 	public ValidatedBoolean quickSelect = new ValidatedBoolean(true);
 	public ValidatedBoolean scrollableZoom = new ValidatedBoolean(true);
 	public ValidatedBoolean rememberZoomLevel = new ValidatedBoolean(true);
+	public ValidatedMap<Integer, String> slotToggleKeys = new ValidatedMap<>(
+            Map.of(), new ValidatedInt(0, 255, 0), new ValidatedString()
+    );
 
 	public static class InfoOverlayClientSettings extends ConfigSection {
 		public ValidatedEnum<OverlayPosition> position = new ValidatedEnum<>(OverlayPosition.TOP_LEFT);

@@ -8,6 +8,7 @@ import me.fzzyhmstrs.fzzy_config.validation.misc.ValidatedEnum;
 import me.fzzyhmstrs.fzzy_config.validation.number.ValidatedInt;
 import me.pajic.mapstitch.MapStitch;
 import me.pajic.mapstitch.minimap.MinimapBackground;
+import me.pajic.mapstitch.minimap.MinimapMode;
 import me.pajic.mapstitch.minimap.MinimapPosition;
 import me.pajic.mapstitch.worldmap.TextHighlightColor;
 
@@ -21,9 +22,12 @@ public class ModClientConfig extends Config {
     public Minimap minimap = new Minimap();
     public WorldMap worldMap = new WorldMap();
     public MinimapInfo minimapInfo = new MinimapInfo();
+    public PlayerMarkers playerMarkers = new PlayerMarkers();
     public Sounds sounds = new Sounds();
 
     public static class Minimap extends ConfigSection {
+        public ValidatedEnum<MinimapMode> mode = new ValidatedEnum<>(MinimapMode.CENTERED);
+        public ValidatedBoolean lockMarkerNorth = new ValidatedBoolean(false);
         public ValidatedEnum<MinimapPosition> position = new ValidatedEnum<>(MinimapPosition.TOP_RIGHT);
         public ValidatedInt size = new ValidatedInt(19, 39, 1);
         public ValidatedEnum<MinimapBackground> background = new ValidatedEnum<>(MinimapBackground.CLEAR);
@@ -36,6 +40,7 @@ public class ModClientConfig extends Config {
     public static class WorldMap extends ConfigSection {
         public ValidatedEnum<TextHighlightColor> textHighlightColor = new ValidatedEnum<>(TextHighlightColor.YELLOW);
         public ValidatedInt textBackgroundOpacity = new ValidatedInt(50, 100, 0);
+        public ValidatedBoolean checkerboard = new ValidatedBoolean();
         public ValidatedBoolean buttons = new ValidatedBoolean();
         public ValidatedBoolean help = new ValidatedBoolean();
     }
@@ -47,6 +52,11 @@ public class ModClientConfig extends Config {
         public ValidatedBoolean coordinates = new ValidatedBoolean(false);
         public ValidatedBoolean biome = new ValidatedBoolean(false);
         public ValidatedBoolean weather = new ValidatedBoolean(false);
+    }
+
+    public static class PlayerMarkers extends ConfigSection {
+        public ValidatedBoolean colorOwn = new ValidatedBoolean(true);
+        public ValidatedBoolean colorOthers = new ValidatedBoolean(true);
     }
 
     public static class Sounds extends ConfigSection {

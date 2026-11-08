@@ -2,6 +2,8 @@ package me.pajic.mapstitch.networking;
 
 import me.pajic.mapstitch.MapStitchClient;
 import me.pajic.mapstitch.networking.payload.S2CDimensionIds;
+import me.pajic.mapstitch.networking.payload.S2CSyncPins;
+import me.pajic.mapstitch.pin.ClientPins;
 import me.pajic.mapstitch.worldmap.WorldMapScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Holder;
@@ -26,11 +28,15 @@ public class ClientNetworkEvents {
         WorldMapScreen.clearMaps();
     }
 
+    @SuppressWarnings("deprecation")
     public static void playSound(Player player, Holder<SoundEvent> sound) {
-        //noinspection deprecation
         if (sound.is(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT))) {
             if (MapStitchClient.CONFIG.sounds.atlasMapCreation.get()) player.playSound(sound.value());
         }
         else player.playSound(sound.value());
+    }
+
+    public static void syncPins(S2CSyncPins payload) {
+        ClientPins.set(payload.pins());
     }
 }

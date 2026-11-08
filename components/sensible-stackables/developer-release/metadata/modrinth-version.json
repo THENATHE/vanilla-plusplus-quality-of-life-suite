@@ -6,42 +6,42 @@
     "fabric"
   ],
   "environment": "client_and_server",
-  "id": "oRpBICTz",
+  "id": "aZbIVjYA",
   "project_id": "5lQcMjaC",
   "author_id": "Kg6RZEfM",
   "featured": false,
-  "name": "3.1.1 for Fabric 26.3",
-  "version_number": "3.1.1+26.3",
-  "changelog": "3.1.0:\n\n- Added Fabric 26.3 version.\n- Defaulted is no longer required.\n  - The mod no longer patches item components to change stack sizes, it now keeps track of stack sizes on its own and intercepts stack size calls instead.\n  - Configuration is unchanged, item tags are still supported in the config, and stack size changes are still synced to clients.\n  - Changing stack sizes in the config in-game now applies changes immediately and doesn't require a datapack reload.\n  - Mod compatibility should remain the same, please report any issues if you run into them.\n- Mixson is no longer required.\n  - It can still be installed for the \"All blocks\" and \"Minecarts\" dynamic item tags.\n- Added cushions to the default configuration, increasing their stack size from 16 to 64.\n\n3.1.1:\n\n- Fixed stack sizes not clearing properly on config update.\n",
+  "name": "3.1.2 for Fabric 26.3",
+  "version_number": "3.1.2+26.3",
+  "changelog": "- Added NeoForge 26.3 version.\n- Fixed stack sizes not applying to items inside shulker boxes and bundles (26.1+).\n- Fixed crafting producing nothing when an item's stack size is set lower than the recipe output count (26.1+).\n- Damageable items (tools, armor, etc.) are now skipped when listed in the config, since vanilla doesn't allow them to stack.\n- Fixed furnaces deleting buckets when burning stacked lava buckets. Fuel that leaves an item behind can now only be placed one at a time.\n- Fixed stack sizes not updating on NeoForge after `/reload`, and not being applied on dedicated servers until the first player joined.\n- Invalid item or tag IDs in the config are now skipped with a warning instead of crashing the server.\n- Fixed the durability bar and cooldown overlay being misplaced on stacks with 100+ items (1.21.1).\n- Fixed the splash potion cooldown not applying when throwing the last potion in a stack.\n- \"Common stack size\" values above 99 are now capped at 99 when \"Uncap stack size\" is disabled, instead of being ignored.\n- Fixed a possible crash when another mod displays non-numeric item count text.\n- Fixed a rare issue where stack sizes could briefly reset while being updated.\n",
   "changelog_url": null,
-  "date_published": "2026-10-05T19:10:18.526267Z",
-  "downloads": 90,
+  "date_published": "2026-10-24T22:10:01.116673Z",
+  "downloads": 883,
   "version_type": "release",
   "status": "listed",
   "requested_status": null,
   "files": [
     {
-      "id": "fxg28ArH",
+      "id": "z9lShe34",
       "hashes": {
-        "sha512": "13138e9ac50ef58cc5a720d3c1f82934f8149f172307a03ee1719fd30ef7df794b317c3795c15508946823bf04dabda9f823f1b4c9f6f0fe36749cfb66b60fd3",
-        "sha1": "08a61e9e83ac3eaaf1c1390b237cbbdf296a3f4f"
+        "sha1": "490a567241c016effb8b53b43b25722de118a467",
+        "sha512": "9c939c078de4c438318ebbf01c384046ebfc829509fe81558b4b802e06ecb5f6423701edd4d202f1ffe1681cd5019cd7b8cbcb9092fadfb0b05572c41585215b"
       },
-      "url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/oRpBICTz/sensible_stackables-fabric-3.1.1%2B26.3.jar",
-      "filename": "sensible_stackables-fabric-3.1.1+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/aZbIVjYA/sensible_stackables-fabric-3.1.2%2B26.3.jar",
+      "filename": "sensible_stackables-fabric-3.1.2+26.3.jar",
       "primary": true,
-      "size": 64323,
+      "size": 68429,
       "file_type": null
     },
     {
-      "id": "2jmnK9St",
+      "id": "nSgWdsFE",
       "hashes": {
-        "sha512": "1498170406f8b141c95aa33322d9e539e7a20ed1d70580bdc284e2c5458b1acec55c7909f0ab0bfeba5bd4857f268ea37e0f921cbe2907ff18068bf6d517560c",
-        "sha1": "176862a264017f87ba396ee484e0aef76310985c"
+        "sha1": "bb0a96c7af10dbeef4fb8ef2628ee9d33000136d",
+        "sha512": "773990a34724b5f68eb50401fa7bbb61262328100c0ec2be191d63c3f0baa5fe3ef0084570d2ed01f944f1304215b7fd3dc69aab8cd6b44bc6a27f8a73a2e2ec"
       },
-      "url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/oRpBICTz/sensible_stackables-fabric-3.1.1%2B26.3-sources.jar",
-      "filename": "sensible_stackables-fabric-3.1.1+26.3-sources.jar",
+      "url": "https://cdn.modrinth.com/data/5lQcMjaC/versions/aZbIVjYA/sensible_stackables-fabric-3.1.2%2B26.3-sources.jar",
+      "filename": "sensible_stackables-fabric-3.1.2+26.3-sources.jar",
       "primary": false,
-      "size": 48384,
+      "size": 51536,
       "file_type": null
     }
   ],

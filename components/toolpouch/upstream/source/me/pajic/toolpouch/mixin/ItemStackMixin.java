@@ -1,20 +1,20 @@
 package me.pajic.toolpouch.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.Share;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import me.pajic.toolpouch.ToolPouch;
-import me.pajic.toolpouch.component.ModDataComponents;
-import me.pajic.toolpouch.item.ModItems;
 import me.pajic.toolpouch.util.GameplayUtil;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.DyedItemColor;
-import net.minecraft.world.item.component.ItemContainerContents;
 import org.jspecify.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -26,8 +26,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.List;
 import java.util.function.Consumer;
 
-//? neoforge
-//import net.minecraft.world.entity.LivingEntity;
 
 @Mixin(ItemStack.class)
 public abstract class ItemStackMixin {
@@ -69,15 +67,22 @@ public abstract class ItemStackMixin {
 	) {
 		ItemStack savedStack = stackRef.get();
 		if (isEmpty() && GameplayUtil.isLeggingsWithPouchAttached(savedStack) && player != null) {
-			ItemStack toolPouch = savedStack.getOrDefault(ModDataComponents.IS_NETHERITE_POUCH, false) ?
-					new ItemStack(ModItems.NETHERITE_TOOL_POUCH) :
-					new ItemStack(ModItems.TOOL_POUCH);
-			toolPouch.set(DataComponents.CONTAINER, savedStack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
-			DyedItemColor dye = savedStack.get(ModDataComponents.STORED_TOOL_POUCH_DYE);
-			if (dye != null) toolPouch.set(DataComponents.DYED_COLOR, dye);
-			/*? fabric {*/player/*?} else {*//*if (player instanceof ServerPlayer sp) sp*//*?}*/.addItem(toolPouch);
+			ItemStack toolPouch = GameplayUtil.detachToolPouch(savedStack);
+			/*? fabric {*/if (!player.addItem(toolPouch) && player.level() instanceof ServerLevel serverLevel)/*?} else {*//*if (!(player instanceof ServerPlayer sp && sp.addItem(toolPouch)) && player.level() instanceof ServerLevel serverLevel)*//*?}*/
+				player.spawnAtLocation(serverLevel, toolPouch);
 		}
 	}
+
+	//? fabric {
+	@WrapMethod(method = "hurtAndBreak(ILnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/EquipmentSlot;)V")
+	private void detachToolPouchOnMobBreak(int amount, LivingEntity owner, EquipmentSlot slot, Operation<Void> original) {
+		ItemStack savedStack = GameplayUtil.isLeggingsWithPouchAttached((ItemStack) (Object) this) ? copy() : ItemStack.EMPTY;
+		original.call(amount, owner, slot);
+		if (!savedStack.isEmpty() && isEmpty() && !(owner instanceof ServerPlayer) && owner.level() instanceof ServerLevel serverLevel) {
+			owner.spawnAtLocation(serverLevel, GameplayUtil.detachToolPouch(savedStack));
+		}
+	}
+	//?}
 
 	@Inject(
 			method = "getTooltipLines",

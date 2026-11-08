@@ -139,5 +139,18 @@ public class ModPayloads {
 		}
 	}
 
+	public record C2SToggleSlotPayload(int slot) implements CustomPacketPayload {
+		public static final Type<C2SToggleSlotPayload> TYPE = new Type<>(NetworkConstants.TOGGLE_SLOT);
+		public static final StreamCodec<RegistryFriendlyByteBuf, C2SToggleSlotPayload> CODEC = StreamCodec.composite(
+				ByteBufCodecs.INT, C2SToggleSlotPayload::slot,
+				C2SToggleSlotPayload::new
+		);
+
+		@Override
+		public @NotNull Type<? extends CustomPacketPayload> type() {
+			return TYPE;
+		}
+	}
+
 	public static void init() {}
 }

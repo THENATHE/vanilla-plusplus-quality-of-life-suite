@@ -16,7 +16,7 @@ def main():
     metadata = json.loads((SOURCE / 'fabric.mod.json').read_text())
     assert metadata['id'] == 'chalk-colorful-addon'
     assert metadata['depends']['minecraft'] == '26.3'
-    assert metadata['depends']['chalk'] == '=3.2.1+26.3'
+    assert metadata['depends']['chalk'] == '=3.2.0+26.3'
     assert not metadata['entrypoints'] and not metadata['mixins']
     files = {str(p.relative_to(SOURCE)): p.read_bytes() for p in sorted(SOURCE.rglob('*')) if p.is_file()}
     with ZipFile(ORIGINAL) as original:

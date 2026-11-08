@@ -2,24 +2,25 @@
   "component": "toolpouch",
   "track": "developer-release",
   "mod_id": "toolpouch",
-  "artifact_version": "1.1.10",
-  "release_version": "1.1.10+26.3",
+  "artifact_version": "1.2.0",
+  "release_version": "1.2.0+26.3",
   "minecraft": "26.3",
+  "suite_minecraft": "26.3",
   "upstream_minecraft": "26.3",
   "advertised_game_versions": [
     "26.3"
   ],
   "loader": "fabric",
-  "modrinth_version_id": "6Z3zMyN8",
-  "modrinth_version_url": "https://modrinth.com/mod/tool-pouch/version/6Z3zMyN8",
+  "modrinth_version_id": "LDL8NLQd",
+  "modrinth_version_url": "https://modrinth.com/mod/tool-pouch/version/LDL8NLQd",
   "github": {
     "repository": "https://github.com/pajicadvance/toolpouch",
     "branch": "multicutter-v3",
-    "commit": "9a7e55837e92fd4eb2ea6ec61e395d31b052dc37"
+    "commit": "4012f308dd0cd3a4c5e7847254232aab8cbbec26"
   },
-  "binary": "components/toolpouch/upstream/artifacts/toolpouch-fabric-1.1.10+26.3.jar",
-  "binary_sha256": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903",
-  "published_sources": "components/toolpouch/upstream/artifacts/toolpouch-fabric-1.1.10+26.3-sources.jar",
+  "binary": "components/toolpouch/upstream/artifacts/toolpouch-fabric-1.2.0+26.3.jar",
+  "binary_sha256": "fcc2f984c910c4002f9936bb5dcd2ee4f6a065b0bfee5d814325c425d0a9a1e1",
+  "published_sources": "components/toolpouch/upstream/artifacts/toolpouch-fabric-1.2.0+26.3-sources.jar",
   "repository_snapshot": "components/toolpouch/upstream/repository",
   "published_source_tree": "components/toolpouch/upstream/source",
   "dependencies": {
@@ -35,7 +36,7 @@
     "locator_lodestones": ">=1.5.3",
     "ohmega": ">=1.5.21 <1.6",
     "ok_zoomer": ">=19.0.0",
-    "raised": ">=Fabric-26.2-5.1.2",
+    "raised": ">=Fabric-26.3-6.0.2",
     "sereneseasons": ">=26.1.2.0.5",
     "shulkerboxtooltip": ">=5.4.2",
     "spyglass_astronomy": ">=1.0.26-mc26.2",
@@ -55,6 +56,11 @@
   "copyright_file": "components/toolpouch/upstream/repository/LICENSE",
   "artifacts": [
     {
+      "path": "components/toolpouch/upstream/artifacts/toolpouch-4012f308dd0cd3a4c5e7847254232aab8cbbec26-source.zip",
+      "sha256": "35ab91d222a0acbe443e0fa822b3a5c046b7ccf1d99ba7c875988324878b2727",
+      "size": 319799
+    },
+    {
       "path": "components/toolpouch/upstream/artifacts/toolpouch-9a7e55837e92fd4eb2ea6ec61e395d31b052dc37-source.zip",
       "sha256": "0ac16cc3edfe0cd9d91e10e2b9ea146a0dca77861fe29daf5a99aef6d99759bd",
       "size": 312993
@@ -68,9 +74,20 @@
       "path": "components/toolpouch/upstream/artifacts/toolpouch-fabric-1.1.10+26.3.jar",
       "sha256": "a5bb4f084e7d929f3a89cc43317af63bd45abe3e3f4fed8b45f99b2da846e903",
       "size": 326095
+    },
+    {
+      "path": "components/toolpouch/upstream/artifacts/toolpouch-fabric-1.2.0+26.3-sources.jar",
+      "sha256": "be9a8dcdd9e02bfc150a1414aee99934ec5fdded605e24de021974e74f2c765e",
+      "size": 216820
+    },
+    {
+      "path": "components/toolpouch/upstream/artifacts/toolpouch-fabric-1.2.0+26.3.jar",
+      "sha256": "fcc2f984c910c4002f9936bb5dcd2ee4f6a065b0bfee5d814325c425d0a9a1e1",
+      "size": 342674
     }
   ],
   "modifications": [],
   "port_counterpart": null,
-  "port_counterpart_reason": "Official developer release supports26.3; no additional port created."
+  "port_counterpart_reason": "Official developer release supports 26.3; no additional port created.",
+  "recorded_date": "2026-11-08"
 }

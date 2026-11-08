@@ -4,6 +4,8 @@
   "game_versions": [
     "1.21",
     "1.21.1",
+    "1.21.10",
+    "1.21.11",
     "1.21.2",
     "1.21.3",
     "1.21.4",
@@ -12,8 +14,6 @@
     "1.21.7",
     "1.21.8",
     "1.21.9",
-    "1.21.10",
-    "1.21.11",
     "26.1",
     "26.1.1",
     "26.1.2",
@@ -33,7 +33,7 @@
   "body": "# Sensible Stackables\n\nThis mod allows increasing the stack size of items, while providing balanced defaults:\n\n- Potions: 3\n- Saddle: 16\n- Harness: 16\n- Boats: 16\n- Minecarts: 16\n- Beds: 16\n- Stews and soups: 16\n- Enchanted books: 64\n- Ender pearls: 64\n- Snowball: 64\n- Egg: 64\n- Horse armor: 64\n- Music discs: 64\n- Banner patterns: 64\n- Cake: 16\n\nAdditionally, splash and lingering potions have a 1-second use cooldown to prevent potion throwing spam, and several menus have been patched to support stacks of items.\n\nThe mod can also be used to uncap the vanilla stack size limit and set any value you want, read below for instructions.\n\n## Configuration\n\nIt's recommended to use the in-game config screen to configure the mod, as there are item suggestions with auto-completion and most things are explained via tooltips.\n\nThe mod can also be configured manually by editing .toml files in inside the `config/sensible_stackables` folder.\n\nThe configuration supports defining stack sizes for either single items or item tags, for example:\n- Adding `\"minecraft:totem_of_undying\"` with value 16 will allow stacking totems up to 16\n- Adding `\"#minecraft:banners\"` with value 64 will allow stacking banners up to 64 (# indicates to the mod that this is an item tag)\n- Adding `\"#c:buckets\"` with value 64 will allow stacking all types of buckets up to 64 (`c` is the namespace for conventional tags, see available conventional tags [here](https://wiki.fabricmc.net/community:common_tags))\n- Adding `\"#sensible_stackables:all_block_items\"` with value 1 will make all blocks stack up to 1 only (dynamic tag provided by this mod, only in version 3.0.0 and above)\n\n## Uncapping max stack size\n\nSetting `uncapStackSize` (\"Uncap stack size\" in GUI config) to `true` in the mod configuration will allow setting stack sizes above 64 to items and apply necessary patches to prevent bugs with large stack sizes. Item counts larger than 999 will be shortened in the GUI and the item tooltip will display the exact item count of the stack.\n\n`commonStackSize` (\"Common stack size\" in GUI config) can then be increased from 64 to a higher value to set a \"global\" max stack size for all items which use the default stack size. Stack sizes for items which don't use the default stack size (such as potions, boats, enchanted books etc.) still need to be defined manually.\n\nItem count display changes, such as shortening, scaling and the item count tooltip, can be toggled on and off for compatibility with mods like [Reliable Recount](https://modrinth.com/mod/o123456789-backport).\n\n**WARNING**: While theoretically you can set max stack sizes for everything up to around 2.1 billion, using sizes larger than 100000 can cause performance issues. For example crafting 100000+ items at the same time or taking out 100000+ items from the stonecutter will freeze the game for a while (5-20 seconds). I've tested the mod with common stack size set to 32768 and performance was still reasonable. **USE HIGHER VALUES AT YOUR OWN RISK!** \n",
   "body_url": null,
   "published": "2025-01-12T13:04:10.684233Z",
-  "updated": "2026-10-05T19:10:19.220425Z",
+  "updated": "2026-10-24T22:10:01.542594Z",
   "approved": "2025-01-14T22:44:34.323425Z",
   "queued": "2025-01-12T13:31:01.658639Z",
   "status": "approved",
@@ -44,8 +44,8 @@
     "name": "MIT License",
     "url": null
   },
-  "downloads": 49398,
-  "followers": 119,
+  "downloads": 57560,
+  "followers": 124,
   "categories": [
     "storage",
     "utility"
@@ -170,7 +170,15 @@
     "cd8fC0MR",
     "m1HPU5BM",
     "GOVdicMY",
-    "b2D7q7lB"
+    "b2D7q7lB",
+    "EzUXIQuF",
+    "p3BUnNFG",
+    "5SmOdW32",
+    "Z22Hp6xj",
+    "aZbIVjYA",
+    "V0ATZtXY",
+    "valjs6EP",
+    "85vbQOmp"
   ],
   "icon_url": "https://cdn.modrinth.com/data/5lQcMjaC/610c0422cb623884684b5601df15199133a10483_96.webp",
   "raw_icon_url": "https://cdn.modrinth.com/data/5lQcMjaC/610c0422cb623884684b5601df15199133a10483.png",

@@ -6,7 +6,6 @@ import me.pajic.simple_death_improvements.access.ExperienceOrbAccess;
 import me.pajic.simple_death_improvements.access.ItemEntityAccess;
 import me.pajic.simple_death_improvements.access.PlayerAccess;
 import me.pajic.simple_death_improvements.util.ModUtil;
-import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
@@ -80,7 +79,7 @@ public class LivingEntityMixin {
     )
     private ItemEntity trySaveItemsOnDeath(Level level, double x, double y, double z, ItemStack itemStack, Operation<ItemEntity> original) {
 		if (sdi$self instanceof Player player) {
-			return ModUtil.trySaveItemsOnDeath(player, ((PlayerAccess) player).sdi$getLastSafeBlockPosition(), level, x, y, z, itemStack, original);
+			return ModUtil.trySaveItemsOnDeath(player, level, x, y, z, itemStack, original);
 		}
 		return original.call(level, x, y, z, itemStack);
     }
@@ -95,9 +94,9 @@ public class LivingEntityMixin {
 	)
 	private boolean preventXpSplatter(ServerLevel level, Vec3 pos, int amount) {
 		if (SDI.CONFIG.noXpSplatterOnDeath.get() && sdi$self instanceof Player player) {
-			BlockPos safePos = ((PlayerAccess) player).sdi$getLastSafeBlockPosition();
+			Vec3 dropPos = ((PlayerAccess) player).sdi$getDeathDropPos();
 			ExperienceOrb orb = new ExperienceOrb(ModUtil.XP_ORB, level);
-			orb.setPos(safePos.getX() + 0.5, safePos.getY() + 1, safePos.getZ() + 0.5);
+			orb.setPos(dropPos != null ? dropPos : pos);
 			((ExperienceOrbAccess) orb).sdi$setValue(amount);
 			level.addFreshEntity(orb);
 			SDI.debugLog("Prevented XP splatter for player {}", sdi$self.getDisplayName().getString());

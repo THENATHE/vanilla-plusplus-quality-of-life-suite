@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/DaFuqs/Chalk",
+  "branch": "26.3-fabric",
+  "commit": "c0e3a3c969c8f5b22bc18fcd217fe48ed75863fb",
+  "note": "Merge of pajicadvance PR #56 (26.3 update); the published JAR has no sources JAR, so this branch head is a source reference matched against the binary below."
+}

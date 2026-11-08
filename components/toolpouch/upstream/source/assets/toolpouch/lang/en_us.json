@@ -34,6 +34,7 @@
   "toolpouch.client_config.quickSelect.desc": "Whether to select the shulker box or arrow immediately after releasing the keybind instead of having th press the keybind again.",
   "toolpouch.client_config.scrollableZoom": "Scrollable zoom level",
   "toolpouch.client_config.rememberZoomLevel": "Remember zoom level",
+  "toolpouch.client_config.slotToggleKeys": "Slot toggle keys",
   "toolpouch.client_config.infoOverlaySettings": "Info overlay settings",
   "toolpouch.client_config.infoOverlaySettings.desc": "Configure the appearance of the info overlay.",
   "toolpouch.client_config.infoOverlaySettings.position": "Overlay position",
@@ -145,6 +146,10 @@
   "text.toolpouch.attachment": "Tool Pouch attached",
   "text.toolpouch.tag": "Tag: %s",
   "text.toolpouch.equippable": "Equippable in Tool Pouch",
+  "text.toolpouch.slot": "Slot %s",
+  "text.toolpouch.slot_enabled": "%s enabled",
+  "text.toolpouch.slot_disabled": "%s disabled",
+  "text.toolpouch.slots_toggled": "Toggled %s tool pouch slots",
 
   "key.category.toolpouch.keys": "Tool Pouch",
   "key.toolpouch.open_tool_pouch": "Open Tool Pouch",
@@ -152,6 +157,7 @@
   "key.toolpouch.open_widget": "Open contextual selection widget",
   "key.toolpouch.open_ender_chest": "Open ender chest",
   "key.toolpouch.toggle_minimap": "Toggle minimap",
+  "key.toolpouch.bind_slot_toggle": "Bind slot toggle to key",
 
   "rrv.info.tool_pouches": "Tool pouches can store specific functional items in order to make them more useful and free up space from your inventory.",
   "tag.tiered_backpacks.backpacks.description": "A portable storage item that can hold specific functional items to make them more useful. Can be dyed."

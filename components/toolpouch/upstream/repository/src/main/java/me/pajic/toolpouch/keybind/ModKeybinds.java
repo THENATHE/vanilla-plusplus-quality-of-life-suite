@@ -11,6 +11,7 @@ import me.pajic.toolpouch.platform.MultiLoaderUtil;
 import me.pajic.toolpouch.util.ClientUtil;
 import me.pajic.toolpouch.util.CompatFlags;
 import me.pajic.toolpouch.util.GameplayUtil;
+import me.pajic.toolpouch.util.PlayerExtension;
 import me.pajic.toolpouch.util.ToolPouchUtil;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
@@ -18,6 +19,7 @@ import net.minecraft.client.Options;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -33,12 +35,14 @@ public class ModKeybinds {
     public static final KeyMapping OPEN_WIDGET = create(InputConstants.KEY_X, "open_widget");
     public static final KeyMapping OPEN_ENDER_CHEST = create(InputConstants.KEY_V, "open_ender_chest");
 	public static final KeyMapping TOGGLE_MINIMAP = create(InputConstants.KEY_M, "toggle_minimap");
+	public static final KeyMapping BIND_SLOT_TOGGLE = create(InputConstants.KEY_B, "bind_slot_toggle");
 
     public static void onClientTick(Minecraft client) {
 		LocalPlayer player = client.player;
 		if (player != null && client.level != null) {
+			((PlayerExtension) player).toolpouch$setArrowSlot(ScrollHandler.selectedArrowSlot);
 			if (!CompatFlags.zoomModPresent()) {
-				if (USE_SPYGLASS.isDown() && ToolPouchUtil.toolPouchHasItem(player, stack -> stack.is(Items.SPYGLASS))) {
+				if (USE_SPYGLASS.isDown() && !player.isSpectator() && ToolPouchUtil.toolPouchHasItem(player, stack -> stack.is(Items.SPYGLASS))) {
 					if (!soundPlayed) {
 						player.playSound(SoundEvents.SPYGLASS_USE);
 						MultiLoaderUtil.INSTANCE.sendToServer(new ModPayloads.C2SPlaySoundPayload(BuiltInRegistries.SOUND_EVENT.wrapAsHolder(SoundEvents.SPYGLASS_USE)));
@@ -55,12 +59,13 @@ public class ModKeybinds {
 				}
 			}
 			boolean isShulkerWidget = !GameplayUtil.isHoldingProjectileWeapon(player);
+			boolean canOpenShulker = isShulkerWidget && ToolPouchUtil.toolPouchHasItem(player, stack -> stack.is(ItemTags.SHULKER_BOXES));
 			if (!ToolPouchClient.CONFIG.quickSelect.get()) {
 				if (OPEN_WIDGET.consumeClick()) {
 					if (!ContextualSelectionWidget.widgetOpen)
 						ContextualSelectionWidget.widgetOpen = true;
 					else {
-						if (isShulkerWidget) {
+						if (canOpenShulker) {
 							MultiLoaderUtil.INSTANCE.sendToServer(new ModPayloads.C2SOpenShulkerBoxPayload(ScrollHandler.selectedShulkerSlot));
 							player.playSound(SoundEvents.SHULKER_BOX_OPEN);
 						}
@@ -69,7 +74,7 @@ public class ModKeybinds {
 				}
 			} else if (!OPEN_WIDGET.isDown()) {
 				if (ContextualSelectionWidget.widgetOpen) {
-					if (isShulkerWidget) {
+					if (canOpenShulker) {
 						MultiLoaderUtil.INSTANCE.sendToServer(new ModPayloads.C2SOpenShulkerBoxPayload(ScrollHandler.selectedShulkerSlot));
 						player.playSound(SoundEvents.SHULKER_BOX_OPEN);
 					}
@@ -115,6 +120,9 @@ public class ModKeybinds {
 				elytraBoostDelay = 20;
 			}
 			if (elytraBoostDelay > 0) elytraBoostDelay--;
+		} else {
+			ClientUtil.shouldScope = false;
+			soundPlayed = false;
 		}
     }
 

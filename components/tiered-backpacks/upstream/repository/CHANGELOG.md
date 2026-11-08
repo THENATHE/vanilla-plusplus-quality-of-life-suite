@@ -1,1 +1,11 @@
-- Backpack GUI now uses parts of the vanilla container sprite, making it compatible with GUI resource packs.
+- Added NeoForge 26.3 version.
+- Fixed Curios compatibility.
+- Fixed several item duplication exploits involving backpack contents, chestplates with attached backpacks, and the attach recipe.
+- Backpacks and chestplates with attached backpacks can no longer be put into bundles or shulker boxes.
+- Attaching a backpack to a chestplate that already has a backpack attached is no longer allowed.
+- An attached backpack is no longer deleted when its chestplate breaks while the inventory is full.
+- Upgrading a backpack in a crafter now keeps its contents.
+- Items from a backpack that would be deleted after reducing its size in the config are now given back instead.
+- Filled backpacks can no longer be unequipped by swapping them with another chestplate when "Prevent unequip when not empty" is enabled.
+- Fixed Shulker Box Tooltip previews not showing for some items.
+- Fixed various smaller issues with backpack opening, unequip checks, the config, and the attached backpack tooltip on some system languages.

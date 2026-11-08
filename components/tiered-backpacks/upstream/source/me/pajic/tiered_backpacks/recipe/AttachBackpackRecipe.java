@@ -21,61 +21,58 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.function.Predicate;
+
 public class AttachBackpackRecipe extends CustomRecipe {
 
 	private static final AttachBackpackRecipe INSTANCE = new AttachBackpackRecipe();
 	public static final MapCodec<AttachBackpackRecipe> MAP_CODEC = MapCodec.unit(INSTANCE);
 	public static final StreamCodec<RegistryFriendlyByteBuf, AttachBackpackRecipe> STREAM_CODEC = StreamCodec.unit(INSTANCE);
 
-	private ItemStack backpack = ItemStack.EMPTY;
-
 	@Override
 	public boolean matches(@NotNull CraftingInput input, @NotNull Level level) {
-		if (!TieredBackpacks.CONFIG.canAttachToChestplate.get() || input.size() != 2) {
-			return false;
-		} else {
-			ItemStack chestplate = ItemStack.EMPTY;
-			boolean hasBackpack = false;
-			boolean hasChestplate = false;
-			for (int i = 0; i < input.size(); i++) {
-				ItemStack itemStack = input.getItem(i);
-				if (!itemStack.isEmpty()) {
-					if (itemStack.is(ItemTags.CHEST_ARMOR)) {
-						if (hasChestplate) return false;
-						hasChestplate = true;
-						chestplate = itemStack.copy();
-					} else if (itemStack.is(BackpackUtil.BACKPACKS)) {
-						if (hasBackpack) return false;
-						hasBackpack = true;
-						backpack = itemStack.copy();
-					}
-				}
-			}
-			if (hasBackpack && hasChestplate) {
-				if (backpack.is(ModItems.NETHERITE_BACKPACK)) {
-					DamageResistant resist = chestplate.get(DataComponents.DAMAGE_RESISTANT);
-					return resist != null && resist.types().stream().anyMatch(type -> type.is(DamageTypeTags.IS_FIRE));
-				}
-				return true;
-			}
+		if (!TieredBackpacks.CONFIG.canAttachToChestplate.get() || input.size() != 2) return false;
+		ItemStack chestplate = findChestplate(input);
+		ItemStack backpack = findBackpack(input);
+		if (chestplate.isEmpty() || backpack.isEmpty() || BackpackUtil.isChestplateWithBackpackAttached(chestplate)) return false;
+		if (backpack.is(ModItems.NETHERITE_BACKPACK)) {
+			DamageResistant resist = chestplate.get(DataComponents.DAMAGE_RESISTANT);
+			return resist != null && resist.types().stream().anyMatch(type -> type.is(DamageTypeTags.IS_FIRE));
 		}
-		return false;
+		return true;
 	}
 
 	@Override
-	public @NotNull ItemStack assemble(CraftingInput input) {
-		ItemStack itemStack = ItemStack.EMPTY;
+	public @NotNull ItemStack assemble(@NotNull CraftingInput input) {
+		ItemStack chestplate = findChestplate(input);
+		ItemStack backpack = findBackpack(input);
+		if (chestplate.isEmpty() || backpack.isEmpty()) return ItemStack.EMPTY;
+		ItemStack itemStack = chestplate.copy();
+		itemStack.set(ModDataComponents.BACKPACK_TIER, backpack.getOrDefault(ModDataComponents.BACKPACK_TIER, BackpackTier.LEATHER));
+		itemStack.set(DataComponents.CONTAINER, backpack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
+		DyedItemColor dye = backpack.get(DataComponents.DYED_COLOR);
+		if (dye != null) itemStack.set(ModDataComponents.STORED_BACKPACK_DYE, dye);
+		return itemStack;
+	}
+
+	private static ItemStack findChestplate(CraftingInput input) {
+		return findSingle(input, stack -> stack.is(ItemTags.CHEST_ARMOR));
+	}
+
+	private static ItemStack findBackpack(CraftingInput input) {
+		return findSingle(input, stack -> stack.is(BackpackUtil.BACKPACKS));
+	}
+
+	private static ItemStack findSingle(CraftingInput input, Predicate<ItemStack> predicate) {
+		ItemStack found = ItemStack.EMPTY;
 		for (int i = 0; i < input.size(); i++) {
-			ItemStack itemStack2 = input.getItem(i);
-			if (itemStack2.is(ItemTags.CHEST_ARMOR)) {
-				itemStack = itemStack2.copy();
-				itemStack.set(ModDataComponents.BACKPACK_TIER, backpack.getOrDefault(ModDataComponents.BACKPACK_TIER, BackpackTier.LEATHER));
-				itemStack.set(DataComponents.CONTAINER, backpack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
-				DyedItemColor dye = backpack.get(DataComponents.DYED_COLOR);
-				if (dye != null) itemStack.set(ModDataComponents.STORED_BACKPACK_DYE, dye);
+			ItemStack itemStack = input.getItem(i);
+			if (!itemStack.isEmpty() && predicate.test(itemStack)) {
+				if (!found.isEmpty()) return ItemStack.EMPTY;
+				found = itemStack;
 			}
 		}
-		return itemStack;
+		return found;
 	}
 
 	@Override

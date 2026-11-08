@@ -46,6 +46,7 @@ public class NeoforgeEntrypoint {
                 registry -> {
                     registry.register(ToolPouch.id("is_netherite_pouch"), ModDataComponents.IS_NETHERITE_POUCH);
                     registry.register(ToolPouch.id("stored_dye"), ModDataComponents.STORED_TOOL_POUCH_DYE);
+                    registry.register(ToolPouch.id("disabled_slots"), ModDataComponents.DISABLED_SLOTS);
                 }
         );
         ModMenuTypes.init();
@@ -144,6 +145,12 @@ public class NeoforgeEntrypoint {
                 ModPayloads.C2SPlaySoundPayload.CODEC,
                 (payload, context) ->
                         NetworkEvents.playSound((ServerPlayer) context.player(), payload.sound())
+        );
+        registrar.playToServer(
+                ModPayloads.C2SToggleSlotPayload.TYPE,
+                ModPayloads.C2SToggleSlotPayload.CODEC,
+                (payload, context) ->
+                        NetworkEvents.toggleSlot((ServerPlayer) context.player(), payload.slot())
         );
     }
 }

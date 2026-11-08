@@ -4,20 +4,18 @@ import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.sugar.Local;
-import me.pajic.toolpouch.util.GameplayUtil;
-import me.pajic.toolpouch.util.PlayerExtension;
 import me.pajic.toolpouch.util.ToolPouchUtil;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-
-import java.util.List;
 
 @Mixin(ProjectileWeaponItem.class)
 public class ProjectileWeaponItemMixin {
@@ -28,15 +26,13 @@ public class ProjectileWeaponItemMixin {
     )
     private static ItemStack getAmmoFromToolPouch(ItemStack original, @Local(argsOnly = true, name = "entity") LivingEntity entity) {
         if (entity instanceof Player player && original.isEmpty()) {
-			int slot = ((PlayerExtension) player).toolpouch$getArrowSlot();
-			List<ItemStackTemplate> ammo = ToolPouchUtil.getItemsFromToolPouch(player, GameplayUtil.getSupportedAmmo(player));
-			if (!ammo.isEmpty()) return ammo.get(slot).create();
+			ItemStackTemplate ammo = ToolPouchUtil.getSelectedAmmo(player);
+			if (ammo != null) return ammo.create();
         }
         return original;
     }
 
-    @SuppressWarnings({"MixinExtrasOperationParameters", "resource"})
-	@WrapMethod(method = "useAmmo")
+    @WrapMethod(method = "useAmmo")
     private static ItemStack useAmmoFromToolPouch(
             ItemStack weapon,
             ItemStack projectile,
@@ -44,17 +40,24 @@ public class ProjectileWeaponItemMixin {
             boolean forceInfinite,
             Operation<ItemStack> original
     ) {
-		if (holder instanceof Player player) {
-			int i = !forceInfinite && !player.hasInfiniteMaterials() && player.level() instanceof ServerLevel serverLevel ?
-					EnchantmentHelper.processAmmoUse(serverLevel, weapon, projectile, 1) : 0;
-			int slot = ((PlayerExtension) player).toolpouch$getArrowSlot();
-			List<ItemStackTemplate> ammo = ToolPouchUtil.getItemsFromToolPouch(player, GameplayUtil.getSupportedAmmo(player));
-			if (!ammo.isEmpty()) {
-				ItemStackTemplate arrow = ammo.get(slot);
-				ToolPouchUtil.removeItemFromToolPouch(player, arrow.item().value(), i);
-				return original.call(weapon, ammo.get(slot).create(), player, forceInfinite);
+		if (holder instanceof Player player && !forceInfinite && !isInInventory(player, projectile)) {
+			ItemStackTemplate ammo = ToolPouchUtil.getSelectedAmmo(player);
+			if (ammo != null) {
+				int i = !player.hasInfiniteMaterials() && player.level() instanceof ServerLevel serverLevel ?
+						EnchantmentHelper.processAmmoUse(serverLevel, weapon, projectile, 1) : 0;
+				ToolPouchUtil.removeItemFromToolPouch(player, ammo, i);
+				return original.call(weapon, ammo.create(), player, false);
 			}
 		}
         return original.call(weapon, projectile, holder, forceInfinite);
     }
+
+	@Unique
+	private static boolean isInInventory(Player player, ItemStack stack) {
+		Inventory inventory = player.getInventory();
+		for (int i = 0; i < inventory.getContainerSize(); i++) {
+			if (inventory.getItem(i) == stack) return true;
+		}
+		return false;
+	}
 }

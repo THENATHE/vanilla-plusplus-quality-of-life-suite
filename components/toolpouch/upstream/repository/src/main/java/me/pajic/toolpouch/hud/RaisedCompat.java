@@ -7,8 +7,8 @@ import it.unimi.dsi.fastutil.ints.IntIntImmutablePair;
 public class RaisedCompat {
     public static IntIntImmutablePair getOtherComponentOffsets() {
         return new IntIntImmutablePair(
-                -RaisedApi.getX(LayerRegistry.OTHER),
-                -RaisedApi.getY(LayerRegistry.OTHER)
+                -RaisedApi.getX(LayerRegistry.UNKNOWN),
+                -RaisedApi.getY(LayerRegistry.UNKNOWN)
         );
     }
 }

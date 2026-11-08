@@ -6,42 +6,42 @@
     "fabric"
   ],
   "environment": "client_and_server",
-  "id": "GHnqX59p",
+  "id": "Fh8qqxFD",
   "project_id": "IhNtYNEF",
   "author_id": "Kg6RZEfM",
   "featured": false,
-  "name": "1.0.20 for Fabric 26.3",
-  "version_number": "1.0.20+26.3",
-  "changelog": "- Backpack GUI now uses parts of the vanilla container sprite, making it compatible with GUI resource packs.\n",
+  "name": "1.0.21 for Fabric 26.3",
+  "version_number": "1.0.21+26.3",
+  "changelog": "- Added NeoForge 26.3 version.\n- Fixed Curios compatibility.\n- Fixed several item duplication exploits involving backpack contents, chestplates with attached backpacks, and the attach recipe.\n- Backpacks and chestplates with attached backpacks can no longer be put into bundles or shulker boxes.\n- Attaching a backpack to a chestplate that already has a backpack attached is no longer allowed.\n- An attached backpack is no longer deleted when its chestplate breaks while the inventory is full.\n- Upgrading a backpack in a crafter now keeps its contents.\n- Items from a backpack that would be deleted after reducing its size in the config are now given back instead.\n- Filled backpacks can no longer be unequipped by swapping them with another chestplate when \"Prevent unequip when not empty\" is enabled.\n- Fixed Shulker Box Tooltip previews not showing for some items.\n- Fixed various smaller issues with backpack opening, unequip checks, the config, and the attached backpack tooltip on some system languages.\n",
   "changelog_url": null,
-  "date_published": "2026-10-02T13:47:56.280259Z",
-  "downloads": 360,
+  "date_published": "2026-11-02T21:28:11.073051Z",
+  "downloads": 517,
   "version_type": "release",
   "status": "listed",
   "requested_status": null,
   "files": [
     {
-      "id": "X3aMOYqs",
+      "id": "GyqwOO2F",
       "hashes": {
-        "sha1": "f79aba8a60dd5ead9667d6387205bdf0d268dcb9",
-        "sha512": "ba1d4d0e4ac57b5baa26511219f8df66b7d60ab1f901cb139c3e905bddf354ff48e4b5390fc856cd059c408748fed94e5da9dc0272976820da7c9aec86d3e947"
+        "sha1": "b7bc125061bef234eb1469c0b8ea1005117dba1b",
+        "sha512": "b3cf2e0827f94f9f2c1fe227829d501696699745311c4ee56a9b03f80fc89c43ca1357e8d7f6dcecffcba7451b8bf7842f1644037f89d81a4ddd1cc167ded405"
       },
-      "url": "https://cdn.modrinth.com/data/IhNtYNEF/versions/GHnqX59p/tiered_backpacks-fabric-1.0.20%2B26.3.jar",
-      "filename": "tiered_backpacks-fabric-1.0.20+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/IhNtYNEF/versions/Fh8qqxFD/tiered_backpacks-fabric-1.0.21%2B26.3.jar",
+      "filename": "tiered_backpacks-fabric-1.0.21+26.3.jar",
       "primary": true,
-      "size": 210613,
+      "size": 216001,
       "file_type": null
     },
     {
-      "id": "BkkjN0q5",
+      "id": "njF7bd2o",
       "hashes": {
-        "sha1": "62986df1829b4135bdcaca3816bb2e69b33cd000",
-        "sha512": "b8a552c92ef10c02403b1e337092a69deed62233076f65ea7d9bbb908201f29f672a35dbdf188c839f5169003b2d2688ca13384bf6f3b0be74525fcd3a8d6aaa"
+        "sha512": "de916836be81a300913e121f042ae1d2d49a50f1b3e7c86dc7b66935a5780ffd593e853111bb6701140497852790e57e6593ba870faa0cae63be5eece33f0671",
+        "sha1": "3a89d16974aa442d92f0426fafd7d5f125a409b4"
       },
-      "url": "https://cdn.modrinth.com/data/IhNtYNEF/versions/GHnqX59p/tiered_backpacks-fabric-1.0.20%2B26.3-sources.jar",
-      "filename": "tiered_backpacks-fabric-1.0.20+26.3-sources.jar",
+      "url": "https://cdn.modrinth.com/data/IhNtYNEF/versions/Fh8qqxFD/tiered_backpacks-fabric-1.0.21%2B26.3-sources.jar",
+      "filename": "tiered_backpacks-fabric-1.0.21+26.3-sources.jar",
       "primary": false,
-      "size": 183816,
+      "size": 186368,
       "file_type": null
     }
   ],

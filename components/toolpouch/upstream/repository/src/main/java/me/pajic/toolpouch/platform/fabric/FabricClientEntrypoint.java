@@ -41,6 +41,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         KeyMappingHelper.registerKeyMapping(ModKeybinds.OPEN_ENDER_CHEST);
         KeyMappingHelper.registerKeyMapping(ModKeybinds.USE_SPYGLASS);
         KeyMappingHelper.registerKeyMapping(ModKeybinds.TOGGLE_MINIMAP);
+        KeyMappingHelper.registerKeyMapping(ModKeybinds.BIND_SLOT_TOGGLE);
         ClientTickEvents.END_CLIENT_TICK.register(ModKeybinds::onClientTick);
         ClientLifecycleEvents.CLIENT_STARTED.register(ModKeybinds::onClientStarted);
         ClientLevelEvents.AFTER_CLIENT_LEVEL_CHANGE.register((_, level) -> ItemSuggestions.update(level));

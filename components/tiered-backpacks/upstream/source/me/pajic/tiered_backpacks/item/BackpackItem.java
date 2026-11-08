@@ -21,11 +21,15 @@ public class BackpackItem extends Item {
     @Override @NotNull
     public InteractionResult use(@NotNull Level level, @NotNull Player player, @NotNull InteractionHand hand) {
 		if (TieredBackpacks.CONFIG.canOpenWithRightClick.get()) {
-			player.startUsingItem(hand);
 			player.playSound(SoundEvents.BUNDLE_INSERT);
 			MultiLoaderUtil.INSTANCE.openBackpackScreen(player, player.getItemInHand(hand));
 			return InteractionResult.SUCCESS;
 		}
         return super.use(level, player, hand);
+    }
+
+    @Override
+    public boolean canFitInsideContainerItems() {
+        return false;
     }
 }

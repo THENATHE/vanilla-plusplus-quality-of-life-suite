@@ -9,12 +9,17 @@ import me.pajic.mapstitch.datapack.ModDatapacks;
 import me.pajic.mapstitch.item.ModItems;
 import me.pajic.mapstitch.networking.ServerNetworkEvents;
 import me.pajic.mapstitch.networking.payload.C2SEjectMap;
+import me.pajic.mapstitch.networking.payload.C2SPlacePin;
 import me.pajic.mapstitch.networking.payload.C2SPlaySound;
+import me.pajic.mapstitch.networking.payload.C2SRemovePin;
 import me.pajic.mapstitch.networking.payload.C2SSetEjectMode;
+import me.pajic.mapstitch.networking.payload.C2SSharePin;
 import me.pajic.mapstitch.networking.payload.S2CDimensionIds;
 import me.pajic.mapstitch.networking.payload.S2COpenWorldMapScreen;
 import me.pajic.mapstitch.networking.payload.S2CPlaySound;
+import me.pajic.mapstitch.networking.payload.S2CSyncPins;
 import me.pajic.mapstitch.networking.payload.S2CSyncWorldMap;
+import me.pajic.mapstitch.pin.PinShares;
 import me.pajic.mapstitch.recipe.ModRecipes;
 import me.pajic.mapstitch.util.CompatFlags;
 import me.pajic.mapstitch.util.ModUtil;
@@ -27,21 +32,24 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.LootTableLoadEvent;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
+import net.neoforged.neoforge.event.server.ServerStoppingEvent;
+import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
 //? <26.1 {
-import me.pajic.mapstitch.networking.ClientNetworkEvents;
-//?}
+/^import me.pajic.mapstitch.networking.ClientNetworkEvents;
+^///?}
 
 @Mod(MapStitch.MOD_ID)
 @EventBusSubscriber(modid = MapStitch.MOD_ID)
@@ -49,6 +57,9 @@ public class NeoforgeEntrypoint {
 
     public NeoforgeEntrypoint(IEventBus modBus) {
         if (CompatFlags.OHMEGA_LOADED) OhmegaCompat.setupAccessories(modBus);
+        NeoForge.EVENT_BUS.addListener((RegisterCommandsEvent e) -> PinShares.registerCommands(e.getDispatcher()));
+        NeoForge.EVENT_BUS.addListener((ServerTickEvent.Post e) -> PinShares.tick(e.getServer()));
+        NeoForge.EVENT_BUS.addListener((ServerStoppingEvent e) -> PinShares.onServerStopping(e.getServer()));
     }
 
     @SubscribeEvent
@@ -60,28 +71,33 @@ public class NeoforgeEntrypoint {
             registry.register(MapStitch.id("atlas_eject_filled_maps_first"), ModDataComponents.ATLAS_EJECT_FILLED_MAPS_FIRST);
             registry.register(MapStitch.id("map_center"), ModDataComponents.MAP_CENTER);
         });
-        event.register(Registries.ITEM, registry ->
-                registry.register(ModItems.ATLAS_KEY, ModItems.ATLAS)
-        );
-        event.register(Registries.RECIPE_SERIALIZER, registry ->
-                registry.register(MapStitch.id("crafting_special_atlas"), ModRecipes.ATLAS)
-        );
+        event.register(Registries.ITEM, registry -> {
+            registry.register(ModItems.ATLAS_KEY, ModItems.ATLAS);
+            registry.register(ModItems.ATLAS_PIN_KEY, ModItems.ATLAS_PIN);
+        });
+        event.register(Registries.RECIPE_SERIALIZER, registry -> {
+            registry.register(MapStitch.id("crafting_special_atlas"), ModRecipes.ATLAS);
+            registry.register(MapStitch.id("crafting_special_atlas_pin_bulk_dye"), ModRecipes.ATLAS_PIN_BULK_DYE);
+        });
     }
 
     @SubscribeEvent
     private static void initNetworking(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar("1");
         registrar.playToClient(S2CDimensionIds.TYPE, S2CDimensionIds.CODEC
-                /^? <26.1 {^/, (payload, context) -> ClientNetworkEvents.setDimensionIds(payload)/^?}^/
+                /^? <26.1 {^//^, (payload, context) -> ClientNetworkEvents.setDimensionIds(payload)^//^?}^/
         );
         registrar.playToClient(S2COpenWorldMapScreen.TYPE, S2COpenWorldMapScreen.CODEC
-                /^? <26.1 {^/, (payload, context) -> ClientNetworkEvents.openWorldMapScreen(context.player(), payload.scaleOverride())/^?}^/
+                /^? <26.1 {^//^, (payload, context) -> ClientNetworkEvents.openWorldMapScreen(context.player(), payload.scaleOverride())^//^?}^/
         );
         registrar.playToClient(S2CSyncWorldMap.TYPE, S2CSyncWorldMap.CODEC
-                /^? <26.1 {^/, (payload, context) -> ClientNetworkEvents.syncWorldMapScreen()/^?}^/
+                /^? <26.1 {^//^, (payload, context) -> ClientNetworkEvents.syncWorldMapScreen()^//^?}^/
         );
         registrar.playToClient(S2CPlaySound.TYPE, S2CPlaySound.CODEC
-                /^? <26.1 {^/, (payload, context) -> ClientNetworkEvents.playSound(context.player(), payload.sound())/^?}^/
+                /^? <26.1 {^//^, (payload, context) -> ClientNetworkEvents.playSound(context.player(), payload.sound())^//^?}^/
+        );
+        registrar.playToClient(S2CSyncPins.TYPE, S2CSyncPins.CODEC
+                /^? <26.1 {^//^, (payload, c) -> ClientNetworkEvents.syncPins(payload)^//^?}^/
         );
         registrar.playToServer(C2SPlaySound.TYPE, C2SPlaySound.CODEC, (payload, context) ->
                 ServerNetworkEvents.playSound(payload, context.player())
@@ -92,11 +108,20 @@ public class NeoforgeEntrypoint {
         registrar.playToServer(C2SEjectMap.TYPE, C2SEjectMap.CODEC, (payload, context) ->
                 ServerNetworkEvents.ejectMap(payload, context.player())
         );
+        registrar.playToServer(C2SPlacePin.TYPE, C2SPlacePin.CODEC, (payload, context) ->
+                ServerNetworkEvents.placePin(payload, context.player())
+        );
+        registrar.playToServer(C2SRemovePin.TYPE, C2SRemovePin.CODEC, (payload, context) ->
+                ServerNetworkEvents.removePin(payload, context.player())
+        );
+        registrar.playToServer(C2SSharePin.TYPE, C2SSharePin.CODEC, (payload, context) ->
+                ServerNetworkEvents.sharePin(payload, context.player())
+        );
     }
 
     @SubscribeEvent
     private static void initLoot(LootTableLoadEvent event) {
-        if (ModUtil.isGlobetrotterLootTable(event.getKey())) event.getTable().addPool(ModUtil.getGlobetrotterLootPool(event.getRegistries()).build());
+        if (ModUtil.isGlobetrotterLootTable(event.getKey())) event.getTable().addPool(ModUtil.getGlobetrotterLootPool(event.getRegistries()/^? <26.1 {^//^.asGetterLookup()^//^?}^/).build());
     }
 
     @SubscribeEvent
@@ -115,6 +140,7 @@ public class NeoforgeEntrypoint {
     @SubscribeEvent
     private static void initCreativeTabs(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.insertAfter(Items.MAP.getDefaultInstance(), ModItems.ATLAS_PIN.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             for (int i = 4; i >= 0; i--) {
                 ItemStack atlas = new ItemStack(ModItems.ATLAS);
                 atlas.set(ModDataComponents.ATLAS_SCALE, i);

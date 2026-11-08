@@ -1,1 +1,12 @@
-- Fixed crash on launch on NeoForge.
+- Added support for NeoForge 26.3.
+- Added the "Keep items with durability on death" option. Items with durability are kept on death, but lose a configurable percentage of their total durability (20% by default). This can never break an item, it is always left with at least 1 durability. Items kept by other keep options don't lose durability, and items on the new drop list are dropped as usual. Works with Trinkets, Curios and Ohmega accessories.
+- Fixed items being moved to the last safe position when dying in midair above solid ground that has lava further below it.
+- Fixed XP being dropped at the world origin when dying shortly after respawning or joining for the first time.
+- XP is now always dropped at the same position as items.
+- The last safe position is now tracked per dimension, so items are no longer moved to a position from another dimension.
+- The last safe position is no longer recorded while in spectator mode or in midair.
+- Fixed the bottom layer of the world not counting as safe ground when checking for a safe spot below the player.
+- Fixed the item despawn timer resetting to the vanilla 5 minutes after a chunk reload or server restart.
+- Fixed players in spectator mode dropping XP on death when "Lose less XP on death" is enabled.
+- Fixed Trinkets drop rules set by items or other mods being ignored.
+- Fixed Ohmega compatibility in 1.21.1 versions.

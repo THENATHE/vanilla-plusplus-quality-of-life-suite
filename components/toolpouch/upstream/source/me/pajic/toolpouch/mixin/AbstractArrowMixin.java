@@ -37,13 +37,9 @@ public abstract class AbstractArrowMixin extends Projectile {
     ) {
         if (itemStack.is(ItemTags.ARROWS)) {
 			if (ToolPouchUtil.toolPouchHasItem(player, stack -> stack.is(ItemTags.ARROWS))) {
-				ItemStack updated = ToolPouchUtil.addItemToToolPouch(player, itemStack);
-				if (updated.isEmpty()) {
-					player.take((AbstractArrow) (Object) this, 1);
-					discard();
-					return false;
-				}
-				else return original.call(instance, updated);
+				ItemStack remainder = ToolPouchUtil.addItemToToolPouch(player, itemStack);
+				if (remainder.isEmpty()) return true;
+				return original.call(instance, remainder) || remainder.getCount() < itemStack.getCount();
 			}
         }
         return original.call(instance, itemStack);

@@ -7,6 +7,8 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import com.swacky.ohmega.event.CommonCallbacks;
 import me.pajic.simple_death_improvements.SDI;
+import me.pajic.simple_death_improvements.util.ModUtil;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,8 +24,10 @@ public class OhmegaCommonCallbacksMixin {
                     target = "Lnet/minecraft/world/item/ItemStack;isEmpty()Z"
             )
     )
-    private static boolean keepAtlas(boolean original, @Local ItemStack stack) {
-        return SDI.CONFIG.keepAccessoriesOnDeath.get() ? !SDI.CONFIG.accessoryDropList.contains(SDI.getItemId(stack)) : original;
+    private static boolean keepAccessories(boolean original, @Local ItemStack stack, @Local(argsOnly = true) Player player) {
+        return original ||
+                SDI.CONFIG.keepAccessoriesOnDeath.get() && !SDI.CONFIG.accessoryDropList.contains(SDI.getItemId(stack)) ||
+                ModUtil.tryKeepDamageableItem(player, stack);
     }
 }
 //?}

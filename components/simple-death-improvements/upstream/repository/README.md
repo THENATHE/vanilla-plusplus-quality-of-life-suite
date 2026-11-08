@@ -26,4 +26,4 @@ You will now lose way less experience compared to vanilla when you die (default 
 
 ### Keep items on death (off by default)
 
-Choose whether to keep armor items, hotbar items or equipped accessories on death in the mod configuration. These settings are ignored if the keep inventory gamerule is toggled on.
+Choose whether to keep armor items, hotbar items, offhand items, equipped accessories or items with durability on death in the mod configuration. Items with durability lose a configurable percentage of their total durability when kept this way, but are never broken by it. These settings are ignored if the keep inventory gamerule is toggled on.

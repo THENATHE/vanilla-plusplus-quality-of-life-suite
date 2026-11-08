@@ -25,6 +25,7 @@ Optional but highly recommended:
 - The storage capacity of both pouches is configurable, up to 256 (16x16) slots.
 - Pouches can be attached to and detached from leggings in the crafting menu. The Netherite Tool Pouch can only be attached to fireproof leggings (like netherite). The attached pouch can be opened by pressing a keybind (default H) while the leggings are equipped.
 - Pouches have restrictions on which and how many of each item can be stored inside them. These restrictions can be configured.
+- Tool pouch slots can be bound to keybinds, which toggle the functionality of the item in those slots.
 - Both pouches can be dyed. Use pouches on a cauldron filled with water to clear the dye.
 - Installing Shulker Box Tooltip will let you see which items the pouch contains inside the tooltip. The tooltip color will also change based on the dye on the pouch.
 

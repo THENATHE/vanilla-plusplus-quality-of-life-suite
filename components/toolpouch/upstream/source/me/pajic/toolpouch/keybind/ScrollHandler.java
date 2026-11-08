@@ -1,5 +1,6 @@
 package me.pajic.toolpouch.keybind;
 
+import me.pajic.toolpouch.ToolPouchClient;
 import me.pajic.toolpouch.hud.ContextualSelectionWidget;
 import me.pajic.toolpouch.network.ModPayloads;
 import me.pajic.toolpouch.platform.MultiLoaderUtil;
@@ -21,7 +22,7 @@ public class ScrollHandler {
     public static int selectedArrowSlot = 0;
 
     public static boolean handleMouseScroll(LocalPlayer player, int direction) {
-        if (ClientUtil.shouldScope) {
+        if (ClientUtil.shouldScope && ToolPouchClient.CONFIG.scrollableZoom.get()) {
             if (direction != 0) {
                 ClientUtil.zoomModifier -= direction * (0.1F * ClientUtil.zoomModifier);
                 if (ClientUtil.zoomModifier > 10) ClientUtil.zoomModifier = 10;

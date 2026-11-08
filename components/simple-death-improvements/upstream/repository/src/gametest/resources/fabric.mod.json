@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "simple_death_improvements_gametest",
+  "version": "1.0.0",
+  "name": "Simple Death Improvements Game Tests",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-gametest": [
+      "me.pajic.simple_death_improvements.gametest.DeathGameTests"
+    ]
+  },
+  "depends": {
+    "simple_death_improvements": "*",
+    "fabric-gametest-api-v1": "*"
+  }
+}

@@ -23,7 +23,7 @@
   "body": "# Tiered Backpacks\n\nThis mod adds tiered backpacks to the game.\n\nSee [Gallery](https://modrinth.com/mod/tiered-backpacks/gallery) tab for recipes, or use a recipe viewer mod.\n\n## Features\n\n- Six backpack tiers: Leather (3x9) \u2192 Copper (4x9) \u2192 Iron (5x9) \u2192 Golden (6x9) \u2192 Diamond (6x11) \u2192 Netherite (6x13)\n- Size of each backpack fully configurable up to 16x16 slots, with reasonable defaults out of the box\n- Open backpacks by right-clicking them, or from your inventory by pressing a keybind (default B)\n- Backpacks can be attached to and detached from chestplates. The Netherite Backpack can only be attached to fireproof chestplates (like netherite). The attached backpack can be opened by pressing a keybind (default B) while the chestplate is equipped\n- All backpacks except netherite are dyeable like other leather equipment\n- Upgrading backpacks keeps their contents and color\n- Extensive configuration for toggling equip and open methods and other rules\n- Compatible with all GUI resource packs, no addons needed\n\n### Mod compatibility\n\n- [Trinkets (Updated)](https://modrinth.com/mod/trinkets-updated), [Curios](https://modrinth.com/mod/curios), or [Ohmega](https://modrinth.com/mod/ohmega): Allows equipping the backpack as a trinket and opening it by pressing a keybind (default B)\n- [Shulker Box Tooltip](https://modrinth.com/mod/shulkerboxtooltip): Allows previewing backpack contents in the tooltip\n- [ItemSwapper](https://modrinth.com/plugin/itemswapper): Allows quick-swapping with items from the Devices list\n- [Item Descriptions](https://modrinth.com/mod/item-descriptions): Provided item descriptions for backpacks",
   "body_url": null,
   "published": "2025-10-30T18:34:43.441174Z",
-  "updated": "2026-10-02T13:47:56.496476Z",
+  "updated": "2026-11-02T21:28:11.252226Z",
   "approved": "2025-11-06T08:03:50.519963Z",
   "queued": "2025-11-04T19:29:04.637434Z",
   "status": "approved",
@@ -34,8 +34,8 @@
     "name": "MIT License",
     "url": null
   },
-  "downloads": 38474,
-  "followers": 58,
+  "downloads": 44986,
+  "followers": 65,
   "categories": [
     "equipment",
     "storage"
@@ -97,7 +97,13 @@
     "g18wqkHL",
     "jKPWUBrt",
     "GHnqX59p",
-    "aUG2quzD"
+    "aUG2quzD",
+    "EFvoQshE",
+    "bun95o6w",
+    "Fh8qqxFD",
+    "bn8OTjsp",
+    "rUcDCks7",
+    "9DXitKZc"
   ],
   "icon_url": "https://cdn.modrinth.com/data/IhNtYNEF/53ce20eb8fb38db03e4ebd9e523565bccf33301e_96.webp",
   "raw_icon_url": "https://cdn.modrinth.com/data/IhNtYNEF/53ce20eb8fb38db03e4ebd9e523565bccf33301e.png",

@@ -46,6 +46,7 @@ public class NeoforgeClientEventSubscriber {
         event.register(ModKeybinds.OPEN_WIDGET);
         event.register(ModKeybinds.USE_SPYGLASS);
         event.register(ModKeybinds.TOGGLE_MINIMAP);
+        event.register(ModKeybinds.BIND_SLOT_TOGGLE);
     }
 
     @SubscribeEvent

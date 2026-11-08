@@ -13,13 +13,12 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.ARGB;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.saveddata.maps.MapId;
 import net.minecraft.world.level.saveddata.maps.MapItemSavedData;
 import org.jetbrains.annotations.Nullable;
 
 public class Util26_2 implements MultiVersionUtil {
-
-    private static final MapRenderState STATE = new MapRenderState();
 
     @Override
     public void pushPose(GuiGraphicsExtractor graphics) {
@@ -46,15 +45,19 @@ public class Util26_2 implements MultiVersionUtil {
         graphics.pose().rotate((float) (Math.PI / 180.0) * rot * 360F / 16F);
     }
 
-    @SuppressWarnings("DataFlowIssue")
     @Override
-    public void rotatePlayerMarker(Minecraft mc, GuiGraphicsExtractor graphics) {
-        graphics.pose().rotate(Mth.DEG_TO_RAD * (mc.player.getYRot() + 180.0F));
+    public void rotateDegrees(GuiGraphicsExtractor graphics, float degrees) {
+        graphics.pose().rotate(Mth.DEG_TO_RAD * degrees);
     }
 
     @Override
     public int color(int a, int r, int g, int b) {
         return ARGB.color(a, r, g, b);
+    }
+
+    @Override
+    public int playerMarkerColor(Player player) {
+        return ARGB.setBrightness(ARGB.color(255, player.getUUID().hashCode()), 0.9F);
     }
 
     @Override
@@ -64,18 +67,21 @@ public class Util26_2 implements MultiVersionUtil {
 
     @Override
     public void renderMap(Minecraft mc, GuiGraphicsExtractor graphics, MapId id, MapItemSavedData data, @Nullable WorldMapScreen.GridPos gridPos, boolean minimap) {
-        MapRenderState state = minimap ? STATE : new MapRenderState();
+        MapRenderState state = new MapRenderState();
         mc.getMapRenderer().extractRenderState(id, data, state);
-        state.decorations.forEach(decor -> {
-            if (minimap) decor.renderOnFrame = true;
-            else if (gridPos != null) WorldMapScreen.prepareDecoration(decor, gridPos);
-        });
+        if (minimap) state.decorations.clear();
+        else if (gridPos != null) state.decorations.forEach(decor -> WorldMapScreen.prepareDecoration(decor, gridPos));
         graphics.map(state);
     }
 
     @Override
     public void blit(GuiGraphicsExtractor graphics, Identifier texture, int x, int y, float u, float v, int w, int h, int tw, int th) {
         graphics.blit(RenderPipelines.GUI_TEXTURED, texture, x, y, u, v, w, h, tw, th);
+    }
+
+    @Override
+    public void blitTinted(GuiGraphicsExtractor graphics, Identifier texture, int x, int y, float u, float v, int w, int h, int tw, int th, int argb) {
+        graphics.blit(RenderPipelines.GUI_TEXTURED, texture, x, y, u, v, w, h, tw, th, argb);
     }
 
     @Override

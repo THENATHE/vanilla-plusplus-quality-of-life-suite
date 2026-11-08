@@ -6,52 +6,46 @@
     "fabric"
   ],
   "environment": "client_and_server",
-  "id": "k5NaPhrq",
+  "id": "bNtv3MPv",
   "project_id": "U5TJjZc3",
   "author_id": "Kg6RZEfM",
   "featured": false,
-  "name": "2.10.0 for Fabric 26.3",
-  "version_number": "2.10.0+26.3",
-  "changelog": "- Added Fabric 26.3 version.\n- Defaulted is no longer required.\n    - The mod no longer patches item components to add repairs, it now keeps track of repairs on its own and intercepts repair checks instead.\n    - Configuration is unchanged and item tags are still supported in the config.\n    - Changing repairs in the config in-game now applies changes immediately, syncs them to clients, and doesn't require a datapack reload.\n    - Mod compatibility should remain the same, please report any issues if you run into them.\n- Changed how item renames are handled as an attempt to fix a long-standing bug where all text becomes garbled when setting the game to certain languages ([details](https://github.com/pajicadvance/simple-smithing-overhaul/issues/4)).\n",
+  "name": "2.10.3 for Fabric 26.3",
+  "version_number": "2.10.3+26.3",
+  "changelog": "2.10.2:\n\n- Added an option to export a text file listing all items that can be pinnacle upgraded and the enchantments they support, to help with configuring the \"maxed out\" check exclusions.\n    - Found in the pinnacle enchantment section of the config.\n    - The file is exported to `config/simple_smithing_overhaul/enchantment_info.txt`.\n- Added NeoForge 26.3 version.\n- Fixed being able to enchant unenchanted items in the anvil for free when free unenchanted repairs are enabled.\n- Fixed being able to reroll pinnacle upgrades for free by shift-clicking the result with a full inventory.\n- Fixed fully repairing some items in the anvil (e.g. diamond pickaxes, axes and boots) requiring one extra material.\n- Fixed the pinnacle item name color config option being ignored on 26.2+.\n- Fixed broken items in the offhand not being blocked from use on NeoForge.\n- Fixed the anvil degradation chance config option not working on NeoForge.\n- Fixed Mending repairs failing when the first whetstone in the inventory doesn't have the required enchantments, even if a compatible one is present.\n- Fixed Mending repairs on crouch-use not working for bows, crossbows, tridents and fishing rods.\n- Fixed the \"Too Expensive!\" label not showing in the smithing table on 26.1+.\n- Fixed Mending repairs being performed client-side, causing temporary desyncs.\n- Fixed Mending auto-repair on break not repairing armor and offhand items on 26.1+.\n- Fixed repair materials defined through item tags not updating after `/reload` on NeoForge.\n- Fixed Mending repairs not counting towards repair count advancements.\n- Fixed a rare thread safety issue when updating repairable items.\n\n2.10.3:\n\n- Fixed dedicated server crash.\n",
   "changelog_url": null,
-  "date_published": "2026-10-05T20:59:18.101494Z",
-  "downloads": 20,
+  "date_published": "2026-10-21T21:41:18.599826Z",
+  "downloads": 125,
   "version_type": "release",
   "status": "listed",
   "requested_status": null,
   "files": [
     {
-      "id": "YhmJybpn",
+      "id": "Xbx7HKyG",
       "hashes": {
-        "sha1": "540d35117cefc2ca1e544b9ea8469b05476892ae",
-        "sha512": "0715efeb054f976ab56fb69fc93510eb49acd978f36e46ca6be22dcc4b8fe7a6ec54b500dd4fac4de2885854cb01f8ff522a25a10e1c7c88a722bf147f8d83d1"
+        "sha1": "817e03b095a3c81f17bff223830badd27799c69b",
+        "sha512": "e50041c523f1a313e5eb6278af9c87a3ca178bb69bf6d78c69d1d19b201dfc318b1877d802b4f21333d575a66f0e424a2985b1d34904458e874680a353a426db"
       },
-      "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/k5NaPhrq/simple_smithing_overhaul-fabric-2.10.0%2B26.3.jar",
-      "filename": "simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/bNtv3MPv/simple_smithing_overhaul-fabric-2.10.3%2B26.3.jar",
+      "filename": "simple_smithing_overhaul-fabric-2.10.3+26.3.jar",
       "primary": true,
-      "size": 643723,
+      "size": 651363,
       "file_type": null
     },
     {
-      "id": "HDyBVzBi",
+      "id": "3fqc6OCC",
       "hashes": {
-        "sha1": "64d6ab5212b9a2c065f88fbd33a1e5fb6604d26b",
-        "sha512": "4bae6916825b9153b3a3735732bf758972157e5e0f897ff4afe3d9968de4a86b53c0a42a7b219961fa70f9438201207e066c6cd0af01c9d52dc4e90661f5870f"
+        "sha1": "ba2ba2e1e11e962f921367ffd4054d1a4e26c722",
+        "sha512": "4cb1b103ab051f09f037fcb8b5e9785c41ce7ef4d1bfedc0ef1a43f769d2bbecaa5cfe611dd8717cfc7be843005611825c69f4bf879ccdeef0cc5bd5c2f6d33d"
       },
-      "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/k5NaPhrq/simple_smithing_overhaul-fabric-2.10.0%2B26.3-sources.jar",
-      "filename": "simple_smithing_overhaul-fabric-2.10.0+26.3-sources.jar",
+      "url": "https://cdn.modrinth.com/data/U5TJjZc3/versions/bNtv3MPv/simple_smithing_overhaul-fabric-2.10.3%2B26.3-sources.jar",
+      "filename": "simple_smithing_overhaul-fabric-2.10.3+26.3-sources.jar",
       "primary": false,
-      "size": 546471,
+      "size": 549420,
       "file_type": null
     }
   ],
   "dependencies": [
-    {
-      "version_id": null,
-      "project_id": "EgugIDm8",
-      "file_name": null,
-      "dependency_type": "required"
-    },
     {
       "version_id": null,
       "project_id": "P7dR8mSH",
@@ -61,6 +55,12 @@
     {
       "version_id": null,
       "project_id": "hYykXjDp",
+      "file_name": null,
+      "dependency_type": "required"
+    },
+    {
+      "version_id": null,
+      "project_id": "EgugIDm8",
       "file_name": null,
       "dependency_type": "required"
     }

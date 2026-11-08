@@ -38,6 +38,11 @@ public class FabricEntrypoint implements ModInitializer {
                 ToolPouch.id("is_netherite_pouch"),
                 ModDataComponents.IS_NETHERITE_POUCH
         );
+        Registry.register(
+                BuiltInRegistries.DATA_COMPONENT_TYPE,
+                ToolPouch.id("disabled_slots"),
+                ModDataComponents.DISABLED_SLOTS
+        );
         ModMenuTypes.init();
         Registry.register(
                 BuiltInRegistries.MENU,
@@ -79,6 +84,7 @@ public class FabricEntrypoint implements ModInitializer {
         PayloadTypeRegistry.clientboundPlay().register(ModPayloads.S2CSyncArrowSlot.TYPE, ModPayloads.S2CSyncArrowSlot.CODEC);
         PayloadTypeRegistry.serverboundPlay().register(ModPayloads.C2SElytraBoostFromPouchPayload.TYPE, ModPayloads.C2SElytraBoostFromPouchPayload.CODEC);
         PayloadTypeRegistry.serverboundPlay().register(ModPayloads.C2SPlaySoundPayload.TYPE, ModPayloads.C2SPlaySoundPayload.CODEC);
+        PayloadTypeRegistry.serverboundPlay().register(ModPayloads.C2SToggleSlotPayload.TYPE, ModPayloads.C2SToggleSlotPayload.CODEC);
         ServerPlayNetworking.registerGlobalReceiver(
                 ModPayloads.C2SOpenToolPouchPayload.TYPE,
                 (payload, context) -> NetworkEvents.tryOpenToolPouch(context.player(), payload.openMethod())
@@ -106,6 +112,10 @@ public class FabricEntrypoint implements ModInitializer {
         ServerPlayNetworking.registerGlobalReceiver(
                 ModPayloads.C2SPlaySoundPayload.TYPE,
                 (payload, context) -> NetworkEvents.playSound(context.player(), payload.sound())
+        );
+        ServerPlayNetworking.registerGlobalReceiver(
+                ModPayloads.C2SToggleSlotPayload.TYPE,
+                (payload, context) -> NetworkEvents.toggleSlot(context.player(), payload.slot())
         );
 	}
 }

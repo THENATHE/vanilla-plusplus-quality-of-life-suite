@@ -1,0 +1,72 @@
+{
+  "component": "sso",
+  "track": "developer-release",
+  "mod_id": "simple_smithing_overhaul",
+  "artifact_version": "2.10.0",
+  "release_version": "2.10.0+26.3",
+  "minecraft": "26.3",
+  "suite_minecraft": "26.3",
+  "upstream_minecraft": "26.3",
+  "advertised_game_versions": [
+    "26.3"
+  ],
+  "loader": "fabric",
+  "modrinth_version_id": "k5NaPhrq",
+  "modrinth_version_url": "https://modrinth.com/mod/simple-smithing-overhaul/version/k5NaPhrq",
+  "github": {
+    "repository": "https://github.com/pajicadvance/simple-smithing-overhaul",
+    "branch": "multicutter-v3",
+    "commit": "584a653da7049b6cfc13f8026176097b34d56e94"
+  },
+  "binary": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+  "binary_sha256": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
+  "published_sources": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.0+26.3-sources.jar",
+  "repository_snapshot": "components/sso/upstream/repository",
+  "published_source_tree": "components/sso/upstream/source",
+  "dependencies": {
+    "minecraft": "~26.3",
+    "fabricloader": ">=0.19.5",
+    "java": ">=25",
+    "fabric-api": ">=0.161.0",
+    "fzzy_config": ">=0.7.7",
+    "mixson": ">=2.2.1"
+  },
+  "suggests": {},
+  "nested_jars": [
+    {
+      "file": "META-INF/jars/mixinconstraints-1.1.0.jar"
+    }
+  ],
+  "config_ids": [
+    "simple_smithing_overhaul:config-v2"
+  ],
+  "license": "MIT",
+  "copyright_file": "components/sso/upstream/repository/LICENSE",
+  "artifacts": [
+    {
+      "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "sha256": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
+      "size": 643723
+    },
+    {
+      "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.0+26.3-sources.jar",
+      "sha256": "8d6b902f7a79f0eb075aa8a1cd9b25f962e69ff784eb76a5017fa83dcd0c90d5",
+      "size": 546471
+    },
+    {
+      "path": "components/sso/upstream/artifacts/sso-584a653da7049b6cfc13f8026176097b34d56e94-source.zip",
+      "sha256": "6a01605b1742c519646e7698fb700e3fa7fefb43c8426546be8cbc0209e9fd01",
+      "size": 659138
+    }
+  ],
+  "modifications": [],
+  "port_counterpart": null,
+  "port_counterpart_reason": "Historical ChatGPT SSO 2.9.14-port.1 remains paused and untouched; suite now uses official public Fabric 26.3 developer release.",
+  "recorded_date": "2026-10-06",
+  "artifact_verification": "Publisher SHA-512 and SHA-1 verified; local SHA-256 recorded. Published source JAR is exact release authority; GitHub revision is separate history reference.",
+  "historical_tracks": [
+    "components/sso/upstream/history/2.9.14+26.2",
+    "components/sso/private-developer-release"
+  ],
+  "historical_source_reference": "Git tag v1.1.4+26.3 preserves prior public source/repository tree; ignored original 26.2 publisher archives remain in upstream/artifacts."
+}

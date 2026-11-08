@@ -1,1 +1,6 @@
-- Fixed broken Russian translation.
+- Fixed the minimap showing maps in the wrong place for atlases with a scale other than 1:1 ([#43](https://github.com/pajicadvance/mapstitch/issues/43), [#44](https://github.com/pajicadvance/mapstitch/issues/44)).
+- Fixed atlas maps being fully loaded only for the first player whose atlas ticked after the server started.
+- Fixed the atlas checking for a new active map too early when using a scale of 1:4 or higher.
+- Fixed the atlas creating unused map data when the area at the player's position was already mapped.
+- Sharing a pin with a player who is no longer on your team now shows an error message instead of doing nothing.
+- Switching the atlas eject mode by scrolling now respects slots that can't be modified.

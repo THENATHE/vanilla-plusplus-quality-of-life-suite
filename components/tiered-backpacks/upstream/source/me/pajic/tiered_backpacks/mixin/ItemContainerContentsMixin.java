@@ -37,7 +37,7 @@ public class ItemContainerContentsMixin {
 					"text.tiered_backpacks.attachment",
 					Component.translatable(
 							"tiered_backpacks.backpackTier." +
-							tier.getSerializedName().toUpperCase()
+							tier.name()
 					).withColor(tier.getColor())
 			).withStyle(ChatFormatting.BLUE));
 		}

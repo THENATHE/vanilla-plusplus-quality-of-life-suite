@@ -3,6 +3,7 @@ package me.pajic.simple_death_improvements.compat;
 //? neoforge {
 
 /*import me.pajic.simple_death_improvements.SDI;
+import me.pajic.simple_death_improvements.util.ModUtil;
 import net.neoforged.neoforge.common.NeoForge;
 import top.theillusivec4.curios.api.event.DropRulesEvent;
 
@@ -17,7 +18,8 @@ public class CuriosCompat implements AccessoryUtil {
                 event.addOverride(
                         stack ->
                                 SDI.CONFIG.keepAccessoriesOnDeath.get() &&
-                                !SDI.CONFIG.accessoryDropList.contains(SDI.getItemId(stack)),
+                                !SDI.CONFIG.accessoryDropList.contains(SDI.getItemId(stack)) ||
+                                ModUtil.tryKeepDamageableItem(event.getEntity(), stack),
                         /^? <26.1 {^//^ICurio.^//^?}^/DropRule.ALWAYS_KEEP
                 )
         );

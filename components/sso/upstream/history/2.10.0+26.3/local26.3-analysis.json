@@ -1,0 +1,32 @@
+{
+  "local_input": "Minecraft/simple_smithing_overhaul-fabric-2.9.14+26.3.jar",
+  "local_sha256": "fb6cbf8c13938d68fb19171dac386b5567d71625bce727b22d3380f6b7880126",
+  "official_input": "Minecraft/thenathe-mod-suite/components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2.jar",
+  "official_sha256": "f393e8b48d6bdf06e69290843c0d041d5f70449f2af7355eaf4c7249bc97fc56",
+  "common_entries_differing": [
+    "META-INF/MANIFEST.MF",
+    "me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.class",
+    "me/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin.class",
+    "fabric.mod.json"
+  ],
+  "local_only_entries": [
+    "aw/26.3.ct"
+  ],
+  "official_only_entries": [
+    "aw/26.2.ct"
+  ],
+  "access_widener_same_bytes_after_rename": true,
+  "class_count": 83,
+  "class_differences": [
+    "me/pajic/simple_smithing_overhaul/criterion/ModCriterion$TriggerInstance.class",
+    "me/pajic/simple_smithing_overhaul/mixin/VillagerTradeMixin.class"
+  ],
+  "matching_other_class_count": 81,
+  "local_manifest": "Manifest-Version: 1.0\r\nStonecutter-Plugin-Version: 0.9.8\r\nStonecutter-Gradle-Version: 9.7.1\r\nStonecutter-Node-Project: 26.3-fabric\r\nStonecutter-Node-Version: 26.3\r\nFabric-Mapping-Namespace: official\r\nFabric-Gradle-Version: 9.7.1\r\nFabric-Loom-Version: 1.17.21\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 26.3\r\nFabric-Tiny-Remapper-Version: 0.14.0\r\nFabric-Loader-Version: 0.19.5\r\nFabric-Mixin-Version: 0.17.4+mixin.0.8.7\r\nFabric-Mixin-Group: net.fabricmc\r\n\r\n",
+  "official_manifest": "Manifest-Version: 1.0\r\nStonecutter-Plugin-Version: 0.9.8\r\nStonecutter-Gradle-Version: 9.7.1\r\nStonecutter-Node-Project: 26.2-fabric\r\nStonecutter-Node-Version: 26.2\r\nFabric-Mapping-Namespace: official\r\nFabric-Gradle-Version: 9.7.1\r\nFabric-Loom-Version: 1.17.21\r\nFabric-Mixin-Compile-Extensions-Version: 0.6.0\r\nFabric-Minecraft-Version: 26.2\r\nFabric-Tiny-Remapper-Version: 0.14.0\r\nFabric-Loader-Version: 0.19.5\r\nFabric-Mixin-Version: 0.17.4+mixin.0.8.7\r\nFabric-Mixin-Group: net.fabricmc\r\n\r\n",
+  "provenance_conclusion": "Local26.3 compilation provenance is unverified. Its only two differing compiled classes correspond to26.3 branches already present in the official published26.2 sources. Bytecode inspection does not establish who built the local artifact or prove an exact reproducible source build. No SSO artifact was built or modified during this audit.",
+  "source_correspondence": {
+    "ModCriterion$TriggerInstance": "Local signature Optional<Holder<LootItemCondition>> and CODEC from LootItemCondition.CODEC match publishedsource >26.2 substitutions; official26.2 uses ContextAwarePredicate and EntityPredicate.ADVANCEMENT_CODEC.",
+    "VillagerTradeMixin": "Local injectiontarget ContextIntProvider;getInt(LootContext)I matches publishedsource >26.2 NumberProvider -> ints/ContextIntProvider substitution. Other method logic matches official26.2 bytecode."
+  }
+}

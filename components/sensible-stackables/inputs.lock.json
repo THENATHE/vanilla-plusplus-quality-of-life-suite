@@ -2,8 +2,8 @@
   "component": "sensible-stackables",
   "track": "developer-release",
   "mod_id": "sensible_stackables",
-  "artifact_version": "3.1.1",
-  "release_version": "3.1.1+26.3",
+  "artifact_version": "3.1.2",
+  "release_version": "3.1.2+26.3",
   "minecraft": "26.3",
   "suite_minecraft": "26.3",
   "upstream_minecraft": "26.3",
@@ -11,16 +11,16 @@
     "26.3"
   ],
   "loader": "fabric",
-  "modrinth_version_id": "oRpBICTz",
-  "modrinth_version_url": "https://modrinth.com/mod/sensible-stackables/version/oRpBICTz",
+  "modrinth_version_id": "aZbIVjYA",
+  "modrinth_version_url": "https://modrinth.com/mod/sensible-stackables/version/aZbIVjYA",
   "github": {
     "repository": "https://github.com/pajicadvance/sensible-stackables",
     "branch": "multicutter-v3",
-    "commit": "3f2cd300564bd2e0c28adcf9b4192aa836a96320"
+    "commit": "3ef60e62229bdbeafe509e3ea4f59c4943e2a217"
   },
-  "binary": "components/sensible-stackables/developer-release/artifacts/sensible_stackables-fabric-3.1.1+26.3.jar",
-  "binary_sha256": "bf750cbe40394caffe3fd7c9bc2b57985d4110c5cae51dc726f948b55a25598a",
-  "published_sources": "components/sensible-stackables/developer-release/artifacts/sensible_stackables-fabric-3.1.1+26.3-sources.jar",
+  "binary": "components/sensible-stackables/developer-release/artifacts/sensible_stackables-fabric-3.1.2+26.3.jar",
+  "binary_sha256": "6d4073c9da88c19e530238b840a8645fe2e1378c2c9c018f106d2abc3b3d56c3",
+  "published_sources": "components/sensible-stackables/developer-release/artifacts/sensible_stackables-fabric-3.1.2+26.3-sources.jar",
   "repository_snapshot": "components/sensible-stackables/developer-release/repository",
   "published_source_tree": "components/sensible-stackables/developer-release/source",
   "dependencies": {
@@ -42,9 +42,14 @@
   "copyright_file": "components/sensible-stackables/developer-release/repository/LICENSE",
   "artifacts": [
     {
-      "path": "components/sensible-stackables/developer-release/artifacts/sensible_stackables-fabric-3.1.1+26.3.jar",
-      "sha256": "bf750cbe40394caffe3fd7c9bc2b57985d4110c5cae51dc726f948b55a25598a",
-      "size": 64323
+      "path": "components/sensible-stackables/developer-release/artifacts/sensible-stackables-3ef60e62229bdbeafe509e3ea4f59c4943e2a217-source.zip",
+      "sha256": "47bac47cbfe58fca6994f6edc5c27959b07abfbcc54150ad9ccd2bbb97260288",
+      "size": 126705
+    },
+    {
+      "path": "components/sensible-stackables/developer-release/artifacts/sensible-stackables-3f2cd300564bd2e0c28adcf9b4192aa836a96320-source.zip",
+      "sha256": "20d64d9c33fdd72b4c423181a14bb723d7abfb3b83348868c6de31bb37c86596",
+      "size": 126079
     },
     {
       "path": "components/sensible-stackables/developer-release/artifacts/sensible_stackables-fabric-3.1.1+26.3-sources.jar",
@@ -52,16 +57,25 @@
       "size": 48384
     },
     {
-      "path": "components/sensible-stackables/developer-release/artifacts/sensible-stackables-3f2cd300564bd2e0c28adcf9b4192aa836a96320-source.zip",
-      "sha256": "20d64d9c33fdd72b4c423181a14bb723d7abfb3b83348868c6de31bb37c86596",
-      "size": 126079
+      "path": "components/sensible-stackables/developer-release/artifacts/sensible_stackables-fabric-3.1.1+26.3.jar",
+      "sha256": "bf750cbe40394caffe3fd7c9bc2b57985d4110c5cae51dc726f948b55a25598a",
+      "size": 64323
+    },
+    {
+      "path": "components/sensible-stackables/developer-release/artifacts/sensible_stackables-fabric-3.1.2+26.3-sources.jar",
+      "sha256": "ecea419696efd7ebbf649bd8e91496bd63dcde317f6310cf50923bd4778145ce",
+      "size": 51536
+    },
+    {
+      "path": "components/sensible-stackables/developer-release/artifacts/sensible_stackables-fabric-3.1.2+26.3.jar",
+      "sha256": "6d4073c9da88c19e530238b840a8645fe2e1378c2c9c018f106d2abc3b3d56c3",
+      "size": 68429
     }
   ],
   "modifications": [],
   "port_counterpart": null,
-  "port_counterpart_reason": "Historical 3.0.3-port.1 source and 26.2 baseline preserved independently; current suite uses the official public 26.3 developer release.",
-  "recorded_date": "2026-10-06",
-  "artifact_verification": "Publisher SHA-512 and SHA-1 verified; local SHA-256 recorded. Published source JAR is exact release authority; GitHub revision is separate history reference.",
+  "port_counterpart_reason": "Historical 3.0.3-port.1 source and 26.2 baseline remain preserved independently; suite uses the official public 26.3 developer release.",
+  "recorded_date": "2026-11-08",
   "historical_tracks": [
     "components/sensible-stackables/upstream",
     "components/sensible-stackables/ported"

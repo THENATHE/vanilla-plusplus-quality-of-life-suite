@@ -26,19 +26,18 @@ public class AttachToolPouchRecipe extends CustomRecipe {
 	public static final MapCodec<AttachToolPouchRecipe> MAP_CODEC = MapCodec.unit(INSTANCE);
 	public static final StreamCodec<RegistryFriendlyByteBuf, AttachToolPouchRecipe> STREAM_CODEC = StreamCodec.unit(INSTANCE);
 
-	private ItemStack toolPouch = ItemStack.EMPTY;
-
 	@Override
 	public boolean matches(@NotNull CraftingInput input, @NotNull Level level) {
 		if (ToolPouch.CONFIG.canAttachToLeggings.get() && input.size() == 2) {
 			ItemStack leggings = ItemStack.EMPTY;
+			ItemStack toolPouch = ItemStack.EMPTY;
 			boolean hasToolPouch = false;
 			boolean hasLeggings = false;
 			for (int i = 0; i < input.size(); i++) {
 				ItemStack itemStack = input.getItem(i);
 				if (!itemStack.isEmpty()) {
 					if (itemStack.is(ItemTags.LEG_ARMOR)) {
-						if (hasLeggings) return false;
+						if (hasLeggings || GameplayUtil.isLeggingsWithPouchAttached(itemStack)) return false;
 						hasLeggings = true;
 						leggings = itemStack.copy();
 					} else if (itemStack.is(GameplayUtil.TOOL_POUCHES)) {
@@ -62,14 +61,20 @@ public class AttachToolPouchRecipe extends CustomRecipe {
 	@Override
 	public @NotNull ItemStack assemble(CraftingInput input) {
 		ItemStack itemStack = ItemStack.EMPTY;
+		ItemStack toolPouch = ItemStack.EMPTY;
+		for (int i = 0; i < input.size(); i++) {
+			if (input.getItem(i).is(GameplayUtil.TOOL_POUCHES)) toolPouch = input.getItem(i);
+		}
 		for (int i = 0; i < input.size(); i++) {
 			ItemStack itemStack2 = input.getItem(i);
 			if (itemStack2.is(ItemTags.LEG_ARMOR)) {
 				itemStack = itemStack2.copy();
 				itemStack.set(DataComponents.CONTAINER, toolPouch.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
+				itemStack.set(ModDataComponents.DISABLED_SLOTS, toolPouch.get(ModDataComponents.DISABLED_SLOTS));
 				DyedItemColor dye = toolPouch.get(DataComponents.DYED_COLOR);
 				if (dye != null) itemStack.set(ModDataComponents.STORED_TOOL_POUCH_DYE, dye);
 				if (toolPouch.is(ModItems.NETHERITE_TOOL_POUCH)) itemStack.set(ModDataComponents.IS_NETHERITE_POUCH, true);
+				else itemStack.remove(ModDataComponents.IS_NETHERITE_POUCH);
 			}
 		}
 		return itemStack;

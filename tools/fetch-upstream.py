@@ -7,6 +7,7 @@ or checkout is created; all source comes from pinned public archives.
 """
 from pathlib import Path
 import argparse
+import datetime
 import hashlib
 import io
 import json
@@ -17,13 +18,13 @@ import zipfile
 SUITE = Path(__file__).resolve().parents[1]
 COMPONENTS = {
     'bannerpoint': ('bannerpoint', '1.1.2+26.3', 'pajicadvance/bannerpoint'),
-    'sso': ('simple-smithing-overhaul', '2.10.0+26.3', 'pajicadvance/simple-smithing-overhaul'),
-    'mapstitch': ('mapstitch', '1.1.7+26.3', 'pajicadvance/mapstitch'),
-    'sensible-stackables': ('sensible-stackables', '3.1.1+26.3', 'pajicadvance/sensible-stackables'),
-    'toolpouch': ('tool-pouch', '1.1.10+26.3', 'pajicadvance/toolpouch'),
-    'tiered-backpacks': ('tiered-backpacks', '1.0.20+26.3', 'pajicadvance/tiered_backpacks'),
+    'sso': ('simple-smithing-overhaul', '2.10.3+26.3', 'pajicadvance/simple-smithing-overhaul'),
+    'mapstitch': ('mapstitch', '1.2.1+26.3', 'pajicadvance/mapstitch'),
+    'sensible-stackables': ('sensible-stackables', '3.1.2+26.3', 'pajicadvance/sensible-stackables'),
+    'toolpouch': ('tool-pouch', '1.2.0+26.3', 'pajicadvance/toolpouch'),
+    'tiered-backpacks': ('tiered-backpacks', '1.0.21+26.3', 'pajicadvance/tiered_backpacks'),
     'misctweaks': ('misctweaks', '1.4.4+26.3', 'pajicadvance/misctweaks'),
-    'simple-death-improvements': ('simple-death-improvements', '1.6.0+26.3', 'pajicadvance/simple-death-improvements'),
+    'simple-death-improvements': ('simple-death-improvements', '1.7.0+26.3', 'pajicadvance/simple-death-improvements'),
 }
 
 def read(url):
@@ -124,7 +125,7 @@ def fetch(component):
                 configs.append(fabric['id'] + ':' + config)
     license_files = [p for p in (upstream / 'repository').glob('LICENSE*') if p.is_file()]
     record = dict(component=component, track='developer-release', mod_id=fabric['id'], artifact_version=fabric['version'], release_version=release['version_number'], minecraft=upstream_minecraft, suite_minecraft='26.3', upstream_minecraft=upstream_minecraft, advertised_game_versions=release['game_versions'], loader='fabric', modrinth_version_id=release['id'], modrinth_version_url=f"https://modrinth.com/mod/{slug}/version/{release['id']}", github=git_ref, binary=str(binary.relative_to(SUITE)), binary_sha256=hashlib.sha256(binary.read_bytes()).hexdigest(), published_sources=str(source.relative_to(SUITE)) if source else None, repository_snapshot=str((upstream / 'repository').relative_to(SUITE)), published_source_tree=str(source_tree.relative_to(SUITE)) if source else None, dependencies=fabric['depends'], suggests=fabric.get('suggests', {}), nested_jars=fabric.get('jars', []), config_ids=sorted(set(configs)), license=fabric['license'], copyright_file=str(license_files[0].relative_to(SUITE)) if license_files else None, artifacts=artifacts_lock, modifications=[], port_counterpart=None, port_counterpart_reason='Official developer release supports 26.3; no additional port created.')
-    record['recorded_date'] = '2026-10-06'
+    record['recorded_date'] = datetime.date.today().isoformat()
     if component == 'sso':
         record['port_counterpart_reason'] = 'Historical ChatGPT SSO 2.9.14-port.1 remains paused and untouched; suite uses the official public Fabric 26.3 developer release.'
         record['historical_tracks'] = ['components/sso/upstream/history/2.9.14+26.2', 'components/sso/private-developer-release']

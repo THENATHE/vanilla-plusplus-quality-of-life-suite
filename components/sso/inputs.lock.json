@@ -2,8 +2,8 @@
   "component": "sso",
   "track": "developer-release",
   "mod_id": "simple_smithing_overhaul",
-  "artifact_version": "2.10.0",
-  "release_version": "2.10.0+26.3",
+  "artifact_version": "2.10.3",
+  "release_version": "2.10.3+26.3",
   "minecraft": "26.3",
   "suite_minecraft": "26.3",
   "upstream_minecraft": "26.3",
@@ -11,16 +11,16 @@
     "26.3"
   ],
   "loader": "fabric",
-  "modrinth_version_id": "k5NaPhrq",
-  "modrinth_version_url": "https://modrinth.com/mod/simple-smithing-overhaul/version/k5NaPhrq",
+  "modrinth_version_id": "bNtv3MPv",
+  "modrinth_version_url": "https://modrinth.com/mod/simple-smithing-overhaul/version/bNtv3MPv",
   "github": {
     "repository": "https://github.com/pajicadvance/simple-smithing-overhaul",
     "branch": "multicutter-v3",
-    "commit": "584a653da7049b6cfc13f8026176097b34d56e94"
+    "commit": "ae967957926a68866bf2747f41c49794854d304d"
   },
-  "binary": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
-  "binary_sha256": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
-  "published_sources": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.0+26.3-sources.jar",
+  "binary": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.3+26.3.jar",
+  "binary_sha256": "f7301e59a26327632aa6d03c029429ffc9822750b88218e26dfe3753b1d3217a",
+  "published_sources": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.3+26.3-sources.jar",
   "repository_snapshot": "components/sso/upstream/repository",
   "published_source_tree": "components/sso/upstream/source",
   "dependencies": {
@@ -44,29 +44,57 @@
   "copyright_file": "components/sso/upstream/repository/LICENSE",
   "artifacts": [
     {
-      "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
-      "sha256": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
-      "size": 643723
-    },
-    {
       "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.0+26.3-sources.jar",
       "sha256": "8d6b902f7a79f0eb075aa8a1cd9b25f962e69ff784eb76a5017fa83dcd0c90d5",
       "size": 546471
     },
     {
+      "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.0+26.3.jar",
+      "sha256": "b23d91bf8bf71eb9747a32cad1caf3e7a0ab4618428850c7c40e1eae9431db47",
+      "size": 643723
+    },
+    {
+      "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.3+26.3-sources.jar",
+      "sha256": "b95bb316431507ac97091c36626a2b2819ac0fa57ae3df7d74b93260c9cc27d1",
+      "size": 549420
+    },
+    {
+      "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.10.3+26.3.jar",
+      "sha256": "f7301e59a26327632aa6d03c029429ffc9822750b88218e26dfe3753b1d3217a",
+      "size": 651363
+    },
+    {
+      "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2-sources.jar",
+      "sha256": "3b3ddb9206c86ed224fe89b6ed40d664b3598b919d70b6b49415d1cda3c2fa4b",
+      "size": 218865
+    },
+    {
+      "path": "components/sso/upstream/artifacts/simple_smithing_overhaul-fabric-2.9.14+26.2.jar",
+      "sha256": "f393e8b48d6bdf06e69290843c0d041d5f70449f2af7355eaf4c7249bc97fc56",
+      "size": 313992
+    },
+    {
       "path": "components/sso/upstream/artifacts/sso-584a653da7049b6cfc13f8026176097b34d56e94-source.zip",
       "sha256": "6a01605b1742c519646e7698fb700e3fa7fefb43c8426546be8cbc0209e9fd01",
       "size": 659138
+    },
+    {
+      "path": "components/sso/upstream/artifacts/sso-979a4d39763c63c7d0956f8c39b6ca56600962e5-source.zip",
+      "sha256": "b3eff6ab518a59c63771df0a6ed0d28fa962a6a01d258ca1a3da0e056eb870bd",
+      "size": 316914
+    },
+    {
+      "path": "components/sso/upstream/artifacts/sso-ae967957926a68866bf2747f41c49794854d304d-source.zip",
+      "sha256": "20b79d191ac38ab3192cc2d83677ca65e187ff09be4f001b752c34c70b9920e5",
+      "size": 652857
     }
   ],
   "modifications": [],
   "port_counterpart": null,
-  "port_counterpart_reason": "Historical ChatGPT SSO 2.9.14-port.1 remains paused and untouched; suite now uses official public Fabric 26.3 developer release.",
-  "recorded_date": "2026-10-06",
-  "artifact_verification": "Publisher SHA-512 and SHA-1 verified; local SHA-256 recorded. Published source JAR is exact release authority; GitHub revision is separate history reference.",
+  "port_counterpart_reason": "Historical ChatGPT SSO 2.9.14-port.1 remains paused and untouched; suite uses the official public Fabric 26.3 developer release.",
+  "recorded_date": "2026-11-08",
   "historical_tracks": [
     "components/sso/upstream/history/2.9.14+26.2",
     "components/sso/private-developer-release"
-  ],
-  "historical_source_reference": "Git tag v1.1.4+26.3 preserves prior public source/repository tree; ignored original 26.2 publisher archives remain in upstream/artifacts."
+  ]
 }

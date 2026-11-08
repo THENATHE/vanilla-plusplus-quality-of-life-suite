@@ -11,8 +11,8 @@ public class BackpackDimensions implements Walkable {
     public ValidatedInt columns;
 
     public BackpackDimensions(int rows, int columns) {
-        this.rows = new ValidatedInt(rows);
-        this.columns = new ValidatedInt(columns);
+        this.rows = new ValidatedInt(rows, 16, 1);
+        this.columns = new ValidatedInt(columns, 16, 1);
     }
 
     @SuppressWarnings("unused")

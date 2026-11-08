@@ -19,7 +19,7 @@ public class ModConfig extends Config {
 
 	public ValidatedBoolean noItemSplatterOnDeath = new ValidatedBoolean(true);
 	public ValidatedBoolean noDeathItemDespawn = new ValidatedBoolean(true);
-    public ValidatedInt itemDespawnTimer = new ValidatedInt(300, Integer.MAX_VALUE, 1);
+    public ValidatedInt itemDespawnTimer = new ValidatedInt(300, Integer.MAX_VALUE / 20, 1);
 	public ValidatedBoolean tryItemLavaSaveOnDeath = new ValidatedBoolean(true);
 	public ValidatedBoolean tryItemVoidSaveOnDeath = new ValidatedBoolean(true);
 	public ValidatedBoolean explosionResistantItems = new ValidatedBoolean(true);
@@ -32,6 +32,9 @@ public class ModConfig extends Config {
 	public ValidatedList<Identifier> hotbarDropList = ValidatedIdentifier.ofRegistry(Identifier.withDefaultNamespace("diamond_pickaxe"), BuiltInRegistries.ITEM).toList();
 	public ValidatedBoolean keepOffhandOnDeath = new ValidatedBoolean(false);
 	public ValidatedList<Identifier> offhandDropList = ValidatedIdentifier.ofRegistry(Identifier.withDefaultNamespace("diamond_pickaxe"), BuiltInRegistries.ITEM).toList();
+	public ValidatedBoolean keepDamageableItemsOnDeath = new ValidatedBoolean(false);
+	public ValidatedInt keptItemDurabilityLossPercent = new ValidatedInt(20, 100, 0);
+	public ValidatedList<Identifier> damageableItemDropList = ValidatedIdentifier.ofRegistry(Identifier.withDefaultNamespace("diamond_pickaxe"), BuiltInRegistries.ITEM).toList();
     public ValidatedBoolean keepAccessoriesOnDeath = new ValidatedBoolean(false);
     public ValidatedList<Identifier> accessoryDropList = ValidatedIdentifier.ofRegistry(Identifier.withDefaultNamespace("diamond_pickaxe"), BuiltInRegistries.ITEM).toList();
 }

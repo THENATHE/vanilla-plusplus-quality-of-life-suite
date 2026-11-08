@@ -6,55 +6,55 @@
     "fabric"
   ],
   "environment": "client_and_server",
-  "id": "6Z3zMyN8",
+  "id": "LDL8NLQd",
   "project_id": "ZY6C1rJ4",
   "author_id": "Kg6RZEfM",
   "featured": false,
-  "name": "1.1.10 for Fabric 26.3",
-  "version_number": "1.1.10+26.3",
-  "changelog": "- Fixed LambDynamicLights and Shulker Box Tooltip compatibility.\n",
+  "name": "1.2.0 for Fabric 26.3",
+  "version_number": "1.2.0+26.3",
+  "changelog": "- Added slot toggle keys: \n  - Hover over a slot in the tool pouch and press the Bind slot toggle key (B by default), then press any key to bind it to that slot. \n  - Pressing the bound key at any time enables or disables the tool pouch functionality of the item in that slot.\n  - Disabled slots are highlighted in red.\n- Fixed several item duplication exploits involving shulker boxes, totems and elytras in the tool pouch.\n- Picked up arrows are no longer deleted when the tool pouch is full or when in creative mode.\n- Attaching a tool pouch to leggings that already have a tool pouch attached is no longer allowed.\n- Items from the tool pouch that would be deleted after reducing its size in the config are now given back instead.\n- Fixed stat bonuses of items in the tool pouch staying on the player permanently.\n- Fixed a few visual and functional issues with tool pouch spyglasses.\n- Fixed various smaller issues with elytras, arrow selection, fireworks, the detach recipe, and reduced debug info.\n- Fixed a Netherite Tool Pouch attached to leggings having the size of a regular tool pouch.\n",
   "changelog_url": null,
-  "date_published": "2026-09-26T10:27:09.544169Z",
-  "downloads": 36,
+  "date_published": "2026-11-02T21:19:54.285733Z",
+  "downloads": 60,
   "version_type": "release",
   "status": "listed",
   "requested_status": null,
   "files": [
     {
-      "id": "8lWqHwDC",
+      "id": "yKIm6hOo",
       "hashes": {
-        "sha1": "aee59ade66ce878179b11af75256f9149298e6d2",
-        "sha512": "b4284c31c649b548a636bcc1298ed2b8c695c2cf0b8efd5a7fbf1ea84fd180cc9883b074cdc87ca8d04440e5d2b69b2ba7b609b7ace5f876febc36f6b27bb7e4"
+        "sha512": "0ee459dee47e7ec438940e9e50479e48205b6b7d11d89edf96aa47b3ca2847de8af95ea513ff3f468c779438e80a2ee688ec4a5a859738ab22b5dfd00e19f436",
+        "sha1": "a75feccb83d0428db467b414cfd2ddc05adf52d7"
       },
-      "url": "https://cdn.modrinth.com/data/ZY6C1rJ4/versions/6Z3zMyN8/toolpouch-fabric-1.1.10%2B26.3.jar",
-      "filename": "toolpouch-fabric-1.1.10+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/ZY6C1rJ4/versions/LDL8NLQd/toolpouch-fabric-1.2.0%2B26.3.jar",
+      "filename": "toolpouch-fabric-1.2.0+26.3.jar",
       "primary": true,
-      "size": 326095,
+      "size": 342674,
       "file_type": null
     },
     {
-      "id": "ouhoiv3J",
+      "id": "ecoGb6kf",
       "hashes": {
-        "sha1": "37db5ec39fde26240f6257de8a7f436a5a2511a6",
-        "sha512": "4b8fbf911aa123e01f30afd70521f4f8e0333c38da33b432c826ca8496d30e768a26c342c9cbc14274dd6331e6481025119e655f47c44b28149f0c5a5b019587"
+        "sha1": "ef8f1f89f69340d314e23139025096bb439471f3",
+        "sha512": "fe1d1fabad4837eb7bddf4e84026d46424fc7dd3c1f272249fff6823eb88d97cd0712206a92525cf45f1ca18db800e1ac9ff6160556566c183775bd1741dc8eb"
       },
-      "url": "https://cdn.modrinth.com/data/ZY6C1rJ4/versions/6Z3zMyN8/toolpouch-fabric-1.1.10%2B26.3-sources.jar",
-      "filename": "toolpouch-fabric-1.1.10+26.3-sources.jar",
+      "url": "https://cdn.modrinth.com/data/ZY6C1rJ4/versions/LDL8NLQd/toolpouch-fabric-1.2.0%2B26.3-sources.jar",
+      "filename": "toolpouch-fabric-1.2.0+26.3-sources.jar",
       "primary": false,
-      "size": 211348,
+      "size": 216820,
       "file_type": null
     }
   ],
   "dependencies": [
     {
       "version_id": null,
-      "project_id": "hYykXjDp",
+      "project_id": "P7dR8mSH",
       "file_name": null,
       "dependency_type": "required"
     },
     {
       "version_id": null,
-      "project_id": "P7dR8mSH",
+      "project_id": "hYykXjDp",
       "file_name": null,
       "dependency_type": "required"
     }

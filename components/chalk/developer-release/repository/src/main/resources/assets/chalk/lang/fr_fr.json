@@ -1,0 +1,85 @@
+{
+  "item.chalk.white_chalk": "Craie",
+  "block.chalk.white_chalk_mark": "Marque de craie",
+  "item.chalk.white_glow_chalk": "Craie luisante",
+  "block.chalk.white_glow_chalk_mark": "Marque de craie luisante",
+
+  "item.chalk.red_chalk": "Craie rouge",
+  "block.chalk.red_chalk_mark": "Marque de craie rouge",
+  "item.chalk.red_glow_chalk": "Craie rouge luisante",
+  "block.chalk.red_glow_chalk_mark": "Marque de craie rouge luisante",
+
+  "item.chalk.blue_chalk": "Craie bleue",
+  "block.chalk.blue_chalk_mark": "Marque de craie bleue",
+  "item.chalk.blue_glow_chalk": "Craie bleue luisante",
+  "block.chalk.blue_glow_chalk_mark": "Marque de craie bleue luisante",
+
+  "item.chalk.green_chalk": "Craie verte",
+  "block.chalk.green_chalk_mark": "Marque de craie verte",
+  "item.chalk.green_glow_chalk": "Craie verte luisante",
+  "block.chalk.green_glow_chalk_mark": "Marque de craie verte luisante",
+
+  "item.chalk.purple_chalk": "Craie violette",
+  "block.chalk.purple_chalk_mark": "Marque de craie violette",
+  "item.chalk.purple_glow_chalk": "Craie violette luisante",
+  "block.chalk.purple_glow_chalk_mark": "Marque de craie violette luisante",
+
+  "item.chalk.orange_chalk": "Craie orange",
+  "block.chalk.orange_chalk_mark": "Marque de craie orange",
+  "item.chalk.orange_glow_chalk": "Craie orange luisante",
+  "block.chalk.orange_glow_chalk_mark": "Marque de craie orange luisante",
+
+  "item.chalk.magenta_chalk": "Craie magenta",
+  "block.chalk.magenta_chalk_mark": "Marque de craie magenta",
+  "item.chalk.magenta_glow_chalk": "Craie magenta luisante",
+  "block.chalk.magenta_glow_chalk_mark": "Marque de craie magenta luisante",
+
+  "item.chalk.light_blue_chalk": "Craie bleu clair",
+  "block.chalk.light_blue_chalk_mark": "Marque de craie bleu clair",
+  "item.chalk.light_blue_glow_chalk": "Craie bleu clair luisante",
+  "block.chalk.light_blue_glow_chalk_mark": "Marque de craie bleu clair luisante",
+
+  "item.chalk.yellow_chalk": "Craie jaune",
+  "block.chalk.yellow_chalk_mark": "Marque de craie jaune",
+  "item.chalk.yellow_glow_chalk": "Craie jaune luisante",
+  "block.chalk.yellow_glow_chalk_mark": "Marque de craie jaune luisante",
+
+  "item.chalk.lime_chalk": "Craie vert clair",
+  "block.chalk.lime_chalk_mark": "Marque de craie vert clair",
+  "item.chalk.lime_glow_chalk": "Craie vert clair luisante",
+  "block.chalk.lime_glow_chalk_mark": "Marque de craie vert clair luisante",
+
+  "item.chalk.pink_chalk": "Craie rose",
+  "block.chalk.pink_chalk_mark": "Marque de craie rose",
+  "item.chalk.pink_glow_chalk": "Craie rose luisante",
+  "block.chalk.pink_glow_chalk_mark": "Marque de craie rose luisante",
+
+  "item.chalk.gray_chalk": "Craie grise",
+  "block.chalk.gray_chalk_mark": "Marque de craie grise",
+  "item.chalk.gray_glow_chalk": "Craie grise luisante",
+  "block.chalk.gray_glow_chalk_mark": "Marque de craie grise luisante",
+
+  "item.chalk.light_gray_chalk": "Craie gris clair",
+  "block.chalk.light_gray_chalk_mark": "Marque de craie gris clair",
+  "item.chalk.light_gray_glow_chalk": "Craie gris clair luisante",
+  "block.chalk.light_gray_glow_chalk_mark": "Marque de craie gris clair luisante",
+
+  "item.chalk.cyan_chalk": "Craie cyan",
+  "block.chalk.cyan_chalk_mark": "Marque de craie cyan",
+  "item.chalk.cyan_glow_chalk": "Craie cyan luisante",
+  "block.chalk.cyan_glow_chalk_mark": "Marque de craie cyan luisante",
+
+  "item.chalk.brown_chalk": "Craie marron",
+  "block.chalk.brown_chalk_mark": "Marque de craie marron",
+  "item.chalk.brown_glow_chalk": "Craie marron luisante",
+  "block.chalk.brown_glow_chalk_mark": "Marque de craie marron luisante",
+
+  "item.chalk.black_chalk": "Craie noire",
+  "block.chalk.black_chalk_mark": "Marque de craie noire",
+  "item.chalk.black_glow_chalk": "Craie noire luisante",
+  "block.chalk.black_glow_chalk_mark": "Marque de craie noire luisante",
+
+  "text.autoconfig.Chalk.title": "Configuration de Chalk",
+  "text.autoconfig.Chalk.option.EmitParticles": "Active ou désactive l'émission de particules en plaçant de la craie"
+}
+

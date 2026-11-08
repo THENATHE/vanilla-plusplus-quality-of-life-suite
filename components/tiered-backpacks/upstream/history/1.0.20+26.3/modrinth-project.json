@@ -1,0 +1,201 @@
+{
+  "client_side": "required",
+  "server_side": "required",
+  "game_versions": [
+    "1.21.10",
+    "1.21.11",
+    "26.1",
+    "26.1.1",
+    "26.1.2",
+    "26.2",
+    "26.3"
+  ],
+  "environment": [
+    "client_and_server"
+  ],
+  "id": "IhNtYNEF",
+  "slug": "tiered-backpacks",
+  "project_type": "mod",
+  "team": "hpSuSKZU",
+  "organization": null,
+  "title": "Tiered Backpacks",
+  "description": "Simple and configurable tiered backpacks",
+  "body": "# Tiered Backpacks\n\nThis mod adds tiered backpacks to the game.\n\nSee [Gallery](https://modrinth.com/mod/tiered-backpacks/gallery) tab for recipes, or use a recipe viewer mod.\n\n## Features\n\n- Six backpack tiers: Leather (3x9) \u2192 Copper (4x9) \u2192 Iron (5x9) \u2192 Golden (6x9) \u2192 Diamond (6x11) \u2192 Netherite (6x13)\n- Size of each backpack fully configurable up to 16x16 slots, with reasonable defaults out of the box\n- Open backpacks by right-clicking them, or from your inventory by pressing a keybind (default B)\n- Backpacks can be attached to and detached from chestplates. The Netherite Backpack can only be attached to fireproof chestplates (like netherite). The attached backpack can be opened by pressing a keybind (default B) while the chestplate is equipped\n- All backpacks except netherite are dyeable like other leather equipment\n- Upgrading backpacks keeps their contents and color\n- Extensive configuration for toggling equip and open methods and other rules\n- Compatible with all GUI resource packs, no addons needed\n\n### Mod compatibility\n\n- [Trinkets (Updated)](https://modrinth.com/mod/trinkets-updated), [Curios](https://modrinth.com/mod/curios), or [Ohmega](https://modrinth.com/mod/ohmega): Allows equipping the backpack as a trinket and opening it by pressing a keybind (default B)\n- [Shulker Box Tooltip](https://modrinth.com/mod/shulkerboxtooltip): Allows previewing backpack contents in the tooltip\n- [ItemSwapper](https://modrinth.com/plugin/itemswapper): Allows quick-swapping with items from the Devices list\n- [Item Descriptions](https://modrinth.com/mod/item-descriptions): Provided item descriptions for backpacks",
+  "body_url": null,
+  "published": "2025-10-30T18:34:43.441174Z",
+  "updated": "2026-10-02T13:47:56.496476Z",
+  "approved": "2025-11-06T08:03:50.519963Z",
+  "queued": "2025-11-04T19:29:04.637434Z",
+  "status": "approved",
+  "requested_status": "unlisted",
+  "moderator_message": null,
+  "license": {
+    "id": "MIT",
+    "name": "MIT License",
+    "url": null
+  },
+  "downloads": 38474,
+  "followers": 58,
+  "categories": [
+    "equipment",
+    "storage"
+  ],
+  "additional_categories": [],
+  "loaders": [
+    "fabric",
+    "neoforge"
+  ],
+  "versions": [
+    "1WDMiPtI",
+    "ePT1NNI9",
+    "yuHSuaUy",
+    "coyQ3dO9",
+    "Ypql0Xi9",
+    "7KnLwFsM",
+    "xrCSd4Go",
+    "mhtrZjAa",
+    "fPz7nFzr",
+    "OEFWG6oN",
+    "bzq1oGsk",
+    "ohDaRf1O",
+    "QpZpCzBY",
+    "RT906N0u",
+    "NSL2CTSM",
+    "DzvKlgiV",
+    "ZZa8agDQ",
+    "6WnUCiSI",
+    "PRu39d3I",
+    "P6fRKFO8",
+    "qfUIUSzF",
+    "hAoZMaIF",
+    "9N9Oob2l",
+    "bNLaj2IV",
+    "bBvWdGl7",
+    "Z0MWgD8h",
+    "4MwVEqc3",
+    "sObUtwbu",
+    "IxfPzypu",
+    "o0clZ2D3",
+    "KBqk1H7y",
+    "TiuRsHRT",
+    "dJBO5BRv",
+    "3PS83f9u",
+    "R4CAdacV",
+    "IFuAurx5",
+    "45TCT7rh",
+    "zkutMZle",
+    "8OeRW3YO",
+    "Xyn1HBRg",
+    "6MUwWsYR",
+    "SckgrXld",
+    "FkrkO7h0",
+    "Nd4xQlsL",
+    "QOxZgqRV",
+    "buHAPhpA",
+    "qdt6BuJa",
+    "Xz6ZUeri",
+    "g18wqkHL",
+    "jKPWUBrt",
+    "GHnqX59p",
+    "aUG2quzD"
+  ],
+  "icon_url": "https://cdn.modrinth.com/data/IhNtYNEF/53ce20eb8fb38db03e4ebd9e523565bccf33301e_96.webp",
+  "raw_icon_url": "https://cdn.modrinth.com/data/IhNtYNEF/53ce20eb8fb38db03e4ebd9e523565bccf33301e.png",
+  "issues_url": "https://github.com/pajicadvance/tiered_backpacks/issues",
+  "source_url": "https://github.com/pajicadvance/tiered_backpacks",
+  "wiki_url": null,
+  "discord_url": "https://discord.gg/5RkzS66zWb",
+  "donation_urls": [
+    {
+      "id": "ko-fi",
+      "platform": "Ko-fi",
+      "url": "https://ko-fi.com/pajic"
+    }
+  ],
+  "gallery": [
+    {
+      "url": "https://cdn.modrinth.com/data/IhNtYNEF/images/7378eef838ef9f935e0e31c080f29208ae535405.png",
+      "raw_url": "https://cdn.modrinth.com/data/IhNtYNEF/images/7378eef838ef9f935e0e31c080f29208ae535405.png",
+      "featured": true,
+      "title": "Backpacks",
+      "description": null,
+      "created": "2025-11-06T17:06:27.725930Z",
+      "ordering": 0
+    },
+    {
+      "url": "https://cdn.modrinth.com/data/IhNtYNEF/images/0bc46caa5856ddffca2c751594b17fa26baf1855.png",
+      "raw_url": "https://cdn.modrinth.com/data/IhNtYNEF/images/0bc46caa5856ddffca2c751594b17fa26baf1855.png",
+      "featured": false,
+      "title": "Leather backpack recipe",
+      "description": null,
+      "created": "2025-11-06T17:06:43.532264Z",
+      "ordering": 1
+    },
+    {
+      "url": "https://cdn.modrinth.com/data/IhNtYNEF/images/8556b1ef3251164ab9146eed7b7dd58d99825993.png",
+      "raw_url": "https://cdn.modrinth.com/data/IhNtYNEF/images/8556b1ef3251164ab9146eed7b7dd58d99825993.png",
+      "featured": false,
+      "title": "Copper backpack recipe",
+      "description": null,
+      "created": "2025-11-06T17:07:07.363092Z",
+      "ordering": 2
+    },
+    {
+      "url": "https://cdn.modrinth.com/data/IhNtYNEF/images/c4cd2ecede92f8a040b1d742d03be58e7dec9495.png",
+      "raw_url": "https://cdn.modrinth.com/data/IhNtYNEF/images/c4cd2ecede92f8a040b1d742d03be58e7dec9495.png",
+      "featured": false,
+      "title": "Iron backpack recipe",
+      "description": null,
+      "created": "2025-11-06T17:07:24.311321Z",
+      "ordering": 3
+    },
+    {
+      "url": "https://cdn.modrinth.com/data/IhNtYNEF/images/62541172ca208ca62383709d40ee2bdd708e8a12.png",
+      "raw_url": "https://cdn.modrinth.com/data/IhNtYNEF/images/62541172ca208ca62383709d40ee2bdd708e8a12.png",
+      "featured": false,
+      "title": "Golden backpack recipe",
+      "description": null,
+      "created": "2025-11-06T17:07:35.721286Z",
+      "ordering": 4
+    },
+    {
+      "url": "https://cdn.modrinth.com/data/IhNtYNEF/images/252293ac3641a0002c5615b18601c7f2ea9383e8.png",
+      "raw_url": "https://cdn.modrinth.com/data/IhNtYNEF/images/252293ac3641a0002c5615b18601c7f2ea9383e8.png",
+      "featured": false,
+      "title": "Diamond backpack recipe",
+      "description": null,
+      "created": "2025-11-06T17:07:48.805986Z",
+      "ordering": 5
+    },
+    {
+      "url": "https://cdn.modrinth.com/data/IhNtYNEF/images/762ef8a6eef8538da0537da28e6fb2029f02d8eb.png",
+      "raw_url": "https://cdn.modrinth.com/data/IhNtYNEF/images/762ef8a6eef8538da0537da28e6fb2029f02d8eb.png",
+      "featured": false,
+      "title": "Netherite backpack recipe (smithing table)",
+      "description": null,
+      "created": "2025-11-06T17:08:03.592215Z",
+      "ordering": 6
+    },
+    {
+      "url": "https://cdn.modrinth.com/data/IhNtYNEF/images/b788f2b6c085d92f34a4da8990c125ac47579bb1.png",
+      "raw_url": "https://cdn.modrinth.com/data/IhNtYNEF/images/b788f2b6c085d92f34a4da8990c125ac47579bb1.png",
+      "featured": false,
+      "title": "Attaching a backpack to a chestplate",
+      "description": null,
+      "created": "2025-12-28T20:24:29.414698Z",
+      "ordering": 7
+    },
+    {
+      "url": "https://cdn.modrinth.com/data/IhNtYNEF/images/c6aa0e6b12141e35b937d129428c0899f67f09b3.png",
+      "raw_url": "https://cdn.modrinth.com/data/IhNtYNEF/images/c6aa0e6b12141e35b937d129428c0899f67f09b3.png",
+      "featured": false,
+      "title": "Detaching a backpack from a chestplate",
+      "description": "The chestplate without an attached backpack will remain in the crafting menu",
+      "created": "2025-12-28T20:25:24.860272Z",
+      "ordering": 8
+    }
+  ],
+  "color": 4928034,
+  "thread_id": "tezDSJ7O",
+  "monetization_status": "monetized"
+}

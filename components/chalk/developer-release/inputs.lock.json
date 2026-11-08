@@ -1,0 +1,51 @@
+{
+  "component": "chalk",
+  "track": "developer-release",
+  "mod_id": "chalk",
+  "artifact_version": "3.2.0+26.3",
+  "release_version": "3.2.0+26.3",
+  "minecraft": "26.3",
+  "loader": "fabric",
+  "modrinth_version_id": "IfK88aD4",
+  "modrinth_version_url": "https://modrinth.com/mod/chalk/version/IfK88aD4",
+  "github": {
+    "repository": "https://github.com/DaFuqs/Chalk",
+    "branch": "26.3-fabric",
+    "commit": "c0e3a3c969c8f5b22bc18fcd217fe48ed75863fb",
+    "note": "Merge of pajicadvance PR #56 (26.3 update); the published JAR has no sources JAR, so this branch head is a source reference matched against the binary below."
+  },
+  "binary": "components/chalk/developer-release/artifacts/chalk-3.2.0+26.3.jar",
+  "binary_sha256": "a7ed83c41c88d59011e0b22fd59ccb766cfb6cdc878ac6b392f517869b30392c",
+  "published_sources": null,
+  "repository_snapshot": "components/chalk/developer-release/repository",
+  "dependencies": {
+    "minecraft": ">=26.3",
+    "fabricloader": "*",
+    "fabric-api": "*",
+    "cloth-config": "*"
+  },
+  "suggests": {
+    "chalk-colorful-addon": "*"
+  },
+  "license": "MIT",
+  "copyright_file": "components/chalk/developer-release/repository/LICENSE",
+  "artifacts": [
+    {
+      "path": "components/chalk/developer-release/artifacts/chalk-3.2.0+26.3.jar",
+      "sha256": "a7ed83c41c88d59011e0b22fd59ccb766cfb6cdc878ac6b392f517869b30392c",
+      "size": 205779
+    },
+    {
+      "path": "components/chalk/developer-release/artifacts/chalk-c0e3a3c969c8f5b22bc18fcd217fe48ed75863fb-source.zip",
+      "sha256": "abd24ffa809ed1eeff34e0ecea0b523effe6476a761f08f1b6c5cb879f0caac3",
+      "size": 2805147
+    }
+  ],
+  "modifications": [],
+  "port_comparison": {
+    "previous_input": "components/chalk/upstream (ChatGPT 3.2.1+26.3 port, historical git dfb461ef9eb6f7bf5188570594c3bd21171c2391)",
+    "result": "Registry IDs, block-state properties (facing, orientation), items, recipes, tags, models, textures and lang files are identical apart from CRLF line endings. Class bytecode matches except ChalkMarkBlock: the official build overrides spawnDestroyParticles(Level,BlockPos,BlockState) (Level.destroyBlock path) and keeps a no-op playerDestroy override; the port overrode spawnDestroyByEntityParticles(Level,Entity,BlockPos,BlockState), which also covers the player-break path. chalk-compat restores the player-break effect without modifying this JAR.",
+    "saved_data": "Existing chalk marks and chalk items load unchanged: identical namespaced IDs and block-state definitions."
+  },
+  "recorded_date": "2026-11-08"
+}

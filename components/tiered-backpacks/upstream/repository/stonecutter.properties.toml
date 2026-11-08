@@ -2,7 +2,7 @@
 mod.id = "tiered_backpacks"
 mod.name = "Tiered Backpacks"
 mod.group = "me.pajic"
-mod.version = "1.0.20"
+mod.version = "1.0.21"
 mod.description = "Simple tiered backpacks"
 mod.authors = "pajic"
 mod.contributors = "Moonkey"
@@ -90,7 +90,7 @@ optional.curios = "16.0.0+26.2"
 ["26.3"]
 mod.mc_releases = ["26.3"]
 dep.ohmega.coords = "maven.modrinth:$id:$version-$loader,26.2"
-#loader.neo = "26.2.0.36-beta"
+loader.neo = "26.3.0.101"
 optional.shulkerboxtooltip = "5.4.2+26.3"
 optional.trinkets = "4.2.0+26.3"
 optional.ohmega = "1.5.21"
@@ -102,6 +102,7 @@ required.fabric-api = "0.160.5+26.3"
 required.fzzy_config = "0.7.7+26.3"
 runtime.modmenu = "21.0.0-beta.1"
 
-#[neoforge."26.2"]
-#mod.mc_compat = "[26.3, 26.4)"
-#required.fzzy_config = "0.7.6+26.2+neoforge"
+[neoforge."26.3"]
+mod.mc_compat = "[26.3, 26.4)"
+required.fzzy_config = "0.7.7+26.3+neoforge"
+optional.curios = "17.0.0-beta.3+26.3"

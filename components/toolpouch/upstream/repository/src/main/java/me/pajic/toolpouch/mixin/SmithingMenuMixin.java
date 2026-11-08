@@ -2,6 +2,7 @@ package me.pajic.toolpouch.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import me.pajic.toolpouch.ToolPouch;
+import me.pajic.toolpouch.component.ModDataComponents;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ContainerLevelAccess;
@@ -48,6 +49,7 @@ public abstract class SmithingMenuMixin extends ItemCombinerMenu {
 					DataComponents.CONTAINER,
 					input.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY)
 			);
+			result.set(ModDataComponents.DISABLED_SLOTS, input.get(ModDataComponents.DISABLED_SLOTS));
 			result.set(
 					DataComponents.DYED_COLOR,
 					input.getOrDefault(DataComponents.DYED_COLOR, new DyedItemColor(DyedItemColor.LEATHER_COLOR))

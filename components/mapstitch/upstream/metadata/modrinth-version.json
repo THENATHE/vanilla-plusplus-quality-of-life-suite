@@ -6,42 +6,42 @@
     "fabric"
   ],
   "environment": "client_and_server",
-  "id": "oDB5IJ7O",
+  "id": "TyJwvZB9",
   "project_id": "etdHQJ0B",
   "author_id": "Kg6RZEfM",
   "featured": false,
-  "name": "1.1.7 for Fabric 26.3",
-  "version_number": "1.1.7+26.3",
-  "changelog": "- Fixed broken Russian translation.\n",
+  "name": "1.2.1 for Fabric 26.3",
+  "version_number": "1.2.1+26.3",
+  "changelog": "- Fixed the minimap showing maps in the wrong place for atlases with a scale other than 1:1 ([#43](https://github.com/pajicadvance/mapstitch/issues/43), [#44](https://github.com/pajicadvance/mapstitch/issues/44)).\n- Fixed atlas maps being fully loaded only for the first player whose atlas ticked after the server started.\n- Fixed the atlas checking for a new active map too early when using a scale of 1:4 or higher.\n- Fixed the atlas creating unused map data when the area at the player's position was already mapped.\n- Sharing a pin with a player who is no longer on your team now shows an error message instead of doing nothing.\n- Switching the atlas eject mode by scrolling now respects slots that can't be modified.\n",
   "changelog_url": null,
-  "date_published": "2026-10-05T21:34:10.453133Z",
-  "downloads": 26,
+  "date_published": "2026-10-27T09:08:09.843308Z",
+  "downloads": 154,
   "version_type": "release",
   "status": "listed",
   "requested_status": null,
   "files": [
     {
-      "id": "UjRT9QSU",
+      "id": "Ab2uLNf6",
       "hashes": {
-        "sha512": "8d488ffa8f052959c2f6a56c0acaa9927380521a5fb0a81157c50df01b2cda57fa30aedc0f50cd7fcf0db6a4e536079a3c9ee5a5aa9c72b690fa4019867929ff",
-        "sha1": "864576cf54d8c844be08ea51efb2ad989b934bb3"
+        "sha512": "d8857345c33aad73248fd1ac4e453fa018728f3e25f8fbcb683d13207969d74922e0be9405a1b705ab385420ba9ed6baa413d75c911b7b5ec9f5ca0bbafe5152",
+        "sha1": "53cde502ce027db1ec48e26020c1b8f095db5b62"
       },
-      "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/oDB5IJ7O/mapstitch-fabric-1.1.7%2B26.3.jar",
-      "filename": "mapstitch-fabric-1.1.7+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/TyJwvZB9/mapstitch-fabric-1.2.1%2B26.3.jar",
+      "filename": "mapstitch-fabric-1.2.1+26.3.jar",
       "primary": true,
-      "size": 896683,
+      "size": 1019489,
       "file_type": null
     },
     {
-      "id": "PMViMW87",
+      "id": "zopBKj9P",
       "hashes": {
-        "sha512": "662672b38229bbfe405cee1e28f37232658b641e7e1ed823040c98904e194b8584f290a1ecfe592cc93b54a61c2adc0e7b97807bd871879c9a4fc2bf6c4f14ba",
-        "sha1": "e0add452f8cdf81f68d382944c344d28f3ee2568"
+        "sha1": "cb76f1d0c39bb8180391d5541e62e5c012dafa18",
+        "sha512": "2da71ad4265c8dbee1becd0d26d5154469ab964251269052f104b354085e3d025077c0dce102f86d98fee34dddab133eac8aba908e8db9f6ff64e6288e615cb9"
       },
-      "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/oDB5IJ7O/mapstitch-fabric-1.1.7%2B26.3-sources.jar",
-      "filename": "mapstitch-fabric-1.1.7+26.3-sources.jar",
+      "url": "https://cdn.modrinth.com/data/etdHQJ0B/versions/TyJwvZB9/mapstitch-fabric-1.2.1%2B26.3-sources.jar",
+      "filename": "mapstitch-fabric-1.2.1+26.3-sources.jar",
       "primary": false,
-      "size": 793017,
+      "size": 854261,
       "file_type": null
     }
   ],

@@ -12,9 +12,11 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -29,20 +31,50 @@ public abstract class PlayerMixin extends Avatar {
 	@Shadow public abstract boolean isCreative();
 	@Shadow public abstract boolean isSpectator();
 	@Shadow public abstract void setReducedDebugInfo(boolean reducedDebugInfo);
+	@Shadow public abstract boolean isReducedDebugInfo();
+	@Shadow public abstract boolean isLocalPlayer();
+
+	@Unique private boolean toolpouch$forcedReducedDebugInfo = false;
+	@Unique private ItemContainerContents toolpouch$appliedContents = ItemContainerContents.EMPTY;
 
 	@Inject(
             method = "tick",
             at = @At("HEAD")
     )
     private void setReducedDebugInfo(CallbackInfo ci) {
-        if (ToolPouch.CONFIG.hideDebugInfoInSurvival.get()) {
-            setReducedDebugInfo(!isCreative() && !isSpectator());
-        }
+        if (ToolPouch.CONFIG.hideDebugInfoInSurvival.get() && !isCreative() && !isSpectator()) {
+			if (!isReducedDebugInfo()) {
+				setReducedDebugInfo(true);
+				toolpouch$forcedReducedDebugInfo = true;
+			}
+        } else if (toolpouch$forcedReducedDebugInfo) {
+			setReducedDebugInfo(false);
+			toolpouch$forcedReducedDebugInfo = false;
+		}
     }
+
+	@Inject(
+			method = "tick",
+			at = @At("HEAD")
+	)
+	private void updateToolPouchAttributeModifiers(CallbackInfo ci) {
+		if (!level().isClientSide()) {
+			Player self = (Player) (Object) this;
+			ItemContainerContents contents = ToolPouchUtil.getToolPouchContents(self);
+			if (!contents.equals(toolpouch$appliedContents)) {
+				ToolPouchUtil.updateAttributeModifiersFromToolPouch(
+						self,
+						toolpouch$appliedContents.nonEmptyItemCopyStream().toList(),
+						contents.nonEmptyItemCopyStream().toList()
+				);
+				toolpouch$appliedContents = contents;
+			}
+		}
+	}
 
     @WrapMethod(method = "isScoping")
     private boolean modifyScopingCondition(Operation<Boolean> original) {
-        if (ClientUtil.shouldScope) return true;
+        if (ClientUtil.shouldScope && isLocalPlayer()) return true;
         return original.call();
     }
 

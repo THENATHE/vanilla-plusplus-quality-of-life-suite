@@ -66,7 +66,7 @@ public abstract class ItemStackMixin {
 			backpack.set(DataComponents.CONTAINER, savedStack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 			DyedItemColor dye = savedStack.get(ModDataComponents.STORED_BACKPACK_DYE);
 			if (dye != null) backpack.set(DataComponents.DYED_COLOR, dye);
-			/*? fabric {*/player/*?} else {*//*if (player instanceof ServerPlayer sp) sp*//*?}*/.addItem(backpack);
+			BackpackUtil.giveOrDrop(player, backpack);
 		}
 	}
 }

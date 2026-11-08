@@ -4,13 +4,12 @@ import me.pajic.toolpouch.network.ModPayloads;
 import me.pajic.toolpouch.util.GameplayUtil;
 import me.pajic.toolpouch.util.ToolPouchUtil;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.component.DataComponents;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.component.ItemContainerContents;
 import org.jetbrains.annotations.NotNull;
 
 public class ToolPouchMenu extends AbstractContainerMenu {
@@ -18,21 +17,29 @@ public class ToolPouchMenu extends AbstractContainerMenu {
 	private final ItemStack toolPouch;
 	private final int padding = 8;
 	private final int titleSpace = 10;
-	private SimpleContainer container;
+	private final boolean valid;
+	private final SimpleContainer container;
+	private boolean initialized = false;
 
 	public ToolPouchMenu(int containerId, Inventory playerInventory, ItemStack toolPouch) {
 		super(ModMenuTypes.TOOL_POUCH_MENU, containerId);
 		this.toolPouch = toolPouch;
-		if (GameplayUtil.isValidContainerHolder(toolPouch)) {
+		this.valid = GameplayUtil.isValidContainerHolder(toolPouch);
+		NonNullList<ItemStack> items = valid ? ToolPouchUtil.readItems(toolPouch) : NonNullList.create();
+		container = new SimpleContainer(items.size()) {
+			@Override
+			public void setChanged() {
+				super.setChanged();
+				if (initialized) ToolPouchUtil.saveContainer(toolPouch, this);
+			}
+		};
+		for (int i = 0; i < items.size(); i++) container.setItem(i, items.get(i));
+		initialized = true;
+		if (valid) {
 			int rows = ToolPouchUtil.getToolPouchRows(toolPouch);
 			int columns = ToolPouchUtil.getToolPouchColumns(toolPouch);
 			int width = getWidth(columns);
 			int height = getHeight(rows);
-			ItemContainerContents contents = toolPouch.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
-			NonNullList<ItemStack> items = NonNullList.withSize(rows * columns, ItemStack.EMPTY);
-			contents.copyInto(items);
-			container = new SimpleContainer(rows * columns);
-			for (int i = 0; i < items.size(); i++) container.setItem(i, items.get(i));
 			for (int y = 0; y < rows; y++) {
 				for (int x = 0; x < columns; x++) {
 					int slotX = width / 2 - columns * 9 + x * 18;
@@ -52,8 +59,6 @@ public class ToolPouchMenu extends AbstractContainerMenu {
 				int slotY = height - padding - 4 * 18 - 3 + 3 * 18 + 4;
 				this.addSlot(new ToolPouchSlot(playerInventory, x, slotX, slotY, true));
 			}
-		} else {
-			removed(playerInventory.player);
 		}
 	}
 
@@ -97,24 +102,27 @@ public class ToolPouchMenu extends AbstractContainerMenu {
 	@Override
 	public void removed(@NotNull Player player) {
 		super.removed(player);
-		ToolPouchUtil.updateAttributeModifiersFromToolPouch(
-				player,
-                //~ if >26.2 'allItemsCopyStream' -> 'itemCopies'
-				toolPouch.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY).itemCopies().toList(),
-				container.getItems()
-		);
-		if (container.getItems().isEmpty() || container.getItems().stream().allMatch(ItemStack::isEmpty)) {
-			toolPouch.set(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
+		if (!valid) return;
+		if (player.isAlive() && player.level() instanceof ServerLevel serverLevel) {
+			for (int i = ToolPouchUtil.getToolPouchSize(toolPouch); i < container.getContainerSize(); i++) {
+				ItemStack stack = container.removeItemNoUpdate(i);
+				if (!stack.isEmpty() && !player.addItem(stack)) player.spawnAtLocation(serverLevel, stack);
+			}
 		}
-		else toolPouch.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(container.getItems()));
+		ToolPouchUtil.saveContainer(toolPouch, container);
 	}
 
 	@Override
 	public boolean stillValid(@NotNull Player player) {
-		return GameplayUtil.isValidContainerHolder(toolPouch);
+		return valid && GameplayUtil.isValidContainerHolder(toolPouch) &&
+				(player.level().isClientSide() || ToolPouchUtil.isCarrying(player, toolPouch));
 	}
 
 	public ItemStack getToolPouch() {
 		return toolPouch;
+	}
+
+	public SimpleContainer getContainer() {
+		return container;
 	}
 }

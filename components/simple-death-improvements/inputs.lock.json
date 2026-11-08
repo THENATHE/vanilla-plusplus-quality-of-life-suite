@@ -2,20 +2,25 @@
   "component": "simple-death-improvements",
   "track": "developer-release",
   "mod_id": "simple_death_improvements",
-  "artifact_version": "1.6.0",
-  "release_version": "1.6.0+26.3",
+  "artifact_version": "1.7.0",
+  "release_version": "1.7.0+26.3",
   "minecraft": "26.3",
+  "suite_minecraft": "26.3",
+  "upstream_minecraft": "26.3",
+  "advertised_game_versions": [
+    "26.3"
+  ],
   "loader": "fabric",
-  "modrinth_version_id": "AYTsBnki",
-  "modrinth_version_url": "https://modrinth.com/mod/simple-death-improvements/version/AYTsBnki",
+  "modrinth_version_id": "axbdo6aY",
+  "modrinth_version_url": "https://modrinth.com/mod/simple-death-improvements/version/axbdo6aY",
   "github": {
     "repository": "https://github.com/pajicadvance/simple-death-improvements",
     "branch": "multicutter-v3",
-    "commit": "51ed1dc83bde530d1b70dbcb56dfd11aa04d59f2"
+    "commit": "1e02f70ab57f4360899e4c54aab5b8cfc5278f2e"
   },
-  "binary": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.6.0+26.3.jar",
-  "binary_sha256": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2",
-  "published_sources": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.6.0+26.3-sources.jar",
+  "binary": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.7.0+26.3.jar",
+  "binary_sha256": "52cd6ad2f6b9d9dff481e7a4102cdd9b0282b21fe4853a6ed7bdc816411b5f6d",
+  "published_sources": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.7.0+26.3-sources.jar",
   "repository_snapshot": "components/simple-death-improvements/upstream/repository",
   "published_source_tree": "components/simple-death-improvements/upstream/source",
   "dependencies": {
@@ -41,6 +46,11 @@
   "copyright_file": "components/simple-death-improvements/upstream/repository/LICENSE",
   "artifacts": [
     {
+      "path": "components/simple-death-improvements/upstream/artifacts/simple-death-improvements-1e02f70ab57f4360899e4c54aab5b8cfc5278f2e-source.zip",
+      "sha256": "17d4a844ea263a15ce423b26359596567101d1e70e21620b64467c9f657218ee",
+      "size": 116051
+    },
+    {
       "path": "components/simple-death-improvements/upstream/artifacts/simple-death-improvements-51ed1dc83bde530d1b70dbcb56dfd11aa04d59f2-source.zip",
       "sha256": "b35471deb362abbb0d1c195583e34aa32b07194c302d9b3843daf747957e5174",
       "size": 105066
@@ -54,9 +64,20 @@
       "path": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.6.0+26.3.jar",
       "sha256": "67070a8add053ee1a2cad1c310d36cdac0cf53c7950873e20d43d7da8a0ffcc2",
       "size": 64906
+    },
+    {
+      "path": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.7.0+26.3-sources.jar",
+      "sha256": "ac900d4de350137a9feb33def8840e524d9fef3c94792f25f8a0752b1ee29b6e",
+      "size": 34359
+    },
+    {
+      "path": "components/simple-death-improvements/upstream/artifacts/simple_death_improvements-fabric-1.7.0+26.3.jar",
+      "sha256": "52cd6ad2f6b9d9dff481e7a4102cdd9b0282b21fe4853a6ed7bdc816411b5f6d",
+      "size": 67835
     }
   ],
   "modifications": [],
   "port_counterpart": null,
-  "port_counterpart_reason": "Official developer release supports the requested Minecraft version; no unsolicited port created."
+  "port_counterpart_reason": "Official developer release supports 26.3; no additional port created.",
+  "recorded_date": "2026-11-08"
 }

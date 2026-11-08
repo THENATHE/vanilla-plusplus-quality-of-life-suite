@@ -6,42 +6,42 @@
     "fabric"
   ],
   "environment": "server_only",
-  "id": "AYTsBnki",
+  "id": "axbdo6aY",
   "project_id": "2JFsuD70",
   "author_id": "Kg6RZEfM",
   "featured": false,
-  "name": "1.6.0 for Fabric 26.3",
-  "version_number": "1.6.0+26.3",
-  "changelog": "- Added Fabric 26.3 version.\n- Added NeoForge 26.2 version.\n- Re-added option to keep items in accessory slots, with support for slots from Trinkets Updated, Trinkets, Curios, and Ohmega.\n- Added option to edit the item despawn timer when item despawning isn't disabled.\n",
+  "name": "1.7.0 for Fabric 26.3",
+  "version_number": "1.7.0+26.3",
+  "changelog": "- Added support for NeoForge 26.3.\n- Added the \"Keep items with durability on death\" option. Items with durability are kept on death, but lose a configurable percentage of their total durability (20% by default). This can never break an item, it is always left with at least 1 durability. Items kept by other keep options don't lose durability, and items on the new drop list are dropped as usual. Works with Trinkets, Curios and Ohmega accessories.\n- Fixed items being moved to the last safe position when dying in midair above solid ground that has lava further below it.\n- Fixed XP being dropped at the world origin when dying shortly after respawning or joining for the first time.\n- XP is now always dropped at the same position as items.\n- The last safe position is now tracked per dimension, so items are no longer moved to a position from another dimension.\n- The last safe position is no longer recorded while in spectator mode or in midair.\n- Fixed the bottom layer of the world not counting as safe ground when checking for a safe spot below the player.\n- Fixed the item despawn timer resetting to the vanilla 5 minutes after a chunk reload or server restart.\n- Fixed players in spectator mode dropping XP on death when \"Lose less XP on death\" is enabled.\n- Fixed Trinkets drop rules set by items or other mods being ignored.\n- Fixed Ohmega compatibility in 1.21.1 versions.\n",
   "changelog_url": null,
-  "date_published": "2026-09-18T09:42:05.106116Z",
-  "downloads": 485,
+  "date_published": "2026-11-03T18:28:56.555865Z",
+  "downloads": 229,
   "version_type": "release",
   "status": "listed",
   "requested_status": null,
   "files": [
     {
-      "id": "a2wOJTOu",
+      "id": "daOnNdjX",
       "hashes": {
-        "sha512": "2713cb0596d29d9e54300ed0b9e263d71b92927b0256d4689740e1b8ddb5803959c6763c5408c1f85a9fa469bdc783c96b15445ca33b2fcce059393b3513c7c6",
-        "sha1": "e652ca360728853832cc8c65520c72e97a22d0c8"
+        "sha1": "e5c6c6897d21a45feb4f29d1ba5d78f682d7086c",
+        "sha512": "1bd578eaf7effcaad5e51ff3a6c40de624406d12e2df06f90a626d34d66764ede576e052191d4653801adb1733cb641578dfdfbfbef96e6184b358dd282db41a"
       },
-      "url": "https://cdn.modrinth.com/data/2JFsuD70/versions/AYTsBnki/simple_death_improvements-fabric-1.6.0%2B26.3.jar",
-      "filename": "simple_death_improvements-fabric-1.6.0+26.3.jar",
+      "url": "https://cdn.modrinth.com/data/2JFsuD70/versions/axbdo6aY/simple_death_improvements-fabric-1.7.0%2B26.3.jar",
+      "filename": "simple_death_improvements-fabric-1.7.0+26.3.jar",
       "primary": true,
-      "size": 64906,
+      "size": 67835,
       "file_type": null
     },
     {
-      "id": "zYr7IXOW",
+      "id": "GbmmATTo",
       "hashes": {
-        "sha1": "99ac21d78d216d9cf2e0bfd5b807963d2c67dd27",
-        "sha512": "116a73a074150862d0987e9b682f393e2fe654f90efd5cd40f89da25381b27cfdc5a992c361b8fe074dd54b655d254eebcb868ab88b3130844bb7e7c9c44f327"
+        "sha512": "4567640017b128c4f6a462187d2553b4f8ea95e263010013e64e8a8b8b0cdf83ca4494a51c08555392d1928f7fc5bc024d04ed151bd083de8781cfe78ccb5f1e",
+        "sha1": "1ef3732cdc89a6549c5af3459d61edb6e4643210"
       },
-      "url": "https://cdn.modrinth.com/data/2JFsuD70/versions/AYTsBnki/simple_death_improvements-fabric-1.6.0%2B26.3-sources.jar",
-      "filename": "simple_death_improvements-fabric-1.6.0+26.3-sources.jar",
+      "url": "https://cdn.modrinth.com/data/2JFsuD70/versions/axbdo6aY/simple_death_improvements-fabric-1.7.0%2B26.3-sources.jar",
+      "filename": "simple_death_improvements-fabric-1.7.0+26.3-sources.jar",
       "primary": false,
-      "size": 32446,
+      "size": 34359,
       "file_type": null
     }
   ],

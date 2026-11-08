@@ -15,27 +15,49 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 public class BackpackMenu extends AbstractContainerMenu {
 
+    private static final int MAX_CONTENTS_SIZE = 256;
     private final ItemStack backpack;
     private final int padding = 8;
     private final int titleSpace = 10;
-    private SimpleContainer container;
+    private final boolean valid;
+    private boolean loaded;
+    private SimpleContainer container = new SimpleContainer(0);
 
     public BackpackMenu(int containerId, Inventory playerInventory, ItemStack backpack) {
         super(ModMenuTypes.BACKPACK_MENU, containerId);
         this.backpack = backpack;
-        if (BackpackUtil.isValidContainerHolder(backpack)) {
+        this.valid = BackpackUtil.isValidContainerHolder(backpack);
+        if (valid) {
             BackpackDimensions dimensions = BackpackUtil.getBackpackDimensions(backpack);
             int rows = dimensions.rows.get();
             int columns = dimensions.columns.get();
             int width = getWidth(columns);
             int height = getHeight(rows);
             ItemContainerContents contents = backpack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
-            NonNullList<ItemStack> items = NonNullList.withSize(rows * columns, ItemStack.EMPTY);
+            int size = rows * columns;
+            NonNullList<ItemStack> items = NonNullList.withSize(Math.max(size, MAX_CONTENTS_SIZE), ItemStack.EMPTY);
             contents.copyInto(items);
-            container = new SimpleContainer(rows * columns);
-            for (int i = 0; i < items.size(); i++) container.setItem(i, items.get(i));
+            container = new SimpleContainer(size) {
+                @Override
+                public void setChanged() {
+                    super.setChanged();
+                    if (loaded) saveContents();
+                }
+            };
+            for (int i = 0; i < size; i++) container.setItem(i, items.get(i));
+            Player player = playerInventory.player;
+            if (!player.level().isClientSide()) {
+                List<ItemStack> overflow = items.subList(size, items.size()).stream().filter(stack -> !stack.isEmpty()).toList();
+                if (!overflow.isEmpty()) {
+                    saveContents();
+                    overflow.forEach(stack -> BackpackUtil.giveOrDrop(player, stack));
+                }
+            }
+            loaded = true;
             for (int y = 0; y < rows; y++) {
                 for (int x = 0; x < columns; x++) {
                     int slotX = width / 2 - columns * 9 + x * 18 + 1;
@@ -55,8 +77,6 @@ public class BackpackMenu extends AbstractContainerMenu {
                 int slotY = height - padding - 4 * 18 - 3 + 3 * 18 + 4 - 1;
                 this.addSlot(new BackpackSlot(playerInventory, x, slotX, slotY));
             }
-        } else {
-            removed(playerInventory.player);
         }
     }
 
@@ -102,10 +122,11 @@ public class BackpackMenu extends AbstractContainerMenu {
     @Override
     public void removed(@NotNull Player player) {
         super.removed(player);
-        if (container.getItems().isEmpty() || container.getItems().stream().allMatch(ItemStack::isEmpty)) {
-            backpack.set(DataComponents.CONTAINER, ItemContainerContents.EMPTY);
-        }
-        else backpack.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(container.getItems()));
+        if (valid) saveContents();
+    }
+
+    private void saveContents() {
+        backpack.set(DataComponents.CONTAINER, ItemContainerContents.fromItems(container.getItems()));
     }
 
     @Override

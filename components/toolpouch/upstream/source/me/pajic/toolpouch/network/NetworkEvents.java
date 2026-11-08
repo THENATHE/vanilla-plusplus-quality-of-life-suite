@@ -1,7 +1,10 @@
 package me.pajic.toolpouch.network;
 
+import it.unimi.dsi.fastutil.ints.IntList;
+import me.pajic.toolpouch.ToolPouch;
 import me.pajic.toolpouch.compat.AccessoryUtil;
 import me.pajic.toolpouch.menu.ShulkerBoxContainerMenu;
+import me.pajic.toolpouch.menu.ToolPouchMenu;
 import me.pajic.toolpouch.platform.MultiLoaderUtil;
 import me.pajic.toolpouch.util.GameplayUtil;
 import me.pajic.toolpouch.util.PlayerExtension;
@@ -13,9 +16,10 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.projectile.FireworkRocketEntity;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.ItemStack;
@@ -31,7 +35,7 @@ public class NetworkEvents {
 			// 2 - open from trinket/accessory API slot
 			// 1 - open from leg slot
 			// 0 - open from inventory
-			case 0 -> player.getInventory().getNonEquipmentItems().stream()
+			case 0 -> !ToolPouch.CONFIG.canOpenFromInventory.get() ? ItemStack.EMPTY : player.getInventory().getNonEquipmentItems().stream()
 					.filter(stack -> stack.is(GameplayUtil.TOOL_POUCHES))
 					.findFirst().orElse(ItemStack.EMPTY);
 			case 1 -> player.getItemBySlot(EquipmentSlot.LEGS);
@@ -48,13 +52,17 @@ public class NetworkEvents {
 	}
 
 	public static void openShulkerBox(ServerPlayer player, int index) {
+		ItemStack toolPouch = ToolPouchUtil.getToolPouch(player);
+		IntList slots = ToolPouchUtil.findSlotsInToolPouch(toolPouch, stack -> stack.is(ItemTags.SHULKER_BOXES));
+		if (index < 0 || index >= slots.size()) return;
+		int slot = slots.getInt(index);
 		player.playSound(SoundEvents.SHULKER_BOX_OPEN);
-		ItemStackTemplate shulker = ToolPouchUtil.getItemsFromToolPouch(player, stack -> stack.is(ItemTags.SHULKER_BOXES)).get(index);
-		player.openMenu(new ShulkerBoxContainerMenu(shulker.create(), 27, index));
+		player.openMenu(new ShulkerBoxContainerMenu(toolPouch, slot, ToolPouchUtil.getItemInToolPouch(toolPouch, slot), 27));
 		player.awardStat(Stats.OPEN_SHULKER_BOX);
 	}
 
 	public static void openEnderContainer(ServerPlayer player) {
+		if (!ToolPouchUtil.toolPouchHasItem(player, stack -> stack.is(Items.ENDER_CHEST))) return;
 		player.playSound(SoundEvents.ENDER_CHEST_OPEN);
 		PlayerEnderChestContainer container = player.getEnderChestInventory();
 		player.openMenu(new SimpleMenuProvider((i, inventory, _) ->
@@ -64,7 +72,15 @@ public class NetworkEvents {
 	}
 
 	public static void playSound(ServerPlayer player, Holder<SoundEvent> sound) {
-		player.playSound(sound.value());
+		if (
+				(sound.is(SoundEvents.SPYGLASS_USE.location()) || sound.is(SoundEvents.SPYGLASS_STOP_USING.location())) &&
+				ToolPouchUtil.toolPouchHasItem(player, stack -> stack.is(Items.SPYGLASS))
+		) player.playSound(sound.value());
+	}
+
+	public static void toggleSlot(ServerPlayer player, int slot) {
+		ItemStack toolPouch = player.containerMenu instanceof ToolPouchMenu menu ? menu.getToolPouch() : ToolPouchUtil.getToolPouch(player);
+		if (GameplayUtil.isValidContainerHolder(toolPouch)) ToolPouchUtil.toggleSlot(toolPouch, slot);
 	}
 
 	public static void syncShulkerSlotToServer(ServerPlayer player, int slot) {
@@ -77,10 +93,12 @@ public class NetworkEvents {
 
 	public static void elytraBoostFromPouch(ServerPlayer player) {
 		List<ItemStackTemplate> fireworks = ToolPouchUtil.getItemsFromToolPouch(player, stack -> stack.is(Items.FIREWORK_ROCKET));
-		if (!fireworks.isEmpty()) {
+		if (!fireworks.isEmpty() && player.isFallFlying()) {
 			ItemStackTemplate firework = fireworks.getFirst();
-			ToolPouchUtil.removeItemFromToolPouch(player, firework.item().value(), 1);
-			firework.item().value().use(player.level(), player, InteractionHand.OFF_HAND);
+			ItemStack rocket = firework.create();
+			Projectile.spawnProjectile(new FireworkRocketEntity(player.level(), rocket, player), player.level(), rocket);
+			ToolPouchUtil.removeItemFromToolPouch(player, firework, 1);
+			player.awardStat(Stats.ITEM_USED.get(rocket.getItem()));
 		}
 	}
 }

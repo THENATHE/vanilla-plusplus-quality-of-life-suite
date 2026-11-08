@@ -4,7 +4,9 @@ package me.pajic.simple_death_improvements.mixin;
 
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.sugar.Local;
 import me.pajic.simple_death_improvements.SDI;
+import me.pajic.simple_death_improvements.util.ModUtil;
 import net.minecraft.world.entity.EntityEquipment;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -28,7 +30,7 @@ public abstract class EntityEquipmentMixin {
 
     @WrapMethod(method = "dropAll")
     private void keepOffhandAndEquipment(LivingEntity dropper, Operation<Void> original) {
-        if (dropper instanceof Player && (SDI.CONFIG.keepHotbarOnDeath.get() || SDI.CONFIG.keepArmorOnDeath.get() || SDI.CONFIG.keepOffhandOnDeath.get())) {
+        if (dropper instanceof Player && (SDI.CONFIG.keepHotbarOnDeath.get() || SDI.CONFIG.keepArmorOnDeath.get() || SDI.CONFIG.keepOffhandOnDeath.get() || SDI.CONFIG.keepDamageableItemsOnDeath.get())) {
             items.replaceAll((slot, stack) -> {
                 if (SDI.CONFIG.keepOffhandOnDeath.get() && slot.equals(EquipmentSlot.OFFHAND) &&
                         !SDI.CONFIG.offhandDropList.contains(SDI.getItemId(stack))) return stack;
@@ -38,6 +40,7 @@ public abstract class EntityEquipmentMixin {
                         slot.equals(EquipmentSlot.LEGS) ||
                         slot.equals(EquipmentSlot.FEET)
                 )) return stack;
+                if (ModUtil.tryKeepDamageableItem(dropper, stack)) return stack;
                 //~ if >26.2 'false' -> 'Prediction.SERVER_ONLY'
                 dropper.drop(stack, !SDI.CONFIG.noItemSplatterOnDeath.get(), Prediction.SERVER_ONLY);
                 return ItemStack.EMPTY;
@@ -55,8 +58,8 @@ public abstract class EntityEquipmentMixin {
             ),
             index = 1
     )
-    private boolean preventItemSplatterOnDeath(boolean dropAround) {
-		return !SDI.CONFIG.noItemSplatterOnDeath.get() && dropAround;
+    private boolean preventItemSplatterOnDeath(boolean dropAround, @Local(argsOnly = true) LivingEntity dropper) {
+		return dropper instanceof Player ? !SDI.CONFIG.noItemSplatterOnDeath.get() && dropAround : dropAround;
     }
 }
 //?}

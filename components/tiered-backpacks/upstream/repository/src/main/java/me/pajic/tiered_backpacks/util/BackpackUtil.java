@@ -8,11 +8,13 @@ import me.pajic.tiered_backpacks.platform.MultiLoaderUtil;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -25,9 +27,11 @@ public class BackpackUtil {
 
 	public static void tryOpenBackpack(int openMethod, ServerPlayer player) {
 		ItemStack backpack = switch (openMethod) {
-			case 0 -> player.getInventory().getNonEquipmentItems().stream()
-					.filter(stack -> stack.is(BACKPACKS))
-					.findFirst().orElse(ItemStack.EMPTY);
+			case 0 -> TieredBackpacks.CONFIG.canOpenFromInventory.get() ?
+					player.getInventory().getNonEquipmentItems().stream()
+							.filter(stack -> stack.is(BACKPACKS))
+							.findFirst().orElse(ItemStack.EMPTY) :
+					ItemStack.EMPTY;
 			case 1 -> player.getItemBySlot(EquipmentSlot.CHEST);
 			case 2 -> {
                 if (AccessoryUtil.INSTANCE != null) yield AccessoryUtil.INSTANCE.getBackpack(player);
@@ -35,7 +39,7 @@ public class BackpackUtil {
 			}
 			default -> ItemStack.EMPTY;
 		};
-		if (!backpack.isEmpty()) {
+		if (isValidContainerHolder(backpack)) {
 			player.playSound(SoundEvents.BUNDLE_INSERT);
 			MultiLoaderUtil.INSTANCE.openBackpackScreen(player, backpack);
 		}
@@ -83,9 +87,14 @@ public class BackpackUtil {
 	public static boolean canUnequipBackpack(Player player, ItemStack backpack) {
 		GameType mode = player.gameMode();
 		if (mode != null && mode.isSurvival() && TieredBackpacks.CONFIG.preventUnequipWhenNotEmpty.get() && BackpackUtil.isValidContainerHolder(backpack)) {
-			return backpack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY) == ItemContainerContents.EMPTY;
+			return ItemContainerContents.EMPTY.equals(backpack.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY));
 		}
 		return true;
+	}
+
+	public static void giveOrDrop(LivingEntity entity, ItemStack stack) {
+		if (entity instanceof Player player && player.addItem(stack)) return;
+		if (!stack.isEmpty() && entity.level() instanceof ServerLevel level) entity.spawnAtLocation(level, stack);
 	}
 
 	public static boolean isValidContainerHolder(ItemStack stack) {
