@@ -6,6 +6,7 @@
 
 - Bring Swift Flight up to Jodek's Swift Flight 1.2.0: it can appear in the enchanting table on books and newly crafted harnesses, its enchanting cost is lower (10 + 10 per level), and grindstone extraction costs fall accordingly. Existing Swift Flight books and harnesses keep working; harnesses crafted earlier are not table-enchantable.
 - Use Sorted's public API for the backpack crafting menu's storage slots and button placement, keeping targeted integration only where Sorted has no public API. Record the Sorted author's permission as stated by the user.
+- Fix MapStitch atlas pins deleting items: with pins set to require items, taking a pin from a backpack or pouch larger than 27 slots no longer deletes everything past slot 26, and pins stored past that slot can be used.
 - Keep the pet-call team rule and MapStitch's one-time configuration migration, as decided after review.
 
 ## 1.5.0+26.3
