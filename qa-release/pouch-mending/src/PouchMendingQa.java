@@ -95,7 +95,7 @@ public final class PouchMendingQa implements ModInitializer {
   if(resources){var whetstone=new ItemStack(me.pajic.simple_smithing_overhaul.items.ModItems.WHETSTONE);var stored=new ItemEnchantments.Mutable(ItemEnchantments.EMPTY);stored.upgrade(p.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.MENDING),1);whetstone.set(DataComponents.STORED_ENCHANTMENTS,stored.toImmutable());p.getInventory().setItem(1,whetstone);p.getInventory().setItem(2,new ItemStack(Items.PHANTOM_MEMBRANE,3));}
   me.pajic.toolpouch.menu.ToolPouchMenu menu=null;if(open){menu=new me.pajic.toolpouch.menu.ToolPouchMenu(9,p.getInventory(),h);p.containerMenu=menu;}
   p.getInventory().tick();if(menu!=null){menu.removed(p);p.containerMenu=p.inventoryMenu;}
-  int after=damage(h,0);int materials=p.getInventory().getItem(2).getCount();boolean expect=enabled&&resources&&mending&&SSO.CONFIG.mendingRework.enabled.get()&&!name.contains("unsupported");var r=row(name);r.addProperty("actual_attachment_recipe",attached);r.addProperty("damage_before",beforeDamage);r.addProperty("damage_after",after);r.addProperty("repair_material_remaining",materials);r.addProperty("automatic_enabled",enabled);r.addProperty("resources",resources);r.addProperty("mending",mending);r.addProperty("flight_toggle",toggle);r.addProperty("open_menu",open);r.addProperty("expected_repaired",expect);
+  int after=damage(h,0);int materials=p.getInventory().getItem(2).getCount();boolean expect=toggle&&enabled&&resources&&mending&&SSO.CONFIG.mendingRework.enabled.get()&&!name.contains("unsupported");var r=row(name);r.addProperty("actual_attachment_recipe",attached);r.addProperty("damage_before",beforeDamage);r.addProperty("damage_after",after);r.addProperty("repair_material_remaining",materials);r.addProperty("automatic_enabled",enabled);r.addProperty("resources",resources);r.addProperty("mending",mending);r.addProperty("flight_toggle",toggle);r.addProperty("open_menu",open);r.addProperty("expected_repaired",expect);
   check(expect?after<beforeDamage&&materials==2:after==beforeDamage&&materials==(resources?3:0),"SSO stored material repair mismatch "+r);
  }
  private void selectedFlight(ServerPlayer p,boolean live)throws Exception{
@@ -111,7 +111,7 @@ public final class PouchMendingQa implements ModInitializer {
   xp(player,"netherite-attached-repaired-Mending-legs",true,0,true,40,true,true,true,0,26,0);
   xp(player,"netherite-attached-damaged-Mending-legs-first",true,40,true,40,true,true,true,26,40,0);
   xp(player,"netherite-attached-partial-Mending-legs-leftover",true,5,true,40,true,true,true,0,30,0);
-  xp(player,"netherite-attached-flight-disabled-XP",true,0,true,40,true,true,false,0,26,0);
+  xp(player,"netherite-attached-elytra-slot-off-keeps-XP",true,0,true,40,true,true,false,0,40,7);
   xp(player,"no-Mending-XP-unchanged",false,0,false,40,false,true,true,0,40,7);
   if(sso)xp(player,"SSO-regular-XP-disabled",false,0,false,40,true,false,true,0,40,7);
   liveXp(player);
@@ -124,7 +124,7 @@ public final class PouchMendingQa implements ModInitializer {
    autoRepair(player,"SSO-auto-inventory-enabled",false,true,true,true,false,true);
    autoRepair(player,"SSO-auto-netherite-attached-enabled",true,true,true,true,false,true);
    autoRepair(player,"SSO-auto-netherite-attached-live-saveback",true,true,true,true,true,true);
-   autoRepair(player,"SSO-auto-flight-disabled-still-repairs",true,true,true,true,false,false);
+   autoRepair(player,"SSO-auto-elytra-slot-off-skipped",true,true,true,true,false,false);
    autoRepair(player,"SSO-auto-disabled-keeps-resources",false,false,true,true,false,true);
    autoRepair(player,"SSO-auto-no-materials",false,true,false,true,false,true);
    autoRepair(player,"SSO-auto-no-Mending",false,true,true,false,false,true);

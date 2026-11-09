@@ -1,5 +1,9 @@
 # Provenance and compatibility tracks
 
+The current suite is **1.5.2+26.3**. It retires the Tool Pouch Atlas and Elytra addon's own Elytra toggle (key, payloads and per-player preference) in favour of Tool Pouch 1.2's slot toggles, with a one-time carry-over of saved preferences and key binds. The addon becomes **1.2.0+26.3**; combined compatibility **1.5.2+26.3** names turned-off pouch items for vanilla clients; Backpack Crafting **1.1.2+26.3** and mixed-scale MapStitch **1.2.2+26.3** change only their exact coordinator dependency. Original inputs and libraries are unchanged from 1.5.1.
+
+## Historical 1.5.1 record
+
 The current suite is **1.5.1+26.3** (2026-11-08), a follow-up to the unpublished 1.5.0 build. It brings the suite's Swift Flight data up to Jodek's Swift Flight **v1.2.0** (Modrinth datapack `lJ17PHg5`, MIT, notice unchanged in `licenses/swift-flight-LICENSE.txt`): the enchantment joins `#minecraft:non_treasure`, its minimum cost becomes 10 + 10 per level with harnesses as primary items, and the 32 vanilla harness and harness-dye recipes are overridden byte-for-byte from v1.2.0 so newly crafted harnesses carry `minecraft:enchantable` 10. These recipe files differ from vanilla 26.3 only by that result component. The identifier `swift_flight:swift_flight` is unchanged. Backpack Crafting advances to **1.1.1+26.3** to use Sorted's public API where it is equivalent, combined compatibility to **1.5.1+26.3** for the MapStitch pin container guard, and mixed-scale MapStitch to **1.2.1+26.3** for its exact coordinator dependency; all other nested modules are byte-identical to 1.5.0.
 
 ### Sorted permission and integration boundary
@@ -101,20 +105,20 @@ The [2026-10-06 publisher audit](pajic-release-audit-2026-10-06.json) distinguis
 
 ## Modified suite components
 
-Current component versions in suite **1.5.1+26.3** are listed below; historical standalone origins remain separate.
+Current component versions in suite **1.5.2+26.3** are listed below; historical standalone origins remain separate.
 
 | Component | Component version | Baseline / record |
 | --- | --- | --- |
-| Combined compatibility | 1.5.1+26.3 | Original standalone Multi-Shim 1.0.5+26.3; components/combined-compat/ORIGIN.json |
+| Combined compatibility | 1.5.2+26.3 | Original standalone Multi-Shim 1.0.5+26.3; components/combined-compat/ORIGIN.json |
 | Chalk compatibility | 1.2.0-suite.1+26.3 | Original standalone Chalk shim 1.1.0+26.3; components/chalk-compat/ORIGIN.json |
 | Shared Region Maps | 1.0.6-combo.1+mc26.3 | Original local 1.0.3, commit 338270a70c14be19ba79b535b40fac980e414470; components/shared-region-maps/upstream-manifest.json |
-| Tool Pouch atlas/Elytra addon | 1.1.0+26.3 | Original local 1.0.4; components/toolpouch-atlas-elytra/upstream-manifest.json |
-| Mixed-scale MapStitch addon | 1.2.1+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
+| Tool Pouch atlas/Elytra addon | 1.2.0+26.3 | Original local 1.0.4; components/toolpouch-atlas-elytra/upstream-manifest.json |
+| Mixed-scale MapStitch addon | 1.2.2+26.3 | Separate module components/mapstitch-mixed-scales/working; exact stable coordinator dependency |
 | Sensible Stackables historical port (not nested) | 3.0.3-port.1+26.3 | Preserved published 3.0.3+26.2 baseline and independent port source/dependency records in components/sensible-stackables/ |
 | Sensible Stackables Polymer compatibility | 1.0.4+26.3 | Separate components/sensible-stackables/compat module |
 | Bannerpoint compatibility | 1.0.2+26.3 | Separate components/bannerpoint-compat module; original artwork notices and client/pack detection retained. Reconciles map-linked tracking after multiscale atlas edits through the internal addon event. |
-| Backpack Crafting addon | 1.1.1+26.3 | Separate components/backpack-crafting module; temporary crafting, BRBR/Sorted adapters and storage-slot recovery guards. |
-| Suite root / settings | 1.5.1+26.3 | Newly authored source in src/ |
+| Backpack Crafting addon | 1.1.2+26.3 | Separate components/backpack-crafting module; temporary crafting, BRBR/Sorted adapters and storage-slot recovery guards. |
+| Suite root / settings | 1.5.2+26.3 | Newly authored source in src/ |
 
 The archive retains original feature module IDs and embeds each module separately. The authored root ID is `vpp_mod_suite` from 1.2.1 onward. Original standalone repositories and versioned releases remain available; the suite variants do not overwrite them.
 

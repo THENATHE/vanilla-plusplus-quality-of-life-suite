@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "vpp_mod_suite",
-  "version": "1.5.1+26.3",
-  "sha256": "00aa245b80aa62cdca2cee5a7a3cbdf30ec0c7e0df37b71cea8a146ba9f8328c",
+  "version": "1.5.2+26.3",
+  "sha256": "490cd993ee52d8bdaa868554c257d73dc9989b3470f4b0a583c979332b162d65",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -60,9 +60,9 @@
     },
     {
       "id": "sso_backpack_toolpouch_mapstitch_shim",
-      "version": "1.5.1+26.3",
-      "sha256": "af3c129d70bd8b18edde80bdc726940b53da2f232e25d8927ab769146c730c32",
-      "file": "META-INF/jars/thenathe-suite-combined-compat-1.5.1+26.3.jar"
+      "version": "1.5.2+26.3",
+      "sha256": "36e97c50fab8f144ff4c9d8d4a81ecbfc6fe05a1c4d6b38a74040bc3eed19987",
+      "file": "META-INF/jars/thenathe-suite-combined-compat-1.5.2+26.3.jar"
     },
     {
       "id": "chalk_polymer_compat",
@@ -78,9 +78,9 @@
     },
     {
       "id": "toolpouch_atlas_elytra_compat",
-      "version": "1.1.0+26.3",
-      "sha256": "074a23961d248d03f443f92c2ce7c4921c520c82bbccc31e0d7c6347c8772937",
-      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.1.0+26.3.jar"
+      "version": "1.2.0+26.3",
+      "sha256": "7a3c016e59335dac7ea457df183d7958e132e932baa79dac704b4e73d3bb5295",
+      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.2.0+26.3.jar"
     },
     {
       "id": "sensible_stackables",
@@ -96,9 +96,9 @@
     },
     {
       "id": "mapstitch_mixed_scales",
-      "version": "1.2.1+26.3",
-      "sha256": "cb239afcca2751bed81b69c0be82fe4f9935d6601971500988741c2a708b6f55",
-      "file": "META-INF/jars/mapstitch-mixed-scales-1.2.1+26.3.jar"
+      "version": "1.2.2+26.3",
+      "sha256": "524cddd41d8110995a997a404c1be6a65bea8b2a4173d364b983bcee31e701fc",
+      "file": "META-INF/jars/mapstitch-mixed-scales-1.2.2+26.3.jar"
     },
     {
       "id": "bannerpoint",
@@ -114,9 +114,9 @@
     },
     {
       "id": "vpp_backpack_crafting",
-      "version": "1.1.1+26.3",
-      "sha256": "24f07169fc9107ad2fdb32c73eee1aed6377213d2f942bef2222bce37bf5f057",
-      "file": "META-INF/jars/thenathe-suite-backpack-crafting-1.1.1+26.3.jar"
+      "version": "1.1.2+26.3",
+      "sha256": "49f2c192e50ea72b028f1b7ff8132ceb16fe0dd3cc1a4010dfe5a25b8fe35b43",
+      "file": "META-INF/jars/thenathe-suite-backpack-crafting-1.1.2+26.3.jar"
     }
   ],
   "original_inputs_unchanged": true,
@@ -124,9 +124,9 @@
   "defaulted_runtime_required": false,
   "licenses_retained": true,
   "runtime_tested": true,
-  "runtime_scope": "Exact-candidate connections, Hotkey Wheel 1.0.9/Buildprint 0.1.38/Blocktone 0.1.38/BRBR/Sorted 0.1.41 integration (native and Polymer), settings, native features with Swift Flight 1.2.0 and restarts, Sorted 0.1.41 keep-rule/storage and 0.1.26 storage, pin container guard with a 1.5.0 baseline, and 1.4.5/1.5.0 world and config upgrades. Unchanged modules keep their 1.5.0 evidence.",
+  "runtime_scope": "Exact-candidate connections, Tool Pouch slot-toggle key presses for the Elytra, atlas, magnet and collector (native and Polymer, with the old Elytra key carried over and a Hotkey Wheel 1.0.10 slot still naming the removed control), Hotkey Wheel 1.0.10/Buildprint 0.1.38/Blocktone 0.1.38/BRBR/Sorted 0.1.41 integration, settings, native features, Sorted 0.1.41 keep-rule/storage and 0.1.26 storage, pin container guard, pouch XP/SSO Mending with switched-off slots, and 1.4.5/1.5.0/1.5.1 world, player and config upgrades plus a 1.5.2 restart, including players with the old Elytra toggle off and on. Unchanged modules keep their 1.5.0 evidence.",
   "evidence": {
-    "verification": "qa-release/evidence/1.5.1/verification.json",
-    "release_guide": "docs/RELEASE_1_5_1.md"
+    "verification": "qa-release/evidence/1.5.2/verification.json",
+    "release_guide": "docs/RELEASE_1_5_2.md"
   }
 }

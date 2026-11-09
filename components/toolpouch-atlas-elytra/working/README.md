@@ -39,19 +39,19 @@ Tool Pouch and MapStitch are original projects by **pajic**. This repository con
 
 - Invalidates cached minimap map centers when the client world or atlas metadata changes, avoiding stale locations after world transitions.
 
-### Elytra toggle
+### Elytra on/off (from 1.2.0+26.3)
 
-- Adds an initially unbound **Toggle Tool Pouch Elytra** key under the existing Tool Pouch controls heading, preserving the key identifier used by the earlier combined patch. Version 1.0.1 fixes the duplicate heading by sharing the original category object.
-- Adds `/toolpouch-elytra`, `/toolpouch-elytra on`, and `/toolpouch-elytra off` for your own pouch flight preference.
-- Saves the preference per player, copies it on respawn, and synchronizes it to clients that have this modification. Synchronization is refreshed after player level changes.
-- Disabling pouch flight leaves the wings stored and visible. Normal chest-slot Elytra remain usable with their normal durability handling.
-- Detects the earlier integrated Tool Pouch toggle and patched MapStitch pouch bridge, and skips duplicate feature injections when those implementations are already present.
+- The addon's own **Toggle Tool Pouch Elytra** key (`key.toolpouch.toggle_elytra`), its `toggle`/`state` payloads and the per-player preference were removed. Tool Pouch 1.2's slot toggles (`toolpouch:disabled_slots`, bound with *Bind slot toggle to key*) switch the pouch Elytra, like every other pouch item.
+- A player saved with the old preference off keeps it: the Elytra slots of their pouches are disabled the first time one of them holds an Elytra, and the old flag stays in player data until then. A key bound to the old control becomes a slot-toggle bind for the Elytra's slot (remembered in `config/vpp_mod_suite/legacy-elytra-key.txt` until it has moved).
+- `/toolpouch-elytra`, `/toolpouch-elytra on` and `/toolpouch-elytra off` remain and toggle the same disabled slots of the active pouch, with Tool Pouch's own feedback.
+- Disabling the pouch Elytra leaves the wings stored. Normal chest-slot Elytra keep their normal behaviour.
+- Other client mods switch a slot the same way Tool Pouch's own binds do: `SlotToggleKeys.toggleSlots(player, ToolPouchUtil.getToolPouch(player), key, true)` for the slots bound to a key, or `ToolPouchUtil.toggleSlot(pouch, slot)` followed by sending `ModPayloads.C2SToggleSlotPayload(slot)`. The server validates the slot and every suite feature reads the result, so no suite-specific call is needed.
 
 ### XP Mending for stored Elytra
 
 Version 1.0.2 lets damaged Mending Elytra directly inside the active pouch repair from collected experience. Equipped Mending items use XP first; eligible stored Elytra use the remainder, and unused XP goes to the player. Repair amounts and rounding follow vanilla enchantment effects.
 
-Inventory pouches, leggings-attached pouches and open pouch menus are supported. Turning off pouch flight does not turn off Mending, and broken wings can repair. Pouch selection follows Tool Pouch's normal priority and inventory-use setting; unrelated contents are preserved.
+Inventory pouches, leggings-attached pouches and open pouch menus are supported, and broken wings can repair. From 1.2.0+26.3 an Elytra whose pouch slot is switched off is not mended until it is switched back on. Pouch selection follows Tool Pouch's normal priority and inventory-use setting; unrelated contents are preserved.
 
 **SSO's regular-Mending setting is respected.** If Simple Smithing Overhaul's Mending rework is enabled and `mendingRework.enableRegularMendingBehavior` is disabled, XP does not mend pouch Elytra either. Enable regular Mending in SSO when you want XP repair. This addon does not change your SSO configuration or require SSO to be installed.
 

@@ -151,52 +151,68 @@ public final class UpgradeQa implements ModInitializer {
     }
 
     /**
-     * Two players with an Elytra in their pouch, saved the way the previous release saves player
-     * data: one with the suite's old Elytra toggle off, one with it on.
+     * Two players with an Elytra in their worn pouch, saved the way the previous release saves player
+     * data: one with the suite's old Elytra toggle off, one with it on. The fake players are not native
+     * clients, so Tool Pouch's gameplay lookup ignores their pouch; both phases read the worn pouch directly.
      */
     private static JsonObject writeElytraPlayers(MinecraftServer server) throws Exception {
         var result = new JsonObject();
         for (boolean enabled : new boolean[] {false, true}) {
             var player = fakePlayer(server, enabled ? "ElytraOn" : "ElytraOff");
-            var pouch = new ItemStack(BuiltInRegistries.ITEM.getValue(Identifier.parse("toolpouch:tool_pouch")));
+            var pouch = new ItemStack(net.minecraft.world.item.Items.IRON_LEGGINGS);
             pouch.set(net.minecraft.core.component.DataComponents.CONTAINER, net.minecraft.world.item.component.ItemContainerContents.fromItems(
                     List.of(new ItemStack(net.minecraft.world.item.Items.CLOCK), new ItemStack(net.minecraft.world.item.Items.ELYTRA))));
-            player.getInventory().setItem(4, pouch);
+            player.setItemSlot(net.minecraft.world.entity.EquipmentSlot.LEGS, pouch);
+            var legs = player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.LEGS);
             try {
                 // The suite's own Elytra toggle, in releases before 1.5.2.
                 Class.forName("com.thenathe.toolpouchcompat.Compat").getMethod("set", ServerPlayer.class, boolean.class).invoke(null, player, enabled);
             } catch (NoSuchMethodException newerSuite) {
-                // From 1.5.2 the same choice is a Tool Pouch disabled slot.
-                Class.forName("com.thenathe.toolpouchcompat.PouchElytraToggle").getMethod("set", ServerPlayer.class, boolean.class).invoke(null, player, enabled);
+                // From 1.5.2 the same choice is a Tool Pouch disabled slot on the pouch itself.
+                var setSlots = Class.forName("com.thenathe.toolpouchcompat.PouchElytraToggle")
+                        .getDeclaredMethod("setSlots", ItemStack.class, boolean.class);
+                setSlots.setAccessible(true);
+                setSlots.invoke(null, legs, enabled);
             }
-            result.addProperty((enabled ? "on" : "off") + "_glides_before", ToolPouchUtil.getElytraFromToolPouch(player, false) != null);
             var output = TagValueOutput.createWithContext(ProblemReporter.DISCARDING, server.registryAccess());
             player.saveWithoutId(output);
-            NbtIo.writeCompressed(output.buildResult(), CONTROL.resolve("player-" + (enabled ? "on" : "off") + ".dat"));
+            CompoundTag saved = output.buildResult();
+            boolean savedOff = !saved.getBooleanOr("ToolPouchElytraEnabled", true) || slotDisabled(legs, 1);
+            result.addProperty((enabled ? "on" : "off") + "_saved_off", savedOff);
+            NbtIo.writeCompressed(saved, CONTROL.resolve("player-" + (enabled ? "on" : "off") + ".dat"));
         }
         return result;
     }
 
+    private static boolean slotDisabled(ItemStack pouch, int slot) {
+        try {
+            return ToolPouchUtil.isSlotDisabled(pouch, slot);
+        } catch (LinkageError olderToolPouch) {
+            // Tool Pouch before 1.2 has no disabled slots.
+            return false;
+        }
+    }
+
     private static JsonObject verifyElytraPlayers(MinecraftServer server, JsonObject before) throws Exception {
         var result = new JsonObject();
-        boolean passed = before != null;
+        boolean passed = before != null && before.get("off_saved_off").getAsBoolean() && !before.get("on_saved_off").getAsBoolean();
         for (boolean enabled : new boolean[] {false, true}) {
             String name = enabled ? "on" : "off";
             CompoundTag saved = NbtIo.readCompressed(CONTROL.resolve("player-" + name + ".dat"), NbtAccounter.unlimitedHeap());
             var player = fakePlayer(server, enabled ? "ElytraOn" : "ElytraOff");
             player.load(TagValueInput.create(ProblemReporter.DISCARDING, server.registryAccess(), saved));
             Class.forName("com.thenathe.toolpouchcompat.LegacyElytraToggle").getMethod("apply", ServerPlayer.class).invoke(null, player);
-            boolean glides = ToolPouchUtil.getElytraFromToolPouch(player, false) != null;
-            var pouch = ToolPouchUtil.getToolPouch(player);
-            boolean slotDisabled = ToolPouchUtil.isSlotDisabled(pouch, 1);
+            var legs = player.getItemBySlot(net.minecraft.world.entity.EquipmentSlot.LEGS);
+            boolean slotDisabled = ToolPouchUtil.isSlotDisabled(legs, 1);
+            boolean usable = ToolPouchUtil.getItemInToolPouch(legs, 1).has(net.minecraft.core.component.DataComponents.GLIDER) && !slotDisabled;
             var output = TagValueOutput.createWithContext(ProblemReporter.DISCARDING, server.registryAccess());
             player.saveWithoutId(output);
             boolean legacyKeyKept = output.buildResult().contains("ToolPouchElytraEnabled");
-            result.addProperty(name + "_glides_before", before == null ? null : before.get(name + "_glides_before").getAsBoolean());
-            result.addProperty(name + "_glides_after", glides);
+            result.addProperty(name + "_saved_off_before", before == null ? null : before.get(name + "_saved_off").getAsBoolean());
+            result.addProperty(name + "_elytra_usable_after", usable);
             result.addProperty(name + "_elytra_slot_disabled", slotDisabled);
             result.addProperty(name + "_legacy_flag_still_saved", legacyKeyKept);
-            passed &= glides == enabled && slotDisabled == !enabled && !legacyKeyKept;
+            passed &= usable == enabled && slotDisabled == !enabled && !legacyKeyKept;
         }
         result.addProperty("passed", passed);
         return result;

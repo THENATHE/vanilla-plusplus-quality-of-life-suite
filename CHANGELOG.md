@@ -1,5 +1,13 @@
 # Changes
 
+## 1.5.2+26.3
+
+- Retire the suite's own **Toggle Tool Pouch Elytra** key. Tool Pouch's slot-toggle binds (*Bind slot toggle to key*) now switch the pouch Elytra, atlas, magnet and collector off and on, with Tool Pouch's own "… disabled/enabled" message.
+- Carry earlier choices over: if you had turned the pouch Elytra off, its pouch slot is switched off the first time your pouch holds an Elytra; a key you had bound to the old control becomes the slot-toggle bind for the Elytra's slot.
+- `/toolpouch-elytra`, `/toolpouch-elytra on` and `/toolpouch-elytra off` remain and toggle the same slots of the player's active pouch. On Polymer servers, vanilla clients still get no pouch flight (unchanged); the pouch tooltip they see now names any switched-off items.
+- A switched-off pouch Elytra is no longer repaired by pouch XP Mending or SSO auto-repair while it is off, matching how Tool Pouch treats switched-off items.
+- Hotkey Wheel slots that pointed at the removed control report it as unavailable instead of doing anything.
+
 ## 1.5.1+26.3
 
 1.5.0 was prepared but not published; 1.5.1 contains all of its changes plus the following.

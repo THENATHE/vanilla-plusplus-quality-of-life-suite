@@ -1,0 +1,180 @@
+{
+  "version": "1.5.2+26.3",
+  "date": "2026-11-08",
+  "passed": true,
+  "suite_sha256": "490cd993ee52d8bdaa868554c257d73dc9989b3470f4b0a583c979332b162d65",
+  "track": "developer-release-suite",
+  "evidence_path_base": "repository-root",
+  "display": "Private Xvfb :117 (Mesa llvmpipe via EGL)",
+  "checks": {
+    "slot_toggles": {
+      "passed": true,
+      "native_checks": 43,
+      "polymer_checks": 43,
+      "items": [
+        "Elytra (old key carried over to J)",
+        "atlas",
+        "Pouch Magnet",
+        "Pouch Collector"
+      ],
+      "covers": "real key presses; server disabled state; server and client behaviour; Tool Pouch feedback; removed control absent; Hotkey Wheel 1.0.10 slot naming the removed control opens, reports the control unavailable and changes nothing",
+      "note": "Focused rerun of SlotToggleClientTest after adding the wheel phase; the other integration reports are from the full run on the same JAR.",
+      "evidence": [
+        "qa-release/evidence/1.5.2/integration-native/slot-toggle-results.json",
+        "qa-release/evidence/1.5.2/integration-polymer/slot-toggle-results.json"
+      ]
+    },
+    "connections": {
+      "passed": true,
+      "profiles": 4,
+      "evidence": "qa-release/evidence/1.5.2/connections/result.json"
+    },
+    "integration": {
+      "passed": true,
+      "native_checks": 825,
+      "polymer_checks": 825,
+      "inputs": {
+        "hotkey_wheel": "1.0.10+26.3",
+        "buildprint": "0.1.38+26.3",
+        "blocktone": "0.1.38",
+        "sorted": "0.1.41+26.3",
+        "brbr": "1.11.7+26.3",
+        "polymer": "0.18.7+26.3"
+      },
+      "evidence": [
+        "qa-release/evidence/1.5.2/integration-native/",
+        "qa-release/evidence/1.5.2/integration-polymer/"
+      ]
+    },
+    "settings": {
+      "passed": true,
+      "with_hotkey_wheel": "1.0.10+26.3",
+      "evidence": "qa-release/evidence/1.5.2/settings/evidence.json"
+    },
+    "native_features": {
+      "passed": true,
+      "profiles": "native and Polymer, initial and restart",
+      "evidence": "qa-release/evidence/1.5.2/native-features/result.json"
+    },
+    "pouch_mending": {
+      "passed": true,
+      "checks": {
+        "polymer": 65,
+        "native": 62,
+        "nosso": 44
+      },
+      "slot_off": "switched-off Elytra keeps damage and XP; SSO auto-repair skips it",
+      "evidence": "qa-release/evidence/1.5.2/pouch-mending/result.json"
+    },
+    "sorted": {
+      "passed": true,
+      "0.1.41_keep_rules": 146,
+      "0.1.41_storage": 487,
+      "0.1.26_storage": 487,
+      "evidence": [
+        "qa-release/evidence/1.5.2/sorted-0.1.41-keep-rules/",
+        "qa-release/evidence/1.5.2/sorted-0.1.41-storage/",
+        "qa-release/evidence/1.5.2/sorted-0.1.26-storage/"
+      ]
+    },
+    "pin_container_guard": {
+      "passed": true,
+      "evidence": "qa-release/evidence/1.5.2/pins/result.json"
+    },
+    "upgrade": {
+      "passed": true,
+      "from_1_4_5": {
+        "stacks": 23,
+        "chalk_marks": 10,
+        "pet_index": true,
+        "config_values": 337,
+        "unexplained_changes": 0,
+        "accepted_upstream_changes": 12,
+        "elytra_players": {
+          "off_saved_off_before": true,
+          "off_elytra_usable_after": false,
+          "off_elytra_slot_disabled": true,
+          "off_legacy_flag_still_saved": false,
+          "on_saved_off_before": false,
+          "on_elytra_usable_after": true,
+          "on_elytra_slot_disabled": false,
+          "on_legacy_flag_still_saved": false,
+          "passed": true
+        }
+      },
+      "from_1_5_0": {
+        "stacks": 24,
+        "chalk_marks": 10,
+        "pet_index": true,
+        "config_values": 345,
+        "unexplained_changes": 0,
+        "accepted_upstream_changes": 0,
+        "elytra_players": {
+          "off_saved_off_before": true,
+          "off_elytra_usable_after": false,
+          "off_elytra_slot_disabled": true,
+          "off_legacy_flag_still_saved": false,
+          "on_saved_off_before": false,
+          "on_elytra_usable_after": true,
+          "on_elytra_slot_disabled": false,
+          "on_legacy_flag_still_saved": false,
+          "passed": true
+        }
+      },
+      "from_1_5_1": {
+        "stacks": 24,
+        "chalk_marks": 10,
+        "pet_index": true,
+        "config_values": 345,
+        "unexplained_changes": 0,
+        "accepted_upstream_changes": 0,
+        "elytra_players": {
+          "off_saved_off_before": true,
+          "off_elytra_usable_after": false,
+          "off_elytra_slot_disabled": true,
+          "off_legacy_flag_still_saved": false,
+          "on_saved_off_before": false,
+          "on_elytra_usable_after": true,
+          "on_elytra_slot_disabled": false,
+          "on_legacy_flag_still_saved": false,
+          "passed": true
+        }
+      },
+      "restart_1_5_2": {
+        "stacks": 24,
+        "chalk_marks": 10,
+        "pet_index": true,
+        "config_values": 345,
+        "unexplained_changes": 0,
+        "accepted_upstream_changes": 0,
+        "elytra_players": {
+          "off_saved_off_before": true,
+          "off_elytra_usable_after": false,
+          "off_elytra_slot_disabled": true,
+          "off_legacy_flag_still_saved": false,
+          "on_saved_off_before": false,
+          "on_elytra_usable_after": true,
+          "on_elytra_slot_disabled": false,
+          "on_legacy_flag_still_saved": false,
+          "passed": true
+        }
+      },
+      "evidence": [
+        "qa-release/evidence/1.5.2/upgrade-from-1.4.5/",
+        "qa-release/evidence/1.5.2/upgrade-from-1.5.0/",
+        "qa-release/evidence/1.5.2/upgrade-from-1.5.1/",
+        "qa-release/evidence/1.5.2/restart-1.5.2/"
+      ]
+    },
+    "installation": {
+      "evidence": "docs/installation-pack-verification.json"
+    }
+  },
+  "unchanged_since_1_5_1": "Every nested module except the Tool Pouch Atlas and Elytra addon (1.2.0) and combined compatibility (1.5.2) is byte-identical to 1.5.1 apart from the metadata-only Backpack Crafting 1.1.2 and mixed-scale MapStitch 1.2.2; their 1.5.0 results stand.",
+  "limits": [
+    "The slot-toggle client test runs in an integrated world; its Polymer profile is Polymer with a modded client. Vanilla clients are covered by the connection profiles and the Mending passive guard.",
+    "Relog and restart persistence is shown by the restart harness and the pouch component, not by a client relog inside the key-press test.",
+    "The upgrade players are not native clients, so the upgrade harness reads their worn pouch directly; flight gating itself is covered by the key-press test.",
+    "The paused SSO-port track was neither built nor tested."
+  ]
+}

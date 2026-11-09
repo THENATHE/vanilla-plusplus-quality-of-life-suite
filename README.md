@@ -4,7 +4,7 @@
 
 ![Vanilla++ modpack artwork](artwork/vanilla-plusplus-modpack.png)
 
-The **1.5.1** update moves the suite to the newest developer releases of its included mods, including the official Chalk release, adapts the suite's additions to them, and brings Swift Flight up to its 1.2.0 release, so the enchantment can now be found in enchanting tables. Existing worlds, items and settings carry over. See the [1.5.1 release guide](docs/RELEASE_1_5_1.md) for installation and validation.
+The **1.5.2** update hands pouch on/off switching to Tool Pouch's own slot-toggle binds, which now cover the suite's pouch Elytra, atlas, magnet and collector. The 1.5.1 update moved the suite to the newest developer releases of its included mods, including the official Chalk release, adapts the suite's additions to them, and brings Swift Flight up to its 1.2.0 release, so the enchantment can now be found in enchanting tables. Existing worlds, items and settings carry over. See the [1.5.2 release guide](docs/RELEASE_1_5_2.md) for installation and validation.
 
 
 ## What it is
@@ -157,9 +157,8 @@ Thanks for your hard work, **pajic**!
 These include my **Tool Pouch Atlas & Elytra addon**, already built into the suite:
 
 - Use MapStitch atlases directly from the pouch, including map updates and ejection.
-- Toggle pouch-powered flight without removing the Elytra. Bind **Toggle Tool Pouch Elytra**, or use `/toolpouch-elytra`, `/toolpouch-elytra on`, and `/toolpouch-elytra off`.
-- Remember the flight preference between sessions and respawns. Turning it off does not disable a normal chest-slot Elytra.
-- Mend stored Elytra from collected XP **when SSO allows regular XP Mending**. Equipped Mending items take priority; pouch Elytra use the remaining XP. Flight can be switched off while repair still works.
+- Switch the pouch Elytra, atlas, magnet and collector off and on with Tool Pouch's own slot-toggle binds; the suite's separate Elytra key was retired in 1.5.2 and an existing bind for it moves to the Elytra's slot. `/toolpouch-elytra`, `/toolpouch-elytra on` and `/toolpouch-elytra off` toggle the same slots from chat. On Polymer servers, players without the client mod see turned-off items named on the pouch. Turning the pouch Elytra off does not affect a normal chest-slot Elytra.
+- Mend stored Elytra from collected XP **when SSO allows regular XP Mending**. Equipped Mending items take priority; pouch Elytra use the remaining XP. An Elytra whose pouch slot is switched off is left alone, like every other switched-off pouch item.
 - Apply Unbreaking to pouch flight durability, and let SSO automatically repair a broken stored Elytra when enabled and you carry its required whetstone and repair material. Server settings control repair behavior.
 - Preserve the larger netherite pouch capacity when attached to leggings, and correct stale pouch-tier information when detaching or replacing it.
 - Add optional [ClientSort](https://modrinth.com/mod/clientsort) sort, refill, and transfer controls while respecting pouch storage restrictions.
@@ -460,7 +459,7 @@ The compatibility layer includes:
 
 ## Installation
 
-The [1.5.1 release guide](docs/RELEASE_1_5_1.md) covers this update, installation and verification. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) provides these four files:
+The [1.5.2 release guide](docs/RELEASE_1_5_2.md) covers this update, installation and verification. [Public Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases) provides these four files:
 
 - **README.md:** this overview and installation guide.
 - **Suite JAR:** the combined feature mod.
@@ -472,7 +471,7 @@ Use the installation ZIP for a fresh instance. It includes the permitted depende
 ### Singleplayer or a fully modded server
 
 1. Use **Minecraft 26.3**, **Java 25 or newer**, and **Fabric Loader 0.19.5**.
-2. Put `vanilla-plusplus-quality-of-life-suite-1.5.1+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
+2. Put `vanilla-plusplus-quality-of-life-suite-1.5.2+26.3.jar` in `mods/`. For multiplayer, install the matching suite on the server and participating modded clients. Public downloads remain available through [Releases](https://github.com/THENATHE/vanilla-plusplus-quality-of-life-suite/releases).
 3. Use the release installation ZIP and its instructions to install the required libraries below. The suite includes the feature mods; the release selects compatible shared libraries for you.
 4. Remove separate copies of the included feature mods, their addons, the standalone Polymer Debug Wrench, and the old compatibility shims from that instance. Keep your world and configuration files.
 5. Remove the replaced standalone mods/datapacks when enabling their suite features. Swift Flight keeps existing enchantment data; legacy pet-call bindings are not migrated and must be rebound.
@@ -530,13 +529,13 @@ Follow the [source map and upstream update guide](docs/UPDATING.md) to stage the
 JAVA_HOME=/path/to/complete-jdk25 ./gradlew build
 ```
 
-Use a complete Java 25 or newer JDK, including `javac`; the build targets Java 25. The current clean build uses the complete Microsoft Java 25 JDK. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.5.1+26.3.jar`.
+Use a complete Java 25 or newer JDK, including `javac`; the build targets Java 25. The current clean build uses the complete Microsoft Java 25 JDK. `verifyInputs` rejects missing or changed inputs before compilation. Build output: `build/libs/vanilla-plusplus-quality-of-life-suite-1.5.2+26.3.jar`.
 
 Downloaded dependencies, Gradle caches, and QA worlds are excluded from Git. Previous standalone repositories and local source/build archives are documented in [local archive maintenance](docs/LOCAL_ARCHIVE.md); their historical releases remain separate from the suite.
 
 ### Changes and testing
 
-The [release guide](docs/RELEASE_1_5_1.md) records the current upstream refresh, exact candidate and fresh verification; the [2026-11-08 audit](docs/AUDIT-2026-11-08.md) lists fixed and open findings. The [four-mod review](docs/FOUR_MOD_QA_2026_10_13.md) retains the earlier HUD correction and its original combined acceptance. [Validation](docs/VALIDATION.md) preserves earlier storage, recovery-selector, enlarged-backpack, recipe and installer results with their original artifacts and scope.
+The [release guide](docs/RELEASE_1_5_2.md) records the current upstream refresh, exact candidate and fresh verification; the [2026-11-08 audit](docs/AUDIT-2026-11-08.md) lists fixed and open findings. The [four-mod review](docs/FOUR_MOD_QA_2026_10_13.md) retains the earlier HUD correction and its original combined acceptance. [Validation](docs/VALIDATION.md) preserves earlier storage, recovery-selector, enlarged-backpack, recipe and installer results with their original artifacts and scope.
 
 The [release procedure](docs/RELEASE_WORKFLOW.md) records the standing documentation, four-asset packaging, version-only titles and branch-cleanup conventions.
 

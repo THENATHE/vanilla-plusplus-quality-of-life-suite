@@ -1,6 +1,10 @@
 # Validation
 
-## Current 1.5.1 - review follow-up
+## Current 1.5.2 - Tool Pouch slot toggles for suite items
+
+Exact final JAR SHA-256: `490cd993ee52d8bdaa868554c257d73dc9989b3470f4b0a583c979332b162d65`. The [release guide](RELEASE_1_5_2.md) lists the fresh checks: real slot-toggle key presses for the pouch Elytra, atlas, magnet and collector (43 checks, native and Polymer) with the old Elytra key carried over, a Hotkey Wheel 1.0.10 slot still naming the removed control, 825+825 Hotkey Wheel 1.0.10/Buildprint 0.1.38/Blocktone 0.1.38/Sorted 0.1.41 integration checks, four connection profiles, settings, native features, pouch XP/SSO Mending with switched-off slots, Sorted keep-rule and storage profiles, the pin guard, 1.4.5, 1.5.0 and 1.5.1 upgrades with Elytra-off and Elytra-on players, a 1.5.2 restart and 13 installer checks. Modules unchanged since 1.5.1 keep the 1.5.0 results below.
+
+## Historical 1.5.1 - review follow-up
 
 Exact final JAR SHA-256: `00aa245b80aa62cdca2cee5a7a3cbdf30ec0c7e0df37b71cea8a146ba9f8328c`. The [release guide](RELEASE_1_5_1.md) lists the fresh checks: four connection profiles, 782+782 Hotkey Wheel 1.0.9/Buildprint 0.1.38/Blocktone 0.1.38/Sorted 0.1.41 integration checks, settings, native features with Swift Flight 1.2.0, Sorted keep-rule and storage profiles, the MapStitch pin guard with a reproducing 1.5.0 baseline, 1.4.5 and 1.5.0 upgrades and 13 installer checks. Modules unchanged since 1.5.0 keep the 1.5.0 results below.
 
