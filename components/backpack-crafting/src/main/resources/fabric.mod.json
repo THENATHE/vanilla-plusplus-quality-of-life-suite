@@ -37,7 +37,7 @@
     "fabric-api": ">=0.165.2+26.3",
     "tiered_backpacks": "=1.0.21",
     "toolpouch": "=1.2.0",
-    "sso_backpack_toolpouch_mapstitch_shim": "=1.5.1+26.3"
+    "sso_backpack_toolpouch_mapstitch_shim": "=1.5.2+26.3"
   },
   "suggests": {
     "brb": ">=1.11.1+26.3",

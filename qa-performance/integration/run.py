@@ -18,7 +18,7 @@ SUITE = True
 INTEGRATED = True
 BUILDPRINT_VERSION = os.environ.get('HOTKEY_WHEEL_BUILDPRINT_VERSION', '0.1.25+26.3')
 BLOCKTONE_VERSION = os.environ.get('HOTKEY_WHEEL_BLOCKTONE_VERSION', '0.1.25')
-SUITE_VERSION = '1.5.1+26.3'
+SUITE_VERSION = '1.5.2+26.3'
 SUITE_SHA256 = os.environ.get('HOTKEY_WHEEL_SUITE_SHA256', 'pending-final-build')
 BRBR_VERSION = '1.11.7+26.3'
 POLYMER_VERSION = '0.18.7+26.3'
@@ -138,7 +138,7 @@ if INTEGRATED:
     test_names.append('BuildprintMenuTest')
     test_names.append('SideMouseEditorTest')
 if SUITE:
-    test_names += ['ToolPouchClientTest', 'BrbrIntegrationTest', 'AllocationClientTest']
+    test_names += ['ToolPouchClientTest', 'BrbrIntegrationTest', 'AllocationClientTest', 'SlotToggleClientTest']
 if os.environ.get('HOTKEY_WHEEL_QA_TESTS'):
     test_names = os.environ['HOTKEY_WHEEL_QA_TESTS'].split(',')
     if any(not name.isidentifier() or not (ROOT / (name + '.java')).is_file() for name in test_names):
@@ -166,9 +166,12 @@ with zipfile.ZipFile(MODS / 'hotkey-wheel-qa.jar', 'w', zipfile.ZIP_DEFLATED) as
     for source in classes.rglob('*.class'):
         archive.write(source, source.relative_to(classes))
 (GAME / 'options.txt').write_text('onboardAccessibility:false\nrenderDistance:2\nsimulationDistance:5\n'
-                                  'guiScale:2\ntutorialStep:none\nmaxFps:60\npauseOnLostFocus:false\nfullscreen:false\n')
+                                  'guiScale:2\ntutorialStep:none\nmaxFps:60\npauseOnLostFocus:false\nfullscreen:false\n'
+                                  # A key bound to the control removed in Vanilla++ 1.5.2; the suite carries it over.
+                                  'key_key.toolpouch.toggle_elytra:key.keyboard.j\n')
+(GAME / 'config/vpp_mod_suite/legacy-elytra-key.txt').unlink(missing_ok=True)
 (RUN / 'results.json').unlink(missing_ok=True)
-for name in ['key-management-results.json', 'buildprint-menu-results.json', 'toolpouch-results.json', 'brbr-integration-results.json', 'side-mouse-editor-results.json', 'allocation-results.json']:
+for name in ['key-management-results.json', 'buildprint-menu-results.json', 'toolpouch-results.json', 'brbr-integration-results.json', 'side-mouse-editor-results.json', 'allocation-results.json', 'slot-toggle-results.json']:
     (RUN / name).unlink(missing_ok=True)
 command = [str(compiler.parent / 'java'), '-Xmx2G', '-XX:ActiveProcessorCount=4',
            '-Djava.library.path=' + str(META / 'natives/26.3-0.19.5/lwjgl/3.4.3-snapshot/x64'),
@@ -207,7 +210,7 @@ print((RUN / 'console.log').read_text()[-5000:])
 report_names = {'WheelClientTest': 'results.json', 'KeyManagementTest': 'key-management-results.json',
                 'BuildprintMenuTest': 'buildprint-menu-results.json', 'ToolPouchClientTest': 'toolpouch-results.json',
                 'BrbrIntegrationTest': 'brbr-integration-results.json', 'SideMouseEditorTest': 'side-mouse-editor-results.json',
-                'AllocationClientTest': 'allocation-results.json'}
+                'AllocationClientTest': 'allocation-results.json', 'SlotToggleClientTest': 'slot-toggle-results.json'}
 reports = [report_names[name] for name in test_names]
 for name in reports:
     path = RUN / name

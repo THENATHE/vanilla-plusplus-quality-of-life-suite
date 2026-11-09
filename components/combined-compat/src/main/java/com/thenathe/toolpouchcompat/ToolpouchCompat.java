@@ -12,6 +12,7 @@ import me.pajic.toolpouch.recipe.ModRecipes;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.context.PacketContext;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -96,8 +97,25 @@ public final class ToolpouchCompat {
             var result = PolymerItem.super.getPolymerItemStack(stack, tooltip, context, lookup);
             result.set(DataComponents.ITEM_NAME, Component.literal(netherite ? "Netherite Tool Pouch" : "Tool Pouch"));
             result.set(DataComponents.LORE, FallbackLore.withNotice(
-                    result.getOrDefault(DataComponents.LORE, ItemLore.EMPTY), NOTICE));
+                    withDisabledSlots(result.getOrDefault(DataComponents.LORE, ItemLore.EMPTY), stack, context, lookup), NOTICE));
             return result;
+        }
+
+        /** Vanilla clients cannot see Tool Pouch's red slot highlight, so name the disabled items. */
+        private static ItemLore withDisabledSlots(ItemLore lore, ItemStack pouch, PacketContext context,
+                HolderLookup.Provider lookup) {
+            var disabled = pouch.getOrDefault(ModDataComponents.DISABLED_SLOTS, List.<Integer>of());
+            var names = Component.empty();
+            int shown = 0;
+            for (int slot : disabled) {
+                var item = me.pajic.toolpouch.util.ToolPouchUtil.getItemInToolPouch(pouch, slot);
+                if (item.isEmpty()) continue;
+                if (shown++ > 0) names.append(", ");
+                // The client-side stand-in carries a name a vanilla client can display.
+                names.append(eu.pb4.polymer.core.api.item.PolymerItemUtils.getPolymerItemStack(item, context, lookup).getHoverName());
+            }
+            if (shown == 0) return lore;
+            return lore.withLineAdded(Component.literal("Turned off: ").append(names).withStyle(ChatFormatting.GRAY));
         }
     }
 }

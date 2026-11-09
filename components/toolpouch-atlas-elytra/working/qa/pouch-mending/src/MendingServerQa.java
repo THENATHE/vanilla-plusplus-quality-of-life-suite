@@ -1,6 +1,5 @@
 package pouchmendingqa;
 
-import com.thenathe.toolpouchcompat.ElytraPreference;
 import java.nio.file.*;
 import java.util.*;
 import me.pajic.toolpouch.item.ModItems;
@@ -45,7 +44,7 @@ public class MendingServerQa implements ModInitializer {
         if(name.equals("loose-elytra"))p.getInventory().setItem(12,elytra);
         else if(leggings)p.setItemSlot(EquipmentSlot.LEGS,holder);else p.getInventory().setItem(12,holder);
         if(name.equals("competition"))p.setItemSlot(EquipmentSlot.CHEST,item(p,Items.DIAMOND_CHESTPLATE,"QA-worn",40,true));
-        ((ElytraPreference)p).toolpouchCompat$setElytraEnabled(!name.equals("toggle-off"));
+        com.thenathe.toolpouchcompat.PouchElytraToggle.set(p, !name.equals("toggle-off"));
         p.getInventory().setSelectedSlot(0);p.inventoryMenu.broadcastFullState();orbs=0;
         record(name+" BEFORE "+snapshot(p));
         beforeState=state(p);

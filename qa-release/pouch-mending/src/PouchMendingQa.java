@@ -41,11 +41,11 @@ public final class PouchMendingQa implements ModInitializer {
   check(result.getOrDefault(me.pajic.toolpouch.component.ModDataComponents.IS_NETHERITE_POUCH,false),"Attached netherite tier retained");return result;
  }
  private void seed(ServerPlayer p,ItemStack holder,boolean attached){p.containerMenu=p.inventoryMenu;p.getInventory().clearContent();p.inventoryMenu.setCarried(ItemStack.EMPTY);p.setGameMode(GameType.SURVIVAL);p.totalExperience=0;p.experienceLevel=0;p.experienceProgress=0;p.takeXpDelay=0;
-  com.thenathe.toolpouchcompat.Compat.set(p,true);if(attached)p.setItemSlot(EquipmentSlot.LEGS,holder);else p.getInventory().setItem(12,holder);}
+  com.thenathe.toolpouchcompat.PouchElytraToggle.set(p,true);if(attached)p.setItemSlot(EquipmentSlot.LEGS,holder);else p.getInventory().setItem(12,holder);}
  private int damage(ItemStack holder,int index){return holder.get(DataComponents.CONTAINER).itemCopies().toList().get(index).getDamageValue();}
  private void orb(ServerPlayer p,int xp){p.takeXpDelay=0;var orb=new ExperienceOrb(p.level(),p.getX(),p.getY(),p.getZ(),xp);p.level().addFreshEntity(orb);orb.playerTouch(p);check(orb.isRemoved(),"Actual XP orb was collected");}
  private void xp(ServerPlayer p,String name,boolean attached,int armorDamage,boolean armorMending,int wingDamage,boolean wingMending,boolean regular,boolean toggle,int expectedArmor,int expectedWing,int expectedXp){
-  policy(regular,true);var clock=new ItemStack(Items.CLOCK);var h=holder(p,attached,List.of(wing(p,wingDamage,wingMending,0),clock),armorDamage,armorMending);seed(p,h,attached);com.thenathe.toolpouchcompat.Compat.set(p,toggle);
+  policy(regular,true);var clock=new ItemStack(Items.CLOCK);var h=holder(p,attached,List.of(wing(p,wingDamage,wingMending,0),clock),armorDamage,armorMending);seed(p,h,attached);com.thenathe.toolpouchcompat.PouchElytraToggle.set(p,toggle);
   var r=row(name);r.addProperty("actual_attachment_recipe",attached);r.addProperty("active_owner_same_reference",com.thenathe.toolpouchcompat.mixin.PouchMendingAccess.toolpouchCompat$activePouch(p)==h);orb(p,7);
   r.addProperty("armor_damage",h.getDamageValue());r.addProperty("elytra_damage",damage(h,0));r.addProperty("player_xp",p.totalExperience);r.addProperty("expected_armor_damage",expectedArmor);r.addProperty("expected_elytra_damage",expectedWing);r.addProperty("expected_player_xp",expectedXp);
   check(h.getDamageValue()==expectedArmor&&damage(h,0)==expectedWing&&p.totalExperience==expectedXp,"XP Mending mismatch "+r);check(ItemStack.matches(clock,h.get(DataComponents.CONTAINER).itemCopies().toList().get(1)),"Unrelated pouch contents preserved");
@@ -89,7 +89,7 @@ public final class PouchMendingQa implements ModInitializer {
   check(sword.getDamageValue()==26&&damage(h,0)==40&&p.totalExperience==0,"Original Inventory Mending repair runs before stored-wings leftover pass "+r);
  }
  private void autoRepair(ServerPlayer p,String name,boolean attached,boolean enabled,boolean resources,boolean mending,boolean open,boolean toggle){
-  policy(true,enabled);if(name.equals("SSO-auto-rework-off"))SSO.CONFIG.mendingRework.enabled.accept(false);var h=holder(p,attached,List.of(wing(p,name.contains("BROKEN-flag")?40:431,mending,0),new ItemStack(Items.CLOCK)),0,false);seed(p,h,attached);com.thenathe.toolpouchcompat.Compat.set(p,toggle);
+  policy(true,enabled);if(name.equals("SSO-auto-rework-off"))SSO.CONFIG.mendingRework.enabled.accept(false);var h=holder(p,attached,List.of(wing(p,name.contains("BROKEN-flag")?40:431,mending,0),new ItemStack(Items.CLOCK)),0,false);seed(p,h,attached);com.thenathe.toolpouchcompat.PouchElytraToggle.set(p,toggle);
   if(name.contains("BROKEN-flag")){var contents=h.get(DataComponents.CONTAINER).itemCopies().toList();var flagged=contents.getFirst().copy();flagged.set(me.pajic.simple_smithing_overhaul.util.ModDataComponents.BROKEN,true);h.set(DataComponents.CONTAINER,ItemContainerContents.fromItems(List.of(flagged,contents.get(1))));}
   int beforeDamage=damage(h,0);
   if(resources){var whetstone=new ItemStack(me.pajic.simple_smithing_overhaul.items.ModItems.WHETSTONE);var stored=new ItemEnchantments.Mutable(ItemEnchantments.EMPTY);stored.upgrade(p.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.MENDING),1);whetstone.set(DataComponents.STORED_ENCHANTMENTS,stored.toImmutable());p.getInventory().setItem(1,whetstone);p.getInventory().setItem(2,new ItemStack(Items.PHANTOM_MEMBRANE,3));}
@@ -119,7 +119,7 @@ public final class PouchMendingQa implements ModInitializer {
   armoredXp(player);
   inventoryMendingXp(player);
   flightOracle(player,false);flightOracle(player,true);selectedFlight(player,false);selectedFlight(player,true);
-  var h=holder(player,false,List.of(wing(player,40,false,0)),0,false);seed(player,h,false);com.thenathe.toolpouchcompat.Compat.set(player,false);fly(player);check(damage(h,0)==40,"Disabled pouch flight must not wear stored Elytra");var toggle=row("flight-toggle-disabled-no-wear");toggle.addProperty("elytra_damage",damage(h,0));
+  var h=holder(player,false,List.of(wing(player,40,false,0)),0,false);seed(player,h,false);com.thenathe.toolpouchcompat.PouchElytraToggle.set(player,false);fly(player);check(damage(h,0)==40,"Disabled pouch flight must not wear stored Elytra");var toggle=row("flight-toggle-disabled-no-wear");toggle.addProperty("elytra_damage",damage(h,0));
   if(sso){
    autoRepair(player,"SSO-auto-inventory-enabled",false,true,true,true,false,true);
    autoRepair(player,"SSO-auto-netherite-attached-enabled",true,true,true,true,false,true);

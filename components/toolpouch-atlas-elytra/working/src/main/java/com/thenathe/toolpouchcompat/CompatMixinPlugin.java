@@ -16,7 +16,7 @@ public final class CompatMixinPlugin implements IMixinConfigPlugin {
   if (mixin.endsWith(".AtlasMinimapCacheMixin")) return FabricLoader.getInstance().isModLoaded("mapstitch");
   if (mixin.substring(mixin.lastIndexOf('.') + 1).startsWith("Atlas"))
    return FabricLoader.getInstance().isModLoaded("mapstitch") && !Features.NATIVE_ATLAS;
-  return !Features.NATIVE_ELYTRA;
+  return true;
  }
  public void acceptTargets(Set<String> mine, Set<String> others) {}
  public List<String> getMixins() { return null; }
