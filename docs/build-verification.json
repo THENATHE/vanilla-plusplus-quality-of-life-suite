@@ -1,8 +1,8 @@
 {
   "archive_integrity": true,
   "root_id": "vpp_mod_suite",
-  "version": "1.5.2+26.3",
-  "sha256": "490cd993ee52d8bdaa868554c257d73dc9989b3470f4b0a583c979332b162d65",
+  "version": "1.5.3+26.3",
+  "sha256": "807083d8c7fb232c7616004575f36145562b17b46477c870cf4c5888fe3a2b39",
   "modules": [
     {
       "id": "amethyst_curse_cleanser",
@@ -78,9 +78,9 @@
     },
     {
       "id": "toolpouch_atlas_elytra_compat",
-      "version": "1.2.0+26.3",
-      "sha256": "7a3c016e59335dac7ea457df183d7958e132e932baa79dac704b4e73d3bb5295",
-      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.2.0+26.3.jar"
+      "version": "1.2.1+26.3",
+      "sha256": "d6e06ec38d6b636132d09a826f20c40c0db91caffd77583f5fc31b4423c8b695",
+      "file": "META-INF/jars/toolpouch-atlas-elytra-compat-1.2.1+26.3.jar"
     },
     {
       "id": "sensible_stackables",
@@ -124,9 +124,9 @@
   "defaulted_runtime_required": false,
   "licenses_retained": true,
   "runtime_tested": true,
-  "runtime_scope": "Exact-candidate connections, Tool Pouch slot-toggle key presses for the Elytra, atlas, magnet and collector (native and Polymer, with the old Elytra key carried over and a Hotkey Wheel 1.0.10 slot still naming the removed control), Hotkey Wheel 1.0.10/Buildprint 0.1.38/Blocktone 0.1.38/BRBR/Sorted 0.1.41 integration, settings, native features, Sorted 0.1.41 keep-rule/storage and 0.1.26 storage, pin container guard, pouch XP/SSO Mending with switched-off slots, and 1.4.5/1.5.0/1.5.1 world, player and config upgrades plus a 1.5.2 restart, including players with the old Elytra toggle off and on. Unchanged modules keep their 1.5.0 evidence.",
+  "runtime_scope": "Exact-candidate pouch XP/SSO Mending with the Elytra slot switched off (repaired, slot and flight stay off) and on, native/Polymer/no-SSO; Tool Pouch slot-toggle key presses plus Hotkey Wheel 1.0.11's Toggle pouch Elytra and a saved slot naming the removed control (native and Polymer); Hotkey Wheel 1.0.11/Buildprint 0.1.38/Blocktone 0.1.38/BRBR/Sorted 0.1.41 integration in the suite harness and in Hotkey Wheel's own suite profiles; connections; settings; 1.4.5/1.5.0/1.5.1/1.5.2 world, player and config upgrades plus a 1.5.3 restart. Modules byte-identical to 1.5.2 keep their 1.5.2 and 1.5.0 evidence.",
   "evidence": {
-    "verification": "qa-release/evidence/1.5.2/verification.json",
-    "release_guide": "docs/RELEASE_1_5_2.md"
+    "verification": "qa-release/evidence/1.5.3/verification.json",
+    "release_guide": "docs/RELEASE_1_5_3.md"
   }
 }

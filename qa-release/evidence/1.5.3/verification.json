@@ -1,0 +1,202 @@
+{
+  "version": "1.5.3+26.3",
+  "date": "2026-11-08",
+  "passed": true,
+  "suite_sha256": "807083d8c7fb232c7616004575f36145562b17b46477c870cf4c5888fe3a2b39",
+  "track": "developer-release-suite",
+  "evidence_path_base": "repository-root",
+  "display": "Private Xvfb :117 (Mesa llvmpipe via EGL)",
+  "checks": {
+    "pouch_mending": {
+      "passed": true,
+      "checks": {
+        "polymer": 74,
+        "native": 71,
+        "nosso": 46
+      },
+      "slot_off": "switched-off Elytra is repaired by XP Mending (attached netherite pouch, 7 XP -> 14 durability, no XP left) and by SSO auto-repair (closed and open pouch menu, material consumed); the slot stays off and Tool Pouch finds no glider until it is switched back on",
+      "evidence": "qa-release/evidence/1.5.3/pouch-mending/result.json"
+    },
+    "slot_toggles": {
+      "passed": true,
+      "native_checks": 60,
+      "polymer_checks": 60,
+      "covers": "real key presses for the Elytra (old key carried over to J), atlas, magnet and collector; Hotkey Wheel 1.0.11 Toggle pouch Elytra and a wheel slot saved with the removed suite control each switch the Elytra slot off and on, with server and client flight following",
+      "evidence": [
+        "qa-release/evidence/1.5.3/integration-native/slot-toggle-results.json",
+        "qa-release/evidence/1.5.3/integration-polymer/slot-toggle-results.json"
+      ]
+    },
+    "integration": {
+      "passed": true,
+      "native_checks": 842,
+      "polymer_checks": 842,
+      "inputs": {
+        "hotkey_wheel": "1.0.11+26.3",
+        "buildprint": "0.1.38+26.3",
+        "blocktone": "0.1.38",
+        "sorted": "0.1.41+26.3",
+        "brbr": "1.11.7+26.3",
+        "polymer": "0.18.7+26.3"
+      },
+      "evidence": [
+        "qa-release/evidence/1.5.3/integration-native/",
+        "qa-release/evidence/1.5.3/integration-polymer/"
+      ]
+    },
+    "hotkey_wheel_harness": {
+      "passed": true,
+      "suite_checks": 818,
+      "polymer_checks": 818,
+      "toolpouch_toggle_checks": {
+        "suite": 60,
+        "polymer": 60
+      },
+      "inputs": {
+        "hotkey_wheel": "1.0.11+26.3",
+        "buildprint": "0.1.38+26.3",
+        "blocktone": "0.1.38",
+        "sorted": "0.1.41+26.3",
+        "brbr": "1.11.8+26.3",
+        "polymer": "0.18.7+26.3"
+      },
+      "note": "Hotkey Wheel's own suite and suite-Polymer profiles (Minecraft/hotkey-wheel/qa/run.py, commit 59ac68c) run against this suite JAR; Hotkey Wheel itself is unchanged.",
+      "evidence": [
+        "qa-release/evidence/1.5.3/hotkey-wheel-suite/",
+        "qa-release/evidence/1.5.3/hotkey-wheel-polymer/"
+      ]
+    },
+    "connections": {
+      "passed": true,
+      "profiles": 4,
+      "evidence": "qa-release/evidence/1.5.3/connections/result.json"
+    },
+    "settings": {
+      "passed": true,
+      "with_hotkey_wheel": "1.0.11+26.3",
+      "evidence": "qa-release/evidence/1.5.3/settings/evidence.json"
+    },
+    "upgrade": {
+      "from_1_4_5": {
+        "passed": true,
+        "stacks": 23,
+        "chalk_marks": 10,
+        "pet_index": true,
+        "config_values": 337,
+        "unexplained_changes": 0,
+        "accepted_upstream_changes": 12,
+        "elytra_players": {
+          "off_saved_off_before": true,
+          "off_elytra_usable_after": false,
+          "off_elytra_slot_disabled": true,
+          "off_legacy_flag_still_saved": false,
+          "on_saved_off_before": false,
+          "on_elytra_usable_after": true,
+          "on_elytra_slot_disabled": false,
+          "on_legacy_flag_still_saved": false,
+          "passed": true
+        }
+      },
+      "from_1_5_0": {
+        "passed": true,
+        "stacks": 24,
+        "chalk_marks": 10,
+        "pet_index": true,
+        "config_values": 345,
+        "unexplained_changes": 0,
+        "accepted_upstream_changes": 0,
+        "elytra_players": {
+          "off_saved_off_before": true,
+          "off_elytra_usable_after": false,
+          "off_elytra_slot_disabled": true,
+          "off_legacy_flag_still_saved": false,
+          "on_saved_off_before": false,
+          "on_elytra_usable_after": true,
+          "on_elytra_slot_disabled": false,
+          "on_legacy_flag_still_saved": false,
+          "passed": true
+        }
+      },
+      "from_1_5_1": {
+        "passed": true,
+        "stacks": 24,
+        "chalk_marks": 10,
+        "pet_index": true,
+        "config_values": 345,
+        "unexplained_changes": 0,
+        "accepted_upstream_changes": 0,
+        "elytra_players": {
+          "off_saved_off_before": true,
+          "off_elytra_usable_after": false,
+          "off_elytra_slot_disabled": true,
+          "off_legacy_flag_still_saved": false,
+          "on_saved_off_before": false,
+          "on_elytra_usable_after": true,
+          "on_elytra_slot_disabled": false,
+          "on_legacy_flag_still_saved": false,
+          "passed": true
+        }
+      },
+      "from_1_5_2": {
+        "passed": true,
+        "stacks": 24,
+        "chalk_marks": 10,
+        "pet_index": true,
+        "config_values": 345,
+        "unexplained_changes": 0,
+        "accepted_upstream_changes": 0,
+        "elytra_players": {
+          "off_saved_off_before": true,
+          "off_elytra_usable_after": false,
+          "off_elytra_slot_disabled": true,
+          "off_legacy_flag_still_saved": false,
+          "on_saved_off_before": false,
+          "on_elytra_usable_after": true,
+          "on_elytra_slot_disabled": false,
+          "on_legacy_flag_still_saved": false,
+          "passed": true
+        }
+      },
+      "restart_1_5_3": {
+        "passed": true,
+        "stacks": 24,
+        "chalk_marks": 10,
+        "pet_index": true,
+        "config_values": 345,
+        "unexplained_changes": 0,
+        "accepted_upstream_changes": 0,
+        "elytra_players": {
+          "off_saved_off_before": true,
+          "off_elytra_usable_after": false,
+          "off_elytra_slot_disabled": true,
+          "off_legacy_flag_still_saved": false,
+          "on_saved_off_before": false,
+          "on_elytra_usable_after": true,
+          "on_elytra_slot_disabled": false,
+          "on_legacy_flag_still_saved": false,
+          "passed": true
+        }
+      },
+      "evidence": [
+        "qa-release/evidence/1.5.3/upgrade-from-1.4.5/",
+        "qa-release/evidence/1.5.3/upgrade-from-1.5.0/",
+        "qa-release/evidence/1.5.3/upgrade-from-1.5.1/",
+        "qa-release/evidence/1.5.3/upgrade-from-1.5.2/",
+        "qa-release/evidence/1.5.3/restart-1.5.3/"
+      ],
+      "passed": true
+    },
+    "installation": {
+      "passed": true,
+      "checks": 13,
+      "evidence": "docs/installation-pack-verification.json"
+    }
+  },
+  "unchanged_since_1_5_2": "Every nested module except the Tool Pouch Atlas and Elytra addon (1.2.1: PouchMending, PouchSsoMending, PouchItems and fabric.mod.json), plus the root fabric.mod.json, is byte-identical to 1.5.2; the 1.5.2 results for native features, Sorted keep-rule/storage and the pin guard stand, and the 1.5.0 results for HUD, Stackables, packet codecs, mechanics, mixed-scale, pickup and anvil.",
+  "limits": [
+    "The slot-toggle client test runs in an integrated world; its Polymer profile is Polymer with a modded client. Vanilla clients are covered by the connection profiles and the Mending passive guard.",
+    "Mending is exercised on disposable dedicated servers with an isolated server player, as in 1.5.2; the older component-level MendingServerQa (real client, Multi-Shim 1.0.3 bundle) was not run.",
+    "The upgrade players are not native clients, so the upgrade harness reads their worn pouch directly; flight gating itself is covered by the key-press and Mending tests.",
+    "The paused SSO-port track was neither built nor tested."
+  ]
+}

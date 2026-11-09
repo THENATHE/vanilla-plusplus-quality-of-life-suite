@@ -1,5 +1,10 @@
 # Changes
 
+## 1.5.3+26.3
+
+- A switched-off pouch Elytra is repaired again: pouch XP Mending and SSO auto-repair treat it exactly like a switched-on one. Switching its slot off only stops pouch flight. This reverses the 1.5.2 behaviour at the user's decision.
+- Verified with Hotkey Wheel 1.0.11: its **Toggle pouch Elytra** action, and wheel slots saved with the old suite control, switch the pouch Elytra through Tool Pouch.
+
 ## 1.5.2+26.3
 
 - Retire the suite's own **Toggle Tool Pouch Elytra** key. Tool Pouch's slot-toggle binds (*Bind slot toggle to key*) now switch the pouch Elytra, atlas, magnet and collector off and on, with Tool Pouch's own "… disabled/enabled" message.

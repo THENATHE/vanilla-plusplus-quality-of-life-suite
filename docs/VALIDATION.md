@@ -1,6 +1,10 @@
 # Validation
 
-## Current 1.5.2 - Tool Pouch slot toggles for suite items
+## Current 1.5.3 - Switched-off pouch Elytra keep repairing
+
+Exact final JAR SHA-256: `807083d8c7fb232c7616004575f36145562b17b46477c870cf4c5888fe3a2b39`. The [release guide](RELEASE_1_5_3.md) lists the fresh checks: pouch XP/SSO Mending expecting a switched-off Elytra to repair while its slot and flight stay off (71 native, 74 Polymer, 46 no-SSO), 60+60 slot-toggle checks including Hotkey Wheel 1.0.11's Toggle pouch Elytra and a saved slot naming the removed control, 842+842 Hotkey Wheel 1.0.11/Buildprint 0.1.38/Blocktone 0.1.38/Sorted 0.1.41 integration checks, 818+818 checks in Hotkey Wheel's own suite profiles, four connection profiles, settings, 1.4.5, 1.5.0, 1.5.1 and 1.5.2 upgrades, a 1.5.3 restart and 13 installer checks. Modules byte-identical to 1.5.2 keep the 1.5.2 and 1.5.0 results below.
+
+## Historical 1.5.2 - Tool Pouch slot toggles for suite items
 
 Exact final JAR SHA-256: `490cd993ee52d8bdaa868554c257d73dc9989b3470f4b0a583c979332b162d65`. The [release guide](RELEASE_1_5_2.md) lists the fresh checks: real slot-toggle key presses for the pouch Elytra, atlas, magnet and collector (43 checks, native and Polymer) with the old Elytra key carried over, a Hotkey Wheel 1.0.10 slot still naming the removed control, 825+825 Hotkey Wheel 1.0.10/Buildprint 0.1.38/Blocktone 0.1.38/Sorted 0.1.41 integration checks, four connection profiles, settings, native features, pouch XP/SSO Mending with switched-off slots, Sorted keep-rule and storage profiles, the pin guard, 1.4.5, 1.5.0 and 1.5.1 upgrades with Elytra-off and Elytra-on players, a 1.5.2 restart and 13 installer checks. Modules unchanged since 1.5.1 keep the 1.5.0 results below.
 

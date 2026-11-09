@@ -1,0 +1,121 @@
+{
+  "previous_installation_zip": "/tmp/claude-1000/-home-thenathe-SSDC-Plugins-WP-Plugin-Dev/619f5665-f269-40ee-b68c-4a1f73c9ad70/scratchpad/vpp/kit153/vanilla-plusplus-installation-pack-1.5.3+26.3.zip",
+  "previous_zip_sha256": "185a2af2a2d22b4b3d8403916c49edb41c4fe20e7d50eaaae70f50764287e52f",
+  "candidate": "/home/thenathe/SSDC/Plugins/WP Plugin Dev/Minecraft/thenathe-mod-suite/build/libs/vanilla-plusplus-quality-of-life-suite-1.5.3+26.3.jar",
+  "candidate_sha256": "807083d8c7fb232c7616004575f36145562b17b46477c870cf4c5888fe3a2b39",
+  "previous_mods": [
+    {
+      "file": "cloth-config-fabric-26.3.159.jar",
+      "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+    },
+    {
+      "file": "codecui-26.3-1.4.3-fabric.jar",
+      "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+    },
+    {
+      "file": "fabric-api-0.165.2+26.3.jar",
+      "sha256": "2612a078a5daa06d9a14cabad40fe66de36b8cb22ee8cdf346d5d9894478c392"
+    },
+    {
+      "file": "fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar",
+      "sha256": "fbdbf5286ab9d65fedb49e6e01c15e338ae303eb7b9d8c7423d0a9bcfe526ef9"
+    },
+    {
+      "file": "mixson-2.2.1-multiloader.jar",
+      "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+    },
+    {
+      "file": "polymer-bundled-0.18.7+26.3.jar",
+      "sha256": "b18b0bb66fc8455fbf43f8a54e226952c630ab0cfee433e6585520c0e591538b"
+    },
+    {
+      "file": "vanilla-plusplus-quality-of-life-suite-1.5.3+26.3.jar",
+      "sha256": "807083d8c7fb232c7616004575f36145562b17b46477c870cf4c5888fe3a2b39"
+    },
+    {
+      "file": "fzzy_config-0.7.7+fix3+26.3.jar",
+      "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+    }
+  ],
+  "candidate_mods": [
+    {
+      "file": "vanilla-plusplus-quality-of-life-suite-1.5.3+26.3.jar",
+      "sha256": "807083d8c7fb232c7616004575f36145562b17b46477c870cf4c5888fe3a2b39"
+    },
+    {
+      "file": "codecui-26.3-1.4.3-fabric.jar",
+      "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+    },
+    {
+      "file": "fzzy_config-0.7.7+fix3+26.3.jar",
+      "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+    },
+    {
+      "file": "mixson-2.2.1-multiloader.jar",
+      "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+    },
+    {
+      "file": "cloth-config-fabric-26.3.159.jar",
+      "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+    },
+    {
+      "file": "fabric-api-0.165.2+26.3.jar",
+      "sha256": "2612a078a5daa06d9a14cabad40fe66de36b8cb22ee8cdf346d5d9894478c392"
+    },
+    {
+      "file": "fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar",
+      "sha256": "fbdbf5286ab9d65fedb49e6e01c15e338ae303eb7b9d8c7423d0a9bcfe526ef9"
+    },
+    {
+      "file": "polymer-bundled-0.18.7+26.3.jar",
+      "sha256": "b18b0bb66fc8455fbf43f8a54e226952c630ab0cfee433e6585520c0e591538b"
+    }
+  ],
+  "write": {
+    "exit": 0,
+    "result": "PASS write 24 stacks"
+  },
+  "verify": {
+    "exit": 0,
+    "result": "PASS verify"
+  },
+  "config_files_edited": [
+    "config/Chalk.json5",
+    "config/bannerpoint/config.toml",
+    "config/mapstitch/config.toml",
+    "config/misctweaks/config.toml",
+    "config/polymer/auto-host.json",
+    "config/polymer/common.json",
+    "config/polymer/resource-pack.json",
+    "config/polymer/server.json",
+    "config/simple_death_improvements/config.toml",
+    "config/simple_smithing_overhaul/config-v2.toml",
+    "config/tiered_backpacks/config.toml",
+    "config/toolpouch/config.toml",
+    "config/vpp_mod_suite/features.toml"
+  ],
+  "config_values_checked": 345,
+  "config_changes": {},
+  "accepted_upstream_changes": {},
+  "unexplained_config_changes": {},
+  "world": {
+    "stacks": 24,
+    "stack_mismatches": [],
+    "chalk_marks": 10,
+    "chalk_mismatches": [],
+    "pet_index_preserved": true,
+    "elytra_players": {
+      "off_saved_off_before": true,
+      "off_elytra_usable_after": false,
+      "off_elytra_slot_disabled": true,
+      "off_legacy_flag_still_saved": false,
+      "on_saved_off_before": false,
+      "on_elytra_usable_after": true,
+      "on_elytra_slot_disabled": false,
+      "on_legacy_flag_still_saved": false,
+      "passed": true
+    },
+    "passed": true
+  },
+  "passed": true
+}
