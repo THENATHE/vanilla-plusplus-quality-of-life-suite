@@ -18,11 +18,11 @@ public final class PouchSsoMending {
         var items = pouch.items();
         for (int slot = 0; slot < items.size(); slot++) {
             var before = items.get(slot);
-            if (pouch.disabled(slot)) continue;
             if (!before.is(Items.ELYTRA) || !before.isDamageableItem()
                     || !(ModUtil.isBroken(before) || before.getDamageValue() >= before.getMaxDamage() - 1)) continue;
             var updated = before.copy();
-            // Original SSO enforces Mending, compatible whetstone enchantments and repair material/cost.
+            // Switched-off slots are repaired too. Original SSO enforces Mending, compatible whetstone
+            // enchantments and repair material/cost.
             if (ModUtil.tryRepairItem(updated, player, player.level())) pouch.write(player, slot, updated);
         }
     }

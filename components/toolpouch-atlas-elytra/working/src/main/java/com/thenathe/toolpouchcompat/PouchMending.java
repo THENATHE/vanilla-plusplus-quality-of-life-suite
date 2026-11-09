@@ -3,7 +3,6 @@ package com.thenathe.toolpouchcompat;
 import com.thenathe.toolpouchcompat.mixin.PouchMendingAccess;
 import com.thenathe.toolpouchcompat.mixin.PouchMendingMenuAccess;
 import me.pajic.toolpouch.menu.ToolPouchMenu;
-import me.pajic.toolpouch.util.ToolPouchUtil;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.SimpleContainer;
@@ -38,8 +37,9 @@ public final class PouchMending {
         List<ItemStack> contents = live != null ? live.getItems()
                 : owner.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY).itemCopies().toList();
         var candidates = new ArrayList<Integer>();
+        // Switched-off slots (Tool Pouch's disabled_slots) are still mended; the switch only stops flight.
         for (int i = 0; i < contents.size(); i++) {
-            if (eligible(contents.get(i)) && !ToolPouchUtil.isSlotDisabled(owner, i)) candidates.add(i);
+            if (eligible(contents.get(i))) candidates.add(i);
         }
 
         // Each candidate is considered once: a partial repair consumes all remaining XP;

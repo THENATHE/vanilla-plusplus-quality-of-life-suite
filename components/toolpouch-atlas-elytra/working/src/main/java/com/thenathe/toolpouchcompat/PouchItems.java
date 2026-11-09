@@ -3,7 +3,6 @@ package com.thenathe.toolpouchcompat;
 import com.thenathe.toolpouchcompat.mixin.PouchMendingAccess;
 import com.thenathe.toolpouchcompat.mixin.PouchMendingMenuAccess;
 import me.pajic.toolpouch.menu.ToolPouchMenu;
-import me.pajic.toolpouch.util.ToolPouchUtil;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.SimpleContainer;
@@ -24,10 +23,6 @@ public record PouchItems(ItemStack owner, SimpleContainer live) {
     public List<ItemStack> items() {
         return live != null ? live.getItems()
                 : owner.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY).itemCopies().toList();
-    }
-    /** Tool Pouch ignores items in slots the player has toggled off. */
-    public boolean disabled(int slot) {
-        return ToolPouchUtil.isSlotDisabled(owner, slot);
     }
     public void write(ServerPlayer player, int slot, ItemStack updated) {
         if (live != null) live.setItem(slot, updated);

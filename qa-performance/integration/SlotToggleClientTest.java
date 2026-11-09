@@ -3,6 +3,8 @@ package com.thenathe.hotkeywheel.qa;
 import com.google.gson.GsonBuilder;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.thenathe.hotkeywheel.HotkeyWheelClient;
+import com.thenathe.hotkeywheel.RadialGeometry;
+import com.thenathe.hotkeywheel.ToolPouchToggles;
 import com.thenathe.hotkeywheel.WheelConfig;
 import com.thenathe.hotkeywheel.WheelScreen;
 import com.thenathe.suite.SuiteItems;
@@ -38,7 +40,8 @@ import net.minecraft.world.item.component.ItemContainerContents;
 /**
  * Real key presses on Tool Pouch slot-toggle binds turn each suite-driven pouch item off and on
  * (Elytra, atlas, magnet, collector), and a key bound to the removed suite Elytra control is
- * carried over to the Elytra's slot.
+ * carried over to the Elytra's slot. Hotkey Wheel's pouch Elytra toggle, and a wheel slot saved with the
+ * removed control, switch the same slot.
  */
 public final class SlotToggleClientTest implements FabricClientGameTest {
     private final List<String> checks = new ArrayList<>();
@@ -57,9 +60,9 @@ public final class SlotToggleClientTest implements FabricClientGameTest {
         try {
             check(context.computeOnClient(client -> KeyMapping.get("key.toolpouch.toggle_elytra") == null),
                     "Removed suite Elytra control is not registered");
-            // A wheel slot saved with the old control resolves to nothing instead of failing.
+            // With no such key mapping, Hotkey Wheel treats a slot saved with the old control as its pouch Elytra toggle.
             check(context.computeOnClient(client -> HotkeyWheelClient.findControl("key.toolpouch.toggle_elytra") == null),
-                    "Hotkey Wheel lookup of the removed control returns no control");
+                    "Hotkey Wheel lookup of the removed control returns no key mapping");
             try (var world = context.worldBuilder().create()) {
                 world.getConnection().waitForChunksDownload();
                 context.waitTicks(20);
@@ -120,7 +123,7 @@ public final class SlotToggleClientTest implements FabricClientGameTest {
                         check(message.endsWith(disable ? " disabled" : " enabled"), item.name() + " shows Tool Pouch's own feedback: " + message);
                     }
                 }
-                checkWheelWithRemovedControl(context);
+                checkWheelElytraToggles(context);
                 // Disabled state is stored on the pouch item, so leave one slot off for the restart phase of other harnesses.
                 report.put("final_disabled_slots", onServer(context, player ->
                         ToolPouchUtil.getToolPouch(player).getOrDefault(ModDataComponents.DISABLED_SLOTS, List.<Integer>of()).toString()));
@@ -141,35 +144,57 @@ public final class SlotToggleClientTest implements FabricClientGameTest {
         }
     }
 
-    // Wheel slots saved before 1.5.2 can still name the removed Elytra control; choosing one must be harmless.
-    private void checkWheelWithRemovedControl(ClientGameTestContext context) throws Exception {
+    // Hotkey Wheel 1.0.11 offers the pouch Elytra toggle, and wheel slots saved before 1.5.2 with the removed
+    // suite control become the same toggle. Either must switch the Elytra through Tool Pouch, off and back on.
+    private void checkWheelElytraToggles(ClientGameTestContext context) throws Exception {
         WheelConfig original = context.computeOnClient(client -> WheelConfig.get().copy());
         context.runOnClient(client -> {
             client.gui.setScreen(null);
             WheelConfig config = new WheelConfig();
-            config.wheels.get(0).entries.get(0).control = "key.toolpouch.toggle_elytra";
-            check(WheelConfig.save(config), "Wheel fixture with the removed Elytra control saves");
+            config.wheels.get(0).entries.clear();
+            for (String control : List.of(ToolPouchToggles.SUITE_ELYTRA_MAPPING, ToolPouchToggles.ELYTRA)) {
+                WheelConfig.Entry entry = new WheelConfig.Entry();
+                entry.control = control;
+                entry.icon = "minecraft:elytra";
+                config.wheels.get(0).entries.add(entry);
+            }
+            check(WheelConfig.save(config), "Wheel fixture with the saved suite control and the pouch Elytra toggle saves");
             HotkeyWheelClient.WHEEL_KEYS[0].setKey(InputConstants.Type.KEYBOARD.getOrCreate(InputConstants.KEY_NUMPAD5));
             KeyMapping.resetMapping();
         });
-        boolean elytraOffBefore = onServer(context, player -> ToolPouchUtil.isSlotDisabled(ToolPouchUtil.getToolPouch(player), 0));
+        String[] names = {"Saved suite Elytra control", "Wheel's Toggle pouch Elytra"};
+        for (int slot = 0; slot < names.length; slot++) {
+            for (boolean disable : new boolean[] {true, false}) {
+                check(chooseWheelSlot(context, slot), names[slot] + " wheel opens and renders");
+                check(context.computeOnClient(client -> client.player != null && client.gui.screen() == null),
+                        names[slot] + " closes the wheel and play continues");
+                boolean disabledOnServer = onServer(context, player -> ToolPouchUtil.isSlotDisabled(ToolPouchUtil.getToolPouch(player), 0));
+                check(disabledOnServer == disable, names[slot] + (disable ? " switches the Elytra slot off" : " switches the Elytra slot back on"));
+                check((onServer(context, player -> ToolPouchUtil.getElytraFromToolPouch(player, false)) == null) == disable,
+                        names[slot] + (disable ? " stops pouch flight on the server" : " restores pouch flight on the server"));
+                check(context.computeOnClient(client -> ToolPouchUtil.getElytraFromToolPouch(client.player, false) == null) == disable,
+                        names[slot] + (disable ? " stops pouch flight on the client" : " restores pouch flight on the client"));
+            }
+        }
+        context.runOnClient(client -> WheelConfig.save(original));
+    }
+
+    private boolean chooseWheelSlot(ClientGameTestContext context, int slot) {
         context.getInput().holdKey(InputConstants.KEY_NUMPAD5);
         context.waitTicks(3);
-        double[] sector = context.computeOnClient(client -> {
+        double[] position = context.computeOnClient(client -> {
             if (!(client.gui.screen() instanceof WheelScreen wheel)) return null;
-            return new double[] {wheel.centerX() * client.getWindow().getScreenWidth() / wheel.width,
-                    (wheel.centerY() - wheel.radius() * 0.76) * client.getWindow().getScreenHeight() / wheel.height};
+            int count = WheelConfig.get().wheels.get(wheel.wheelIndex()).entries.size();
+            double angle = RadialGeometry.angle(slot, count);
+            return new double[] {
+                    (wheel.centerX() + Math.cos(angle) * wheel.radius() * 0.76) * client.getWindow().getScreenWidth() / wheel.width,
+                    (wheel.centerY() + Math.sin(angle) * wheel.radius() * 0.76) * client.getWindow().getScreenHeight() / wheel.height};
         });
-        check(sector != null, "Wheel with the removed Elytra control opens and renders");
-        if (sector != null) context.getInput().setCursorPos(sector[0], sector[1]);
+        if (position != null) context.getInput().setCursorPos(position[0], position[1]);
         context.waitTicks(2);
         context.getInput().releaseKey(InputConstants.KEY_NUMPAD5);
         context.waitTicks(6);
-        check(context.computeOnClient(client -> client.player != null && client.gui.screen() == null),
-                "Choosing the removed Elytra control closes the wheel and play continues");
-        check(onServer(context, player -> ToolPouchUtil.isSlotDisabled(ToolPouchUtil.getToolPouch(player), 0)) == elytraOffBefore,
-                "Removed Elytra control on the wheel leaves the Elytra slot unchanged");
-        context.runOnClient(client -> WheelConfig.save(original));
+        return position != null;
     }
 
     private static String overlayMessage(Minecraft client) {
