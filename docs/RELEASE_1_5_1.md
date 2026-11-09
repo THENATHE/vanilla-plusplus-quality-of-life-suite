@@ -10,7 +10,7 @@
 - **MapStitch pin guard.** MapStitch 1.2.1 copies a container into a fixed 27-slot list when it takes a pin for placement or sharing (only when *Atlas pins require items* is on) and writes the list back, which deleted everything past slot 26 of larger backpacks and pouches and hid pins stored there. A narrow suite mixin sizes that copy to the stored contents, never below 27, so shulker boxes behave exactly as before. It applies only to MapStitch 1.2.1; the official JAR is unchanged.
 - **Decisions kept.** MapStitch 1.2's one-time configuration migration is accepted and documented; the pet-call team rule stays. The SSO overlay strings remain open and unchanged.
 
-Components: suite root **1.5.1+26.3**, Backpack Crafting **1.1.1+26.3** and combined compatibility **1.5.1+26.3**; every other nested module is byte-identical to 1.5.0.
+Components: suite root **1.5.1+26.3**, Backpack Crafting **1.1.1+26.3**, combined compatibility **1.5.1+26.3** and mixed-scale MapStitch **1.2.1+26.3** (metadata only, for its exact coordinator dependency); every other nested module is byte-identical to 1.5.0.
 
 ## Installation
 
@@ -20,4 +20,19 @@ Source: branch `update/2026-11-upstream-audit` of [the suite repository](https:/
 
 ## Final acceptance
 
-RESULTS_PLACEHOLDER
+Final suite SHA-256: `00aa245b80aa62cdca2cee5a7a3cbdf30ec0c7e0df37b71cea8a146ba9f8328c`. All checks below ran on that exact JAR on a private Xvfb display; records are in [verification.json](../qa-release/evidence/1.5.1/verification.json).
+
+| Fresh check | Result |
+| --- | --- |
+| Connections: native suite, Fabric-only, unmodified vanilla, Polymer | 4 profiles pass |
+| Hotkey Wheel 1.0.9, Buildprint 0.1.38, Blocktone 0.1.38, BRBR 1.11.7, Sorted 0.1.41, atlas cache | 782 native + 782 Polymer checks pass |
+| Unified settings with Hotkey Wheel 1.0.9 | pass |
+| Native features incl. Swift Flight 1.2.0 (tags, costs, enchantable crafted harness, table offers on harness and book) | native and Polymer, initial and restart |
+| Sorted 0.1.41 keep-rule markers and Alt edits | 146 assertions (fixture restored for 0.1.41) |
+| Sorted storage controls and cursor recovery | 487 assertions on 0.1.41 and 487 on 0.1.26 |
+| MapStitch pin guard: shulker, early in a 60-slot backpack, bundle inside it, only past slot 27; placement and share payment | 8 cases × native and Polymer pass; the same fixture on 1.5.0 reproduces the loss (5 stored entries become 2) and the unusable pin |
+| Upgrade from 1.4.5 | 23 stacks (incl. a Swift Flight book and harness), 10 chalk marks, pet index identical; 337 config values, only the 12 accepted MapStitch/Polymer migrations change |
+| Upgrade from 1.5.0 | identical world data; 345 config values unchanged |
+| Installation ZIP | 13 checks, byte-identical rebuild |
+
+HUD, Stackables, packet-codec, mechanics, mixed-scale, pickup, Mending and anvil checks were not rerun: those modules are byte-identical to 1.5.0 (mixed-scale MapStitch changes only its metadata version), so their 1.5.0 results stand. Pin sharing is exercised through its payment step, not the full share command with a second online player. The paused SSO port was neither built nor tested.

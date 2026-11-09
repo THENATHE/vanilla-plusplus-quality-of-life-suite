@@ -1,6 +1,10 @@
 # Validation
 
-## Current 1.5.0 - November 2026 upstream refresh
+## Current 1.5.1 - review follow-up
+
+Exact final JAR SHA-256: `00aa245b80aa62cdca2cee5a7a3cbdf30ec0c7e0df37b71cea8a146ba9f8328c`. The [release guide](RELEASE_1_5_1.md) lists the fresh checks: four connection profiles, 782+782 Hotkey Wheel 1.0.9/Buildprint 0.1.38/Blocktone 0.1.38/Sorted 0.1.41 integration checks, settings, native features with Swift Flight 1.2.0, Sorted keep-rule and storage profiles, the MapStitch pin guard with a reproducing 1.5.0 baseline, 1.4.5 and 1.5.0 upgrades and 13 installer checks. Modules unchanged since 1.5.0 keep the 1.5.0 results below.
+
+## Historical 1.5.0 - November 2026 upstream refresh
 
 Exact final JAR SHA-256: `2bc95d4b0ad0d41a18b1e1100371e548b6c0dc4a994fa057af48fc9029de8c3c`. The [release guide](RELEASE_1_5_0.md) lists the fresh checks and what was not rerun; [verification.json](../qa-release/evidence/1.5.0/verification.json) links every result. All ran on the exact JAR with Fabric API 0.165.2, Polymer 0.18.7 and the new developer inputs: four connection profiles, 763+763 Hotkey Wheel 1.0.8/Buildprint/Blocktone/BRBR integration checks, settings with the wheel, 519 Stackables assertions, four packet-codec profiles, 30+30 HUD scenes, 616 mechanics, 1,294 mixed-scale, native-feature, pickup, Mending and anvil profiles, 192+192 backpack-crafting server checks, 487 Sorted 0.1.41 storage assertions, a 1.4.5-to-1.5.0 world and configuration upgrade check and 13 installer checks. The SSO port remains paused.
 

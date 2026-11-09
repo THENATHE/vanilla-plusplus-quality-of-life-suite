@@ -1,0 +1,172 @@
+{
+  "previous_installation_zip": "/home/thenathe/SSDC/Plugins/WP Plugin Dev/Builds/Minecraft/Vanilla++ Quality of Life Suite/Main Plugin/1.4.5+26.3/vanilla-plusplus-installation-pack-1.4.5+26.3.zip",
+  "previous_zip_sha256": "7391e6465f3da1f5aba17946dc259b34f1896c0bf3f3ae59b25ecc73ede0011c",
+  "candidate": "/home/thenathe/SSDC/Plugins/WP Plugin Dev/Minecraft/thenathe-mod-suite/build/libs/vanilla-plusplus-quality-of-life-suite-1.5.1+26.3.jar",
+  "candidate_sha256": "00aa245b80aa62cdca2cee5a7a3cbdf30ec0c7e0df37b71cea8a146ba9f8328c",
+  "previous_mods": [
+    {
+      "file": "cloth-config-fabric-26.3.159.jar",
+      "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+    },
+    {
+      "file": "codecui-26.3-1.4.3-fabric.jar",
+      "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+    },
+    {
+      "file": "fabric-api-0.161.0+26.3.jar",
+      "sha256": "86f16178a3cecc887a85a4cfe9a79d92fa7341d8f39b5951a4d6ad800ab657a6"
+    },
+    {
+      "file": "fabric-language-kotlin-1.14.1+kotlin.2.4.20.jar",
+      "sha256": "620c2709be2a262b837cf976f6f85f6eda80a56af2ba4242e0bdc83a60fee7a5"
+    },
+    {
+      "file": "mixson-2.2.1-multiloader.jar",
+      "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+    },
+    {
+      "file": "polymer-bundled-0.18.2+26.3.jar",
+      "sha256": "3d79318e8202d0e87af308d7f232220714e5f1409d06c23db774877ec6f3848f"
+    },
+    {
+      "file": "vanilla-plusplus-quality-of-life-suite-1.4.5+26.3.jar",
+      "sha256": "2b8da007d555b55512c1e8fb08ce5db3be419bb5f3a47d61a1e13d577f67b97b"
+    },
+    {
+      "file": "fzzy_config-0.7.7+fix3+26.3.jar",
+      "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+    }
+  ],
+  "candidate_mods": [
+    {
+      "file": "vanilla-plusplus-quality-of-life-suite-1.5.1+26.3.jar",
+      "sha256": "00aa245b80aa62cdca2cee5a7a3cbdf30ec0c7e0df37b71cea8a146ba9f8328c"
+    },
+    {
+      "file": "codecui-26.3-1.4.3-fabric.jar",
+      "sha256": "4d07c219bd85b58283a0317d6f43cca838adf9cd16be321316cd32f2fb1be898"
+    },
+    {
+      "file": "fzzy_config-0.7.7+fix3+26.3.jar",
+      "sha256": "3d98c61215ae5eb2fe08db5cac6b0da08dc1b6f0a9ac082a3a9ead8eed736b2a"
+    },
+    {
+      "file": "mixson-2.2.1-multiloader.jar",
+      "sha256": "e4d38f31be95a1f03f8bef290c079f4bb5573d8f4e15808e8c1fc8ba3e5913a0"
+    },
+    {
+      "file": "cloth-config-fabric-26.3.159.jar",
+      "sha256": "1716b9964f90d2b885f9bd3887f8824b71b55c32a4123a5853486e722f7c2e4b"
+    },
+    {
+      "file": "fabric-api-0.165.2+26.3.jar",
+      "sha256": "2612a078a5daa06d9a14cabad40fe66de36b8cb22ee8cdf346d5d9894478c392"
+    },
+    {
+      "file": "fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar",
+      "sha256": "fbdbf5286ab9d65fedb49e6e01c15e338ae303eb7b9d8c7423d0a9bcfe526ef9"
+    },
+    {
+      "file": "polymer-bundled-0.18.7+26.3.jar",
+      "sha256": "b18b0bb66fc8455fbf43f8a54e226952c630ab0cfee433e6585520c0e591538b"
+    }
+  ],
+  "write": {
+    "exit": 0,
+    "result": "PASS write 23 stacks"
+  },
+  "verify": {
+    "exit": 0,
+    "result": "PASS verify"
+  },
+  "config_files_edited": [
+    "config/Chalk.json5",
+    "config/bannerpoint/config.toml",
+    "config/mapstitch/config.toml",
+    "config/misctweaks/config.toml",
+    "config/polymer/auto-host.json",
+    "config/polymer/common.json",
+    "config/polymer/resource-pack.json",
+    "config/polymer/server.json",
+    "config/simple_death_improvements/config.toml",
+    "config/simple_smithing_overhaul/config-v2.toml",
+    "config/tiered_backpacks/config.toml",
+    "config/toolpouch/config.toml",
+    "config/vpp_mod_suite/features.toml"
+  ],
+  "config_values_checked": 337,
+  "config_changes": {
+    "config/mapstitch/config.toml::version": {
+      "before": "1",
+      "after": "2"
+    },
+    "config/mapstitch/config.toml::compass": {
+      "before": "[",
+      "after": "[  ]"
+    },
+    "config/mapstitch/config.toml::clock": {
+      "before": "[",
+      "after": "[  ]"
+    },
+    "config/mapstitch/config.toml::minecraft": {
+      "before": "the_nether\"",
+      "after": "chests/stronghold/library_bookshelf\""
+    },
+    "config/mapstitch/config.toml::allowGameTime": {
+      "before": "false",
+      "after": "true"
+    },
+    "config/mapstitch/config.toml::allowCoordinates": {
+      "before": "false",
+      "after": "true"
+    },
+    "config/mapstitch/config.toml::allowBiome": {
+      "before": "false",
+      "after": "true"
+    },
+    "config/mapstitch/config.toml::allowWeather": {
+      "before": "false",
+      "after": "true"
+    },
+    "config/polymer/server.json::_c1": {
+      "before": "\"Enables syncing of non-polymer entries as polymer ones, when PolyMc is present\"",
+      "after": null
+    },
+    "config/polymer/server.json::polyMcSyncModdedEntries": {
+      "before": "true",
+      "after": null
+    },
+    "config/polymer/server.json::_c13": {
+      "before": "\"Replaces PolyMc's block and item interaction handling with Polymer ones\"",
+      "after": null
+    },
+    "config/polymer/server.json::override_polymc_mining_check": {
+      "before": "false",
+      "after": null
+    }
+  },
+  "accepted_upstream_changes": {
+    "config/mapstitch/config.toml::version": "MapStitch 1.2 config v1 -> v2 migration",
+    "config/mapstitch/config.toml::compass": "MapStitch 1.2 clears compass requirements",
+    "config/mapstitch/config.toml::clock": "MapStitch 1.2 clears clock requirements",
+    "config/mapstitch/config.toml::minecraft": "line-based reader artifact: MapStitch 1.2 adds a multi-line loot-table list",
+    "config/mapstitch/config.toml::allowGameTime": "MapStitch 1.2 allows minimap time",
+    "config/mapstitch/config.toml::allowCoordinates": "MapStitch 1.2 allows minimap coordinates",
+    "config/mapstitch/config.toml::allowBiome": "MapStitch 1.2 allows minimap biome",
+    "config/mapstitch/config.toml::allowWeather": "MapStitch 1.2 allows minimap weather",
+    "config/polymer/server.json::_c1": "Polymer 0.18.7 removed the PolyMc options",
+    "config/polymer/server.json::polyMcSyncModdedEntries": "Polymer 0.18.7 removed the PolyMc options",
+    "config/polymer/server.json::_c13": "Polymer 0.18.7 removed the PolyMc options",
+    "config/polymer/server.json::override_polymc_mining_check": "Polymer 0.18.7 removed the PolyMc options"
+  },
+  "unexplained_config_changes": {},
+  "world": {
+    "stacks": 23,
+    "stack_mismatches": [],
+    "chalk_marks": 10,
+    "chalk_mismatches": [],
+    "pet_index_preserved": true,
+    "passed": true
+  },
+  "passed": true
+}

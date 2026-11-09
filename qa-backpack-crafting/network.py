@@ -67,6 +67,9 @@ def main():
         if not args.sorted.is_file(): parser.error('Sorted original JAR does not exist: ' + str(args.sorted))
         # Sorted 0.1.41 bundles its own libraries; only the 0.1.25/0.1.26 builds need YACL.
         yacl = next((Path.home() / '.gradle/caches/modules-2/files-2.1/maven.modrinth/yacl/3.9.7+26.3-fabric').rglob('yacl-3.9.7+26.3-fabric.jar'), None)
+        if yacl is None:
+            # Read-only copy of the same published YACL release from the launcher's cache.
+            yacl = next((Path.home() / '.local/share/ModrinthApp/profiles').glob('*/mods/yet_another_config_lib_v3-3.9.7+26.3-fabric.jar'), None)
         if yacl is None and '0.1.2' in args.sorted.name: parser.error('Sorted 0.1.25/0.1.26 needs the cached YACL 3.9.7 JAR')
         optional_client = [args.sorted.resolve()] + ([yacl] if yacl and '0.1.2' in args.sorted.name else [])
     server_audit, client_audit = launch.audits()

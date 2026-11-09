@@ -1,0 +1,94 @@
+{
+  "version": "1.5.1+26.3",
+  "date": "2026-11-08",
+  "passed": true,
+  "suite_sha256": "00aa245b80aa62cdca2cee5a7a3cbdf30ec0c7e0df37b71cea8a146ba9f8328c",
+  "track": "developer-release-suite",
+  "evidence_path_base": "repository-root",
+  "display": "Private Xvfb :117 (Mesa llvmpipe via EGL)",
+  "checks": {
+    "connections": {
+      "passed": true,
+      "profiles": 4,
+      "evidence": "qa-release/evidence/1.5.1/connections/result.json"
+    },
+    "integration": {
+      "passed": true,
+      "native_checks": 782,
+      "polymer_checks": 782,
+      "inputs": {
+        "hotkey_wheel": "1.0.9+26.3",
+        "buildprint": "0.1.38+26.3",
+        "blocktone": "0.1.38",
+        "sorted": "0.1.41+26.3",
+        "brbr": "1.11.7+26.3",
+        "polymer": "0.18.7+26.3"
+      },
+      "evidence": [
+        "qa-release/evidence/1.5.1/integration-native/",
+        "qa-release/evidence/1.5.1/integration-polymer/"
+      ]
+    },
+    "settings": {
+      "passed": true,
+      "with_hotkey_wheel": "1.0.9+26.3",
+      "evidence": "qa-release/evidence/1.5.1/settings/evidence.json"
+    },
+    "native_features_and_swift_flight": {
+      "passed": true,
+      "profiles": "native and Polymer, initial and restart",
+      "swift_flight_1_2_0": "non-treasure and enchanting-table tags, 10+10 minimum cost, crafted harness enchantable 10, table offers Swift Flight on harness and book",
+      "evidence": "qa-release/evidence/1.5.1/native-features/result.json"
+    },
+    "sorted": {
+      "passed": true,
+      "0.1.41_keep_rules": 146,
+      "0.1.41_storage": 487,
+      "0.1.26_storage": 487,
+      "evidence": [
+        "qa-release/evidence/1.5.1/sorted-0.1.41-keep-rules/",
+        "qa-release/evidence/1.5.1/sorted-0.1.41-storage/",
+        "qa-release/evidence/1.5.1/sorted-0.1.26-storage/"
+      ]
+    },
+    "upgrade": {
+      "passed": true,
+      "from_1_4_5": {
+        "stacks": 23,
+        "chalk_marks": 10,
+        "pet_index": true,
+        "config_values": 337,
+        "unexplained_changes": 0,
+        "accepted_upstream_changes": 12
+      },
+      "from_1_5_0": {
+        "stacks": 23,
+        "chalk_marks": 10,
+        "pet_index": true,
+        "config_values": 345,
+        "changes": 0
+      },
+      "evidence": [
+        "qa-release/evidence/1.5.1/upgrade-from-1.4.5/",
+        "qa-release/evidence/1.5.1/upgrade-from-1.5.0/"
+      ]
+    },
+    "pin_container_guard": {
+      "passed": true,
+      "cases": "shulker, early in a 60-slot backpack, bundle inside the backpack, only past slot 27; placement handler and share payment; native and Polymer",
+      "baseline_1_5_0_reproduces": "backpack cases lose slots 27+ (5 stored entries become 2) and a pin past slot 26 cannot be spent",
+      "evidence": [
+        "qa-release/evidence/1.5.1/pins/result.json",
+        "qa-release/evidence/1.5.1/pins-baseline-1.5.0/result.json"
+      ]
+    },
+    "installation": {
+      "evidence": "docs/installation-pack-verification.json"
+    }
+  },
+  "unchanged_since_1_5_0": "HUD, Stackables, packet codecs, mechanics, mixed scales, pickup, mending and anvil were not rerun: their nested modules are byte-identical to 1.5.0 except mixed-scale MapStitch's metadata-only version bump; see qa-release/evidence/1.5.0/.",
+  "limits": [
+    "Pin sharing is exercised through its payment step (findSimilarPinColor + consumePin), not the full /pin share command with a second online player.",
+    "The paused SSO-port track was neither built nor tested."
+  ]
+}
